@@ -1,0 +1,81 @@
+var \_gaq = \_gaq || \[\]; \_gaq.push(\['\_setAccount', 'UA-12466371-1'\]); if(typeof(\_vis\_opt\_GA\_track) == "function") { \_vis\_opt\_GA\_track(); } \_gaq.push(\['\_trackPageview'\]); (function() { var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js'; var s = document.getElementsByTagName('script')\[0\]; s.parentNode.insertBefore(ga, s); })();
+
+\[!\[University of Leeds\](assets/img/logo_black.png)\](http://www.leeds.ac.uk "University of Leeds Homepage") ## Module and Programme Catalogue
+
+\#### Search site
+
+        
+
+\#### Find information on
+
+International students City life University jobs Leeds and Yorkshire Prospective students Media relations Conference facilities 
+
+\* \[Faculty listings\](http://www.leeds.ac.uk/faculties) * \[LUU\](http://www.leedsuniversityunion.org.uk/) * \[Accommodation\](http://accommodation.leeds.ac.uk/) * \[International students\](http://www.leeds.ac.uk/internationalstudents) #### Useful links * \[Careers Centre\](http://careerweb.leeds.ac.uk/) * \[Student support\](http://students.leeds.ac.uk/) * \[Term dates\](http://www.leeds.ac.uk/info/20014/about/158/term\_dates) * \[Order a prospectus\](http://www.leeds.ac.uk/info/102000/research\_degrees/93/order\_a\_prospectus)
+
+\# 2016/17 Taught Postgraduate Module Catalogue ## TRAN5340M Transport Data Science ### 15 creditsClass Size: 30 \*\*Module manager:\*\* Dr Charles Fox \*\*Email:\*\* \[c.w.fox@leeds.ac.uk\](mailto:c.w.fox@leeds.ac.uk) \*\*Taught:\*\* Semester 2 \[View Timetable\](http://timetable.leeds.ac.uk/teaching/201617/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) \*\*Year running\*\* 2016/17 \*\*This module is not approved as an Elective\*\* ### Module summary The quantity, diversity and availability of transport data is increasing rapidly, requiring skills in the management and interrogation of data and databases. Recent years have seen a new wave of 'big data' and 'data science' changing the world, with the Harvard Business Review describing Data Science as the 'sexiest job of the 21st century'. Transport researchers need to be able to use data (and databases) in order to establish quantitative, empirical facts, and to validate/challenge their mathematical models.This module takes a highly practical approach to learning about 'data science' tools and their application to investigating transport issues. The focus is on team work with real data and tools rather than theory. ### Objectives Understand the concepts of classical database design, and problems and limitations. Understand how to obtain, clean and store transport related data. Gain proficiency in industry-standard SQL language for database operation. Experience basic machine learning / data mining tools Produce data visualizations Understand 'big data' tools and concepts, the need for them, and how they differ from classical databases Learn how to set up and solve transport problems in teams; sourcing and interrogating data, applying statistical modelling tools, visualising data and results. \*\*Learning outcomes\*\* Students should become confident to enter a team-based data science consulting environment, selecting appropriate tools to set up and solve business questions using data. Such projects typically include: Finding the right question to ask, including ethical issues Obtaining the right data Data cleaning Conceptual database design Computational database issues, include 'big data' systems Statistics and machine learning analytics Visualisation and presentation Appreciate the relevance and limitations of data-centric analysis applied to transport problems, compared with other types of modelling and forecasting. ### Syllabus Practical database manipulation with SQL Classical relational database design Data for transport \[e.g. flows, incidents, origin/destination, GIS\] Data scraping from semi-structured web sources Machine learning tools Bayesian networks Ontological issues in database design Beyond SQL the big data revolution and the Hadoop stack Data visualization Professional and ethical issues of big data in transport Transport data analysis ### Teaching methods
+
+Delivery type
+
+Number
+
+Length hours
+
+Student hours
+
+Lecture
+
+5
+
+1.00
+
+5.00
+
+Practical
+
+12
+
+1.50
+
+18.00
+
+Seminar
+
+8
+
+1.00
+
+8.00
+
+Private study hours
+
+119.00
+
+Total Contact hours
+
+31.00
+
+Total hours (100hr per 10 credits)
+
+150.00
+
+\### Private study Students are expected to spend their study time on background reading for lectures, preparatory work for workshops and assessed coursework. Unsupervised teamwork practical sessions will be arranged each week. ### Opportunities for Formative Feedback Progress will be monitored informally during supervised practical sessions. ### Methods of assessment \*\*Coursework\*\*
+
+Assessment type
+
+Notes
+
+% of formal assessment
+
+Portfolio
+
+Project Portfolio
+
+100.00
+
+Total percentage (Assessment Coursework)
+
+100.00
+
+20% of the mark for the assessment of the portfolio will be determined as an initial assessment after week 5\\. Feedback will be provided. The remaining 80% will be awarded in respect of the final submitted portfolio. Students who fail the portfolio will be required to resit those elements deemed to fail to meet the pass standard. ### Reading list The \[reading list\](http://lib5.leeds.ac.uk/rlists/broker/index.php?mod=TRAN5340M) is available from the Library website Last updated: 17/03/2016 \[Disclaimer\](disclaimer.htm) ## Browse Other Catalogues * \[Undergraduate module catalogue\](modulesearch.asp?Y=201617&T=S&L=UG) * \[Taught Postgraduate module catalogue\](modulesearch.asp?Y=201617&T=S&L=TP) * \[Undergraduate programme catalogue\](programmesearch.asp?Y=201617&T=S&L=UG) * \[Taught Postgraduate programme catalogue\](programmesearch.asp?Y=201617&T=S&L=TP) Errors, omissions, failed links etc should be notified to \[the Catalogue Team\](mailto:catalogue@leeds.ac.uk).PROD
+
+\* \[Terms and conditions\](http://www.leeds.ac.uk/terms) * \[Accessibility\](http://www.leeds.ac.uk/accessibility) * \[Privacy\](/privacy.htm) * \[Freedom of information\](http://www.leeds.ac.uk/freedom-of-information) © Copyright Leeds 2013
