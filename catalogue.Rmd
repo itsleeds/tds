@@ -1,81 +1,70 @@
-# TRAN5340M Transport Data Science
+# [TRAN5340M](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&M=TRAN-5340M) Transport Data Science
 
-- 15 credits
-- Module manager: Dr Robin [Lovelace](mailto:r.lovelace@leeds.ac.uk)
-- Taught: Semester 2
-- Year running: 2018/19
+15 credits
 
-[View Timetable](http://timetable.leeds.ac.uk/teaching/201617/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
+Module manager: Dr Robin [Lovelace](mailto:r.lovelace@leeds.ac.uk)
 
+Taught: Semester 2
+
+Year running: 2018/19
+
+[View Timetable](http://timetable.leeds.ac.uk/teaching/201819/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
 
 This module is not approved as an Elective
 
 ### Module summary
 
-The quantity, diversity and availability of transport data is increasing rapidly, requiring skills in the management and interrogation of data and databases. Recent years have seen a new wave of 'big data' and 'data science' changing the world, with the Harvard Business Review describing Data Science as the 'sexiest job of the 21st century'. Transport researchers need to be able to use data (and databases) in order to establish quantitative, empirical facts, and to validate/challenge their mathematical models.This module takes a highly practical approach to learning about 'data science' tools and their application to investigating transport issues. The focus is on team work with real data and tools rather than theory. ### Objectives Understand the concepts of classical database design, and problems and limitations. Understand how to obtain, clean and store transport related data. Gain proficiency in industry-standard SQL language for database operation. Experience basic machine learning / data mining tools Produce data visualizations Understand 'big data' tools and concepts, the need for them, and how they differ from classical databases Learn how to set up and solve transport problems in teams; sourcing and interrogating data, applying statistical modelling tools, visualising data and results. \*\*Learning outcomes\*\* Students should become confident to enter a team-based data science consulting environment, selecting appropriate tools to set up and solve business questions using data. Such projects typically include: Finding the right question to ask, including ethical issues Obtaining the right data Data cleaning Conceptual database design Computational database issues, include 'big data' systems Statistics and machine learning analytics Visualisation and presentation Appreciate the relevance and limitations of data-centric analysis applied to transport problems, compared with other types of modelling and forecasting. ### Syllabus Practical database manipulation with SQL Classical relational database design Data for transport \[e.g. flows, incidents, origin/destination, GIS\] Data scraping from semi-structured web sources Machine learning tools Bayesian networks Ontological issues in database design Beyond SQL the big data revolution and the Hadoop stack Data visualization Professional and ethical issues of big data in transport Transport data analysis ### Teaching methods
+The quantity, diversity and availability of transport data is increasing rapidly, requiring skills in the management and interrogation of data and databases. Recent years have seen a new wave of 'big data' and 'data science' changing the world, with the Harvard Business Review describing Data Science as the 'sexiest job of the 21st century'.
+Transport researchers need to be able to use data (and databases) in order to establish quantitative, empirical facts, and to validate/challenge their mathematical models.This module takes a highly practical approach to learning about 'data science' tools and their application to investigating transport issues. The focus is on team work with real data and tools rather than theory.
 
-Delivery type
+### Objectives
 
-Number
+Understand the concepts of classical database design, and problems and limitations.
 
-Length hours
+Understand how to obtain, clean and store transport related data.
 
-Student hours
+Gain proficiency in industry-standard SQL language for database operation.
 
-Lecture
+Experience basic machine learning / data mining tools Produce data visualizations Understand 'big data' tools and concepts, the need for them, and how they differ from classical databases Learn how to set up and solve transport problems in teams; sourcing and interrogating data, applying statistical modelling tools, visualising data and results.
 
-5
+### Learning outcomes
 
-1.00
+Students should become confident to enter a team-based data science consulting environment, selecting appropriate tools to set up and solve business questions using data. Such projects typically include:
 
-5.00
+Finding the right question to ask, including ethical issues
 
-Practical
+Obtaining the right data Data cleaning
 
-12
+Conceptual database design Computational database issues, include 'big data' systems
 
-1.50
+Statistics and machine learning analytics Visualisation and presentation
 
-18.00
+Appreciate the relevance and limitations of data-centric analysis applied to transport problems, compared with other types of modelling and forecasting.
 
-Seminar
+### Syllabus 
 
-8
+Practical database manipulation with SQL
 
-1.00
+Classical relational database design Data for transport e.g. flows, incidents, origin/destination, GIS
 
-8.00
+Data scraping from semi-structured web sources Machine learning tools
 
-Private study hours
+Bayesian networks Ontological issues in database design
 
-119.00
+Beyond SQL the big data revolution and the Hadoop stack Data visualization
 
-Total Contact hours
+Professional and ethical issues of big data in transport Transport data analysis
 
-31.00
+### Teaching methods
 
-Total hours (100hr per 10 credits)
+<h3>Teaching methods</h3><p><table border="1" width="100%"><tr><td align="left" width="40%">Delivery type</td><td align="right" width="20%">Number</td><td align="right" width="20%">Length hours</td><td align="right" width="20%">Student hours</td></tr><TR><TD>Lecture</TD><TD align="right">5</TD><TD align="right">1.00</TD><TD align="right">5.00</TD></TR><TR><TD>Practical</TD><TD align="right">12</TD><TD align="right">1.50</TD><TD align="right">18.00</TD></TR><TR><TD>Seminar</TD><TD align="right">8</TD><TD align="right">1.00</TD><TD align="right">8.00</TD></TR><tr><td colspan="3">Private study hours</td><td align="right">119.00</td></tr><tr><td colspan="3">Total Contact hours</td><td align="right">31.00</td></tr><tr><td colspan="3">Total hours (100hr per 10 credits)</td><td align="right">150.00</td></tr></table><h3>Private study</h3>Students are expected to spend their study time on background reading for lectures, preparatory work for workshops and assessed coursework.<br>Unsupervised teamwork practical sessions will be arranged each week.<br></p>
+<h3>Opportunities for Formative Feedback</h3>Progress will be monitored informally during supervised practical sessions.</p>
 
-150.00
+<h3>Methods of assessment</h3><br><B>Coursework</B><table border="1" width="100%"><tr><td valign="top" align="left" width="17%">Assessment type</td><td valign="top" align="left" width="65%">Notes</td><td valign="top" align="right" width="18%">% of formal assessment</td></tr><tr><td valign="top" align="left" width="17%">Portfolio</td><td valign="top" align="left" width="65%">Project Portfolio</td><td valign="top" align="right" width="18%">100.00</td></tr><tr><td colspan="2" valign="top" align="left">Total percentage (Assessment Coursework)</td><td valign="top" align="right">100.00</td></tr></table><p>20% of the mark for the assessment of the portfolio will be determined as an initial assessment after week 5. Feedback will be provided. The remaining 80% will be awarded in respect of the final submitted portfolio. 
 
-\### Private study Students are expected to spend their study time on background reading for lectures, preparatory work for workshops and assessed coursework. Unsupervised teamwork practical sessions will be arranged each week. ### Opportunities for Formative Feedback Progress will be monitored informally during supervised practical sessions. ### Methods of assessment \*\*Coursework\*\*
 
-Assessment type
+### Reading list
 
-Notes
+The [reading list](http://lib5.leeds.ac.uk/rlists/broker/index.php?mod=TRAN5340M) is available from the Library website
 
-% of formal assessment
 
-Portfolio
-
-Project Portfolio
-
-100.00
-
-Total percentage (Assessment Coursework)
-
-100.00
-
-20% of the mark for the assessment of the portfolio will be determined as an initial assessment after week 5\\. Feedback will be provided. The remaining 80% will be awarded in respect of the final submitted portfolio. Students who fail the portfolio will be required to resit those elements deemed to fail to meet the pass standard. ### Reading list The \[reading list\](http://lib5.leeds.ac.uk/rlists/broker/index.php?mod=TRAN5340M) is available from the Library website Last updated: 17/03/2016 \[Disclaimer\](disclaimer.htm) ## Browse Other Catalogues * \[Undergraduate module catalogue\](modulesearch.asp?Y=201617&T=S&L=UG) * \[Taught Postgraduate module catalogue\](modulesearch.asp?Y=201617&T=S&L=TP) * \[Undergraduate programme catalogue\](programmesearch.asp?Y=201617&T=S&L=UG) * \[Taught Postgraduate programme catalogue\](programmesearch.asp?Y=201617&T=S&L=TP) Errors, omissions, failed links etc should be notified to \[the Catalogue Team\](mailto:catalogue@leeds.ac.uk).PROD
-
-\* \[Terms and conditions\](http://www.leeds.ac.uk/terms) * \[Accessibility\](http://www.leeds.ac.uk/accessibility) * \[Privacy\](/privacy.htm) * \[Freedom of information\](http://www.leeds.ac.uk/freedom-of-information) © Copyright Leeds 2013
