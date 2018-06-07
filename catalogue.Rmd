@@ -36,19 +36,13 @@ The focus is on:
 
 ### Objectives
 
-Understand the structure of transport datasets: spatial, temporal and demographic.
-
-Understand how to obtain, clean and store transport related data.
-
-Gain proficiency in command-line tools (primarily R) for handling large transport datasets.
-
-Experience in basic machine learning and modelling methods tools
-
-Produce data visualizations, static and interactive
-
-Understand 'big' data sources, the need for them, and how they differ from classical data sources
-
-Learn how to use these skills in a dynamic team environment, including project set-up and problem definition; team workflow; sourcing and interrogating data; applying statistical methods; visualising data and communicating the results.
+- Understand the structure of transport datasets: spatial, temporal and demographic.
+- Understand how to obtain, clean and store transport related data.
+- Gain proficiency in command-line tools (primarily R) for handling large transport datasets.
+- Experience in basic machine learning and modelling methods tools
+- Produce data visualizations, static and interactive
+- Understand 'big' data sources, the need for them, and how they differ from classical data sources
+- Learn how to use these skills in a dynamic team environment, including project set-up and problem definition; team workflow; sourcing and interrogating data; applying statistical methods; visualising data and communicating the results.
 
 ### Learning outcomes
 
@@ -65,19 +59,13 @@ Specifically, learning outcomes will include the ability to:
 
 ### Syllabus 
 
-Practical data science with R
-
-The structure of transport data e.g. flows, incidents, origin/destination, GIS
-
-Accessing data from web sources
-
-Local and remote route assignment with remote routing services and locally installed software
-
-Data visualization
-
-Machine learning tools
-
-Professional and ethical issues of big data in transport Transport data analysis
+- Practical data science with R
+- The structure of transport data e.g. flows, incidents, origin/destination, GIS
+- Accessing data from web sources
+- Local and remote route assignment with remote routing services and locally installed software
+- Data visualization
+- Machine learning
+- Professional and ethical issues of big data in transport Transport data analysis
 
 ### Teaching methods
 
@@ -90,6 +78,8 @@ Professional and ethical issues of big data in transport Transport data analysis
 
 You will be expected to have a laptop with recent versions of R and RStudio installed.
 See instructions here for getting an up-to-date R installation: https://csgillespie.github.io/efficientR/set-up.html#installing-r
+
+It is also recommended that you install GitHub Deskto (or command line git on Linux and Mac), Docker, Python, QGIS and transport modelling tools such as SUMO but these are not essential.
 
 
 ### Reading list
