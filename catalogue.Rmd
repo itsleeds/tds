@@ -1,3 +1,8 @@
+---
+output: html_document
+bibliography: references.bib
+---
+
 # [TRAN5340M](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&M=TRAN-5340M) Transport Data Science
 
 15 credits
@@ -65,6 +70,21 @@ Professional and ethical issues of big data in transport Transport data analysis
 
 ### Reading list
 
-The [reading list](http://lib5.leeds.ac.uk/rlists/broker/index.php?mod=TRAN5340M) is available from the Library website
+<!-- The [reading list](http://lib5.leeds.ac.uk/rlists/broker/index.php?mod=TRAN5340M) is available from the Library website -->
+
+#### Core
+
+- Introduction to data science with R (available free [online](http://r4ds.had.co.nz/)) [@grolemund_r_2016-1]
+- Introductory and advanced content on geographic data in R, especially the [transport chapter](http://geocompr.robinlovelace.net/transport.html) (available free [online](http://geocompr.robinlovelace.net/)) [@lovelace_geocomputation_2018a]
+
+#### Optional
+
+- Book on transport data science in Python [@fox_data_2018]
+- Paper on analysing OSM data in Python (available [online](https://arxiv.org/pdf/1611.01890)) [@boeing_osmnx:_2017]
+- Paper on the **stplanr** paper for transport planning (available [online](https://cran.r-project.org/web/packages/stplanr/vignettes/stplanr-paper.html)) [@lovelace_stplanr:_2017]
+
+### Bibliography
+
+
 
 
