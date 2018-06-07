@@ -19,44 +19,63 @@ This module is not approved as an Elective
 
 ### Module summary
 
-The quantity, diversity and availability of transport data is increasing rapidly, requiring skills in the management and interrogation of data and databases. Recent years have seen a new wave of 'big data' and 'data science' changing the world, with the Harvard Business Review describing Data Science as the 'sexiest job of the 21st century'.
-Transport researchers need to be able to use data (and databases) in order to establish quantitative, empirical facts, and to validate/challenge their mathematical models.This module takes a highly practical approach to learning about 'data science' tools and their application to investigating transport issues. The focus is on team work with real data and tools rather than theory.
+The quantity, diversity and availability of transport data is increasing rapidly, requiring skills in the management and interrogation of data and databases.
+Recent years have seen a new wave of 'big data' and 'data science' changing the world, with the Harvard Business Review describing Data Science as the 'sexiest job of the 21st century' (see [hbr.org](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century)).
+Transport researchers increasingly need to take data from a wide range of sources and perform non-standard analyses methods on them to inform the decision-making process.
+
+Despite these developments the transport sector has been slow to adapt to new methods and workflows.
+The Transport Systems Catapult, for example, identified a skills gap in "skilled technical talent capable of handling and analysing very large datasets compiled from multiple sources" (see [ts.catapult.org.uk](https://ts.catapult.org.uk/news-events-gallery/news/report-warns-of-uk-skills-shortage-in-im-sector/)).
+
+This module takes a highly practical approach to learning about 'data science' tools and their application to investigating transport issues.
+The focus is on:
+
+- team work
+- with real data
+- using open source and effective tools
+- to ensure scientific reproducibility and transparency in the decision-making process
 
 ### Objectives
 
-Understand the concepts of classical database design, and problems and limitations.
+Understand the structure of transport datasets: spatial, temporal and demographic.
 
 Understand how to obtain, clean and store transport related data.
 
-Gain proficiency in industry-standard SQL language for database operation.
+Gain proficiency in command-line tools (primarily R) for handling large transport datasets.
 
-Experience basic machine learning / data mining tools Produce data visualizations Understand 'big data' tools and concepts, the need for them, and how they differ from classical databases Learn how to set up and solve transport problems in teams; sourcing and interrogating data, applying statistical modelling tools, visualising data and results.
+Experience in basic machine learning and modelling methods tools
+
+Produce data visualizations, static and interactive
+
+Understand 'big' data sources, the need for them, and how they differ from classical data sources
+
+Learn how to use these skills in a dynamic team environment, including project set-up and problem definition; team workflow; sourcing and interrogating data; applying statistical methods; visualising data and communicating the results.
 
 ### Learning outcomes
 
-Students should become confident to enter a team-based data science consulting environment, selecting appropriate tools to set up and solve business questions using data. Such projects typically include:
+Students will become confident at working in data science teams working on transport problems; in selecting appropriate tools to answer societal and business questions with a range of input data types; and understanding the wider implications of the increasing use of data science for transport planning. 
 
-Finding the right question to ask, including ethical issues
+Specifically, learning outcomes will include the ability to:
 
-Obtaining the right data Data cleaning
-
-Conceptual database design Computational database issues, include 'big data' systems
-
-Statistics and machine learning analytics Visualisation and presentation
-
-Appreciate the relevance and limitations of data-centric analysis applied to transport problems, compared with other types of modelling and forecasting.
+- Find appropriate questions to ask on a specific project, including in relation to ethical issues
+- Identify available datasets and access and clean them
+- Combine datasets from multiple sources
+- Apply statistic modelling and machine learning techniques to understand input data
+- Visualise and communicate the results of transport data science
+- Articulate the relevance and limitations of data-centric analysis applied to transport problems, compared with other methods
 
 ### Syllabus 
 
-Practical database manipulation with SQL
+Practical data science with R
 
-Classical relational database design Data for transport e.g. flows, incidents, origin/destination, GIS
+The structure of transport data e.g. flows, incidents, origin/destination, GIS
 
-Data scraping from semi-structured web sources Machine learning tools
+Accessing data from web sources
 
-Bayesian networks Ontological issues in database design
+Local and remote route assignment with remote routing services and locally installed software
 
-Beyond SQL the big data revolution and the Hadoop stack Data visualization
+Data visualization
+
+Machine learning tools
 
 Professional and ethical issues of big data in transport Transport data analysis
 
@@ -66,6 +85,11 @@ Professional and ethical issues of big data in transport Transport data analysis
 <h3>Opportunities for Formative Feedback</h3>Progress will be monitored informally during supervised practical sessions.</p>
 
 <h3>Methods of assessment</h3><br><B>Coursework</B><table border="1" width="100%"><tr><td valign="top" align="left" width="17%">Assessment type</td><td valign="top" align="left" width="65%">Notes</td><td valign="top" align="right" width="18%">% of formal assessment</td></tr><tr><td valign="top" align="left" width="17%">Portfolio</td><td valign="top" align="left" width="65%">Project Portfolio</td><td valign="top" align="right" width="18%">100.00</td></tr><tr><td colspan="2" valign="top" align="left">Total percentage (Assessment Coursework)</td><td valign="top" align="right">100.00</td></tr></table><p>20% of the mark for the assessment of the portfolio will be determined as an initial assessment after week 5. Feedback will be provided. The remaining 80% will be awarded in respect of the final submitted portfolio. 
+
+### Pre-requisites
+
+You will be expected to have a laptop with recent versions of R and RStudio installed.
+See instructions here for getting an up-to-date R installation: https://csgillespie.github.io/efficientR/set-up.html#installing-r
 
 
 ### Reading list
