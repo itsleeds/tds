@@ -100,17 +100,14 @@ It is also recommended that you install GitHub Deskto (or command line git on Li
 
 - Introduction to data science with R (available free [online](http://r4ds.had.co.nz/)) [@grolemund_r_2016-1]
 - Introductory and advanced content on geographic data in R, especially the [transport chapter](http://geocompr.robinlovelace.net/transport.html) (available free [online](http://geocompr.robinlovelace.net/)) [@lovelace_geocomputation_2018a]
-- Introductory textbook introducing machine learning with lucid prose and worked examples in R (available free [online](http://www-bcf.usc.edu/~gareth/ISL/index.html)) [@james_introduction_2014]
+- Introductory textbook introducing machine learning with lucid prose and worked examples in R (available free [online](http://www-bcf.usc.edu/~gareth/ISL/index.html)) [@james_introduction_2013]
 
 #### Optional
 
 - Book on transport data science in Python [@fox_data_2018]
 - Paper on analysing OSM data in Python (available [online](https://arxiv.org/pdf/1611.01890)) [@boeing_osmnx:_2017]
 - Paper on the **stplanr** paper for transport planning (available [online](https://cran.r-project.org/web/packages/stplanr/vignettes/stplanr-paper.html)) [@lovelace_stplanr:_2017]
-- For context, a report on the 'transport data revolution' [@tsc_transport_2016]
+- For context, a report on the 'transport data revolution' [@transportsystemscatapult_transport_2015]
 
 ### Bibliography
-
-
-
 
