@@ -42,7 +42,7 @@ The focus is on:
 - Experience in basic machine learning and modelling methods tools
 - Produce data visualizations, static and interactive
 - Understand 'big' data sources, the need for them, and how they differ from classical data sources
-- Learn how to use these skills in a dynamic team environment, including project set-up and problem definition; team workflow; sourcing and interrogating data; applying statistical methods; visualising data and communicating the results.
+- Learn how to use these skills in the wider context of a dynamic team environment, including project set-up (e.g. deciding between cloud services and local computing power) and problem definition; team workflow; sourcing and interrogating data; applying statistical methods; visualising data and communicating the results (e.g. via the deployment of web services).
 
 ### Learning outcomes
 
@@ -54,7 +54,8 @@ Specifically, learning outcomes will include the ability to:
 - Identify available datasets and access and clean them
 - Combine datasets from multiple sources
 - Apply statistic modelling and machine learning techniques to understand input data
-- Visualise and communicate the results of transport data science
+- Visualise and communicate the results of transport data science, and know about setting-up interactive web applications
+- Deciding when to use local computing power vs cloud services
 - Articulate the relevance and limitations of data-centric analysis applied to transport problems, compared with other methods
 
 ### Syllabus 
@@ -62,7 +63,7 @@ Specifically, learning outcomes will include the ability to:
 - Practical data science with R
 - The structure of transport data e.g. flows, incidents, origin/destination, GIS
 - Accessing data from web sources
-- Local and remote route assignment with remote routing services and locally installed software
+- Route assignment with remote routing services and locally installed software
 - Data visualization
 - Machine learning
 - Professional and ethical issues of big data in transport Transport data analysis
@@ -99,12 +100,14 @@ It is also recommended that you install GitHub Deskto (or command line git on Li
 
 - Introduction to data science with R (available free [online](http://r4ds.had.co.nz/)) [@grolemund_r_2016-1]
 - Introductory and advanced content on geographic data in R, especially the [transport chapter](http://geocompr.robinlovelace.net/transport.html) (available free [online](http://geocompr.robinlovelace.net/)) [@lovelace_geocomputation_2018a]
+- Introductory textbook introducing machine learning with lucid prose and worked examples in R (available free [online](http://www-bcf.usc.edu/~gareth/ISL/index.html)) [@james_introduction_2014]
 
 #### Optional
 
 - Book on transport data science in Python [@fox_data_2018]
 - Paper on analysing OSM data in Python (available [online](https://arxiv.org/pdf/1611.01890)) [@boeing_osmnx:_2017]
 - Paper on the **stplanr** paper for transport planning (available [online](https://cran.r-project.org/web/packages/stplanr/vignettes/stplanr-paper.html)) [@lovelace_stplanr:_2017]
+- For context, a report on the 'transport data revolution' [@tsc_transport_2016]
 
 ### Bibliography
 
