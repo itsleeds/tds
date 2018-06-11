@@ -1,5 +1,5 @@
 ---
-output: html_document
+output: md_document
 bibliography: references.bib
 ---
 
@@ -110,6 +110,7 @@ It is also recommended that you install GitHub Deskto (or command line git on Li
 - For context, a report on the 'transport data revolution' [@transportsystemscatapult_transport_2015]
 - Seminal text on visualisation (available [online](https://github.com/yowenter/books/blob/master/Design/Edward%20R%20Tufte%20-The%20Visual%20Display%20of%20Quantitative%20Information.pdf), style available in the [tufte](https://github.com/rstudio/tufte) R package) [@tufte_visual_2001]
 - A paper on the use of SmartCard data [@gschwender_using_2016]
+- An academic paper describing the development of a web application for the Department for Transport [@lovelace_propensity_2017]
 
 ### Bibliography
 
