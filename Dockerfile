@@ -1,30 +1,20 @@
 FROM robinlovelace/geocompr
 
-RUN apt-get update --fix-missing
-RUN apt-get install -y wget \
-	bzip2 \
-	ca-certificates \
-	build-essential \
-	curl \
-	git-core \
-	pkg-config \
-	python3-dev \
-	python3-pip \
-	python3-setuptools \
-	python3-virtualenv \
-	unzip \
-	software-properties-common \
-	llvm
+ENV PATH /opt/conda/bin:$PATH
 
-RUN apt install -y gdal-bin python-gdal python3-gdal
+RUN apt-get update --fix-missing && \
+    apt-get install -y wget bzip2 ca-certificates curl git && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
-## Install packages to Python3
-RUN pip3 install --upgrade pip
-RUN pip3 install numpy scipy pandas geopandas psycopg2 sqlalchemy networkx osmnx 
+RUN wget --quiet https://repo.anaconda.com/miniconda/Miniconda3-4.5.4-Linux-x86_64.sh -O ~/miniconda.sh && \
+    /bin/bash ~/miniconda.sh -b -p /opt/conda && \
+    rm ~/miniconda.sh && \
+    /opt/conda/bin/conda clean -tipsy && \
+    ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh && \
+    echo ". /opt/conda/etc/profile.d/conda.sh" >> ~/.bashrc && \
+    echo "conda activate base" >> ~/.bashrc
 
-## Setup File System
-RUN mkdir ds
-ENV HOME=/ds
-ENV SHELL=/bin/bash
-VOLUME /ds
-WORKDIR /ds
+ENV TINI_VERSION v0.16.1
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
+RUN chmod +x /usr/bin/tini
