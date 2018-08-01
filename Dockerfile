@@ -20,10 +20,4 @@ RUN conda install numpy && \
     
 RUN conda install -c conda-forge osmnx
 
-RUN conda create -n geocompr geopandas
-
-ENV TINI_VERSION v0.16.1
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /usr/bin/tini
-RUN chmod +x /usr/bin/tini
-
 
