@@ -1,4 +1,5 @@
 # Aim: demonstrate Python's syntax
+# Author: Charles Fox (updates by Robin Lovelace)
 # Required packages: numpy, os, pandas
 # E.g. from TDS docker image: https://hub.docker.com/r/robinlovelace/tds/
 
