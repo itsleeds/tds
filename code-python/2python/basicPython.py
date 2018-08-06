@@ -1,3 +1,7 @@
+# Aim: demonstrate Python's syntax
+# Required packages: numpy, os, pandas
+# E.g. from TDS docker image: https://hub.docker.com/r/robinlovelace/tds/
+
 print('hello world')
 
 print(2+2)
@@ -49,7 +53,8 @@ while x<10:
     else:
         print('x is not one!')
         
-
+import os
+os.chdir("code-python")
 f=open('myfilename.txt', 'w')
 f.write('hello')
 f.close()
@@ -131,3 +136,5 @@ df.merge(df)
 df = df.merge(df, how='outer').fillna(method='ffill') #align by time
 df.to_csv('filename')
 #save frame as CSV
+os.chdir("..") # return to working directory
+
