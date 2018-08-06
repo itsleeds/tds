@@ -1,9 +1,6 @@
----
-output: github_document
-bibliography: references.bib
----
+# Catalogue
 
-# [TRAN5340M](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&M=TRAN-5340M) Transport Data Science
+This is the module catalogue for [TRAN5340M](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&M=TRAN-5340M), Transport Data Science
 
 15 credits
 
@@ -17,7 +14,7 @@ Year running: 2018/19
 
 This module is not approved as an Elective
 
-### Module summary
+## Module summary
 
 The quantity, diversity and availability of transport data is increasing rapidly, requiring skills in the management and interrogation of data and databases.
 Recent years have seen a new wave of 'big data' and 'data science' changing the world, with the Harvard Business Review describing Data Science as the 'sexiest job of the 21st century' (see [hbr.org](https://hbr.org/2012/10/data-scientist-the-sexiest-job-of-the-21st-century)).
@@ -29,7 +26,7 @@ The Transport Systems Catapult, for example, identified a skills gap in "skilled
 This module takes a highly practical approach to learning about 'data science' tools and their application to investigating transport issues.
 The focus is on practical data science, enabling attendees to make use of a wide range of datasets to answer real-world transport planning questions 
 
-### Objectives
+## Objectives
 
 - Understand the structure of transport datasets: spatial, temporal and demographic.
 - Understand how to obtain, clean and store transport related data.
@@ -41,7 +38,7 @@ The focus is on practical data science, enabling attendees to make use of a wide
 
 <!-- - Learn how to use these skills in the wider context of a dynamic team environment, including project set-up (e.g. deciding between cloud services and local computing power) and problem definition; team workflow; sourcing and interrogating data; applying statistical methods; visualising data and communicating the results (e.g. via the deployment of web services). -->
 
-### Learning outcomes
+## Learning outcomes
 
 Students will become confident at working in data science teams working on transport problems; in selecting appropriate tools to answer societal and business questions with a range of input data types; and understanding the wider implications of the increasing use of data science for transport planning. 
 
@@ -54,7 +51,7 @@ Specifically, learning outcomes will include the ability to:
 - Deciding when to use local computing power vs cloud services
 - Articulate the relevance and limitations of data-centric analysis applied to transport problems, compared with other methods
 
-### Syllabus 
+## Syllabus 
 
 - Software for practical data science
 - The structure of transport data e.g. flows, incidents, origin/destination, GIS
@@ -66,7 +63,7 @@ Specifically, learning outcomes will include the ability to:
 - Machine learning
 - Professional and ethical issues of big data in transport Transport data analysis
 
-### Subject specific skills
+## Subject specific skills
 
 Students will gain skills in:
 
@@ -76,7 +73,7 @@ Students will gain skills in:
 - Visualisation of large datasets
 <!-- - Routing on road networks -->
 
-### Teaching methods
+## Teaching methods
 
 <p><table border="1" width="100%"><tr><td align="left" width="40%">Delivery type</td><td align="right" width="20%">Number</td><td align="right" width="20%">Length hours</td><td align="right" width="20%">Student hours</td></tr>
 <!-- Delivery type |                 Number |             Length hours |           Student hours -->
@@ -86,11 +83,11 @@ Students will gain skills in:
 <!-- Totals                                                                                         -->
 <tr><td colspan="3">Private study hours</td><td align="right">125.00</td></tr><tr><td colspan="3">Total Contact hours</td><td align="right">25.00</td></tr><tr><td colspan="3">Total hours (100hr per 10 credits)</td><td align="right">150.00</td></tr></table>
 
-### Private study
+## Private study
 
 Students are expected to spend their study time on software set-up and worked examples, plus background reading for lectures, preparatory work for workshops and assessed coursework. Unsupervised teamwork practical sessions will be arranged to ensure a complete portfolio.
 
-### Rationale for teaching and learning methods and relationship to learning outcomes 
+## Rationale for teaching and learning methods and relationship to learning outcomes 
 
 There is a blend of lectures, seminars and practical sessions designed to fulfil the learning outcomes. 
 
@@ -98,13 +95,13 @@ A combination of lectures and seminars will be used to teach and gain understand
 
 A key aim of the module is to gain hands-on experience designing, implementing and communicating data analysis workflows during supervised practical sessions, and consolidated in unsupervised practical sessions. 
 
-### Monitoring of student progress
+## Monitoring of student progress
 
 Progress will be monitored informally during supervised practical sessions.
  
 Formative feedback will be given after interim informal assessment of their in-progress project portfolio (week 4/5)
 
-### Methods of assessment
+## Methods of assessment
 
 **Coursework**
 
@@ -112,14 +109,14 @@ Formative feedback will be given after interim informal assessment of their in-p
 
 <!-- 20% of the mark for the assessment of the portfolio will be determined as an initial assessment after week 5. Feedback will be provided. The remaining 80% will be awarded in respect of the final submitted portfolio. -->
 
-#### Other information about assessment
+### Other information about assessment
 
 The project portfolio will be used as the basis for formative assessment mid-way through the semester.
 This will highlight if any students are struggling.
 If a portfolio fails the assessment criteria the student will have an opportunity to resubmit a report outlining what they have learned in the areas in which they are failing.
 
 
-### Pre-requisites
+## Pre-requisites
 
 You will be expected to have a laptop with recent versions of R and RStudio installed.
 See instructions here for getting an up-to-date R installation: https://csgillespie.github.io/efficientR/set-up.html#installing-r
@@ -127,17 +124,17 @@ See instructions here for getting an up-to-date R installation: https://csgilles
 It is also recommended that you install GitHub Deskto (or command line git on Linux and Mac), Docker, Python, QGIS and transport modelling tools such as SUMO but these are not essential.
 
 
-### Reading list
+## Reading list
 
 <!-- The [reading list](http://lib5.leeds.ac.uk/rlists/broker/index.php?mod=TRAN5340M) is available from the Library website -->
 
-#### Core
+### Core
 
 - Introduction to data science with R (available free [online](http://r4ds.had.co.nz/)) [@grolemund_r_2016-1]
 - Introductory and advanced content on geographic data in R, especially the [transport chapter](http://geocompr.robinlovelace.net/transport.html) (available free [online](http://geocompr.robinlovelace.net/)) [@lovelace_geocomputation_2018a]
 - Introductory textbook introducing machine learning with lucid prose and worked examples in R (available free [online](http://www-bcf.usc.edu/~gareth/ISL/index.html)) [@james_introduction_2013]
 
-#### Optional
+### Optional
 
 - Book on transport data science in Python [@fox_data_2018]
 - Paper on analysing OSM data in Python (available [online](https://arxiv.org/pdf/1611.01890)) [@boeing_osmnx:_2017]
@@ -147,5 +144,5 @@ It is also recommended that you install GitHub Deskto (or command line git on Li
 - A paper on the use of SmartCard data [@gschwender_using_2016]
 - An academic paper describing the development of a web application for the Department for Transport [@lovelace_propensity_2017]
 
-### Bibliography
+## Bibliography
 
