@@ -24,12 +24,43 @@ This will:
 
 After navigating to <http://localhost:8787/> in a browser you should see a login screen. Username and password are rstudio. See <https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image> for details.
 
-Once in the container you can use all the R packages. To access the pre-installed Python packages you will need to enter `conda activate` and then `python` to go into the Python shell. A demonstration showing the `tds` docker image in action is illustrated below.
+Once in the container you can use all the R packages. To access the pre-installed Python packages you will need to enter the following commands:
+
+``` bash
+conda activate
+python
+```
+
+to go into the Python shell. Form more on running Python in RStudio see [community.rstudio.com](https://community.rstudio.com/t/r-python-in-ide/279). A demonstration showing the `tds` docker image in action is illustrated below.
+
+![](https://user-images.githubusercontent.com/1825120/43570979-a41791c2-9633-11e8-9edd-f3e11bc884c1.gif)
 
 Issues and contributing
 =======================
 
 Any feedback or contributions to this repo are welcome. If you have a question please open an issue here (you'll need a GitHub account): <https://github.com/ITSLeeds/TDS/issues>
+
+Data
+====
+
+Data for course can be accessed from the repos [Releases](https://github.com/ITSLeeds/TDS/releases) page. You can, for example, download and unzip the data folder in a local version of the repo (accessed by downloading and unzipp <https://github.com/ITSLeeds/TDS/archive/master.zip> ) with the following R commands:
+
+``` r
+download.file("https://github.com/ITSLeeds/TDS/releases/download/0.1/data.zip", destfile = "data.zip")
+unzip("data.zip")
+```
+
+If you want to be clever you can use the piggyback package:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("cboettig/piggyback")
+piggyback::pb_download("data.zip")
+
+# (This package was used to upload the data with:)
+# piggyback::pb_upload(file = "data.zip")
+# piggyback::pb_upload(file = "codeExamples.zip")
+```
 
 Other projects
 ==============
