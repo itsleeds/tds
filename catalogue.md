@@ -124,7 +124,7 @@ If a portfolio fails the assessment criteria the student will have an opportunit
 You will be expected to have a laptop with recent versions of R and RStudio installed.
 See instructions here for getting an up-to-date R installation: https://csgillespie.github.io/efficientR/set-up.html#installing-r
 
-It is also recommended that you install GitHub Deskto (or command line git on Linux and Mac), Docker, Python, QGIS and transport modelling tools such as SUMO but these are not essential.
+It is also recommended that you install GitHub Desktop (or command line git on Linux and Mac), Docker, Python, QGIS and transport modelling tools such as SUMO but these are not essential.
 
 
 ### Reading list
