@@ -1,11 +1,11 @@
-week_num,week_commencing,name,total_hrs,description
-15,2019-02-04,intro,2.5,
-16,2019-02-11,software,2.5,Software for practical data science
-17,2019-02-18,structure,2.5,The structure of transport data
-19,2019-03-04,cleaning,2.5,Data cleaning and subsetting
-20,2019-03-11,accessing,2.5,Accessing data from web sources
-21,2019-03-18,processing,2.5,Processing data
-22,2019-03-25,viz,2.5,Data visualization
-23,2019-04-29,ml,2.5,Machine learning
-24,2019-05-06,project,2.5,Project work
-25,2019-05-13,prof,2.5,Professional issues
+week_num,week_commencing,name,total_hrs,description,Person,Comments
+15,2019-02-04,intro,2.5,Introduction to transport data science,RL,
+16,2019-02-11,software,2.5,Software for practical data science,RL,
+17,2019-02-18,structure,2.5,The structure of transport data,RC/RL,
+19,2019-03-04,cleaning,2.5,Data cleaning and subsetting,RL,
+20,2019-03-11,accessing,2.5,Accessing data from web sources,RL,
+21,2019-03-18,processing,2.5,Processing data,MM,
+22,2019-03-25,viz,2.5,Data visualization,RL,
+23,2019-04-29,ml,2.5,Machine learning,RL,
+24,2019-05-06,project,2.5,Project work,RC,
+25,2019-05-13,prof,2.5,Professional issues,RL,
