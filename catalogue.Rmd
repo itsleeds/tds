@@ -1,3 +1,8 @@
+---
+bibliography: references.bib
+output: github_document
+---
+
 # Catalogue
 
 This is the module catalogue for [TRAN5340M](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201819&M=TRAN-5340M), Transport Data Science
@@ -24,7 +29,7 @@ Despite these developments the transport sector has been slow to adapt to new me
 The Transport Systems Catapult, for example, identified a skills gap in "skilled technical talent capable of handling and analysing very large datasets compiled from multiple sources" (see [ts.catapult.org.uk](https://ts.catapult.org.uk/news-events-gallery/news/report-warns-of-uk-skills-shortage-in-im-sector/)).
 
 This module takes a highly practical approach to learning about 'data science' tools and their application to investigating transport issues.
-The focus is on practical data science, enabling attendees to make use of a wide range of datasets to answer real-world transport planning questions 
+The focus is on practical data science, enabling attendees to make use of a wide range of datasets to answer real-world transport planning questions .
 
 ## Objectives
 
