@@ -1,11 +1,21 @@
-week_num,week_commencing,name,total_hrs,description,Person,Comments
-15,2019-02-04,intro,2.5,Introduction to transport data science,RL,
-16,2019-02-11,software,2.5,Software for practical data science,RL,
-17,2019-02-18,structure,2.5,The structure of transport data,RC/RL,
-19,2019-03-04,cleaning,2.5,Data cleaning and subsetting,RL,
-20,2019-03-11,accessing,2.5,Accessing data from web sources,RL,
-21,2019-03-18,processing,2.5,Routing,MM,
-22,2019-03-25,viz,2.5,Data visualization,RL,
-23,2019-04-29,ml,2.5,Machine learning,RL,
-24,2019-05-06,project,2.5,Project work,RC,
-25,2019-05-13,prof,2.5,Professional issues,RL,
+SUMMARY,DESCRIPTION,DTSTART,DTEND,LOCATION,UID
+TDS Lecture: intro,"Introduction to transport data science, Lecture, taught by: Dr Robin Lovelace",2019-02-05T12:30:00Z,2019-02-05T13:30:00Z,EC Stoner SR (7.76),intro Lecture
+TDS Practical: intro,"Introduction to transport data science, Practical, taught by: Dr Robin Lovelace",2019-02-05T14:00:00Z,2019-02-05T15:30:00Z,West Teaching Lab Cluster (G.29),intro Practical
+TDS Lecture: software,"Software for practical data science, Lecture, taught by: Dr Robin Lovelace",2019-02-12T12:30:00Z,2019-02-12T13:30:00Z,EC Stoner SR (7.76),software Lecture
+TDS Practical: software,"Software for practical data science, Practical, taught by: Dr Robin Lovelace",2019-02-12T14:00:00Z,2019-02-12T15:30:00Z,West Teaching Lab Cluster (G.29),software Practical
+TDS Lecture: structure,"The structure of transport data, Lecture, taught by: Dr Richard Connors",2019-02-19T12:30:00Z,2019-02-19T13:30:00Z,EC Stoner SR (7.76),structure Lecture
+TDS Practical: structure,"The structure of transport data, Practical, taught by: Dr Richard Connors",2019-02-19T14:00:00Z,2019-02-19T15:30:00Z,West Teaching Lab Cluster (G.29),structure Practical
+TDS Lecture: cleaning,"Data cleaning and subsetting, Lecture, taught by: Dr Robin Lovelace",2019-03-05T12:30:00Z,2019-03-05T13:30:00Z,EC Stoner SR (7.76),cleaning Lecture
+TDS Practical: cleaning,"Data cleaning and subsetting, Practical, taught by: Dr Robin Lovelace",2019-03-05T14:00:00Z,2019-03-05T15:30:00Z,West Teaching Lab Cluster (G.29),cleaning Practical
+TDS Lecture: accessing,"Accessing data from web sources, Lecture, taught by: Dr Robin Lovelace",2019-03-12T12:30:00Z,2019-03-12T13:30:00Z,EC Stoner SR (7.76),accessing Lecture
+TDS Practical: accessing,"Accessing data from web sources, Practical, taught by: Dr Robin Lovelace",2019-03-12T14:00:00Z,2019-03-12T15:30:00Z,West Teaching Lab Cluster (G.29),accessing Practical
+TDS Lecture: processing,"Routing, Lecture, taught by: Dr Malcolm Morgan",2019-03-19T12:30:00Z,2019-03-19T13:30:00Z,EC Stoner SR (7.76),processing Lecture
+TDS Practical: processing,"Routing, Practical, taught by: Dr Malcolm Morgan",2019-03-19T14:00:00Z,2019-03-19T15:30:00Z,West Teaching Lab Cluster (G.29),processing Practical
+TDS Lecture: viz,"Data visualization, Lecture, taught by: Dr Robin Lovelace",2019-03-26T12:30:00Z,2019-03-26T13:30:00Z,EC Stoner SR (7.76),viz Lecture
+TDS Practical: viz,"Data visualization, Practical, taught by: Dr Robin Lovelace",2019-03-26T14:00:00Z,2019-03-26T15:30:00Z,West Teaching Lab Cluster (G.29),viz Practical
+TDS Lecture: ml,"Machine learning, Lecture, taught by: Dr Robin Lovelace",2019-04-30T12:30:00Z,2019-04-30T13:30:00Z,EC Stoner SR (7.76),ml Lecture
+TDS Practical: ml,"Machine learning, Practical, taught by: Dr Robin Lovelace",2019-04-30T14:00:00Z,2019-04-30T15:30:00Z,West Teaching Lab Cluster (G.29),ml Practical
+TDS Lecture: project,"Project work, Lecture, taught by: Dr Richard Connors",2019-05-07T12:30:00Z,2019-05-07T13:30:00Z,EC Stoner SR (7.76),project Lecture
+TDS Practical: project,"Project work, Practical, taught by: Dr Richard Connors",2019-05-07T14:00:00Z,2019-05-07T15:30:00Z,West Teaching Lab Cluster (G.29),project Practical
+TDS Lecture: prof,"Professional issues, Lecture, taught by: Dr Robin Lovelace",2019-05-14T12:30:00Z,2019-05-14T13:30:00Z,EC Stoner SR (7.76),prof Lecture
+TDS Practical: prof,"Professional issues, Practical, taught by: Dr Robin Lovelace",2019-05-14T14:00:00Z,2019-05-14T15:30:00Z,West Teaching Lab Cluster (G.29),prof Practical
