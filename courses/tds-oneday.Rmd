@@ -1,7 +1,7 @@
 ---
 output:
   # word_document: default
-  html_document: default
+  github_document: default
 ---
 
 # Transport Data Science with R
