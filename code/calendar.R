@@ -1,7 +1,7 @@
 # Aim: create ical of all lectures and practicals of TDS
 
 # install required package:
-devtools::install_github("ATFutures/ical")
+devtools::install_github("ATFutures/calendar")
 # First thought was to capture the data hosted at:
 # http://timetable.leeds.ac.uk/teaching/201819/reporting/individual;?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
 # However, eventually I opted for a simpler approach: to create a .csv from a spreadsheet
