@@ -11,6 +11,9 @@ Next on: 5<sup>th</sup> April.
 | Public sector  | 300                  | 350       |
 | Student        | 200                  | 250       |
 
+For booking, see here:
+<https://store.leeds.ac.uk/conferences-and-events/environment/geography/transport-data-science-with-r-2019>
+
 <!-- ![](../figures/costs1.png) -->
 
 ## Overview
