@@ -7,6 +7,12 @@ This repo support teaching of the Transport Data Science module, part of the Mat
 
 The module catalogue can be found at [`catalogue.md`](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md). The code accompanying the course can be found in the `code` folders. To run this code you will need R and Python installed plus various packages and libraries. This software has been packaged-up into a docker container to ease teaching.
 
+See here for the the timetable:
+
+-   In .ics form (recommended): <https://github.com/ITSLeeds/TDS/releases/download/0.1/tds-timetable.ics>
+-   As a .csv file: <https://github.com/ITSLeeds/TDS/blob/master/timetable.csv>
+-   On the University's system (official): <http://timetable.leeds.ac.uk/teaching/201819/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01>&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
+
 Software
 ========
 
