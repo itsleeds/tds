@@ -13,9 +13,9 @@ Next on: 5^th^ April.
 
 Delegate type | Price (£ early bird) | Price (£)
 --------------|:---------------------|:---------
-External      | 400                  | 500
-Academic      | 300                  | 400
-Student       | 200                  | 300
+Private sector| 400                  | 450
+Public sector | 300                  | 350
+Student       | 200                  | 250
 
 <!-- ![](../figures/costs1.png) -->
 
@@ -46,7 +46,7 @@ By the end of the course, you will be able to:
     - Route allocation using different routing services
     - Route network generation and analysis
     
-## Pre-requisites
+## Pre-requisites and location
 
 Prior experience with transport datasets a pre-requisite for the course.
 Attendees are expected to:
@@ -72,9 +72,10 @@ install.packages(c(
 ))
 ```
 
-You can test your computer is ready for the course by running these commands:
+You can test your computer is ready for the course by **running the commands below**.
+The resulting interactive map shows a good route (in light blue in the image below) from Leeds station to the Worsley Building (the course takes place on Level 11 of the building):
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 library(osmdata)
 library(sf)
 library(tmap)
@@ -84,7 +85,7 @@ location = opq("leeds") %>%
   osmdata_sf()
 route = sf::read_sf("https://git.io/fhnAr")
 tm_shape(route) +
-  tm_lines(col = "blue", lwd = 5) +
+  tm_lines(col = "blue", lwd = 7, alpha = 0.4) +
   tm_shape(location$osm_polygons) +
   tm_polygons(col = "red") +
   tm_view(basemaps = leaflet::providers$OpenStreetMap)
@@ -170,7 +171,7 @@ Course bookings and other enquiries can be made via a booking form available fro
 
 For enquiries please contact the Short Courses Co-ordinator:
 
-Email: e.a.pound@leeds.ac.uk
+Email: Kylie Norman <K.R.Norman@leeds.ac.uk>
 
 ### References
 
