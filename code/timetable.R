@@ -79,7 +79,7 @@ extract_attributes = function(tt_df) {
   tt_i = extract_week_commencing(tt_df$Weeks[1])
   tt_i$code = tt_df$`Module code (or codes if jointly taught)`[1] 
   
-  tt_i$type = tt_df$`Type of activity`[1]
+  tt_i$type = tt_df$`Type of activity`
   tt_i$type = gsub(pattern = " 1| Based Learning 1", replacement = "", tt_i$type)
   tt_i$type = gsub(pattern = "Computer", replacement = "Practical", tt_i$type)
   
@@ -109,11 +109,11 @@ tt$SUMMARY = paste0(
   ": ",
   rep(session_ids, 2)
   )
-tt$id = paste(rep(session_ids, each = 2), tt$type)
-tt$DESCRIPTION = paste0(rep(session_descriptions, each = 2), ", ", gsub(pattern = " 1| Based Learning 1", replacement = "", tt$type))
+tt$id = paste(rep(session_ids, 2), tt$type)
+tt$DESCRIPTION = paste0(rep(session_descriptions), ", ", gsub(pattern = " 1| Based Learning 1", replacement = "", tt$type))
 tt$staff = "Dr Robin Lovelace"
-tt$staff[c(5:6, 17:18)] = "Dr Richard Connors"
-tt$staff[c(11:12)] = "Dr Malcolm Morgan"
+tt$staff[grepl(pattern = "structure|Project w", x = tt$DESCRIPTION)] = "Dr Richard Connors"
+tt$staff[grepl(pattern = "Routing", x = tt$DESCRIPTION)] = "Dr Malcolm Morgan"
 tt$DESCRIPTION = paste0(tt$DESCRIPTION, ", taught by: ", tt$staff)
 
 tt = dplyr::arrange(tt, DTSTART)

@@ -13,147 +13,147 @@ UID:intro Lecture
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical: intro
-DESCRIPTION:Routing, Practical, taught by: Dr Malcolm Morgan
+DESCRIPTION:Introduction to transport data science, Practical, taught by: Dr Robin Lovelace
 DTSTART:20190205T140000
 DTEND:20190205T153000
 LOCATION:West Teaching Lab Cluster (G.29)
-UID:processing Practical
+UID:intro Practical
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture: software
-DESCRIPTION:Introduction to transport data science, Lecture, taught by: Dr Robin Lovelace
+DESCRIPTION:Software for practical data science, Lecture, taught by: Dr Robin Lovelace
 DTSTART:20190212T123000
 DTEND:20190212T133000
 LOCATION:EC Stoner SR (7.76)
-UID:intro Lecture
+UID:software Lecture
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical: software
-DESCRIPTION:Routing, Practical, taught by: Dr Malcolm Morgan
+DESCRIPTION:Software for practical data science, Practical, taught by: Dr Robin Lovelace
 DTSTART:20190212T140000
 DTEND:20190212T153000
+LOCATION:West Teaching Lab Cluster (G.29)
+UID:software Practical
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Lecture: structure
+DESCRIPTION:The structure of transport data, Lecture, taught by: Dr Richard Connors
+DTSTART:20190219T123000
+DTEND:20190219T133000
+LOCATION:EC Stoner SR (7.76)
+UID:structure Lecture
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical: structure
+DESCRIPTION:The structure of transport data, Practical, taught by: Dr Richard Connors
+DTSTART:20190219T140000
+DTEND:20190219T153000
+LOCATION:West Teaching Lab Cluster (G.29)
+UID:structure Practical
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Lecture: cleaning
+DESCRIPTION:Data cleaning and subsetting, Lecture, taught by: Dr Robin Lovelace
+DTSTART:20190305T123000
+DTEND:20190305T133000
+LOCATION:EC Stoner SR (7.76)
+UID:cleaning Lecture
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical: cleaning
+DESCRIPTION:Data cleaning and subsetting, Practical, taught by: Dr Robin Lovelace
+DTSTART:20190305T140000
+DTEND:20190305T153000
+LOCATION:West Teaching Lab Cluster (G.29)
+UID:cleaning Practical
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Lecture: accessing
+DESCRIPTION:Accessing data from web sources, Lecture, taught by: Dr Robin Lovelace
+DTSTART:20190312T123000
+DTEND:20190312T133000
+LOCATION:EC Stoner SR (7.76)
+UID:accessing Lecture
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical: accessing
+DESCRIPTION:Accessing data from web sources, Practical, taught by: Dr Robin Lovelace
+DTSTART:20190312T140000
+DTEND:20190312T153000
+LOCATION:West Teaching Lab Cluster (G.29)
+UID:accessing Practical
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Lecture: processing
+DESCRIPTION:Routing, Lecture, taught by: Dr Malcolm Morgan
+DTSTART:20190319T123000
+DTEND:20190319T133000
+LOCATION:EC Stoner SR (7.76)
+UID:processing Lecture
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical: processing
+DESCRIPTION:Routing, Practical, taught by: Dr Malcolm Morgan
+DTSTART:20190319T140000
+DTEND:20190319T153000
 LOCATION:West Teaching Lab Cluster (G.29)
 UID:processing Practical
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:TDS Lecture: structure
-DESCRIPTION:Software for practical data science, Lecture, taught by: Dr Robin Lovelace
-DTSTART:20190219T123000
-DTEND:20190219T133000
-LOCATION:EC Stoner SR (7.76)
-UID:software Lecture
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:TDS Practical: structure
-DESCRIPTION:Data visualization, Practical, taught by: Dr Robin Lovelace
-DTSTART:20190219T140000
-DTEND:20190219T153000
-LOCATION:West Teaching Lab Cluster (G.29)
-UID:viz Practical
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:TDS Lecture: cleaning
-DESCRIPTION:Software for practical data science, Lecture, taught by: Dr Robin Lovelace
-DTSTART:20190305T123000
-DTEND:20190305T133000
-LOCATION:EC Stoner SR (7.76)
-UID:software Lecture
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:TDS Practical: cleaning
-DESCRIPTION:Data visualization, Practical, taught by: Dr Robin Lovelace
-DTSTART:20190305T140000
-DTEND:20190305T153000
-LOCATION:West Teaching Lab Cluster (G.29)
-UID:viz Practical
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:TDS Lecture: accessing
-DESCRIPTION:The structure of transport data, Lecture, taught by: Dr Richard Connors
-DTSTART:20190312T123000
-DTEND:20190312T133000
-LOCATION:EC Stoner SR (7.76)
-UID:structure Lecture
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:TDS Practical: accessing
-DESCRIPTION:Machine learning, Practical, taught by: Dr Robin Lovelace
-DTSTART:20190312T140000
-DTEND:20190312T153000
-LOCATION:West Teaching Lab Cluster (G.29)
-UID:ml Practical
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:TDS Lecture: processing
-DESCRIPTION:The structure of transport data, Lecture, taught by: Dr Richard Connors
-DTSTART:20190319T123000
-DTEND:20190319T133000
-LOCATION:EC Stoner SR (7.76)
-UID:structure Lecture
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:TDS Practical: processing
-DESCRIPTION:Machine learning, Practical, taught by: Dr Robin Lovelace
-DTSTART:20190319T140000
-DTEND:20190319T153000
-LOCATION:West Teaching Lab Cluster (G.29)
-UID:ml Practical
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:TDS Lecture: viz
-DESCRIPTION:Data cleaning and subsetting, Lecture, taught by: Dr Robin Lovelace
+DESCRIPTION:Data visualization, Lecture, taught by: Dr Robin Lovelace
 DTSTART:20190326T123000
 DTEND:20190326T133000
 LOCATION:EC Stoner SR (7.76)
-UID:cleaning Lecture
+UID:viz Lecture
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical: viz
-DESCRIPTION:Project work, Practical, taught by: Dr Richard Connors
+DESCRIPTION:Data visualization, Practical, taught by: Dr Robin Lovelace
 DTSTART:20190326T140000
 DTEND:20190326T153000
 LOCATION:West Teaching Lab Cluster (G.29)
-UID:project Practical
+UID:viz Practical
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture: ml
-DESCRIPTION:Data cleaning and subsetting, Lecture, taught by: Dr Robin Lovelace
+DESCRIPTION:Machine learning, Lecture, taught by: Dr Robin Lovelace
 DTSTART:20190430T123000
 DTEND:20190430T133000
 LOCATION:EC Stoner SR (7.76)
-UID:cleaning Lecture
+UID:ml Lecture
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical: ml
-DESCRIPTION:Project work, Practical, taught by: Dr Richard Connors
+DESCRIPTION:Machine learning, Practical, taught by: Dr Robin Lovelace
 DTSTART:20190430T140000
 DTEND:20190430T153000
+LOCATION:West Teaching Lab Cluster (G.29)
+UID:ml Practical
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Lecture: project
+DESCRIPTION:Project work, Lecture, taught by: Dr Richard Connors
+DTSTART:20190507T123000
+DTEND:20190507T133000
+LOCATION:EC Stoner SR (7.76)
+UID:project Lecture
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical: project
+DESCRIPTION:Project work, Practical, taught by: Dr Richard Connors
+DTSTART:20190507T140000
+DTEND:20190507T153000
 LOCATION:West Teaching Lab Cluster (G.29)
 UID:project Practical
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:TDS Lecture: project
-DESCRIPTION:Accessing data from web sources, Lecture, taught by: Dr Robin Lovelace
-DTSTART:20190507T123000
-DTEND:20190507T133000
-LOCATION:EC Stoner SR (7.76)
-UID:accessing Lecture
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:TDS Practical: project
-DESCRIPTION:Professional issues, Practical, taught by: Dr Robin Lovelace
-DTSTART:20190507T140000
-DTEND:20190507T153000
-LOCATION:West Teaching Lab Cluster (G.29)
-UID:prof Practical
-END:VEVENT
-BEGIN:VEVENT
 SUMMARY:TDS Lecture: prof
-DESCRIPTION:Accessing data from web sources, Lecture, taught by: Dr Robin Lovelace
+DESCRIPTION:Professional issues, Lecture, taught by: Dr Robin Lovelace
 DTSTART:20190514T123000
 DTEND:20190514T133000
 LOCATION:EC Stoner SR (7.76)
-UID:accessing Lecture
+UID:prof Lecture
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical: prof
@@ -162,14 +162,6 @@ DTSTART:20190514T140000
 DTEND:20190514T153000
 LOCATION:West Teaching Lab Cluster (G.29)
 UID:prof Practical
-END:VEVENT
-BEGIN:VEVENT
-SUMMARY:Deadline: report submission
-DESCRIPTION:Hand-in deadline of portfolio of work
-DTSTART:20190507T090000
-DTEND:20190507T170000
-LOCATION:ITS reception (40 University Road) and online
-UID:submission
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:Deadline: report submission
