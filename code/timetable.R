@@ -31,8 +31,8 @@ session_descriptions = c(
   "Accessing data from web sources",
   "Routing",
   "Data visualization",
-  "Machine learning",
   "Project work",
+  "Machine learning",
   "Professional issues"
 )
 
