@@ -112,7 +112,7 @@ tt$SUMMARY = paste0(
 tt$id = paste(rep(session_ids, 2), tt$type)
 tt$DESCRIPTION = paste0(rep(session_descriptions), ", ", gsub(pattern = " 1| Based Learning 1", replacement = "", tt$type))
 tt$staff = "Dr Robin Lovelace"
-tt$staff[grepl(pattern = "structure|Project w", x = tt$DESCRIPTION)] = "Dr Richard Connors"
+tt$staff[grepl(pattern = "The structure of transport data, L|Project w", x = tt$DESCRIPTION)] = "Dr Richard Connors"
 tt$staff[grepl(pattern = "Routing", x = tt$DESCRIPTION)] = "Dr Malcolm Morgan"
 tt$DESCRIPTION = paste0(tt$DESCRIPTION, ", taught by: ", tt$staff)
 

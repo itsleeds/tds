@@ -45,7 +45,7 @@ UID:structure Lecture
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical: structure
-DESCRIPTION:The structure of transport data, Practical, taught by: Dr Richard Connors
+DESCRIPTION:The structure of transport data, Practical, taught by: Dr Robin Lovelace
 DTSTART:20190219T140000
 DTEND:20190219T153000
 LOCATION:West Teaching Lab Cluster (G.29)
