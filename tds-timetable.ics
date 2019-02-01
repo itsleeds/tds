@@ -117,7 +117,7 @@ UID:viz Practical
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture: ml
-DESCRIPTION:Machine learning, Lecture, taught by: Dr Robin Lovelace
+DESCRIPTION:Project work, Lecture, taught by: Dr Richard Connors
 DTSTART:20190430T123000
 DTEND:20190430T133000
 LOCATION:EC Stoner SR (7.76)
@@ -125,7 +125,7 @@ UID:ml Lecture
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical: ml
-DESCRIPTION:Machine learning, Practical, taught by: Dr Robin Lovelace
+DESCRIPTION:Project work, Practical, taught by: Dr Richard Connors
 DTSTART:20190430T140000
 DTEND:20190430T153000
 LOCATION:West Teaching Lab Cluster (G.29)
@@ -133,7 +133,7 @@ UID:ml Practical
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture: project
-DESCRIPTION:Project work, Lecture, taught by: Dr Richard Connors
+DESCRIPTION:Machine learning, Lecture, taught by: Dr Robin Lovelace
 DTSTART:20190507T123000
 DTEND:20190507T133000
 LOCATION:EC Stoner SR (7.76)
@@ -141,7 +141,7 @@ UID:project Lecture
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical: project
-DESCRIPTION:Project work, Practical, taught by: Dr Richard Connors
+DESCRIPTION:Machine learning, Practical, taught by: Dr Robin Lovelace
 DTSTART:20190507T140000
 DTEND:20190507T153000
 LOCATION:West Teaching Lab Cluster (G.29)
