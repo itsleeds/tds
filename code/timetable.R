@@ -19,8 +19,8 @@ session_ids = c(
   "accessing",
   "processing",
   "viz",
-  "ml",
   "project",
+  "ml",
   "prof"
   )
 session_descriptions = c(
