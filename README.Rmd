@@ -116,19 +116,28 @@ piggyback::pb_download("data.zip")
 - A book on R for Geocomputation: https://github.com/Robinlovelace/geocompr
 - A Python package for OSM data analysis: https://github.com/gboeing/osmnx
 
-# Building the website
+<!-- # Building the website -->
 
-To publish the slides and other content online, the following commands were used:
+<!-- To publish the slides and other content online, the following commands were used: -->
 
-```bash
+```{r, echo=FALSE, eval=FALSE}
 # first time
-git checkout --orphan gh-pages
-git rm -rf .
+# git checkout --orphan gh-pages
+# git rm -rf .
+# 
+# # create a hidden file .nojekyll
+# touch .nojekyll
+# git add .nojekyll
+# 
+# git commit -m"Initial commit"
+# git push origin gh-pages
 
-# create a hidden file .nojekyll
-touch .nojekyll
-git add .nojekyll
-
-git commit -m"Initial commit"
+# Then...
+cp -Rv slides /tmp
+git checkout gh-pages
+git status
+git add slides/1-intro.html slides/libs
+git commit -m 'Add slides'
 git push origin gh-pages
+git checkout master
 ```
