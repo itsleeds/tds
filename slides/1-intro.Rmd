@@ -163,6 +163,8 @@ In other words...
 --
 
 .pull-right[
+
+- Falsifiability is central to the scientific process `r Citep(my_bib, "popper_logic_1959", .opts = list(cite.style = "authoryear"))`
 - All of which requires software conducive to reproducibility
 
 ![](https://duckduckgo.com/i/f2692e7b.jpg)
