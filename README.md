@@ -15,6 +15,11 @@ See here for the the timetable, a basic visualisation of which is shown below:
 
 <img src="timetable.png" width="1200" />
 
+References
+==========
+
+To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: <https://www.zotero.org/groups/956304/tds>
+
 Software
 ========
 
@@ -29,15 +34,23 @@ Docker
 
 If you want to run the software in a container (which can make package installation easier), you can use docker, which allows you to run a virtual operating system inside your main operating system.
 
-After you have [installed docker](https://docs.docker.com/install/), you should be able to run the software by executing the following commands in a terminal such as Windows PowerShell or the default terminal on Linx and MAC operating systems:
+After you have [installed docker](https://docs.docker.com/install/), you should be able to run the software by executing the following commands in a terminal such as Windows PowerShell or the default terminal on Linx and MAC operating systems.
+
+For an R installation:
 
 ``` bash
-docker run -d -p 8787:8787 -v $(pwd):/home/rstudio/data robinlovelace/tds  
+docker run -d -p 8787:8787 -v $(pwd):/home/rstudio/data -e USERID=$UID -e PASSWORD=pickASafePassWord --name rstudio robinlovelace/geocompr
+```
+
+For a R/Python docker image (bigger, less well maintained):
+
+``` bash
+docker run -d -p 8787:8787 -v $(pwd):/home/rstudio/data -e USERID=$UID -e PASSWORD=pickASafePassWord --name rstudio robinlovelace/tds  
 ```
 
 This will:
 
--   Pull the docker image from <https://hub.docker.com/r/robinlovelace/tds/> if it's not already on your computer
+-   Pull the docker image from <https://hub.docker.com/r/robinlovelace/tds/> or the geocompr repo if it's not already on your computer
 -   Launch a locally hosted instance of RStudio Server which can be accessed at <http://localhost:8787/>
 -   Mount your current working dirctory to the data folder in the home directly of the docker image
 
