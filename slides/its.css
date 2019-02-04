@@ -1,0 +1,5 @@
+.title-slide.remark-slide-content:before{
+  position: absolute;
+  content:url(http://www.stephanehess.me.uk/images/picture3.png);
+  height:60px;
+}
