@@ -136,8 +136,8 @@ piggyback::pb_download("data.zip")
 cp -Rv slides /tmp
 git checkout gh-pages
 git status
-git add slides/1-intro.html slides/libs
-git commit -m 'Add slides'
+git add slides/1-intro* slides/libs
+git commit -am 'Add slides'
 git push origin gh-pages
 git checkout master
 ```
