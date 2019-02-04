@@ -29,6 +29,17 @@ For this module you need to have up-to-date versions of R and RStudio. For guida
 
 -   Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the [project management section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
 
+Course locations
+----------------
+
+See the image below for the course locations and the following links:
+
+The lectures will be in EC Stoner SR (7.76): <https://students.leeds.ac.uk/site/custom_scripts/ajax_loader.php?type=room&id=99918>
+
+The practicals will be in the West Teaching Lab Cluster (G.29): <https://leeds.service-now.com/it?id=kb_article&sys_id=f0a176d30f9fb20089d7f55be1050eb7>
+
+![](course-locations.png)
+
 Docker
 ------
 
