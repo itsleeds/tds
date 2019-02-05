@@ -1,3 +1,6 @@
+
+
+# group 1
 person_name = c(
   "robin",
   "malcolm",
@@ -13,7 +16,8 @@ like_bus_travel = c(
   FALSE,
   TRUE
 )
-personal_data = data.frame(person_name, n_coffee, like_bus_travel)
-personal_data
-
-sum(personal_data$n_coffee)
+personal_data = data.frame(
+  person_name, 
+  n_coffee, 
+  like_bus_travel
+  )
