@@ -21,3 +21,14 @@ personal_data = data.frame(
   n_coffee, 
   like_bus_travel
   )
+
+#Group 2
+persons_name = c(
+  "Zi", 
+  "Ignacio")
+n_coffee = c(
+  4, 
+  0)
+like_bus_travel = c(
+  FALSE, 
+  TRUE)
