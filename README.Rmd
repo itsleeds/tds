@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 
 # TDS (Transport Data Science)
 
-This repo support teaching of the Transport Data Science module, part of the Mathematical Modelling for Transport ([MMT](http://www.its.leeds.ac.uk/courses/masters/msc-mathematical-modelling-transport/)) MSc course at the Institute for Transport Studies.
+This repo supports teaching of the Transport Data Science module, part of the Mathematical Modelling for Transport ([MMT](http://www.its.leeds.ac.uk/courses/masters/msc-mathematical-modelling-transport/)) MSc course at the Institute for Transport Studies.
 
 The module catalogue can be found at [`catalogue.md`](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md).
 The code accompanying the course can be found in the `code` folders.
