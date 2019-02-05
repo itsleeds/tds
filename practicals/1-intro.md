@@ -3,7 +3,7 @@ Introduction to transport data science
 Robin Lovelace
 University of Leeds, 2019-02-05<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
-Thinking about (transport) data science (15 minutes)
+Thinking about (transport) data science (30 minutes)
 ----------------------------------------------------
 
 -   Based on the contents of the lecture, come up with *your own* definition of data science
@@ -12,14 +12,13 @@ Thinking about (transport) data science (15 minutes)
 -   Quick go around: what is your name, level and background?
 -   Get into groups of 2-3 and discuss:
 
-Thinking about this course
---------------------------
+### In groups of 2-4
 
 -   What do you hope to get out of it personally?
 -   In terms of future work in an evolving job market?
 -   In terms of the kinds of problems you want to solve?
 
-Sketching research methods (in groups of 2-4, 45 minutes)
+Sketching research methods (in groups of 2-4, 30 minutes)
 ---------------------------------------------------------
 
 Starting with the 1000 'desire lines' dataset of Leeds, sketch-out some research ideas that cover
@@ -40,7 +39,7 @@ What temporal and spatial resolution could each one have?
 
 ![](https://raw.githubusercontent.com/npct/pct-team/master/flow-model/flow-diag2.png)
 
-Practical, group computer task (15 minutes)
+Practical, group computer task (30 minutes)
 -------------------------------------------
 
 Building on the follow code chunk (but with no copy-and-pasting), create a data frame that contains the names, coffee habits and like/dislike of bus travel for everyone in your group.
