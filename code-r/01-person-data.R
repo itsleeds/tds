@@ -43,3 +43,14 @@ personal_data = data.frame(person_name,
                            like_bus_travel)
 
 
+# Group 4
+person_name = c(
+  "Hawah",
+  "Colin",
+  "Eugeni")
+
+n_coffee = c(
+  2,0,7
+) 
+
+like_bus_travel= c(FALSE, TRUE, FALSE)
