@@ -10,3 +10,4 @@ slides/libs/
 slides/*files*
 *.pdf
 *.geojson
+*gpx*
