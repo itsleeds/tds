@@ -33,6 +33,17 @@ like_bus_travel = c(
   FALSE, 
   TRUE)
 
+#Group 3
+person_name = c("Caroline", "Tatjana")
+n_coffee = c(6, 8)
+like_bus_travel = c(FALSE, FALSE)
+
+personal_data = data.frame(person_name,
+                           n_coffee,
+                           like_bus_travel)
+
+
+# Group 4
 person_name = c(
   "Hawah",
   "Colin",
