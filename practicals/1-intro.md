@@ -42,7 +42,9 @@ What temporal and spatial resolution could each one have?
 Practical, group computer task (30 minutes)
 -------------------------------------------
 
-Building on the follow code chunk (but with no copy-and-pasting), create a data frame that contains the names, coffee habits and like/dislike of bus travel for everyone in your group.
+Create a github account (all). See: <https://github.com>
+
+Building on the follow code chunk (but with no copy-and-pasting), create a data frame that contains the names, coffee habits and like/dislike of bus travel for everyone in your group (just 1 computer per group):
 
 ``` r
 person_name = c(
@@ -69,7 +71,7 @@ personal_data
     ## 2     malcolm        1           FALSE
     ## 3     richard        0            TRUE
 
-When you are complete, send the code to me: <r.lovelace@leeds.ac.uk>
+When you are complete, add your code to <https://github.com/ITSLeeds/TDS/blob/master/code-r/01-person-data.R>
 
 Learning outcomes
 -----------------
