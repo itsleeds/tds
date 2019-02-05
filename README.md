@@ -96,8 +96,7 @@ unzip("data.zip")
 If you want to be clever you can use the piggyback package:
 
 ``` r
-# install.packages("devtools")
-devtools::install_github("cboettig/piggyback")
+install.packages("piggyback")
 piggyback::pb_download("data.zip")
 
 # (This package was used to upload the data with:)
@@ -110,3 +109,6 @@ Other projects
 
 -   A book on R for Geocomputation: <https://github.com/Robinlovelace/geocompr>
 -   A Python package for OSM data analysis: <https://github.com/gboeing/osmnx>
+
+<!-- # Building the website -->
+<!-- To publish the slides and other content online, the following commands were used: -->

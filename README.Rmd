@@ -13,7 +13,7 @@ knitr::opts_chunk$set(
 
 # TDS (Transport Data Science)
 
-This repo support teaching of the Transport Data Science module, part of the Mathematical Modelling for Transport ([MMT](http://www.its.leeds.ac.uk/courses/masters/msc-mathematical-modelling-transport/)) MSc course at the Institute for Transport Studies.
+This repo supports teaching of the Transport Data Science module, part of the Mathematical Modelling for Transport ([MMT](http://www.its.leeds.ac.uk/courses/masters/msc-mathematical-modelling-transport/)) MSc course at the Institute for Transport Studies.
 
 The module catalogue can be found at [`catalogue.md`](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md).
 The code accompanying the course can be found in the `code` folders.
@@ -112,8 +112,7 @@ unzip("data.zip")
 If you want to be clever you can use the piggyback package:
 
 ```{r, eval=FALSE}
-# install.packages("devtools")
-devtools::install_github("cboettig/piggyback")
+install.packages("piggyback")
 piggyback::pb_download("data.zip")
 
 # (This package was used to upload the data with:)
@@ -126,3 +125,23 @@ piggyback::pb_download("data.zip")
 
 - A book on R for Geocomputation: https://github.com/Robinlovelace/geocompr
 - A Python package for OSM data analysis: https://github.com/gboeing/osmnx
+
+<!-- # Building the website -->
+
+<!-- To publish the slides and other content online, the following commands were used: -->
+
+```{r, echo=FALSE, eval=FALSE}
+# first time
+# git checkout --orphan gh-pages
+# git rm -rf .
+# 
+# # create a hidden file .nojekyll
+# touch .nojekyll
+# git add .nojekyll
+# 
+# git commit -m"Initial commit"
+# git push origin gh-pages
+
+# Then...
+source deploy.sh
+```
