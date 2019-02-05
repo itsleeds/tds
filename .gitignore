@@ -9,3 +9,4 @@ data*
 slides/libs/
 slides/*files*
 *.pdf
+*.geojson
