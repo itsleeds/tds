@@ -1,5 +1,3 @@
-
-
 # group 1
 person_name = c(
   "robin",
@@ -16,14 +14,14 @@ like_bus_travel = c(
   FALSE,
   TRUE
 )
-personal_data = data.frame(
+personal_data1 = data.frame(
   person_name, 
   n_coffee, 
   like_bus_travel
   )
 
 #Group 2
-persons_name = c(
+person_name = c(
   "Zi", 
   "Ignacio")
 n_coffee = c(
@@ -32,13 +30,18 @@ n_coffee = c(
 like_bus_travel = c(
   FALSE, 
   TRUE)
+personal_data2 = data.frame(
+  person_name, 
+  n_coffee, 
+  like_bus_travel
+)
 
 #Group 3
 person_name = c("Caroline", "Tatjana")
 n_coffee = c(6, 8)
 like_bus_travel = c(FALSE, FALSE)
 
-personal_data = data.frame(person_name,
+personal_data3 = data.frame(person_name,
                            n_coffee,
                            like_bus_travel)
 
@@ -54,3 +57,17 @@ n_coffee = c(
 ) 
 
 like_bus_travel= c(FALSE, TRUE, FALSE)
+person_data4 = data.frame(
+  person_name, 
+  n_coffee, 
+  like_bus_travel
+)
+
+everyone = rbind(
+  personal_data1,
+  personal_data2,
+  personal_data3,
+  person_data4
+  )
+
+mean(everyone$n_coffee)
