@@ -1,0 +1,35 @@
+---
+title: Teaching locations
+output: github_document
+---
+
+The lectures will be in EC Stoner SR (7.76).
+The practicals will be in the West Teaching Lab Cluster (G.29).
+Both are hard to find, especially the enigmatically named SR 7.76.
+
+The map below should help you locate them tomorrow:
+
+```{r map-location, echo=FALSE}
+# download.file("https://www.openstreetmap.org/trace/2908115/data", "r.gpx.gz")
+# R.utils::gunzip("r.gpx.gz")
+r = sf::read_sf("r.gpx", layer = "track_points")
+day = "2019-02-04 "
+start_time = "16:48" # when I started looking for it
+end_time = "16:50"
+start_datetime = paste0(day, start_time)
+end_datetime = paste0(day, end_time)
+sel_time = r$time > start_datetime &
+  r$time < end_datetime
+r_close = r[sel_time, ]
+mapview::mapview(r_close)
+library(osmdata)
+red_route = opq(bbox = "leeds") %>% 
+  add_osm_feature(key = "name", value = "Red Route") %>% 
+  osmdata_sf()
+# library(mapview)
+# mapview(red_route$osm_lines)
+library(tmap)
+ttm()
+tm_shape(red_route$osm_lines) + tm_lines("red") +
+  tm_view(basemaps = leaflet::providers$OpenStreetMap)
+```
