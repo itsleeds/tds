@@ -121,6 +121,38 @@ piggyback::pb_download("data.zip")
 ```
 
 
+
+```{r, echo=FALSE, eval=FALSE}
+# aim: sort csv file
+e = read.csv("sample-data/everyone.csv")
+dplyr::arrange(.data = e, n_coffee)
+```
+
+```{r, eval=FALSE, engine='python'}
+import pandas as pd
+e = pd.read_csv("/mnt/27bfad9a-3474-4e61-9a43-0156ebc67d67/home/robin/ITSLeeds/TDS/sample-data/everyone.csv")
+pd.DataFrame.sort_values(e, "n_coffee")
+```
+
+```{r, eval=FALSE, echo=FALSE}
+# Sorting in the tidyverse
+library(tidyverse)
+e = read_csv("sample-data/everyone.csv")
+e %>% arrange(n_coffee)
+e %>% arrange(desc(n_coffee))
+```
+
+
+
+
+
+
+
+
+
+
+
+
 # Other projects
 
 - A book on R for Geocomputation: https://github.com/Robinlovelace/geocompr

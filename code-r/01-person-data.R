@@ -71,3 +71,5 @@ everyone = rbind(
   )
 
 mean(everyone$n_coffee)
+
+readr::write_csv(everyone, "sample-data/everyone.csv")
