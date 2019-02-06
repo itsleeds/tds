@@ -1,5 +1,5 @@
 ---
-title: "Slide title"
+title: "Software for Transport Data Science"
 subtitle: '<br/>Transport Data Science'
 author: "Robin Lovelace"
 date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
@@ -54,6 +54,9 @@ my_bib = ReadBib("../references.bib", check = FALSE)
 
 From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md):
 
+-  ## <font color="red">Gain proficiency in command-line tools for handling large transport datasets</font> 
+
+
 ```{r}
 # Understand the structure of transport datasets: spatial, temporal and demographic
 # Understand how to obtain, clean and store transport related data
@@ -61,13 +64,16 @@ From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogu
 # Learn machine learning and data modelling techniques
 # Produce data visualizations, static and interactive
 # Learn where to find large transport datasets and assess data quality
+# Learn how to join together the components of transport data science into a cohesive project portfolio 
 ```
 
-- Learn how to join together the components of transport data science into a cohesive project portfolio 
 
 ---
 
 ## Learning outcomes
+
+-  ## <font color="red">Deciding when to use local computing power vs cloud services</font> 
+
 
 ```{r}
 # Identify available datasets and access and clean them
@@ -77,99 +83,28 @@ From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogu
 # Deciding when to use local computing power vs cloud services
 ```
 
-- Articulate the relevance and limitations of data-centric analysis applied to transport problems, compared with other methods
+# This lecture will...
 
-# Citations
+- Touch on features of GUI-based and CLI-based tools
 
-Can be added as follows:
-`r Citep(my_bib, "boeing_osmnx:_2017", .opts = list(cite.style = "authoryear"))`
+--
 
-As a presentation ninja, you certainly should not be satisfied by the "Hello World" example. You need to understand more about two things:
+- Present an overview of the data science software landscape
 
-1. The [remark.js](https://remarkjs.com) library;
+--
 
-1. The **xaringan** package;
+- Talk about a few transport-related tools
 
-Basically **xaringan** injected the chakra of R Markdown (minus Pandoc) into **remark.js**. The slides are rendered by remark.js in the web browser, and the Markdown source needed by remark.js is generated from R Markdown (**knitr**).
+--
 
----
+- Demonstrate how to do data science in R
 
-# remark.js
+# First up: what are GUIs and CLIs?
 
-You can see an introduction of remark.js from [its homepage](https://remarkjs.com). You should read the [remark.js Wiki](https://github.com/gnab/remark/wiki) at least once to know how to
 
-- create a new slide (Markdown syntax<sup>*</sup> and slide properties);
+[@neteler_open_2008]
 
-- format a slide (e.g. text alignment);
-
-- configure the slideshow;
-
-- and use the presentation (keyboard shortcuts).
-
-It is important to be familiar with remark.js before you can understand the options in **xaringan**.
-
-.footnote[[*] It is different with Pandoc's Markdown! It is limited but should be enough for presentation purposes. Come on... You do not need a slide for the Table of Contents! Well, the Markdown support in remark.js [may be improved](https://github.com/gnab/remark/issues/142) in the future.]
-
----
-
-# xaringan
-
-Provides an R Markdown output format `xaringan::moon_reader` as a wrapper for remark.js, and you can use it in the YAML metadata, e.g.
-
-```yaml
----
-title: "A Cool Presentation"
-output:
-  xaringan::moon_reader
-    yolo: true
-    nature:
-      autoplay: 30000
----
-```
-
-See the help page `?xaringan::moon_reader` for all possible options that you can use.
-
----
-
-# remark.js vs xaringan
-
-Some differences between using remark.js (left) and using **xaringan** (right):
-
-.pull-left[
-1. Start with a boilerplate HTML file;
-
-1. Plain Markdown;
-
-1. Write JavaScript to autoplay slides;
-
-1. Manually configure MathJax;
-
-1. Highlight code with `*`;
-
-1. Edit Markdown source and refresh browser to see updated slides;
-]
-
-.pull-right[
-1. Start with an R Markdown document;
-
-1. R Markdown (can embed R/other code chunks);
-
-1. Provide an option `autoplay`;
-
-1. MathJax just works;<sup>*</sup>
-
-1. Highlight code with `{{}}`;
-
-1. The RStudio addin "Infinite Moon Reader" automatically refreshes slides on changes;
-]
-
-.footnote[[*] Not really. See next page.]
-
----
-
-# More on Xaringan
-
-See [here](https://slides.yihui.name/xaringan/#1)
+`r Citep(my_bib, "neteler_open_2008", .opts = list(cite.style = "authoryear"))` 
 
 
 ---
