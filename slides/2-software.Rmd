@@ -369,6 +369,8 @@ Starting point:
 vignette("stplanr-paper")
 ```
 
+@pebesma_r_2012
+
 
 ---
 
