@@ -19,6 +19,7 @@ file.edit(learning-tidyverse.R) # or
 file.edit(code/learning-tidyverse.R)
 ```
 
+
 - Read [section 5.1](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science and write code that reproduces the results in that section in the script `learning-tidyverse.R`
 
 Your script will start with something like this:
@@ -28,6 +29,45 @@ library(tidyverse)
 library(nycflights13)
 ```
 
+## Reading-in and processing coffee data
+
+Read-in the coffee data we created last week, e.g. with:
+
+```{r}
+u = paste0(
+  "https://github.com/ITSLeeds/TDS/",
+  "raw/master/sample-data/everyone.csv"
+  )
+d = read_csv(u)
+```
+
+Create a new variable called 'n_coffee_yr' with the following command:
+
+```{r}
+d$n_coffee_yr = d$n_coffee * 52
+```
+
+Find the mean number of cups of coffee people drink per year (and the total)
+
+Note: the same result can be acheived as follows:
+
+```{r}
+d = mutate(d, n_coffee_yr = n_coffee * 52)
+
+# or 
+d = d %>% 
+  mutate(n_coffee_yr = n_coffee * 52)
+```
+
+- Which do you prefer?
+
+- Filter-out only those who travel by bus
+
+- Bonus: Create a new dataset that keeps only the `person_name` and `n_coffee_yr` variables (hint: use the `select()` function)
+
+- Bonus: do those who travel by bus drink more or less coffee than those who do not?
+
+## Processing a big file and basic visualisation (30 minutes, individually)
 
 - Take a random sample of 10,000 flights and assign it to an object with the following line of code:
 
@@ -42,9 +82,6 @@ flights_sample = sample_n(flights, 1e4)
 ```{r}
 f = filter(flights, grepl(pattern = "UA|AA|DL", x = carrier))
 ```
-
-
-## Basic visualisation (30 minutes, in groups, one computer per group)
 
 - Create plots that visualise the sample flights, using code from Chapter 3 of the same book, starting with the following plot:
 
@@ -83,7 +120,9 @@ ggplot(f) +
   geom_line(aes(pred, distance))
 ```
 
-## Setting-up a reproducible document (30 minutes, individually)
+## Homework
+
+1) create a reproducible document 
 
 - Create an Rmarkdown file with the following command:
 
@@ -101,9 +140,9 @@ Help > Cheatsheets > RMarkdown
 
 - Bonus: create a GitHub repo and publish the results of of your work (hint: putting `output: github_document` may help here!)
 
-## Homework:
-
-1. Work-through the remaining exercises in R4DS chapters 3 and 5
+2) Work-through the remaining exercises in R4DS chapters 3 and 5
   - Write and R script, with comments, to show your working (and prove you've done it!)
-2. Create an RMarkdown file containing reproducible code outlining what you learned today
-3. Identify a dataset you would like to work with for the practical next week.
+
+3) Create an RMarkdown file containing reproducible code outlining what you learned today
+
+4) Identify a dataset you would like to work with for the practical next week.
