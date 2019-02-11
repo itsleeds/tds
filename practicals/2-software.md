@@ -48,6 +48,57 @@ library(tidyverse)
 library(nycflights13)
 ```
 
+## Reading-in and processing coffee data
+
+Read-in the coffee data we created last week, e.g. with:
+
+``` r
+u = paste0(
+  "https://github.com/ITSLeeds/TDS/",
+  "raw/master/sample-data/everyone.csv"
+  )
+d = read_csv(u)
+```
+
+    ## Parsed with column specification:
+    ## cols(
+    ##   person_name = col_character(),
+    ##   n_coffee = col_double(),
+    ##   like_bus_travel = col_logical()
+    ## )
+
+Create a new variable called ‘n\_coffee\_yr’ with the following command:
+
+``` r
+d$n_coffee_yr = d$n_coffee * 52
+```
+
+Find the mean number of cups of coffee people drink per year (and the
+total)
+
+Note: the same result can be acheived as follows:
+
+``` r
+d = mutate(d, n_coffee_yr = n_coffee * 52)
+
+# or 
+d = d %>% 
+  mutate(n_coffee_yr = n_coffee * 52)
+```
+
+  - Which do you prefer?
+
+  - Filter-out only those who travel by bus
+
+  - Bonus: Create a new dataset that keeps only the `person_name` and
+    `n_coffee_yr` variables (hint: use the `select()` function)
+
+  - Bonus: do those who travel by bus drink more or less coffee than
+    those who do
+not?
+
+## Processing a big file and basic visualisation (30 minutes, individually)
+
   - Take a random sample of 10,000 flights and assign it to an object
     with the following line of code:
 
@@ -68,8 +119,6 @@ flights_sample = sample_n(flights, 1e4)
 f = filter(flights, grepl(pattern = "UA|AA|DL", x = carrier))
 ```
 
-## Basic visualisation (30 minutes, in groups, one computer per group)
-
   - Create plots that visualise the sample flights, using code from
     Chapter 3 of the same book, starting with the following plot:
 
@@ -80,7 +129,7 @@ ggplot(f) +
   geom_point(aes(air_time, distance))
 ```
 
-![](2-software_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
 
   - Add transparency so it looks like this (hint: use `alpha =` in the
     `geom_point()` function
@@ -90,7 +139,7 @@ ggplot(f) +
 
     ## Warning: Removed 2117 rows containing missing values (geom_point).
 
-![](2-software_files/figure-gfm/unnamed-chunk-5-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
   - Add a colour for each carrier, so it looks something like this:
 
@@ -103,7 +152,7 @@ ggplot(f) +
 
     ## Warning: Removed 2117 rows containing missing values (geom_point).
 
-![](2-software_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
   - Bonus 1: find the average air time of those flights with a distance
     of 1000 to 2000 miles
@@ -121,9 +170,13 @@ m = lm(air_time ~ distance, data = f)
 f$pred = m$fitted.values
 ```
 
-![](2-software_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
-## Setting-up a reproducible document (30 minutes, individually)
+## Homework
+
+1)  create a reproducible document
+
+<!-- end list -->
 
   - Create an Rmarkdown file with the following command:
 
@@ -147,9 +200,9 @@ file.edit("learning-tidyverse.Rmd")
   - Bonus: create a GitHub repo and publish the results of of your work
     (hint: putting `output: github_document` may help here\!)
 
-## Homework:
+<!-- end list -->
 
-1.  Work-through the remaining exercises in R4DS chapters 3 and 5
+2)  Work-through the remaining exercises in R4DS chapters 3 and 5
 
 <!-- end list -->
 
@@ -158,7 +211,8 @@ file.edit("learning-tidyverse.Rmd")
 
 <!-- end list -->
 
-2.  Create an RMarkdown file containing reproducible code outlining what
+3)  Create an RMarkdown file containing reproducible code outlining what
     you learned today
-3.  Identify a dataset you would like to work with for the practical
+
+4)  Identify a dataset you would like to work with for the practical
     next week.
