@@ -2,7 +2,7 @@ Introduction to transport data science
 ================
 Robin Lovelace
 University of Leeds,
-2019-02-11<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
+2019-02-12<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
 ## Project set-up and tidyverse testing (30 minutes, individually)
 
