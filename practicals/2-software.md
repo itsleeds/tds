@@ -2,7 +2,7 @@ Introduction to transport data science
 ================
 Robin Lovelace
 University of Leeds,
-2019-02-12<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
+2019-02-14<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
 ## Project set-up and tidyverse testing (30 minutes, individually)
 
@@ -33,14 +33,14 @@ Your script will start with something like
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ───────────────────────────────────────────────── tidyverse 1.2.1 ──
+    ## ── Attaching packages ─────────────────────────────────── tidyverse 1.2.1 ──
 
     ## ✔ ggplot2 3.1.0     ✔ purrr   0.3.0
     ## ✔ tibble  2.0.1     ✔ dplyr   0.7.8
     ## ✔ tidyr   0.8.2     ✔ stringr 1.4.0
     ## ✔ readr   1.3.1     ✔ forcats 0.3.0
 
-    ## ── Conflicts ──────────────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
 
@@ -202,7 +202,8 @@ file.edit("learning-tidyverse.Rmd")
 
 <!-- end list -->
 
-2)  Work-through the remaining exercises in R4DS chapters 3 and 5
+2)  Work-through the remaining exercises of the first sections in R4DS
+    chapters 3 and 5
 
 <!-- end list -->
 

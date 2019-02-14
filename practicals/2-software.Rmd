@@ -140,7 +140,7 @@ Help > Cheatsheets > RMarkdown
 
 - Bonus: create a GitHub repo and publish the results of of your work (hint: putting `output: github_document` may help here!)
 
-2) Work-through the remaining exercises in R4DS chapters 3 and 5
+2) Work-through the remaining exercises of the first sections in R4DS chapters 3 and 5
   - Write and R script, with comments, to show your working (and prove you've done it!)
 
 3) Create an RMarkdown file containing reproducible code outlining what you learned today
