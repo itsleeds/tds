@@ -94,7 +94,7 @@ tm_shape(car_dep_100) +
 
 ## Homework
 
-- Work through Chapter 8 of Geocomputation with R on Transport - https://geocompr.robinlovelace.net/transport.html
+- Work through Chapter 12 of Geocomputation with R on Transport - https://geocompr.robinlovelace.net/transport.html
 - Save your workings in an R script
 
 Bonus 1 Complete exercise 1 (not bonus)

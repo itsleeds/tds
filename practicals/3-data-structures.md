@@ -94,7 +94,7 @@ desire_lines_pcar = desire_lines %>%
 
 ## Homework
 
-  - Work through Chapter 8 of Geocomputation with R on Transport -
+  - Work through Chapter 12 of Geocomputation with R on Transport -
     <https://geocompr.robinlovelace.net/transport.html>
   - Save your workings in an R script
 
