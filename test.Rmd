@@ -1,0 +1,24 @@
+---
+title: "learning-tidyverse"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Tidyverse
+
+This was **how** I set-up my project:
+
+```{r, eval=FALSE}
+library(nycflights13)
+library(dplyr)
+names(flights)
+# Were delayed by at least an hour, but made up over 30 minutes in flight
+# part 1:
+delayed_hour = flights %>% 
+  filter(dep_delay > 60)
+nrow(delayed_hour) / nrow(flights)
+```
+
