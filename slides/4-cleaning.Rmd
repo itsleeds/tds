@@ -1,0 +1,220 @@
+---
+title: "Data cleaning"
+subtitle: '<br/>🚿<br/>Transport Data Science'
+author: "Robin Lovelace"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output:
+  xaringan::moon_reader:
+    # css: ["default", "its.css"]
+    # chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+bibliography: ../references.bib
+---
+
+background-image: url(https://hedgehogcycling.co.uk/images/leeds-bradford-cycle-superhighway-2018-1.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+my_bib = ReadBib("../references.bib", check = FALSE)
+```
+
+---
+
+## This session in context
+
+ - Introduction to transport data science
+ - The structure of transport data
+ - Software for practical data science
+ -  ## <font color="red">Data cleaning and subsetting </font> 
+ - Accessing data from web sources
+ - Routing
+ - Data visualization
+ - Project work
+ - Machine learning
+ - Professional issues
+ 
+---
+
+## Objectives
+
+From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md):
+
+-  ## <font color="red">Gain proficiency in command-line tools for handling large transport datasets</font> 
+
+
+```{r}
+# Understand the structure of transport datasets: spatial, temporal and demographic
+# Understand how to obtain, clean and store transport related data
+# Gain proficiency in command-line tools for handling large transport datasets
+# Learn machine learning and data modelling techniques
+# Produce data visualizations, static and interactive
+# Learn where to find large transport datasets and assess data quality
+# Learn how to join together the components of transport data science into a cohesive project portfolio 
+```
+
+---
+
+## Learning outcomes
+
+-  ## <font color="red">Identify available datasets and access and clean them</font> 
+
+
+```{r}
+# Identify available datasets and access and clean them
+# Combine datasets from multiple sources
+# Understand what machine learning is, which problems it is appropriate for compared with traditional statistical approaches, and how to implement machine learning techniques
+# Visualise and communicate the results of transport data science, and know about setting-up interactive web applications
+# Deciding when to use local computing power vs cloud services
+```
+
+---
+
+# This lecture will...
+
+- Be primarily practical
+
+--
+
+- Teach key concepts in data cleaning
+
+--
+
+- Demonstrate how to clean a transport dataset
+
+--
+
+- Consolidate knowledge of data science in R
+
+---
+
+background-image: url()
+background-size: cover
+class: center, middle
+
+# Key concepts in data cleaning
+
+---
+
+## Data science workflow
+
+--
+
+- Data cleaning (or 'tidying' or 'wrangling') is part of a wider process 
+`r Citep(my_bib, "grolemund_r_2016", .opts = list(cite.style = "authoryear"))`
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png")
+```
+
+--
+
+- It's important to have an idea where you're heading with the analysis
+
+--
+
+- Often best to start with pen and paper
+
+---
+
+## Project management
+
+--
+
+- Data science is just one component of any project 
+`r Citep(my_bib, "gillespie_efficient_2016", .opts = list(cite.style = "authoryear"))`
+section 4.3: [csgillespie.github.io/efficientR/workflow.html](https://csgillespie.github.io/efficientR/workflow.html#project-planning-and-management)
+
+--
+
+![](https://csgillespie.github.io/efficientR/_main_files/figure-html/4-1-1.png)
+
+---
+
+## Workflow diagram of distribution
+
+![](https://www.researchgate.net/profile/Paulina_Jaramillo/publication/224559288/figure/fig1/AS:302736190001152@1449189340459/Traditional-Retail-Product-Flow-Diagram.png)
+
+---
+
+## Workflow diagrams for real: Ecommerce 
+
+![](https://www.researchgate.net/profile/Paulina_Jaramillo/publication/224559288/figure/fig2/AS:302736190001153@1449189340579/E-commerce-Product-Flow-Diagram.png)
+
+---
+
+## A transport data science workflow
+
+.pull-left[
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/flow-model/flow-diag2.png")
+```
+
+]
+
+
+.pull-right[
+
+Source: `r Citet(my_bib, "lovelace_propensity_2017", .opts = list(cite.style = "authoryear"))`
+
+- Much of the 'legwork' was data cleaning
+
+- Hours spent cleaning data at the project outset saved many hours later on
+
+- Result: http://www.pct.bike/
+
+]
+
+---
+
+# The data source 
+
+- For reproducibility always link to the data source
+
+- Keep a copy of the input dataset
+
+- Save intermediate 'clean' datasets in appropriate formats
+
+---
+
+background-image: url()
+background-size: cover
+class: center, middle
+
+## A demo with a 'toy' tidyverse dataset
+
+
+
+---
+
+background-image: url()
+background-size: cover
+class: center, middle
+
+## A demo with an origin-destination dataset
+
+
+
+
+---
+
+# References
+
+```{r, 'refs', results="asis", echo=FALSE}
+PrintBibliography(my_bib)
+# RefManageR::WriteBib(my_bib, "refs-geostat.bib")
+```
