@@ -91,6 +91,19 @@ names(d)[5] = "metro"
   - Create a subset that contains only od pairs with origins and
     destinations in Leeds
 
+**Bonus: Convert the origin-destination data you have of Leeds into
+desire lines**, e.g. with:
+
+``` r
+desire_lines = stplanr::od2line(flow = d_leeds_origins, zones)
+desire_top = desire_lines %>% top_n(100, bicycle)
+plot(desire_top)
+```
+
+``` r
+mapview::mapview(desire_top)
+```
+
 ## Working on your own datset / project portfolio
 
   - Identify, download and clean a dataset to include in your coursework
