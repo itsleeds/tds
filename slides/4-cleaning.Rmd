@@ -195,19 +195,7 @@ background-image: url()
 background-size: cover
 class: center, middle
 
-## A demo with a 'toy' tidyverse dataset
-
-
-
----
-
-background-image: url()
-background-size: cover
-class: center, middle
-
-## A demo with an origin-destination dataset
-
-
+## Practical demo
 
 
 ---
