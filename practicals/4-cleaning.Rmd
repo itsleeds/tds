@@ -86,4 +86,8 @@ mapview::mapview(desire_top)
 
 - Identify, download and clean a dataset to include in your coursework portfolio .Rmd document
 
+## Homework
+
+- Consolidate your knowledge of data cleaning by adding reproducible data cleaning code to your in-progress project portfolio.
+
 
