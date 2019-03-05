@@ -61,9 +61,14 @@ names(d)[5] = "metro"
 - Create a subset of the object `d` called `d_leeds_origins` that only contains routes that originate in leeds
 
 ```{r, eval=FALSE, echo=FALSE}
-summary(zones$geo_code %in% d$area_of_residence)
+head(zones$geo_code)
+head(d$area_of_residence)
+
+summary(d$area_of_residence %in% zones$geo_code)
+
 d_leeds_origins = d %>% 
   filter(area_of_residence %in% zones$geo_code)
+zones
 ```
 
 - Create a subset that contains only od pairs with origins and destinations in Leeds
@@ -74,6 +79,8 @@ d_leeds_origins = d %>%
 desire_lines = stplanr::od2line(flow = d_leeds_origins, zones)
 desire_top = desire_lines %>% top_n(100, bicycle)
 plot(desire_top)
+sum(d$all_categories_method_of_travel_to_work) /
+  (52e6)
 ```
 
 ```{r, eval=FALSE}
