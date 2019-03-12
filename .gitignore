@@ -11,3 +11,7 @@ slides/*files*
 *.pdf
 *.geojson
 *gpx*
+*.csv
+*.xls
+*.zip
+*.Rds
