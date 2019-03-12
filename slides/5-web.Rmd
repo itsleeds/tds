@@ -94,17 +94,10 @@ From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogu
 
 - Show how R packages and web services provide access to some datasets
 
----
-
-background-image: url()
-background-size: cover
-class: center, middle
-
-# A typology of data sources
 
 ---
 
-## Data science workflow
+## Recap on data access/cleaning in workflow
 
 --
 
@@ -125,65 +118,13 @@ knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d
 
 ---
 
-## Project management
+## Data access/cleaning vs fidling
 
---
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Tapson&#39;s Rules of Machine Learning:<br>4. Time spent on data cleaning is an order of magnitude more productive than time spent on hyperparameter tuning.<br><br>(Extreme example: achieved a Top 10 result in Kaggle using linear regression, as the only team that cleaned 50/60Hz noise first.)</p>&mdash; Jonathan Tapson (@jontapson) <a href="https://twitter.com/jontapson/status/1103024752019402753?ref_src=twsrc%5Etfw">March 5, 2019</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
-- Data science is just one component of any project 
-`r Citep(my_bib, "gillespie_efficient_2016", .opts = list(cite.style = "authoryear"))`
-section 4.3: [csgillespie.github.io/efficientR/workflow.html](https://csgillespie.github.io/efficientR/workflow.html#project-planning-and-management)
+Source: https://twitter.com/jontapson/status/1103024752019402753
 
---
-
-![](https://csgillespie.github.io/efficientR/_main_files/figure-html/4-1-1.png)
-
----
-
-## Workflow diagram of distribution
-
-![](https://www.researchgate.net/profile/Paulina_Jaramillo/publication/224559288/figure/fig1/AS:302736190001152@1449189340459/Traditional-Retail-Product-Flow-Diagram.png)
-
----
-
-## Workflow diagrams for real: Ecommerce 
-
-![](https://www.researchgate.net/profile/Paulina_Jaramillo/publication/224559288/figure/fig2/AS:302736190001153@1449189340579/E-commerce-Product-Flow-Diagram.png)
-
----
-
-## A transport data science workflow
-
-.pull-left[
-
-
-```{r, echo=FALSE}
-knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/flow-model/flow-diag2.png")
-```
-
-]
-
-
-.pull-right[
-
-Source: `r Citet(my_bib, "lovelace_propensity_2017", .opts = list(cite.style = "authoryear"))`
-
-- Much of the 'legwork' was data cleaning
-
-- Hours spent cleaning data at the project outset saved many hours later on
-
-- Result: http://www.pct.bike/
-
-]
-
----
-
-# The data source 
-
-- For reproducibility always link to the data source
-
-- Keep a copy of the input dataset
-
-- Save intermediate 'clean' datasets in appropriate formats
 
 ---
 
@@ -191,8 +132,43 @@ background-image: url()
 background-size: cover
 class: center, middle
 
-## Practical demo
+# A typology of data sources
 
+---
+
+## Many places to get data
+
+'Data pyramid' concept is useful
+
+- Official sources are often smaller in sizes but higher in Quality
+
+- Unofficial sources provide higher volumes but tend to be noisy, e.g.: https://onlinelibrary.wiley.com/doi/full/10.1111/gean.12081
+
+- Another way to classify data is by geographic location
+
+- Globally available datasets would be at the bottom of this pyramid; local surveys at the top.
+
+Source: https://geocompr.robinlovelace.net/read-write.html
+
+
+- Which would be best to inform policy?
+
+---
+
+# Practical demo
+
+
+---
+
+## Getting data demo
+
+- Getting data from OSM: overpass turbo
+
+- Data from stats19
+
+- Data from the Census
+
+- Bonus: getting data from Uber
 
 ---
 
