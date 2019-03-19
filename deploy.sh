@@ -1,9 +1,17 @@
-cp -Rv slides /tmp
+git clone git@github.com:itsleeds/TDS
+cd TDS
 git checkout gh-pages
-cp -Rv /tmp/slides/* slides/
-git status
-git add slides/* slides/libs
-git commit -am 'Add slides'
+ls # check contents
+cd ..
+
+cp -Rv slides/* TDS/slides/
+cp -Rv practicals/* TDS/practicals/
+
+cd TDS
+# git diff
+git add -A
+git commit -am 'update site'
 git push origin gh-pages
 git clean -f
-git checkout master
+
+cd ..
