@@ -1,0 +1,86 @@
+---
+title: "Data Visualisation"
+subtitle: '<br/>Practical'
+author: "Robin Lovelace"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output: github_document
+bibliography: ../references.bib
+---
+
+## Review of homework exercise: demo then individual Q&A
+
+```{r}
+library(tidyverse)
+library(stplanr)
+library(sf)
+```
+
+
+
+## Exercises: group
+
+1. Create a map showing the number of people walking in the `stplanr` dataset `flowlines_sf` using:
+-base graphics (hint: use `plot()`) and
+-**tmap** (hint: use `tm_shape(flowlines_sf) + ...`, `palette = "viridis"` and other options shown in `tmaptools::palette_explorer()` give different colourschemes).
+    - Name two advantages of each approach
+    - Bonus: What three other mapping packages could be used to show the same data?
+    
+
+## Result: base graphics
+    
+```{r, echo=FALSE, out.width="70%", fig.show='hold', message=FALSE}
+library(stplanr)
+lwd = flowlines_sf$All / mean(flowlines_sf$All) * 3
+plot(flowlines_sf["Taxi"], lwd = lwd)
+
+```
+
+## Result: tmap
+
+```{r, message=FALSE, echo=FALSE}
+library(tmap)
+tmap_mode("view")
+tm_shape(flowlines_sf) +
+  tm_lines(col = "Taxi", lwd = "All", scale = 9, palette = "viridis")
+```
+
+
+
+## Exercises: Individual
+
+- Based on the `routes_fast_sf` data in the `stplanr` package, identify roads where investment in cycling is likely to be effective.
+
+Starting point:
+
+```{r}
+nrow(flowlines_sf)
+nrow(routes_fast_sf)
+# routes_fast_sf = dplyr::inner_join(routes_fast_sf, flow)
+routes_fast_sf = cbind(routes_fast_sf, flowlines_sf)
+```
+
+
+
+## sf results
+
+```{r, echo=FALSE}
+plot(routes_fast_sf["Bicycle"], lwd = routes_fast_sf$All / 50)
+```
+
+
+
+## tmap 'view mode' results
+
+```{r, echo=FALSE}
+tm_shape(routes_fast_sf) +
+  tm_lines(col = "Bicycle", lwd = "All", scale = 9, palette = "RdYlBu")
+```
+
+
+
+## Exercises bonus (optional)
+
+- Using data in the `pct` github package, estimate cycling potential in a city of your choice in the UK, and show the results.
+
+- Work on your portfolios, adding a new visualisation
+
