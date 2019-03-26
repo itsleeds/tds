@@ -1,0 +1,354 @@
+---
+title: "Visualising transport data"
+subtitle: "`r emojifont::emoji('world_map')` <br/>from base (rock) to shiny (clouds)"
+author: "Robin Lovelace"
+date: "`r Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+#      highlightStyle: dracula
+      highlightLines: true
+      ratio: '4:3'
+      countIncrementalSlides: false
+bibliography: viz-references.bib
+---
+
+
+```{r setup, include = FALSE}
+download.file("https://raw.githubusercontent.com/jannes-m/erum18_geocompr/master/pres/rmd/viz-references.bib", "viz-references.bib")
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+if(dir.exists("pres"))
+  f_ref = "pres/rmd/viz-references.bib" else
+    f_ref = "viz-references.bib"
+my_bib = ReadBib(f_ref, check = FALSE)
+```
+
+layout: true
+background-image: url(img/r_geocomp_background.png)
+background-size: cover
+
+---
+
+# A brief history of vizualisation I
+
+- Neo Babylonian (626 BC - 539 BC) temple plan
+Source:
+`r Citep(my_bib, "talbert_ancient_2014", .opts = list(cite.style = "authoryear"))`
+
+```{r, echo=FALSE, out.width="50%"}
+knitr::include_graphics("https://geocompr.github.io/workshops/erum2018/img/neo-babylon-temple-map-circa-600-bc.png")
+```
+
+---
+
+# A brief history of vizualisation II
+
+- Neo Babylonian (626 BC - 539 BC) map of the world
+Source:
+`r Citep(my_bib, "talbert_ancient_2014", .opts = list(cite.style = "authoryear"))`
+
+```{r, echo=FALSE, out.width="50%"}
+knitr::include_graphics("https://geocompr.github.io/workshops/erum2018/img/babylon-map.png")
+```
+
+---
+
+# A brief history of geographic vizualisation III
+
+- Humboldt's Naturgemälde (1807, *Geography of Plants*)
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg/2560px-Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg")
+```
+
+
+<!-- - The mappa mundi - largest Mediaval map surviving (~1300 **AD**) -->
+<!-- knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/4/48/Hereford-Karte.jpg?download") -->
+
+---
+
+## Good, bad, ugly, wrong
+
+- Aim must be good graphics, but first it's important to avoid pitfalls
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://serialmentor.com/dataviz/introduction_files/figure-html/ugly-bad-wrong-examples-1.png")
+```
+
+---
+
+
+## What is data visualisation?
+
+> Data visualization is part art and part science. The challenge is to get the art right without getting the science wrong and vice versa. A data visualization first and foremost has to accurately convey the data. 
+
+--
+
+> In my experience, scientists frequently (though not always!) know how to visualize data without being grossly misleading. However, they may not have a well developed sense of visual aesthetics, and they may inadvertantly make visual choices that detract from their desired message. Designers, on the other hand, may prepare visualizations that look beautiful but play fast and loose with the data.
+
+Source: [Fundamentals of Data Vizualisation](https://serialmentor.com/dataviz/)
+
+---
+
+# A brief history of geographic data viz in R
+
+"The core R engine was not designed specifically for the display and analysis
+of maps, and the limited interactive facilities it offers have drawbacks in this
+area" `r Citep(my_bib, "bivand_applied_2013", .opts = list(cite.style = "authoryear"))`.
+
+--
+
+Five years later...
+
+--
+
+"An example showing R's flexibility and evolving geographic capabilities is **leaflet**
+`r Citep(my_bib, "R-leaflet", .opts = list(cite.style = "authoryear"))`,
+a package for making interactive maps that has been extended by the R community, as we'll see in Chapter 9" 
+`r Citep(my_bib, "lovelace_geocomputation_2018a", .opts = list(cite.style = "authoryear"))`.
+
+---
+
+# R's 'base' graphics: sp
+
+```{r, echo=FALSE, eval=FALSE}
+# from asdar:
+library(sp)
+data(meuse)
+coordinates(meuse) = c("x", "y")
+#layout(matrix(1:4, 2, 2, byrow = TRUE))
+layout(matrix(1:4, 1, 4, byrow = TRUE))
+par(mar = c(0,0,1,0))
+plot(meuse, cex = 0.6)
+title("points")
+cc = coordinates(meuse)
+m.sl = SpatialLines(list(Lines(list(Line(cc)), "mess")))
+plot(m.sl)
+title("lines")
+data(meuse.riv)
+meuse.lst = list(Polygons(list(Polygon(meuse.riv)), "meuse.riv"))
+meuse.pol = SpatialPolygons(meuse.lst)
+plot(meuse.pol, col = "grey")
+title("polygons")
+data(meuse.grid)
+coordinates(meuse.grid) = c("x", "y")
+meuse.grid <- as(meuse.grid, "SpatialPixels")
+image(meuse.grid, col = "grey")
+title("grid")
+```
+
+```{r, echo=FALSE, message=FALSE}
+library(sp)
+library(sf)
+library(spData)
+layout(matrix(1:3, 1, 3, byrow = TRUE))
+nz_sp = as(nz, "Spatial")
+nz_height_sp = as(nz_height, "Spatial")
+plot(nz_height_sp, cex = 2)
+title("points")
+plot(nz_sp, col = "grey")
+plot(nz_sp)
+plot(nz_height_sp, add = TRUE, col = "red")
+```
+
+---
+
+# Base R graphics: sp code
+
+Credit: [asdar-book.org/](http://asdar-book.org/), reproducible code accompanying the book Applied Spatial Data Analysis with R (Pebesma et al. 2013).
+
+```{r, eval=FALSE}
+library(sp)
+library(spData)
+nz_sp = as(nz, "Spatial")
+plot(nz_height_sp, cex = 2)
+title("points")
+plot(nz_sp, col = "grey")
+plot(nz_height, add = TRUE, col = "red")
+```
+
+--
+
+## Observations
+
+- Passes arguments (e.g `cex` for symbol size) to `graphics::plot()`
+- New command for each additional 'layer' (e.g. `title()`, `plot(..., add = TRUE)`)
+- Black and white default output style
+- Fast
+
+---
+
+# Base R graphics: sf 
+
+```{r}
+plot(nz)
+```
+
+---
+
+# Base R graphics: sf II
+
+```{r, fig.cap=" ", fig.show='hold', out.width="40%"}
+plot(st_geometry(nz))
+plot(nz_height, add = TRUE)
+sf_cols = sf.colors(n = 2, alpha = 0.2)
+nz$col = factor(x = nz$Island, labels = sf_cols)
+plot(st_geometry(nz), col = as.character(nz$col))
+```
+
+---
+
+# sf graphics: code
+
+```{r, eval=FALSE}
+# facet plots by default
+plot(nz) 
+# plot just geometry, ready for new layers:
+plot(st_geometry(nz), reset = FALSE)
+# addition of new layers
+plot(nz_height, add = TRUE)
+# transparency
+sf_cols = sf.colors(n = 2, alpha = 0.2)
+nz$col = factor(x = nz$Island, labels = sf_cols)
+plot(st_geometry(nz), col = as.character(nz$col))
+#  see ?plot.sf for more
+```
+
+--
+
+## Observations
+
+- Facets by default: useful for seeing patterns.
+- Transparency new, `add = ...` argument the sam.e
+- You can go far with base R graphics 
+`r Citep(my_bib, "murrell_graphics_2016", .opts = list(cite.style = "authoryear"))`.
+
+---
+
+# tmap
+
+- A diverse dedicated mapping R package
+
+```{r}
+library(tmap)
+tm_shape(nz) +
+  tm_polygons("Median_income", palette = "RdYlBu")
+```
+
+---
+
+# Why tmap?
+
+- It is powerful and flexible.
+- Concise syntax, attractive maps with minimal code, familiar to **ggplot2** users.
+- Unique capability: same code -> static + interactive maps with switch `tmap_mode()`.
+- Wide range of spatial classes (including `raster` objects) supported.
+- Well documented + developed --- see [`tmap-nutshell`](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html) and JSS paper
+`r Citep(my_bib, "tennekes_tmap_2018", .opts = list(cite.style = "authoryear"))`.
+
+
+---
+
+# tmap basics
+
+```{r, fig.cap="tmap basics", out.width="32%", fig.show='hold'}
+# Add fill layer to nz shape
+tm_shape(nz) + tm_fill() 
+# Add border layer to nz shape
+tm_shape(nz) + tm_borders() 
+# Add fill and border layers to nz shape
+tm_shape(nz) + tm_fill() + tm_borders() 
+```
+
+<!-- --- -->
+
+<!-- # tmap objects -->
+
+<!-- --- -->
+
+<!-- # Aesthetics -->
+
+<!-- --- -->
+
+<!-- # Layouts -->
+
+<!-- --- -->
+
+<!-- # Facets -->
+
+<!-- --- -->
+
+---
+
+# Animations
+
+- Are easy with **tmap** (section [9.3](http://geocompr.robinlovelace.net/adv-map.html#animated-maps) of geocompr)
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://user-images.githubusercontent.com/1825120/38543030-5794b6f0-3c9b-11e8-9da9-10ec1f3ea726.gif")
+```
+
+---
+
+# Interactive maps with mapview
+
+```{r}
+m = mapview::mapview(nz)
+m@map
+```
+
+---
+
+# Web mapping applications
+
+- Leaflet integrates with **shiny** via `leaflet::leafletOutput()`, enabling web mapping applications built on R
+- These can be set-up to scale nationally, as illustrated by [pct.bike](http://www.pct.bike/)
+`r Citep(my_bib, "lovelace_propensity_2017", .opts = list(cite.style = "authoryear"))`.
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/figures/pct-frontpage.png")
+```
+
+---
+
+# Exercises
+
+1. Create a map showing the geographic distribution of the Human Development Index (`HDI`) across Africa with 
+-base graphics (hint: use `plot()`) and
+-**tmap** (hint: use `tm_shape(africa) + ...`).
+    - Name two advantages of each approach
+    - Bonus: What three other mapping packages could be used to show the same data?
+    
+--
+
+## Starting point for the exercise:
+
+```{r, message=FALSE}
+library(sf)
+library(spData)
+library(tidyverse)
+africa = world %>% 
+  filter(continent == "Africa", !is.na(iso_a2)) %>% 
+  left_join(worldbank_df, by = "iso_a2") %>% 
+  select(name, subregion, gdpPercap, HDI, pop_growth) %>% 
+  st_transform("+proj=aea +lat_1=20 +lat_2=-23 +lat_0=0 +lon_0=25")
+```
+
+---
+
+class: small
+# References
+
+```{r, 'refs', results="asis", echo=FALSE}
+PrintBibliography(my_bib)
+```
