@@ -251,7 +251,9 @@ For other datasets, search online! Good starting points in your research may be:
 # Practical demo
 
 
-Todo: add link to practical exercise---
+Todo: add link to practical exercise
+
+---
 
 ## Getting data demo
 

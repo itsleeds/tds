@@ -16,3 +16,4 @@ slides/*files*
 *.zip
 *.Rds
 TDS
+slides/references.bib
