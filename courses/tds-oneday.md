@@ -1,86 +1,60 @@
 
-# Transport Data Science with R
+Transport Data Science with R
+=============================
 
-## Dates and prices
+Dates and prices
+----------------
 
 Next on: 5<sup>th</sup> April.
 
 | Delegate type  | Price (£ early bird) | Price (£) |
-| -------------- | :------------------- | :-------- |
+|----------------|:---------------------|:----------|
 | Private sector | 400                  | 450       |
 | Public sector  | 300                  | 350       |
 | Student        | 200                  | 250       |
 
-For booking, see here:
-<https://store.leeds.ac.uk/conferences-and-events/environment/geography/transport-data-science-with-r-2019>
+For booking, see here: <https://store.leeds.ac.uk/conferences-and-events/environment/geography/transport-data-science-with-r-2019>
 
 <!-- ![](../figures/costs1.png) -->
+Overview
+--------
 
-## Overview
+This course teaches two skill-sets that are fundamental in modern transport research: programming and data analytics. Combining these enables powerful transport planning and analysis workflows for tackling a wide range of problems, including:
 
-This course teaches two skill-sets that are fundamental in modern
-transport research: programming and data analytics. Combining these
-enables powerful transport planning and analysis workflows for tackling
-a wide range of problems, including:
+-   How to find, download and import a range of transport datasets?
+-   How to develop automated and reproducible transport planning workflows?
+-   How can increasingly available datasets on air quality, traffic and active travel be used to inform policy?
+-   How to visualise results in an attractive and potentially on-line and interactive manner?
 
-  - How to find, download and import a range of transport datasets?
-  - How to develop automated and reproducible transport planning
-    workflows?
-  - How can increasingly available datasets on air quality, traffic and
-    active travel be used to inform policy?
-  - How to visualise results in an attractive and potentially on-line
-    and interactive manner?
+This course will provide tools, code, data and, above all, face-to-face teaching to answer these questions and more, with the statistical programming language R. The data science approach opens a world of possibilities for generating insight from your transport datasets. The for researchers in the public sector, academia and industry.
 
-This course will provide tools, code, data and, above all, face-to-face
-teaching to answer these questions and more, with the statistical
-programming language R. The data science approach opens a world of
-possibilities for generating insight from your transport datasets. The
-for researchers in the public sector, academia and industry.
-
-## Learning objectives
+Learning objectives
+-------------------
 
 By the end of the course, you will be able to:
 
-  - Find, download and import a variety of transport datasets, including
-    from OpenStreetMap and government data portals
-  - Work with, analyse and model transport data with spatial, temporal
-    and demographic attributes
-  - Work with air polution data in R and compare with transport
-    behaviours
-  - Generate and analyse route networks for transport planning with
-    reference to:
-      - Origin-destination (OD) data
-      - Geographic desire lines
-      - Route allocation using different routing services
-      - Route network generation and analysis
+-   Find, download and import a variety of transport datasets, including from OpenStreetMap and government data portals
+-   Work with, analyse and model transport data with spatial, temporal and demographic attributes
+-   Work with air polution data in R and compare with transport behaviours
+-   Generate and analyse route networks for transport planning with reference to:
+    -   Origin-destination (OD) data
+    -   Geographic desire lines
+    -   Route allocation using different routing services
+    -   Route network generation and analysis
 
-## Pre-requisites and location
+Pre-requisites and location
+---------------------------
 
-Prior experience with transport datasets a pre-requisite for the course.
-Attendees are expected to:
+Prior experience with transport datasets a pre-requisite for the course. Attendees are expected to:
 
-  - Be comfortable with the use of R, using it for everyday data
-    analysis tasks (you will find DataCamp’s free [Introduction to
-    R](https://www.datacamp.com/courses/free-introduction-to-r) easy)
-  - Have experience with transport datasets and understand their
-    structure (you will be familiar with the contents of the [Transport
-    chapter](https://geocompr.robinlovelace.net/transport.html) in
-    Geocomputation with R)
+-   Be comfortable with the use of R, using it for everyday data analysis tasks
+    -   **Important: you should have completed the [Introduction to R DataCamp Course](https://www.datacamp.com/courses/free-introduction-to-r), especially if you are not an experienced R user**
+    -   **You should ensure your R installation is up-to-date and be able to reproduce the map below**
+-   Have experience with transport datasets and understand their structure (you will be familiar with the contents of the [Transport chapter](https://geocompr.robinlovelace.net/transport.html) in Geocomputation with R)
 
-Participants are expected to brush-up on their knowledge before the
-course, for example by completing the exercises linked-to in the bullet
-points above.
+Participants are expected to brush-up on their knowledge before the course, for example by completing the exercises linked-to in the bullet points above.
 
-In terms of **software**, with RStudio installed will be available for
-course attendees. The following packages should be installed prior to
-attending the course: However, for maximum benefit, **we recommend
-participants bring their own laptops**, with a recent version of R
-installed (3.5.0 or later). Steps to set-up a suitable R/RStudio
-environment are described in sections
-[2.3](https://csgillespie.github.io/efficientR/set-up.html#r-version)
-and [2.5](https://csgillespie.github.io/efficientR/set-up.html#rstudio)
-of the book [Efficient R
-Programming](https://csgillespie.github.io/efficientR/set-up.html).
+In terms of **software**, with RStudio installed will be available for course attendees. The following packages should be installed prior to attending the course: However, for maximum benefit, **we recommend participants bring their own laptops**, with a recent version of R installed (3.5.0 or later). Steps to set-up a suitable R/RStudio environment are described in sections [2.3](https://csgillespie.github.io/efficientR/set-up.html#r-version) and [2.5](https://csgillespie.github.io/efficientR/set-up.html#rstudio) of the book [Efficient R Programming](https://csgillespie.github.io/efficientR/set-up.html).
 
 ``` r
 install.packages(c(
@@ -93,10 +67,7 @@ install.packages(c(
 ))
 ```
 
-You can test your computer is ready for the course by **running the
-commands below**. The resulting interactive map shows a good route (in
-light blue in the image below) from Leeds station to the Worsley
-Building (the course takes place on Level 11 of the building):
+You can test your computer is ready for the course by **running the commands below**. The resulting interactive map shows a good route (in light blue in the image below) from Leeds station to the Worsley Building (the course takes place on Level 11 of the building):
 
 ``` r
 library(osmdata)
@@ -114,114 +85,76 @@ tm_shape(route) +
   tm_view(basemaps = leaflet::providers$OpenStreetMap)
 ```
 
-![](tds-oneday_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
+![](https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/tds-oneday_files/figure-gfm/unnamed-chunk-2-1.png)
 
-## Background reading
+Background reading
+------------------
 
-It would be useful if participants could acquaint themselves with the
-following resources.
+It would be useful if participants could acquaint themselves with the following resources.
 
-  - Efficient R Programming: (ERP for short, with section numbers linked
-    e.g. ERP 1.5.2) is a book and online resource (at
-    [csgillespie.github.io/efficientR](https://csgillespie.github.io/efficientR))
-    on using R effectively (Gillespie and Lovelace 2016).
+-   Efficient R Programming: (ERP for short, with section numbers linked e.g. ERP 1.5.2) is a book and online resource (at [csgillespie.github.io/efficientR](https://csgillespie.github.io/efficientR)) on using R effectively (Gillespie and Lovelace 2016).
 
-  - Introducing stplanr: an introductory vignette on **stplanr**,
-    accessible via the following command (assuming **stplanr** is
-    installed):
-
-<!-- end list -->
+-   Introducing stplanr: an introductory vignette on **stplanr**, accessible via the following command (assuming **stplanr** is installed):
 
 ``` r
 vignette("introducing-stplanr")
 ```
 
-  - R for Data Science (R4DS): A book and online resource we use to
-    teach R objects (also of wider insterest): <http://r4ds.had.co.nz>
+-   R for Data Science (R4DS): A book and online resource we use to teach R objects (also of wider insterest): <http://r4ds.had.co.nz>
 
-## Agenda
+Agenda
+------
 
-  - Registration and refreshments (09:00 - 09:20)
+-   Registration and refreshments (09:00 - 09:20)
+-   Getting set-up in the cluster (09:20 - 09:30)
 
-  - Getting set-up in the cluster (09:20 - 09:30)
-
-  - Finding, downloading, importing transport data (09:30 - 11:00)
-    
-      - An overview of data portals
-      - Origin-destination data
-      - OpenStreetMap data
-      - Other data sources
+-   Finding, downloading, importing transport data (09:30 - 11:00)
+    -   An overview of data portals
+    -   Origin-destination data
+    -   OpenStreetMap data
+    -   Other data sources
 
 **11:00 - 11:10 Coffee break**
 
-  - Working with spatio-temporal data (11:10 - 12:30)
-      - Introduction to STATS19
-      - Temporal analysis
-      - Spatial analysis
-      - Analysis and modelling
+-   Working with spatio-temporal data (11:10 - 12:30)
+    -   Introduction to STATS19
+    -   Temporal analysis
+    -   Spatial analysis
+    -   Analysis and modelling
 
 **LUNCH: 12:30 - 13:30**
 
-  - Traffic data and pollution analysis with R (13:30 - 15:30, delivered
-    by [Dr James Tate](http://www.its.leeds.ac.uk/people/j.tate))
-      - An introduction to the **openair** package
-      - Traffic count data
-      - Meteorological data
-      - Air pollution data: daily, weekly and seasonal variability
-      - Visualising air pollution data and next steps
+-   Traffic data and pollution analysis with R (13:30 - 15:30, delivered by [Dr James Tate](http://www.its.leeds.ac.uk/people/j.tate))
+    -   An introduction to the **openair** package
+    -   Traffic count data
+    -   Meteorological data
+    -   Air pollution data: daily, weekly and seasonal variability
+    -   Visualising air pollution data and next steps
 
 **15:30 - 15:45 Refreshments**
 
-  - From desire lines to route networks (15:45 - 16:45)
-      - Handling OD data
-      - Creating ‘desire lines’ from OD and zone data
-      - Route allocation and route network creation
-      - Route network analysis (comparing with other datasets)
-  - Discussion and applying the methods to your data (16:00 onwards)
+-   From desire lines to route networks (15:45 - 16:45)
+    -   Handling OD data
+    -   Creating 'desire lines' from OD and zone data
+    -   Route allocation and route network creation
+    -   Route network analysis (comparing with other datasets)
+-   Discussion and applying the methods to your data (16:00 onwards)
 
 ### Course tutors
 
-**[Robin Lovelace](http://robinlovelace.net/)** is a researcher at the
-Leeds Institute for Transport Studies
-([ITS](http://www.its.leeds.ac.uk/)) and the Leeds Institute for Data
-Analytics ([LIDA](http://lida.leeds.ac.uk/about-lida/contact/)). Robin
-has many years of experience of using R for academic research and has
-taught numerous R courses at all levels. He has developed popular R
-resources including the popular books [Efficient R
-Programming](http://shop.oreilly.com/product/0636920047995.do)
-(Gillespie and Lovelace 2016), [Spatial Microsimulation with
-R](https://github.com/Robinlovelace/spatial-microsim-book) (Lovelace and
-Dumont 2016), and [Geocomputation with
-R](https://geocompr.robinlovelace.net/) (Lovelace et al. 2019).
+**[Robin Lovelace](http://robinlovelace.net/)** is a researcher at the Leeds Institute for Transport Studies ([ITS](http://www.its.leeds.ac.uk/)) and the Leeds Institute for Data Analytics ([LIDA](http://lida.leeds.ac.uk/about-lida/contact/)). Robin has many years of experience of using R for academic research and has taught numerous R courses at all levels. He has developed popular R resources including the popular books [Efficient R Programming](http://shop.oreilly.com/product/0636920047995.do) (Gillespie and Lovelace 2016), [Spatial Microsimulation with R](https://github.com/Robinlovelace/spatial-microsim-book) (Lovelace and Dumont 2016), and [Geocomputation with R](https://geocompr.robinlovelace.net/) (Lovelace et al. 2019).
 
-These skills have been applied on a number of projects with real-world
-applications, including the [Propensity to Cycle
-Tool](http://www.pct.bike/), a nationally scalable interactive online
-mapping application, and the
-[**stplanr**](https://github.com/ropensci/stplanr) package.
+These skills have been applied on a number of projects with real-world applications, including the [Propensity to Cycle Tool](http://www.pct.bike/), a nationally scalable interactive online mapping application, and the [**stplanr**](https://github.com/ropensci/stplanr) package.
 
-**[James Tate](http://www.its.leeds.ac.uk/people/j.tate)** is a vehicle
-emissions and air quality expert focussing on the impacts of road
-transport on the environment. He has developed and deployed new
-approaches to survey and model the emission performance of the UK/ EU
-road transport fleet. James has been using R as the primary tool in his
-data analysis workflow for a decade and has developed popular modules
-teaching R to Master’s students in ITS.
+**[James Tate](http://www.its.leeds.ac.uk/people/j.tate)** is a vehicle emissions and air quality expert focussing on the impacts of road transport on the environment. He has developed and deployed new approaches to survey and model the emission performance of the UK/ EU road transport fleet. James has been using R as the primary tool in his data analysis workflow for a decade and has developed popular modules teaching R to Master's students in ITS.
 
 ### Further information & how to book
 
-The course will be held in the Leeds Institute for Data Analytics (see
-[lida.leeds.ac.uk/about-lida/contact/](http://lida.leeds.ac.uk/about-lida/contact/)
-for details and a map).
+The course will be held in the Leeds Institute for Data Analytics (see [lida.leeds.ac.uk/about-lida/contact/](http://lida.leeds.ac.uk/about-lida/contact/) for details and a map).
 
-The course is open to ITS Masters and PhD students, and external
-delegates. The fee includes learning materials, lunch and refreshments
-during the course, but not overnight accommodation. The course is also
-available as bespoke or in-company training.
+The course is open to ITS Masters and PhD students, and external delegates. The fee includes learning materials, lunch and refreshments during the course, but not overnight accommodation. The course is also available as bespoke or in-company training.
 
-Course bookings and other enquiries can be made via a booking form
-available from
-[http://www.its.leeds.ac.uk/courses/cpd/how-to-book/](its.leeds.ac.uk/courses/cpd/how-to-book/).
+Course bookings and other enquiries can be made via a booking form available from [http://www.its.leeds.ac.uk/courses/cpd/how-to-book/](its.leeds.ac.uk/courses/cpd/how-to-book/).
 
 For enquiries please contact the Short Courses Co-ordinator:
 
@@ -229,22 +162,13 @@ Email: Kylie Norman <K.R.Norman@leeds.ac.uk>
 
 ### References
 
-Lovelace, Robin, and Morgane Dumont. 2016. Spatial Microsimulation with
-R. Available from [CRC
-Press](https://www.crcpress.com/Spatial-Microsimulation-with-R/Lovelace-Dumont/9781498711548).
+Lovelace, Robin, and Morgane Dumont. 2016. Spatial Microsimulation with R. Available from [CRC Press](https://www.crcpress.com/Spatial-Microsimulation-with-R/Lovelace-Dumont/9781498711548).
 
-Gillespie, C., Lovelace, R., 2016. Efficient R Programming: A Practical
-Guide to Smarter Programming. Available from [O’Reilly
-Media](http://shop.oreilly.com/product/0636920047995.do).
+Gillespie, C., Lovelace, R., 2016. Efficient R Programming: A Practical Guide to Smarter Programming. Available from [O’Reilly Media](http://shop.oreilly.com/product/0636920047995.do).
 
-Lovelace, R., Nowosad, J., Muenchow, J., 2019. Geocomputation with R.
-CRC
-Press.
+Lovelace, R., Nowosad, J., Muenchow, J., 2019. Geocomputation with R. CRC Press.
 
 <!-- Background reading “A (very) short introduction to R”, Paul Torfs & Claudia Brauer -->
-
 <!-- http://cran.r-project.org/doc/contrib/Torfs+Brauer-Short-R-Intro.pdf -->
-
 <!-- ### Course home-page -->
-
 <!-- For more information on the course, please see here: https://github.com/Robinlovelace/Creating-maps-in-R -->

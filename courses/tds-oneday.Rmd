@@ -2,6 +2,7 @@
 output:
   # word_document: default
   github_document: default
+  # html_document: default
 ---
 
 # Transport Data Science with R
@@ -53,7 +54,9 @@ By the end of the course, you will be able to:
 Prior experience with transport datasets a pre-requisite for the course.
 Attendees are expected to:
 
-- Be comfortable with the use of R, using it for everyday data analysis tasks (you will find DataCamp's free [Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r) easy)
+- Be comfortable with the use of R, using it for everyday data analysis tasks
+    - **Important: you should have completed the [Introduction to R DataCamp Course](https://www.datacamp.com/courses/free-introduction-to-r), especially if you are not an experienced R user**
+    - **You should ensure your R installation is up-to-date and be able to reproduce the map below**
 - Have experience with transport datasets and understand their structure (you will be familiar with the contents of the [Transport chapter](https://geocompr.robinlovelace.net/transport.html) in Geocomputation with R)
 
 Participants are expected to brush-up on their knowledge before the course, for example by completing the exercises linked-to in the bullet points above.
@@ -77,7 +80,7 @@ install.packages(c(
 You can test your computer is ready for the course by **running the commands below**.
 The resulting interactive map shows a good route (in light blue in the image below) from Leeds station to the Worsley Building (the course takes place on Level 11 of the building):
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
 library(osmdata)
 library(sf)
 library(tmap)
@@ -91,6 +94,10 @@ tm_shape(route) +
   tm_shape(location$osm_polygons) +
   tm_polygons(col = "red") +
   tm_view(basemaps = leaflet::providers$OpenStreetMap)
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/tds-oneday_files/figure-gfm/unnamed-chunk-2-1.png")
 ```
 
 
@@ -114,18 +121,18 @@ vignette("introducing-stplanr")
 - Getting set-up in the cluster (09:20 - 09:30)
 
 - Finding, downloading, importing transport data (09:30 - 11:00)
-  - An overview of data portals
-  - Origin-destination data
-  - OpenStreetMap data
-  - Other data sources
+    - An overview of data portals
+    - Origin-destination data
+    - OpenStreetMap data
+    - Other data sources
   
 **11:00 - 11:10 Coffee break**
 
 - Working with spatio-temporal data (11:10 - 12:30)
-  - Introduction to STATS19
-  - Temporal analysis
-  - Spatial analysis
-  - Analysis and modelling
+    - Introduction to STATS19
+    - Temporal analysis
+    - Spatial analysis
+    - Analysis and modelling
 
 **LUNCH: 12:30 - 13:30**
 
@@ -139,10 +146,10 @@ vignette("introducing-stplanr")
 **15:30 - 15:45 Refreshments**
 
 - From desire lines to route networks (15:45 - 16:45)
-  - Handling OD data
-  - Creating 'desire lines' from OD and zone data
-  - Route allocation and route network creation
-  - Route network analysis (comparing with other datasets)
+    - Handling OD data
+    - Creating 'desire lines' from OD and zone data
+    - Route allocation and route network creation
+    - Route network analysis (comparing with other datasets)
 
 - Discussion and applying the methods to your data (16:00 onwards)
     
