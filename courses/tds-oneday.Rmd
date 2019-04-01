@@ -173,7 +173,6 @@ application, and the [**stplanr**](https://github.com/ropensci/stplanr) package.
 
 The course will be held in the Leeds Institute for Data Analytics (see [lida.leeds.ac.uk/about-lida/contact/](http://lida.leeds.ac.uk/about-lida/contact/) for details and a map).
 
-
 The course is open to ITS Masters and PhD students, and external delegates. The fee includes learning materials, lunch and refreshments during the course, but not overnight accommodation. The course is also available as bespoke or in-company training.
 
 Course bookings and other enquiries can be made via a booking form available from [http://www.its.leeds.ac.uk/courses/cpd/how-to-book/](its.leeds.ac.uk/courses/cpd/how-to-book/).

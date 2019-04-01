@@ -18,6 +18,8 @@ background-image: url(https://images-a.jpimedia.uk/imagefetch/w_700,f_auto,ar_3:
 background-position: 50% 50%
 class: center, bottom, inverse
 
+---
+
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
 library(RefManageR)
@@ -28,76 +30,86 @@ BibOptions(check.entries = FALSE,
            first.inits = FALSE,
            hyperlink = FALSE, 
            dashed = FALSE)
-my_bib = ReadBib("../references.bib", check = FALSE)
+
+download.file("https://github.com/ITSLeeds/TDS/raw/master/references.bib", "references.bib")
+my_bib = ReadBib("references.bib", check = FALSE)
 ```
 
 ---
 
-## This session in context
+```{r, echo=FALSE}
+# 
+# <!-- Todo: uncomment
+# 
+# ## This session in context
+# 
+#  - Introduction to transport data science
+#  - The structure of transport data
+#  - Software for practical data science
+#  - Data cleaning and subsetting
+#  - ## <font color="red">Accessing data from web sources</font> 
+#  - Routing
+#  - Data visualization
+#  - Project work
+#  - Machine learning
+#  - Professional issues
+#  
+# ---
+# 
+# ## Objectives
+# 
+# From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md):
+# 
+# -  ## <font color="red">Learn where to find large transport datasets and assess data quality</font> 
+# 
+# 
+# ```{r}
+# # Understand the structure of transport datasets: spatial, temporal and demographic
+# # Understand how to obtain, clean and store transport related data
+# # Gain proficiency in command-line tools for handling large transport datasets
+# # Learn machine learning and data modelling techniques
+# # Produce data visualizations, static and interactive
+# # Learn where to find large transport datasets and assess data quality
+# # Learn how to join together the components of transport data science into a cohesive project portfolio 
+# ```
+# 
+# ---
+# 
+# ## Learning outcomes
+# 
+# -  ## <font color="red">Identify available datasets and access and clean them</font> 
+# 
+# 
+# ```{r}
+# # Identify available datasets and access and clean them
+# # Combine datasets from multiple sources
+# # Understand what machine learning is, which problems it is appropriate for compared with traditional statistical approaches, and how to implement machine learning techniques
+# # Visualise and communicate the results of transport data science, and know about setting-up interactive web applications
+# # Deciding when to use local computing power vs cloud services
+# ```
+# 
+# ---
+# 
+# # This lecture will...
+# 
+# - Be primarily practical
+# 
+# --
+# 
+# - Provide an overview of data access options
+# 
+# --
+# 
+# - Show how R packages and web services provide access to some datasets
+# 
+# 
+# -->
 
- - Introduction to transport data science
- - The structure of transport data
- - Software for practical data science
- - Data cleaning and subsetting
- - ## <font color="red">Accessing data from web sources</font> 
- - Routing
- - Data visualization
- - Project work
- - Machine learning
- - Professional issues
- 
----
-
-## Objectives
-
-From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md):
-
--  ## <font color="red">Learn where to find large transport datasets and assess data quality</font> 
-
-
-```{r}
-# Understand the structure of transport datasets: spatial, temporal and demographic
-# Understand how to obtain, clean and store transport related data
-# Gain proficiency in command-line tools for handling large transport datasets
-# Learn machine learning and data modelling techniques
-# Produce data visualizations, static and interactive
-# Learn where to find large transport datasets and assess data quality
-# Learn how to join together the components of transport data science into a cohesive project portfolio 
 ```
 
 ---
 
-## Learning outcomes
-
--  ## <font color="red">Identify available datasets and access and clean them</font> 
-
-
-```{r}
-# Identify available datasets and access and clean them
-# Combine datasets from multiple sources
-# Understand what machine learning is, which problems it is appropriate for compared with traditional statistical approaches, and how to implement machine learning techniques
-# Visualise and communicate the results of transport data science, and know about setting-up interactive web applications
-# Deciding when to use local computing power vs cloud services
-```
-
----
-
-# This lecture will...
-
-- Be primarily practical
-
---
-
-- Provide an overview of data access options
-
---
-
-- Show how R packages and web services provide access to some datasets
-
-
----
-
-## Recap on data access/cleaning in workflow
+## Data access in context
 
 --
 
@@ -118,7 +130,7 @@ knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d
 
 ---
 
-## Data access/cleaning vs fidling
+## Data access/cleaning vs modelling time
 
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Tapson&#39;s Rules of Machine Learning:<br>4. Time spent on data cleaning is an order of magnitude more productive than time spent on hyperparameter tuning.<br><br>(Extreme example: achieved a Top 10 result in Kaggle using linear regression, as the only team that cleaned 50/60Hz noise first.)</p>&mdash; Jonathan Tapson (@jontapson) <a href="https://twitter.com/jontapson/status/1103024752019402753?ref_src=twsrc%5Etfw">March 5, 2019</a></blockquote>
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -136,15 +148,68 @@ class: center, middle
 
 ---
 
-## Many places to get data
+## Information and data pyramids
 
-'Data pyramid' concept is useful
+Data science is climbing the DIKW pyramid
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/DIKW_Pyramid.svg/220px-DIKW_Pyramid.svg.png")
+```
+
+
+---
+
+## A geographic availability pyramid
+
+- Recommendations
+- Build this here!
+
+- City-specific datasets
+  - Bristol cycle count data
+
+- Hard-to-access national data
+
+- Open international/national datasets
+  - Open origin-destination data from UK Census
+
+- Globally available, low-grade data (bottom)
+  - OpenStreetMap, Elevation data
+
+---
+
+## An ease-of access pyramid
+
+- Data provision packages
+  - Use the pct package
+  - stats19 package
+
+- Pre-processed data
+  - E.g. downloading data from website www.pct.bike
+
+- Messy official data
+  - Raw STATS19 data
+
+---
+
+## A geographic level of detail pyramid
+
+- Agents
+- Route networks
+- Nodes
+- Routes
+- Desire lines
+- Transport zones
+
+
+---
+
+## Observations
 
 - Official sources are often smaller in sizes but higher in Quality
 
 - Unofficial sources provide higher volumes but tend to be noisy, e.g.: https://onlinelibrary.wiley.com/doi/full/10.1111/gean.12081
 
-- Another way to classify data is by geographic location
+- Another way to classify data is by quality: signal/noise ratios
 
 - Globally available datasets would be at the bottom of this pyramid; local surveys at the top.
 
@@ -152,6 +217,12 @@ Source: https://geocompr.robinlovelace.net/read-write.html
 
 
 - Which would be best to inform policy?
+
+---
+
+## Good sites for accessing transport data
+
+
 
 ---
 
