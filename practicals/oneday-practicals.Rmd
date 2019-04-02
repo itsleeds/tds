@@ -1,0 +1,52 @@
+---
+output:
+  pdf_document:
+    number_sections: true
+title: Transport Data Science with R Practical Exercises
+---
+
+These practicals aim to test your knowledge of material covered in the Transport Data Science module hosted at https://github.com/ITSLeeds/TDS
+
+It will use the following packages:
+
+```{r, message=FALSE, warning=FALSE}
+library(tidyverse)
+library(sf)
+```
+
+# Getting transport data
+
+## Accessing crowd-sourced data from OSM
+
+1. Download data on highway=cycleway for Leeds from https://overpass-turbo.eu/
+1. Load the data in R and plot it with your favourite plotting package (e.g. `sf`, `mapview` or `tmap`)
+1. Bonus: now try to get the same data using the **osmdata** package
+
+## Get official data with stats19
+
+
+1. Download data on road crashes in Great Britain in 2017
+1. Filter crashes that happened in Leeds
+1. Filter crashes that happened within a 10m buffer of the cycle infrastructure
+1. Bonus: pull down origin-destination data with the `pct` package hosted at: https://github.com/ITSLeeds/pct
+
+## Bonus exercises
+
+Identify a region and zonal units of interest from http://geoportal.statistics.gov.uk/
+
+1. Read them into R as an `sf` object
+1. Join-on data from a non-geographic object
+1. Add a data access section to your in progress portfolio
+1. Get origin-destination data from Uber
+
+# Working with spatio-temporal data 
+
+1. Download, import and visualise origin-destination data from the pct package, for the region of `west-yorkshire`
+
+
+# Traffic data and pollution analysis with R  
+
+See exercises in lecture slides.
+
+# From desire lines to route networks 
+
