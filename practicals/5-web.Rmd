@@ -20,16 +20,22 @@ library(sf)
 
 - Load the data in R and plot it with your favourite plotting package (e.g. `sf`, `mapview` or `tmap`)
 
-- Now try to get the same data using the **osmdata** package
+- Bonus: now try to get the same data using the **osmdata** package
 
 ## Get official data with stats19
+
 
 - Download data on road crashes in Great Britain in 2017
 - Filter crashes that happened in Leeds
 - Filter crashes that happened within a 10m buffer of the cycle infrastructure
 - Bonus: pull down origin-destination data with the `pct` package hosted at: https://github.com/ITSLeeds/pct
 
-## Homework
+## Bonus 1: 
+
+Identify a region and zonal units of interest from http://geoportal.statistics.gov.uk/
+
+- Read them into R as an `sf` object
+- Join-on data from a non-geographic object
 
 - Add a data access section to your in progress portfolio
 
