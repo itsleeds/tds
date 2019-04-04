@@ -34,3 +34,135 @@ BibOptions(check.entries = FALSE,
 download.file("https://github.com/ITSLeeds/TDS/raw/master/references.bib", "references.bib")
 my_bib = ReadBib("references.bib", check = FALSE)
 ```
+
+---
+
+## Fundamental data types in R
+
+--
+
+Caveat: this workshop is not about how R works, but it's important to know about data types
+
+--
+
+- R is a *vectorised* language, meaning that functions work on many numbers by default
+
+```{r}
+x = 9
+is.vector(x)
+y = x * 1:9
+z = sqrt(1:9)
+a = letters[1:9]
+b = rep(c(TRUE, FALSE), length.out = 9)
+```
+
+--
+
+- What is the class of each of those numbers?
+
+---
+
+## Data frames
+
+- R was designed for *statistical data analysis* so the main data type in R is the data frame
+
+```{r}
+d = data.frame(x, y, z, a, b)
+```
+
+--
+
+- Recent innovations allow you to add geographic data as *just another column*, e.g.:
+
+```{r}
+z = pct::get_pct_zones(region = "west-yorkshire")
+g = z$geometry[1:9]
+# d$g = g
+```
+
+- In fact, a data frame is just a list, you can iterate over each (vector) element:
+
+```{r}
+sapply(d, class)
+```
+
+---
+
+## Polymorphism and classes
+
+- R is *polymorphic* so if you give it data of a certain class, it guesses what to do with it
+
+
+A good example of Polymophism is `plot()`, which behaves differently depending on the class of your data
+
+```{r}
+methods(plot)
+```
+
+---
+
+## The problem with geographic data
+
+- The problem with spatial data is that it needs *context* to work
+
+- How is a computer supposed to know what to do with this, for example:
+
+```{r}
+unclass(d$g[1])
+```
+
+---
+
+## Classes for spatial data
+
+- Raw coordinate lists in a column do not work:
+
+```{r, eval=FALSE}
+plot(d)
+# Error
+```
+
+```{r}
+summary(d)
+```
+
+- Class systems have evolved so R *knows what to do* with geographic columns:
+
+```{r}
+dsf = sf::st_sf(d)
+```
+
+---
+
+## sf data frames
+
+- `dsf` is a *geographic data frame* (sf stands for simple features)
+
+--
+
+- Now generic methods work on them to give useful info:
+
+```{r}
+dsf
+```
+
+---
+
+## Plotting sf objects
+
+Plotting now works by default:
+
+```{r}
+plot(dsf)
+```
+
+---
+
+## Subsetting in base R
+
+- R allows subsetting in various ways
+
+```{r}
+x
+```
+
