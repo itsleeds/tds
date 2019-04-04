@@ -10,6 +10,7 @@ slides/libs/
 slides/*files*
 *.pdf
 *.geojson
+*.gpkg
 *gpx*
 *.csv
 *.xls
