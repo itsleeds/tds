@@ -1,0 +1,36 @@
+---
+title: "The structure of transport data in R"
+subtitle: '<br/>🗺<br/>Working with spatio-temporal data'
+author: "Robin Lovelace"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output:
+  xaringan::moon_reader:
+    # css: ["default", "its.css"]
+    # chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+bibliography: ../references.bib
+---
+
+background-image: url(https://images-a.jpimedia.uk/imagefetch/w_700,f_auto,ar_3:2,q_auto:low,c_fill/if_h_lte_200,c_mfit,h_201/https://www.yorkshireeveningpost.co.uk/webimage/1.9594040.1550081116!/image/image.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+---
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+
+download.file("https://github.com/ITSLeeds/TDS/raw/master/references.bib", "references.bib")
+my_bib = ReadBib("references.bib", check = FALSE)
+```

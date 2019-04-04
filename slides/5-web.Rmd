@@ -251,12 +251,12 @@ For other datasets, search online! Good starting points in your research may be:
 # Practical demo
 
 
-Todo: add link to practical exercise
+See practical questions here:
 
----
+[github.com/ITSLeeds/TDS/blob/master/practicals/oneday-practicals.md](https://github.com/ITSLeeds/TDS/blob/master/practicals/oneday-practicals.md#getting-transport-data)
 
-## Getting data demo
-
+-
+That involves:
 - Getting data from OSM: overpass turbo
 
 - Data from stats19
