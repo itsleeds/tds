@@ -1,7 +1,8 @@
 ---
 output:
-  pdf_document:
-    number_sections: true
+  github_document
+  # pdf_document:
+  #   number_sections: true
 title: Transport Data Science with R Practical Exercises
 ---
 
