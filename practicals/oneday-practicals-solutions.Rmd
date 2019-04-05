@@ -103,6 +103,20 @@ asf$time_of_day[asf$hr >= 18 & asf$hr < 24] = "evening"
 tm_shape(asf) +
   tm_dots("accident_severity") +
   tm_facets("time_of_day")
+
+asf_morning_weekday = asf %>% 
+  filter(hr %in% 7:10) %>% 
+  filter(day_of_week %in% c("Saturday", "Sunday"))
+
+l_max = asf_agg %>% 
+  top_n(n = 1, wt = accident_index)
+
+plot(l_max$geometry)
+plot(asf, add = TRUE)
+
+asf_sub = asf_morning_weekday[l_max, ]
+plot(l_max$geometry)
+plot(asf_sub, add = T)
 ```
 
 # Traffic data and pollution analysis with R  
