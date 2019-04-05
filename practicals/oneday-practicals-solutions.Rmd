@@ -80,7 +80,29 @@ Identify a region and zonal units of interest from http://geoportal.statistics.g
 
 ```{r, echo=FALSE}
 desire_lines_all = pct::get_pct_lines(region = "west-yorkshire")
-
+desire_lines = desire_lines_all %>% 
+  filter(all >= 200)
+b = desire_lines %>% 
+  st_transform(27700) %>% 
+  st_buffer(500) %>% 
+  st_transform(4326)
+plot(b)
+a = get_stats19(year = 2017, type = "ac", ask = FALSE)
+asf = format_sf(a, lonlat = T)
+asf = asf[b, ]
+plot(b$geometry)
+plot(asf, add = TRUE)
+asf_agg = aggregate(asf[1], b, FUN = length)
+plot(asf_agg)
+asf$time_formated = lubridate::hm(asf$time)
+asf$hr = lubridate::hour(asf$time_formated)
+asf$time_of_day = NA
+asf$time_of_day[asf$hr >= 0 & asf$hr < 9] = "morning"
+asf$time_of_day[asf$hr >= 9 & asf$hr < 18] = "evening"
+asf$time_of_day[asf$hr >= 18 & asf$hr < 24] = "evening"
+tm_shape(asf) +
+  tm_dots("accident_severity") +
+  tm_facets("time_of_day")
 ```
 
 # Traffic data and pollution analysis with R  
