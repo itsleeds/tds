@@ -99,8 +99,3 @@ See exercises in lecture slides.
 1. Find the route along the most travelled desire line in Leeds and plot the result.
 1. Get cycle route data for West Yorkshire and use the function `overline2()` to identify the routes along which most people walk to work.
 
-
-```{r}
-
-```
-
