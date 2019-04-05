@@ -75,9 +75,9 @@ d = data.frame(x, y, z, a, b)
 - Recent innovations allow you to add geographic data as *just another column*, e.g.:
 
 ```{r}
-z = pct::get_pct_zones(region = "west-yorkshire")
+z = pct::get_pct_zones(region = "isle-of-wight")
 g = z$geometry[1:9]
-# d$g = g
+d$g = g
 ```
 
 - In fact, a data frame is just a list, you can iterate over each (vector) element:
@@ -123,7 +123,7 @@ plot(d)
 ```
 
 ```{r}
-summary(d)
+summary(d[1:3])
 ```
 
 - Class systems have evolved so R *knows what to do* with geographic columns:
@@ -158,11 +158,227 @@ plot(dsf)
 
 ---
 
-## Subsetting in base R
+## Subsetting vectors in base R
 
 - R allows subsetting in various ways
 
 ```{r}
-x
+y
 ```
+
+--
+
+- With integer indices
+
+```{r}
+y[2]
+```
+
+```{r, eval=FALSE}
+y[1:3]; y[c(1, 9)]; y[-c(1:3)] # guess the values
+```
+
+--
+
+With logical vectors
+
+```{r}
+y[b]
+```
+
+---
+
+## Subsetting data frames in base R
+
+- Exactly the same principles apply to data frames:
+
+```{r}
+d[2, ]
+```
+
+--
+
+- Comma denotes dimension: before comma is rows, after comma columns
+
+```{r}
+d[, 2]
+```
+
+--
+
+- But subsetting can work in unexpected ways, e.g.:
+
+```{r, eval=FALSE}
+d[2]; d[[2]]; d[2, 1] # guess the values
+```
+
+---
+
+## Subsetting data frames in the tidyverse
+
+- The tidyverse is a collection of packages for data science, the most prominent of which for data manipulation is `dplyr`
+
+```{r}
+library(tidyverse)
+
+d %>% slice(2) # same as slice(d, 2) or dplyr::slice(d, 2)
+```
+
+---
+
+## Filtering and selecting
+
+- `filter()` and `select()` are other verbs in **dplyr**
+
+```{r}
+d %>% filter(y == 81)
+d %>% select(y)
+```
+
+---
+
+## Chaining commands
+
+```{r}
+d %>% 
+  filter(b == TRUE) %>% 
+  select(x, y, z)
+```
+
+```{r}
+dsf %>% 
+  filter(b == TRUE) %>% 
+  select(x, y, z)
+```
+
+
+---
+
+## sf objects are sticky
+
+- What just happened (why was `g` still in there)?
+
+--
+
+![](https://user-images.githubusercontent.com/520851/50280460-e35c1880-044c-11e9-9ed7-cc46754e49db.jpg)
+
+
+---
+
+## Spatial subsetting
+
+We have some geometry data, some of which intersects with `dsf`:
+
+```{r}
+l = pct::get_pct_lines(region = "isle-of-wight")
+plot(dsf$g)
+plot(l, add = TRUE)
+```
+
+
+
+
+```{r, message=FALSE, echo=FALSE, eval=FALSE}
+library(stats19)
+a = get_stats19(year = 2017, type = "ac", ask = FALSE) %>% 
+  format_sf(lonlat = TRUE)
+plot(a$geometry)
+```
+
+---
+
+## Spatial subsetting II
+
+```{r}
+l_sub1 = l[dsf, ]
+```
+
+```{r, warning=FALSE}
+plot(dsf$g)
+plot(l_sub1, add = TRUE) # where did the lines go?
+```
+
+---
+
+## Plotting in a different order
+
+```{r}
+plot(l$geometry, col = "grey", lwd = 2)
+plot(l_sub1$geometry, col = "blue", add = TRUE)
+plot(dsf, add = T, col = NA)
+```
+
+---
+
+## Spatial operations
+
+- A range of spatial operations can be performed with `sf`
+
+--
+
+- This code, for example, creates a buffer of 500 m around the `dsf` object and 'unions' the result
+
+```{r}
+dsfb = dsf %>%
+  st_transform(27700) %>% 
+  st_buffer(500) %>% 
+  st_union() %>% 
+  st_transform(4326)
+```
+
+---
+
+## The result
+
+```{r}
+plot(dsfb)
+plot(dsf, add = TRUE)
+plot(l_sub1$geometry, add = TRUE)
+```
+
+---
+
+## Selecting a subsetting operation
+
+```{r}
+l_sub2 = l[dsfb, , op = st_within]
+plot(dsfb)
+plot(l_sub2$geometry, add = TRUE)
+```
+
+---
+
+## Further info on spatial and geometric operations
+
+- See Chapter 4 of [Geocomputation with R](https://geocompr.robinlovelace.net/spatial-operations.html) (image below)
+
+- And [Chapter 5](https://geocompr.robinlovelace.net/geometric-operations.html) of the same book
+
+![](https://geocompr.robinlovelace.net/figures/nz-subset-1.png)
+
+
+---
+
+## Useful spatial operations for transport data
+
+- Spatial subsetting, joining and aggregation
+
+![](https://geocompr.robinlovelace.net/figures/spatial-join-1.png)
+
+--
+
+- See example of London docking stations
+
+---
+
+## Useful geometric operations for transport
+
+- Buffers, simplification, rasterisation
+
+![](https://geocompr.robinlovelace.net/figures/vector-rasterization1-1.png)
+
+
+---
+
+## The exercises
 

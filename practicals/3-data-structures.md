@@ -2,7 +2,7 @@ Data structures
 ================
 Robin Lovelace
 University of Leeds,
-2019-02-19<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
+2019-04-05<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
 ## Review of homework exercise: demo then individual Q\&A
 
@@ -77,6 +77,10 @@ desire_lines_pcar = desire_lines %>%
   - Find the top 100 most ‘car dependent’ short desire lines in West
     Yorkshire and plot the results. It should look something like this:
 
+<!-- end list -->
+
+    ## Legend for line widths not available in view mode.
+
 ![](3-data-structures_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
   - Plot the results in an interactive map and explore the results.
@@ -86,9 +90,7 @@ desire_lines_pcar = desire_lines %>%
 
 <!-- end list -->
 
-    ## tmap mode set to interactive viewing
-
-    ## Legend for line widths not available in view mode.
+    ## tmap mode set to plotting
 
 ![](3-data-structures_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
