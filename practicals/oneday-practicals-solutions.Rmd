@@ -136,6 +136,21 @@ See exercises in lecture slides.
 
 
 ```{r}
-
+# get air pollution data
+leedsaq = importAURN(site = c("LEED", "LED6"), year = 2017, meta = TRUE)
+leedsaq = leedsaq %>% 
+  group_by(site) %>% 
+  summarise(nox = mean(nox, na.rm = T), lon = mean(longitude), lat = mean(latitude))
+leedsaq = st_as_sf(leedsaq, coords = c("lon", "lat"), crs = 4326)
 ```
+
+```{r}
+library(tmap)
+tmap_mode("view")
+tm_shape(asf_agg) +
+  tm_polygons("accident_index") +
+  tm_shape(leedsaq) +
+  tm_dots("nox", size = 0.5)
+```
+
 
