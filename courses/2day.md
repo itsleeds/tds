@@ -66,44 +66,50 @@ crashes = stats19::get_stats19(year = 2017, type = "accidents", ask = FALSE)
 
 ## Venue and course times
 
-Venue: near DfT HQ at Horseferry road, TBC
+### Day 1: Introduction to R/RStudio
 
 Course times each day:
 
   - 09:30 - 10:00 (set-up)
 
-  - 10:00 - 11:00
+  - 10:00 - 11:00 How to use R/RStudio effectively (MM)
 
   - break
 
-  - 11:30 - 12:30
+  - 11:30 - 12:30 Using packages: example with sf/ggplot2 (RL)
 
   - 12:30 - 13:30: lunch
 
-  - 13:30 - 15:00
+  - 13:30 - 15:00 Spatial data analysis (MM)
 
   - break
 
-  - 15:00 - 16:00
+  - 15:00 - 16:00 Visualising spatial datasets (RL)
 
   - 16:00 - 16:30 (Q\&A)
 
-Day 1:
+### Day 2:
 
-Introduction to R/RStudio
+Course times each day:
 
-  - How to use R/RStudio effectively
-  - Using packages: example with sf/ggplot2 (tbc)
-  - Spatial data analysis
-  - Visualising spatial datasets
+  - 09:30 - 11:00 stats19 data analysis - with spatial/temporal analysis
+    (RL)
 
-Day 2:
+  - break
 
-  - stats19 data analysis - with spatial/temporal analysis
-  - OD data with stplanr
-  - Data and methods for assessing cycling potential
-  - Local route network analysis
-      - Download data from open roads: put on test scripts
+  - 11:30 - 12:30 OD data with stplanr (RL)
+
+  - 12:30 - 13:30: lunch
+
+  - 13:30 - 15:00 Local route network analysis (MM)
+
+  - break
+
+  - 15:00 - 16:00 Data and methods for assessing cycling potential (RL)
+
+  - 16:00 - 16:30 (Q\&A)
+    
+    <!-- - Download data from open roads: put on test scripts -->
 
 ## Optional extra reading
 
