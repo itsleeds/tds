@@ -7,24 +7,106 @@ output: github_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## GitHub Documents
+## Reading and Writing Spatial Data
 
-This is an R Markdown format used for publishing markdown documents to GitHub. When you click the **Knit** button all R code chunks are run and a markdown file (.md) suitable for publishing to GitHub is generated.
 
-## Including Code
+## Attribute Operations on Spatial Data
 
-You can include R code in the document as follows:
+One of the nice things about the `sf` package is that an `sf data.frame` behaves just like a normal `data.frame` for non-spatial operations.
+Load the example dataset for New Zealand.
 
-```{r cars}
-summary(cars)
+```{r, eval=TRUE}
+nz <- spData::nz # load the example dataset from the spData package
+nz_large <- nz[nz$Population > 100000, ] # Find areas with a popualtion over 100,000
+canterbury <- nz[nz$Name == "Canterbury",]
 ```
 
-## Including Plots
+**Exercises:** 
 
-You can also embed plots, for example:
+1. Try some of the differnt subsetting techniques you have aleady learned on the `sf data.frame`.
+1. What is the population density of each region?
+1. The sex ratio is the number of males for each female in the region, which region of New Zealand has the most females, and how many are there?
 
-```{r pressure, echo=FALSE}
-plot(pressure)
+## Spatial Operations 
+
+What makes an `sf data.frame` differnt to a normal `data.frame` is the inclusion of a geometry column and spatial operations.
+
+### Projections and Coordinate Reference Systems
+
+When plotting a map you need X and Y coordinates to specify where objects should appear. While this is simple on a flat surface spatial data must fit onto the curved surface of the earth. You may know that it is impossible to unwrap a sphere into a single flat surface without distorting (stretching, twisting, cutting) the surface in some way. The process of making a flat map from a curved Earth is known as projection, and there are many valid ways to project a map.
+
+Cartographers can argue intensely about their preferred projections as this famous [XKCD comic](https://xkcd.com/977/) alludes to. Coordinate Reference Systems (CRS) refer to different ways of defining the X and Y coordinates used in different projections. Largely they fall into two categories:
+
+* Geographical Coordinate Systems: use latitude and longitude to represent any place on the Earth
+
+* Projected Coordinate Systems: use distances from an origin point to represent a small part of the Earth, e.g. a country. The advantage of a projects CRS is that it is easier to calculate properties such as distance and area as coordinates are in metres.
+
+You can find a catalogue of different CRSs at http://spatialreference.org/
+
+CRSs are often referred to by the EPSG number. The European Petroleum Survey Group publish a database of different coordinate systems. Two useful projections to commit to memory are:
+
+* 4326 - the World Geodetic System 1984 which is a widely used  geographical coordinate system, used in GPS datasets and the .geojson file format, for example.
+* 27700 - the British National Grid
+
+Every `sf data.frame` has a CRS.
+
+```{r, eval=FALSE}
+st_crs(nz) # 2193 the CRS for New Zealand Transverse Mercator
+nz_latlng <- st_transform(nz, 4326) # Transfrom from one CRS to another
+st_crs(nz) # 4326 the CRS for World Geodetic System 1984
+nz_latlng <- st_transform(nz, 2193) # Transfrom back
+```
+**Warning** It is possible to change the CRS without reprojecting the data by:
+```{r, eval=FALSE}
+st_crs(nz) <- 4326
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+This is risky as you may confuse you data by having the wrong CRS.
+
+For more infroamtion see [Chapter 6](https://geocompr.robinlovelace.net/reproj-geo-data.html) of Geocompuation with R.
+
+### Spatial Interactions
+
+It is possible to subset a `sf data.frame` by location as well as attributes.
+
+Lets load the locations of some mountains in New Zeland and then find which ones are within the `nz_large` areas.
+
+```{r, eval=TRUE}
+nz_height <- spData::nz_height # Load the nz_height data
+nz_height2 <- nz_height[canterbury,]
+plot(nz$geom)
+plot(nz_height, col = "black", add = TRUE)
+plot(nz_height2, col = "red", add = TRUE)
+
+```
+
+By default the `st_intersects` fucntion use usesd to decide which rows to keep. 
+
+```{r, eval=FALSE}
+st_intersects(nz_height, nz_large)
+```
+There are many different types of spatial interaction. You can see a list of them in the help.
+
+```{r, eval=FALSE}
+?st_intersects
+```
+
+You could use a differnt fucntion by adding the `op` argument
+
+```{r, eval=TRUE}
+nz_height3 <- nz_height[canterbury, , op = st_disjoint]
+```
+
+## Geometric Operations
+
+Geometric operation change or derive from the geometry of our data. The most commonly used functions are:
+
+- `st_simplify` To simplify a complex shape
+- `st_centroid` To find the geographical center of a shape
+- `st_buffer` To 
+
+
+
+
+
+##
