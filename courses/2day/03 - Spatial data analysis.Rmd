@@ -103,7 +103,9 @@ Geometric operation change or derive from the geometry of our data. The most com
 
 - `st_simplify` To simplify a complex shape
 - `st_centroid` To find the geographical center of a shape
-- `st_buffer` To 
+- `st_buffer` To creat a buffer around a shape
+
+For more see [Section 5.2 of Geocompuation with R](https://geocompr.robinlovelace.net/geometric-operations.html#geo-vec)
 
 
 
