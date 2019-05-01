@@ -148,6 +148,16 @@ tm_shape(rnet) +
   tm_lines(col = "car_driver", lwd = 3)
 ```
 
+**Exercises:**
+
+1. Get routes for the top 5 desiler lines for different modes e.g. car, public transport, bike
+1. How are public transport routes different to car and bike routes?
+1. Plot these routes togther on a map, where are there complemenatyr and conflicing routes?
+
+
+
+
+
 
 ## Local Routing With Open Trip Planner
 
