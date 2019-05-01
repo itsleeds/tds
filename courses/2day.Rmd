@@ -58,11 +58,11 @@ Course times each day:
 
 - break
 
-- 11:30 - 12:30 Using packages: example with sf/ggplot2 (RL)
+- 11:15 - 12:30 Using packages: example with sf/ggplot2 (RL)
 
 - 12:30 - 13:30: lunch
 
-- 13:30 - 15:00 Spatial data analysis (MM)
+- 13:30 - 14:45 Spatial data analysis (MM)
 
 - break
 
@@ -78,11 +78,11 @@ Course times each day:
 
 - break
 
-- 11:30 - 12:30 OD data with stplanr (RL)
+- 11:15 - 12:30 OD data with stplanr (RL)
 
 - 12:30 - 13:30: lunch
 
-- 13:30 - 15:00 Local route network analysis (MM)
+- 13:30 - 14:45 Local route network analysis (MM)
 
 - break
 
