@@ -11,11 +11,11 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Routing is the process of finding the "shortest" path from A to B. In this context shortest does not just mean in distance, it may be in time (quickest), or some other characteristic e.g. safest, quietest. 
 
-There are many packages that enable you to do routing in R. When choosing a package you should consider seveal characteritics:
+There are many packages that enable you to do routing in R. When choosing a package you should consider several characteristics:
 
 ### Local or Remote
 
-Some packages can do local routing on your own computer. While other allow you to connect to a service.
+Some packages can do local routing on your own computer. While others allow you to connect to a service.
 
 **Local Routing**
 
@@ -28,23 +28,23 @@ Some packages can do local routing on your own computer. While other allow you t
 * Easy setup
 * May charge or limit the number of routes
 * May support more complex options e.g. traffic, public transport
-* Usually limited to routing in the present e.g. current road network current transpor timetables.
+* Usually limited to routing in the present e.g. current road network current transport timetables.
 
 ### Routing Features
 
 Not all routing services can do all types of routing, or do them equally well. Most do driving directions but consider if they do:
 
-* Walking / Cycling (if so does it include specalist road types, exclude dangerour roads)
+* Walking / Cycling (if so does it include specialist road types, exclude dangerous roads)
 * Take account of hilliness
 * Public Transport (if so does it include fares, which types?)
-* Are public transport routes based on timetables or realtime service status?
+* Are public transport routes based on timetables or real-time service status?
 * Take account of steps and disabled access
-* Support specialist vehicles (e.g. lorrys and low bridges)
-* Does it support realtime or historic traffic data?
+* Support specialist vehicles (e.g. lorries and low bridges)
+* Does it support real-time or historical traffic data?
 
 ## Routing packages for R
 
-A non-comprehesive list of routing packages for R
+A non-comprehensive list of routing packages for R
 
 ## Packages on CRAN
 
@@ -100,7 +100,7 @@ usethis::edit_r_environ()
 # TRANSPORTAPI_app_key=your_key_here
 ```
 
-Now we will get some data from the [PCT](http://www.pct.bike). The `get_pct_lines` function returns the desier lines from the PCT.
+Now we will get some data from the [PCT](http://www.pct.bike). The `get_pct_lines` function returns the desire lines from the PCT.
 
 ```{r, eval=TRUE}
 lines <- pct::get_pct_lines("isle-of-wight", "commute","lsoa")
@@ -112,7 +112,7 @@ plot(lines$geometry, lwd = lines$all / mean(lines$all))
 plot(centroids, col = "red", add = T)
 ```
 
-Now we will take the top 3 desier lines and route them though Transport API. First we will subets the top lines and creat from an two coordiantes
+Now we will take the top 3 desire lines and route them though Transport API. First, we will subset the top lines and create from and to coordinates
 
 ```{r, eval=TRUE}
 lines_top <- top_n(lines, 10, all)
@@ -151,9 +151,9 @@ tm_shape(rnet) +
 
 ## Local Routing With Open Trip Planner
 
-We will repeate the analysis using a local routing tool. This turorial is based on the [packgee vignette](https://itsleeds.github.io/opentripplanner/articles/opentripplanner.html)
+We will repeat the analysis using a local routing tool. This tutorial is based on the [packgee vignette](https://itsleeds.github.io/opentripplanner/articles/opentripplanner.html)
 
-First we need some basic data.
+First, we need some basic data.
 
 ```{r, eval=FALSE}
 # Create Folders for Data
@@ -172,7 +172,7 @@ unzip(file.path(path_data,"isle-of-wight-demo.zip"), exdir = file.path(path_data
 unlink(file.path(path_data,"isle-of-wight-demo.zip"))
 ```
 
-Now we setup the OTP
+Now we set up the OTP
 
 ```{r, eval=FALSE}
 log <- otp_build_graph(otp = path_otp, dir = path_data) 
@@ -180,7 +180,7 @@ otp_setup(otp = path_otp, dir = path_data)
 otpcon <- otp_connect()
 ```
 
-Next we find the routes
+Next, we find the routes
 
 ```{r, eval=FALSE}
 routes_driving <- otp_plan(otpcon, fromPlace = from, toPlace = to,
