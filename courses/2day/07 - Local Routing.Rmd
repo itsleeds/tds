@@ -1,6 +1,6 @@
 ---
 title: "Local route network analysis"
-output: github_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -51,7 +51,7 @@ A non-comprehensive list of routing packages for R
 * [googleway](https://cran.r-project.org/web/packages/googleway/) support for Google Maps and Directions
 * [mapsapi](https://cran.rstudio.com/web/packages/mapsapi/) alternative for google maps
 * [osrmr](https://cran.r-project.org/web/packages/osrmr/) Open Source Routing Machine, can connect to remote 
-* [CycleStreets](https://cran.r-project.org/web/packages/cyclestreets) Specalist cycling routing, used by 
+* [CycleStreets](https://cran.r-project.org/web/packages/cyclestreets) Specialist cycling routing, used by 
 * [dodgr](https://cran.r-project.org/web/packages/dodgr) Routing done in R
 * [igraph](https://cran.r-project.org/web/packages/igraph) General network analysis, not transport specific
 * [stplanr](https://cran.r-project.org/web/packages/stplanr) Limited routing functions based on dodgr and igraph, and some other services.
@@ -81,7 +81,7 @@ devtools::install_github("ITSleeds/opentripplanner") # For the bonus exercises
 
 And load the packages
 
-```{r, eval=TRUE}
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
 # Load packages
 library(sf)
 library(stplanr)
@@ -120,9 +120,11 @@ from <- centroids[match(lines_top$geo_code1, centroids$geo_code),]
 to <- centroids[match(lines_top$geo_code2, centroids$geo_code),]
 ```
 
-Then we will use the `tapi_journey_batch` to find multiple routes at once.
+Then we will use the `tapi_journey_batch` to find multiple routes at once (note: the numbers used are not real, add your own keys).
 
-```{r, eval=TRUE}
+```{r, eval=FALSE}
+Sys.setenv(TRANSPORTAPI_app_id = "7e8661c5") 
+Sys.setenv(TRANSPORTAPI_app_key = "ce106381f6e5787f223e720b6055d4f8") 
 routes_car <- transportAPI::tapi_journey_batch(from$geometry,
                                            to$geometry, 
                                            fromid = from$geo_code,
@@ -131,6 +133,19 @@ routes_car <- transportAPI::tapi_journey_batch(from$geometry,
 tmap_mode("view")
 tm_shape(routes_car) +
   tm_lines()
+```
+
+```{r, echo=FALSE, eval=FALSE}
+sf::write_sf(routes_car, "routes_car.geojson")
+piggyback::pb_upload("routes_car.geojson")
+piggyback::pb_download_url()
+```
+
+If you cannot get this to work with your own API key, you can download the pre-generated file as follows:
+
+```{r}
+u = "https://github.com/ITSLeeds/TDS/releases/download/0.2/routes_car.geojson"
+routes_car = sf::read_sf(u)
 ```
 
 We need to join the number of commuters onto the geometry of the routes.
@@ -142,7 +157,7 @@ routes_car <- left_join(routes_car, lines_top, by = c("fromid" = "geo_code1", "t
 
 Finally, we can combine the routes into a route network
 
-```{r, eval=TRUE}
+```{r, eval=TRUE, message=FALSE}
 rnet <- overline2(routes_car, attrib = c("all","bicycle","car_driver","train_tube","bus"))
 tm_shape(rnet) +
   tm_lines(col = "car_driver", lwd = 3)
@@ -150,9 +165,9 @@ tm_shape(rnet) +
 
 **Exercises:**
 
-1. Get routes for the top 5 desiler lines for different modes e.g. car, public transport, bike
+1. Get routes for the top 5 desire lines for different modes e.g. car, public transport, bike
 1. How are public transport routes different to car and bike routes?
-1. Plot these routes togther on a map, where are there complemenatyr and conflicing routes?
+1. Plot these routes together on a map, where are there complementary and conflicting routes?
 
 
 
