@@ -9,29 +9,27 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Reading and Writing Spatial Data
 
+Reading and Writing spatial data is done with the `st_read()` and `st_write()` functions. For example:
 
-## Attribute Operations on Spatial Data
-
-One of the nice things about the `sf` package is that an `sf data.frame` behaves just like a normal `data.frame` for non-spatial operations.
-Load the example dataset for New Zealand.
-
-```{r, eval=TRUE}
-nz <- spData::nz # load the example dataset from the spData package
-nz_large <- nz[nz$Population > 100000, ] # Find areas with a popualtion over 100,000
-canterbury <- nz[nz$Name == "Canterbury",]
+```{r setup, eval=FALSE}
+library(sf)
+vector_filepath <- system.file("shapes/world.gpkg", package = "spData")
+world <- st_read(vector_filepath)
+st_write(world, "world.geojson")
 ```
+
+The sf supports most spatial data formats, you can see a list using `st_drivers()`.
+
+For more information on reading and writing see [Chapter 7 of Geocompuation with R](https://geocompr.robinlovelace.net/read-write.html)
 
 **Exercises:** 
 
-1. Try some of the differnt subsetting techniques you have aleady learned on the `sf data.frame`.
-1. What is the population density of each region?
-1. The sex ratio is the number of males for each female in the region, which region of New Zealand has the most females, and how many are there?
+1. Try reading in one of your own datasets and converting it to a different format
 
-## Spatial Operations 
 
-What makes an `sf data.frame` differnt to a normal `data.frame` is the inclusion of a geometry column and spatial operations.
 
-### Projections and Coordinate Reference Systems
+
+## Projections and Coordinate Reference Systems
 
 When plotting a map you need X and Y coordinates to specify where objects should appear. While this is simple on a flat surface spatial data must fit onto the curved surface of the earth. You may know that it is impossible to unwrap a sphere into a single flat surface without distorting (stretching, twisting, cutting) the surface in some way. The process of making a flat map from a curved Earth is known as projection, and there are many valid ways to project a map.
 
@@ -65,7 +63,16 @@ This is risky as you may confuse you data by having the wrong CRS.
 
 For more infroamtion see [Chapter 6](https://geocompr.robinlovelace.net/reproj-geo-data.html) of Geocompuation with R.
 
-### Spatial Interactions
+## Geometry Types
+
+Spatial data can have different types of geometry, the most common are POINT LINESTRING and POLYGON. You may also encounder their MULTI variants e.g. MULTIPOLYGON. The difference is the number of geometires allowed per row of the data.frame. For example the UK is made up of many islands, so can't be reprsented with a single polygon, but could be repesendted with many polygons as part of a MULTIPOLYGON.
+
+**Exercises:** 
+
+1. Check the geometry type of nz using `st_geometry_type()`
+1. Change the geometry from MULTIPOLYGON to POLYGON using `st_cast()`, what has changed? Does this invalidate any of the attributes?
+
+## Spatial Interactions
 
 It is possible to subset a `sf data.frame` by location as well as attributes.
 
@@ -77,7 +84,6 @@ nz_height2 <- nz_height[canterbury,]
 plot(nz$geom)
 plot(nz_height, col = "black", add = TRUE)
 plot(nz_height2, col = "red", add = TRUE)
-
 ```
 
 By default the `st_intersects` fucntion use usesd to decide which rows to keep. 
@@ -97,6 +103,38 @@ You could use a differnt fucntion by adding the `op` argument
 nz_height3 <- nz_height[canterbury, , op = st_disjoint]
 ```
 
+## Aggregation
+
+With a normal data.frame it is possible to group and aggregate variaibles using the `dplyr` packages. 
+
+> group_by() %>% summarise()
+
+It is also possible to do this for sf `data.frames` iby default a `st_union` is performed on the geometries. 
+
+```{r, eval=TRUE}
+nz_islands <- nz %>%
+  group_by(Island) %>%
+  summarise(Population = sum(Population))
+plot(nz_islands)
+```
+
+Note that the implicit `st_union` has resolved all the internal boundaries of each island. If you wished to keep the boundaries you can use `st_combine`.
+
+```{r, eval=TRUE}
+nz_islands <- nz %>%
+  group_by(Island) %>%
+  summarise(Population = sum(Population), do_union = FALSE)
+plot(nz_islands)
+```
+
+**Exercises:** 
+
+1. How many of these high points does the Canterbury region contain?
+1. Which region has the second highest number of nz_height points in, and how many does it have?
+1. Generalizing the question to all regions: how many of New Zealand’s 16 regions contain points which belong to the top 100 highest points in the country? Which regions?
+Bonus: create a table listing these regions in order of the number of points and their name
+
+
 ## Geometric Operations
 
 Geometric operation change or derive from the geometry of our data. The most commonly used functions are:
@@ -107,8 +145,13 @@ Geometric operation change or derive from the geometry of our data. The most com
 
 For more see [Section 5.2 of Geocompuation with R](https://geocompr.robinlovelace.net/geometric-operations.html#geo-vec)
 
+**Exercises:** 
 
+1. Create 10, 20, 30 km buffers around the moountains in New Zealand
+1. Find the centroids of each region of New Zealand
+1. Simplify the boundaries of New Zealand
 
+**Bonus Exercises:**
 
+1. See how the buffering and simplification changes when you change the CRS of the datasets. Hint: Try 4326 and 2193
 
-##
