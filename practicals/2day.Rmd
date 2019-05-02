@@ -55,8 +55,8 @@ lapply(pkgs, library, character.only = TRUE)
 tmap_mode("plot") # use "view" for interactive maps
 
 # Test link with osmdata works:
-osm_data = opq(bbox = "westminster") %>% 
-  add_osm_feature(key = "name", value = "Horseferry Road") %>% 
+osm_data = opq(bbox = "isle-of-wight") %>% 
+  add_osm_feature(key = "name", value = "Newport Road") %>% 
   osmdata_sf()
 horseferry_road = osm_data$osm_lines
 
