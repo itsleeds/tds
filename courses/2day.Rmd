@@ -104,6 +104,12 @@ Course times each day:
 
 The overview slides for the course can be found here: https://itsleeds.github.io/TDS/slides/2day-slides#1
 
+Short keys: 
+
+- Alt-Shift-K: shows short keys
+- Tab: does autocompletions
+- Ctl-Shift-A: format code
+
   
 ## References
 
