@@ -113,6 +113,8 @@ Short keys:
 Example code
 ------------
 
+### From the morning of day 1
+
 ``` r
 library(pct)
 
@@ -172,6 +174,66 @@ l_short2 = l %>%
   mutate(pdrive = car_driver / all) %>% 
   top_n(n = 3, wt = pdrive)
 mapview::mapview(l_short2$geometry)
+```
+
+### Afternoon of day 1
+
+``` r
+library(sf)
+library(pct)
+library(spData)
+#install.packages("spData")
+
+iow = get_pct_zones("isle-of-wight")
+iow = st_transform(iow, 27700)
+iow2 = iow[1,]
+cents = get_pct_centroids("isle-of-wight",
+                          geography = "lsoa")
+cents = st_transform(cents, 27700)
+cent2 = cents[iow2,]
+plot(cents$geometry)
+plot(iow$geometry)
+plot(cent2, col = "red", add = TRUE)
+cent3 = cents[iow2,, op = st_disjoint]
+plot(cent3, col = "blue", add = TRUE)
+
+
+plot(nz$geom)
+nz
+
+nz_islands = nz %>% 
+  group_by(Island) %>% 
+  summarise(Population = sum(Population))
+plot(nz_islands)
+
+cents_buff = st_buffer(cents, 10000)
+plot(cents_buff$geometry)
+plot(cents$geometry, col = "red", add = T)
+
+
+canterbury = nz[nz$Name == "Canterbury",]
+cant_height = nz_height[canterbury,]
+
+nz_height2 = st_join(nz_height, nz)
+
+nz_height3 = nz_height2 %>% 
+  group_by(Name) %>% 
+  summarise(numb_mountain = n()) %>% 
+  select(Name, numb_mountain) %>% 
+  st_drop_geometry()
+
+nz_joined = left_join(nz["Name"], nz_height3)
+plot(nz_joined)
+
+nz_agg = aggregate(nz_height[1], nz, FUN = length)
+plot(nz_agg)
+
+
+
+nrow(cant_height)
+nz$geom = canterbury$geom
+plot(nz)
+nz = spData::nz
 ```
 
 References
