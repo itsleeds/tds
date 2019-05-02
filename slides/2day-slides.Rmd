@@ -84,6 +84,33 @@ By the end of the course, you will be able to:
     - Route network generation and analysis
 ---
 
+
+background-image: url(https://media.giphy.com/media/5FZNmBHhoozLO/giphy.gif)
+background-size: cover
+class: center, middle
+
+# Set-up
+
+--
+
+## Effective use of R/RStudio
+
+---
+
+# Using packages: example with sf/ggplot2
+
+- See Efficient R Programming, Section [4.4](https://csgillespie.github.io/efficientR/workflow.html#package-selection), and R4DS, Chapter [2](https://r4ds.had.co.nz/data-visualisation.html)
+
+```{r, out.width="30%", fig.show='hold', message=FALSE}
+d = data.frame(x = 1:9, y = (1:9)^2)
+plot(d)           # base R
+library(ggplot2)  # with a package
+ggplot(d) +
+  geom_point(aes(x, y))
+```
+
+---
+
 ## What is transport data science?
 
 - The application of data science to transport datasets and problems
@@ -326,32 +353,6 @@ Course times each day:
 - 15:00 - 16:00 Data and methods for assessing cycling potential (RL)
 
 - 16:00 - 16:30 (Q&A)
-
----
-
-background-image: url(https://media.giphy.com/media/5FZNmBHhoozLO/giphy.gif)
-background-size: cover
-class: center, middle
-
-# Set-up
-
---
-
-## Effective use of R/RStudio
-
----
-
-# Using packages: example with sf/ggplot2
-
-- See Efficient R Programming, Section [4.4](https://csgillespie.github.io/efficientR/workflow.html#package-selection), and R4DS, Chapter [2](https://r4ds.had.co.nz/data-visualisation.html)
-
-```{r, out.width="30%", fig.show='hold', message=FALSE}
-d = data.frame(x = 1:9, y = (1:9)^2)
-plot(d)           # base R
-library(ggplot2)  # with a package
-ggplot(d) +
-  geom_point(aes(x, y))
-```
 
 ---
 

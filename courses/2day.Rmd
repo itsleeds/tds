@@ -99,6 +99,10 @@ Course times each day:
   - stplanr: A package for transport planning [@lovelace_stplanr:_2018]
   - R for data science [@grolemund_r_2016]
   - For an overview of spatial transport data types, see  Chapter 12 of *Geocomputation with R* [@lovelace_geocomputation_2019]: http://geocompr.robinlovelace.net/transport.html
+  
+## Notes
+
+The overview slides for the course can be found here: https://itsleeds.github.io/TDS/slides/2day-slides#1
 
   
 ## References
