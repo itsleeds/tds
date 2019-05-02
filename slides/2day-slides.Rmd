@@ -1,0 +1,346 @@
+---
+title: "Transport + Geographic Data Science with R"
+subtitle: '<br/>2 day course'
+author: "Robin Lovelace and Malcolm Morgan"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output:
+  xaringan::moon_reader:
+    # css: ["default", "its.css"]
+    # chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+bibliography: ../references.bib
+---
+
+background-image: url(https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+# Credit: Mandeep Lota via [flickr](https://www.flickr.com/photos/deepster2k/1096671706)
+
+```{r setup, include=FALSE}
+file.copy("../references.bib", ".")
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+my_bib = ReadBib("references.bib", check = FALSE)
+```
+
+---
+
+# The team
+
+### Robin Lovelace
+
+- Especially cycling potential ([e.g. to school](http://eprints.whiterose.ac.uk/141852/))
+- R developer and teacher, with three books on the subject 
+- Lead Developer of the Propensity to Cycle Tool ([PCT](http://www.pct.bike/)) and PI on the Cycling Infrastructure Prioritisation Toolkit ([CyIPT](https://www.cyipt.bike))
+
+--
+
+### Malcolm Morgan
+
+- Civil Engineer by training
+- Moved into transport via the Propensity to Cycle Tool Project
+- Expertise in machine learning and routing
+- Focus on multi-modal routing and energy use (UKERC)
+
+--
+
+### How about you?
+
+---
+
+## Housekeeping
+
+- The venue + facilities
+- The agenda + further info can be found on the course website:
+- git.io/tds2day
+
+```{r, echo=FALSE}
+# knitr::include_graphics("https://raw.githubusercontent.com/ITSLeeds/TDS/master/courses/tds-oneday_files/figure-gfm/unnamed-chunk-2-1.png")
+```
+
+---
+
+## Learning outcomes
+
+By the end of the course, you will be able to:
+
+- Find, download and import a variety of transport datasets, including from OpenStreetMap and government data portals
+- Work with, analyse and model transport data with spatial, temporal and demographic attributes
+- Generate and analyse route networks for transport planning with reference to:
+    - Origin-destination (OD) data
+    - Geographic desire lines
+    - Route allocation using different routing services
+    - Route network generation and analysis
+---
+
+## What is transport data science?
+
+- The application of data science to transport datasets and problems
+
+--
+
+- Raising the question...
+
+--
+
+- What is data science?
+
+<!-- You tell me! -->
+
+--
+
+- A discipline "that allows you to turn raw data into understanding, insight, and knowledge" `r Citep(my_bib, "grolemund_r_2016", .opts = list(cite.style = "authoryear"))`
+
+--
+
+In other words...
+
+- Statistics that is actually useful!
+
+---
+
+## A geographic perspective
+
+- See https://github.com/ITSLeeds/TDS/blob/master/catalogue.md
+
+- Paper on the **stplanr** paper for transport planning (available [online](https://cran.r-project.org/web/packages/stplanr/vignettes/stplanr-paper.html)) `r Citep(my_bib, "lovelace_stplanr_2017", .opts = list(cite.style = "authoryear"))`
+- Introductory and advanced content on geographic data in R, especially the [transport chapter](http://geocompr.robinlovelace.net/transport.html) (available free [online](http://geocompr.robinlovelace.net/)) `r Citep(my_bib, "lovelace_geocomputation_2018", .opts = list(cite.style = "authoryear"))` 
+- Paper on analysing OSM data in Python `r Citep(my_bib, "boeing_osmnx_2017", .opts = list(cite.style = "authoryear"))` (available [online](https://arxiv.org/pdf/1611.01890)) 
+
+```{r geocompr-cover, echo=FALSE, out.width="20%"}
+knitr::include_graphics("https://geocompr.robinlovelace.net/images/cover.png")
+```
+
+---
+
+
+## Data science and the tidyverse
+
+- Inspired by Introduction to data science with R (available free [online](http://r4ds.had.co.nz/)) `r Citep(my_bib, "grolemund_r_2016", .opts = list(cite.style = "authoryear"))`
+
+
+```{r tds-cover, echo=FALSE, out.width="30%"}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce72b2526b0b5c4413666a4cb/24a30/cover.png")
+```
+
+---
+
+## Transport software options
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE}
+# file.copy("../transport-software.csv", ".")
+tms = readr::read_csv("transport-software.csv")[1:5]
+tms = dplyr::arrange(tms, dplyr::desc(Citations))
+knitr::kable(tms, booktabs = TRUE, caption = "Sample of transport modelling software in use by practitioners. Note: citation counts based on searches for company/developer name, the product name and 'transport'. Data source: Google Scholar searches, October 2018.", format = "html")
+```
+
+---
+
+# Getting help online
+
+- [gis.stackexchange.com](https://gis.stackexchange.com/questions) has 21,314 questions 
+
+- [r-sig-geo](http://r-sig-geo.2731867.n2.nabble.com/) has 1000s of posts
+
+- RStudio's Discourse community has 65,000+ posts already!
+
+--
+
+- No transport equivalent (e.g. earthscience.stackexchange.com is in beta)
+
+- Potential for a Discourse forum or similar: transport is not (just) GIS
+
+---
+
+## How is data science used in the PCT?
+
+- It's all reproducible, e.g.:
+- Find short in which more people drive than cycle
+
+--
+
+- Stage 1: get data from web
+
+```{r, eval=FALSE, echo=FALSE}
+# Aim: get top 1000 lines in repo
+library(dplyr)
+library(sf)
+desire_lines_all = pct::get_pct_lines(region = "isle-of-wight")
+desire_lines = desire_lines_all %>% 
+  top_n(1000, all)
+write_sf(desire_lines, "desire_lines.geojson")
+piggyback::pb_upload("desire_lines.geojson")
+```
+
+
+```{r, message=FALSE}
+# Set-up, after installing pct and checking out www.pct.bike:
+library(dplyr)
+library(sf)
+desire_lines_all = pct::get_pct_lines(region = "isle-of-wight") %>% 
+  top_n(n = 1000, wt = all)
+```
+
+---
+
+## Stage II: Geographic data analysis
+
+- Interested only in top 200 lines
+
+```{r}
+desire_lines = desire_lines_all %>% 
+  top_n(n = 20, wt = all)
+```
+
+
+---
+
+## Stage III: Visualising (polution) data
+
+<!-- A fundamental part of data science is being able to understand your data. -->
+
+<!-- That requires visualisation, R is great for that: -->
+
+```{r, warning=FALSE, eval=FALSE, echo=FALSE}
+.pull-left[
+plot(desire_lines)
+]
+.pull-right[
+]
+```
+
+
+<!-- - Interactively: -->
+
+```{r, message=FALSE}
+library(tmap)
+tmap_mode("view")
+tm_shape(desire_lines) +
+  tm_lines("all") +
+  tm_basemap(server = leaflet::providers$OpenStreetMap)
+```
+
+
+---
+
+## Stage IV: Origin-destination data analysis
+
+- Now we have data in our computer, and verified it works, we can use it
+
+- Which places are most car dependent? 
+
+```{r}
+car_dependent_routes = desire_lines %>% 
+  mutate(percent_drive = car_driver / all * 100) %>% 
+  filter(rf_dist_km < 3 & rf_dist_km > 1) 
+```
+
+- Get routes
+
+```{r}
+routes = stplanr::line2route(car_dependent_routes)
+car_dependent_routes$geometry = routes$geometry
+```
+
+```{r, echo=FALSE, eval=FALSE}
+# sf::write_sf(car_dependent_routes, "car_dependent_routes.geojson")
+# piggyback::pb_upload("car_dependent_routes.geojson")
+# piggyback::pb_download_url("car_dependent_routes.geojson")
+```
+
+```{r, echo=FALSE}
+# car_dependent_routes = sf::read_sf("https://github.com/ITSLeeds/TDS/releases/download/0.2/car_dependent_routes.geojson")
+```
+
+
+
+---
+
+## Communicating results:
+
+```{r}
+b = c(0, 25, 50, 75)
+tm_shape(car_dependent_routes) +
+  tm_lines(col = "percent_drive", lwd = "all", scale = 5, breaks = b, palette = "-inferno")
+```
+
+---
+
+## Upcoming...
+
+- Finding, downloading, importing transport data (10:00 - 11:00)
+- Web data + working with spatio-temporal data (11:10 - 12:30)
+- Traffic data and pollution analysis with R (13:30 - 15:30, delivered by [Dr James Tate](http://www.its.leeds.ac.uk/people/j.tate)) 
+- From desire lines to route networks (15:45 - 16:45)
+
+--
+
+- Any questions?
+
+--
+
+- Everyone happy with RStudio?
+
+---
+
+background-image: url(https://media.giphy.com/media/5FZNmBHhoozLO/giphy.gif)
+background-size: cover
+class: center, middle
+
+# Getting data
+
+--
+
+See slides at [itsleeds.github.io/TDS/slides/5-web.html](https://itsleeds.github.io/TDS/slides/5-web.html#1)
+
+---
+
+background-image: url(https://media.giphy.com/media/h7KIiTHTNqdpu/giphy.gif)
+background-size: cover
+class: center, middle
+
+# Working with spatio-temporal data
+
+See example at [itsleeds.github.io/stats19](https://itsleeds.github.io/stats19/articles/stats19.html)
+
+See slides at [itsleeds.github.io/TDS/slides/3-structure.html](https://itsleeds.github.io/TDS/slides/3-structure.html#1)
+
+---
+
+background-image: url(https://media.giphy.com/media/3ctCYuHFqbbVu/giphy.gif)
+background-size: cover
+class: center, middle
+
+# Traffic data and pollution analysis with R
+
+See https://davidcarslaw.github.io/openair/
+
+---
+
+background-image: url(https://raw.githubusercontent.com/npct/pct-team/master/figures/rnet-leeds-base-to-godutch.png)
+background-size: cover
+class: center, middle
+
+# From desire lines to route networks
+
+See https://geocompr.robinlovelace.net/transport.html
+
+---
+
+# References
+
+```{r, 'refs', results="asis", echo=FALSE}
+PrintBibliography(my_bib)
+# RefManageR::WriteBib(my_bib, "refs-geostat.bib")
+```
