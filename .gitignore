@@ -21,3 +21,13 @@ slides/references.bib
 *.tex
 aq.*
 airquality.r
+courses/2day/OTP/graphs/default/Graph.obj
+courses/2day/OTP/graphs/default/IOW_DEM.tif
+courses/2day/OTP/graphs/default/isle-of-wight.osm.pbf
+courses/2day/OTP/graphs/default/router-config.json
+courses/2day/OTP/otp.jar
+practicals/OTP/graphs/default/IOW_DEM.tif
+practicals/OTP/graphs/default/isle-of-wight.osm.pbf
+practicals/OTP/graphs/default/router-config.json
+practicals/OTP/otp.jar
+practicals/OTP/graphs/default/Graph.obj

@@ -79,9 +79,12 @@ Identify a region and zonal units of interest from http://geoportal.statistics.g
 1. Do a spatio-temporal subset to identify the crashes that happened within the most commonly travelled desire line between 07:00 and 10:00 during weekdays.
 
 ```{r, echo=FALSE}
+library(stats19)
 desire_lines_all = pct::get_pct_lines(region = "west-yorkshire")
 desire_lines = desire_lines_all %>% 
-  filter(all >= 200)
+  filter(all >= 200) %>% 
+  select(id, all, car_driver)
+st_crs(desire_lines)
 b = desire_lines %>% 
   st_transform(27700) %>% 
   st_buffer(500) %>% 
@@ -96,6 +99,7 @@ asf_agg = aggregate(asf[1], b, FUN = length)
 plot(asf_agg)
 asf$time_formated = lubridate::hm(asf$time)
 asf$hr = lubridate::hour(asf$time_formated)
+asf$hr
 asf$time_of_day = NA
 asf$time_of_day[asf$hr >= 0 & asf$hr < 9] = "morning"
 asf$time_of_day[asf$hr >= 9 & asf$hr < 18] = "evening"
@@ -106,7 +110,7 @@ tm_shape(asf) +
 
 asf_morning_weekday = asf %>% 
   filter(hr %in% 7:10) %>% 
-  filter(day_of_week %in% c("Saturday", "Sunday"))
+  filter(!day_of_week %in% c("Saturday", "Sunday"))
 
 l_max = asf_agg %>% 
   top_n(n = 1, wt = accident_index)
@@ -136,6 +140,16 @@ See exercises in lecture slides.
 
 
 ```{r}
+desire_lines_all
+desire_100 = desire_lines_all %>% 
+  filter(all >= 100)
+desire_100$perc_walk = desire_100$foot /
+  desire_100$all * 100
+
+desire_100m = desire_100 %>% 
+  mutate(perc_walk = foot / all * 100)
+
+library(openair)
 # get air pollution data
 leedsaq = importAURN(site = c("LEED", "LED6"), year = 2017, meta = TRUE)
 leedsaq = leedsaq %>% 
@@ -153,4 +167,25 @@ tm_shape(asf_agg) +
   tm_dots("nox", size = 0.5)
 ```
 
+
+```{r, eval=FALSE}
+# route analysis
+f = stplanr::flow
+z = stplanr::zones_sf
+f[1:2]
+l = od2line(flow = f, z)
+plot(l)
+lmax = l %>% 
+  top_n(n = 1, wt = Bicycle)
+tmap_mode("view")
+qtm(lmax)
+r = stplanr::routes_fast_sf[2, ]
+qtm(lmax) +
+  qtm(r)
+centroids = pct::get_pct_centroids()
+r = route_cyclestreet("leeds", "bradford uk")
+r = line2route(lmax)
+rout_
+qtm(r) 
+```
 
