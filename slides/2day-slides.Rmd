@@ -279,10 +279,24 @@ tm_shape(car_dependent_routes) +
 
 ## Upcoming...
 
-- Finding, downloading, importing transport data (10:00 - 11:00)
-- Web data + working with spatio-temporal data (11:10 - 12:30)
-- Traffic data and pollution analysis with R (13:30 - 15:30, delivered by [Dr James Tate](http://www.its.leeds.ac.uk/people/j.tate)) 
-- From desire lines to route networks (15:45 - 16:45)
+
+- 09:30 - 10:00 (set-up)
+
+- 10:00 - 11:00 How to use R/RStudio effectively (MM)
+
+--
+
+- 11:15 - 12:30 Using packages: example with sf/ggplot2 (RL)
+
+- 12:30 - 13:30: lunch
+
+- 13:30 - 14:45 Spatial data analysis (MM)
+
+--
+
+- 15:00 - 16:00 Visualising spatial datasets (RL)
+
+- 16:00 - 16:30 (Q&A)
 
 --
 
@@ -294,47 +308,93 @@ tm_shape(car_dependent_routes) +
 
 ---
 
+### Day 2:
+
+Course times each day:
+
+- 09:30 - 11:00 stats19 data analysis - with spatial/temporal analysis (RL)
+
+
+- 11:15 - 12:30 OD data with stplanr (RL)
+
+- 12:30 - 13:30: lunch
+
+- 13:30 - 14:45 Local route network analysis (MM)
+
+--
+
+- 15:00 - 16:00 Data and methods for assessing cycling potential (RL)
+
+- 16:00 - 16:30 (Q&A)
+
+---
+
 background-image: url(https://media.giphy.com/media/5FZNmBHhoozLO/giphy.gif)
 background-size: cover
 class: center, middle
 
-# Getting data
+# Set-up
 
 --
 
-See slides at [itsleeds.github.io/TDS/slides/5-web.html](https://itsleeds.github.io/TDS/slides/5-web.html#1)
+## Effective use of R/RStudio
 
 ---
 
-background-image: url(https://media.giphy.com/media/h7KIiTHTNqdpu/giphy.gif)
-background-size: cover
-class: center, middle
+# Using packages: example with sf/ggplot2
 
-# Working with spatio-temporal data
+- See Efficient R Programming, Section [4.4](https://csgillespie.github.io/efficientR/workflow.html#package-selection), and R4DS, Chapter [2](https://r4ds.had.co.nz/data-visualisation.html)
 
-See example at [itsleeds.github.io/stats19](https://itsleeds.github.io/stats19/articles/stats19.html)
-
-See slides at [itsleeds.github.io/TDS/slides/3-structure.html](https://itsleeds.github.io/TDS/slides/3-structure.html#1)
-
----
-
-background-image: url(https://media.giphy.com/media/3ctCYuHFqbbVu/giphy.gif)
-background-size: cover
-class: center, middle
-
-# Traffic data and pollution analysis with R
-
-See https://davidcarslaw.github.io/openair/
+```{r, out.width="30%", fig.show='hold', message=FALSE}
+d = data.frame(x = 1:9, y = (1:9)^2)
+plot(d)           # base R
+library(ggplot2)  # with a package
+ggplot(d) +
+  geom_point(aes(x, y))
+```
 
 ---
 
-background-image: url(https://raw.githubusercontent.com/npct/pct-team/master/figures/rnet-leeds-base-to-godutch.png)
-background-size: cover
-class: center, middle
+# Spatial data analysis
 
-# From desire lines to route networks
+- See Geocomputation with R, Chapter [4](https://geocompr.robinlovelace.net/spatial-operations.html)
 
-See https://geocompr.robinlovelace.net/transport.html
+---
+
+# Visualising spatial datasets
+
+- See Geocomputation with R, Chapter [8](https://geocompr.robinlovelace.net/adv-map.html)
+
+--
+
+- Slides: [geocompr.github.io/presentations/04_viz.html](https://geocompr.github.io/presentations/04_viz.html#1)
+
+---
+
+# stats19 data analysis 
+
+- See [itsleeds.github.io/stats19](https://itsleeds.github.io/stats19/)
+
+---
+
+# OD data with stplanr
+
+- See [ropensci.github.io/stplanr](https://ropensci.github.io/stplanr/)
+
+---
+
+# Local route network analysis
+
+- See [itsleeds.github.io/opentripplanner](https://itsleeds.github.io/opentripplanner/)
+
+---
+
+# Data and methods for assessing cycling potential
+
+- See [itsleeds.github.io/pct](https://itsleeds.github.io/pct/)
+
+
+- And https://geocompr.robinlovelace.net/transport.html
 
 ---
 
