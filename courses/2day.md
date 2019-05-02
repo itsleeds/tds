@@ -110,6 +110,10 @@ Short keys:
 -   Tab: does autocompletions
 -   Ctl-Shift-A: format code
 
+Link to transportAPI: <https://developer.transportapi.com/signup>
+
+Link to chapter: <https://geocompr.robinlovelace.net/transport.html>
+
 Example code
 ------------
 
