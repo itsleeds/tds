@@ -166,7 +166,7 @@ knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/b88ef926a004b0fce
 ## Transport software options
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE}
-# file.copy("../transport-software.csv", ".")
+file.copy("../transport-software.csv", ".")
 tms = readr::read_csv("transport-software.csv")[1:5]
 tms = dplyr::arrange(tms, dplyr::desc(Citations))
 knitr::kable(tms, booktabs = TRUE, caption = "Sample of transport modelling software in use by practitioners. Note: citation counts based on searches for company/developer name, the product name and 'transport'. Data source: Google Scholar searches, October 2018.", format = "html")
@@ -275,7 +275,7 @@ car_dependent_routes = desire_lines %>%
 
 - Get routes
 
-```{r, message=FALSE}
+```{r, message=FALSE, eval=FALSE}
 routes = stplanr::line2route(car_dependent_routes)
 car_dependent_routes$geometry = routes$geometry
 ```
@@ -296,7 +296,7 @@ car_dependent_routes$geometry = routes$geometry
 
 Visualisation is vital
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, eval=FALSE}
 b = c(0, 25, 50, 75)
 tm_shape(car_dependent_routes) +
   tm_lines(col = "percent_drive", lwd = "all", scale = 5, breaks = b, palette = "-inferno")
