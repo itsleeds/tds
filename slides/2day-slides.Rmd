@@ -227,8 +227,8 @@ plot(desire_lines)
 library(tmap)
 tmap_mode("view")
 tm_shape(desire_lines) +
-  tm_lines("all") +
-  tm_basemap(server = leaflet::providers$OpenStreetMap)
+  tm_lines("bicycle", lwd = "all", scale = 5) +
+  tm_basemap(server = leaflet::providers$OpenStreetMap.BlackAndWhite)
 ```
 
 
@@ -248,7 +248,7 @@ car_dependent_routes = desire_lines %>%
 
 - Get routes
 
-```{r}
+```{r, message=FALSE}
 routes = stplanr::line2route(car_dependent_routes)
 car_dependent_routes$geometry = routes$geometry
 ```
@@ -263,13 +263,13 @@ car_dependent_routes$geometry = routes$geometry
 # car_dependent_routes = sf::read_sf("https://github.com/ITSLeeds/TDS/releases/download/0.2/car_dependent_routes.geojson")
 ```
 
-
-
 ---
 
-## Communicating results:
+## Communicating results
 
-```{r}
+Visualisation is vital
+
+```{r, message=FALSE, warning=FALSE}
 b = c(0, 25, 50, 75)
 tm_shape(car_dependent_routes) +
   tm_lines(col = "percent_drive", lwd = "all", scale = 5, breaks = b, palette = "-inferno")
