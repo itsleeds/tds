@@ -1,0 +1,157 @@
+---
+title: "Spatial data analysis"
+output: github_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Reading and Writing Spatial Data
+
+Reading and Writing spatial data is done with the `st_read()` and `st_write()` functions. For example:
+
+```{r setup, eval=FALSE}
+library(sf)
+vector_filepath <- system.file("shapes/world.gpkg", package = "spData")
+world <- st_read(vector_filepath)
+st_write(world, "world.geojson")
+```
+
+The sf supports most spatial data formats, you can see a list using `st_drivers()`.
+
+For more information on reading and writing see [Chapter 7 of Geocompuation with R](https://geocompr.robinlovelace.net/read-write.html)
+
+**Exercises:** 
+
+1. Try reading in one of your own datasets and converting it to a different format
+
+
+
+
+## Projections and Coordinate Reference Systems
+
+When plotting a map you need X and Y coordinates to specify where objects should appear. While this is simple on a flat surface spatial data must fit onto the curved surface of the earth. You may know that it is impossible to unwrap a sphere into a single flat surface without distorting (stretching, twisting, cutting) the surface in some way. The process of making a flat map from a curved Earth is known as projection, and there are many valid ways to project a map.
+
+Cartographers can argue intensely about their preferred projections as this famous [XKCD comic](https://xkcd.com/977/) alludes to. Coordinate Reference Systems (CRS) refer to different ways of defining the X and Y coordinates used in different projections. Largely they fall into two categories:
+
+* Geographical Coordinate Systems: use latitude and longitude to represent any place on the Earth
+
+* Projected Coordinate Systems: use distances from an origin point to represent a small part of the Earth, e.g. a country. The advantage of a projects CRS is that it is easier to calculate properties such as distance and area as coordinates are in metres.
+
+You can find a catalogue of different CRSs at http://spatialreference.org/
+
+CRSs are often referred to by the EPSG number. The European Petroleum Survey Group publish a database of different coordinate systems. Two useful projections to commit to memory are:
+
+* 4326 - the World Geodetic System 1984 which is a widely used  geographical coordinate system, used in GPS datasets and the .geojson file format, for example.
+* 27700 - the British National Grid
+
+Every `sf data.frame` has a CRS.
+
+```{r, eval=FALSE}
+st_crs(nz) # 2193 the CRS for New Zealand Transverse Mercator
+nz_latlng <- st_transform(nz, 4326) # Transfrom from one CRS to another
+st_crs(nz) # 4326 the CRS for World Geodetic System 1984
+nz_latlng <- st_transform(nz, 2193) # Transfrom back
+```
+**Warning** It is possible to change the CRS without reprojecting the data by:
+```{r, eval=FALSE}
+st_crs(nz) <- 4326
+```
+
+This is risky as you may confuse you data by having the wrong CRS.
+
+For more infroamtion see [Chapter 6](https://geocompr.robinlovelace.net/reproj-geo-data.html) of Geocompuation with R.
+
+## Geometry Types
+
+Spatial data can have different types of geometry, the most common are POINT LINESTRING and POLYGON. You may also encounder their MULTI variants e.g. MULTIPOLYGON. The difference is the number of geometires allowed per row of the data.frame. For example the UK is made up of many islands, so can't be reprsented with a single polygon, but could be repesendted with many polygons as part of a MULTIPOLYGON.
+
+**Exercises:** 
+
+1. Check the geometry type of nz using `st_geometry_type()`
+1. Change the geometry from MULTIPOLYGON to POLYGON using `st_cast()`, what has changed? Does this invalidate any of the attributes?
+
+## Spatial Interactions
+
+It is possible to subset a `sf data.frame` by location as well as attributes.
+
+Lets load the locations of some mountains in New Zeland and then find which ones are within the `nz_large` areas.
+
+```{r, eval=TRUE}
+nz_height <- spData::nz_height # Load the nz_height data
+nz_height2 <- nz_height[canterbury,]
+plot(nz$geom)
+plot(nz_height, col = "black", add = TRUE)
+plot(nz_height2, col = "red", add = TRUE)
+```
+
+By default the `st_intersects` fucntion use usesd to decide which rows to keep. 
+
+```{r, eval=FALSE}
+st_intersects(nz_height, nz_large)
+```
+There are many different types of spatial interaction. You can see a list of them in the help.
+
+```{r, eval=FALSE}
+?st_intersects
+```
+
+You could use a differnt fucntion by adding the `op` argument
+
+```{r, eval=TRUE}
+nz_height3 <- nz_height[canterbury, , op = st_disjoint]
+```
+
+## Aggregation
+
+With a normal data.frame it is possible to group and aggregate variaibles using the `dplyr` packages. 
+
+> group_by() %>% summarise()
+
+It is also possible to do this for sf `data.frames` iby default a `st_union` is performed on the geometries. 
+
+```{r, eval=TRUE}
+nz_islands <- nz %>%
+  group_by(Island) %>%
+  summarise(Population = sum(Population))
+plot(nz_islands)
+```
+
+Note that the implicit `st_union` has resolved all the internal boundaries of each island. If you wished to keep the boundaries you can use `st_combine`.
+
+```{r, eval=TRUE}
+nz_islands <- nz %>%
+  group_by(Island) %>%
+  summarise(Population = sum(Population), do_union = FALSE)
+plot(nz_islands)
+```
+
+**Exercises:** 
+
+1. How many of these high points does the Canterbury region contain?
+1. Which region has the second highest number of nz_height points in, and how many does it have?
+1. Generalizing the question to all regions: how many of New Zealand’s 16 regions contain points which belong to the top 100 highest points in the country? Which regions?
+Bonus: create a table listing these regions in order of the number of points and their name
+
+
+## Geometric Operations
+
+Geometric operation change or derive from the geometry of our data. The most commonly used functions are:
+
+- `st_simplify` To simplify a complex shape
+- `st_centroid` To find the geographical center of a shape
+- `st_buffer` To creat a buffer around a shape
+
+For more see [Section 5.2 of Geocompuation with R](https://geocompr.robinlovelace.net/geometric-operations.html#geo-vec)
+
+**Exercises:** 
+
+1. Create 10, 20, 30 km buffers around the moountains in New Zealand
+1. Find the centroids of each region of New Zealand
+1. Simplify the boundaries of New Zealand
+
+**Bonus Exercises:**
+
+1. See how the buffering and simplification changes when you change the CRS of the datasets. Hint: Try 4326 and 2193
+

@@ -1,0 +1,215 @@
+---
+title: "Local route network analysis"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Routing from A to B
+
+Routing is the process of finding the "shortest" path from A to B. In this context shortest does not just mean in distance, it may be in time (quickest), or some other characteristic e.g. safest, quietest. 
+
+There are many packages that enable you to do routing in R. When choosing a package you should consider several characteristics:
+
+### Local or Remote
+
+Some packages can do local routing on your own computer. While others allow you to connect to a service.
+
+**Local Routing**
+
+* Usually requires more effort to set up
+* No cost (except for time and hardware)
+* Control over data, custom scenarios possible futures etc
+
+**Remote Routing**
+
+* Easy setup
+* May charge or limit the number of routes
+* May support more complex options e.g. traffic, public transport
+* Usually limited to routing in the present e.g. current road network current transport timetables.
+
+### Routing Features
+
+Not all routing services can do all types of routing, or do them equally well. Most do driving directions but consider if they do:
+
+* Walking / Cycling (if so does it include specialist road types, exclude dangerous roads)
+* Take account of hilliness
+* Public Transport (if so does it include fares, which types?)
+* Are public transport routes based on timetables or real-time service status?
+* Take account of steps and disabled access
+* Support specialist vehicles (e.g. lorries and low bridges)
+* Does it support real-time or historical traffic data?
+
+## Routing packages for R
+
+A non-comprehensive list of routing packages for R
+
+## Packages on CRAN
+
+* [googleway](https://cran.r-project.org/web/packages/googleway/) support for Google Maps and Directions
+* [mapsapi](https://cran.rstudio.com/web/packages/mapsapi/) alternative for google maps
+* [osrmr](https://cran.r-project.org/web/packages/osrmr/) Open Source Routing Machine, can connect to remote 
+* [CycleStreets](https://cran.r-project.org/web/packages/cyclestreets) Specialist cycling routing, used by 
+* [dodgr](https://cran.r-project.org/web/packages/dodgr) Routing done in R
+* [igraph](https://cran.r-project.org/web/packages/igraph) General network analysis, not transport specific
+* [stplanr](https://cran.r-project.org/web/packages/stplanr) Limited routing functions based on dodgr and igraph, and some other services.
+* [gtfsrouter](https://cran.r-project.org/web/packages/gtfsrouter/index.html) For integrating GTFS public transport timetables
+
+## Packages on GitHub
+
+* [Open Route Service](https://giscience.github.io/openrouteservice-r/) Connect to ORS website
+* [TransportAPI](https://github.com/mem48/transportAPI) An ITS Leeds Package, in development
+* [OpenTripPlanner](https://github.com/ITSLeeds/opentripplanner) An ITS Leeds Package, local or remote OTP routing
+* [graphhopper](https://github.com/graphhopper/directions-api-clients/tree/master/r)
+
+
+## Getting some Routes
+
+Many services require you to sign up for a free API key, to save some time we will use the TransportAPI package that allows a small amount of routing to be done without an API key.
+
+**NOTE** If you want to do more routing please signup for a free API key at https://developer.transportapi.com/signup 
+
+We will install the packages
+
+```{r, eval=FALSE}
+# Install packages from GitHub
+devtools::install_github("ITSleeds/transportAPI")
+devtools::install_github("ITSleeds/opentripplanner") # For the bonus exercises
+```
+
+And load the packages
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+# Load packages
+library(sf)
+library(stplanr)
+library(tmap)
+library(transportAPI)
+library(opentripplanner)
+library(pct)
+library(dplyr)
+```
+
+TransportAPI you to signup for a [free API key](https://developer.transportapi.com/signup). 
+
+```{r, eval=FALSE}
+usethis::edit_r_environ()
+# TRANSPORTAPI_app_id=your_id_here
+# TRANSPORTAPI_app_key=your_key_here
+```
+
+Now we will get some data from the [PCT](http://www.pct.bike). The `get_pct_lines` function returns the desire lines from the PCT.
+
+```{r, eval=TRUE}
+lines <- pct::get_pct_lines("isle-of-wight", "commute","lsoa")
+lines <- lines[,c("id","geo_code1","geo_code2","all",
+                "bicycle","car_driver","train_tube","bus")]
+centroids <- pct::get_pct_centroids("isle-of-wight", "commute","lsoa")
+centroids <- centroids[,"geo_code"]
+plot(lines$geometry, lwd = lines$all / mean(lines$all))
+plot(centroids, col = "red", add = T)
+```
+
+Now we will take the top 3 desire lines and route them though Transport API. First, we will subset the top lines and create from and to coordinates
+
+```{r, eval=TRUE}
+lines_top <- top_n(lines, 10, all)
+from <- centroids[match(lines_top$geo_code1, centroids$geo_code),]
+to <- centroids[match(lines_top$geo_code2, centroids$geo_code),]
+```
+
+Then we will use the `tapi_journey_batch` to find multiple routes at once (note: the numbers used are not real, add your own keys).
+
+```{r, eval=FALSE}
+Sys.setenv(TRANSPORTAPI_app_id = "7e8661c5") 
+Sys.setenv(TRANSPORTAPI_app_key = "ce106381f6e5787f223e720b6055d4f8") 
+routes_car <- transportAPI::tapi_journey_batch(from$geometry,
+                                           to$geometry, 
+                                           fromid = from$geo_code,
+                                           toid = to$geo_code,
+                                           apitype = "car")
+tmap_mode("view")
+tm_shape(routes_car) +
+  tm_lines()
+```
+
+```{r, echo=FALSE, eval=FALSE}
+sf::write_sf(routes_car, "routes_car.geojson")
+piggyback::pb_upload("routes_car.geojson")
+piggyback::pb_download_url()
+```
+
+If you cannot get this to work with your own API key, you can download the pre-generated file as follows:
+
+```{r}
+u = "https://github.com/ITSLeeds/TDS/releases/download/0.2/routes_car.geojson"
+routes_car = sf::read_sf(u)
+```
+
+We need to join the number of commuters onto the geometry of the routes.
+
+```{r, eval=TRUE}
+st_geometry(lines_top) <- NULL
+routes_car <- left_join(routes_car, lines_top, by = c("fromid" = "geo_code1", "toid" = "geo_code2"))
+```
+
+Finally, we can combine the routes into a route network
+
+```{r, eval=TRUE, message=FALSE}
+rnet <- overline2(routes_car, attrib = c("all","bicycle","car_driver","train_tube","bus"))
+tm_shape(rnet) +
+  tm_lines(col = "car_driver", lwd = 3)
+```
+
+**Exercises:**
+
+1. Get routes for the top 5 desire lines for different modes e.g. car, public transport, bike
+1. How are public transport routes different to car and bike routes?
+1. Plot these routes together on a map, where are there complementary and conflicting routes?
+
+
+
+
+
+
+## Local Routing With Open Trip Planner
+
+We will repeat the analysis using a local routing tool. This tutorial is based on the [packgee vignette](https://itsleeds.github.io/opentripplanner/articles/opentripplanner.html)
+
+First, we need some basic data.
+
+```{r, eval=FALSE}
+# Create Folders for Data
+dir.create("OTP")
+path_data <- file.path("OTP")
+path_otp <- file.path(path_data, "otp.jar")
+dir.create(file.path(path_data,"graphs")) # create a folder structure for the data
+dir.create(file.path(path_data,"graphs","default"))
+
+# Download OTP and Data
+download.file(url = "https://repo1.maven.org/maven2/org/opentripplanner/otp/1.3.0/otp-1.3.0-shaded.jar", 
+              destfile = path_otp, mode = "wb")
+download.file("https://github.com/ITSLeeds/opentripplanner/releases/download/0.1/isle-of-wight-demo.zip", 
+              destfile = file.path(path_data,"isle-of-wight-demo.zip") , mode="wb")
+unzip(file.path(path_data,"isle-of-wight-demo.zip"), exdir = file.path(path_data,"graphs","default"))
+unlink(file.path(path_data,"isle-of-wight-demo.zip"))
+```
+
+Now we set up the OTP
+
+```{r, eval=FALSE}
+log <- otp_build_graph(otp = path_otp, dir = path_data) 
+otp_setup(otp = path_otp, dir = path_data)
+otpcon <- otp_connect()
+```
+
+Next, we find the routes
+
+```{r, eval=FALSE}
+routes_driving <- otp_plan(otpcon, fromPlace = from, toPlace = to,
+                           mode = "CAR")
+```
+
+
