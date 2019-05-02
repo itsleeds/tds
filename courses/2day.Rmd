@@ -112,7 +112,7 @@ Short keys:
 
 ## Example code
 
-```{r, echo=FALSE}
+```{r, eval=FALSE}
 library(pct)
 
 x = 1:5

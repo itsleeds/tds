@@ -113,46 +113,66 @@ Short keys:
 Example code
 ------------
 
-    ## [1] "character"
+``` r
+library(pct)
 
-    ## Loading required package: sp
+x = 1:5
+y = c(0,1,3,9,18)
+# Ctl+2
 
-    ## [1] "sf"         "data.frame"
+cat = data.frame(
+  name = c("Tiddles", "Chester", "Shadow"),
+  type = c("Tabby", "Persian", "Siamese"),
+  age = c(1, 3, 5),
+  likes_milk = c(TRUE, FALSE, TRUE),
+  stringsAsFactors = FALSE
+)
+class(cat$name)
+even_numbers = seq(from = 2, to = 4000, by = 2)
+random_letters = sample(letters, size = 100, replace = TRUE)
 
-    ## [1] 18 76
+iow = pct::get_pct_zones(region = "isle-of-wight")
+class(iow)
+dim(iow)
+iow = iow[1:9]
+iow_geo = iow$geometry
+plot(iow_geo)
+plot(iow)
+number_who_walk = iow$foot
+class(number_who_walk)
+summary(number_who_walk)
+number_who_walk[c(1, 3, 9)]
+sel = number_who_walk > 500
+number_who_walk[sel]
+length(sel)
+class(sel)
+iow$many_walk = sel
+iow_walk = iow[iow$many_walk, ]
 
-![](2day_files/figure-markdown_github/unnamed-chunk-3-1.png)![](2day_files/figure-markdown_github/unnamed-chunk-3-2.png)
+l = get_pct_lines("isle-of-wight")
+l$percent_drive =
+  l$car_driver / l$all * 100 
+dim(l)
 
-    ## [1] "integer"
+summary(l$rf_dist_km)
+# identify short routes
+sel = l$rf_dist_km < 3 
+l_short = l[sel, ]
 
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##   126.0   324.8   504.0   528.2   668.8  1099.0
 
-    ## [1]  838  442 1099
+plot(l$geometry)
+plot(l_short$geometry, add = TRUE, col = "red")
 
-    ## [1]  838  680  635  741 1099  966  531  578  594
+l_order = l_short[order(l_short$percent_drive), ]
+mapview::mapview(l_order[nrow(l_order), ])
 
-    ## [1] 18
-
-    ## [1] "logical"
-
-    ## [1] 145  89
-
-    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##    1.36    8.54   12.30   12.03   16.40   20.20
-
-![](2day_files/figure-markdown_github/unnamed-chunk-3-3.png)
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
+library(dplyr)
+l_short2 = l %>% 
+  filter(rf_dist_km < 3) %>% 
+  mutate(pdrive = car_driver / all) %>% 
+  top_n(n = 3, wt = pdrive)
+mapview::mapview(l_short2$geometry)
+```
 
 References
 ----------
