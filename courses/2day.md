@@ -236,6 +236,44 @@ plot(nz)
 nz = spData::nz
 ```
 
+### Code to download and visualise geo data
+
+``` r
+u = "https://opendata.arcgis.com/datasets/66f41d4ccc8a4fce9137b3a1947bfcdb_0.kml?outSR=%7B%22wkid%22%3A27700%2C%22latestWkid%22%3A27700%7D"
+download.file(url = u, destfile = "d.kml")
+f = list.files(pattern = "kml")
+s = read_sf(f)
+plot(s$geometry)
+nrow(s)
+mapview::mapview(s)
+s_simple = rmapshaper::ms_simplify(input = s, 0.1)
+object.size(s)
+object.size(s_simple)
+mapview::mapview(s_simple)
+?rmapshaper::ms_simplify
+
+library(spData)
+library(tmap)
+
+tmap_mode("plot")
+tm_shape(nz) +
+  tm_fill(
+    "Population",
+    palette = "RdYlBu",
+    alpha = 0.2) +
+  tm_shape(nz_height) +
+  tm_dots()
+class(m)
+tmap_save(m, "m.html")
+
+mapview::mapview(nz)
+
+library(ggplot2)
+nz$geometry = nz$geom
+ggplot(nz) +
+  geom_sf()
+```
+
 References
 ----------
 
