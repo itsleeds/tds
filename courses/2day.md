@@ -110,6 +110,50 @@ Short keys:
 -   Tab: does autocompletions
 -   Ctl-Shift-A: format code
 
+Example code
+------------
+
+    ## [1] "character"
+
+    ## Loading required package: sp
+
+    ## [1] "sf"         "data.frame"
+
+    ## [1] 18 76
+
+![](2day_files/figure-markdown_github/unnamed-chunk-3-1.png)![](2day_files/figure-markdown_github/unnamed-chunk-3-2.png)
+
+    ## [1] "integer"
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##   126.0   324.8   504.0   528.2   668.8  1099.0
+
+    ## [1]  838  442 1099
+
+    ## [1]  838  680  635  741 1099  966  531  578  594
+
+    ## [1] 18
+
+    ## [1] "logical"
+
+    ## [1] 145  89
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    1.36    8.54   12.30   12.03   16.40   20.20
+
+![](2day_files/figure-markdown_github/unnamed-chunk-3-3.png)
+
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
 References
 ----------
 

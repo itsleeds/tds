@@ -110,6 +110,71 @@ Short keys:
 - Tab: does autocompletions
 - Ctl-Shift-A: format code
 
+## Example code
+
+```{r, echo=FALSE}
+library(pct)
+
+x = 1:5
+y = c(0,1,3,9,18)
+# Ctl+2
+
+cat = data.frame(
+  name = c("Tiddles", "Chester", "Shadow"),
+  type = c("Tabby", "Persian", "Siamese"),
+  age = c(1, 3, 5),
+  likes_milk = c(TRUE, FALSE, TRUE),
+  stringsAsFactors = FALSE
+)
+class(cat$name)
+even_numbers = seq(from = 2, to = 4000, by = 2)
+random_letters = sample(letters, size = 100, replace = TRUE)
+
+iow = pct::get_pct_zones(region = "isle-of-wight")
+class(iow)
+dim(iow)
+iow = iow[1:9]
+iow_geo = iow$geometry
+plot(iow_geo)
+plot(iow)
+number_who_walk = iow$foot
+class(number_who_walk)
+summary(number_who_walk)
+number_who_walk[c(1, 3, 9)]
+sel = number_who_walk > 500
+number_who_walk[sel]
+length(sel)
+class(sel)
+iow$many_walk = sel
+iow_walk = iow[iow$many_walk, ]
+
+l = get_pct_lines("isle-of-wight")
+l$percent_drive =
+  l$car_driver / l$all * 100 
+dim(l)
+
+summary(l$rf_dist_km)
+# identify short routes
+sel = l$rf_dist_km < 3 
+l_short = l[sel, ]
+
+
+plot(l$geometry)
+plot(l_short$geometry, add = TRUE, col = "red")
+
+l_order = l_short[order(l_short$percent_drive), ]
+mapview::mapview(l_order[nrow(l_order), ])
+
+library(dplyr)
+l_short2 = l %>% 
+  filter(rf_dist_km < 3) %>% 
+  mutate(pdrive = car_driver / all) %>% 
+  top_n(n = 3, wt = pdrive)
+mapview::mapview(l_short2$geometry)
+
+```
+
+
   
 ## References
 
