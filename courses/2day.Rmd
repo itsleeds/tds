@@ -293,6 +293,109 @@ ggplot(nz) +
 ```
 
 
+### Code from the morning of day 2
+
+```{r, eval=FALSE}
+library(tidyverse)
+
+iow = pct::get_pct_zones("isle-of-wight")
+class(iow)
+iow$is_small = iow$all < 3000
+iow_small = iow[iow$is_small, ]
+nrow(iow_small)
+
+iow_small2 = iow %>% 
+  filter(all < 3000)
+
+nrow(iow_small) == nrow(iow_small2)
+identical(iow_small, iow_small2)
+
+iow_mutated = iow %>% 
+  mutate(is_small = all < 3000) %>% 
+  filter(is_small)
+
+identical(iow_small2, iow_mutated)
+
+median_car = median(iow$car_driver)
+
+# logical vector
+sel_high_car = iow$car_driver > median_car
+
+iow_high_car = mutate(
+  iow,
+  sel_high_car = car_driver > median_car
+  )
+names(iow_high_car)
+
+iow_min = iow_high_car %>% 
+  select(1:9, sel_high_car) %>% 
+  sf::st_drop_geometry()
+
+iow_min %>% pull(geo_name)
+
+iow_min %>% 
+  mutate(n1 = str_detect(iow$geo_name, "1")) %>% 
+  pull(n1) %>% 
+  table()
+
+table(str_detect(iow$geo_name, "1"))
+
+iow_foot = iow %>% 
+  select(foot) 
+
+plot(iow_foot)
+library(tmap)
+tm_shape(iow_foot) +
+  tm_polygons("foot")
+
+
+iow %>% 
+  filter(car_driver > median(car_driver))
+
+
+
+iow_high_car = iow_min %>% 
+  filter(car_driver > median_car)
+iow_small_car_high = iow_high_car %>% 
+  mutate(is_small = all < 3000) %>% 
+  filter(is_small)
+nrow(iow_small_car_high)
+
+
+
+
+
+
+iow = pct::get_pct_zones("isle-of-wight")
+
+iow_small_high_car = iow %>% 
+  filter(car_driver > median(car_driver)) %>% 
+  filter(all < 3000)
+
+grepl("cat", c("cat", "dog", "cat2"))
+str_detect(c("cat", "dog", "cat2"), "cat")
+
+library(stats19)
+crashes_raw = get_stats19(2017, "ac", ask = FALSE, format = FALSE)
+crashes_raw
+crashes = get_stats19(2017, "ac", ask = FALSE)
+dim(crashes)
+class(crashes)
+crashes
+
+# remove na values
+crashes_no_na = crashes %>% 
+  filter(!is.na(longitude) & !is.na(latitude))
+
+crashes_sf2 = st_as_sf(
+  crashes_no_na,
+  coords = c("longitude", "latitude")
+  )
+
+# quicker with function
+crashes_sf = format_sf(crashes)
+```
+
   
 ## References
 
