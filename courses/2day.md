@@ -5,117 +5,166 @@ See <https://github.com/ITSLeeds/TDS>
 
 Assumed prior knowledge:
 
--   Working knowledge of R, e.g. have completed:
--   Introduction to R free DataCamp course: <https://www.datacamp.com/courses/free-introduction-to-r>
--   Recommended reading: Section 4.2 of *Efficient R Programming* (Gillespie and Lovelace 2016): <https://csgillespie.github.io/efficientR/efficient-workflow.html#package-selection>
-
--   Some knowledge of tidyverse is highly recommended, e.g. already know the contents of or have read-up on **and tried examples from** the following 'cheatsheets':
--   Tidyverse for Beginners DataCamp Cheat Sheet (see [here](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Tidyverse+Cheat+Sheet.pdf)). **At a minimum you will have completed up to Chapter 5 on this online course** (this may take ~2 hours)
--   Data wrangling with dplyr and tidyr RStudio cheet cheet (see [here](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf))
+  - Working knowledge of R, e.g. have completed:
+      - Introduction to R free DataCamp course:
+        <https://www.datacamp.com/courses/free-introduction-to-r>
+      - Recommended reading: Section 4.2 of *Efficient R Programming*
+        (Gillespie and Lovelace 2016):
+        <https://csgillespie.github.io/efficientR/efficient-workflow.html#package-selection>
+  - Some knowledge of tidyverse is highly recommended, e.g. already know
+    the contents of or have read-up on **and tried examples from** the
+    following ‘cheatsheets’:
+      - Tidyverse for Beginners DataCamp Cheat Sheet (see
+        [here](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Tidyverse+Cheat+Sheet.pdf)).
+        **At a minimum you will have completed up to Chapter 5 on this
+        online course** (this may take ~2 hours)
+      - Data wrangling with dplyr and tidyr RStudio cheet cheet (see
+        [here](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf))
 
 <!-- **It's in the Analysis directorate** -->
-Computing Requirements
-----------------------
 
--   DfT will provide desktops with recent versions of R and RStudio installed, including:
--   R 3.5.3 recommended (although any R 3.5 release should work): <https://cran.r-project.org/>
--   RStudio 1.1.436 - see <https://www.rstudio.com/products/rstudio/download/>
--   Will require up-to-date versions of **tidyverse** and **sf** packages, at a minimum
--   Other packages we'll use:
-    -   stats19
-    -   stplanr
-    -   tmap
-    -   devtools
-    -   The GitHub package spDataLarge, which can be installed as follows:
+## Computing Requirements
+
+  - DfT will provide desktops with recent versions of R and RStudio
+    installed, including:
+      - R 3.5.3 recommended (although any R 3.5 release should work):
+        <https://cran.r-project.org/>
+      - RStudio 1.1.436 - see
+        <https://www.rstudio.com/products/rstudio/download/>
+      - Will require up-to-date versions of **tidyverse** and **sf**
+        packages, at a minimum
+      - Other packages we’ll use:
+          - stats19
+          - stplanr
+          - tmap
+          - devtools
+          - The GitHub package spDataLarge, which can be installed as
+            follows:
+
+<!-- end list -->
 
 ``` r
 devtools::install_github("Nowosad/spDataLarge")
 ```
 
--   Own laptops allowed, provided necessary data is installed
+  - Own laptops allowed, provided necessary data is installed
 
--   Data: all data will be either provided by packages or downloaded on the day (assuming good internet)
--   A test to check if data downloads work is accessing stats19 data (check this works):
+  - Data: all data will be either provided by packages or downloaded on
+    the day (assuming good internet)
+    
+      - A test to check if data downloads work is accessing stats19 data
+        (check this
+works):
+
+<!-- end list -->
 
 ``` r
 crashes = stats19::get_stats19(year = 2017, type = "accidents", ask = FALSE)
 ```
 
--   A script to test set-up will be provided to test it all works
+  - A script to test set-up will be provided to test it all works
 
-Venue and course times
-----------------------
+## Venue and course times
 
 ### Day 1: Introduction to R/RStudio
 
 Course times each day:
 
--   09:30 - 10:00 (set-up)
+  - 09:30 - 10:00 (set-up)
 
--   10:00 - 11:00 How to use R/RStudio effectively (MM)
+  - 10:00 - 11:00 How to use R/RStudio effectively (MM)
 
--   break
+  - break
 
--   11:15 - 12:30 Using packages: example with sf/ggplot2 (RL)
+  - 11:15 - 12:30 Using packages: example with sf/ggplot2 (RL)
 
--   12:30 - 13:30: lunch
+  - 12:30 - 13:30: lunch
 
--   13:30 - 14:45 Spatial data analysis (MM)
+  - 13:30 - 14:45 Spatial data analysis (MM)
 
--   break
+  - break
 
--   15:00 - 16:00 Visualising spatial datasets (RL)
+  - 15:00 - 16:00 Visualising spatial datasets (RL)
 
--   16:00 - 16:30 (Q&A)
+  - 16:00 - 16:30 (Q\&A)
 
 ### Day 2:
 
 Course times each day:
 
--   09:30 - 11:00 stats19 data analysis - with spatial/temporal analysis (RL)
+  - 09:30 - 11:00 stats19 data analysis - with spatial/temporal analysis
+    (RL)
 
--   break
+  - break
 
--   11:15 - 12:30 OD data with stplanr (RL)
+  - 11:15 - 12:30 OD data with stplanr (RL)
 
--   12:30 - 13:30: lunch
+  - 12:30 - 13:30: lunch
 
--   13:30 - 14:45 Local route network analysis (MM)
+  - 13:30 - 14:45 Local route network analysis (MM)
 
--   break
+  - break
 
--   15:00 - 16:00 Data and methods for assessing cycling potential (RL)
+  - 15:00 - 16:00 Data and methods for assessing cycling potential (RL)
 
--   16:00 - 16:30 (Q&A)
+  - 16:00 - 16:30 (Q\&A)
+    
+    <!-- - Download data from open roads: put on test scripts -->
 
-<!-- - Download data from open roads: put on test scripts -->
+## Optional extra reading
 
-Optional extra reading
-----------------------
+  - Optional extra reading: for context, you may want to read-up on:
+      - Overview of GIS in R, e.g. in Chapter 1 of *Geocomputation with
+        R* or this blog post:
+        <https://www.jessesadler.com/post/gis-with-r-intro/>
+      - stplanr: A package for transport planning (Lovelace and Ellison
+        2018)
+      - R for data science (Grolemund and Wickham 2016)
+      - For an overview of spatial transport data types, see Chapter 12
+        of *Geocomputation with R*
+        (<span class="citeproc-not-found" data-reference-id="lovelace_geocomputation_2019">**???**</span>):
+        <http://geocompr.robinlovelace.net/transport.html>
 
--   Optional extra reading: for context, you may want to read-up on:
--   Overview of GIS in R, e.g. in Chapter 1 of *Geocomputation with R* or this blog post: <https://www.jessesadler.com/post/gis-with-r-intro/>
--   stplanr: A package for transport planning (Lovelace and Ellison 2018)
--   R for data science (Grolemund and Wickham 2016)
--   For an overview of spatial transport data types, see Chapter 12 of *Geocomputation with R* (<span class="citeproc-not-found" data-reference-id="lovelace_geocomputation_2019">**???**</span>): <http://geocompr.robinlovelace.net/transport.html>
+## Notes
 
-Notes
------
+The overview slides for the course can be found here:
+<https://itsleeds.github.io/TDS/slides/2day-slides#1>
 
-The overview slides for the course can be found here: <https://itsleeds.github.io/TDS/slides/2day-slides#1>
+### stats19 exercises
+
+1.  Download and plot all crashes reported in Great Britain in 2017
+    (hint: see [the stats19
+    vignette](https://cran.r-project.org/web/packages/stats19/vignettes/stats19.html))
+2.  Find the function in the `stats19` package that converts a
+    `data.frame` object into an `sf` data frame. Use this function to
+    convert the road crashes into an `sf` object, called `crashes_sf`,
+    for example.
+3.  Filter crashes that happened in the Isle of Wight based on attribute
+    data (hint: the relevant column contains the word `local`)
+4.  Filter crashes happened in the Isle of Wight using geographic
+    subsetting (hint: remember `st_crs()`?)
+5.  Bonus: Which type of spatial subsetting yielded more results and
+    why?
+6.  Bonus: how many crashes happened in each zone?
+7.  Create a new column called `month` in the crash data using the
+    function `lubridate::month()` and the `date` column.
+8.  Create an object called `a_iow_may` representing all the crashes
+    that happened in the Isle of Wight in the month of May
+9.  Bonus: Calculate the average (`mean`) speed limit associated with
+    each crash that happened in May across the zones of the Isle of
+    Wight (the result is shown in the map)
 
 Short keys:
 
--   Alt-Shift-K: shows short keys
--   Tab: does autocompletions
--   Ctl-Shift-A: format code
+  - Alt-Shift-K: shows short keys
+  - Tab: does autocompletions
+  - Ctl-Shift-A: format code
 
 Link to transportAPI: <https://developer.transportapi.com/signup>
 
 Link to chapter: <https://geocompr.robinlovelace.net/transport.html>
 
-Example code
-------------
+## Example code
 
 ### From the morning of day 1
 
@@ -278,11 +327,31 @@ ggplot(nz) +
   geom_sf()
 ```
 
-References
-----------
+## References
 
-Gillespie, Colin, and Robin Lovelace. 2016. *Efficient R Programming: A Practical Guide to Smarter Programming*. O’Reilly Media. <https://csgillespie.github.io/efficientR/>.
+<div id="refs" class="references">
 
-Grolemund, Garrett, and Hadley Wickham. 2016. *R for Data Science*. 1 edition. O’Reilly Media.
+<div id="ref-gillespie_efficient_2016">
 
-Lovelace, Robin, and Richard Ellison. 2018. “Stplanr: A Package for Transport Planning.” *The R Journal* 10 (2): 7–23. doi:[10.32614/RJ-2018-053](https://doi.org/10.32614/RJ-2018-053).
+Gillespie, Colin, and Robin Lovelace. 2016. *Efficient R Programming: A
+Practical Guide to Smarter Programming*. O’Reilly Media.
+<https://csgillespie.github.io/efficientR/>.
+
+</div>
+
+<div id="ref-grolemund_r_2016">
+
+Grolemund, Garrett, and Hadley Wickham. 2016. *R for Data Science*. 1
+edition. O’Reilly Media.
+
+</div>
+
+<div id="ref-lovelace_stplanr:_2018">
+
+Lovelace, Robin, and Richard Ellison. 2018. “Stplanr: A Package for
+Transport Planning.” *The R Journal* 10 (2): 7–23.
+<https://doi.org/10.32614/RJ-2018-053>.
+
+</div>
+
+</div>
