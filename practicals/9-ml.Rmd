@@ -1,0 +1,41 @@
+---
+title: "Machine Learning for Transport Planning"
+subtitle: '<br/>Practical'
+author: "Robin Lovelace"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output: github_document
+bibliography: ../references.bib
+---
+
+- Generate a working hypothesis present in data you have analysed for your research portfolio (e.g. car use is negatively associated with active modes)
+
+- Use a conventional statistical model, e.g. with the function `lm()`, to test the hypothesis
+
+- Use a machine learning algorithm, e.g. that provided by `xgboost`, to explore the same relationships
+
+- Bonus: use a Bayesian statistical approach, e.g. with the package `brms` to explore the relationship
+
+
+- Identify pros and cons of each approach
+
+## Starting point - basic
+
+```{r}
+pct::pct_regions$region_name # see which region names are available
+l = pct::get_pct_lines("west-yorkshire")
+l$pcycle = l$bicycle / l$all
+l$dist_km_bands = ceiling(l$rf_dist_km)
+library(dplyr)
+l_agg = l %>% 
+  sf::st_drop_geometry() %>% 
+  group_by(dist_km_bands) %>% 
+  summarise(pcycle = sum(bicycle) / sum(all))
+plot(l_agg)
+
+# a simple model
+names(l)
+m = lm(pcycle ~ rf_dist_km + rq_dist_km + car_driver + rf_avslope_perc, data = l)
+summary(m)
+```
+
+
