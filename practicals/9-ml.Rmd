@@ -54,9 +54,12 @@ p = l %>%
   select(rf_dist_km, rq_dist_km, pcar, rf_avslope_perc) %>%
   as.matrix()
 
-mx = xgboost::xgboost(p, label = l$pcycle, nrounds = 9)
+mx = xgboost::xgboost(p, label = l$pcycle, nrounds = 9, weight = l$all)
 plot(l$pcycle, predict(mx, p))
 cor(l$pcycle, predict(mx, p))^2
+n = colnames(p)
+i = xgboost::xgb.importance(n, model = mx)
+xgboost::xgb.plot.importance(i)
 ```
 
 
