@@ -25,6 +25,8 @@ pct::pct_regions$region_name # see which region names are available
 l = pct::get_pct_lines("west-yorkshire")
 l$pcycle = l$bicycle / l$all
 l$dist_km_bands = ceiling(l$rf_dist_km)
+l = l %>% 
+  select(-contains("_s"))
 library(dplyr)
 l_agg = l %>% 
   sf::st_drop_geometry() %>% 
@@ -36,6 +38,25 @@ plot(l_agg)
 names(l)
 m = lm(pcycle ~ rf_dist_km + rq_dist_km + car_driver + rf_avslope_perc, data = l)
 summary(m)
+
+
+plot(l$geometry)
+m = lm(pcycle ~ rf_dist_km + rq_dist_km + car_driver + rf_avslope_perc, data = l, weights = all)
+summary(m)
+l = l %>% mutate(pcar = car_driver / all)
+m = lm(pcycle ~ rf_dist_km + rq_dist_km + pcar + rf_avslope_perc, data = l, weights = all)
+summary(m)
+
+# with xgboost
+
+p = l %>%
+  sf::st_drop_geometry() %>% 
+  select(rf_dist_km, rq_dist_km, pcar, rf_avslope_perc) %>%
+  as.matrix()
+
+mx = xgboost::xgboost(p, label = l$pcycle, nrounds = 9)
+plot(l$pcycle, predict(mx, p))
+cor(l$pcycle, predict(mx, p))^2
 ```
 
 
