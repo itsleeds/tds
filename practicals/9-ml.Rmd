@@ -21,13 +21,15 @@ bibliography: ../references.bib
 ## Starting point - basic
 
 ```{r}
+library(dplyr)
 pct::pct_regions$region_name # see which region names are available
 l = pct::get_pct_lines("west-yorkshire")
+download.file("https://github.com/npct/pct-outputs-national/raw/master/commute/msoa/l_all.Rds", "l.Rds")
+l = readRDS("l.Rds") %>% sf::st_as_sf() 
 l$pcycle = l$bicycle / l$all
 l$dist_km_bands = ceiling(l$rf_dist_km)
 l = l %>% 
   select(-contains("_s"))
-library(dplyr)
 l_agg = l %>% 
   sf::st_drop_geometry() %>% 
   group_by(dist_km_bands) %>% 
@@ -54,12 +56,25 @@ p = l %>%
   select(rf_dist_km, rq_dist_km, pcar, rf_avslope_perc) %>%
   as.matrix()
 
-mx = xgboost::xgboost(p, label = l$pcycle, nrounds = 9, weight = l$all)
+mx = xgboost::xgboost(p, label = l$pcycle, nrounds = 19, weight = l$all)
 plot(l$pcycle, predict(mx, p))
 cor(l$pcycle, predict(mx, p))^2
+cor(l$pcycle, predict(m, l))^2
 n = colnames(p)
 i = xgboost::xgb.importance(n, model = mx)
 xgboost::xgb.plot.importance(i)
+```
+
+## OSM retail
+
+```{r}
+region_name = "london"
+library(osmdata)
+d = opq(region_name) %>% 
+  add_osm_feature(key = "landuse", "retail") %>% 
+  osmdata_sf()
+d
+mapview::mapview(d$osm_polygons)
 ```
 
 
