@@ -1,0 +1,194 @@
+---
+title: "Big data and machine learning for transport applications"
+subtitle: '<br/>Transport Data Science'
+author: "Robin Lovelace"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output:
+  xaringan::moon_reader:
+    # css: ["default", "its.css"]
+    # chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+bibliography: ../references.bib
+---
+
+background-image: url(https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+my_bib = ReadBib("../references.bib", check = FALSE)
+```
+
+---
+
+# This session in context
+
+   - Introduction to transport data science
+
+-  Software for practical data science 
+
+ - The structure of transport data
+ - Data cleaning and subsetting
+ - Accessing data from web sources
+ - Routing
+ - Data visualization
+ - Project work
+ - Professional issues + project work
+ 
+-  ## <font color="red"> Machine learning</font> 
+
+---
+
+## Objectives
+
+From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md):
+
+```{r}
+# Understand the structure of transport datasets: spatial, temporal and demographic
+# Understand how to obtain, clean and store transport related data
+# Gain proficiency in command-line tools for handling large transport datasets
+# Learn machine learning and data modelling techniques
+# Produce data visualizations, static and interactive
+# Learn where to find large transport datasets and assess data quality
+```
+
+- Learn how to join together the components of transport data science into a cohesive project portfolio 
+
+---
+
+## Learning outcomes
+
+```{r}
+# Identify available datasets and access and clean them
+# Combine datasets from multiple sources
+# Understand what machine learning is, which problems it is appropriate for compared with traditional statistical approaches, and how to implement machine learning techniques
+# Visualise and communicate the results of transport data science, and know about setting-up interactive web applications
+# Deciding when to use local computing power vs cloud services
+```
+
+- Understand what machine learning is, which problems it is appropriate for compared with traditional statistical approaches, and how to implement machine learning techniques
+
+---
+
+# What is machine learning?
+
+--
+
+- [Applied statistics](https://machinelearningmastery.com/relationship-between-applied-statistics-and-machine-learning/) vs ML: a continuum
+
+![](https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2018/04/Glossary-Mapping-Terms-in-Statistics-to-Terms-in-Machine-Learning.png)
+
+
+---
+
+# Machine learning types
+
+There are 2 basic types `r Citep(my_bib, "james_introduction_2013", .opts = list(cite.style = "authoryear"))`
+
+- Supervised learning, when you have a training dataset
+
+- Unsupervised learning, where there is no 'dependent variable'
+
+
+
+---
+
+# Deep learning
+
+- Google is now 'AI First' (NYT [2016](https://www.nytimes.com/2016/12/14/magazine/the-great-ai-awakening.html))
+
+![](https://static01.nyt.com/images/2016/12/18/magazine/18ai8/18ai8-superJumbo.jpg?quality=90&auto=webp)
+
+
+
+---
+
+# Example of a machine learning problem
+
+- Cycling infrastructure is a 'fuzzy' concept
+
+- Difficult to pin down with a simple relationship
+
+- So machine learning should help!
+
+- See www.cyipt.bike
+
+---
+
+# Input data - messy
+
+![](https://raw.githubusercontent.com/cyipt/cyipt/master/model-uptake_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-10-1.png)
+
+
+---
+
+# Input data - simplification
+
+![](https://raw.githubusercontent.com/cyipt/cyipt-website/master/images/ttwa-uptake.png)
+
+---
+
+# Results of ML exercise
+
+See https://github.com/cyipt/cyipt/blob/master/model-uptake.md
+
+--
+
+![](https://raw.githubusercontent.com/cyipt/cyipt/master/model-uptake_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-24-1.png)
+---
+
+# Observations
+
+- Input data is very noisy
+
+--
+
+- Machine learning didn't reveal any expected insights in this case
+
+--
+
+- But did reveal *unexpected* insight: road speeds and traffic volumes seem to be associated with lower uptake of cycling
+
+---
+
+# Practical
+
+- Generate a working hypothesis present in data you have analysed for your research portfolio (e.g. car use is negatively associated with active modes)
+
+--
+
+- Use a conventional statistical model, e.g. with the function `lm()`, to test the hypothesis
+
+--
+
+- Use a machine learning algorithm, e.g. that provided by `xgboost`, to explore the same relationships
+
+--
+
+- Bonus: use a Bayesian statistical approach, e.g. with the package `brms` to explore the relationship
+
+--
+
+Identify pros and cons of each approach
+
+
+---
+
+# References
+
+```{r, 'refs', results="asis", echo=FALSE}
+PrintBibliography(my_bib)
+# RefManageR::WriteBib(my_bib, "refs-geostat.bib")
+```
