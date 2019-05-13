@@ -11,6 +11,13 @@ knitr::opts_chunk$set(
 )
 ```
 
+
+```{r, eval=FALSE, echo=FALSE}
+refs = RefManageR::ReadZotero(group = "418217", .params = list(collection = "JFR868KJ", limit = 100))
+RefManageR::WriteBib(refs, "software.bib")
+```
+
+
 # TDS (Transport Data Science)
 
 This repo supports teaching of the Transport Data Science module, part of the Mathematical Modelling for Transport ([MMT](http://www.its.leeds.ac.uk/courses/masters/msc-mathematical-modelling-transport/)) MSc course at the Institute for Transport Studies.
