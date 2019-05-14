@@ -1,0 +1,284 @@
+---
+title: "Transport Data Science in Practice"
+subtitle: '<br/>Transport Data Science'
+author: "Robin Lovelace"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output:
+  xaringan::moon_reader:
+    # css: ["default", "its.css"]
+    # chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+bibliography: ../references.bib
+---
+
+background-image: url(https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+my_bib = ReadBib("../references.bib", check = FALSE)
+```
+
+---
+
+# This session in context
+
+   - Introduction to transport data science
+
+-  Software for practical data science
+
+ - The structure of transport data
+ - Data cleaning and subsetting
+ - Accessing data from web sources
+ - Routing
+ - Data visualization
+ - Project work
+ - Machine learning
+ - ## <font color="red"> Professional issues</font> 
+ 
+---
+
+## Objectives
+
+From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md):
+
+```{r}
+# Understand the structure of transport datasets: spatial, temporal and demographic
+# Understand how to obtain, clean and store transport related data
+# Gain proficiency in command-line tools for handling large transport datasets
+# Learn machine learning and data modelling techniques
+# Produce data visualizations, static and interactive
+# Learn where to find large transport datasets and assess data quality
+```
+
+- Learn how to join together the components of transport data science into a cohesive project portfolio 
+
+---
+
+## Learning outcomes
+
+```{r}
+# Identify available datasets and access and clean them
+# Combine datasets from multiple sources
+# Understand what machine learning is, which problems it is appropriate for compared with traditional statistical approaches, and how to implement machine learning techniques
+# Visualise and communicate the results of transport data science, and know about setting-up interactive web applications
+# Deciding when to use local computing power vs cloud services
+```
+
+- Articulate the relevance and limitations of data-centric analysis applied to transport problems, compared with other methods
+
+---
+# Recap
+
+Can be added as follows: 
+`r Citep(my_bib, "boeing_osmnx:_2017", .opts = list(cite.style = "authoryear"))`
+
+---
+## Introduction to transport data science
+
+We defined data science as:
+
+--
+
+- A discipline "that allows you to turn raw data into understanding, insight, and knowledge" `r Citep(my_bib, "grolemund_r_2016", .opts = list(cite.style = "authoryear"))`
+
+--
+
+Meaning transport-related data work that is actually useful!
+
+What other aspects of the definition make data science useful?
+
+--
+
+- Being able to scale to large dataset sizes
+
+--
+
+- Being systematic, driven by code rather than user interfaces, allowing:
+
+--
+
+- Reproducibility
+
+--
+
+- Accountability/transparency
+
+--
+
+- Generalisation and the application of your work (code) to other contexts
+
+---
+## Software for transport data science
+
+Coffee data in a GUI vs a CLI
+
+.pull-left[
+
+In a GUI:
+
+![](https://user-images.githubusercontent.com/1825120/52374114-5dc01680-2a54-11e9-9b0a-11a345fe9767.gif)
+
+]
+
+--
+
+.pull-right[
+![](https://user-images.githubusercontent.com/1825120/52374960-74676d00-2a56-11e9-95e2-19d1c39365b8.gif)
+]
+
+---
+## The structure of transport data       
+
+- Agents
+- Route nets
+- Points and nodes
+- Routes over a network
+- Desire lines and OD pairs
+- Transport zones, areal units
+
+Start with the foundational data frame:
+
+```{r, message = FALSE}
+u = paste0(
+  "https://github.com/ITSLeeds/TDS/",
+  "raw/master/sample-data/everyone.csv"
+  )
+d = readr::read_csv(u)
+d
+```
+
+---
+
+## Recap: data frame manipulation
+
+--
+
+Control your data!
+
+--
+
+```{r}
+d[1:2, 1:3]
+```
+
+--
+
+```{r, eval=FALSE}
+nrow(d)
+d[c(1, 3), c(2, 7)]
+d[3]
+d[, c(3)]
+d$x = 1:nrow(d)
+sum(d$n_coffee[d$like_bus_travel])
+```
+
+--
+
+## Challenge for practical: do that in the tidyverse!
+
+---
+## Data cleaning and subsetting          
+
+
+--
+
+- Data cleaning (or 'tidying' or 'wrangling') is part of a wider process 
+`r Citep(my_bib, "grolemund_r_2016", .opts = list(cite.style = "authoryear"))`
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://d33wubrfki0l68.cloudfront.net/795c039ba2520455d833b4034befc8cf360a70ba/558a5/diagrams/data-science-explore.png")
+```
+
+--
+
+- It's important to have an idea where you're heading with the analysis
+
+--
+
+- Often best to start with pen and paper
+
+---
+## Accessing data from web sources
+
+--
+
+There is tons of data out there, being able to get it is a vital skill
+
+--
+
+- UK geoportal, providing geographic data at many levels: https://geoportal.statistics.gov.uk
+- Other national geoportals exist, such as this: http://www.geoportal.org/
+- A good source of cleaned origin destination data is the Region downloads tab in the Propensity to Cycle Tool - see the Region data tab for West Yorkshire here, for example: http://www.pct.bike/m/?r=west-yorkshire
+- OpenStreetMap is an excellent source of geographic data with global coverage. You can download data on specific queries (e.g. highway=cycleway) from the overpass-turbo service: https://overpass-turbo.eu/ or with the **osmdata** package
+
+---
+## Routing
+
+```{r}
+o = stplanr::geo_code("leeds")
+d = stplanr::geo_code("bradford")
+l = stplanr::route_osrm(o, d)
+plot(sf::st_as_sf(l))
+```
+
+
+---
+## Data visualization                    
+
+> [visualisations] are also often the best way to present the findings of [transport] research in a way that is accessible. [visualisation] making is therefore a critical part of [transport] and its emphasis not only on describing, but also changing the world.
+
+Source: [Geocomputation with R](https://geocompr.robinlovelace.net/adv-map.html)
+
+--
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/10/31/1414751968306/d83dffac-d060-4b77-88c0-77916e18e233-1020x397.png?width=620&quality=45&auto=format&fit=max&dpr=2&s=7a52a871a27b3fa6ae167244d4f9845e")
+```
+
+- Visualisations can make findings become 'real'
+
+
+---
+## Project work                          
+
+![](https://d33wubrfki0l68.cloudfront.net/87603549ad0d95b0071da0f9270b2f89ead3b39b/48700/lesson-images/websites-1-render.png)
+
+---
+## Machine learning                   
+
+There are 2 basic types `r Citep(my_bib, "james_introduction_2013", .opts = list(cite.style = "authoryear"))`
+
+- Supervised learning, when you have a training dataset
+
+- Unsupervised learning, where there is no 'dependent variable'
+
+---
+
+## TDS in practice
+
+Example: Active Transport Tool for WHO: https://github.com/ATFutures/who
+
+![](https://raw.githubusercontent.com/ATFutures/who/master/fig/accra-flow1-interactive.png)
+
+---
+
+# References
+
+```{r, 'refs', results="asis", echo=FALSE}
+PrintBibliography(my_bib)
+# RefManageR::WriteBib(my_bib, "refs-geostat.bib")
+```
