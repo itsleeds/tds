@@ -77,4 +77,10 @@ geoms = dodgr_to_sf(graph_agg)
 plot(geoms$geometry, lwd = geoms$flow / mean(geoms$flow))
 ```
 
+```{r}
+ras = raster::raster(geoms, nrows = 50, ncols = 50)
+# v = raster::rasterize(geoms, ras, "flow", fun = mean) # slow
+v = raster::rasterize(geoms[1:100, ], ras, "flow", fun = mean) # slow
+mapview::mapview(v)
+```
 
