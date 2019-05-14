@@ -1,0 +1,80 @@
+
+
+From routes to route networks
+
+```{r}
+library(dplyr)
+library(osmdata)
+library(dodgr)
+library(sf)
+```
+
+
+```{r, eval=FALSE}
+# get data
+
+
+
+od = pct::get_od()
+region = ukboundaries::lad2016_simple %>% 
+  filter(grepl(pattern = "Isle of W", lad16nm))
+mapview::mapview(region)
+bb = sf::st_bbox(region)
+
+osm_data = opq(bb) %>% 
+  add_osm_feature("highway") %>% 
+  osmdata_sf()
+
+format(object.size(osm_data), units = "MB")
+
+
+dodgr_net = dodgr::dodgr_streetnet(bb)
+format(object.size(dodgr_net), units = "MB")
+
+# get core network
+rnet_pct = pct::get_pct_rnet("isle-of-wight")
+rnet_pct_min = rnet_pct %>% 
+  filter(dutch_slc > 100)
+plot(rnet_pct_min)
+rnet_pct_buffered = rnet_pct_min %>% 
+  st_transform(27700) %>% 
+  st_buffer(20) %>% 
+  st_transform(4326)
+rnet_min = osm_data$osm_lines[rnet_pct_buffered, ]
+object.size(rnet_min) %>% format(units = "MB")
+mapview::mapview(rnet_min)
+saveRDS(rnet_min, "rnet_min.Rds")
+piggyback::pb_upload("rnet_min.Rds")
+```
+
+Create network using `stplanr`
+
+```{r}
+f = file.path(tempdir(), "rnet_min.Rds")
+download.file("https://github.com/ITSLeeds/TDS/releases/download/0.2/rnet_min.Rds", f)
+rnet_min = readRDS(f)
+rnet_stplanr = stplanr::SpatialLinesNetwork(rnet_min)
+# w = st_length(rnet_stplanr@sl) %>% as.numeric() 
+w = rep(1, nrow(rnet_stplanr@sl))
+rnet_stplanr@weightfield
+rnet_stplanr@sl$betweenness = igraph::edge_betweenness(graph = rnet_stplanr@g, weights = w)
+summary(rnet_stplanr@sl$betweenness)
+plot(rnet_stplanr@sl$geometry, lwd = rnet_stplanr@sl$betweenness / mean(rnet_stplanr@sl$betweenness))
+```
+
+```{r}
+# ?dodgr_flows_aggregate
+graph = weight_streetnet(rnet_min)
+from = sample (graph$from_id, size = 100)
+to = sample (graph$to_id, size = 5)
+to = to [!to %in% from]
+flows = matrix (10 * runif (length (from) * length (to)),
+                 nrow = length (from))
+graph_agg = dodgr_flows_aggregate(graph, from, to, flows)
+head(graph_agg)
+summary(graph_agg$flow)
+geoms = dodgr_to_sf(graph_agg)
+plot(geoms$geometry, lwd = geoms$flow / mean(geoms$flow))
+```
+
+

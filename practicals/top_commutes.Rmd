@@ -1,0 +1,45 @@
+---
+output: pdf_document
+---
+
+```{r}
+
+```
+
+```{r, message=FALSE}
+# birthday challenge: reproduce this plot using the following code:
+remotes::install_github("itsleeds/pct")
+library(tidyverse)
+library(tmap)
+# get official od data
+od = pct::get_od()
+od[1:9] # 2 million rows!
+od = od %>% 
+  mutate(Active =( bicycle + foot) / all * 100)
+
+# get centroids in yorkshire and subset od
+ce = pct::get_pct_centroids(region = "west-yorkshire")
+od_yorkshire = od %>% 
+  filter(geo_code1 %in% ce$geo_code) %>% 
+  filter(geo_code2 %in% ce$geo_code) 
+
+# find the top 10000 desire lines by car_driver
+od_car = od_yorkshire %>% 
+  top_n(n = 3000, wt = car_driver)
+
+# convert to desire lines
+desire_lines = stplanr::od2line(flow = od_car, ce)
+# plot(l$geometry)
+tm_shape(desire_lines) +
+  tm_lines(palette = "plasma", breaks = c(0, 5, 10, 20, 40, 100),
+    lwd = "all",
+    scale = 9,
+    title.lwd = "Number of trips",
+    alpha = 0.6,
+    col = "Active",
+    title = "Active travel (%)"
+  ) +
+  tm_scale_bar() +
+  tm_style(style = "cobalt", title = "Happy Birthday Milena, from Robin and Katy!")
+
+```
