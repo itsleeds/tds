@@ -251,9 +251,65 @@ plot(iow_rnet)
 
 # git.io/tds2dayex
 
+# travel patterns in/around complutense
+library(osmdata)
+library(tidyverse)
+complu = opq(bbox = "Madrid") %>% 
+  add_osm_feature(key = "name", value = "Complutense", value_exact = FALSE) %>% 
+  osmdata_sf()
 
+complu
+
+complu_poly = complu$osm_polygons
+mapview::mapview(complu_poly)
+complu1 = complu_poly %>% 
+  mutate(area = as.numeric(sf::st_area(.))) %>% 
+  top_n(1, area)
+mapview::mapview(complu1)
+
+# get 1 km buffer
+complu_buffer = complu1 %>% 
+  st_transform(3087) %>% 
+  st_buffer(1000) %>% 
+  st_transform(4326)
+
+mapview::mapview(complu_buffer)
+b = sf::st_bbox(complu_buffer)
+
+# s = dodgr::dodgr_streetnet(bbox = b)
+osm = opq(bbox = b) %>% 
+  add_osm_feature("highway") %>% 
+  osmdata_sf()
+
+mapview::mapview(osm$osm_lines)
+
+rnet = SpatialLinesNetwork(osm$osm_lines)
+
+rnet@sl$centrality = igraph::edge_betweenness(rnet@g)
+
+plot(rnet@sl["centrality"])
+
+library(tmap)
+ttm()
+tm_shape(rnet@sl) +
+  tm_lines(lwd = "centrality", scale = 9, col = "highway")
 
 # try cyclstreets in Madrid
+
+spain = rnaturalearth::ne_(scale = 10, country = "Spain", returnclass = "sf")
+names(spain)
+
+sf::st_geometry_type(spain)
+
+sf::write_sf(spain, "/tmp/spain.gpkg")
+
+u = "http://www.ine.es/censos2011_datos/cartografia_censo2011_nacional.zip"
+download.file(u, "data.zip")
+unzip("data.zip")
+spain = sf::read_sf("SECC_CPV_E_20111101_01_R_INE.shp")
+spain_sub = spain %>% 
+  filter(CUSECCUMUN == "01001")
+mapview::mapview(spain[1:100, ])
 ```
 
   
