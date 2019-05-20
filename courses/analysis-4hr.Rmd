@@ -94,15 +94,17 @@ The course will build on Chapter 12 of *Geocomputation with R* [@lovelace_geocom
 
 ### Agenda
 
-- 10:00 - 11:00: Getting and analysing spatio-temporal transport: examples with `stats19`, `pct` and `osmdata` packages
+- 10:00 - 11:00: Introduction and getting started with R
 
-- 11:00 - 12:00: Origin-destination (OD) data analysis with `stplanr`
+- 11:00 - 12:00: Getting and analysing spatio-temporal transport: examples with `stats19`, `pct` and `osmdata` packages
 
 12:00 - 12:30: Break
 
-- 12:30 - 13:00: From routes to route networks
+- 12:30 - 13:00: Origin-destination (OD) data analysis with `stplanr`
 
-- 13:00 - 14:00: Data and methods for assessing cycling potential
+- 13:00 - 14:00: From routes to route networks and data and methods for assessing cycling potential
+
+## Exercises
 
   
 ## References

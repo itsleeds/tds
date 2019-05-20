@@ -17,7 +17,7 @@ Assumed prior knowledge:
 Computing Requirements
 ----------------------
 
--   DfT will provide desktops with recent versions of R and RStudio installed, including:
+-   Desktops with recent versions of R and RStudio installed, including:
 -   R 3.6.0 or later recommended (although any R 3.5 release should work): **download and install the latest version from** <https://cran.r-project.org/>
 -   A recent version of RStudio: **download and install the latest version from** <https://www.rstudio.com/products/rstudio/download/>
 -   Up-to-date versions of **tidyverse** and **sf** packages, at a minimum
@@ -103,15 +103,18 @@ Optional extra reading
 
 ### Agenda
 
--   10:00 - 11:00: Getting and analysing spatio-temporal transport: examples with `stats19`, `pct` and `osmdata` packages
+-   10:00 - 11:00: Introduction and getting started with R
 
--   11:00 - 12:00: Origin-destination (OD) data analysis with `stplanr`
+-   11:00 - 12:00: Getting and analysing spatio-temporal transport: examples with `stats19`, `pct` and `osmdata` packages
 
 12:00 - 12:30: Break
 
--   12:30 - 13:00: From routes to route networks
+-   12:30 - 13:00: Origin-destination (OD) data analysis with `stplanr`
 
--   13:00 - 14:00: Data and methods for assessing cycling potential
+-   13:00 - 14:00: From routes to route networks and data and methods for assessing cycling potential
+
+Exercises
+---------
 
 References
 ----------
