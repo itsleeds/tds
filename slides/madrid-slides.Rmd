@@ -263,6 +263,10 @@ tm_shape(car_dependent_routes) +
 
 # Getting and analysing spatio-temporal transport data
 
+- Work through section 5 in exercises:
+
+http://git.io/tds2dayex
+
 ---
 
 # stats19 data analysis 
