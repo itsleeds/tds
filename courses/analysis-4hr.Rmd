@@ -8,6 +8,8 @@ bibliography:
 
 Transport Data Science course, based on materials hosted at https://github.com/ITSLeeds/TDS
 
+Home of this course: git.io/tds4hr
+
 Assumed prior knowledge:
 
 - Working knowledge of R, e.g. have completed: 
@@ -96,7 +98,7 @@ The course will build on Chapter 12 of *Geocomputation with R* [@lovelace_geocom
 
 - 10:00 - 11:00: Introduction and getting started with R
 
-- 11:00 - 12:00: Getting and analysing spatio-temporal transport: examples with `stats19`, `pct` and `osmdata` packages
+- 11:00 - 12:00: Getting and analysing transport data: examples with `stats19`, `pct` and `osmdata` packages
 
 12:00 - 12:30: Break
 
@@ -105,6 +107,154 @@ The course will build on Chapter 12 of *Geocomputation with R* [@lovelace_geocom
 - 13:00 - 14:00: From routes to route networks and data and methods for assessing cycling potential
 
 ## Exercises
+
+## Getting started
+
+See section 1 of the exercises: https://git.io/tds2dayex
+
+
+```{r, out.width="30%", fig.show='hold', message=FALSE}
+d = data.frame(x = 1:9, y = (1:9)^2)
+plot(d)           # base R
+library(ggplot2)  # with a package
+ggplot(d) +
+  geom_point(aes(x, y))
+```
+
+## Getting tranport data
+
+Starting point: run the following commands.
+
+```{r}
+library(tidyverse)
+library(stats19)
+library(pct)
+regions = pct::pct_regions
+iow = regions %>% 
+  filter(region_name == "isle-of-wight")
+plot(iow)
+vehicles = get_stats19(year = 2017, type = "vehicles", ask = FALSE)
+```
+
+
+
+1. Download and plot all crashes reported in Great Britain in 2017 (hint: see [the stats19 vignette](https://cran.r-project.org/web/packages/stats19/vignettes/stats19.html))
+1. Find the function in the `stats19` package that converts a `data.frame` object into an `sf` data frame. Use this function to convert the road crashes into an `sf` object, called `crashes_sf`, for example.
+1. Filter crashes that happened in the Isle of Wight based on attribute data (hint: the relevant column contains the word `local`)
+1. Filter crashes happened in the Isle of Wight using geographic subsetting (hint: remember `st_crs()`?)
+
+## Origin-destination data with stplanr
+
+The starting point of these exercises is to work with the Origin-Destination data in the `stplanr` package.
+
+```{r}
+library(stplanr)
+head(flow)
+plot(flow$On.foot, flow$Bicycle)
+cor(flow$On.foot, flow$Bicycle)
+plot(zones_sf)
+l = od2line(flow, zones_sf)
+plot(l)
+```
+
+- Plot the map interactively using mapview
+- Highlight the desire line along which most people walk
+
+You can analyse OD data in more detail as follows.
+
+```{r}
+l1 = l %>% 
+  top_n(1,  Bicycle)
+plot(l1)
+```
+
+
+
+
+
+### Exercises
+
+1. Create an object representing desire lines in Isle of Wight, e.g, with: `desire_lines_all = pct::get_pct_lines(region = "isle-of-wight")`
+1. Subset the desire lines with a value of `all` of 200 or above
+1. Create a buffer of 500 m for each desire line and calculate the number of crashes that happened within each (using STATS19 data downloaded in the previous exercise)
+1. Create a faceted plot showing the temporal distribution of crashes in Isle of Wight (you can choose whether to show these over the months of the year, over days of the week, or over the hours of a day)
+1. Do a spatiotemporal subset to identify the crashes that happened within the most commonly travelled desire line between 07:00 and 10:00 during weekdays.
+
+
+```{r, eval=FALSE}
+
+u = "https://www.openstreetmap.org/trace/2992569/data"
+download.file(u, "track.gpx")
+sf::st_layers("track.gpx")
+
+tracks = sf::st_read("track.gpx", layer= "track_points")
+# ?st_read
+mapview::mapview(tracks)
+
+
+library(stplanr)
+library(tidyverse)
+f = flow[1:3, 1:5]
+f_tidy = flow %>% 
+  select(1:5) %>% 
+  slice(1:3)
+f
+class(f)
+z = zones_sf
+l = od2line(f, z)
+plot(l[2, ])
+nrow(l)
+r = line2route(l, route_fun = route_osrm)
+plot(r)
+
+# get data from PCT
+od = pct::get_od()
+od
+class(od)
+iow = pct::get_pct_centroids("isle-of-wight")
+plot(iow)
+mapview::mapview(iow)
+
+od_iow = od %>%
+  filter(geo_code1 %in% iow$geo_code) %>% 
+  filter(geo_code2 %in% iow$geo_code) 
+
+l_iow = od2line(od_iow, iow)
+mapview::mapview(l_iow)
+
+l_iow = l_iow %>% 
+  mutate(percent_drive = car_driver / all * 100) %>% 
+  mutate(distance_euclidean = sf::st_length(l_iow)) %>% 
+  mutate(distance_euclidean = as.numeric(distance_euclidean))
+l_iow$percent_drive
+class(l_iow$distance_euclidean)
+
+summary(l_iow$percent_drive)
+summary(l_iow$distance_euclidean)
+
+l_iow_car_dependent = l_iow %>% 
+  filter(percent_drive > 75) %>% 
+  filter(distance_euclidean < 10000)
+
+mapview::mapview(l_iow_car_dependent)
+
+r_fast = line2route(l_iow_car_dependent)
+r = line2route(l_iow_car_dependent, plan = "quietest")
+
+mapview::mapview(r) +
+  mapview::mapview(r_fast)
+
+r_fast$bicycle = l_iow_car_dependent$bicycle
+
+iow_rnet = overline(r_fast, "bicycle")
+plot(iow_rnet)
+
+# git.io/tds2dayex
+
+
+
+# try cyclstreets in Madrid
+```
 
   
 ## References
