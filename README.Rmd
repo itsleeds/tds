@@ -13,8 +13,9 @@ knitr::opts_chunk$set(
 
 
 ```{r, eval=FALSE, echo=FALSE}
-refs = RefManageR::ReadZotero(group = "418217", .params = list(collection = "JFR868KJ", limit = 100))
-RefManageR::WriteBib(refs, "software.bib")
+refs1 = RefManageR::ReadZotero(group = "418217", .params = list(collection = "R38L2EXB", limit = 100))
+refs2 = RefManageR::ReadZotero(group = "418217", .params = list(collection = "JFR868KJ", limit = 100))
+RefManageR::WriteBib(c(refs1, refs2), "tds.bib")
 ```
 
 
