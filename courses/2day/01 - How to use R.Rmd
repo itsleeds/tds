@@ -182,7 +182,7 @@ R also supports many other formats. For example CSV files.
 ```{r, eval=FALSE}
 write.csv(cat, "cat.csv")
 cat3 <- read.csv("cat.csv")
-identical(cat3, cat1)
+identical(cat3, cat)
 ```
 Notice that `cat3` and `cat` are not identical, what has changed? Hint: use `?write.csv`.
 
