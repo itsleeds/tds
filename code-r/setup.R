@@ -49,6 +49,11 @@ setup_R <- function(rversion = 3.4,
     message("PASS: Got data from the pct package")
   }
   
+  plot(zones_all$geometry, main = "Test plot of desire lines on the Isle of Wight")
+  plot(lines_all$geometry[lines_all$all > 300], col = "red", add = TRUE)
+  
+  message("PASS: Basic Plotting")
+  
   message(" ")
   message(" ")
   message("##############################################")
