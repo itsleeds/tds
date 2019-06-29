@@ -163,6 +163,7 @@ setup_R <- function(rversion = 3.4,
   
   for(i in seq(1, length(log))){
     message(log[i])
+    message("______________")
   }
 }
 
