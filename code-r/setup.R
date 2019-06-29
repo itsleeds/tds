@@ -146,7 +146,7 @@ setup_R <- function(rversion = 3.4,
     if(nchar(Sys.getenv("CYCLESTREETS")) > 0){
       message("PASS: Cyclestreets key found")
     }else{
-      log <- c(log,"The cyclestreets package requires an API key, please sign up for one at https://www.cyclestreets.net/api/ then add it to your R environ file")
+      log <- c(log,"WARN: The cyclestreets package requires an API key, please sign up for one at https://www.cyclestreets.net/api/ then add it to your R environ file")
       message("WARN: No cyclestreets API key found.")
     }
   }else{
