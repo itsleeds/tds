@@ -101,7 +101,8 @@ setup_R <- function(rversion = 3.4,
   }else{
     message("PASS: No CRAN packages were requested")
   }
-  
+  message("Updating any out of date packages")
+  update.packages(oldPkgs = pkgs, ask = FALSE)
   
   # Install Packages Github
   if(length(pkgs_gh) > 0){
