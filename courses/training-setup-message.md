@@ -1,7 +1,14 @@
 An introduction to road safety analysis with R: setup notes
 ================
 
-These are prerequisites for the upcoming course.
+These are prerequisites for the upcoming course on 4th December, 9AM.
+
+The course is located in the EC Stone Cluster 6.68, which is a 5 minute
+walk from ITS - see here for directions:
+<https://it.leeds.ac.uk/it?id=kb_article&sysparm_article=KB0011752>
+
+**Note that it takes time to startup your laptop or login to the cluster
+computers so please arrive by 09:00 prompt.**
 
 ## Installing RStudio
 
@@ -9,7 +16,7 @@ These are prerequisites for the upcoming course.
 the session.**
 
 You are expected to have **RStudio properly installed on your computer**
-or **to have tested tested RStudio on a cluster computer** before the R
+or **to have tested RStudio on a cluster computer** before the R
 workshop on 4th December. I encourage you to install R and RStudio, and
 bring your own laptop for the course because the cluster computers are
 slow, and you will have more control over your R setup that way. To
@@ -76,10 +83,9 @@ For an introduction to data science with R, see Grolemund and Wickham
 
 ## Another test of R and RStudio
 
-To test your computer is ready to work with road crash data in R, try
-running the following commands from RStudio (which should result in the
-map
-below):
+As another test, try running the following commands from RStudio (which
+should result in a
+map):
 
 <!-- method for helping people set up their computers. Type this single line into the console and follow the instructions.  -->
 
@@ -102,6 +108,9 @@ You should see results like those shown in the map here:
 If you cannot create that map by running the code above before the
 course, get in touch with us, e.g. by writing a comment under that
 github issue page (Note: You will need a github account).
+
+For an online version of these instructions see here:
+<https://github.com/ITSLeeds/TDS/blob/master/courses/training-setup-message.md>
 
 ## References
 
