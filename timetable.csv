@@ -1,22 +1,12 @@
 SUMMARY,DESCRIPTION,DTSTART,DTEND,LOCATION,UID
-TDS Lecture: intro,"Introduction to transport data science, Lecture, taught by: Dr Robin Lovelace",2019-02-05T12:30:00Z,2019-02-05T13:30:00Z,EC Stoner SR (7.76),intro Lecture
-TDS Practical: intro,"Introduction to transport data science, Practical, taught by: Dr Robin Lovelace",2019-02-05T14:00:00Z,2019-02-05T15:30:00Z,West Teaching Lab Cluster (G.29),intro Practical
-TDS Lecture: software,"Software for practical data science, Lecture, taught by: Dr Robin Lovelace",2019-02-12T12:30:00Z,2019-02-12T13:30:00Z,EC Stoner SR (7.76),software Lecture
-TDS Practical: software,"Software for practical data science, Practical, taught by: Dr Robin Lovelace",2019-02-12T14:00:00Z,2019-02-12T15:30:00Z,West Teaching Lab Cluster (G.29),software Practical
-TDS Lecture: structure,"The structure of transport data, Lecture, taught by: Dr Richard Connors",2019-02-19T12:30:00Z,2019-02-19T13:30:00Z,EC Stoner SR (7.76),structure Lecture
-TDS Practical: structure,"The structure of transport data, Practical, taught by: Dr Robin Lovelace",2019-02-19T14:00:00Z,2019-02-19T15:30:00Z,West Teaching Lab Cluster (G.29),structure Practical
-TDS Lecture: cleaning,"Data cleaning and subsetting, Lecture, taught by: Dr Robin Lovelace",2019-03-05T12:30:00Z,2019-03-05T13:30:00Z,EC Stoner SR (7.76),cleaning Lecture
-TDS Practical: cleaning,"Data cleaning and subsetting, Practical, taught by: Dr Robin Lovelace",2019-03-05T14:00:00Z,2019-03-05T15:30:00Z,West Teaching Lab Cluster (G.29),cleaning Practical
-TDS Lecture: accessing,"Accessing data from web sources, Lecture, taught by: Dr Robin Lovelace",2019-03-12T12:30:00Z,2019-03-12T13:30:00Z,EC Stoner SR (7.76),accessing Lecture
-TDS Practical: accessing,"Accessing data from web sources, Practical, taught by: Dr Robin Lovelace",2019-03-12T14:00:00Z,2019-03-12T15:30:00Z,West Teaching Lab Cluster (G.29),accessing Practical
-TDS Lecture: processing,"Routing, Lecture, taught by: Dr Malcolm Morgan",2019-03-19T12:30:00Z,2019-03-19T13:30:00Z,EC Stoner SR (7.76),processing Lecture
-TDS Practical: processing,"Routing, Practical, taught by: Dr Malcolm Morgan",2019-03-19T14:00:00Z,2019-03-19T15:30:00Z,West Teaching Lab Cluster (G.29),processing Practical
-TDS Lecture: viz,"Data visualization, Lecture, taught by: Dr Robin Lovelace",2019-03-26T12:30:00Z,2019-03-26T13:30:00Z,EC Stoner SR (7.76),viz Lecture
-TDS Practical: viz,"Data visualization, Practical, taught by: Dr Robin Lovelace",2019-03-26T14:00:00Z,2019-03-26T15:30:00Z,West Teaching Lab Cluster (G.29),viz Practical
-TDS Lecture: project,"Project work, Lecture, taught by: Dr Richard Connors",2019-04-30T12:30:00Z,2019-04-30T13:30:00Z,EC Stoner SR (7.76),project Lecture
-TDS Practical: project,"Project work, Practical, taught by: Dr Richard Connors",2019-04-30T14:00:00Z,2019-04-30T15:30:00Z,West Teaching Lab Cluster (G.29),project Practical
-TDS Lecture: ml,"Machine learning, Lecture, taught by: Dr Robin Lovelace",2019-05-07T12:30:00Z,2019-05-07T13:30:00Z,EC Stoner SR (7.76),ml Lecture
-TDS Practical: ml,"Machine learning, Practical, taught by: Dr Robin Lovelace",2019-05-07T14:00:00Z,2019-05-07T15:30:00Z,West Teaching Lab Cluster (G.29),ml Practical
-TDS Lecture: prof,"Professional issues, Lecture, taught by: Dr Robin Lovelace",2019-05-14T12:30:00Z,2019-05-14T13:30:00Z,EC Stoner SR (7.76),prof Lecture
-TDS Practical: prof,"Professional issues, Practical, taught by: Dr Robin Lovelace",2019-05-14T14:00:00Z,2019-05-14T15:30:00Z,West Teaching Lab Cluster (G.29),prof Practical
-Deadline: report submission,Hand-in deadline of portfolio of work,2019-05-07T09:00:00Z,2019-05-07T17:00:00Z,ITS reception (40 University Road) and online,submission
+TDS Lecture 1: intro,NA,2020-01-28T13:00:00Z,2020-01-28T14:00:00Z,NA,ical-8da39078-9deb-4b2d-8575-048d22800f86
+TDS Lecture 2: structure,NA,2020-02-04T13:00:00Z,2020-02-04T14:00:00Z,NA,ical-0c647df0-6d30-41d3-b08a-b6f0781d1b49
+TDS Practical 1: software,Software for practical data science in West Teaching Lab Cluster (B.16),2020-02-05T13:00:00Z,2020-02-05T15:30:00Z,West Teaching Lab Cluster (B.16),ical-b4cbb43d-b230-44e9-9d19-2abb890ede22
+TDS Lecture 3: cleaning,NA,2020-02-11T13:00:00Z,2020-02-11T14:00:00Z,NA,ical-3950d4ce-0c7e-412f-bf6b-3f07c1205276
+TDS Practical 2: structure,The structure of transport data in West Teaching Lab Cluster (B.16),2020-02-12T13:00:00Z,2020-02-12T15:30:00Z,West Teaching Lab Cluster (B.16),ical-bc77424f-49eb-4301-a096-e90b0f16ee8a
+TDS Practical 3: cleaning,Data cleaning and subsetting in West Teaching Lab Cluster (B.16),2020-02-19T13:00:00Z,2020-02-19T15:30:00Z,West Teaching Lab Cluster (B.16),ical-65964c26-88de-4110-a12e-b37f183ef128
+TDS Practical 4: accessing,Accessing data from web sources in West Teaching Lab Cluster (B.16),2020-02-26T13:00:00Z,2020-02-26T15:30:00Z,West Teaching Lab Cluster (B.16),ical-198ef1d1-eb29-4793-b26f-0c50c6c95ce5
+TDS Lecture 4: processing,NA,2020-03-17T13:00:00Z,2020-03-17T14:00:00Z,NA,ical-24b6e6f8-4fd7-45e4-9101-aad5677f9cc5
+TDS Lecture 5: project,NA,2020-03-24T13:00:00Z,2020-03-24T14:00:00Z,NA,ical-79f1862a-3729-4599-bd8a-6ad060b39038
+TDS Practical 5: viz,Data visualization in West Teaching Lab Cluster (B.16),2020-04-29T13:00:00Z,2020-04-29T15:30:00Z,West Teaching Lab Cluster (B.16),ical-6c9cc991-5c14-4ce4-8f69-1e7e07ea4c0a
+TDS Practical 6: project,Project work in West Teaching Lab Cluster (B.16),2020-05-06T13:00:00Z,2020-05-06T15:30:00Z,West Teaching Lab Cluster (B.16),ical-3dfad7d8-fbd2-4bf0-b8e9-70b7d8c5ddc4
