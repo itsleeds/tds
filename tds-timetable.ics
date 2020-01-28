@@ -9,7 +9,7 @@ DESCRIPTION:Introduction to transport data science in Business School Maurice Ke
 DTSTART:20200128T130000
 DTEND:20200128T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-ce7ba588-9a4a-4ad7-b7a8-cf13c15b2ad1
+UID:ical-7a6d6949-5f5c-45b3-8896-657af3527229
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 2: structure
@@ -17,7 +17,15 @@ DESCRIPTION:The structure of transport data and data cleaning in Business School
 DTSTART:20200204T130000
 DTEND:20200204T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-207e918e-8ed3-4408-b2d9-5af2932699f5
+UID:ical-f22bd996-1f09-45f6-8540-38502d4f2228
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical 1: structure
+DESCRIPTION:The structure of transport data in West Teaching Lab Cluster (B.16)
+DTSTART:20200205T130000
+DTEND:20200205T153000
+LOCATION:West Teaching Lab Cluster (B.16)
+UID:ical-d888acea-50d7-476d-a368-6bd0c67afcab
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 3: routing
@@ -25,7 +33,15 @@ DESCRIPTION:Routing in Business School Maurice Keyworth SR (1.15)
 DTSTART:20200211T130000
 DTEND:20200211T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-bb56dace-8d9f-45f6-99c2-91f1e8b173cd
+UID:ical-1a57a3ca-8b8e-4258-b0d3-993f233d1407
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical 2: cleaning
+DESCRIPTION:Data cleaning and subsetting in West Teaching Lab Cluster (B.16)
+DTSTART:20200212T130000
+DTEND:20200212T153000
+LOCATION:West Teaching Lab Cluster (B.16)
+UID:ical-e2a89c11-3292-473a-940a-9b7aa5a756a1
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:NA
@@ -33,7 +49,23 @@ DESCRIPTION:mapping large datasets in West Teaching Lab Cluster (B.16)
 DTSTART:20200217T130000
 DTEND:20200217T153000
 LOCATION:West Teaching Lab Cluster (B.16)
-UID:ical-d0e7ff59-4c00-4ec7-b80a-8d25037c91b0
+UID:ical-f7a96205-fc01-4b7e-8d98-e389a5d358a8
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical 3: accessing
+DESCRIPTION:Accessing data from web sources and routing in West Teaching Lab Cluster (B.16)
+DTSTART:20200219T130000
+DTEND:20200219T153000
+LOCATION:West Teaching Lab Cluster (B.16)
+UID:ical-0ea36ca7-e98d-40fd-b567-209353ef3925
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical 4: visualisation/ml
+DESCRIPTION:Data visualization and machine learning in West Teaching Lab Cluster (B.16)
+DTSTART:20200226T130000
+DTEND:20200226T153000
+LOCATION:West Teaching Lab Cluster (B.16)
+UID:ical-80e04d9d-4fdc-4d3c-8ed9-6c69ac5ab4ae
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 4: viz
@@ -41,7 +73,7 @@ DESCRIPTION:Visualisation in Business School Maurice Keyworth SR (1.15)
 DTSTART:20200317T130000
 DTEND:20200317T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-582b3510-da08-4861-9773-668e8daccf5b
+UID:ical-ef7571e5-2a67-451a-b8de-bc8bc88156b0
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 5: project
@@ -49,14 +81,22 @@ DESCRIPTION:Professional issues and project work in Business School Maurice Keyw
 DTSTART:20200324T130000
 DTEND:20200324T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-7d6ebd5d-900c-4aff-9dc8-a95c4f5800b2
+UID:ical-740d0369-f740-47b7-bf9f-a731254f8c0a
 END:VEVENT
 BEGIN:VEVENT
-SUMMARY:NA
-DESCRIPTION:NA
-DTSTART:NATNA
-DTEND:NATNA
-LOCATION:NA
-UID:ical-32871ee1-d9c4-47f1-ae72-00700d2269eb
+SUMMARY:TDS Practical 5: project
+DESCRIPTION:Project work in West Teaching Lab Cluster (B.16)
+DTSTART:20200429T130000
+DTEND:20200429T153000
+LOCATION:West Teaching Lab Cluster (B.16)
+UID:ical-ec50554e-ff86-49fb-ac80-2cefb1860322
+END:VEVENT
+BEGIN:VEVENT
+SUMMARY:TDS Practical 6: structure
+DESCRIPTION:The structure of transport data in West Teaching Lab Cluster (B.16)
+DTSTART:20200506T130000
+DTEND:20200506T153000
+LOCATION:West Teaching Lab Cluster (B.16)
+UID:ical-298fbd6e-6a79-4e7e-9155-7eeb00667b0c
 END:VEVENT
 END:VCALENDAR
