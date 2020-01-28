@@ -1,8 +1,13 @@
 SUMMARY,DESCRIPTION,DTSTART,DTEND,LOCATION,UID
-TDS Lecture 1: intro,Introduction to transport data science in Business School Maurice Keyworth SR (1.15),2020-01-28T13:00:00Z,2020-01-28T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-ce7ba588-9a4a-4ad7-b7a8-cf13c15b2ad1
-TDS Lecture 2: structure,The structure of transport data and data cleaning in Business School Maurice Keyworth SR (1.15),2020-02-04T13:00:00Z,2020-02-04T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-207e918e-8ed3-4408-b2d9-5af2932699f5
-TDS Lecture 3: routing,Routing in Business School Maurice Keyworth SR (1.15),2020-02-11T13:00:00Z,2020-02-11T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-bb56dace-8d9f-45f6-99c2-91f1e8b173cd
-NA,mapping large datasets in West Teaching Lab Cluster (B.16),2020-02-17T13:00:00Z,2020-02-17T15:30:00Z,West Teaching Lab Cluster (B.16),ical-d0e7ff59-4c00-4ec7-b80a-8d25037c91b0
-TDS Lecture 4: viz,Visualisation in Business School Maurice Keyworth SR (1.15),2020-03-17T13:00:00Z,2020-03-17T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-582b3510-da08-4861-9773-668e8daccf5b
-TDS Lecture 5: project,Professional issues and project work in Business School Maurice Keyworth SR (1.15),2020-03-24T13:00:00Z,2020-03-24T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-7d6ebd5d-900c-4aff-9dc8-a95c4f5800b2
-NA,NA,NA,NA,NA,ical-32871ee1-d9c4-47f1-ae72-00700d2269eb
+TDS Lecture 1: intro,Introduction to transport data science in Business School Maurice Keyworth SR (1.15),2020-01-28T13:00:00Z,2020-01-28T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-7a6d6949-5f5c-45b3-8896-657af3527229
+TDS Lecture 2: structure,The structure of transport data and data cleaning in Business School Maurice Keyworth SR (1.15),2020-02-04T13:00:00Z,2020-02-04T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-f22bd996-1f09-45f6-8540-38502d4f2228
+TDS Practical 1: structure,The structure of transport data in West Teaching Lab Cluster (B.16),2020-02-05T13:00:00Z,2020-02-05T15:30:00Z,West Teaching Lab Cluster (B.16),ical-d888acea-50d7-476d-a368-6bd0c67afcab
+TDS Lecture 3: routing,Routing in Business School Maurice Keyworth SR (1.15),2020-02-11T13:00:00Z,2020-02-11T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-1a57a3ca-8b8e-4258-b0d3-993f233d1407
+TDS Practical 2: cleaning,Data cleaning and subsetting in West Teaching Lab Cluster (B.16),2020-02-12T13:00:00Z,2020-02-12T15:30:00Z,West Teaching Lab Cluster (B.16),ical-e2a89c11-3292-473a-940a-9b7aa5a756a1
+NA,mapping large datasets in West Teaching Lab Cluster (B.16),2020-02-17T13:00:00Z,2020-02-17T15:30:00Z,West Teaching Lab Cluster (B.16),ical-f7a96205-fc01-4b7e-8d98-e389a5d358a8
+TDS Practical 3: accessing,Accessing data from web sources and routing in West Teaching Lab Cluster (B.16),2020-02-19T13:00:00Z,2020-02-19T15:30:00Z,West Teaching Lab Cluster (B.16),ical-0ea36ca7-e98d-40fd-b567-209353ef3925
+TDS Practical 4: visualisation/ml,Data visualization and machine learning in West Teaching Lab Cluster (B.16),2020-02-26T13:00:00Z,2020-02-26T15:30:00Z,West Teaching Lab Cluster (B.16),ical-80e04d9d-4fdc-4d3c-8ed9-6c69ac5ab4ae
+TDS Lecture 4: viz,Visualisation in Business School Maurice Keyworth SR (1.15),2020-03-17T13:00:00Z,2020-03-17T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-ef7571e5-2a67-451a-b8de-bc8bc88156b0
+TDS Lecture 5: project,Professional issues and project work in Business School Maurice Keyworth SR (1.15),2020-03-24T13:00:00Z,2020-03-24T14:00:00Z,Business School Maurice Keyworth SR (1.15),ical-740d0369-f740-47b7-bf9f-a731254f8c0a
+TDS Practical 5: project,Project work in West Teaching Lab Cluster (B.16),2020-04-29T13:00:00Z,2020-04-29T15:30:00Z,West Teaching Lab Cluster (B.16),ical-ec50554e-ff86-49fb-ac80-2cefb1860322
+TDS Practical 6: structure,The structure of transport data in West Teaching Lab Cluster (B.16),2020-05-06T13:00:00Z,2020-05-06T15:30:00Z,West Teaching Lab Cluster (B.16),ical-298fbd6e-6a79-4e7e-9155-7eeb00667b0c
