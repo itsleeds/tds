@@ -32,7 +32,6 @@ log1 <- otp_build_graph(otp = path_otp, dir = path_data)
 # 2020-01-29 11:15:19 Graph built
 
 log2 <- otp_setup(otp = path_otp, dir = path_data)
-log2 <- otp_setup(otp = path_otp, dir = path_data, port = 8801, securePort = 8802)
 otpcon <- otp_connect()
 route <- otp_plan(otpcon, 
                   fromPlace = c(-1.54804, 53.79335), 
@@ -43,3 +42,16 @@ route <- otp_plan(otpcon,
                   toPlace = c(-1.52264, 53.82964), mode = "CAR")
 
 mapview::mapview(route)
+
+# rebuilding with public transport data -----------------------------------
+
+otp_stop() # kills all java processes
+
+# piggyback::pb_download_url("wy_rail.zip")
+url_gtfs = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/wy_rail.zip"
+download.file(url_gtfs, file.path(path_data, "wy_rail.zip"))
+file.exists(file.path(path_data, "wy_rail.zip"))
+
+log1 <- otp_build_graph(otp = path_otp, dir = path_data)
+log2 <- otp_setup(otp = path_otp, dir = path_data)
+
