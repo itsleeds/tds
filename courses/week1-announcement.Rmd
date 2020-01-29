@@ -1,0 +1,37 @@
+
+
+You can access a .ics file to see times and locations of all the lectures and practicals in an online calendar such as Outlook (recommended, the University of Leeds system) or Google Calendar by downloading this file and importing it to your online calendar: https://github.com/ITSLeeds/TDS/releases/download/0.20.1/tds-timetable.ics
+
+It should look something like this:
+
+![](https://user-images.githubusercontent.com/1825120/73278079-f827e580-41e2-11ea-9e91-38bbd8545402.png)
+
+There were a few questions.
+
+- In terms of 'office hours' 1 hour after the practical or lecture sessions are best, I have some time available on Thursday mornings also, see my calendar [here](https://outlook.office365.com/owa/calendar/63f6c4e85d124df6a20656ade8e71faa@leeds.ac.uk/32e1cb4137f4414b8d7644453ec4b10414316826143036893453/calendar.html).
+- The practical sessions are 3 hours, not 2.5 hours. However, not all of that will have contact time from me.
+
+- To install recent versions of R and RStudio, with the packages you'll need for the course, please follow instructions here: https://docs.ropensci.org/stats19/articles/stats19-training-setup.html
+
+To check your installation is working, try running the following commands:
+
+```{r testcode, message=FALSE, warning=FALSE}
+library(stats19)
+library(tidyverse)
+library(tmap) # installed alongside mapview
+crashes = get_stats19(year = 2017, type = "ac")
+crashes_iow = crashes %>% 
+  filter(local_authority_district == "Isle of Wight") %>% 
+  format_sf()
+  
+# basic plot
+plot(crashes_iow)
+```
+
+You should see a plot like that shown above.
+
+The slides from the lecture can be found here: https://itsleeds.github.io/TDS/slides/1-intro.html#1
+
+Note the links to the essential reading list: https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#essential
+
+Bonus: if you want to see how I generated the timetable, try reproducing this script: https://github.com/ITSLeeds/TDS/blob/master/code-r/timetable2.R
