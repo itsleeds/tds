@@ -37,3 +37,7 @@ otpcon <- otp_connect()
 route <- otp_plan(otpcon, 
                   fromPlace = c(-1.54804, 53.79335), 
                   toPlace = c(-1.52264, 53.82964), mode = "WALK")
+
+route <- otp_plan(otpcon, 
+                  fromPlace = c(-1.54804, 53.79335), 
+                  toPlace = c(-1.52264, 53.82964), mode = "CAR")
