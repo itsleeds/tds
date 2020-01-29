@@ -3,10 +3,8 @@
 
 # TDS (Transport Data Science)
 
-This repo supports teaching of the Transport Data Science module, part
-of the Mathematical Modelling for Transport
-([MMT](http://www.its.leeds.ac.uk/courses/masters/msc-mathematical-modelling-transport/))
-MSc course at the Institute for Transport Studies.
+This repo supports teaching of the Transport Data Science module at the
+University of Leeds.
 
 The module catalogue can be found at
 [`catalogue.md`](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md).
@@ -18,14 +16,12 @@ container to ease teaching.
 See here for the the timetable, a basic visualisation of which is shown
 below:
 
-  - In .ics form (recommended):
-    <https://github.com/ITSLeeds/TDS/releases/download/0.1/tds-timetable.ics>
+  - On the University’s system (official):
+    [http://timetable.leeds.ac.uk/](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201920&M=TRAN-5340M)
+  - In .ics form:
+    <https://github.com/ITSLeeds/TDS/releases/download/0.20.1/tds-timetable.ics>
   - As a .csv file:
     <https://github.com/ITSLeeds/TDS/blob/master/timetable.csv>
-  - On the University’s system (official):
-    [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/201819/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
-
-![](timetable.png)<!-- -->
 
 # References
 
@@ -53,69 +49,11 @@ spatial data, see these links:
 
 See the image below for the course locations and the following links:
 
-The lectures will be in EC Stoner SR (7.76):
-<https://students.leeds.ac.uk/site/custom_scripts/ajax_loader.php?type=room&id=99918>
+The lectures will be in the Business School Maurice Keyworth SR (1.15):
+<http://students.leeds.ac.uk/room/1-01-087-2730-01-115>
 
-The practicals will be in the West Teaching Lab Cluster (G.29):
-<https://leeds.service-now.com/it?id=kb_article&sys_id=f0a176d30f9fb20089d7f55be1050eb7>
-
-![](course-locations.png)
-
-## Docker
-
-If you want to run the software in a container (which can make package
-installation easier), you can use docker, which allows you to run a
-virtual operating system inside your main operating system.
-
-After you have [installed docker](https://docs.docker.com/install/), you
-should be able to run the software by executing the following commands
-in a terminal such as Windows PowerShell or the default terminal on Linx
-and MAC operating systems.
-
-For an R
-installation:
-
-``` bash
-docker run -d -p 8787:8787 -v $(pwd):/home/rstudio/data -e USERID=$UID -e PASSWORD=pickASafePassWord --name rstudio robinlovelace/geocompr
-```
-
-For a R/Python docker image (bigger, less well
-maintained):
-
-``` bash
-docker run -d -p 8787:8787 -v $(pwd):/home/rstudio/data -e USERID=$UID -e PASSWORD=pickASafePassWord --name rstudio robinlovelace/tds  
-```
-
-This will:
-
-  - Pull the docker image from
-    <https://hub.docker.com/r/robinlovelace/tds/> or the geocompr repo
-    if it’s not already on your computer
-  - Launch a locally hosted instance of RStudio Server which can be
-    accessed at <http://localhost:8787/>
-  - Mount your current working dirctory to the data folder in the home
-    directly of the docker image
-
-After navigating to <http://localhost:8787/> in a browser you should see
-a login screen. Username and password are rstudio. See
-<https://github.com/rocker-org/rocker/wiki/Using-the-RStudio-image> for
-details.
-
-Once in the container you can use all the R packages. To access the
-pre-installed Python packages you will need to enter the following
-commands:
-
-``` bash
-conda activate
-python
-```
-
-to go into the Python shell. Form more on running Python in RStudio see
-[community.rstudio.com](https://community.rstudio.com/t/r-python-in-ide/279).
-A demonstration showing the `tds` docker image in action is illustrated
-below.
-
-![](https://user-images.githubusercontent.com/1825120/43570979-a41791c2-9633-11e8-9edd-f3e11bc884c1.gif)
+The practicals will be in the West Teaching Lab Cluster (B.16):
+<http://it.leeds.ac.uk/site/custom_scripts/clusters.php>
 
 # Issues and contributing
 
