@@ -9,14 +9,14 @@ library(opentripplanner)
 otp_data = geofabrik::gf_filename("West Yorkshire")
 # vignette("opentripplanner")
 
-path_data <- "/home/robin/hd/data/otp"
+path_data = "/home/robin/hd/data/otp"
 dir.create(path_data) 
 
 dir.create(file.path(path_data, "graphs"))
 dir.create(file.path(path_data, "graphs", "default"))
 
 file.copy(otp_data, file.path(path_data, "graphs", "default"))
-path_otp <- otp_dl_jar(path_data)
+path_otp = otp_dl_jar(path_data)
 
 # install java with sudo apt install openjdk-8-jdk on Ubuntu
 
@@ -25,19 +25,19 @@ system("java -version")
 system("update-java-alternatives --list")
 # system("sudo update-java-alternatives --set /usr/lib/jvm/java-1.8.0-openjdk-amd64")
 
-log1 <- otp_build_graph(otp = path_otp, dir = path_data)
+log1 = otp_build_graph(otp = path_otp, dir = path_data)
 
 # 2020-01-29 11:14:54 Basic checks completed, building graph, this may take a few minutes
 # The graph will be saved to /home/robin/hd/data/otp
 # 2020-01-29 11:15:19 Graph built
 
-log2 <- otp_setup(otp = path_otp, dir = path_data)
-otpcon <- otp_connect()
-route <- otp_plan(otpcon, 
+log2 = otp_setup(otp = path_otp, dir = path_data)
+otpcon = otp_connect()
+route = otp_plan(otpcon, 
                   fromPlace = c(-1.54804, 53.79335), 
                   toPlace = c(-1.52264, 53.82964), mode = "WALK")
 
-route <- otp_plan(otpcon, 
+route = otp_plan(otpcon, 
                   fromPlace = c(-1.54804, 53.79335), 
                   toPlace = c(-1.52264, 53.82964), mode = "CAR")
 
@@ -48,10 +48,14 @@ mapview::mapview(route)
 otp_stop() # kills all java processes
 
 # piggyback::pb_download_url("wy_rail.zip")
-url_gtfs = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/wy_rail.zip"
-download.file(url_gtfs, file.path(path_data, "wy_rail.zip"))
-file.exists(file.path(path_data, "wy_rail.zip"))
+gtfs_url = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/wy_rail.zip"
 
-log1 <- otp_build_graph(otp = path_otp, dir = path_data)
-log2 <- otp_setup(otp = path_otp, dir = path_data) # lacks pt data
+add_gtfs_data = function(gtfs_url, path_data, router = "default", gtfs_filename = "gtfs.zip") {
+ download.file(gtfs_url, file.path(path_data, "graphs", router, gtfs_filename))
+}
+
+add_gtfs_data(gtfs_url = gtfs_url, path_data = path_data)
+
+log1 = otp_build_graph(otp = path_otp, dir = path_data)
+log2 = otp_setup(otp = path_otp, dir = path_data) # lacks pt data
 
