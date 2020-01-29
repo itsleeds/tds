@@ -53,5 +53,5 @@ download.file(url_gtfs, file.path(path_data, "wy_rail.zip"))
 file.exists(file.path(path_data, "wy_rail.zip"))
 
 log1 <- otp_build_graph(otp = path_otp, dir = path_data)
-log2 <- otp_setup(otp = path_otp, dir = path_data)
+log2 <- otp_setup(otp = path_otp, dir = path_data) # lacks pt data
 
