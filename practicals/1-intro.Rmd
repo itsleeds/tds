@@ -7,6 +7,16 @@ output: github_document
 bibliography: ../references.bib
 ---
 
+Note: before you run this tutorial, ensure that you have recently updated R and RStudio on your computer.
+Furthermore, you will need to have installed a number of packages, as described here: https://docs.ropensci.org/stats19/articles/stats19-training-setup.html
+
+There is one additional package that you will need that is not available on CRAN which can be installed as follows (see [Chapter 2 of Geocomputation With R](https://geocompr.robinlovelace.net/spatial-class.html) for details, this requires the package remotes):
+
+```r
+# install.packages("remotes")
+remotes::install_github("Nowosad/spDataLarge")
+```
+
 ## Thinking about (transport) data science (30 minutes)
 
 - Based on the contents of the lecture, come up with *your own* definition of data science
