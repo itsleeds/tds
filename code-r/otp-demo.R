@@ -17,6 +17,8 @@ devtools::install_github("itsleeds/geofabrik")
 
 library(geofabrik)
 library(opentripplanner)
+library(tmap)
+tmap_mode("view")
 
 # Make file structure, download files
 dir.create(path_data) 
@@ -25,25 +27,30 @@ dir.create(file.path(path_data, "graphs", "default"))
 path_otp = otp_dl_jar(path_data)
 wy <- geofabrik::gf_find("West Yorkshire")
 download.file(wy$pbf_url, file.path(path_data,"graphs","default","wy.pbf"))
-gtfs_url = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/wy_rail.zip"
+gtfs_url = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/wy_rail8.zip"
+dem_url = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/dem.tif"
 
-add_gtfs_data = function(gtfs_url, path_data, router = "default", gtfs_filename = "gtfs.zip") {
-  download.file(gtfs_url, file.path(path_data, "graphs", router, gtfs_filename))
+add_data = function(url, path_data, router = "default", filename = "gtfs.zip") {
+  download.file(url, file.path(path_data, "graphs", router, filename))
 }
 
-add_gtfs_data(gtfs_url = gtfs_url, path_data = path_data)
+add_data(gtfs_url, path_data, filename = "gtfs.zip")
+add_data(dem_url, path_data, filename = "dem.tif")
+#otp_dl_demo(path_data)
 
 log1 = otp_build_graph(otp = path_otp, dir = path_data)
 log2 = otp_setup(otp = path_otp, dir = path_data) 
 
 otpcon = otp_connect()
 route_walk = otp_plan(otpcon, 
-                  fromPlace = c(-1.54804, 53.79335), 
-                  toPlace = c(-1.52264, 53.82964), mode = "WALK")
+                  fromPlace = c(-1.63078, 53.84675), 
+                  toPlace = c(-1.59499, 53.81743), mode = "WALK")
 
-route_car = otp_plan(otpcon, 
-                  fromPlace = c(-1.54804, 53.79335), 
-                  toPlace = c(-1.52264, 53.82964), mode = "CAR")
+route_transit = otp_plan(otpcon, 
+                  fromPlace = c(-1.63078, 53.84675), 
+                  toPlace = c(-1.59499, 53.81743), mode = c("WALK","TRANSIT"))
 
-mapview::mapview(route_walk)
+
+qtm(sf::st_zm(route_transit), lines.col = "mode", lines.lwd = 3)
+
 
