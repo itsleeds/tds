@@ -39,7 +39,7 @@ my_bib = ReadBib("../references.bib", check = FALSE)
 
 -  ## <font color="red"> Software for practical data science</font> 
 
- - The structure of transport data
+ - **The structure of transport data**
  - Data cleaning and subsetting
  - Accessing data from web sources
  - Routing

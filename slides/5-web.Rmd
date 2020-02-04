@@ -44,7 +44,7 @@ my_bib = ReadBib("references.bib", check = FALSE)
 # ## This session in context
 # 
 #  - Introduction to transport data science
-#  - The structure of transport data
+#  - **The structure of transport data**
 #  - Software for practical data science
 #  - Data cleaning and subsetting
 #  - ## <font color="red">Accessing data from web sources</font> 
