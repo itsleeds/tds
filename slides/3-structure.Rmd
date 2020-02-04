@@ -33,9 +33,8 @@ BibOptions(check.entries = FALSE,
 
 download.file("https://github.com/ITSLeeds/TDS/raw/master/references.bib", "references.bib")
 my_bib = ReadBib("references.bib", check = FALSE)
+knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
-
----
 
 ## Fundamental data types in R
 
@@ -126,7 +125,7 @@ plot(d)
 summary(d[1:3])
 ```
 
-----
+---
 
 ## sf pkg
 
@@ -228,7 +227,7 @@ d[2]; d[[2]]; d[2, 1] # guess the values
 - The tidyverse is a collection of packages for data science, the most prominent of which for data manipulation is `dplyr`
 
 ```{r}
-library(tidyverse)
+library(dplyr)
 
 d %>% slice(2) # same as slice(d, 2) or dplyr::slice(d, 2)
 ```
@@ -237,10 +236,10 @@ d %>% slice(2) # same as slice(d, 2) or dplyr::slice(d, 2)
 
 ## Filtering and selecting
 
-- `filter()` and `select()` are other verbs in **dplyr**
+- `dplyr::filter()` and `select()` are other verbs in **dplyr**
 
-```{r}
-d %>% filter(y == 81)
+```{r, error=TRUE}
+d %>% dplyr::filter(y == 81)
 d %>% select(y)
 ```
 
@@ -250,13 +249,13 @@ d %>% select(y)
 
 ```{r}
 d %>% 
-  filter(b == TRUE) %>% 
+  dplyr::filter(b == TRUE) %>% 
   select(x, y, z)
 ```
 
 ```{r}
 dsf %>% 
-  filter(b == TRUE) %>% 
+  dplyr::filter(b == TRUE) %>% 
   select(x, y, z)
 ```
 
@@ -392,6 +391,7 @@ plot(l_sub2$geometry, add = TRUE)
 
 ```{r}
 library(stats19)
+library(stringr)
 a = get_stats19(year = 2017, type = "ac", ask = FALSE) %>% 
   format_sf(lonlat = TRUE)
 a$time_formatted = lubridate::hm(a$time)
@@ -405,6 +405,9 @@ a$h = as.numeric(str_sub(a$time, 1, 2))
 
 ---
 
-## The exercises
+## THomework
 
-Based on data on example at: [itsleeds.github.io/stats19](https://itsleeds.github.io/stats19/articles/stats19.html)
+Work through the handout "Software for transport data science" ready for the practical tomorrow (if possible - will prepare you for the practical)
+B
+
+aonus: check outexample sat: [itsleeds.github.io/stats19](https://itsleeds.github.io/stats19/articles/stats19.html)
