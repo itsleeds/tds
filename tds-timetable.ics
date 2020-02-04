@@ -9,7 +9,7 @@ DESCRIPTION:Introduction to transport data science in Business School Maurice Ke
 DTSTART:20200128T130000
 DTEND:20200128T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-7a6d6949-5f5c-45b3-8896-657af3527229
+UID:ical-41d6307c-8667-48a9-89c0-eff07d590638
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 2: structure
@@ -17,7 +17,7 @@ DESCRIPTION:The structure of transport data and data cleaning in Business School
 DTSTART:20200204T130000
 DTEND:20200204T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-f22bd996-1f09-45f6-8540-38502d4f2228
+UID:ical-2b7025d5-59c5-4a0b-b5f3-b94d7efa3fa0
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 1: structure
@@ -25,7 +25,7 @@ DESCRIPTION:The structure of transport data in West Teaching Lab Cluster (B.16)
 DTSTART:20200205T130000
 DTEND:20200205T153000
 LOCATION:West Teaching Lab Cluster (B.16)
-UID:ical-d888acea-50d7-476d-a368-6bd0c67afcab
+UID:ical-291e93b5-4137-4cf7-bedb-93a2027962bd
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 3: routing
@@ -33,31 +33,31 @@ DESCRIPTION:Routing in Business School Maurice Keyworth SR (1.15)
 DTSTART:20200211T130000
 DTEND:20200211T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-1a57a3ca-8b8e-4258-b0d3-993f233d1407
+UID:ical-ceda0aef-a56d-4857-8440-0190ee55acfe
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 2: cleaning
-DESCRIPTION:Data cleaning and subsetting in West Teaching Lab Cluster (B.16)
+DESCRIPTION:Data cleaning and and routing in West Teaching Lab Cluster (B.16)
 DTSTART:20200212T130000
 DTEND:20200212T153000
 LOCATION:West Teaching Lab Cluster (B.16)
-UID:ical-e2a89c11-3292-473a-940a-9b7aa5a756a1
+UID:ical-c9091cbd-735e-4163-ab7d-ac153a4188e8
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:NA
 DESCRIPTION:mapping large datasets in West Teaching Lab Cluster (B.16)
 DTSTART:20200217T130000
-DTEND:20200217T153000
+DTEND:20200217T160000
 LOCATION:West Teaching Lab Cluster (B.16)
-UID:ical-f7a96205-fc01-4b7e-8d98-e389a5d358a8
+UID:ical-5301a806-5a48-413d-b04d-1a5785d1193f
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 3: accessing
-DESCRIPTION:Accessing data from web sources and routing in West Teaching Lab Cluster (B.16)
+DESCRIPTION:Accessing data from web sources in West Teaching Lab Cluster (B.16)
 DTSTART:20200219T130000
 DTEND:20200219T153000
 LOCATION:West Teaching Lab Cluster (B.16)
-UID:ical-0ea36ca7-e98d-40fd-b567-209353ef3925
+UID:ical-b574d392-673e-43d7-986e-43c2f1cfc651
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 4: visualisation/ml
@@ -65,7 +65,7 @@ DESCRIPTION:Data visualization and machine learning in West Teaching Lab Cluster
 DTSTART:20200226T130000
 DTEND:20200226T153000
 LOCATION:West Teaching Lab Cluster (B.16)
-UID:ical-80e04d9d-4fdc-4d3c-8ed9-6c69ac5ab4ae
+UID:ical-48d1f2df-01ef-4deb-abbc-4943ad87a4c6
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 4: viz
@@ -73,7 +73,7 @@ DESCRIPTION:Visualisation in Business School Maurice Keyworth SR (1.15)
 DTSTART:20200317T130000
 DTEND:20200317T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-ef7571e5-2a67-451a-b8de-bc8bc88156b0
+UID:ical-42aed9fd-d23a-4d61-8b44-758b491338c4
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 5: project
@@ -81,7 +81,7 @@ DESCRIPTION:Professional issues and project work in Business School Maurice Keyw
 DTSTART:20200324T130000
 DTEND:20200324T140000
 LOCATION:Business School Maurice Keyworth SR (1.15)
-UID:ical-740d0369-f740-47b7-bf9f-a731254f8c0a
+UID:ical-e3c491ea-d38c-42af-bfec-d347a3dbccdf
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 5: project
@@ -89,7 +89,7 @@ DESCRIPTION:Project work in West Teaching Lab Cluster (B.16)
 DTSTART:20200429T130000
 DTEND:20200429T153000
 LOCATION:West Teaching Lab Cluster (B.16)
-UID:ical-ec50554e-ff86-49fb-ac80-2cefb1860322
+UID:ical-6710b409-a1ac-482d-aaf4-cf5e802ceda3
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 6: structure
@@ -97,6 +97,6 @@ DESCRIPTION:The structure of transport data in West Teaching Lab Cluster (B.16)
 DTSTART:20200506T130000
 DTEND:20200506T153000
 LOCATION:West Teaching Lab Cluster (B.16)
-UID:ical-298fbd6e-6a79-4e7e-9155-7eeb00667b0c
+UID:ical-2a1a7164-6efe-47d8-a166-d82bea9f8b79
 END:VEVENT
 END:VCALENDAR
