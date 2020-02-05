@@ -405,9 +405,20 @@ a$h = as.numeric(str_sub(a$time, 1, 2))
 
 ---
 
-## THomework
+## Homework
 
 Work through the handout "Software for transport data science" ready for the practical tomorrow (if possible - will prepare you for the practical)
 B
 
-aonus: check outexample sat: [itsleeds.github.io/stats19](https://itsleeds.github.io/stats19/articles/stats19.html)
+Bonus: check outexample sat: [itsleeds.github.io/stats19](https://itsleeds.github.io/stats19/articles/stats19.html)
+
+---
+
+## Practical
+
+- Thinking about Transport Data Science and what you want to get out of it (~1 hour)
+
+- Questions on the homework 
+(~30 minutes)
+- 
+Data Structures practical (2 hours)

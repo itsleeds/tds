@@ -7,9 +7,63 @@ output: github_document
 bibliography: ../references.bib
 ---
 
+```{r, include=FALSE}
+knitr::opts_chunk$set(out.width = "50%", warning = FALSE)
+library(tidyverse)
+```
+
 ## Review of homework exercise: demo then individual Q&A
 
+**Note**: Ensure that you have the necessary packages installed.
+If you do not, you can install them as follows:
+
+```{r, eval=FALSE}
+install.packages("pct") # install the pct package
+```
+
+
+
+
 ## Practical demo of zones and lines (in groups)
+
+- Get data on the zones in West Yorkshire with the following command:
+
+```{r}
+zones = pct::get_pct_zones(region = "west-yorkshire")
+```
+
+- Find out the class, names, number of columns and number of rows in the  `zones` dataset using functions such as `names()`, `nrow()` and `ncol()`.
+
+```{r, echo=FALSE, eval=FALSE}
+names(zones)
+```
+
+- Plot the number of car trips and walking trips as follows, what do you notice about the results? Where do you think there is most potential to increase walking levels?
+
+```{r, eval=FALSE}
+plot(zones["car_driver"])
+plot(zones["foot"])
+```
+
+- How would you select only the `car_driver` column in the zones object in the tidyverse? Hint it would begin with the following (incomplete) lines:
+
+```{r, eval=FALSE}
+library(tidyverse)
+zones %>% select(
+```
+
+- Create a new object called `zones_active_modes` that only contains the `bicycle` and `foot` attribute columns. Plot it (the results should look like those below).
+
+```{r, echo=FALSE}
+zones_active_modes = zones %>% select(bicycle, foot)
+plot(zones_active_modes)
+```
+
+- Which zone has the highest level of cycling, and where is it?
+
+- Use the function `filter()`
+
+
 
 - Read-in top 1000 desire lines for Leeds with the following code (hint: rather than typing the url of the file you can copy-paste it from [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS)):
 
