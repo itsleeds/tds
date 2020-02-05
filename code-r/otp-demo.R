@@ -1,7 +1,7 @@
 # Aim: set-up and use local routing service
 
 # Settings: Things to change to work on your PC
-path_data = file.path(tempdir(),"otp")
+path_data = file.path(tempdir(), "otp")
 
 
 # Check Java: Linux Only
@@ -25,7 +25,7 @@ dir.create(path_data)
 dir.create(file.path(path_data, "graphs"))
 dir.create(file.path(path_data, "graphs", "default"))
 path_otp = otp_dl_jar(path_data)
-wy <- geofabrik::gf_find("West Yorkshire")
+wy = geofabrik::gf_find("West Yorkshire")
 download.file(wy$pbf_url, file.path(path_data,"graphs","default","wy.pbf"))
 gtfs_url = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/wy_rail8.zip"
 dem_url = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/dem.tif"
@@ -41,10 +41,17 @@ add_data(dem_url, path_data, filename = "dem.tif")
 log1 = otp_build_graph(otp = path_otp, dir = path_data)
 log2 = otp_setup(otp = path_otp, dir = path_data) 
 
-otpcon = otp_connect()
+otpcon = otp_connect() # if OpenTripPlanner is running locally
+
+# otpcon = otp_connect(hostname = "86.6.99.6", port = 8080) # To connect to robin's instance
+
 route_walk = otp_plan(otpcon, 
                   fromPlace = c(-1.63078, 53.84675), 
                   toPlace = c(-1.59499, 53.81743), mode = "WALK")
+
+route_walk = otp_plan(otpcon, 
+                      fromPlace = c(-1.63078, 53.84675), 
+                      toPlace = c(-1.59499, 53.81743), mode = "WALK")
 
 route_transit = otp_plan(otpcon, 
                   fromPlace = c(-1.63078, 53.84675), 

@@ -56,7 +56,7 @@ d = mutate(d, n_coffee_yr = n_coffee * 52)
 
 # or 
 d = d %>% 
-  mutate(n_coffee_yr = n_coffee * 52)
+  mutate(n_coffee_yr = n_coffee = 52)
 ```
 
 - Which do you prefer?
@@ -72,7 +72,9 @@ d = d %>%
 - Take a random sample of 10,000 flights and assign it to an object with the following line of code:
 
 ```{r}
+library(nycflights13)
 flights_sample = sample_n(flights, 1e4)
+unique(flights$carrier)
 ```
 
 - Find the unique carriers with the `unique()` function
@@ -81,6 +83,11 @@ flights_sample = sample_n(flights, 1e4)
 
 ```{r}
 f = filter(flights, grepl(pattern = "UA|AA|DL", x = carrier))
+f2 = filter(flights, grepl(pattern = "UA", x = carrier) |
+             grepl(pattern = "AA", x = carrier) |
+             grepl(pattern = "DL", x = carrier)
+           )
+f3 = filter(flights, str_detect(carrier, "UA|AA|DL"))
 ```
 
 - Create plots that visualise the sample flights, using code from Chapter 3 of the same book, starting with the following plot:
