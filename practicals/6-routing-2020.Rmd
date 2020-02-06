@@ -90,6 +90,7 @@ Finally lets join the routes to the original desire dataset.
 ```{r, message=FALSE, eval=FALSE, echo=TRUE}
 desire_drive = left_join(desire, routes_drive, by = c("geo_code1" = "fromPlace", 
                                                       "geo_code2" = "toPlace"))
+desire_drive = st_as_sf(desire_drive)
 ```
 
 Note that some of the desire lines do not have a route. This is usually because the routes start or end too far from the road network. 
@@ -102,6 +103,8 @@ No we have the routes, we could ideitfy which are the busyest roads. The package
 
 ```{r, message=FALSE, eval=FALSE, echo=TRUE}
 rnet = overline(desire_drive, attrib = "car_driver")
+tm_shape(rnet) +
+ tm_lines(lwd = 3, col =  "car_driver", style = "jenks")
 ```
 
 Overline takes many overlapping routes and sums their values togther. In this case we have taken the number of drivers on each route and added them to get an idea of the busiest roads. This is the method used in the PCT to idetify the most important roads fo cycling.
