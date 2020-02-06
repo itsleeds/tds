@@ -1,0 +1,210 @@
+---
+title: "Routing"
+subtitle: '<br/>Practical'
+author: "Malcolm Morgan"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output: html_document
+bibliography: ../references.bib
+---
+
+## Setting Up (10 minutes)
+The first step is to install the necessary packages for this practial. Unfortunately, some of the most interesting packages for routing are not yet available on CRAN. In this practical we will introduce three CRAN packages [cyclestreets](https://cran.r-project.org/web/packages/cyclestreets/index.html), [dodgr](https://cran.r-project.org/web/packages/dodgr/index.html), and [igraph](https://cran.r-project.org/web/packages/igraph/index.html) and one GitHub package [transportAPI](https://github.com/ITSLeeds/transportAPI).
+
+We will use [ITS Go](https://itsleeds.github.io/go/) to do an easy setup of your computer.
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+source("https://git.io/JvGjF")
+```
+
+## Using OpenTripPlanner to get routes
+
+We have setup the Multi-modal routing service OpenTripPlanner for West Yorkshire. Try typing "" into your broswer. You should see somthign like this:
+
+```{r, echo = FALSE, fig.align='center', fig.cap="\\label{fig:otpgui}OTP Web GUI"}
+knitr::include_graphics("otp_screenshot.png")
+```
+
+Exercise 1: Play with the web interface, finding different types of routes. What strengths/limitations can you find?
+
+### Connecting to OpenTripPlanner
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(sf)
+library(tidyverse)
+library(stplanr)
+library(opentripplanner)
+otpcon <- otp_connect(hostname = "", port = 8080)
+```
+
+If you have connected sucessfully, then you should get a message "Router http://86.6.99.6:8080/otp/routers/default exists"
+
+To get some routes we will start by importing some data we have used previosly.
+
+```{r, message=FALSE}
+u = "https://github.com/ITSLeeds/TDS/releases/download/0.1/desire_lines.geojson"
+download.file(u, "desire_lines.geojson")
+desire_lines = read_sf("desire_lines.geojson")
+```
+
+Now we will convert the lines to start and end points, using the `line2df` function. An select the top 3 desire lines.
+
+```{r, message=FALSE}
+desire = bind_cols(desire_lines, line2df(desire_lines))
+desire = st_drop_geometry(desire)
+desire_top = top_n(desire, 3, all)
+```
+
+To find the routes for these desire lines.
+```{r, message=FALSE, eval=FALSE}
+routes_top = otp_plan(otpcon,
+                      fromPlace = as.matrix(desire_top[,c("fx","fy")]),
+                      toPlace = as.matrix(desire_top[,c("tx","ty")]),
+                      fromID = desire_top$geo_code1,
+                      toID = desire_top$geo_code2,
+                      mode = "CAR")
+
+```
+
+We can plot those routes using the `tmap` package
+
+```{r, message=FALSE, eval=FALSE}
+library(tmap)
+tmap_mode("view")
+qtm(routes_top)
+```
+
+
+```{r, message=FALSE, eval=FALSE, echo=FALSE}
+routes_drive = otp_plan(otpcon,
+                      fromPlace = as.matrix(desire[,c("fx","fy")]),
+                      toPlace = as.matrix(desire[,c("tx","ty")]),
+                      fromID = desire$geo_code1,
+                      toID = desire$geo_code2,
+                      mode = "CAR",
+                      ncore = 3)
+saveRDS(routes_drive,"driving_routes.Rds")
+```
+
+Finally lets join the routes to the original desire dataset.
+
+```{r, message=FALSE, eval=FALSE, echo=TRUE}
+desire_drive = left_join(desire, routes_drive, by = c("geo_code1" = "fromPlace", 
+                                                      "geo_code2" = "toPlace"))
+```
+
+Note that some of the desire lines do not have a route. This is usually because the routes start or end too far from the road network. 
+
+Exercise: Identify the missing routes, what reasons has OTP failed to find the routes, how could you fix this?
+
+## Network Analysis: Overline
+
+No we have the routes, we could ideitfy which are the busyest roads. The package `stplanr` has a function called `overline` to help with this.
+
+```{r, message=FALSE, eval=FALSE, echo=TRUE}
+rnet = overline(desire_drive, attrib = "car_driver")
+```
+
+Overline takes many overlapping routes and sums their values togther. In this case we have taken the number of drivers on each route and added them to get an idea of the busiest roads. This is the method used in the PCT to idetify the most important roads fo cycling.
+
+Exercies: Dicuss the limitations of this method, are the roads that overline idetifies the only busy roads?
+
+
+
+
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+flow <- read.csv("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/isle-of-wight/od_attributes.csv",
+                 stringsAsFactors = FALSE)
+flow <- flow[flow$geo_code1 != flow$geo_code2,]
+flow <- flow[flow$all > 600,] # Subset out the largest flows
+
+centroids <- sf::read_sf("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/isle-of-wight/c.geojson")
+centroids <- centroids[,"geo_code"]
+
+roads <- sf::read_sf("http://download.geofabrik.de/europe/great-britain/england/isle-of-wight-latest.osm.pbf", layer = "lines")
+roads <- roads[!is.na(roads$highway),] # Subset to just the roads
+```
+
+
+
+
+
+
+**Exercise**
+Experiment with routing can you find out how to:
+
+* Route for driving and cycling using transportAPI
+* Change the date and time of travel with transportAPI
+* Find fast and quiet routes from cyclestreets
+
+Hint: Try using `?tapi_journey` to view the help files
+
+
+
+## Network Analysis (dodgr) (20 minutes)
+
+We will now look to analyse the road network using `dodgr`. Fist lets find the distances between all our centroids for a cyclist. `dodgr_dists` returns a matrix of distances in km, note the speed of using dodgr to find 64 distances compared to using a routing service. `dodgr` works well for these type of calcualtion, but cannot do public transport timetables.
+
+```{r, eval=TRUE, warning=FALSE}
+streetnet <- dodgr::weight_streetnet(roads)
+distances <- dodgr::dodgr_dists(streetnet, as.matrix(flow2[,3:4]), as.matrix(flow2[,5:6]))
+colnames(distances) <- flow2$code_d
+rownames(distances) <- flow2$code_o
+distances
+```
+
+`dodgr` can also aggregate flows across a network, this allows you to find the total number of cyclists on a particular road.
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+# Make a flow count matrix
+flow3 <- data.frame(geo_code1 = rep(flow$geo_code1, times = nrow(flow)),
+                    geo_code2 = rep(flow$geo_code2, each = nrow(flow)))
+flow3 <- dplyr::left_join(flow3, flow[,c("geo_code1","geo_code2","bicycle")], by = c("geo_code1","geo_code2"))
+flow3$bicycle[is.na(flow3$bicycle)] <- 0
+flow3 <- matrix(flow3$bicycle, nrow = nrow(flow), byrow = TRUE)
+flow3 
+# Aggregate the flows across the road network
+streetnet <- dodgr::dodgr_flows_aggregate(streetnet, as.matrix(flow2[,3:4]), as.matrix(flow2[,5:6]), flows = flow3)
+```
+
+To visualise the results we must convert the `dodgr` graph back to an `sf` object.
+
+```{r, eval=TRUE, warning=FALSE}
+# Make a flow count matrix
+roads_flow <- dodgr::dodgr_to_sfc(streetnet)
+roads_flow <- sf::st_sf(cbind(roads_flow$dat, roads_flow$geometry))
+roads_flow <- roads_flow[roads_flow$flow > 0,]
+qtm(roads_flow, lines.col = "flow", lines.lwd = 3)
+```
+
+**Exercises**
+The method above has introduced some double counting can you find and fix the flaw?
+
+Try re-downloading the whole flow dataset and producing route network for the whole of the Isle of Wight.
+
+## Network Analysis (igraph) (20 minutes)
+
+`igraph` is a package for analysing all types of network, we will use `igraph` to identify any bottlenecks in the road network. We will do this by calculating the betweenness centrality of the major road network. The will provide a measure of the most "important" roads in the network. As this calculation takes a long time we will only do it for the major roads.
+
+```{r, eval=TRUE, warning=FALSE}
+# subset to main roads
+roads <- roads[roads$highway %in% c("primary","secondary","tertiary"),]
+
+streetnet <- dodgr::weight_streetnet(roads) #39074
+streetnet_cont <- dodgr::dodgr_contract_graph(streetnet) # Simplify the street network
+# convert to igraph and calualte betweeness
+streetnet_cont$graph$flow <- 0 # fix as bug with weight_streetnet
+graph <- dodgr::dodgr_to_igraph(streetnet_cont$graph)
+betweenness <- igraph::edge_betweenness(graph, directed = F) # This will take a while
+
+# Transfer Value from contracted graph to main graph
+streetnet_cont$graph$between <- betweenness
+graph_join <- dplyr::left_join(streetnet_cont$edge_map, streetnet_cont$graph[,c("edge_id","between")], by = c("edge_new" = "edge_id"))
+graph_join$edge_old <- as.integer(graph_join$edge_old)
+streetnet <- dplyr::left_join(streetnet, graph_join, by = c("edge_id" = "edge_old"))
+roads_betweeness <- dodgr::dodgr_to_sfc(streetnet)
+roads_betweeness <- sf::st_sf(cbind(roads_betweeness$dat, roads_betweeness$geometry))
+qtm(roads_betweeness, lines.col = "between", lines.lwd = 3)
+```
+
+
