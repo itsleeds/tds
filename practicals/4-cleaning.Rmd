@@ -27,19 +27,15 @@ unzip("~/Downloads/wu03ew_v2.zip")
 d = read_csv("wu03ew_v2.csv")
 ```
 
-Load data representing MSOA zones in Leeds.
+Load data representing MSOA zones in West Yorkshire. 
 You could download zones from a number of places, including https://www.ukdataservice.ac.uk/get-data/geography.aspx
 
-An easy way to get zone data for Leeds is with the `ukboundaries` github package, which can be installed as follows:
+An easy way to get zone data for Leeds is with the `pct` package, which can be installed as follows:
 
-```{r, eval=FALSE}
-remotes::install_github("robinlovelace/ukboundaries")
-```
-
-The zones for Leeds can be shown as follows
+The zones for West Yorkshire can be shown as follows.
 
 ```{r}
-zones = ukboundaries::msoa2011_lds
+zones = pct::get_pct_zones(region = "west-yorkshire", geography = "msoa")
 plot(zones$geometry)
 ```
 
@@ -58,7 +54,7 @@ names(d)[5] = "metro"
 
 - What proportion of people in England and Wales are represented in the dataset `d`
 
-- Create a subset of the object `d` called `d_leeds_origins` that only contains routes that originate in leeds
+- Create a subset of the object `d` called `d_wy_origins` that only contains routes that originate in West Yorkshire
 
 ```{r, eval=FALSE, echo=FALSE}
 head(zones$geo_code)
@@ -66,17 +62,18 @@ head(d$area_of_residence)
 
 summary(d$area_of_residence %in% zones$geo_code)
 
-d_leeds_origins = d %>% 
-  filter(area_of_residence %in% zones$geo_code)
+d_wy_origins = d %>% 
+  filter(area_of_residence %in% zones$geo_code) %>%
+  filter(area_of_workplace %in% zones$geo_code)
 zones
 ```
 
-- Create a subset that contains only od pairs with origins and destinations in Leeds
+- Create a subset that contains only od pairs with origins and destinations in West Yorkshire
 
-**Bonus: Convert the origin-destination data you have of Leeds into desire lines**, e.g. with:
+**Bonus: Convert the origin-destination data you have of West Yorkshire into desire lines**, e.g. with:
 
 ```{r, eval=FALSE}
-desire_lines = stplanr::od2line(flow = d_leeds_origins, zones)
+desire_lines = stplanr::od2line(flow = d_wy_origins, zones)
 desire_top = desire_lines %>% top_n(100, bicycle)
 plot(desire_top)
 sum(d$all_categories_method_of_travel_to_work) /
@@ -86,8 +83,6 @@ sum(d$all_categories_method_of_travel_to_work) /
 ```{r, eval=FALSE}
 mapview::mapview(desire_top)
 ```
-
-
 
 ## Working on your own datset / project portfolio
 
