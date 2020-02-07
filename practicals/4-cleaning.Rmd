@@ -30,7 +30,7 @@ d = read_csv("wu03ew_v2.csv")
 Load data representing MSOA zones in West Yorkshire. 
 You could download zones from a number of places, including https://www.ukdataservice.ac.uk/get-data/geography.aspx
 
-An easy way to get zone data for Leeds is with the `pct` package, which can be installed as follows:
+An easy way to get zone data for West-Yorkshire is with the `pct` package, which can be installed as follows:
 
 The zones for West Yorkshire can be shown as follows.
 
@@ -76,8 +76,6 @@ zones
 desire_lines = stplanr::od2line(flow = d_wy_origins, zones)
 desire_top = desire_lines %>% top_n(100, bicycle)
 plot(desire_top)
-sum(d$all_categories_method_of_travel_to_work) /
-  (52e6)
 ```
 
 ```{r, eval=FALSE}
