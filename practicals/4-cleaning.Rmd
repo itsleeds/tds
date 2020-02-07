@@ -9,7 +9,7 @@ bibliography: ../references.bib
 
 ## Review of homework exercise: demo then individual Q&A
 
-```{r}
+```{r, message=FALSE}
 library(tidyverse)
 library(sf)
 ```
@@ -27,15 +27,15 @@ unzip("~/Downloads/wu03ew_v2.zip")
 d = read_csv("wu03ew_v2.csv")
 ```
 
-Load data representing MSOA zones in West Yorkshire. 
+Load data representing MSOA zones in Isle of Wight. 
 You could download zones from a number of places, including https://www.ukdataservice.ac.uk/get-data/geography.aspx
 
 An easy way to get zone data for West-Yorkshire is with the `pct` package, which can be installed as follows:
 
-The zones for West Yorkshire can be shown as follows.
+The zones for Isle of Wight can be shown as follows.
 
 ```{r}
-zones = pct::get_pct_zones(region = "west-yorkshire", geography = "msoa")
+zones = pct::get_pct_zones(region = "isle-of-wight", geography = "msoa")
 plot(zones$geometry)
 ```
 
@@ -54,7 +54,7 @@ names(d)[5] = "metro"
 
 - What proportion of people in England and Wales are represented in the dataset `d`
 
-- Create a subset of the object `d` called `d_wy_origins` that only contains routes that originate in West Yorkshire
+- Create a subset of the object `d` called `d_iow_origins` that only contains routes that originate in Isle of Wight
 
 ```{r, eval=FALSE, echo=FALSE}
 head(zones$geo_code)
@@ -62,18 +62,17 @@ head(d$area_of_residence)
 
 summary(d$area_of_residence %in% zones$geo_code)
 
-d_wy_origins = d %>% 
+d_iow_origins = d %>% 
   filter(area_of_residence %in% zones$geo_code) %>%
   filter(area_of_workplace %in% zones$geo_code)
-zones
 ```
 
-- Create a subset that contains only od pairs with origins and destinations in West Yorkshire
+- Create a subset that contains only od pairs with origins and destinations in Isle of Wight
 
-**Bonus: Convert the origin-destination data you have of West Yorkshire into desire lines**, e.g. with:
+**Bonus: Convert the origin-destination data you have of Isle of Wight into desire lines**, e.g. with:
 
 ```{r, eval=FALSE}
-desire_lines = stplanr::od2line(flow = d_wy_origins, zones)
+desire_lines = stplanr::od2line(flow = d_iow_origins, zones)
 desire_top = desire_lines %>% top_n(100, bicycle)
 plot(desire_top)
 ```
