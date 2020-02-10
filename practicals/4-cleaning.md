@@ -2,13 +2,41 @@ Data structures
 ================
 Robin Lovelace
 University of Leeds,
-2020-02-07<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
+2020-02-10<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
 ## Review of homework exercise: demo then individual Q\&A
 
 ``` r
 library(tidyverse)
 library(sf)
+```
+
+## Simple data cleaning
+
+**Exercies** Try evaluating these lines of code, what goes wrong how
+could you fix them? IS the only one “correct” solution discuss in pairs
+how you would approach different types of data cleaning.
+
+``` r
+as.numeric(c("1","2.2","3,3"))
+as.numeric(c("1","","3.3"))
+sum(c(3,4,NA))
+mean(c(3,4,NA))
+max(c(3,4,NA))
+d1 <- as.Date("31/11/2020")
+d2 <- Sys.Date()
+difftime(d2, d1)
+NULL == NA
+is.logical(NA)
+is.null(NA)
+is.na(NULL)
+is.numeric("1")
+is.numeric(1,2)
+anyNA(c(6,2,NA))
+for(i in 1:1){
+  message(i)
+}
+0.1 + 0.2 - 0.3 == 0
 ```
 
 ## Data cleaning on a big dataset
@@ -33,15 +61,10 @@ The zones for Isle of Wight can be shown as follows.
 
 ``` r
 zones = pct::get_pct_zones(region = "isle-of-wight", geography = "msoa")
-```
-
-    ## Loading required package: sp
-
-``` r
 plot(zones$geometry)
 ```
 
-![](4-cleaning_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+![](4-cleaning_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ## Processing/cleaning
 
