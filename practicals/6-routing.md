@@ -272,19 +272,14 @@ qtm(graph2_sf, lines.col = "between", lines.lwd = 3)
 ![](6-routing_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 **Bonus Exercises** 1. Work out how to to make the above plot using the
-uncontracted road network. Discuss in groups how this is possible. 1.
-Calculate betweenness centrality using the dodgr package directly. Hint:
-`?dodgr_centrality` is in the development version of dodgr.
+uncontracted road network. Discuss in groups how this is possible.
 
-## Bonus Material (30 minutes)
+![](6-routing_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
-Open Trip Planner (OTP) is a powerful multimodal route planner written
-in JAVA. The `opentripplanner` package allows you to set up and use the
-OTP from R.
+1.  Calculate betweenness centrality using the dodgr package directly.
+    Hint: `?dodgr_centrality` is in the development version of dodgr.
 
-**Bonus Exercises**
-
-Work though the vignettes [Getting
-Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html)
-and [Advanced
-Features](https://docs.ropensci.org/opentripplanner/articles/advanced_features.html)
+2.  Work though the OpenTripPlanner vignettes [Getting
+    Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html)
+    and [Advanced
+    Features](https://docs.ropensci.org/opentripplanner/articles/advanced_features.html)

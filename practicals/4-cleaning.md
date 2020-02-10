@@ -13,7 +13,7 @@ library(sf)
 
 ## Simple data cleaning
 
-**Exercies** Try evaluating these lines of code, what goes wrong how
+**Exercises** Try evaluating these lines of code, what goes wrong how
 could you fix them? IS the only one “correct” solution discuss in pairs
 how you would approach different types of data cleaning.
 
@@ -33,9 +33,11 @@ is.na(NULL)
 is.numeric("1")
 is.numeric(1,2)
 anyNA(c(6,2,NA))
-for(i in 1:1){
-  message(i)
-}
+1:3
+1:1
+1:0
+seq_len(0)
+seq_len(3)
 0.1 + 0.2 - 0.3 == 0
 ```
 
