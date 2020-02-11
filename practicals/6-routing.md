@@ -32,7 +32,17 @@ Yorkshire. Try typing the URL shown during the session into your
 broswer. You should see somthign like
 this:
 
-<img src="otp_screenshot.png" title="\label{fig:otpgui}OTP Web GUI" alt="\label{fig:otpgui}OTP Web GUI" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center">
+
+<img src="otp_screenshot.png" alt="\label{fig:otpgui}OTP Web GUI" width="1920" />
+
+<p class="caption">
+
+OTP Web GUI
+
+</p>
+
+</div>
 
 **Exercise**: Play with the web interface, finding different types of
 routes. What strengths/limitations can you find?
@@ -53,7 +63,7 @@ library(stplanr)
 library(opentripplanner)
 library(tmap)
 tmap_mode("plot")
-otpcon <- otp_connect(hostname = Sys.getenv("robinIP"), port = 8080)
+otpcon <- otp_connect(hostname = "86.6.99.6", port = 8080)
 ```
 
 If you have connected successfully, then you should get a message
@@ -114,23 +124,22 @@ isochrone = otp_isochrone(otpcon, fromPlace = c(-1.558655, 53.807870),
                           maxWalkDistance = 3000)
 isochrone$time = isochrone$time / 60
 isochrone <- st_buffer(isochrone, 0)
-```
-
-    ## Warning in st_buffer.sfc(st_geometry(x), dist, nQuadSegs, endCapStyle =
-    ## endCapStyle, : st_buffer does not correctly buffer longitude/latitude data
-
-``` r
 qtm(isochrone, fill = "time")
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
 To save overloading the server, I have pre-generated some extra
 routes.
 
 ``` r
-routes_drive = read_sf("https://github.com/ITSLeeds/TDS/releases/download/0.20.1/driving_routes.gpkg")
-routes_transit = read_sf("https://github.com/ITSLeeds/TDS/releases/download/0.20.1/transit_routes.gpkg")
+u = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/transit_routes.gpkg"
+download.file(url = u, destfile = "transit_routes.gpkg")
+u = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/driving_routes.gpkg"
+download.file(url = u, destfile = "driving_routes.gpkg")
+
+routes_drive = read_sf("driving_routes.gpkg")
+routes_transit = read_sf("transit_routes.gpkg")
 ```
 
 **Exercise** Examine these two new datasets `routes_drive` and
@@ -246,7 +255,7 @@ summary(net$flow)
 ```
 
     ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-    ##    0.00    0.00    0.00   41.04    0.00 6424.00
+    ##    0.00    0.00    0.00   43.12    0.00 6880.00
 
 ``` r
 net = merge_directed_flows(net)
@@ -256,7 +265,7 @@ net_sf = dodgr::dodgr_to_sf(net)
 qtm(net_sf, lines.col = "flow", lines.lwd = 3)
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-21-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 ## Network Analysis (igraph) (20 minutes)
 
@@ -281,14 +290,14 @@ graph2_sf = dodgr_to_sf(graph2)
 qtm(graph2_sf, lines.col = "between", lines.lwd = 3)
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
 
 **Bonus Exercises**
 
 1.  Work out how to to make the above plot using the uncontracted road
     network. Discuss in groups how this is possible.
 
-![](6-routing_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-24-1.png)<!-- -->
 
 2.  Work though the OpenTripPlanner vignettes [Getting
     Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html)
