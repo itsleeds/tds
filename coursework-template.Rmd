@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, eval = TRUE
 
 This template contains information and suggested headings for the TDS module.
 Do not submit coursework that contains this note or any text (other than the headings) from this template.
-It is just designed to get you started. You will submit the .Rmd file and the resulting document as your coursework submission.
+It is just designed to get you started. You will submit the .Rmd file, optionally included in a .zip file if you want to include data, and the resulting PDF document as your coursework submission.
 
 As outlined in the module catalogue, the coursework should be:
 
