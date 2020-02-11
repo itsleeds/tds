@@ -23,7 +23,8 @@ remove.packages("dodgr")
 if(!"devtools" %in% installed.packages()[,1]){
   install.packages("devtools")
 }
-devtools::install(".", export_all = TRUE)
+devtools::install(".", export_all = TRUE, upgrade = "never")
+library(dodgr)
 ```
 
 1. Close RStudio and open a new Rstudio session with your TDS work.
