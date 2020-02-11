@@ -1,0 +1,43 @@
+---
+title: "Routing homework"
+subtitle: '<br/>Practical'
+author: "Malcolm Morgan"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output: github_document
+bibliography: 
+  - ../references.bib
+  - ../tds.bib
+---
+
+## Prior set-up and reading (before practical)
+
+We will use [ITS Go](https://itsleeds.github.io/go/) to do an easy setup of your computer.
+
+```{r, eval=FALSE, message=FALSE, warning=FALSE}
+source("https://git.io/JvGjF")
+```
+
+If that does not work the packages we will be using are:
+
+* sf
+* tidyverse
+* tmap
+* pct
+* stplanr
+* dodgr
+* opentripplanner
+* igraph
+* ITSleeds/geofabrik
+
+Make sure that you have installed these.
+
+Read the OpenTripPlanner package paper for information on routing [@morgan_opentripplanner_2019].
+
+## The practical (during and after practical)
+
+Ens
+
+
+## References
+
+
