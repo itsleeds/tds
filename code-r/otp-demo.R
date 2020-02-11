@@ -20,6 +20,20 @@ library(opentripplanner)
 library(tmap)
 tmap_mode("view")
 
+
+# test with a remote server -----------------------------------------------
+
+# note: this will only work if the remote instance is working (not reliable)
+otpcon = otp_connect(hostname = "86.6.99.6", port = 8080) # To connect to robin's instance
+
+route_walk = otp_plan(otpcon, 
+                      fromPlace = c(-1.63078, 53.84675), 
+                      toPlace = c(-1.59499, 53.81743), mode = "WALK")
+plot(route_walk)
+
+
+# set-up a local otp server instance --------------------------------------
+
 # Make file structure, download files
 dir.create(path_data) 
 dir.create(file.path(path_data, "graphs"))
@@ -42,8 +56,6 @@ log1 = otp_build_graph(otp = path_otp, dir = path_data)
 log2 = otp_setup(otp = path_otp, dir = path_data) 
 
 otpcon = otp_connect() # if OpenTripPlanner is running locally
-
-# otpcon = otp_connect(hostname = "86.6.99.6", port = 8080) # To connect to robin's instance
 
 route_walk = otp_plan(otpcon, 
                   fromPlace = c(-1.63078, 53.84675), 
