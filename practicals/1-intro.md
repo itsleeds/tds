@@ -2,7 +2,7 @@ Introduction to transport data science
 ================
 Robin Lovelace
 University of Leeds,
-2020-02-05<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
+2020-02-11<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
 Note: before you run this tutorial, ensure that you have recently
 updated R and RStudio on your computer. Furthermore, you will need to
