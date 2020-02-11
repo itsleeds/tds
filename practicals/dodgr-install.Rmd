@@ -1,0 +1,27 @@
+---
+title: "Local Install of dodgr"
+subtitle: '<br/>Practical'
+author: "Malcolm Morgan"
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+output: github_document
+bibliography: ../references.bib
+---
+
+Only if you cannot run the dodgr examples.
+
+This will locally compile the latest version of dodgr on you computer.
+
+1. Save your work in progress and close RStudio
+1. Go to https://github.com/ATFutures/dodgr/ and click Clone or download
+1. Choose download zip
+1. Unzip the folder
+1. In the unziped folder find and open dodgr.Rproj a new Rstudio session will open.
+1. Run this code.
+
+```{r, eval=FALSE, warning=FALSE, message=FALSE}
+install.packages("devtools")
+devtools::load_all (".", export_all = TRUE)
+```
+
+1. Close RStudio and open a new Rstudio session with your TDS work.
+1. Dodgr should now work
