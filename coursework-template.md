@@ -4,10 +4,10 @@ Coursework submission for Transport Data Science (TRAN5340M)
 # Introduction
 
 This template contains information and suggested headings for the TDS
-module. Please do not submit coursework that contains this note or any
-text (other than the headings) from this template. It is just designed
-to get you started. You will submit the .Rmd file and the resulting
-document as your coursework submission.
+module. Do not submit coursework that contains this note or any text
+(other than the headings) from this template. It is just designed to get
+you started. You will submit the .Rmd file and the resulting document as
+your coursework submission.
 
 ## RMarkdown
 
@@ -25,10 +25,13 @@ that shows which packages you used, e.g.:
 ``` r
 # install.packages("remotes")
 remotes::install_github("itsleeds/pct")
+remotes::install_github("itsleeds/geofabrik")
 remotes::install_github("ropensci/stats19")
-library(dplyr)
 library(pct)
+library(sf)
 library(stplanr)
+library(tidyverse)
+library(tmap)
 ```
 
 You can add references manually or with `[@citation-key]` references
@@ -77,22 +80,6 @@ od_in_zones = od %>%
 desire_lines = od2line(od_in_zones, z)
 ```
 
-# Descriptive analysis
-
-``` r
-plot(desire_lines)
-```
-
-![](coursework-template_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
-
-``` r
-library(tmap)
-```
-
-# Route analysis
-
-# Additional datasets
-
 You could get data from OpenStreetMap with the `osmdata` package.
 
 ``` r
@@ -101,6 +88,37 @@ osm_data = opq("isle of wight") %>%
   add_osm_feature(key = "highway", value = "primary") %>% 
   osmdata_sf()
 ```
+
+You can get large OSM datasets with `geofabrik`:
+
+``` r
+library(geofabrik)
+iow_highways = get_geofabrik(name = "Isle of Wight", layer = "lines")
+summary(as.factor(iow_highways$highway))
+```
+
+    ##      bridleway   construction       cycleway        footway  living_street 
+    ##            170             16            139           5436              3 
+    ##           path     pedestrian        primary   primary_link       proposed 
+    ##            370             18            548             18             12 
+    ##    residential      secondary secondary_link        service          steps 
+    ##           2400            370              1           6746            368 
+    ##       tertiary  tertiary_link          track   unclassified           NA's 
+    ##            467              3           4312            835          22555
+
+``` r
+iow_highways2 = iow_highways %>% 
+  filter(!is.na(highway)) %>% 
+  filter(!str_detect(string = highway, pattern = "primary|track|resi|service|foot"))
+summary(as.factor(iow_highways2$highway))
+```
+
+    ##      bridleway   construction       cycleway  living_street           path 
+    ##            170             16            139              3            370 
+    ##     pedestrian       proposed      secondary secondary_link          steps 
+    ##             18             12            370              1            368 
+    ##       tertiary  tertiary_link   unclassified 
+    ##            467              3            835
 
 You could get road casualty data with the `stats19` pakckage, as shown
 below.
@@ -112,13 +130,51 @@ crashes = stats19::get_stats19(year = 2018, output_format = "sf") %>%
 crashes_in_region = crashes[z, ]
 tm_shape(z) +
   tm_fill("car_driver", palette = "Greys") +
+  tm_shape(iow_highways2) +
+  tm_lines(col = "green", lwd = 2) +
   tm_shape(osm_data$osm_lines) +
-  tm_lines(col = "maxspeed", lwd = 3) +
+  tm_lines(col = "maxspeed", lwd = 5) +
   tm_shape(crashes_in_region) +
-  tm_dots(size = 1, col = "red")
+  tm_dots(size = 0.5, col = "red")
 ```
 
 ![](coursework-template_files/figure-gfm/unnamed-chunk-6-1.png)<!-- -->
+
+# Descriptive analysis
+
+``` r
+plot(desire_lines)
+```
+
+![](coursework-template_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+
+# Route analysis
+
+See [here](https://geocompr.robinlovelace.net/transport.html#routes) and
+[here](https://www.r-spatial.org/r/2019/09/26/spatial-networks.html) for
+details.
+
+``` r
+sln = SpatialLinesNetwork(iow_highways2)
+sln_clean = sln_clean_graph(sln)
+plot(sln_clean@sl$`_ogr_geometry_`)
+```
+
+![](coursework-template_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+
+``` r
+centrality = igraph::edge_betweenness(sln_clean@g)
+centrality_normalised = centrality / mean(centrality)
+```
+
+``` r
+mapview::mapview(z) +
+  mapview::mapview(sln_clean@sl, lwd = centrality_normalised * 3, zcol = "maxspeed")
+```
+
+![](coursework-template_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+
+# Additional datasets
 
 # Policy analysis
 
