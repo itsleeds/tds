@@ -2,7 +2,7 @@ Routing
 ================
 Malcolm Morgan
 University of Leeds,
-2020-02-10<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
+2020-02-11<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
 ## Setting Up (10 minutes)
 
@@ -185,6 +185,10 @@ routes_transit_group <- rbind(routes_transit_group, routes_transit_group_ml)
 
 ## Network Analysis (dodgr) (20 minutes)
 
+**Note** Some people have have problems running dodgr on Windows, if you
+do follow these
+[instructions](https://github.com/ITSLeeds/TDS/blob/master/practicals/dodgr-install.md).
+
 We will now look to analyse the road network using `dodgr`. First let’s
 find the distances between all our centroids for a cyclist.
 `dodgr_dists` returns a matrix of distances in km, note the speed of
@@ -237,8 +241,16 @@ summary(rownames(iow_od) == centroids$geo_code)
 ``` r
 verts = match_points_to_graph(verts = dodgr_vertices(graph), as.matrix(centroids[,c("X","Y")]))
 
-net = dodgr_flows_aggregate(graph, verts, verts, flows = iow_od)
+net = dodgr_flows_aggregate(graph, from = verts, to = verts, flows = iow_od)
+summary(net$flow)
+```
+
+    ##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    ##    0.00    0.00    0.00   41.04    0.00 6424.00
+
+``` r
 net = merge_directed_flows(net)
+# net = merge_directed_graph(net) #function renamed on dev version
 # dodgr_flowmap(net) built in plotting
 net_sf = dodgr::dodgr_to_sf(net)
 qtm(net_sf, lines.col = "flow", lines.lwd = 3)
@@ -271,15 +283,18 @@ qtm(graph2_sf, lines.col = "between", lines.lwd = 3)
 
 ![](6-routing_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
-**Bonus Exercises** 1. Work out how to to make the above plot using the
-uncontracted road network. Discuss in groups how this is possible.
+**Bonus Exercises**
+
+1.  Work out how to to make the above plot using the uncontracted road
+    network. Discuss in groups how this is possible.
 
 ![](6-routing_files/figure-gfm/unnamed-chunk-23-1.png)<!-- -->
-
-1.  Calculate betweenness centrality using the dodgr package directly.
-    Hint: `?dodgr_centrality` is in the development version of dodgr.
 
 2.  Work though the OpenTripPlanner vignettes [Getting
     Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html)
     and [Advanced
     Features](https://docs.ropensci.org/opentripplanner/articles/advanced_features.html)
+    to run your own local trip planner.
+
+3.  Calculate betweenness centrality using the dodgr package directly.
+    Hint: `?dodgr_centrality` is in the development version of dodgr.
