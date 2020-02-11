@@ -1,8 +1,10 @@
 ---
 title: "Coursework submission for Transport Data Science (TRAN5340M)"
+subtitle: "Enter your own title here (e.g. Exploring open transport data: a study of the Isle of Wight)"
 output:
   pdf_document:
     number_sections: true
+author: "Student 12345"
 # output: github_document
 # for html output:
 # output:
@@ -25,7 +27,7 @@ It is just designed to get you started. You will submit the .Rmd file and the re
 As outlined in the module catalogue, the coursework should be:
 
 - A maximum of 3000 words long, excluding code, figure captions and references
-- A maximum of 10 pages long, excluding appendices (you should include your best work and think about maximising the use of space - the chunk option `out.width="50%"`, for example, can help with this as outlined [here](https://bookdown.org/yihui/bookdown/figures.html) )
+- A maximum of 10 pages long, excluding references and appendices (you should include your best work and think about maximising the use of space - the chunk option `out.width="50%"`, for example, can help with this as outlined [here](https://bookdown.org/yihui/bookdown/figures.html) )
 
 
 ## RMarkdown
