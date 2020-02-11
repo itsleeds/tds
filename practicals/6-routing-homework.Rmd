@@ -41,7 +41,7 @@ Ensure that you have completed the exercises in the practical session (see the [
 
 - Read Chapter 2 of the definitive guide to the .Rmd file format [@xie_r_2018]: https://bookdown.org/yihui/rmarkdown/basics.html
 
-- Create a new project called `tdsproject` (or similar) and create a new RMarkdown file by running the following command:
+- Create a new project called `tdsproject` (or similar) and create a new RMarkdown file by running the following command (you must have installed `usethis` with `install.packages("usethis")`):
 
 ```{r, eval=FALSE}
 usethis::use_readme_rmd()
@@ -81,6 +81,8 @@ Try to reproduce the output of this file: https://github.com/ITSLeeds/TDS/blob/m
 The results should look something like this: https://github.com/ITSLeeds/TDS/blob/master/coursework-template.md
 
 Challenge: knit the document to create a file called coursework-template.pdf.
+
+**Hint**: to reproduce the figure above, see this file: https://github.com/ITSLeeds/TDS/blob/master/practicals/6-routing-homework.Rmd
 
 ## References
 

@@ -1,6 +1,6 @@
 Routing homework
 ================
-Malcolm Morgan
+Malcolm Morgan and Robin Lovelace
 University of Leeds,
 2020-02-11<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
@@ -81,7 +81,9 @@ The results should look something like this:
 <https://github.com/ITSLeeds/TDS/blob/master/coursework-template.md>
 
 Challenge: knit the document to create a file called
-coursework-template.pdf. \#\# References
+coursework-template.pdf.
+
+## References
 
 <div id="refs" class="references">
 
