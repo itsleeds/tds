@@ -1,11 +1,11 @@
 ---
 title: "Coursework submission for Transport Data Science (TRAN5340M)"
 subtitle: "Enter your own title here (e.g. Exploring open transport data: a study of the Isle of Wight)"
-output:
-  pdf_document:
-    number_sections: true
+output: github_document
+# output:
+#   pdf_document:
+#     number_sections: true
 author: "Student 12345"
-# output: github_document
 # for html output:
 # output:
 #   html_document:
@@ -15,7 +15,7 @@ bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, eval = FALSE)
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, eval = TRUE)
 ```
 
 # Introduction
@@ -40,9 +40,11 @@ The first lines of your RMarkdown document could look something like this to ens
 ```
 ---
 title: "Coursework submission for Transport Data Science (TRAN5340M)"
+subtitle: "Enter your own title here (e.g. Exploring open transport data: a study of the Isle of Wight)"
 output:
   pdf_document:
     number_sections: true
+author: "Student 12345"
 bibliography: references.bib
 ---
 
