@@ -1,5 +1,5 @@
 ---
-title: "Data structures"
+title: "Accessing data from web sources and data cleaning"
 subtitle: '<br/>Practical'
 author: "Robin Lovelace"
 date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
@@ -7,16 +7,32 @@ output: github_document
 bibliography: ../references.bib
 ---
 
-## Discussion of homework and worked example (30 minutes)
+```{r, include=FALSE}
+knitr::opts_chunk$set(message = FALSE)
+```
 
-```{r}
-library(tidyverse)
+```{r, echo=FALSE, eval=FALSE}
+# print pdf
+pagedown::chrome_print("practicals/5-web.md")
+pagedown::chrome_print("practicals/5-web.html")
+browseURL("practicals/5-web.pdf")
+piggyback::pb_upload("practicals/5-web.pdf")
+piggyback::pb_download_url("practicals/5-web.pdf")
+```
+
+## Review of homework exercise: demo with RMarkdown then individual Q&A
+
+We will be using these packages in this practical:
+
+```{r, eval=FALSE}
 library(sf)
+library(stats19)
+library(tidyverse)
 ```
 
 ## Accessing crowd-sourced data from OSM
 
-- Download data on highway=cycleway for Leeds from https://overpass-turbo.eu/
+- Navigate to https://overpass-turbo.eu/ and play with the interface to see what data is available from OpenStreetMap. Download data on highway=cycleway for Leeds from https://overpass-turbo.eu/
 
 - Load the data in R and plot it with your favourite plotting package (e.g. `sf`, `mapview` or `tmap`)
 
@@ -24,13 +40,108 @@ library(sf)
 
 ## Get official data with stats19
 
+- Take a read of the stats19 README page and at least one of the articles on it here: https://docs.ropensci.org/stats19/
+- Install and load the stats19 package as with one of the following commands:
 
-- Download data on road crashes in Great Britain in 2017
-- Filter crashes that happened in Leeds
-- Filter crashes that happened within a 10m buffer of the cycle infrastructure
-- Bonus: pull down origin-destination data with the `pct` package hosted at: https://github.com/ITSLeeds/pct
+```{r, eval=FALSE}
+install.packages("stats19") # the stable version
+remotes::install_github("ropensci/stats19") # the most recent 'development' version
+```
 
-## Bonus 1: 
+- Show crashes involving pedestrians in Manchester by reproducing the following lines of code:
+
+```{r}
+library(sf)
+library(stats19)
+library(tidyverse)
+crashes_2018 = get_stats19(year = 2018)
+crashes_2018_sf = format_sf(crashes_2018)
+crashes_manchester = crashes_2018_sf %>% filter(local_authority_district == "Manchester")
+plot(crashes_manchester["accident_severity"])
+casualties_2018 = get_stats19(year = 2018, type = "cas")
+crashes_manchester = inner_join(crashes_manchester, casualties_2018)
+pedestrian_casualties = crashes_manchester %>% filter(casualty_type == "Pedestrian")
+plot(pedestrian_casualties["accident_severity"])
+```
+
+- Use the tmap package to create an interactive map of pedestrian casualties in Manchester, starting with the following commands (hint, use `tmaptools::palette_explorer()` and the argument `palette = "Reds"` in the function `tm_dots()`, for example, to change the default colour palette):
+
+```{r}
+library(tmap)
+tmap_mode("view")
+```
+
+```{r, echo=FALSE}
+tm_shape(pedestrian_casualties) +
+  tm_dots("accident_severity", palette = "RdYlBu")
+```
+
+- Based on the documentation at https://docs.ropensci.org/stats19/:
+  
+  - Download data on road crashes in Great Britain in 2018
+  - Filter crashes that happened in Leeds
+  
+- Bonus: make a map of pedestrian casualties in Leeds that shows the speed limit where pedestrians were hit. Explore the results in an interactive map. Where do you think the speed limit should be reduced based on this data?
+
+The result should look something like this:
+
+```{r}
+crashes_leeds = crashes_2018_sf %>% filter(local_authority_district == "Leeds")
+crashes_leeds = inner_join(crashes_leeds, casualties_2018)
+pedestrian_casualties = crashes_leeds %>% filter(casualty_type == "Pedestrian")
+tm_shape(pedestrian_casualties) +
+  tm_dots("speed_limit")
+```
+
+- Bonus: what is the relationship between crash severity and the speed limit?
+
+- Bonus: download and visualise the Leeds Bradford Cycle Superhighway data with these commands:
+
+```{r, eval=FALSE}
+library(osmdata)
+data_osm = opq("leeds uk") %>% 
+  add_osm_feature(key = "name", value = "Cycle Superhighway 1") %>% 
+  osmdata_sf()
+```
+
+```{r, eval=FALSE, echo=FALSE}
+saveRDS(data_osm, "data_osm_cycle_superhighway.Rds")
+piggyback::pb_upload("data_osm_cycle_superhighway.Rds")
+piggyback::pb_download_url("data_osm_cycle_superhighway.Rds")
+```
+
+
+```{r}
+# if the previous command fails, try:
+data_osm = readRDS(url("https://github.com/ITSLeeds/TDS/releases/download/0.20.1/data_osm_cycle_superhighway.Rds"))
+cycleway_100m_buffer = stplanr::geo_buffer(data_osm$osm_lines, dist = 100)
+crashes_leeds_lon_lat = crashes_leeds %>% st_transform(4326)
+crashes_near_cycle_superhighway = crashes_leeds_lon_lat[cycleway_100m_buffer, ]
+tm_shape(data_osm$osm_lines) + tm_lines() +
+  tm_shape(crashes_near_cycle_superhighway) + tm_dots("casualty_type")
+```
+
+  - Filter crashes that happened within a 500 m buffer of the cycle infrastructure
+  - Do cyclists seem safer on the cycle superhighway?
+  - Bonus: pull down origin-destination data with the `pct` package hosted at: https://github.com/ITSLeeds/pct
+
+## Getting data from the web
+
+Read through Section [7.2](https://geocompr.robinlovelace.net/read-write.html#retrieving-data) and 7.3 of Geocomputation with R. 
+
+Complete Excersises 4, 5, 6 and 7 of the chapter
+
+## Bonus 1: Geofabrik
+
+Take a read of the documentation on the website https://itsleeds.github.io/geofabrik/ 
+
+Reproduce the examples
+
+Get all supermarkets in OSM for West Yorkshire
+
+Identify all cycleways in West Yorkshire and, using the stats19 data you have already downloaded, identify all crashes that happened near them.
+
+## Bonus 2: Getting data from statistics.gov.uk 
 
 Identify a region and zonal units of interest from http://geoportal.statistics.gov.uk/
 
