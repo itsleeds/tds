@@ -72,4 +72,4 @@ route_transit = otp_plan(otpcon,
 
 qtm(sf::st_zm(route_transit), lines.col = "mode", lines.lwd = 3)
 
-
+otp_stop()
