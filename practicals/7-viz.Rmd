@@ -4,7 +4,7 @@ subtitle: '<br/>Practical'
 author: "Robin Lovelace"
 date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
 output: github_document
-bibliography: ../references.bib
+bibliography: ../courses/references.bib
 ---
 
 ## Review of homework exercise: demo then individual Q&A
@@ -15,6 +15,39 @@ library(stplanr)
 library(sf)
 ```
 
+## Basics of data visualisation
+
+Data visualisation is a powerful way to help understand and communicate insights about the real world contained in data.
+
+Take this dataset:
+
+```{r}
+crashes_gb = stats19::get_stats19(year = 2018, type = "accidents")
+crashes_gb
+```
+
+Without some kind of analysis, it is hard to understand the meaning of the data.
+Descriptive statistics can help, e.g. on the percentage of different crashes that happened by speed limit:
+
+```{r}
+count_table = table(crashes_gb$speed_limit, crashes_gb$accident_severity)
+count_table
+count_table_proportions = count_table / rowSums(count_table)
+round(count_table_proportions * 100, 1)
+```
+
+As expected, crashes that happened on roads with a higher speed limit have a higher fatality rate.
+This can be visualised in a more appealing and intuitive way, e.g. as follows:
+
+```{r}
+library(ggplot2)
+ggplot(crashes_gb) + geom_bar(aes(accident_severity)) +
+  facet_grid(~ speed_limit)
+```
+
+```{r}
+ggplot(crashes_gb, aes(speed_limit)) + geom_bar(aes(fill = accident_severity), position = "fill")
+```
 
 
 ## Exercises: group
