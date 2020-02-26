@@ -57,7 +57,7 @@ m
 summary(m)
 
 library(osmdata)
-tube_network = opq("london") %>% 
+tube_network = opq("new york") %>% 
   add_osm_feature(key = "railway", value = "subway") %>% 
   osmdata_sf()
 
