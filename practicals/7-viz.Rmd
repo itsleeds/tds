@@ -7,6 +7,15 @@ output: github_document
 bibliography: ../courses/references.bib
 ---
 
+```{r, echo=FALSE, eval=FALSE}
+# print pdf
+pagedown::chrome_print("practicals/7-viz.Rmd")
+pagedown::chrome_print("practicals/7-viz.html")
+browseURL("practicals/5-web.pdf")
+piggyback::pb_upload("practicals/7-viz.pdf")
+piggyback::pb_download_url("practicals/7-viz.pdf")
+```
+
 ## Review of homework exercise: demo then individual Q&A
 
 ```{r}
@@ -41,14 +50,25 @@ This can be visualised in a more appealing and intuitive way, e.g. as follows:
 
 ```{r}
 library(ggplot2)
-ggplot(crashes_gb) + geom_bar(aes(accident_severity)) +
-  facet_grid(~ speed_limit)
+ggplot(crashes_gb) + geom_bar(aes(accident_severity)) 
 ```
 
 ```{r}
 ggplot(crashes_gb, aes(speed_limit)) + geom_bar(aes(fill = accident_severity), position = "fill")
 ```
 
+**Exercise**: Read the documentation that appears when you run this line of code:
+
+```
+?facet_grid
+```
+
+Create a facetted plot with a different facet for each speed limit.
+
+```{r, echo=FALSE}
+ggplot(crashes_gb) + geom_bar(aes(accident_severity)) +
+  facet_grid(~ speed_limit)
+```
 
 ## Exercises: group
 
@@ -113,7 +133,12 @@ tm_shape(routes_fast_sf) +
 
 ## Exercises bonus (optional)
 
+- Work through the PCT training vignette at: https://itsleeds.github.io/pct/articles/pct_training.html
 - Using data in the `pct` github package, estimate cycling potential in a city of your choice in the UK, and show the results.
 
-- Work on your portfolios, adding a new visualisation
+
+## Homework
+
+- To improve you R skills, work through the stats19 tutorial here: https://docs.ropensci.org/stats19/articles/stats19-training.html
+- Work on your portfolios, adding a new visualisation of the data you will use
 
