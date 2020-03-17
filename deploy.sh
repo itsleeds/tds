@@ -8,6 +8,7 @@ cp -Rv slides/* TDS/slides/
 cp -Rv practicals/* TDS/practicals/
 
 cd TDS
+git status
 # git diff
 git add -A
 git commit -am 'update site'
