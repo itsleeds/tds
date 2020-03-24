@@ -1,0 +1,108 @@
+---
+title: "Coursework update"
+author: "Robin Lovelace "
+date: "TDS course`r Sys.Date()`. Code: https://github.com/ITSLeeds/TDS"
+output:
+  ioslides_presentation:
+    transition: slower
+logo: ../../SSPA/figures/its-logo-square.png
+bibliography: ../../SSPA/references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+# citr::tidy_bib_file(rmd_file = "slides/coursework-recap.Rmd", messy_bibliography = "~/uaf/allrefs.bib", file = "coursework.bib")
+# refs = c(
+#   RefManageR::ReadBib("coursework.bib"),
+#   RefManageR::ReadBib("references.bib")
+# )
+# RefManageR::WriteBib(refs, "references.bib")
+```
+
+## Session outline:
+
+> - Recap on progress with the coursework
+> - Practical working on your projects
+> - (And an opportunity to ask questions)
+
+## Topics and marks
+
+> - Many examples of analysis topics, all seem good
+
+Marking criteria:
+
+**Understanding of concepts, methods and approaches**
+
+1. Demonstrate understanding of core concepts of data science, including data cleaning/wrangling, joining, exploratory analysis and visualisation.
+1. Implement methods appropriate to the objectives of the report.
+1. Discuss alternative methods/approaches that could have been used, and consider and their advantages and disadvantages.
+1. Describe code that you have written as part of the analysis.
+
+## **Data, processing access and cleaning**
+
+1. Describe how your team obtained and cleaned data
+1. Describe methods for cleaning the data and how this added value to it
+1. Discuss methods for gaining data using transport techniques such as routing and conversion of origin-destination data to geographic desire lines
+2. Describe how your team stored and transported data, including appropriate file formats
+
+## **Application choice and modelling**
+
+1. Choice of topic that has interesting datasets and important real world applications
+1. Appropriate use of methods for the choice of application
+1. Demonstrate the progression from a simplistic model of the data to modelling techniques
+3. Discuss alternative approaches
+
+## **Visualization**
+
+1. Include high quality, attractive and innovative visualisations
+2. Describe how they were produced, including code
+3. Describe the theory about why they were designed this way
+5. Describe how your own work uses concepts from the literature
+
+## **Understand the data science process**
+
+1. The results presented are reproducible using code shared in the report submission or on a code-sharing platform.
+1. Evaluation of the computational efficiency of the approach taken and discuss how scalable the code used is and changes that could be made to make it work on larger datasets, e.g. with reference to a benchmark to test different methods/implementations.
+1. Provide evidence of teamwork, e.g. how work was divided, scheduled, and managed.
+2. Give examples of how you communicated your own ideas to the target audience of the report and within the group.
+
+
+## Key resources:
+
+- Geocomputation with R book
+- R for data science book
+
+- See the reading list!
+- Data sources, see here: https://itsleeds.github.io/QGIS-intro/data-sources-for-transport-data.html
+
+
+## An interactive catch-up on progress (virtual hands up)
+
+> - Who plans to use R? 
+<!-- > - Who plans to use R? -->
+<!-- > - Who plans to use a bit of both? -->
+> - Study area decisions
+> - Project aims decided
+> - Data access
+> - Data analysis started
+
+## Warning on using large datasets
+
+- But first 5 commandments of Big Data [see @lovelace_big_2016]:
+
+> 1) thou shalt remember the purpose of thine research regardless of the size of thine dataset
+> 2) thou shalt not spend excessive amounts of time making visualising big data for the sake of it (or social media clickbait)
+> 3) thou shalt not do big data until thou has done 'small data' first
+> 4) thou shalt not hide thine ideas behind complex terminology associated with the terms 'big data' or 'data science', the meaning of which has not been clearly identified.
+> 5) if thou wants to be a data scientist thou must program ... "for documentation, sharing and scientific repeatability" ([mount 2016](http://www.r-bloggers.com/some-programming-language-theory-in-r/)).
+
+<!-- ## Next steps:  -->
+
+<!-- > - Another commandment: do not get distracted by Big Data -->
+<!-- > - High priority: crack-on  -->
+<!-- with the coursework -->
+<!-- > - check-out the big data and big data archives slides -->
+<!-- > - CRACK-ON with the coursework! -->
+<!-- > - I'll present on Big Data in due course... -->
+
+## References {.smaller}
