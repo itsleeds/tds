@@ -16,11 +16,11 @@ container to ease teaching.
 See here for the the timetable, a basic visualisation of which is shown
 below:
 
-  - On the University’s system (official):
-    [http://timetable.leeds.ac.uk/](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201920&M=TRAN-5340M)
-  - In .ics form:
+-   On the University’s system (official):
+    [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202021/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
+-   In .ics form:
     <https://github.com/ITSLeeds/TDS/releases/download/0.20.1/tds-timetable.ics>
-  - As a .csv file:
+-   As a .csv file:
     <https://github.com/ITSLeeds/TDS/blob/master/timetable.csv>
 
 # References
@@ -35,11 +35,11 @@ For this module you need to have up-to-date versions of R and RStudio.
 For guidance on setting-up your computer to run R and RStudio for
 spatial data, see these links:
 
-  - Chapter 2 of Geocomputation with R (the Prerequisites section
+-   Chapter 2 of Geocomputation with R (the Prerequisites section
     contains links for installing spatial software on Mac, Linux and
     Windows): <https://geocompr.robinlovelace.net/spatial-class.html>
 
-  - Chapter 2 of the online book *Efficient R Programming*, particularly
+-   Chapter 2 of the online book *Efficient R Programming*, particularly
     sections 2.3 and 2.5, for details on R installation and
     [set-up](https://csgillespie.github.io/efficientR/set-up.html) and
     the [project management
@@ -68,8 +68,7 @@ Data for course can be accessed from the repos
 example, download and unzip the data folder in a local version of the
 repo (accessed by downloading and unzipp
 <https://github.com/ITSLeeds/TDS/archive/master.zip> ) with the
-following R
-commands:
+following R commands:
 
 ``` r
 download.file("https://github.com/ITSLeeds/TDS/releases/download/0.1/data.zip", destfile = "data.zip")
@@ -95,11 +94,10 @@ pd.DataFrame.sort_values(e, "n_coffee")
 
 # Other projects
 
-  - A book on R for Geocomputation:
+-   A book on R for Geocomputation:
     <https://github.com/Robinlovelace/geocompr>
-  - A Python package for OSM data analysis:
+-   A Python package for OSM data analysis:
     <https://github.com/gboeing/osmnx>
 
 <!-- # Building the website -->
-
 <!-- To publish the slides and other content online, the following commands were used: -->

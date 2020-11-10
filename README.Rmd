@@ -30,7 +30,7 @@ This software has been packaged-up into a docker container to ease teaching.
 
 See here for the the timetable, a basic visualisation of which is shown below:
 
-- On the University's system (official): [http://timetable.leeds.ac.uk/](http://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=201920&M=TRAN-5340M)
+- On the University's system (official): [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202021/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
 - In .ics form: https://github.com/ITSLeeds/TDS/releases/download/0.20.1/tds-timetable.ics
 - As a .csv file: https://github.com/ITSLeeds/TDS/blob/master/timetable.csv
 
