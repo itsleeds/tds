@@ -1,0 +1,249 @@
+---
+title: "stats19-locations"
+# output: bookdown::pdf_document2
+bibliography:
+  - saferactive.bib
+  - my-bib.bib
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  eval = FALSE,
+  echo = FALSE,
+  message = FALSE,
+  warning = FALSE
+)
+# load packages
+library(stats19)
+library(tidyverse)
+library(tmap)
+```
+
+# Introduction
+
+I suggest taking a look at and perhaps citing these papers and reports:
+
+[@aldred_cycling_2018]
+
+[@ding_roles_2020]
+
+[@feleke_comparative_2018]
+
+[@grolemund_data_2016]
+
+See here for more info: https://www.zotero.org/groups/418217/energy-and-transport/collections/9PTF9F44/item-list
+
+<!-- [@mulvaney_cycling_2015] -->
+
+See here and in the .bib files for more citations:
+
+
+
+
+# Descriptive data analysis
+
+
+## Case study of Leeds-Bradford Cycle Superhighway
+
+A case study of a well-known cycleway in Leeds is shown in Figure \@ref(fig:cycleway1).
+
+```{r, eval=TRUE, fig.cap="Illustration of the Leeds-Bradford cycle superhighway. Source: OpenStreetMap.", fig.width=9}
+# read in saved dataset
+u = "https://github.com/ropensci/stats19/releases/download/1.1.0/superhighway.Rds"
+superhighway = readRDS(url(u))
+plot(superhighway$geometry)
+# tm_shape(superhighway) +
+#   tm_lines("highway") +
+#   tm_layout(asp = 5, frame = FALSE)
+# +
+#   tm_layout(legend.outside = TRUE)
+```
+
+
+## Cycleway data
+
+## Crash data
+
+## Cycling behaviour data
+
+[@lovelace_propensity_2017]
+
+## Explanatory variables
+
+E.g. speed from OSM data and number of junctions
+
+presence/absence of cycleway
+
+# Modelling crash rates on cycleways
+
+
+# Discussion
+
+## Limitations
+
+## Policy relevance
+
+## Further research
+
+
+# Conclusions
+
+```{r setup, eval=TRUE}
+crashes = get_stats19(2012:2018, output_format = "sf")
+#2018
+# fail use map_dfr...
+# challenge: get more years
+casualties_2018 = get_stats19(year = 2018, type = "cas")
+casualties_cyclist_2018 = casualties_2018 %>% 
+  filter(casualty_type == "Cyclist")
+crashes_cyclist_2018 = crashes %>% 
+  filter(accident_index %in% casualties_cyclist_2018$accident_index)
+crashes_cyclist_2018 = sf::st_transform(crashes_cyclist_2018, 4326)
+crashes_near_superhighway_2018 = crashes_cyclist_2018[superhighway_buffer, ]
+
+#total
+casualties = get_stats19(2012:2018, type = "cas") 
+casualties_cyclist = casualties %>% 
+  filter(casualty_type == "Cyclist")
+crashes_cyclist = crashes %>% 
+  filter(accident_index %in% casualties_cyclist$accident_index)
+```
+
+## OpenStreetMap data
+
+```{r}
+library(sf)
+library(osmdata)
+data_osm = opq("leeds") %>% 
+  add_osm_feature(key = "name", value = "Cycle Superhighway 1") %>% 
+  osmdata_sf()
+data_osm
+plot(data_osm$osm_lines$geometry)
+wy = pct::get_pct_zones("west-yorkshire")
+superhighway = data_osm$osm_lines[wy, ]
+mapview::mapview(superhighway)
+saveRDS(superhighway, "superhighway.Rds")
+piggyback::pb_upload("superhighway.Rds", repo = "ropensci/stats19")
+piggyback::pb_download_url("superhighway.Rds", repo = "ropensci/stats19")
+```
+
+```{r}
+# get buffer
+# the distance here use 20 which will not include other routes data but won't miss the junction data.  
+superhighway_buffer = stplanr::geo_buffer(superhighway, dist = 20) %>% 
+  sf::st_union()
+mapview::mapview(superhighway_buffer)
+crashes_cyclist = sf::st_transform(crashes_cyclist, 4326)
+crashes_near_superhighway = crashes_cyclist[superhighway_buffer, ]
+mapview::mapview(crashes_near_superhighway)
+summary(crashes_near_superhighway$datetime)
+table(crashes_near_superhighway$accident_severity)
+```
+
+## Questions
+
+1. How to get casualties for more years, e.g. 2012 to 2018 (not just 2018)?
+
+I am not quite sure why the script code "casualties = get_stats19(2012:2018, type = "cas")" doesn't works. I run this code and get 56 observations in the end. "map_dfr" seems return data frames created by row-binding and column-binding respectively, so I first thought it may fail because different variable number (some years have 15 variables and some 16). But it turns out the NA will fill in the lack variable.
+
+
+2. How to estimate the risk per year?
+This raises another question, how to estimate the exposure near the cycleway?
+
+To avoid the "safety in number", the cyclist flow should be considered. On different segments of the road. The bicycle number varys from 0 to 387, it leads the exposure data varys. So it is better to consider separately for each crash location than treat the superhighway equally risky.
+
+Because the speed limit does not differ a lot on the entire road, the distance is the other factor of exposure. The exposure equation is multiply cycling volume per yearby road segment length (in vehicle-kilometers, VKM). The risk equals the crash number per year divide by exposure. The crash number could separates KSI from slight injuries.
+
+```{r}
+#exposure data of the crash point
+rnet_wy_cycling = pct::get_pct_rnet(region = "west-yorkshire")
+plot(rnet_wy_cycling$geometry)
+rnet_cycleway = sf::st_intersection(rnet_wy_cycling, superhighway_buffer)
+plot(rnet_cycleway)
+mapview::mapview(rnet_cycleway)
+
+#exposure of the crash point
+test1<-crashes_near_superhighway
+test2<-rnet_cycleway
+
+#if the crash geometry located in the segments.
+mat = st_intersects(test1$geometry, test2$geometry, sparse = FALSE)
+apply(mat, 1, any)
+#all in false maybe because of the geometry deviation (not exactly located). 
+#alter to st_distance function. It calculates the distance matrix in meters using Great Circle distance.
+#treat the crashes happen in the closed segement. 
+#The most minimum distances are controlled under 50m and the biggest one is 105m. 
+d<-data.frame(st_distance(test1$geometry,test2$geometry))
+nn.dist <- apply(d, 1, function(x) {
+  return(sort(x, partial = 1)[1])
+})
+nn.index <- apply(d, 1, function(x) {order(x, decreasing=F)[1]})
+newdata <- cbind(test1, test2[nn.index,], apply(d, 1, function(x) sort(x, decreasing=F)[2]))
+
+newdata$length_km =
+  as.numeric(sf::st_length(newdata$geometry.1))
+newdata$km_cycle_peryear = newdata$length_km * newdata$bicycle*2*260
+
+nrow(newdata) /
+  (sum(newdata$km_cycle_peryear) / 1e9)
+
+```
+
+
+
+How to estimate how numbers cycling changes per year (difficult, not essential to answer)?
+
+```{r}
+rnet_wy_cycling = pct::get_pct_rnet(region = "west-yorkshire")
+plot(rnet_wy_cycling$geometry)
+rnet_cycleway = sf::st_intersection(rnet_wy_cycling, superhighway_buffer)
+plot(rnet_cycleway)
+mapview::mapview(rnet_cycleway)
+# how many cycle journey segments in total?
+sum(rnet_cycleway$bicycle)
+# estimate million km cycled per year...
+rnet_cycleway$length_km =
+  as.numeric(sf::st_length(rnet_cycleway)) / 1000
+summary(rnet_cycleway$length_km)
+# estimate km cycled per working morning
+rnet_cycleway$km_per_morning_workday =
+  rnet_cycleway$length_km * rnet_cycleway$bicycle
+sum(rnet_cycleway$km_per_morning_workday)
+rnet_cycleway$km_per_year =
+  rnet_cycleway$km_per_morning_workday * 2 * 200
+sum(rnet_cycleway$km_per_year)
+# estimate risk - total crashes per bkm
+nrow(crashes_near_superhighway) /
+  (sum(rnet_cycleway$km_per_year) / 1e9)
+# estimate risk - total crashes per bkm
+1 /
+  (sum(rnet_cycleway$km_per_year) / 1e9)
+```
+
+```{r}
+remotes::install_github("itsleeds/osmextractr")
+library(osmextractr)
+wy_osm = oe_get(place = "West Yorkshire", extra_attributes = c("maxspeed"))
+pryr::object_size(wy_osm)
+wy_osm_cycleway = wy_osm[superhighway_buffer, , op = sf::st_within]
+mapview::mapview(wy_osm_cycleway["highway"])
+wy_osm_cycleway$speed = as.character(wy_osm_cycleway$maxspeed)
+table(wy_osm_cycleway$speed)
+wy_osm_cycleway$speed_numeric = as.numeric(gsub(pattern = " mph", replacement = "", wy_osm_cycleway$maxspeed))
+table(wy_osm_cycleway$speed_numeric)
+mean(wy_osm_cycleway$speed_numeric, na.rm = TRUE) # the average speed limit on the cycleway
+table(wy_osm_cycleway$highway)
+# calculate percentage on primary:
+sum(wy_osm_cycleway$highway == "primary", na.rm = TRUE) / 
+  sum(!is.na(wy_osm_cycleway$highway))
+# 0.1034483
+# calculate percentage on primary:
+sum(wy_osm_cycleway$highway == "secondary", na.rm = TRUE) / 
+  sum(!is.na(wy_osm_cycleway$highway))
+```
+
+
+# References
+
