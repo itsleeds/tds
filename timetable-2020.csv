@@ -1,17 +1,17 @@
 SUMMARY,DESCRIPTION,DTSTART,DTEND,LOCATION,UID
-TDS Lecture 1: intro,Introduction to transport data science in Online - Teams,2021-01-25T09:00:00Z,2021-01-25T10:00:00Z,Online - Teams,ical-d33c871c-d4a1-4e67-a53e-8eff2d9f732f
-TDS deadline 1,Computer set-up,2021-01-29T13:00:00Z,2021-01-29T13:01:00Z,Online - Teams,ical-308ad9cc-9f24-4cbf-8b52-52c565c3f4df
-TDS Lecture 2: structure,The structure of transport data and data cleaning in Online - Teams,2021-02-01T09:00:00Z,2021-02-01T10:00:00Z,Online - Teams,ical-54040432-28ab-448e-bc96-d1caed6a5729
-TDS Practical 1: structure,The structure of transport data in Online - Teams,2021-02-04T14:00:00Z,2021-02-04T16:30:00Z,Online - Teams,ical-147427e9-cbe6-4174-b19f-973e00acbe2f
-TDS Lecture 3: routing,Routing in Online - Teams,2021-02-08T09:00:00Z,2021-02-08T10:00:00Z,Online - Teams,ical-baef6aec-ee80-4d40-a560-61afb874fc50
-TDS Practical 2: routing,Routing in Online - Teams,2021-02-11T14:00:00Z,2021-02-11T16:30:00Z,Online - Teams,ical-1ebdccf6-9928-4a06-be24-9f34d6ef127a
-TDS seminar 1,Mapping large datasets in Online - Teams. See https://environment.leeds.ac.uk/transport/events/event/5963/mapping-human-population-a-data-science-approach,2021-02-18T14:00:00Z,2021-02-18T16:30:00Z,Online - Teams,ical-7b99fed7-d2f0-4633-88a9-404a3a357b31
-TDS deadline 2,Practical: getting data from the internet,2021-02-19T13:00:00Z,2021-02-19T15:30:00Z,Online - Teams,ical-8c48d707-b5b7-4d6a-b2f6-38bdeadfec80
-TDS Practical 3: visualisation,Visualization in Online - Teams,2021-02-25T14:00:00Z,2021-02-25T16:30:00Z,Online - Teams,ical-916d9269-45b8-4cf1-a9a6-c82c7ab7ebca
-TDS seminar 2,Data science in transport planning in Online - Teams. See https://environment.leeds.ac.uk/transport/events/event/5963/mapping-human-population-a-data-science-approach,2021-03-04T14:00:00Z,2021-03-04T16:30:00Z,Online - Teams,ical-44c4fe10-87d3-4590-9afd-9fe2a130e1f9
-TDS Lecture 4: viz,Visualisation in Online - Teams,2021-03-15T09:00:00Z,2021-03-15T10:00:00Z,Online - Teams,ical-a850ed55-9819-499e-9d47-0715471440ff
-TDS Practical 4: modelling,Modelling in Online - Teams,2021-03-18T14:00:00Z,2021-03-18T16:30:00Z,Online - Teams,ical-fbaaaa5b-a612-42b7-b41c-9bec1fa27488
-TDS Lecture 5: project,Project work in Online - Teams,2021-03-22T09:00:00Z,2021-03-22T10:00:00Z,Online - Teams,ical-d801e2d4-551d-4776-b3af-7a67a592a168
-TDS deadline 3,Draft portfolio,2021-03-26T13:00:00Z,2021-03-26T13:01:00Z,Online - Teams,ical-a377fe60-0935-4703-b3b9-4ce53b388553
-TDS Practical 5: project,Project work in Online - Teams,2021-04-29T14:00:00Z,2021-04-29T16:30:00Z,Online - Teams,ical-0dee9394-28f0-44f2-bad8-149b65206aa3
-TDS deadline 4,"Deadline: coursework, 2pm",2021-05-14T13:00:00Z,2021-05-14T13:01:00Z,Online - Teams,ical-5dcb85cc-f4fe-4ab7-96b5-36b363bed503
+TDS deadline 1,Computer set-up,2021-01-29T13:00:00Z,2021-01-29T13:01:00Z,Online - Teams,ical-0d8c3a19-f7b2-4905-96e3-622d3a77b0e5
+TDS Lecture 1: intro,Introduction to transport data science in Online - Teams,2021-02-01T09:00:00Z,2021-02-01T10:00:00Z,Online - Teams,ical-f804ccd4-7152-4742-80a5-f7ee08ff5aa7
+TDS Practical 1: structure,The structure of transport data in Online - Teams,2021-02-04T14:00:00Z,2021-02-04T16:30:00Z,Online - Teams,ical-b384647a-16d3-4e35-a5c4-03994fc79491
+TDS Lecture 2: structure,The structure of transport data and data cleaning in Online - Teams,2021-02-08T09:00:00Z,2021-02-08T10:00:00Z,Online - Teams,ical-a071ad7b-7017-4d6e-aa68-a0ecf78f7354
+TDS Practical 2: routing,Routing in Online - Teams,2021-02-11T14:00:00Z,2021-02-11T16:30:00Z,Online - Teams,ical-45d77b8d-3e97-4c7e-a836-ea1ae89f7640
+TDS Lecture 3: routing,Routing in Online - Teams,2021-02-15T09:00:00Z,2021-02-15T10:00:00Z,Online - Teams,ical-3b08afe7-373c-4696-a6de-7fd32a7fb595
+TDS seminar 1,Mapping large datasets in Online - Teams. See https://environment.leeds.ac.uk/transport/events/event/5963/mapping-human-population-a-data-science-approach,2021-02-18T14:00:00Z,2021-02-18T16:30:00Z,Online - Teams,ical-047a95b0-f48d-41b8-826f-8ee7e9f8b17c
+TDS deadline 2,Practical: getting data from the internet,2021-02-19T13:00:00Z,2021-02-19T15:30:00Z,Online - Teams,ical-523e196c-5a25-4800-b2e0-bef775089545
+TDS Practical 3: visualisation,Visualization in Online - Teams,2021-02-25T14:00:00Z,2021-02-25T16:30:00Z,Online - Teams,ical-e5c59056-bfde-494c-a156-5173f407f10a
+TDS seminar 2,Data science in transport planning in Online - Teams. See https://environment.leeds.ac.uk/transport/events/event/5963/mapping-human-population-a-data-science-approach,2021-03-04T14:00:00Z,2021-03-04T16:30:00Z,Online - Teams,ical-fbd60b51-c1ef-407b-8003-73f39cb77e4a
+TDS Lecture 4: viz,Visualisation in Online - Teams,2021-03-15T09:00:00Z,2021-03-15T10:00:00Z,Online - Teams,ical-b76447bb-88e3-438e-9eb1-fc0cb7215186
+TDS Practical 4: modelling,Modelling in Online - Teams,2021-03-18T14:00:00Z,2021-03-18T16:30:00Z,Online - Teams,ical-203554d6-35a7-4995-95b7-4eb61c764f04
+TDS Lecture 5: project,Project work in Online - Teams,2021-03-22T09:00:00Z,2021-03-22T10:00:00Z,Online - Teams,ical-18f44856-2c01-4fb1-8089-3c7725bea0fb
+TDS deadline 3,Draft portfolio,2021-03-26T13:00:00Z,2021-03-26T13:01:00Z,Online - Teams,ical-e5af6b98-2f4d-4858-af70-b28748a40462
+TDS Practical 5: project,Project work in Online - Teams,2021-04-29T14:00:00Z,2021-04-29T16:30:00Z,Online - Teams,ical-28d7867f-fad1-4554-8dca-a3614c7809d0
+TDS deadline 4,"Deadline: coursework, 2pm",2021-05-14T13:00:00Z,2021-05-14T13:01:00Z,Online - Teams,ical-5b1bbbd4-0c7c-4a6a-872f-598431b524bf
