@@ -40,7 +40,7 @@ lecture_ids = c(
 lecture_day_of_week = 1
 lecture_start_time = "09:00"
 lecture_end_time = "10:00"
-lecture = tibble::tibble(week_num = as.character(c(14:16, 21:22)))
+lecture = tibble::tibble(week_num = as.character(c(15:17, 21:22)))
 lecture = dplyr::inner_join(lecture, weeks)
 lecture$date = lecture$week_commencing + (lecture_day_of_week - 1)
 lecture$DTSTART = lubridate::ymd_hm(paste(lecture$date, lecture_start_time)) 
@@ -170,3 +170,4 @@ ic = calendar::ical(tt_min)
 calendar::ic_write(ic, "timetable-2020.ics") # note: generates faulty calendar with ic[1, ]: bug in ic_read?
 readLines("timetable-2020.ics")
 readr::write_csv(tt_min, "timetable-2020.csv")
+
