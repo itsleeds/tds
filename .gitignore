@@ -32,3 +32,4 @@ practicals/OTP/graphs/default/router-config.json
 practicals/OTP/otp.jar
 practicals/OTP/graphs/default/Graph.obj
 lucene/
+*.docx
