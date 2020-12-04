@@ -56,16 +56,16 @@ nrow(lecture)
 
 practical_ids = c(
   "structure",
+  "getting",
   "routing",
-  "visualisation",
   "modelling",
   "project"
 )
 
 practical_descriptions = c(
   "The structure of transport data",
+  "Getting transport data",
   "Routing",
-  "Visualization",
   "Modelling",
   "Project work"
 )
@@ -120,7 +120,7 @@ deadline_ids = c(
 )
 deadline_descriptions = c(
   "Computer set-up",
-  "Practical: getting data from the internet",
+  "Practical: visualising transport data",
   "Draft portfolio",
   "Deadline: coursework, 2pm"
 )
