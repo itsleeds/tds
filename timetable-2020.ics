@@ -9,7 +9,7 @@ DESCRIPTION:Computer set-up
 DTSTART:20210129T130000
 DTEND:20210129T130100
 LOCATION:Online - Teams
-UID:ical-0d8c3a19-f7b2-4905-96e3-622d3a77b0e5
+UID:ical-47718462-3b1e-4aae-9bed-055180c978c8
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 1: intro
@@ -17,7 +17,7 @@ DESCRIPTION:Introduction to transport data science in Online - Teams
 DTSTART:20210201T090000
 DTEND:20210201T100000
 LOCATION:Online - Teams
-UID:ical-f804ccd4-7152-4742-80a5-f7ee08ff5aa7
+UID:ical-67a846b2-3636-4e2e-91d7-b9d62273a585
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 1: structure
@@ -25,7 +25,7 @@ DESCRIPTION:The structure of transport data in Online - Teams
 DTSTART:20210204T140000
 DTEND:20210204T163000
 LOCATION:Online - Teams
-UID:ical-b384647a-16d3-4e35-a5c4-03994fc79491
+UID:ical-3c9dd91b-6931-4d5c-ba3f-351ceb02aac4
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 2: structure
@@ -33,7 +33,7 @@ DESCRIPTION:The structure of transport data and data cleaning in Online - Teams
 DTSTART:20210208T090000
 DTEND:20210208T100000
 LOCATION:Online - Teams
-UID:ical-a071ad7b-7017-4d6e-aa68-a0ecf78f7354
+UID:ical-9bbf137c-37ac-4ebf-acf8-56ae6e9246f9
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 2: routing
@@ -41,7 +41,7 @@ DESCRIPTION:Routing in Online - Teams
 DTSTART:20210211T140000
 DTEND:20210211T163000
 LOCATION:Online - Teams
-UID:ical-45d77b8d-3e97-4c7e-a836-ea1ae89f7640
+UID:ical-01a78226-4487-4dba-a670-dbfe9757ee4e
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 3: routing
@@ -49,15 +49,15 @@ DESCRIPTION:Routing in Online - Teams
 DTSTART:20210215T090000
 DTEND:20210215T100000
 LOCATION:Online - Teams
-UID:ical-3b08afe7-373c-4696-a6de-7fd32a7fb595
+UID:ical-acdd153a-e1d1-4942-94bf-438c1b7a02e3
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS seminar 1
-DESCRIPTION:Mapping large datasets in Online - Teams. See https://environment.leeds.ac.uk/transport/events/event/5963/mapping-human-population-a-data-science-approach
+DESCRIPTION:Mapping large datasets
 DTSTART:20210218T140000
 DTEND:20210218T163000
 LOCATION:Online - Teams
-UID:ical-047a95b0-f48d-41b8-826f-8ee7e9f8b17c
+UID:ical-7e6b591a-2482-4819-aa19-35d8a90632d1
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS deadline 2
@@ -65,7 +65,7 @@ DESCRIPTION:Practical: getting data from the internet
 DTSTART:20210219T130000
 DTEND:20210219T153000
 LOCATION:Online - Teams
-UID:ical-523e196c-5a25-4800-b2e0-bef775089545
+UID:ical-8aaca9a6-a187-4e17-9927-131ff1e9c578
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 3: visualisation
@@ -73,15 +73,15 @@ DESCRIPTION:Visualization in Online - Teams
 DTSTART:20210225T140000
 DTEND:20210225T163000
 LOCATION:Online - Teams
-UID:ical-e5c59056-bfde-494c-a156-5173f407f10a
+UID:ical-587a1a7d-083c-47a4-a154-f95b00d0a503
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS seminar 2
-DESCRIPTION:Data science in transport planning in Online - Teams. See https://environment.leeds.ac.uk/transport/events/event/5963/mapping-human-population-a-data-science-approach
+DESCRIPTION:Data science in transport planning
 DTSTART:20210304T140000
 DTEND:20210304T163000
 LOCATION:Online - Teams
-UID:ical-fbd60b51-c1ef-407b-8003-73f39cb77e4a
+UID:ical-db3a6227-3815-4658-9359-ac190adac87c
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 4: viz
@@ -89,7 +89,7 @@ DESCRIPTION:Visualisation in Online - Teams
 DTSTART:20210315T090000
 DTEND:20210315T100000
 LOCATION:Online - Teams
-UID:ical-b76447bb-88e3-438e-9eb1-fc0cb7215186
+UID:ical-1ad847bc-5e8d-47cb-996b-006d49c2556d
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 4: modelling
@@ -97,7 +97,7 @@ DESCRIPTION:Modelling in Online - Teams
 DTSTART:20210318T140000
 DTEND:20210318T163000
 LOCATION:Online - Teams
-UID:ical-203554d6-35a7-4995-95b7-4eb61c764f04
+UID:ical-5f991b51-7456-4267-b141-fbb0a463cf40
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Lecture 5: project
@@ -105,7 +105,7 @@ DESCRIPTION:Project work in Online - Teams
 DTSTART:20210322T090000
 DTEND:20210322T100000
 LOCATION:Online - Teams
-UID:ical-18f44856-2c01-4fb1-8089-3c7725bea0fb
+UID:ical-ead8e0fd-9857-49b6-bb6b-8d627224bf3d
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS deadline 3
@@ -113,7 +113,7 @@ DESCRIPTION:Draft portfolio
 DTSTART:20210326T130000
 DTEND:20210326T130100
 LOCATION:Online - Teams
-UID:ical-e5af6b98-2f4d-4858-af70-b28748a40462
+UID:ical-d57a12cf-22ed-4f68-a059-eecedb0ac8a2
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS Practical 5: project
@@ -121,7 +121,7 @@ DESCRIPTION:Project work in Online - Teams
 DTSTART:20210429T140000
 DTEND:20210429T163000
 LOCATION:Online - Teams
-UID:ical-28d7867f-fad1-4554-8dca-a3614c7809d0
+UID:ical-d23b52e2-e010-4b85-b4ee-ae0564a5b89d
 END:VEVENT
 BEGIN:VEVENT
 SUMMARY:TDS deadline 4
@@ -129,6 +129,6 @@ DESCRIPTION:Deadline: coursework, 2pm
 DTSTART:20210514T130000
 DTEND:20210514T130100
 LOCATION:Online - Teams
-UID:ical-5b1bbbd4-0c7c-4a6a-872f-598431b524bf
+UID:ical-73e8afa4-8611-4c4a-8f4f-bd652b4b09ff
 END:VEVENT
 END:VCALENDAR
