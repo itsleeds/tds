@@ -108,9 +108,7 @@ seminar$duration = (seminar$DTEND - seminar$DTSTART)
 seminar$type = "Seminar"
 seminar$SUMMARY = paste0("TDS seminar ", 1:nrow(seminar))
 seminar$LOCATION = "Online - Teams"
-seminar$DESCRIPTION = paste0(seminar_descriptions, " in ", seminar$LOCATION, 
-                              ". See https://environment.leeds.ac.uk/transport/events/event/5963/mapping-human-population-a-data-science-approach"
-                              )
+seminar$DESCRIPTION = paste0(seminar_descriptions, "")
 nrow(seminar) # there is 1 seminar
 
 # deadlines ------------------------------------------------------
@@ -166,6 +164,7 @@ calendar::ic_write(ic[1], "/tmp/test-tds.ics")
 tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID)
 # ic = calendar::ical(tt_min[1:2, ])
 ic = calendar::ical(tt_min)
+
 
 calendar::ic_write(ic, "timetable-2020.ics") # note: generates faulty calendar with ic[1, ]: bug in ic_read?
 readLines("timetable-2020.ics")
