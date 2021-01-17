@@ -1,6 +1,6 @@
 ---
 title: "Slide title"
-subtitle: '<br/>Transport Data Science'
+subtitle: '<br/>Module: Transport Data Science'
 author: "Robin Lovelace"
 date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
 output:
