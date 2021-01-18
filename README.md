@@ -70,6 +70,20 @@ Slides can be found online:
     Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc)
     to take the course)
 
+# Assessment (for those doing this as credit-bearing)
+
+-   You will build-up a portfolio of work
+-   100% coursework assessed, you will submit by **Friday 14th May**:
+    -   **a pdf document up to 10 pages long with figures, tables,
+        references explaining how you used data science to research a
+        transport problem**
+    -   **reproducible code contained in an RMarkdown (.Rmd) document
+        that produced the report**
+-   Written in RMarkdown - will be graded for reproducibility
+-   Code chunks and figures are encouraged
+-   You will submit a non-assessed 2 page pdf + Rmd report by **Friday
+    26th March**
+
 # Issues and contributing
 
 Any feedback or contributions to this repo are welcome. If you have a
