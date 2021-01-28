@@ -1,0 +1,1 @@
+Place to store messages on the course.
