@@ -90,18 +90,27 @@ Other key chapters in that resources are:
     packages such as sf**: <https://itsleeds.github.io/rrsrr/pkgs.html>
 
 The third and final thing to do is to *engage* with the reading content
-and platforms associated with this module. Read-up on the references and
-links provided in the References section below. Check out the course’s
-online home on the GitHub platform at <https://github.com/ITSLeeds/TDS>.
-(Fun fact, you can find the source code underlying this message
+and platforms associated with this module. See the reading list
+associated with the module at
+<https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#reading-list>.
+Read-up on the references and links provided in the References section
+below. Check out the course’s online home on the GitHub platform at
+<https://github.com/ITSLeeds/TDS>. (Fun fact, you can find the source
+code underlying this message
 [here](https://github.com/ITSLeeds/TDS/blob/master/messages/welcome.Rmd).)
-And ensure you can access the Transport Data Science Team on Microsoft
-Teams and please do say hello, as shown below.
+To collaborate on GitHub you should sign-up to get a GitHub account
+here: <https://github.com/> After you have a GitHub account you can ask
+questions by opening an ‘Issue’ in the project’s repository, a common
+way for professional data scientists to communicate about code and their
+work: <https://github.com/ITSLeeds/TDS/issues/> And ensure you can
+access the Transport Data Science Team on Microsoft Teams and please do
+say hello, as shown below.
 
 ![](https://user-images.githubusercontent.com/1825120/106159315-8f1fd880-617c-11eb-91be-1a6a123082b2.png)
 
-And please do ask any questions, if you have any questions it’s better
-ask than to ‘suffer in silence!’
+And please do ask any questions do ask, either via email or preferably
+on Teams or on a GitHub issue. It’s always better ask than to ‘suffer in
+silence!’
 
 I really look forward to working with you all to make this a successful
 and enjoyable module.
