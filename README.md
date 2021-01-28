@@ -26,7 +26,7 @@ The timetable can be found:
     systems):
     <https://github.com/ITSLeeds/TDS/raw/master/timetable-2020.ics>
 -   As a .csv file (for easy reading as data):
-    <https://github.com/ITSLeeds/TDS/blob/master/timetable.csv>
+    <https://github.com/ITSLeeds/TDS/blob/master/timetable-2020.csv>
 
 <!-- # References -->
 <!-- To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: https://www.zotero.org/groups/956304/tds -->
