@@ -93,6 +93,8 @@ The third and final thing to do is to *engage* with the reading content
 and platforms associated with this module. Read-up on the references and
 links provided in the References section below. Check out the course’s
 online home on the GitHub platform at <https://github.com/ITSLeeds/TDS>.
+(Fun fact, you can find the source code underlying this message
+[here](https://github.com/ITSLeeds/TDS/blob/master/messages/welcome.Rmd).)
 And ensure you can access the Transport Data Science Team on Microsoft
 Teams and please do say hello, as shown below.
 
