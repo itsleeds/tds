@@ -2,45 +2,67 @@ Software for transport data science
 ================
 Robin Lovelace
 University of Leeds,
-2020-02-05<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
+2021-01-29<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
 
-## Project set-up and tidyverse testing (30 minutes, individually)
+## Pre-requisites
 
-  - Check your packages are up-to-date with `update.packages()`
-  - Create an RStudio project with an appropriate name for this module
-    (e.g. `TDS`)
-  - Create appropriate files for code, data and anything else
-    (e.g. images)
-  - Create a script called `learning-tidyverse.R`, e.g. with **one** the
-    following commands:
-
-<!-- end list -->
+You need to have a number of packages installed and loaded. Install the
+packages by typing in the following commands into RStudio (you do not
+need to add the comments after the `#` symbol):[1]
 
 ``` r
-file.edit(learning-tidyverse.R) # or
-file.edit(code/learning-tidyverse.R)
+install.packages("remotes")
+pkgs = c(
+  "nycflights13",# data package
+  "pct",         # package for getting travel data in the UK
+  "sf",          # spatial data package
+  "stats19",     # downloads and formats open stats19 crash data
+  "stplanr",     # for working with origin-destination and route data
+  "tidyverse",   # a package for user friendly data science
+  "tmap"         # for making maps
+)
+remotes::install_cran(pkgs)
 ```
 
-  - Read
-    [section 5.1](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter)
+## Project set-up and tidyverse testing (30 minutes)
+
+-   Check your packages are up-to-date with `update.packages()`
+-   Create an RStudio project with an appropriate name for this module
+    (e.g. `TDSmodule`)
+-   Create appropriate files for code, data and anything else
+    (e.g. images)
+-   Create a script called `learning-tidyverse.R`, e.g. with the
+    following command:
+
+``` r
+dir.create("code") # 
+file.edit("code/learning-tidyverse.R")
+```
+
+## Getting started with transport data
+
+This section will use content from the R for Data Science book
+(**grolemund\_data\_2016?**).
+
+-   Read [section
+    5.1](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter)
     of R for Data Science and write code that reproduces the results in
     that section in the script `learning-tidyverse.R`
 
-Your script will start with something like
-    this:
+Your script will start with something like this:
 
 ``` r
 library(tidyverse)
 ```
 
-    ## ── Attaching packages ───────────────────────────────────────────── tidyverse 1.3.0 ──
+    ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
 
-    ## ✔ ggplot2 3.2.1     ✔ purrr   0.3.3
-    ## ✔ tibble  2.1.3     ✔ dplyr   0.8.3
-    ## ✔ tidyr   1.0.2     ✔ stringr 1.4.0
-    ## ✔ readr   1.3.1     ✔ forcats 0.4.0
+    ## ✔ ggplot2 3.3.3     ✔ purrr   0.3.4
+    ## ✔ tibble  3.0.5     ✔ dplyr   1.0.3
+    ## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
+    ## ✔ readr   1.4.0     ✔ forcats 0.5.0
 
-    ## ── Conflicts ──────────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
 
@@ -48,7 +70,7 @@ library(tidyverse)
 library(nycflights13)
 ```
 
-## Reading-in and processing coffee data
+## Reading-in and processing basic data
 
 Read-in the coffee data we created last week, e.g. with:
 
@@ -60,7 +82,8 @@ u = paste0(
 d = read_csv(u)
 ```
 
-    ## Parsed with column specification:
+    ## 
+    ## ── Column specification ────────────────────────────────────────────────────────
     ## cols(
     ##   person_name = col_character(),
     ##   n_coffee = col_double(),
@@ -76,74 +99,74 @@ d$n_coffee_yr = d$n_coffee * 52
 Find the mean number of cups of coffee people drink per year (and the
 total)
 
-Note: the same result can be acheived as follows:
+Note: the same result can be achieved as follows:
 
 ``` r
-d = mutate(d, n_coffee_yr = n_coffee * 52)
+d_updated = mutate(d, n_coffee_yr = n_coffee * 52)
 
 # or 
-d = d %>% 
+d_updated = d %>% 
   mutate(n_coffee_yr = n_coffee * 52)
 ```
 
-  - Which do you prefer?
+-   Which do you prefer?
 
-  - Filter-out only those who travel by bus
+-   Filter-out only those who travel by bus
 
-  - Bonus: Create a new dataset that keeps only the `person_name` and
+-   Bonus: Create a new dataset that keeps only the `person_name` and
     `n_coffee_yr` variables (hint: use the `select()` function)
 
-  - Bonus: do those who travel by bus drink more or less coffee than
-    those who do
-not?
+-   Bonus: do those who travel by bus drink more or less coffee than
+    those who do not?
 
-## Processing a big file and basic visualisation (30 minutes, individually)
+## Processing medium sized data and basic visualisation (30 minutes, individually)
 
-  - Take a random sample of 10,000 flights and assign it to an object
+-   Take a random sample of 10,000 flights and assign it to an object
     with the following line of code:
 
-<!-- end list -->
-
 ``` r
+library(nycflights13)
 flights_sample = sample_n(flights, 1e4)
+unique(flights$carrier)
 ```
 
-  - Find the unique carriers with the `unique()` function
+    ##  [1] "UA" "AA" "B6" "DL" "EV" "MQ" "US" "WN" "VX" "FL" "AS" "9E" "F9" "HA" "YV"
+    ## [16] "OO"
 
-  - Create an object containing flights from United, American, or Delta,
+-   Find the unique carriers with the `unique()` function
+
+-   Create an object containing flights from United, American, or Delta,
     and assign it to `f`, as follows:
-
-<!-- end list -->
 
 ``` r
 f = filter(flights, grepl(pattern = "UA|AA|DL", x = carrier))
+f2 = filter(flights, grepl(pattern = "UA", x = carrier) |
+             grepl(pattern = "AA", x = carrier) |
+             grepl(pattern = "DL", x = carrier)
+           )
+f3 = filter(flights, str_detect(carrier, "UA|AA|DL"))
 ```
 
-  - Create plots that visualise the sample flights, using code from
+-   Create plots that visualise the sample flights, using code from
     Chapter 3 of the same book, starting with the following plot:
-
-<!-- end list -->
 
 ``` r
 ggplot(f) +
   geom_point(aes(air_time, distance))
 ```
 
-![](2-software_files/figure-gfm/unnamed-chunk-7-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
 
-  - Add transparency so it looks like this (hint: use `alpha =` in the
-    `geom_point()` function
-    call):
+-   Add transparency so it looks like this (hint: use `alpha =` in the
+    `geom_point()` function call):
 
-<!-- end list -->
+<!-- -->
 
     ## Warning: Removed 2117 rows containing missing values (geom_point).
 
-![](2-software_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
 
-  - Add a colour for each carrier, so it looks something like this:
-
-<!-- end list -->
+-   Add a colour for each carrier, so it looks something like this:
 
 ``` r
 ggplot(f) +
@@ -152,17 +175,15 @@ ggplot(f) +
 
     ## Warning: Removed 2117 rows containing missing values (geom_point).
 
-![](2-software_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
 
-  - Bonus 1: find the average air time of those flights with a distance
+-   Bonus 1: find the average air time of those flights with a distance
     of 1000 to 2000 miles
 
-  - Bonus 2: use the `lm()` function to find the relationship between
+-   Bonus 2: use the `lm()` function to find the relationship between
     flight distance and time, and plot the results (start the plot as
     follows, why did we use `na.omit()`? hint - find help with
     `?na.omit()`):
-
-<!-- end list -->
 
 ``` r
 f = na.omit(f)
@@ -170,50 +191,44 @@ m = lm(air_time ~ distance, data = f)
 f$pred = m$fitted.values
 ```
 
-![](2-software_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ## Homework
 
-1)  create a reproducible document
+1.  create a reproducible document
 
-<!-- end list -->
-
-  - Create an Rmarkdown file with the following command:
-
-<!-- end list -->
+-   Create an Rmarkdown file with the following command:
 
 ``` r
 file.edit("learning-tidyverse.Rmd")
 ```
 
-  - Take a read of the guidance on RMarkdown files online and in the
+-   Take a read of the guidance on RMarkdown files online and in the
     following location (or search online for the ‘RMarkdown
     cheatsheet’):
 
-<!-- end list -->
+<!-- -->
 
     Help > Cheatsheets > RMarkdown
 
-  - Put the code you generated for `tidyverse.R` into the Rmd file and
+-   Put the code you generated for `tidyverse.R` into the Rmd file and
     knit it
 
-  - Bonus: create a GitHub repo and publish the results of of your work
-    (hint: putting `output: github_document` may help here\!)
+-   Bonus: create a GitHub repo and publish the results of of your work
+    (hint: putting `output: github_document` may help here!)
 
-<!-- end list -->
-
-2)  Work-through the remaining exercises of the first sections in R4DS
+1.  Work-through the remaining exercises of the first sections in R4DS
     chapters 3 and 5
 
-<!-- end list -->
+-   Write and R script, with comments, to show your working (and prove
+    you’ve done it!)
 
-  - Write and R script, with comments, to show your working (and prove
-    you’ve done it\!)
-
-<!-- end list -->
-
-3)  Create an RMarkdown file containing reproducible code outlining what
+1.  Create an RMarkdown file containing reproducible code outlining what
     you learned today
 
-4)  Identify a dataset you would like to work with for the practical
+2.  Identify a dataset you would like to work with for the practical
     next week.
+
+[1]  Note: if you want to install the development version of a package
+from GitHub, you can do so. Try, for example, running the following
+command: `remotes::install_github("ITSLeeds/pct")`
