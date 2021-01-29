@@ -4,21 +4,51 @@ subtitle: '<br/>Practical'
 author: "Robin Lovelace"
 date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
 output: github_document
-bibliography: ../references.bib
+bibliography: ../tds.bib
 ---
 
-## Project set-up and tidyverse testing (30 minutes, individually)
+## Pre-requisites
 
-- Check your packages are up-to-date with `update.packages()`
-- Create an RStudio project with an appropriate name for this module (e.g. `TDS`)
-- Create appropriate files for code, data and anything else (e.g. images)
-- Create a script called `learning-tidyverse.R`, e.g. with **one** the following commands:
+You need to have a number of packages installed and loaded.
+Install the packages by typing in the following commands into RStudio (you do not need to add the comments after the `#` symbol):^[
+Note: if you want to install the development version of a package from GitHub, you can do so.
+Try, for example, running the following command: `remotes::install_github("ITSLeeds/pct")`
+]
 
-```r
-file.edit(learning-tidyverse.R) # or
-file.edit(code/learning-tidyverse.R)
+```{r, eval=FALSE}
+install.packages("remotes")
+pkgs = c(
+  "nycflights13",# data package
+  "pct",         # package for getting travel data in the UK
+  "sf",          # spatial data package
+  "stats19",     # downloads and formats open stats19 crash data
+  "stplanr",     # for working with origin-destination and route data
+  "tidyverse",   # a package for user friendly data science
+  "tmap"         # for making maps
+)
+remotes::install_cran(pkgs)
 ```
 
+
+
+## Project set-up and tidyverse testing (30 minutes)
+
+- Check your packages are up-to-date with `update.packages()`
+- Create an RStudio project with an appropriate name for this module (e.g. `TDSmodule`)
+- Create appropriate files for code, data and anything else (e.g. images)
+- Create a script called `learning-tidyverse.R`, e.g. with the following command:
+
+```r
+dir.create("code") # 
+file.edit("code/learning-tidyverse.R")
+```
+
+
+
+
+## Getting started with transport data
+
+This section will use content from the R for Data Science book [@grolemund_data_2016].
 
 - Read [section 5.1](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science and write code that reproduces the results in that section in the script `learning-tidyverse.R`
 
@@ -29,7 +59,8 @@ library(tidyverse)
 library(nycflights13)
 ```
 
-## Reading-in and processing coffee data
+
+## Reading-in and processing basic data
 
 Read-in the coffee data we created last week, e.g. with:
 
@@ -49,14 +80,14 @@ d$n_coffee_yr = d$n_coffee * 52
 
 Find the mean number of cups of coffee people drink per year (and the total)
 
-Note: the same result can be acheived as follows:
+Note: the same result can be achieved as follows:
 
 ```{r}
-d = mutate(d, n_coffee_yr = n_coffee * 52)
+d_updated = mutate(d, n_coffee_yr = n_coffee * 52)
 
 # or 
-d = d %>% 
-  mutate(n_coffee_yr = n_coffee = 52)
+d_updated = d %>% 
+  mutate(n_coffee_yr = n_coffee * 52)
 ```
 
 - Which do you prefer?
@@ -67,7 +98,7 @@ d = d %>%
 
 - Bonus: do those who travel by bus drink more or less coffee than those who do not?
 
-## Processing a big file and basic visualisation (30 minutes, individually)
+## Processing medium sized data and basic visualisation (30 minutes, individually)
 
 - Take a random sample of 10,000 flights and assign it to an object with the following line of code:
 
