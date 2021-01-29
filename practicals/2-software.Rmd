@@ -27,9 +27,14 @@ pkgs = c(
   "tmap"         # for making maps
 )
 remotes::install_cran(pkgs)
+remotes::install_github("nowosad/spDataLarge")
 ```
 
+Load the tidyverse package as follows:
 
+```{r}
+library(tidyverse)
+```
 
 ## Project set-up and tidyverse testing (30 minutes)
 
@@ -43,26 +48,29 @@ dir.create("code") #
 file.edit("code/learning-tidyverse.R")
 ```
 
-
-
-
 ## Getting started with transport data
 
-This section will use content from the R for Data Science book [@grolemund_data_2016].
-
-- Read [section 5.1](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science and write code that reproduces the results in that section in the script `learning-tidyverse.R`
-
-Your script will start with something like this:
+We're going to start by looking at the main types of transport data:^[
+Note: if you want to get zone data for a different region you can do so, e.g. with: 
+`zones = sf::read_sf("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/z.geojson")`
+]
 
 ```{r}
-library(tidyverse)
-library(nycflights13)
+od = spDataLarge::bristol_od
+head(od)
+```
+
+
+```{r}
+library(sf)
+zones = spDataLarge::bristol_zones
+plot(zones)
 ```
 
 
 ## Reading-in and processing basic data
 
-Read-in the coffee data we created last week, e.g. with:
+Read-in coffee data:
 
 ```{r}
 u = paste0(
@@ -98,7 +106,20 @@ d_updated = d %>%
 
 - Bonus: do those who travel by bus drink more or less coffee than those who do not?
 
-## Processing medium sized data and basic visualisation (30 minutes, individually)
+## Processing medium sized data and basic visualisation (30 minutes)
+
+This section will use content from the R for Data Science book [@grolemund_data_2016].
+
+- Read [section 5.1](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science and write code that reproduces the results in that section in the script `learning-tidyverse.R`
+
+Your script will start with something like this:
+
+```{r}
+library(tidyverse)
+library(nycflights13)
+```
+
+
 
 - Take a random sample of 10,000 flights and assign it to an object with the following line of code:
 

@@ -22,7 +22,25 @@ pkgs = c(
   "tmap"         # for making maps
 )
 remotes::install_cran(pkgs)
+remotes::install_github("nowosad/spDataLarge")
 ```
+
+Load the tidyverse package as follows:
+
+``` r
+library(tidyverse)
+```
+
+    ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
+
+    ## ✔ ggplot2 3.3.3     ✔ purrr   0.3.4
+    ## ✔ tibble  3.0.5     ✔ dplyr   1.0.3
+    ## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
+    ## ✔ readr   1.4.0     ✔ forcats 0.5.0
+
+    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+    ## ✖ dplyr::filter() masks stats::filter()
+    ## ✖ dplyr::lag()    masks stats::lag()
 
 ## Project set-up and tidyverse testing (30 minutes)
 
@@ -41,38 +59,39 @@ file.edit("code/learning-tidyverse.R")
 
 ## Getting started with transport data
 
-This section will use content from the R for Data Science book
-(**grolemund\_data\_2016?**).
-
--   Read [section
-    5.1](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter)
-    of R for Data Science and write code that reproduces the results in
-    that section in the script `learning-tidyverse.R`
-
-Your script will start with something like this:
+We’re going to start by looking at the main types of transport data:[2]
 
 ``` r
-library(tidyverse)
+od = spDataLarge::bristol_od
+head(od)
 ```
 
-    ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.0 ──
-
-    ## ✔ ggplot2 3.3.3     ✔ purrr   0.3.4
-    ## ✔ tibble  3.0.5     ✔ dplyr   1.0.3
-    ## ✔ tidyr   1.1.2     ✔ stringr 1.4.0
-    ## ✔ readr   1.4.0     ✔ forcats 0.5.0
-
-    ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-    ## ✖ dplyr::filter() masks stats::filter()
-    ## ✖ dplyr::lag()    masks stats::lag()
+    ## # A tibble: 6 x 7
+    ##   o         d           all bicycle  foot car_driver train
+    ##   <chr>     <chr>     <dbl>   <dbl> <dbl>      <dbl> <dbl>
+    ## 1 E02002985 E02002985   209       5   127         59     0
+    ## 2 E02002985 E02002987   121       7    35         62     0
+    ## 3 E02002985 E02003036    32       2     1         10     1
+    ## 4 E02002985 E02003043   141       1     2         56    17
+    ## 5 E02002985 E02003049    56       2     4         36     0
+    ## 6 E02002985 E02003054    42       4     0         21     0
 
 ``` r
-library(nycflights13)
+library(sf)
 ```
+
+    ## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 7.0.0
+
+``` r
+zones = spDataLarge::bristol_zones
+plot(zones)
+```
+
+![](2-software_files/figure-gfm/unnamed-chunk-4-1.png)<!-- -->
 
 ## Reading-in and processing basic data
 
-Read-in the coffee data we created last week, e.g. with:
+Read-in coffee data:
 
 ``` r
 u = paste0(
@@ -119,7 +138,22 @@ d_updated = d %>%
 -   Bonus: do those who travel by bus drink more or less coffee than
     those who do not?
 
-## Processing medium sized data and basic visualisation (30 minutes, individually)
+## Processing medium sized data and basic visualisation (30 minutes)
+
+This section will use content from the R for Data Science book
+(**grolemund\_data\_2016?**).
+
+-   Read [section
+    5.1](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter)
+    of R for Data Science and write code that reproduces the results in
+    that section in the script `learning-tidyverse.R`
+
+Your script will start with something like this:
+
+``` r
+library(tidyverse)
+library(nycflights13)
+```
 
 -   Take a random sample of 10,000 flights and assign it to an object
     with the following line of code:
@@ -155,7 +189,7 @@ ggplot(f) +
   geom_point(aes(air_time, distance))
 ```
 
-![](2-software_files/figure-gfm/unnamed-chunk-8-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
 -   Add transparency so it looks like this (hint: use `alpha =` in the
     `geom_point()` function call):
@@ -164,7 +198,7 @@ ggplot(f) +
 
     ## Warning: Removed 2117 rows containing missing values (geom_point).
 
-![](2-software_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 -   Add a colour for each carrier, so it looks something like this:
 
@@ -175,7 +209,7 @@ ggplot(f) +
 
     ## Warning: Removed 2117 rows containing missing values (geom_point).
 
-![](2-software_files/figure-gfm/unnamed-chunk-10-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
 
 -   Bonus 1: find the average air time of those flights with a distance
     of 1000 to 2000 miles
@@ -191,7 +225,7 @@ m = lm(air_time ~ distance, data = f)
 f$pred = m$fitted.values
 ```
 
-![](2-software_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+![](2-software_files/figure-gfm/unnamed-chunk-15-1.png)<!-- -->
 
 ## Homework
 
@@ -232,3 +266,7 @@ file.edit("learning-tidyverse.Rmd")
 [1]  Note: if you want to install the development version of a package
 from GitHub, you can do so. Try, for example, running the following
 command: `remotes::install_github("ITSLeeds/pct")`
+
+[2]  Note: if you want to get zone data for a different region you can
+do so, e.g. with:
+`zones = sf::read_sf("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/z.geojson")`
