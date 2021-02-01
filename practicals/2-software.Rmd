@@ -131,6 +131,11 @@ Exercises
 4. Plot the zones representing the `geo_code` variables in the OD data
 5. Bonus: use the function `od2line()` in to convert the OD dataset into geographic desire lines
 
+```{r, echo=FALSE}
+# Todo: add code that answers the questions above
+```
+
+
 ## Processing origin-destination data in Bristol
 
 
