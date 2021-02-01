@@ -28,6 +28,29 @@ The timetable can be found:
 -   As a .csv file (for easy reading as data):
     <https://github.com/ITSLeeds/TDS/blob/master/timetable-2020.csv>
 
+See below for the sessions
+
+The module timetable is shown in the table below.
+
+| Summary                    | Description                                                         | Dtstart             | Location       | Duration |
+|:---------------------------|:--------------------------------------------------------------------|:--------------------|:---------------|:---------|
+| TDS deadline 1             | Computer set-up                                                     | 2021-01-29 13:00:00 | Online - Teams | 240 mins |
+| TDS Lecture 1: intro       | Introduction to transport data science in Online - Teams            | 2021-02-01 09:00:00 | Online - Teams | 60 mins  |
+| TDS Practical 1: structure | The structure of transport data in Online - Teams                   | 2021-02-04 14:00:00 | Online - Teams | 150 mins |
+| TDS Lecture 2: structure   | The structure of transport data and data cleaning in Online - Teams | 2021-02-08 09:00:00 | Online - Teams | 60 mins  |
+| TDS Practical 2: getting   | Getting transport data in Online - Teams                            | 2021-02-11 14:00:00 | Online - Teams | 150 mins |
+| TDS Lecture 3: routing     | Routing in Online - Teams                                           | 2021-02-15 09:00:00 | Online - Teams | 60 mins  |
+| TDS seminar 1              | Mapping large datasets                                              | 2021-02-18 14:00:00 | Online - Teams | 150 mins |
+| TDS deadline 2             | Practical: visualising transport data                               | 2021-02-19 13:00:00 | Online - Teams | 150 mins |
+| TDS Practical 3: routing   | Routing in Online - Teams                                           | 2021-02-25 14:00:00 | Online - Teams | 150 mins |
+| TDS seminar 2              | Data science in transport planning                                  | 2021-03-04 14:00:00 | Online - Teams | 150 mins |
+| TDS Lecture 4: viz         | Visualisation in Online - Teams                                     | 2021-03-15 09:00:00 | Online - Teams | 60 mins  |
+| TDS Practical 4: modelling | Modelling in Online - Teams                                         | 2021-03-18 14:00:00 | Online - Teams | 150 mins |
+| TDS Lecture 5: project     | Project work in Online - Teams                                      | 2021-03-22 09:00:00 | Online - Teams | 60 mins  |
+| TDS deadline 3             | Draft portfolio                                                     | 2021-03-26 13:00:00 | Online - Teams | 60 mins  |
+| TDS Practical 5: project   | Project work in Online - Teams                                      | 2021-04-29 14:00:00 | Online - Teams | 150 mins |
+| TDS deadline 4             | Deadline: coursework, 2pm                                           | 2021-05-14 13:00:00 | Online - Teams | 60 mins  |
+
 <!-- # References -->
 <!-- To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: https://www.zotero.org/groups/956304/tds -->
 
