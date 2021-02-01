@@ -7,6 +7,17 @@ output: github_document
 bibliography: ../tds.bib
 ---
 
+## Agenda
+
+- Introduction to the module and team - 30 min
+<!-- Each person to say  1) their name and where they are based 2) why they took the module and 3) their level of knowledge of coding. -->
+- Live demo: getting set-up with RStudio - 25 minutes
+- 5 minute break
+
+- Working together - Visualising transport data in the stplanr package - 30 minutes
+- Working alone - running the code in Sections 12.1 to 12.4 the Transport chapter of Geocomputation with R - 30 minutes
+
+
 ## Pre-requisites
 
 You need to have a number of packages installed and loaded.
@@ -55,6 +66,74 @@ Note: if you want to get zone data for a different region you can do so, e.g. wi
 `zones = sf::read_sf("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/z.geojson")`
 ]
 
+In this section we will look at basic transport data in the R package **stplanr**.
+
+Attach the `tidyverse`, `stplanr` and `sf` packages as follows:
+
+```{r}
+library(tidyverse)
+library(stplanr)
+library(sf)
+```
+
+The `stplanr` package contains some data that we can use to demonstrate principles in Data Science, illustrated in the Figure below. Source: Chapter 1 of R for Data Science [@grolemund_r_2016] [available online](https://r4ds.had.co.nz/introduction.html).
+
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
+```{r}
+# import
+od_data = stplanr::od_data_sample
+```
+
+```{r}
+# tidy
+od_data = od_data %>%
+  rename(walk = foot)
+```
+
+
+```{r}
+# transform
+od_data_walk = od_data %>% 
+  filter(walk > 0) %>% 
+  select(geo_code1, geo_code2, all, car_driver, walk) %>% 
+  mutate(proportion_walk = walk / all, proportion_drive = car_driver / all)
+```
+
+```{r}
+# visualise
+plot(od_data_walk)
+```
+
+```{r}
+# model
+model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
+od_data_walk$proportion_walk_predicted = model1$fitted.values
+```
+
+```{r}
+# visualise
+ggplot(od_data_walk) +
+  geom_point(aes(proportion_drive, proportion_walk)) +
+  geom_line(aes(proportion_drive, proportion_walk_predicted))
+```
+
+```{r}
+# transform
+# ...
+```
+
+Exercises
+
+1. What is the class of the data in `od_data`?
+1. Subset (filter) the data to only include OD pairs in which people walk
+2. Calculate the percentage who cycle in each OD pair in which at least 1 person cycles
+3. Is there a positive relationship between walking and cycling in the data?
+4. Plot the zones representing the `geo_code` variables in the OD data
+5. Bonus: use the function `od2line()` in to convert the OD dataset into geographic desire lines
+
+## Processing origin-destination data in Bristol
+
+
 ```{r}
 od = spDataLarge::bristol_od
 head(od)
@@ -62,7 +141,6 @@ head(od)
 
 
 ```{r}
-library(sf)
 zones = spDataLarge::bristol_zones
 plot(zones)
 ```
