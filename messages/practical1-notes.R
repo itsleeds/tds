@@ -36,9 +36,22 @@ od_data_walk = od_data %>%
 
 plot(od_data_walk$car_driver, od_data_walk$walk)
 
-m1 = lm(proportion_walk ~ proportion_drive + all, data = od_data_walk )
+m1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
 m1
 summary(m1)
-plot(od_data_walk$car_driver, od_data_walk$proportion_walk)
-line(od_data$car_driver, m1$fitted.values)
+plot(od_data_walk$proportion_drive, od_data_walk$proportion_walk)
+points(od_data_walk$proportion_drive, m1$fitted.values, col = "red")
 
+od_data_walk$walk_predicted = m1$fitted.values
+ggplot(od_data_walk) +
+  geom_point(aes(proportion_drive, proportion_walk, size = all)) +
+  geom_line(aes(proportion_drive, walk_predicted))
+
+zones = stplanr::zones_sf
+zones$geometry
+
+desire_lines = stplanr::od2line(od_data_walk, zones = zones)
+mapview::mapview(desire_lines)
+
+ggplot(data = desire_lines) +
+  geom_sf(aes(colour = walk_predicted))
