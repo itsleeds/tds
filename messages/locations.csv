@@ -1,7 +1,7 @@
 name,lon,lat,n_coffee,favourite_mode
 rl,-1.5,53.8,5,bicycle
 mb,16.4,48.2,0,walk
-ct,NA,NA,NA,NA
+ct,-1.5, 53.8,3, bicycle
 mm,NA,NA,NA,NA
 jt,NA,NA,NA,NA
 ea,NA,NA,NA,NA
