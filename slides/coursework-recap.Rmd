@@ -6,7 +6,7 @@ output:
   ioslides_presentation:
     transition: slower
 logo: ../../SSPA/figures/its-logo-square.png
-bibliography: ../../SSPA/references.bib
+bibliography: ../../SS../tds.bib
 ---
 
 ```{r setup, include=FALSE}

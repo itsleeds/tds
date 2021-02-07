@@ -2,7 +2,7 @@
 title: "Accessing data from the Internet"
 subtitle: '<br/>🗺<br/>Transport Data Science'
 author: "Robin Lovelace"
-date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
 output:
   xaringan::moon_reader:
     # css: ["default", "its.css"]
@@ -31,7 +31,7 @@ BibOptions(check.entries = FALSE,
            hyperlink = FALSE, 
            dashed = FALSE)
 
-download.file("https://github.com/ITSLeeds/TDS/raw/master/references.bib", "references.bib")
+download.file("https://github.com/ITSLeeds/TDS/raw/mast../tds.bib", "references.bib")
 my_bib = ReadBib("references.bib", check = FALSE)
 ```
 

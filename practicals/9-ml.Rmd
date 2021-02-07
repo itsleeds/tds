@@ -2,9 +2,9 @@
 title: "Machine Learning for Transport Planning"
 subtitle: '<br/>Practical'
 author: "Robin Lovelace"
-date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
 output: github_document
-bibliography: ../courses/references.bib
+bibliography: ../cours../tds.bib
 ---
 
 - Generate a working hypothesis present in data you have analysed for your research portfolio (e.g. car use is negatively associated with active modes)

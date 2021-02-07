@@ -2,7 +2,7 @@
 title: "Análisis de datos de transporte con R"
 subtitle: ' 🚲🚃🚀<br/>Workshop'
 author: "Robin Lovelace"
-date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
 output:
   xaringan::moon_reader:
     # css: ["default", "its.css"]
@@ -21,7 +21,7 @@ class: center, bottom, inverse
 # Credit: Mandeep Lota via [flickr](https://www.flickr.com/photos/deepster2k/1096671706)
 
 ```{r setup, include=FALSE}
-file.copy("../references.bib", ".")
+file.copy("../tds.bib", ".")
 options(htmltools.dir.version = FALSE)
 library(RefManageR)
 BibOptions(check.entries = FALSE, 
