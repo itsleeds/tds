@@ -2,7 +2,7 @@
 title: "Data structures"
 subtitle: '<br/>Practical'
 author: "Robin Lovelace"
-date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
 output: github_document
 bibliography: ../tds.bib
 ---

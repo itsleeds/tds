@@ -2,10 +2,10 @@
 title: "Routing homework"
 subtitle: '<br/>Practical'
 author: "Malcolm Morgan and Robin Lovelace"
-date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
+date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
 output: pdf_document
 bibliography: 
-  - ../references.bib
+  - ../tds.bib
   - ../tds.bib
 ---
 
