@@ -4,7 +4,7 @@ subtitle: '<br/>Practical'
 author: "Malcolm Morgan"
 date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">'
 output: github_document
-bibliography: ../references.bib
+bibliography: ../tds.bib
 ---
 
 Only if you cannot run the dodgr examples.

@@ -11,7 +11,7 @@ output:
     nature:
       highlightStyle: github
       highlightLines: true
-bibliography: ../references.bib
+bibliography: ../tds.bib
 ---
 
 background-image: url(https://images-a.jpimedia.uk/imagefetch/w_700,f_auto,ar_3:2,q_auto:low,c_fill/if_h_lte_200,c_mfit,h_201/https://www.yorkshireeveningpost.co.uk/webimage/1.9594040.1550081116!/image/image.jpg)
@@ -31,8 +31,7 @@ BibOptions(check.entries = FALSE,
            hyperlink = FALSE, 
            dashed = FALSE)
 
-download.file("https://github.com/ITSLeeds/TDS/raw/master/references.bib", "references.bib")
-my_bib = ReadBib("references.bib", check = FALSE)
+my_bib = ReadBib("../tds.bib", check = FALSE)
 knitr::opts_chunk$set(warning = FALSE, message = FALSE)
 ```
 

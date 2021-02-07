@@ -11,7 +11,7 @@ output:
     nature:
       highlightStyle: github
       highlightLines: true
-bibliography: ../references.bib
+bibliography: ../tds.bib
 ---
 
 background-image: url(https://hedgehogcycling.co.uk/images/leeds-bradford-cycle-superhighway-2018-1.jpg)
