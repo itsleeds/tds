@@ -2,7 +2,7 @@
 title: "The structure of transport data in R"
 subtitle: '<br/>🗺<br/>Working with spatio-temporal data'
 author: "Robin Lovelace"
-date: 'University of Leeds, `r Sys.Date()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
+date: 'University of Leeds `r # Sys.Date()()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
 output:
   xaringan::moon_reader:
     # css: ["default", "its.css"]
