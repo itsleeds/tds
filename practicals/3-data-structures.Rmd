@@ -12,6 +12,43 @@ knitr::opts_chunk$set(out.width = "50%", warning = FALSE)
 library(tidyverse)
 ```
 
+## Agenda
+
+- Thinking about Transport Data Science and what you want to get out of it (20 minutes)
+
+- Questions on the homework (20 minutes)
+
+- Reading-in transport datasets (20 minutes)
+  - I will do a live demo
+
+- Break
+
+- Getting started with the data structures practical (20 min)
+  - We will get started with the data together
+
+- Data Structures practical + getting help (1 hour)
+
+## What do you want to get out of Transport Data Science?
+
+- Specifically which skills?
+  - Data cleaning
+  - Visualisation
+  - Modelling
+- What do you want to do with those skills?
+  - Commercial
+  - Public interest
+  - Educational
+  - Other
+  - All of the above
+- What kinds of data do you want to be working with?
+  - Commercial
+  - Open
+  - Big data
+  - Accurate data
+  - All the above
+- Where do you see your career in 5 years from now?
+
+
 ## Review of homework exercise: demo then individual Q&A
 
 **Note**: Ensure that you have the necessary packages installed.
@@ -21,10 +58,7 @@ If you do not, you can install them as follows:
 install.packages("pct") # install the pct package
 ```
 
-
-
-
-## Practical demo of zones and lines (in groups)
+## Practical demo of zones
 
 - Get data on the zones in West Yorkshire with the following command:
 
@@ -63,7 +97,12 @@ plot(zones_active_modes)
 
 - Use the function `filter()`
 
+### OD Data
 
+
+
+
+### Desire lines
 
 - Read-in top 1000 desire lines for Leeds with the following code (hint: rather than typing the url of the file you can copy-paste it from [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS)):
 
