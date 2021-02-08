@@ -146,23 +146,23 @@ tm_shape(desire_lines) +
   tm_lines(col = "foot", lwd = "all", scale = 9)
 ```
 
-Filter-out all lines between 1 and 3km and call the resulting object`desire_lines_1_5km` with the following command (or similar):
+Filter-out all lines between 1 and 3km and call the resulting object`desire_lines_1_3km` with the following command (or similar):
 
 ```{r}
-desire_lines_1_5km = desire_lines %>% 
+desire_lines_1_3km = desire_lines %>% 
   filter(e_dist_km > 1 & e_dist_km < 3)
 ```
 
 - Plot the results to make sure the operation worked (you should get a result like the on below):
 
 ```{r, echo=FALSE}
-plot(desire_lines_1_5km$geometry)
+plot(desire_lines_1_3km$geometry)
 ```
 
-Create a new variable called `percent_drive` that contains the percentage of trips driven in each of the lines in the `desire_lines_1_5km` object with the following command:
+Create a new variable called `percent_drive` that contains the percentage of trips driven in each of the lines in the `desire_lines_1_3km` object with the following command:
 
 ```{r}
-desire_lines_pcar = desire_lines %>% 
+desire_lines_pcar = desire_lines_1_3km %>% 
   mutate(percent_drive = car_driver / all * 100)
 ```
 
