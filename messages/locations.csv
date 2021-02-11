@@ -1,6 +1,6 @@
 name,lon,lat,n_coffee,favourite_mode
 rl,-1.5,53.8,5,rollerskate
-mb,16.4,48.2,0,walk
+mb,16.4,48.2,2,walk
 ct,-1.5, 53.8,3, bicycle
 mm,NA,NA,NA,NA
 jt,-1.6,53.8,1,climb
