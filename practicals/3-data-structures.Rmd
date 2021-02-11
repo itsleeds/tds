@@ -58,6 +58,66 @@ If you do not, you can install them as follows:
 install.packages("pct") # install the pct package
 ```
 
+```{r}
+library(tidyverse)
+library(tmap)
+tmap_mode("view")
+url_locations = "https://github.com/ITSLeeds/TDS/raw/master/messages/locations.csv"
+locations = read_csv(url_locations)
+locations_sf = locations %>% 
+  filter(!is.na(lon) & !is.na(lat)) %>% 
+  sf::st_as_sf(coords = c("lon", "lat"))
+tm_shape(locations_sf) +
+  tm_dots("name")
+```
+
+### Work through practical and the example with Bristol (~60 minutes)
+
+See https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md
+
+```{r}
+
+```
+
+### Think about research questions and data for the coursework (~30 minutes)
+
+See 
+
+```{r}
+# Ctl+Enter
+# import process
+u = "https://github.com/ITSLeeds/TDS/raw/master/messages/locations.csv"
+locations = read_csv(file = u)
+```
+
+```{r}
+library(tidyverse)
+# tidy data
+locations = locations %>% 
+  mutate(n_coffee_per_day = n_coffee / 7)
+# sanity check on the data
+# type in Tab to autocomplete
+mean(locations$n_coffee_per_day, na.rm = TRUE)
+```
+
+```{r}
+locations
+plot(locations)
+plot(locations$lon, locations$lat)
+```
+
+```{r}
+locations_sf = locations %>% 
+  filter(!is.na(lat)) %>% 
+  sf::st_as_sf(coords = c("lon", "lat"))
+# visualise
+tm_shape(locations_sf) +
+  tm_dots()
+```
+
+
+
+
 ## Practical demo of zones
 
 - Get data on the zones in West Yorkshire with the following command:
@@ -181,8 +241,7 @@ tm_shape(car_dep_100) +
 ```{r, echo=FALSE}
 ttm()
 tm_shape(car_dep_100) +
-  tm_lines(col = "percent_drive", lwd = "all", scale = 5) +
-  tm_view(basemaps = leaflet::providers$OpenStreetMap.BlackAndWhite)
+  tm_lines(col = "percent_drive", lwd = "all", scale = 5)
 ```
 
 ## Homework
