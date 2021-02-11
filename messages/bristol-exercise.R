@@ -79,3 +79,32 @@ mapview::mapview(r) +
 
 
 # get data leeds ----------------------------------------------------------
+
+u = "https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/z.geojson"
+zones = sf::read_sf(u)
+mapview::mapview(zones)
+
+u_zip = "https://www.nomisweb.co.uk/output/census/2011/wu02ew_msoa.zip"
+u_zip = "https://www.nomisweb.co.uk/output/census/2011/wu01ew_msoa.zip"
+f_zip = basename(u_zip)
+f_zip
+download.file(url = u_zip, destfile = f_zip)
+od_uk = read_csv(f_zip)
+nrow(od_uk)
+summary(od_uk)
+od_uk_100_plus = od_uk %>% 
+  rename(all = `All categories: Sex`) %>% 
+  filter(all > 100)
+
+summary(od_uk_100_plus$`Area of residence` %in% zones$geo_code)
+
+od_uk_100_plus_yorkshire = od_uk_100_plus %>% 
+  filter(`Area of residence` %in% zones$geo_code) %>% 
+  filter(`Area of workplace` %in% zones$geo_code)
+
+desire_lines = od2line(flow = od_uk_100_plus_yorkshire, zones)
+mapview::mapview(desire_lines)
+
+od_female = od_uk_100_plus_yorkshire %>% 
+  filter(Female < Male)
+
