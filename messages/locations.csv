@@ -1,20 +1,20 @@
 name,lon,lat,n_coffee,favourite_mode
-rl,-1.5,53.8,5,rollerskate
-mb,16.4,48.2,0,walk
-ct,-1.5, 53.8,3, bicycle
+rl,-1.5,53.8,5,walk
+mb,16.4,48.2,2,walk
+ct,-1.5, 53.8,3,bicycle
 mm,NA,NA,NA,NA
 jt,-1.6,53.8,1,climb
 ea,NA,NA,NA,NA
 na,NA,NA,NA,NA
 bi,NA,NA,NA,NA
 mb,NA,NA,NA,NA
-ab,NA,NA,NA,NA
+ab,-1.5,53.8,1,walk
 ld,NA,NA,NA,NA
 rf,NA,NA,NA,NA
 dm,NA,NA,NA,NA
 sp,NA,NA,NA,NA
 mp,NA,NA,NA,NA
-ot,NA,NA,NA,NA
-yw,NA,NA,NA,NA
+ot,-1.5,53.8,4,walk
+yw,113.2,23.1,0,subway
 sw,NA,NA,NA,NA
-bz,NA,NA,NA,NA
+bz,114.2,22.3,0,walk
