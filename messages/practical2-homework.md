@@ -108,4 +108,10 @@ recommend watching this video:
 
 See here for a good introduction: <https://happygitwithr.com/>
 
-T
+## 4) Watch the ‘Routing’ video by Malcolm
+
+This will be released on Monday.
+
+Good luck with it and see you all on Thursday next week.
+
+Robin
