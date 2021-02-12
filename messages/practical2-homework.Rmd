@@ -69,7 +69,7 @@ The document should contain:
 
 Take a look at the info + video on RMarkdown here (they describe the benefits of the format better than me!): https://rmarkdown.rstudio.com/lesson-1.html
 
-Try to reproduce the .Rmd file I have provided - download this and try to knit it:
+Try to reproduce the .Rmd file I have provided - download this and try to knit it and reproduce the example data analysis: https://github.com/ITSLeeds/TDS/raw/master/coursework-template.Rmd
 
 ## 3) Reading-up on R + Git 
 
