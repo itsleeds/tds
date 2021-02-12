@@ -36,6 +36,8 @@ Below are some options:
   - Creating a package to make a particular data source more accessible, see https://github.com/ropensci/stats19 for an example
   - Integration between R and A/B Street - see https://github.com/a-b-street/abstr
   
+- Road safety - how can we makes roads and transport systems in general safer?
+  
 - Other
   - Other topics are welcome
   

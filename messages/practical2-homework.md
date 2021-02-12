@@ -13,9 +13,12 @@ Below are some options:
 ### Topics
 
 -   Data collection and analysis
+
     -   Analysis of a large transport dataset,
         e.g. <https://www.nature.com/articles/sdata201889>
+
 -   Infrastructure and travel behaviour
+
     -   What are the relationships between specific types of
         infrastructure and travel, e.g. between fast roads and walking?
     -   How do official sources of infrastructure data (e.g. the
@@ -25,7 +28,9 @@ Below are some options:
         package](https://github.com/ropensci/osmextract))
     -   Machine learning and image recognition to understand transport
         infrastructure - see <https://telraam.net/> for example
+
 -   Changing transport systems
+
     -   Modelling change in transport systems, e.g. by comparing
         before/after data for different countries/cities, which
         countries had the hardest lockdowns and where have changes been
@@ -35,13 +40,20 @@ Below are some options:
         pandemic and what impact is that likely to have long term (see
         [here](https://saferactive.github.io/trafficalmr/articles/report3.html)
         for some graphics on this)
+
 -   Software development
+
     -   Creating a package to make a particular data source more
         accessible, see <https://github.com/ropensci/stats19> for an
         example
     -   Integration between R and A/B Street - see
         <https://github.com/a-b-street/abstr>
+
+-   Road safety - how can we makes roads and transport systems in
+    general safer?
+
 -   Other
+
     -   Other topics are welcome
 
 ### Datasets
