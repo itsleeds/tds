@@ -3,7 +3,7 @@ title: "Routing homework"
 subtitle: '<br/>Practical'
 author: "Malcolm Morgan and Robin Lovelace"
 date: 'University of Leeds `r # Sys.Date()()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
-output: pdf_document
+output: github_document
 bibliography: 
   - ../tds.bib
   - ../tds.bib
@@ -33,56 +33,56 @@ Make sure that you have installed these.
 
 Read the OpenTripPlanner package paper for information on routing [@morgan_opentripplanner_2019].
 
-## The practical (during and after practical)
+<!-- ## The practical (during and after practical) -->
 
-Ensure that you have completed the exercises in the practical session (see the [`practicals.2f6-routing.pdf`](https://github.com/ITSLeeds/TDS/releases/download/0.20.1/practicals.2f6-routing.pdf) file in https://github.com/ITSLeeds/TDS/releases )
+<!-- Ensure that you have completed the exercises in the practical session (see the [`practicals.2f6-routing.pdf`](https://github.com/ITSLeeds/TDS/releases/download/0.20.1/practicals.2f6-routing.pdf) file in https://github.com/ITSLeeds/TDS/releases ) -->
 
-## An RMarkdown template
+<!-- ## An RMarkdown template -->
 
-- Read Chapter 2 of the definitive guide to the .Rmd file format [@xie_r_2018]: https://bookdown.org/yihui/rmarkdown/basics.html
+<!-- - Read Chapter 2 of the definitive guide to the .Rmd file format [@xie_r_2018]: https://bookdown.org/yihui/rmarkdown/basics.html -->
 
-- Create a new project called `tdsproject` (or similar) and create a new RMarkdown file by running the following command (you must have installed `usethis` with `install.packages("usethis")`):
+<!-- - Create a new project called `tdsproject` (or similar) and create a new RMarkdown file by running the following command (you must have installed `usethis` with `install.packages("usethis")`): -->
 
-```{r, eval=FALSE}
-usethis::use_readme_rmd()
-```
+<!-- ```{r, eval=FALSE} -->
+<!-- usethis::use_readme_rmd() -->
+<!-- ``` -->
 
-On line 32 of the resulting file, replace this line
+<!-- On line 32 of the resulting file, replace this line -->
 
-```
-plot(pressure)
-```
+<!-- ``` -->
+<!-- plot(pressure) -->
+<!-- ``` -->
 
-with this:
+<!-- with this: -->
 
-```{r, eval=FALSE}
-m1 = lm(pressure ~ temperature, data = pressure)
-plot(pressure)
-lines(pressure$temperature, m1$fitted.values, col = "red")
-```
+<!-- ```{r, eval=FALSE} -->
+<!-- m1 = lm(pressure ~ temperature, data = pressure) -->
+<!-- plot(pressure) -->
+<!-- lines(pressure$temperature, m1$fitted.values, col = "red") -->
+<!-- ``` -->
 
-Knit the file. You should see something that looks like this.
-What is wrong with the prediction?
+<!-- Knit the file. You should see something that looks like this. -->
+<!-- What is wrong with the prediction? -->
 
-Challenge: generate a model prediction that more accurately models the relationship between pressure and temperature (hint: the code ` + I(temperature^2)` may help, the result should look something like that shown below).
+<!-- Challenge: generate a model prediction that more accurately models the relationship between pressure and temperature (hint: the code ` + I(temperature^2)` may help, the result should look something like that shown below). -->
 
-```{r, echo=FALSE}
-m1 = lm(pressure ~ temperature, data = pressure)
-m2 = lm(pressure ~ temperature + I(temperature^2), data = pressure)
-m3 = lm(log(pressure) ~ temperature + I(temperature^2), data = pressure)
-plot(pressure)
-lines(pressure$temperature, m1$fitted.values, col = "red")
-lines(pressure$temperature, m2$fitted.values, col = "blue")
-lines(pressure$temperature, exp(m3$fitted.values), col = "yellow")
-```
+<!-- ```{r, echo=FALSE} -->
+<!-- m1 = lm(pressure ~ temperature, data = pressure) -->
+<!-- m2 = lm(pressure ~ temperature + I(temperature^2), data = pressure) -->
+<!-- m3 = lm(log(pressure) ~ temperature + I(temperature^2), data = pressure) -->
+<!-- plot(pressure) -->
+<!-- lines(pressure$temperature, m1$fitted.values, col = "red") -->
+<!-- lines(pressure$temperature, m2$fitted.values, col = "blue") -->
+<!-- lines(pressure$temperature, exp(m3$fitted.values), col = "yellow") -->
+<!-- ``` -->
 
-Try to reproduce the output of this file: https://github.com/ITSLeeds/TDS/blob/master/coursework-template.Rmd
+<!-- Try to reproduce the output of this file: https://github.com/ITSLeeds/TDS/blob/master/coursework-template.Rmd -->
 
-The results should look something like this: https://github.com/ITSLeeds/TDS/blob/master/coursework-template.md
+<!-- The results should look something like this: https://github.com/ITSLeeds/TDS/blob/master/coursework-template.md -->
 
-Challenge: knit the document to create a file called coursework-template.pdf.
+<!-- Challenge: knit the document to create a file called coursework-template.pdf. -->
 
-**Hint**: to reproduce the figure above, see this file: https://github.com/ITSLeeds/TDS/blob/master/practicals/6-routing-homework.Rmd
+<!-- **Hint**: to reproduce the figure above, see this file: https://github.com/ITSLeeds/TDS/blob/master/practicals/6-routing-homework.Rmd -->
 
 ## References
 
