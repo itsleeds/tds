@@ -43,7 +43,7 @@ Below are some options:
   
 ### Datasets 
 
-These do not need to be used in isolation but choosing a main dataset shoule help
+These do not need to be used in isolation but choosing a main dataset should help
 
 - STATS19 road crash data (other countries have other datasets)
 - 'PCT' data from UK travel behaviour
@@ -126,16 +126,24 @@ pkgs = c(
 remotes::install_cran(pkgs)
 ```
 
+Don't forget, every time you open a new R session you need to load the packages you are going to use, for example:
+
+``` r
+library(sf)
+library(tidyverse)
+library(pct)
+```
+
 ### Extra packages
 
-These may be useful (warning: not a complete list)
+These extra packages may be useful.  These are 'development versions' of packages.  This means the packages are in the process of being development (for example, a new version of an existing package).  These development versions are hosted on github rather than CRAN.  CRAN stands for 'The Comprehensive R Archive Network'.  It is an online repository for packages where they go through regular testing https://cran.r-project.org/ .  
 
-```{r, eval=FALSE}
+``` r
 # CRAN versions
 install.packages("spData")
 
-# dev versions
-remotes::install_github("nowosad/spDataLarge")
+# development versions
+remotes::install_github("ITSLeeds/pct")
 remotes::install_github("ITSLeeds/od")
 remotes::install_github("a-b-street/abstr")
 ```
@@ -151,7 +159,7 @@ source("https://git.io/JvGjF")
 
 ### Download data
 
-Follow instructions here to download the A/B Street data:
+Follow instructions here to download the A/B Street data for the seminar:
 
  https://a-b-street.github.io/docs/howto/index.html
 

@@ -144,12 +144,17 @@ pkgs = c(
   "stplanr",     # for working with origin-destination and route data
   "tidyverse",   # a package for user friendly data science
   "tmap",        # for making maps
-  "opentriplanner" # routing
-  "mapview"      # mapping
+  "opentripplanner", # routing
+  "mapview",      # mapping
+  "osmextract",  # get osm data
+  "dodgr",
+  "nycflights13"
 )
 remotes::install_cran(pkgs)
 ```
-Don't forget, every time you open a new R session you need to load the packages you are going to use, for example:
+
+Don’t forget, every time you open a new R session you need to load the
+packages you are going to use, for example:
 
 ``` r
 library(sf)
@@ -159,17 +164,35 @@ library(pct)
 
 ### Extra packages
 
-These extra packages may be useful.  These are 'development versions' of packages.  This means the packages are in the process of being development (for example, a new version of an existing package).  These development versions are hosted on github rather than CRAN.  CRAN stands for 'The Comprehensive R Archive Network'.  It is an online repository for packages where they go through regular testing https://cran.r-project.org/ .  
+These extra packages may be useful. These are ‘development versions’ of
+packages. This means the packages are in the process of being
+development (for example, a new version of an existing package). These
+development versions are hosted on github rather than CRAN. CRAN stands
+for ‘The Comprehensive R Archive Network.’ It is an online repository
+for packages where they go through regular testing
+<https://cran.r-project.org/> .
 
 ``` r
+# CRAN versions
+install.packages("spData")
+
 # development versions
 remotes::install_github("ITSLeeds/pct")
 remotes::install_github("ITSLeeds/od")
 remotes::install_github("a-b-street/abstr")
 ```
 
+### Automated script
+
+You can check your set-up with this script:
+
+``` r
+source("https://git.io/JvGjF")
+```
+
 ### Download data
 
-Follow instructions here to download the A/B Street data for the Seminar:
+Follow instructions here to download the A/B Street data for the
+seminar:
 
 <https://a-b-street.github.io/docs/howto/index.html>
