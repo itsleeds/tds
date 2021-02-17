@@ -12,11 +12,34 @@
 
 Exercises, in ascending order of difficulty:
 
-- Run A/B Street game in your browser by loading this URL: http://abstreet.s3-website.us-east-2.amazonaws.com/dev/game
+## Getting started (everyone) - 15 min
+
+<!-- todo: send message saying to pre-download the zip -->
+<!-- (install the abstr) -->
+- Getting A/B Street running on your computer (10 minutes)^[
+If you cannot get it running on your computer, and you have a decent computer, try running it in your browser by loading this URL: http://abstreet.s3-website.us-east-2.amazonaws.com/dev/game
+]
+
   - Go into the Sandbox and run the game for North Leeds that contains the University of Leeds and find the ITS building, as shown in the GIF below.
+
   
 ![Imgur](https://i.imgur.com/5I7NeGm.gif)
   
   - Launch the 'trips between home and work' scenario and fast forward to 08:30 AM
   
 - Take a look at the instructions: https://a-b-street.github.io/docs/howto/index.html
+
+## In Game exercises - demo 5 min on key features
+
+...
+
+-
+
+## Import a new region (intermediate) 10 min
+
+## abstr (advanced) 10 min
+
+
+
+
+
