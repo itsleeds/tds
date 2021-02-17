@@ -87,10 +87,49 @@ And for everyone wanting more info on using Git/GitHub I highly recommend watchi
 
 See here for a good introduction: https://happygitwithr.com/
 
-## 4) Watch the 'Routing' video by Malcolm
+## 4) Install key packages, download data and watch the 'Routing' video by Malcolm
 
-This will be released on Monday.
+Following feedback from students it seems it would be useful to get a list of all packages used in the TDS module. 
+I have separated these between 'core' and 'extra' packages - you will need the core packages for sure and should already have them installed.
 
-Good luck with it and see you all on Thursday next week.
+### Core packages
 
-Robin
+Run the following commands to check you have them:
+
+```{r, eval=FALSE}
+install.packages("remotes")
+```
+
+```{r, eval=FALSE}
+install.packages("remotes")
+pkgs = c(
+  "pct",         # package for getting travel data in the UK
+  "sf",          # spatial data package
+  "stats19",     # downloads and formats open stats19 crash data
+  "stplanr",     # for working with origin-destination and route data
+  "tidyverse",   # a package for user friendly data science
+  "tmap",        # for making maps
+  "opentriplanner" # routing
+  "mapview"      # mapping
+)
+remotes::install_cran(pkgs)
+```
+
+### Extra packages
+
+These may be useful
+
+```{r, eval=FALSE}
+# dev versions
+remotes::install_github("ITSLeeds/pct")
+remotes::install_github("ITSLeeds/od")
+remotes::install_github("a-b-street/abstr")
+```
+
+### Download data
+
+Follow instructions here to download the A/B Street data:
+
+ https://a-b-street.github.io/docs/howto/index.html
+
+

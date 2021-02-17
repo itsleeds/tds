@@ -15,17 +15,21 @@ source("https://git.io/JvGjF")
 
 If that does not work the packages we will be using are:
 
-  - sf
-  - tidyverse
-  - tmap
-  - pct
-  - stplanr
-  - dodgr
-  - opentripplanner
-  - igraph
-  - ropensci/osmextract
+-   sf
+-   tidyverse
+-   tmap
+-   pct
+-   stplanr
+-   dodgr
+-   opentripplanner
+-   igraph
+-   ropensci/osmextract
 
-<!-- end list -->
+New packages to install:
+
+``` r
+install.packages("opentripplanner")
+```
 
 ``` r
 library(sf)
@@ -45,11 +49,8 @@ browser. You should see somthign like this:
 <div class="figure" style="text-align: center">
 
 <img src="otp_screenshot.png" alt="\label{fig:otpgui}OTP Web GUI" width="1920" />
-
 <p class="caption">
-
 OTP Web GUI
-
 </p>
 
 </div>
@@ -59,15 +60,25 @@ routes. What strengths/limitations can you find?
 
 ### Connecting to OpenTripPlanner
 
+``` bash
+# java –Xmx10000M -d64 -jar "D:/OneDrive - University of Leeds/Data/opentripplanner/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "D:/OneDrive - University of Leeds/Data/opentripplanner/graphs" --server --port 8080 --securePort 8081
+sudo update-alternatives --config java
+# java --version
+java -version
+java -Xmx10000M -d64 -jar "/home/robin/programs/otp1.5/otp_TDS/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "/home/robin/programs/otp1.5/otp_TDS/graphs" --server --port 8080 --securePort 8081
+```
+
 To allow R to connect to the OpenTripPlanner server, we will use the
 `opentripplanner` package and the function `otp_connect`. In this
 example I have saved the hostname of the server as a variable called
-“robinIP” in my Renviron file by using `usethis::edit_r_environ()`
+“robinIP” in my Renviron file by using `usethis::edit_r_environ()`.
 
 However, you can also just set it manually.
 
 ``` r
-otpcon = otp_connect(hostname = "localhost", 
+ip = "localhost"
+# ip = "xx.x.218.83" # an actual server
+otpcon = otp_connect(hostname = ip, 
                      port = 8080,
                      router = "west-yorkshire")
 ```
@@ -85,8 +96,8 @@ desire_lines = read_sf("desire_lines.geojson")
 ```
 
 **Exercise** Subset the `desire_lines` data frame so that it only has
-the following columns: “geo\_code1”, “geo\_code2”, “all”, “bicycle”,
-“foot”, “car\_driver”, “car\_passenger”, “train”, “taxi”, “motorbike”,
+the following columns: “geo\_code1,” “geo\_code2,” “all,” “bicycle,”
+“foot,” “car\_driver,” “car\_passenger,” “train,” “taxi,” “motorbike,”
 and “geometry”
 
 This dataset has desire lines, but most routing packages need start and
@@ -106,14 +117,14 @@ and call them `routes_top` using `otp_plan`
 qtm(desire_lines)
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-9-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
 
 ``` r
 tm_shape(desire_lines) +
   tm_lines(lwd = "all", col = "car_driver", scale = 4, palette = "viridis")
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-9-2.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
 
 ``` r
 desire = bind_cols(desire_lines, line2df(desire_lines))
@@ -143,7 +154,7 @@ tm_shape(isochrone) +
   tm_fill("time", alpha = 0.6)
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-13-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
 
 To save overloading the server, I have pre-generated some extra routes.
 
@@ -226,12 +237,11 @@ library(igraph)
 roads = oe_get("isle-of-wight", extra_tags = c("maxspeed","oneway"))
 ```
 
-    ## 0...10...20...30...40...50...60...70...80...90...100 - done.
-    ## Reading layer `lines' from data source `C:\Users\earmmor\AppData\Local\Temp\Rtmpi8EI5m\geofabrik_isle-of-wight-latest.gpkg' using driver `GPKG'
-    ## Simple feature collection with 45890 features and 11 fields
+    ## Reading layer `lines' from data source `/mnt/57982e2a-2874-4246-a6fe-115c199bc6bd/data/osm/geofabrik_isle-of-wight-latest.gpkg' using driver `GPKG'
+    ## Simple feature collection with 44424 features and 11 fields
     ## geometry type:  LINESTRING
     ## dimension:      XY
-    ## bbox:           xmin: -5.401978 ymin: 43.35489 xmax: -0.175775 ymax: 50.89601
+    ## bbox:           xmin: -5.401978 ymin: 43.35489 xmax: -0.175775 ymax: 50.89599
     ## geographic CRS: WGS 84
 
 ``` r
@@ -253,7 +263,7 @@ take.
 estimate_centrality_time(graph)
 ```
 
-    ## Estimated time to calculate centrality for full graph is 00:00:03
+    ## Estimated time to calculate centrality for full graph is 00:00:06
 
 ``` r
 centrality = dodgr_centrality(graph)
@@ -270,7 +280,7 @@ tm_shape(centrality_sf) +
            palette = "-viridis")
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
 
 **Exercise**: Use `dodgr_contract_graph` before calculating centrality,
 how does this affect the computation time and the results?
