@@ -144,21 +144,35 @@ pkgs = c(
   "stplanr",     # for working with origin-destination and route data
   "tidyverse",   # a package for user friendly data science
   "tmap",        # for making maps
-  "opentriplanner" # routing
-  "mapview"      # mapping
+  "opentripplanner", # routing
+  "mapview",      # mapping
+  "osmextract",  # get osm data
+  "dodgr",
+  "nycflights13"
 )
 remotes::install_cran(pkgs)
 ```
 
 ### Extra packages
 
-These may be useful
+These may be useful (warning: not a complete list)
 
 ``` r
+# CRAN versions
+install.packages("spData")
+
 # dev versions
-remotes::install_github("ITSLeeds/pct")
+remotes::install_github("nowosad/spDataLarge")
 remotes::install_github("ITSLeeds/od")
 remotes::install_github("a-b-street/abstr")
+```
+
+### Automated script
+
+You can check your set-up with this script:
+
+``` r
+source("https://git.io/JvGjF")
 ```
 
 ### Download data

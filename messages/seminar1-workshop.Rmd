@@ -16,57 +16,31 @@ Exercises, in ascending order of difficulty:
 
 <!-- todo: send message saying to pre-download the zip -->
 <!-- (install the abstr) -->
+- Getting A/B Street running on your computer (10 minutes)^[
+If you cannot get it running on your computer, and you have a decent computer, try running it in your browser by loading this URL: http://abstreet.s3-website.us-east-2.amazonaws.com/dev/game
+]
 
-- Download A/B Street and get it running: https://a-b-street.github.io/docs/howto/index.html
-- Open sandbox mode, then change the map at the top
-- Choose to download more cities, and pick **gb/leeds**
-- Open up North Leeds
-- Find the University of Leeds ITS building (using your own knowledge, the search tool to the bottom right, or by following the GIF below)
+  - Go into the Sandbox and run the game for North Leeds that contains the University of Leeds and find the ITS building, as shown in the GIF below.
 
+  
 ![Imgur](https://i.imgur.com/5I7NeGm.gif)
-
-- Change the scenario at the top from "none" to "trips between home and work"
-- Run the simulation until about 6:30 (using the speed controls at the bottom)
-
-Note: If you can't install A/B Street on your computer, ask for help. As a last resort, you can run it in your browser, but this will be slower: abstreet.s3-website.us-east-2.amazonaws.com/dev/game/?--dev&gb/leeds/maps/north.bin
+  
+  - Launch the 'trips between home and work' scenario and fast forward to 08:30 AM
+  
+- Take a look at the instructions: https://a-b-street.github.io/docs/howto/index.html
 
 ## In Game exercises - demo 5 min on key features
 
-- Tutorial
-  - From the main screen, open up the tutorial and play through it to learn basic controls
-  - If you get stuck at one of the levels, ask for help or skip it; the point is mostly to learn the controls
-- Editing lanes
-  - Open up the map layers (bottom right, near the minimap) and explore a bit
-  - Check out the bike network in Leeds -- not a very connected network, is it?
-  - Click edit map at the top, then go click on individual lanes to change their type
-  - Based on your personal experience in Leeds (or another map) or some guesses, where should some cycle lanes go?
-  - From edit mode, you can name your proposal (from "Untitled Proposal"). It's saved in a file in the **data/player/edits/gb/leeds/north_leeds** folder. We can share/discuss ideas everybody comes up with later.
-- Editing traffic signals
-  - Around 6:30 on the North Leeds map, there's some congestion near Sheepscar St and Meanwood Rd
-  - Click one of the traffic signals, then edit
-  - Try to improve the timing or synchronize multiple intersections
-  - Hint: you can edit multiple intersections at the same time
-  - If you like fiddling with traffic signals, go to the main menu, pick challenges, and try traffic signal survivor
-- Evaluating an edited map
-  - Go to the main screen, then click Community Proposals
-  - Try the Lake Washington Blvd proposal
-  - Click on interesting roads and intersections (especially around the proposal) and explore the time-series data
-  - Explore the map layers (bottom right, near the minimap) -- particularly throughput, compared to before the proposal
-  - Explore the "more data" dashboards in the top-right corner
-  - Find some individual trips that became faster or slower due to this change, and figure out why
-  - Does the change make fast trips much slower? Does it affect trips that were longer to begin with?
-- Gridlock
-  - Many problems cause the vehicles in a traffic simulation to get stuck, usually unrealistically
-  - Go try the weekday scenario in some Seattle maps -- Phinney Ride, Ballard, South Seattle
-  - What are some of the problems you can find? Which might be caused by bad data? Which look like simulation bugs?
+...
+
+-
 
 ## Import a new region (intermediate) 10 min
 
-This exercise requires familiarity with using the command line. Go follow https://a-b-street.github.io/docs/howto/new_city.html. If you downloaded the .zip, then you can run the importer tool on a .osm file. You may also need to get [osmconvert](https://wiki.openstreetmap.org/wiki/Osmconvert) running.
-
-Your goal is to import a city you're interested in. Reach out if you need help!
 
 ## abstr (advanced) 10 min
+
+## Working on the the exercises 20 min
 
 
 

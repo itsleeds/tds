@@ -94,6 +94,14 @@ I have separated these between 'core' and 'extra' packages - you will need the c
 
 ### Core packages
 
+```{r, echo=FALSE, eval=FALSE}
+# find deps in project
+deps = renv::dependencies()
+names(deps)
+unique(deps$Package)
+```
+
+
 Run the following commands to check you have them:
 
 ```{r, eval=FALSE}
@@ -109,22 +117,37 @@ pkgs = c(
   "stplanr",     # for working with origin-destination and route data
   "tidyverse",   # a package for user friendly data science
   "tmap",        # for making maps
-  "opentriplanner" # routing
-  "mapview"      # mapping
+  "opentripplanner", # routing
+  "mapview",      # mapping
+  "osmextract",  # get osm data
+  "dodgr",
+  "nycflights13"
 )
 remotes::install_cran(pkgs)
 ```
 
 ### Extra packages
 
-These may be useful
+These may be useful (warning: not a complete list)
 
 ```{r, eval=FALSE}
+# CRAN versions
+install.packages("spData")
+
 # dev versions
-remotes::install_github("ITSLeeds/pct")
+remotes::install_github("nowosad/spDataLarge")
 remotes::install_github("ITSLeeds/od")
 remotes::install_github("a-b-street/abstr")
 ```
+
+### Automated script
+
+You can check your set-up with this script:
+
+```{r, eval=FALSE}
+source("https://git.io/JvGjF")
+```
+
 
 ### Download data
 
