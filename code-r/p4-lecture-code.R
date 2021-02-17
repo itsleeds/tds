@@ -132,9 +132,7 @@ names(d)[5] = "metro"
 # Contains National Statistics data © Crown copyright and database right2019
 # Contains OS data © Crown copyright and database right, 2019
 # See https://www.ons.gov.uk/methodology/geography/licences
-lsoa2011_
-lsoa2011_lds     lsoa2011_simple  
-lsoa2011_lds
+
 
 
   
