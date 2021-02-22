@@ -6,67 +6,51 @@ University of Leeds
 
 ## Setting Up (10 minutes)
 
-We will use [ITS Go](https://itsleeds.github.io/go/) to do an easy setup
-of your computer.
+If you have not installed the package before hand. You can use [ITS
+Go](https://itsleeds.github.io/go/) to do an easy setup of your computer
 
 ``` r
 source("https://git.io/JvGjF")
 ```
 
-If that does not work the packages we will be using are:
-
--   sf
--   tidyverse
--   tmap
--   pct
--   stplanr
--   dodgr
--   opentripplanner
--   igraph
--   ropensci/osmextract
-
-New packages to install:
-
-``` r
-install.packages("opentripplanner")
-```
+The packages we will be using are:
 
 ``` r
 library(sf)
 library(tidyverse)
 library(stplanr)
+library(dodgr)
 library(opentripplanner)
 library(tmap)
+library(osmextract)
 tmap_mode("plot")
 ```
 
 ## Using OpenTripPlanner to get routes
 
 We have setup the Multi-modal routing service OpenTripPlanner for West
-Yorkshire. Try typing the URL shown during the session into your
-browser. You should see somthign like this:
+Yorkshire. Try typing this URL — otp. saferactive. org (no spaces) —
+during the session into your browser. You should see something like
+this:
 
 <div class="figure" style="text-align: center">
 
 <img src="otp_screenshot.png" alt="\label{fig:otpgui}OTP Web GUI" width="1920" />
+
 <p class="caption">
+
 OTP Web GUI
+
 </p>
 
 </div>
 
-**Exercise**: Play with the web interface, finding different types of
-routes. What strengths/limitations can you find?
+**Exercise**
+
+1.  Play with the web interface, finding different types of routes. What
+    strengths/limitations can you find?
 
 ### Connecting to OpenTripPlanner
-
-``` bash
-# java –Xmx10000M -d64 -jar "D:/OneDrive - University of Leeds/Data/opentripplanner/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "D:/OneDrive - University of Leeds/Data/opentripplanner/graphs" --server --port 8080 --securePort 8081
-sudo update-alternatives --config java
-# java --version
-java -version
-java -Xmx10000M -d64 -jar "/home/robin/programs/otp1.5/otp_TDS/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "/home/robin/programs/otp1.5/otp_TDS/graphs" --server --port 8080 --securePort 8081
-```
 
 To allow R to connect to the OpenTripPlanner server, we will use the
 `opentripplanner` package and the function `otp_connect`. In this
@@ -76,10 +60,10 @@ example I have saved the hostname of the server as a variable called
 However, you can also just set it manually.
 
 ``` r
-ip = "localhost"
-# ip = "xx.x.218.83" # an actual server
+# ip = "localhost" # to run it on your computer (see final bonus exercise)
+ip = "otp.saferactive.org" # an actual server
 otpcon = otp_connect(hostname = ip, 
-                     port = 8080,
+                     port = 80,
                      router = "west-yorkshire")
 ```
 
@@ -87,63 +71,64 @@ If you have connected successfully, then you should get a message
 “Router exists.”
 
 To get some routes, we will start by importing some data we have used
-previously.
+previously. Note that the data frame has 78 columns (only a few of which
+are useful) and 1k rows:
 
 ``` r
 u = "https://github.com/ITSLeeds/TDS/releases/download/0.1/desire_lines.geojson"
-download.file(u, "desire_lines.geojson")
-desire_lines = read_sf("desire_lines.geojson")
+desire_lines = read_sf(u)
+dim(desire_lines)
 ```
 
-**Exercise** Subset the `desire_lines` data frame so that it only has
-the following columns: “geo\_code1,” “geo\_code2,” “all,” “bicycle,”
-“foot,” “car\_driver,” “car\_passenger,” “train,” “taxi,” “motorbike,”
-and “geometry”
+    ## [1] 1000   78
+
+**Exercise**
+
+2.  Subset the and overwrite the `desire_lines` data frame with the `=`
+    assignment operator so that it only has the following columns:
+    geo\_code1, geo\_code2, all, bicycle, foot, car\_driver, and
+    geometry. You can test the that the operation worked by executing
+    the object name, the result should look like that shown below.
 
 This dataset has desire lines, but most routing packages need start and
 endpoints, so we will extract the points from the lines using the
 `line2df` function. An then select the top 3 desire lines.
 
-**Exercises** 1. Use the `tmap` package to plot the `desire_lines`.
-Choose different ways to visualise the data so you can understand local
-commuter travel patterns. 1. Produce a data frame called `desire` which
-contains the coordinates of the start and endpoints of the lines in
-`desire_lines` but not the geometries. 1. Subset out the top three
-desire lines by the total number of commuters and create a new data
-frame called `desire_top` 1. Find the driving routes for `desire_top`
-and call them `routes_top` using `otp_plan`
+**Exercise**
 
-``` r
-qtm(desire_lines)
-```
+3.  Use the `tmap` package to plot the `desire_lines`. Choose different
+    ways to visualise the data so you can understand local commuter
+    travel patterns. See example plot below.
 
-![](6-routing_files/figure-gfm/unnamed-chunk-12-1.png)<!-- -->
+4.  Produce a data frame called `desire` which contains the coordinates
+    of the start and endpoints of the lines in `desire_lines` but not
+    the geometries. Hint `?stplanr::line2df` and `?dplyr::bind_cols`
 
-``` r
-tm_shape(desire_lines) +
-  tm_lines(lwd = "all", col = "car_driver", scale = 4, palette = "viridis")
-```
+5.  Subset out the top three desire lines by the total number of
+    commuters and create a new data frame called `desire_top`. Hint
+    `?dplyr::slice_max`
 
-![](6-routing_files/figure-gfm/unnamed-chunk-12-2.png)<!-- -->
+6.  Find the driving routes for `desire_top` and call them `routes_top`
+    using `otp_plan`
 
-``` r
-desire = bind_cols(desire_lines, line2df(desire_lines))
-desire = st_drop_geometry(desire)
-desire_top = top_n(desire, 3, all)
-```
+![](6-routing_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
 
-To find the routes for these desire lines.
+    ## # A tibble: 3 x 11
+    ##   geo_code1 geo_code2   all bicycle  foot car_driver    L1    fx    fy    tx
+    ##   <chr>     <chr>     <int>   <int> <int>      <int> <dbl> <dbl> <dbl> <dbl>
+    ## 1 E02006852 E02006875  1240     105   119        402   998 -1.58  53.8 -1.55
+    ## 2 E02006861 E02006875  1198      58   495        130   999 -1.57  53.8 -1.55
+    ## 3 E02002404 E02006875  1159      10   811         96   721 -1.52  53.8 -1.55
+    ## # ... with 1 more variable: ty <dbl>
 
-``` r
-routes_top = otp_plan(otpcon,
-                      fromPlace = as.matrix(desire_top[,c("fx","fy")]),
-                      toPlace = as.matrix(desire_top[,c("tx","ty")]),
-                      mode = "CAR")
-```
+To find the routes for the first three desire lines use the following
+command:
 
-We can plot those routes using the `tmap` package.
+**Exercise**
 
-We can also get Isochones from OTP.
+7.  Plot `routes_top` using the `tmap` package in interactive mode
+
+We can also get Isochrones from OTP.
 
 ``` r
 isochrone = otp_isochrone(otpcon, fromPlace = c(-1.558655, 53.807870), 
@@ -154,7 +139,7 @@ tm_shape(isochrone) +
   tm_fill("time", alpha = 0.6)
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-16-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 To save overloading the server, I have pre-generated some extra routes.
 
@@ -168,17 +153,48 @@ routes_drive = read_sf("driving_routes.gpkg")
 routes_transit = read_sf("transit_routes.gpkg")
 ```
 
-**Exercise** Examine these two new datasets `routes_drive` and
-`routes_transit` plot them on a map, what useful information do they
-contain what is missing?
+## Joining Flow data to Routes
 
-Finally, let’s join the routes to the original desire dataset.
+**Exercise**
 
-Note that some of the desire lines do not have a route. This is usually
-because the start or endpoint is too far from the road.
+8.  Subset the and overwrite the `routes_drive` and `routes_transit`
+    data frame with the `=` assignment operator so that it only has the
+    following columns: fromPlace, toPlace, mode, route\_option,
+    distance, and geom.
 
-**Exercise** How many routes are missing for each mode? How could you
-improve this method, so there were no missing routes?
+9.  Examine these two new datasets `routes_drive` and `routes_transit`
+    plot them on a map, what useful information do they contain what is
+    missing?
+
+10. Create a new dataset called `desire_drive` by joining the `desire`
+    and `routes_drive` datasets. Hint `?dplyr::left_join`
+
+11. Create a new dataset called `desire_transit` by joining the `desire`
+    and `routes_transit` datasets. Hint `?dplyr::left_join`
+
+**Note** that some of the desire lines do not have a route. This is
+usually because the start or endpoint is too far from the road.
+
+12. How many routes are missing for each mode? How could you improve
+    this method, so there were no missing routes?
+
+13. Remove from the `desire_drive` and `desire_transit` data frames rows
+    which represent desire lines that are missing route data.
+
+14. Try to plot the `desire_drive` and `desire_transit` dataset with the
+    `tmap` package. You may find they have lost their `sf` class. In
+    which case use `sf::st_as_sf` to convert them back to sf objects.
+
+![](6-routing_files/figure-gfm/unnamed-chunk-20-1.png)<!-- --> \#\#
+Route Networks
+
+Now we have the number of commuters and their routes, we can produce a
+route network map using `stplanr::overline`.
+
+**Exercise** 15. Make a route network for driving and plot it using the
+`tmap` package. How is is different from just plotting the routes?
+
+![](6-routing_files/figure-gfm/unnamed-chunk-22-1.png)<!-- -->
 
 ## Line Merging
 
@@ -188,19 +204,21 @@ have multiple options.
 
 Let’s suppose you want a single line for each route.
 
-**Exercise**: Filter the `routes_transit` to contain only one route
-option per origin-destination pair. **Bonus Exercise**: Do the above,
-but make sure you always select the fastest option.
+**Exercise**:
+
+16. Filter the `routes_transit` to contain only one route option per
+    origin-destination pair.
+
+**Bonus Exercise**:
+
+17. Do the above, but make sure you always select the fastest option.
 
 Now We will group the separate parts of the routes together.
 
 ``` r
 routes_transit_group = routes_transit %>%
   dplyr::group_by(fromPlace, toPlace) %>%
-  dplyr::summarise(duration = sum(duration),
-                   startTime = min(startTime),
-                   endTime = max(endTime),
-                   distance = sum(distance))
+  dplyr::summarise(distance = sum(distance))
 ```
 
 We now have a single row, but instead of a `LINESTRING`, we now have a
@@ -234,17 +252,7 @@ transport timetables.
 library(osmextract)
 library(dodgr)
 library(igraph)
-roads = oe_get("isle-of-wight", extra_tags = c("maxspeed","oneway"))
-```
-
-    ## Reading layer `lines' from data source `/mnt/57982e2a-2874-4246-a6fe-115c199bc6bd/data/osm/geofabrik_isle-of-wight-latest.gpkg' using driver `GPKG'
-    ## Simple feature collection with 44424 features and 11 fields
-    ## geometry type:  LINESTRING
-    ## dimension:      XY
-    ## bbox:           xmin: -5.401978 ymin: 43.35489 xmax: -0.175775 ymax: 50.89599
-    ## geographic CRS: WGS 84
-
-``` r
+roads = oe_get("Isle of Wight", extra_tags = c("maxspeed","oneway"))
 roads = roads[!is.na(roads$highway),]
 road_types = c("residential","secondary","tertiary",
                         "unclassified","primary","primary_link",
@@ -263,7 +271,7 @@ take.
 estimate_centrality_time(graph)
 ```
 
-    ## Estimated time to calculate centrality for full graph is 00:00:06
+    ## Estimated time to calculate centrality for full graph is 00:00:03
 
 ``` r
 centrality = dodgr_centrality(graph)
@@ -280,14 +288,17 @@ tm_shape(centrality_sf) +
            palette = "-viridis")
 ```
 
-![](6-routing_files/figure-gfm/unnamed-chunk-25-1.png)<!-- -->
+![](6-routing_files/figure-gfm/unnamed-chunk-27-1.png)<!-- -->
 
-**Exercise**: Use `dodgr_contract_graph` before calculating centrality,
-how does this affect the computation time and the results?
+**Exercise**
 
-**Bonus Exercises** 1. Work though the OpenTripPlanner vignettes
-[Getting
-Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html)
-and [Advanced
-Features](https://docs.ropensci.org/opentripplanner/articles/advanced_features.html)
-to run your own local trip planner.
+18. Use `dodgr_contract_graph` before calculating centrality, how does
+    this affect the computation time and the results?
+
+**Bonus Exercises**
+
+19. Work though the OpenTripPlanner vignettes [Getting
+    Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html)
+    and [Advanced
+    Features](https://docs.ropensci.org/opentripplanner/articles/advanced_features.html)
+    to run your own local trip planner.
