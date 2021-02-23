@@ -4,7 +4,7 @@ Malcolm Morgan
 University of Leeds
 <br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">
 
-## Setting Up (10 minutes)
+## Setting Up
 
 If you have not installed the package before hand. You can use [ITS
 Go](https://itsleeds.github.io/go/) to do an easy setup of your computer
@@ -53,11 +53,7 @@ OTP Web GUI
 ### Connecting to OpenTripPlanner
 
 To allow R to connect to the OpenTripPlanner server, we will use the
-`opentripplanner` package and the function `otp_connect`. In this
-example I have saved the hostname of the server as a variable called
-“robinIP” in my Renviron file by using `usethis::edit_r_environ()`.
-
-However, you can also just set it manually.
+`opentripplanner` package and the function `otp_connect`.
 
 ``` r
 # ip = "localhost" # to run it on your computer (see final bonus exercise)
@@ -90,15 +86,17 @@ dim(desire_lines)
     geometry. You can test the that the operation worked by executing
     the object name, the result should look like that shown below.
 
+3.  Use the `tmap` package to plot the `desire_lines`. Choose different
+    ways to visualise the data so you can understand local commuter
+    travel patterns. See example plot below.
+
+![](6-routing_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+
 This dataset has desire lines, but most routing packages need start and
 endpoints, so we will extract the points from the lines using the
 `line2df` function. An then select the top 3 desire lines.
 
 **Exercise**
-
-3.  Use the `tmap` package to plot the `desire_lines`. Choose different
-    ways to visualise the data so you can understand local commuter
-    travel patterns. See example plot below.
 
 4.  Produce a data frame called `desire` which contains the coordinates
     of the start and endpoints of the lines in `desire_lines` but not
@@ -108,10 +106,7 @@ endpoints, so we will extract the points from the lines using the
     commuters and create a new data frame called `desire_top`. Hint
     `?dplyr::slice_max`
 
-6.  Find the driving routes for `desire_top` and call them `routes_top`
-    using `otp_plan`
-
-![](6-routing_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+<!-- end list -->
 
     ## # A tibble: 3 x 11
     ##   geo_code1 geo_code2   all bicycle  foot car_driver    L1    fx    fy    tx
@@ -121,10 +116,18 @@ endpoints, so we will extract the points from the lines using the
     ## 3 E02002404 E02006875  1159      10   811         96   721 -1.52  53.8 -1.55
     ## # ... with 1 more variable: ty <dbl>
 
+6.  Find the driving routes for `desire_top` and call them `routes_top`
+    using `otp_plan`
+
 To find the routes for the first three desire lines use the following
 command:
 
-**Exercise**
+``` r
+routes_top = otp_plan(otpcon,
+                      fromPlace = as.matrix(desire_top[,c("fx","fy")]),
+                      toPlace = as.matrix(desire_top[,c("tx","ty")]),
+                      mode = "CAR")
+```
 
 7.  Plot `routes_top` using the `tmap` package in interactive mode
 
@@ -142,6 +145,7 @@ tm_shape(isochrone) +
 ![](6-routing_files/figure-gfm/unnamed-chunk-14-1.png)<!-- -->
 
 To save overloading the server, I have pre-generated some extra routes.
+Download these routes and load them into R.
 
 ``` r
 u = "https://github.com/ITSLeeds/TDS/releases/download/0.20.1/transit_routes.gpkg"
@@ -154,6 +158,13 @@ routes_transit = read_sf("transit_routes.gpkg")
 ```
 
 ## Joining Flow data to Routes
+
+Routes are useful, but in Transport Data Science we often want to
+combine routes with flow data (the number of travellers). This next
+section will address how to join datasets together.
+
+If you are unfamiliar with database joins read [this short
+summary](http://www.sql-join.com/sql-join-types)
 
 **Exercise**
 
@@ -185,11 +196,19 @@ usually because the start or endpoint is too far from the road.
     `tmap` package. You may find they have lost their `sf` class. In
     which case use `sf::st_as_sf` to convert them back to sf objects.
 
-![](6-routing_files/figure-gfm/unnamed-chunk-20-1.png)<!-- --> \#\#
-Route Networks
+![](6-routing_files/figure-gfm/unnamed-chunk-20-1.png)<!-- -->
+
+## Route Networks
+
+Route networks (also called flow maps) show transport demand on
+different parts of the road network.
 
 Now we have the number of commuters and their routes, we can produce a
 route network map using `stplanr::overline`.
+
+``` r
+rnet_drive <- overline(desire_drive, "car_driver")
+```
 
 **Exercise** 15. Make a route network for driving and plot it using the
 `tmap` package. How is is different from just plotting the routes?
@@ -208,10 +227,6 @@ Let’s suppose you want a single line for each route.
 
 16. Filter the `routes_transit` to contain only one route option per
     origin-destination pair.
-
-**Bonus Exercise**:
-
-17. Do the above, but make sure you always select the fastest option.
 
 Now We will group the separate parts of the routes together.
 
@@ -235,23 +250,19 @@ routes_transit_group_ml = st_line_merge(routes_transit_group_ml)
 routes_transit_group = rbind(routes_transit_group, routes_transit_group_ml)
 ```
 
-## Network Analysis (dodgr) (20 minutes)
+**Bonus Exercise**:
+
+17. Do the above, but make sure you always select the fastest option.
+
+## Network Analysis (dodgr)
 
 **Note** Some people have have problems running dodgr on Windows, if you
 do follow these
 [instructions](https://github.com/ITSLeeds/TDS/blob/master/practicals/dodgr-install.md).
 
-We will now look to analyse the road network using `dodgr`. First let’s
-find the distances between all our centroids for a cyclist.
-`dodgr_dists` returns a matrix of distances in km, note the speed of
-using dodgr to find 64 distances compared to using a routing service.
-`dodgr` works well for these type of calculation, but cannot do public
-transport timetables.
+We will now analyse the road network using `dodgr`.
 
 ``` r
-library(osmextract)
-library(dodgr)
-library(igraph)
 roads = oe_get("Isle of Wight", extra_tags = c("maxspeed","oneway"))
 roads = roads[!is.na(roads$highway),]
 road_types = c("residential","secondary","tertiary",
@@ -261,9 +272,7 @@ roads = roads[roads$highway %in% road_types, ]
 graph = weight_streetnet(roads)
 ```
 
-<!-- **Exercise**: Reproduce the Isle of Wight flow data `d_iow_origins` that you used in the Data Cleaning Practical -->
-
-We will find the betweeness centrality of the Isle of Wight road
+We will find the betweenness centrality of the Isle of Wight road
 network. THis can take a long time, so first lets check how long it will
 take.
 
