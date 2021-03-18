@@ -1,0 +1,159 @@
+---
+title: "RMarkdown tips"
+author: "Joey Talbot"
+date: "18/03/2021"
+output: bookdown::html_document2
+# output: bookdown::pdf_document2
+bibliography: ../viz-references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, eval = TRUE)
+library(ggplot2)
+```
+
+# Useful references
+
+https://bookdown.org/yihui/rmarkdown/
+
+https://rstudio.com/resources/cheatsheets/
+
+https://rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf
+
+# Installation
+ 
+To get the LaTeX required for rmarkdown:
+
+`install.packages("tinytex")` THEN
+
+`tinytex::install_tinytex()`
+
+# Output formats
+
+RMarkdown has a wide variety of output formats, allowing you to create web docs, pdfs, word docs, etc.
+ 
+Getting the right output format is crucial. 
+This will affect the way the document is rendered.
+In particular, figures work differently with different output formats.
+
+`output: bookdown::html_document2`
+Can refer to figures using "https://raw.githubusercontent.com/owner/repo/master/file-path.png"
+This creates the most reproducible document.
+The html output can then be converted to pdf from Chrome
+
+`output: bookdown::pdf_document2`
+Must use relative references for figures eg "../../file-path.png"
+This is less reproducible and doesn't allow web based figs but creates a nice looking pdf document.
+
+# Knitting/Rendering
+
+Ctrl + Shift + K – to knit in R Markdown
+
+OR 
+
+rmarkdown::render(<doc.name>) - to render in R console
+
+# Code chunks
+
+```{r, eval=FALSE}
+x = 1
+```
+
+Figures:
+```{r figname, fig.cap = "xx"}
+# knitr::include_graphics("xx")
+```
+ 
+Tables:
+```{r tabname} 
+# knitr::kable(object, caption = "xx")
+```
+
+# Syntax
+
+Leave one line for a new sentence.
+Leave two lines for a new paragraph (once rendered).
+ 
+Refer to figures: `\@ref(fig:figname)`
+
+Refer to tables: `\@ref(tab:tabname)`
+
+Hyperlinks:
+[text](link)
+
+~subscript~
+
+^superscript^
+
+_italic_ or *italic*
+
+__bold__ or **bold**
+
+`r 2 + 2` (will show the results of the code)
+
+Inline-equation:
+$y = mx + c$
+
+Display equation:
+$$y = mx + c$$
+
+Within equations:
+`^superscript`
+`_subscript`
+
+# File references
+
+These can be used to refer to other files, such as R scripts or figures.
+
+Relative references will relate to the file structure on your computer, e.g.
+`source("../../script.R")`.
+This allows you to access objects or functions created in another script, rather than having to do all of the computation within the rmarkdown document, which might make it slow to knit.
+
+**_If using html output format:_**
+
+To include graphics in a way that is reproducible for other users, you can refer to them online i.e.
+"https://raw.githubusercontent.com/owner/repo/master/file-path.png"
+e.g. "https://raw.githubusercontent.com/saferactive/saferactive/master/figures/aadf-counts-per-year.png"
+
+When you create a plot in RStudio, you can "Publish" it online using RPubs (just click the Publish button).
+You may need to set up an RPubs account.
+Putting figures into github issues is another way of getting figures online in a way that can then be referred to in an rmarkdown document.
+
+# Citations
+
+see https://rmarkdown.rstudio.com/authoring_bibliographies_and_citations.html
+
+citr::insert_citation to use with bibtex
+This can work work Zotero
+Keyboard shortcut Ctrl+Alt+C
+
+# Debugging
+
+To debug in Rmarkdown docs, use `rmarkdown::render(<doc.name>)`, so the doc is rendered in the R console instead of externally by rmarkdown.
+This allows the debugging tools to be used.
+ 
+https://yihui.org/tinytex/r/#debugging
+
+1) Update R and LaTeX packages
+
+update.packages(ask = FALSE, checkBuilt = TRUE)
+tinytex::tlmgr_update()
+
+2) Reinstall tinytex
+
+tinytex::reinstall_tinytex()
+
+3) Get extra info on bug
+
+options(tinytex.verbose = TRUE)
+
+OR for knitting rmarkdown docs
+
+```{r, include=FALSE}
+options(tinytex.verbose = TRUE)
+```
+
+then reset to FALSE afterwards
+
+4) Create reprex and report problem
+
