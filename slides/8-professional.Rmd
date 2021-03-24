@@ -11,7 +11,7 @@ output:
     nature:
       highlightStyle: github
       highlightLines: true
-bibliography: references.bib
+bibliography: ../tds.bib
 ---
 
 background-image: url(https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg)
@@ -28,25 +28,25 @@ BibOptions(check.entries = FALSE,
            first.inits = FALSE,
            hyperlink = FALSE, 
            dashed = FALSE)
-my_bib = ReadBib("references.bib", check = FALSE)
+my_bib = ReadBib("../tds.bib", check = FALSE)
 ```
 
----
+<!-- --- -->
 
-# This session in context
+<!-- # This session in context -->
 
-   - Introduction to transport data science
+<!--    - Introduction to transport data science -->
 
--  Software for practical data science 
+<!-- -  Software for practical data science  -->
 
- - The structure of transport data
- - Data cleaning and subsetting
- - Accessing data from web sources
- - Routing
- - Data visualization
- - Project work
- -  ## <font color="red"> Professional issues + project work</font> 
- 
+<!--  - The structure of transport data -->
+<!--  - Data cleaning and subsetting -->
+<!--  - Accessing data from web sources -->
+<!--  - Routing -->
+<!--  - Data visualization -->
+<!--  - Project work -->
+<!--  -  ## <font color="red"> Professional issues + project work</font>  -->
+
 ---
 
 # Reminder on Coursework
@@ -58,10 +58,14 @@ When's the deadline?
 --
 
 ```{r}
-as.Date("2020-05-15") + 14
+as.Date("2020-05-14")
 ```
 
-**2020-05-29**
+**2020-05-14**
+
+--
+
+Friday 14th May
 
 --
 
@@ -73,33 +77,116 @@ Remember the marking criteria:
 
     **Data, processing access and cleaning**
 
-    **Application choice and modelling**
+    **Application choice**
 
     **Visualization**
 
     **Understand the data science process**
+    
+---
+
+## '1 pager' document on plans
+
+- Submit a .zip file containing an .Rmd file and a 1 page pdf
+
+  - A draft title of your topic
+  - The main dataset that you will use and other datasets that you could use
+  - Ideas on a research question
+  - Questions you would like to ask about the topic, e.g. 'is this a suitable dataset?'
+  - 1 or more references to the academic literature related to the topic
+  - Any preliminary analysis you have done
+
+- Source: `coursework-template.Rmd` in the TDS GitHub repository
 
 ---
 
-# What is machine learning?
+# Example
+
+```{r, echo=FALSE, eval=FALSE}
+browseURL("~/hd/backups/onedrive-backups/onedrive-big-mirror/career/modules/tds/2020-marks/")
+system("rg '201380814' ~/hd/backups/onedrive-backups/onedrive-big-mirror/career/modules/tds/2020-marks/")
+system("rg test ~/hd/backups/onedrive-backups/onedrive-big-mirror/career/modules/tds/2020-marks/")
+file.edit("~/hd/backups/onedrive-backups/onedrive-big-mirror/career/modules/tds/2020-marking/02/122554084-TDS_Coursework_Draft.tex")
+```
+
+```{r, echo=FALSE}
+knitr::include_graphics("../figures/example-html.png")
+```
+
+
+```{r, echo=FALSE}
+# knitr::include_graphics("../figures/example-pdf.png")
+```
+
+Note: 
+
+- Good structure
+- Well written
+- Reproducible
+
+
+See `stats19-example.zip` for an an example of a coursework submission
+
+---
+
+## Data science workflows
+
+```{r, echo=FALSE, eval=FALSE}
+file.copy("https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png", "figures/r4ds-workflow.png")
+```
+
+Source: [R for Data Science](https://r4ds.had.co.nz/introduction.html) open source book
+
+
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
+
+---
+
+# Managing time and prioritising ([Source](https://csgillespie.github.io/efficientR/workflow.html))
+
+![](https://csgillespie.github.io/efficientR/_main_files/figure-html/4-1-1.png)
+
+---
+
+# Practical
+
+- What are the strongest aspects of your coursework idea so far? What are the weakest?
 
 --
 
-- [Applied statistics](https://machinelearningmastery.com/relationship-between-applied-statistics-and-machine-learning/) vs ML: a continuum
+- What are the priorities over the next three weeks (break it down into 3 parts) 
+
+--
+
+- What do you need to find more literature on?
+
+--
+
+- What do you need more data on (you should have all the data already)?
+
+--
+
+- What additional skills do you need (now is a good time to ask)?
+
+---
+
+<!-- ### What is machine learning? -->
+
+<!-- -- -->
+
+<!-- - [Applied statistics](https://machinelearningmastery.com/relationship-between-applied-statistics-and-machine-learning/) vs ML: a continuum -->
 
 ![](https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2018/04/Glossary-Mapping-Terms-in-Statistics-to-Terms-in-Machine-Learning.png)
-
 
 ---
 
 # Machine learning types
 
-There are 2 basic types `r Citep(my_bib, "james_introduction_2013", .opts = list(cite.style = "authoryear"))`
+There are 2 basic types `r Citep(my_bib, "james_introduction_2013a", .opts = list(cite.style = "authoryear"))`
 
 - Supervised learning, when you have a training dataset
 
 - Unsupervised learning, where there is no 'dependent variable'
-
 
 
 ---
@@ -157,29 +244,6 @@ See https://github.com/cyipt/cyipt/blob/master/model-uptake.md
 --
 
 - But did reveal *unexpected* insight: road speeds and traffic volumes seem to be associated with lower uptake of cycling
-
----
-
-# Practical
-
-- What are the strongest aspects of your coursework so far? What are the weakest?
-
---
-
-- What are the priorities over the next three weeks (break it down into 3 parts) 
-
---
-
-- What do you need to find more literature on?
-
---
-
-- What do you need more data on (you should have all the data already)?
-
---
-
-- What additional skills do you need (now is a good time to ask)?
-
 
 ---
 
