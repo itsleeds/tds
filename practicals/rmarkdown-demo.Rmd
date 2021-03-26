@@ -2,7 +2,9 @@
 title: "RMarkdown tips"
 author: "Joey Talbot"
 date: "18/03/2021"
-output: html_document
+output:
+  html_document:
+          number_sections: true
 # output: bookdown::html_document2
 # output: bookdown::pdf_document2
 # bibliography: ../viz-references.bib
