@@ -22,6 +22,20 @@ structured as follows:
     -   working through reproduce document
     -   **plagiarism not tolerated**
     -   quality over quantity
+
+Examples of RMarkdown documents, see:
+<https://bookdown.org/yihui/rmarkdown/>
+
+Adding figures, see:
+<https://bookdown.org/yihui/rmarkdown/r-code.html#figures>
+
+Try opening up Joey’s example RMarkdown file:
+<https://github.com/ITSLeeds/TDS/blob/master/practicals/rmarkdown-demo.Rmd>
+
+We will work on this together.
+
+Open the example of a good submission from the .zip file.
+
 -   Breakout rooms in which everyone will have a chance to talk about
     their dissertation ideas (1 hour)
     -   1 minute each outlining the topic and follow-up questions (10
