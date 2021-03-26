@@ -7,7 +7,7 @@ output:
           number_sections: true
 # output: bookdown::html_document2
 # output: bookdown::pdf_document2
-# bibliography: ../viz-references.bib
+bibliography: references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -183,8 +183,11 @@ tmap_mode("view")
 qtm(stplanr::routes_fast_sf)
 ```
 
+# Adding references
 
+[@provost2013data]
 
+# References
 
 
 
