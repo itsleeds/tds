@@ -3,12 +3,25 @@
 
 # Session plan for Practical 5
 
+The main purpose of this session is to support you on the project
+submission on May 14th. See here for a reminder of the mark scheme:
+<https://github.com/ITSLeeds/TDS/blob/master/coursework-template.md#marks>
+
+See here for an example of good practice submission that we will talk
+about:
+<https://leeds365.sharepoint.com/sites/msteams_cbf52a/Shared%20Documents/General/stats19-example.zip>
+
 This is will be the 5th and final practical session. It will be
 structured as follows:
 
 -   Demonstration of tips and tricks when using RMarkdown, questions,
     and working on the ‘1 pager’ to be submitted on Monday (1 hour)
-    -   screen share and questions will be welcome welcome
+    -   screen share and questions will be welcome
+    -   based on this example of a good submission
+        <https://leeds365.sharepoint.com/sites/msteams_cbf52a/Shared%20Documents/General/stats19-example.zip>
+    -   working through reproduce document
+    -   **plagiarism not tolerated**
+    -   quality over quantity
 -   Breakout rooms in which everyone will have a chance to talk about
     their dissertation ideas (1 hour)
     -   1 minute each outlining the topic and follow-up questions (10
