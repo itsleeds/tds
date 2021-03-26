@@ -2,9 +2,10 @@
 title: "RMarkdown tips"
 author: "Joey Talbot"
 date: "18/03/2021"
-output: bookdown::html_document2
+output: html_document
+# output: bookdown::html_document2
 # output: bookdown::pdf_document2
-bibliography: ../viz-references.bib
+# bibliography: ../viz-references.bib
 ---
 
 ```{r setup, include=FALSE}
@@ -156,4 +157,32 @@ options(tinytex.verbose = TRUE)
 then reset to FALSE afterwards
 
 4) Create reprex and report problem
+
+# Figures
+
+To create a figure in RMarkdown:
+
+```{r}
+# Ctl+Alt+I
+knitr::include_graphics("image1.png")
+# online figures do not work in pdf format
+```
+
+```{r, echo=FALSE}
+# how to stop the code from being shown?
+knitr::include_graphics("image2.png")
+```
+
+Here is some code to plot data:
+
+```{r, message=FALSE}
+library(tmap)
+tmap_mode("view")
+qtm(stplanr::routes_fast_sf)
+```
+
+
+
+
+
 
