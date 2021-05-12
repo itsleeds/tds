@@ -8,7 +8,10 @@ remotes::install_cran("calendar")
 # get dates -----
 # See https://ses.leeds.ac.uk/info/21630/timetabling/1004/teaching_week_patterns
 # browseURL("https://ses.leeds.ac.uk/download/1557/1920_teaching_week_pattern")
-w_start = as.Date("2020-09-28")
+lubridate::wday(as.Date("2020-09-28"), label = T)
+w_start = as.Date("2020-09-28") + 364
+w_start
+lubridate::wday(w_start, label = TRUE) # start on a Monday
 week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("E", 1:4), 23:30)
 n_weeks = length(week_num)
 week_commencing = seq(from = w_start, by = "week", length.out = n_weeks)
@@ -161,12 +164,14 @@ ic = calendar::ical(timetable)
 calendar::ic_write(ic[1], "/tmp/test-tds.ics")
 
 # file.edit("/tmp/test-tds.ics")
-tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID)
+tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID) %>% 
+  mutate(date = as.Date(DTSTART), duration = DTEND - DTSTART) %>% 
+  select(SUMMARY, DESCRIPTION, duration)
 # ic = calendar::ical(tt_min[1:2, ])
 ic = calendar::ical(tt_min)
 
 
-calendar::ic_write(ic, "timetable-2020.ics") # note: generates faulty calendar with ic[1, ]: bug in ic_read?
-readLines("timetable-2020.ics")
-readr::write_csv(tt_min, "timetable-2020.csv")
+calendar::ic_write(ic, "timetable.ics") # note: generates faulty calendar with ic[1, ]: bug in ic_read?
+readLines("timetable.ics")
+readr::write_csv(tt_min, "timetable.csv")
 
