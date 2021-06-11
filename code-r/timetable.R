@@ -25,18 +25,18 @@ tt_url = "http://timetable.leeds.ac.uk/teaching/202021/reporting/Individual?obje
 # lectures ------------------------------------------------------
 
 lecture_description = c(
-  "Introduction to transport data science",
   "The structure of transport data and data cleaning",
-  "Routing",
-  "Visualisation",
+  "Visualising transport data",
+  "Working with origin-destination data",
+  "From origin-destination data to routes",
   "Project work"
 )
 
 lecture_ids = c(
-  "intro",
   "structure",
-  "routing",
   "viz",
+  "od",
+  "routing",
   "project"
 )
 
@@ -52,7 +52,7 @@ lecture$duration = (lecture$DTEND - lecture$DTSTART)
 lecture$type = "Lecture"
 lecture$SUMMARY = paste0("TDS Lecture ", 1:nrow(lecture), ": ", lecture_ids)
 lecture$LOCATION = "Online - Teams"
-lecture$DESCRIPTION = paste0(lecture_description, " in ", lecture$LOCATION)
+lecture$DESCRIPTION = paste0(lecture_description)
 nrow(lecture)
 
 # practical sessions ------------------------------------------------------
@@ -60,23 +60,23 @@ nrow(lecture)
 practical_ids = c(
   "structure",
   "getting",
+  "od",
   "routing",
-  "modelling",
   "project"
 )
 
 practical_descriptions = c(
   "The structure of transport data",
   "Getting transport data",
+  "Origin-destination data",
   "Routing",
-  "Modelling",
   "Project work"
 )
 
 practical_day_of_week = 4
 practical_start_time = "14:00"
 practical_end_time = "16:30"
-practical = tibble::tibble(week_num = as.character(c(15:16, 18, 21, 23)))
+practical = tibble::tibble(week_num = as.character(c(15:17, 21, 23)))
 practical = dplyr::inner_join(practical, weeks)
 practical$date = practical$week_commencing + (practical_day_of_week - 1)
 practical$DTSTART = lubridate::ymd_hm(paste(practical$date, practical_start_time)) 
@@ -85,7 +85,7 @@ practical$duration = (practical$DTEND - practical$DTSTART)
 practical$type = "Computer practical"
 practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_ids)
 practical$LOCATION = "Online - Teams"
-practical$DESCRIPTION = paste0(practical_descriptions, " in ", practical$LOCATION)
+practical$DESCRIPTION = paste0(practical_descriptions)
 nrow(practical) # there are 5 practicals
 
 # seminars ------------------------------------------------------
@@ -123,7 +123,6 @@ deadline_ids = c(
 )
 deadline_descriptions = c(
   "Computer set-up",
-  "Practical: visualising transport data",
   "Draft portfolio",
   "Deadline: coursework, 2pm"
 )
@@ -132,8 +131,8 @@ deadline_descriptions = c(
 
 deadline_day_of_week = 5
 deadline_start_time = "13:00"
-deadline_end_time = c("13:01", "15:30", "13:01", "13:01")
-deadline = tibble::tibble(week_num = as.character(c(14, 17, 22, 25)))
+deadline_end_time = c("13:01", "13:01", "13:01")
+deadline = tibble::tibble(week_num = as.character(c(14, 17, 25)))
 deadline = dplyr::inner_join(deadline, weeks)
 deadline$date = deadline$week_commencing + (deadline_day_of_week - 1)
 deadline$DTSTART = lubridate::ymd_hm(paste(deadline$date, deadline_start_time)) 
@@ -164,14 +163,15 @@ ic = calendar::ical(timetable)
 calendar::ic_write(ic[1], "/tmp/test-tds.ics")
 
 # file.edit("/tmp/test-tds.ics")
-tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID) %>% 
-  mutate(date = as.Date(DTSTART), duration = DTEND - DTSTART) %>% 
-  select(SUMMARY, DESCRIPTION, duration)
+tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID)
 # ic = calendar::ical(tt_min[1:2, ])
 ic = calendar::ical(tt_min)
-
+tt_csv = tt_min %>% 
+  mutate(date = as.Date(DTSTART), duration = DTEND - DTSTART) %>% 
+  select(SUMMARY, DESCRIPTION, date, duration)
+names(tt_csv) = tolower(names(tt_csv))
 
 calendar::ic_write(ic, "timetable.ics") # note: generates faulty calendar with ic[1, ]: bug in ic_read?
 readLines("timetable.ics")
-readr::write_csv(tt_min, "timetable.csv")
+readr::write_csv(tt_csv, "timetable.csv")
 
