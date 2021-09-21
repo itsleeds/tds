@@ -11,67 +11,58 @@ and (from 2022 onwards) [Transport Planning and the
 Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc)
 MSc courses.
 
-The module catalogue can be found at
-[`catalogue.md`](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md).
-The computer code accompanying the course can be found in the `code`
-folders. To run this code you will need R and Python installed plus
-various packages and libraries.
-<!-- This software has been packaged-up into a docker container to ease teaching. -->
-
-The timetable can be found:
-
--   On the University’s system (official):
-    [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202021/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
--   In ical format (for import into Google/Outlook/other Calendar
-    systems):
-    <https://github.com/ITSLeeds/TDS/raw/master/timetable-2020.ics>
--   As a .csv file (for easy reading as data):
-    <https://github.com/ITSLeeds/TDS/blob/master/timetable-2020.csv>
-
-See below for the sessions
-
-The module timetable is shown in the table below.
-
-| Summary                    | Description                                                         | Dtstart             | Location       | Duration |
-|:---------------------------|:--------------------------------------------------------------------|:--------------------|:---------------|:---------|
-| TDS deadline 1             | Computer set-up                                                     | 2021-01-29 13:00:00 | Online - Teams | 240 mins |
-| TDS Lecture 1: intro       | Introduction to transport data science in Online - Teams            | 2021-02-01 09:00:00 | Online - Teams | 60 mins  |
-| TDS Practical 1: structure | The structure of transport data in Online - Teams                   | 2021-02-04 14:00:00 | Online - Teams | 150 mins |
-| TDS Lecture 2: structure   | The structure of transport data and data cleaning in Online - Teams | 2021-02-08 09:00:00 | Online - Teams | 60 mins  |
-| TDS Practical 2: getting   | Getting transport data in Online - Teams                            | 2021-02-11 14:00:00 | Online - Teams | 150 mins |
-| TDS Lecture 3: routing     | Routing in Online - Teams                                           | 2021-02-15 09:00:00 | Online - Teams | 60 mins  |
-| TDS seminar 1              | Mapping large datasets                                              | 2021-02-18 14:00:00 | Online - Teams | 150 mins |
-| TDS deadline 2             | Practical: visualising transport data                               | 2021-02-19 13:00:00 | Online - Teams | 150 mins |
-| TDS Practical 3: routing   | Routing in Online - Teams                                           | 2021-02-25 14:00:00 | Online - Teams | 150 mins |
-| TDS seminar 2              | Data science in transport planning                                  | 2021-03-04 14:00:00 | Online - Teams | 150 mins |
-| TDS Lecture 4: viz         | Visualisation in Online - Teams                                     | 2021-03-15 09:00:00 | Online - Teams | 60 mins  |
-| TDS Practical 4: modelling | Modelling in Online - Teams                                         | 2021-03-18 14:00:00 | Online - Teams | 150 mins |
-| TDS Lecture 5: project     | Project work in Online - Teams                                      | 2021-03-22 09:00:00 | Online - Teams | 60 mins  |
-| TDS deadline 3             | Draft portfolio                                                     | 2021-03-26 13:00:00 | Online - Teams | 60 mins  |
-| TDS Practical 5: project   | Project work in Online - Teams                                      | 2021-04-29 14:00:00 | Online - Teams | 150 mins |
-| TDS deadline 4             | Deadline: coursework, 2pm                                           | 2021-05-14 13:00:00 | Online - Teams | 60 mins  |
-
+<!-- The module catalogue can be found at [`catalogue.md`](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md). -->
+<!-- The computer code accompanying the course can be found in the `code` folders. -->
+<!-- To run this code you will need R and Python installed plus various packages and libraries. -->
+<!-- The timetable can be found: -->
+<!-- - On the University's system (official): [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202021/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) -->
+<!-- - In ical format (for import into Google/Outlook/other Calendar systems): https://github.com/ITSLeeds/TDS/raw/master/timetable-2020.ics -->
+<!-- - As a .csv file (for easy reading as data): https://github.com/ITSLeeds/TDS/blob/master/timetable-2020.csv -->
+<!-- See below for the sessions -->
+<!-- The module timetable is shown in the table below. -->
 <!-- # References -->
 <!-- To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: https://www.zotero.org/groups/956304/tds -->
 
-# Software
+# Prerequisites
 
-For this module you need to have up-to-date versions of R and RStudio.
-Install:
+## Software
+
+For this module you need to have up-to-date versions of R and RStudio
+installed on a computer you have access to:
 
 -   R from [cran.r-project.org](https://cran.r-project.org/)
 -   RStudio from
     [rstudio.com](https://rstudio.com/products/rstudio/download/#download)
--   R packages, by opening RStudio and typing
-    `install.packages("stats19")` in the R console.
+-   R packages, which can be installed by opening RStudio and typing
+    `install.packages("stats19")` in the R console, for example.
 
-We recommend using at least the latest stable release of R (4.0.0 or
-above). We recommend running R on a decent computer, with at least 4 GB
-RAM and ideally 8 GB or more RAM. See [Section 1.5 of the online guide
-Reproducible Road Safety Research with
+You should have the latest stable release of R (4.0.0 or above) running
+R on a decent computer, with at least 4 GB RAM and ideally 8 GB or more
+RAM. See [Section 1.5 of the online guide Reproducible Road Safety
+Research with
 R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio)
 for instructions on how to install key packages we will use in the
 module.[1]
+
+It is also recommended that you have installed and have experience with
+GitHub Desktop (or command line git on Linux and Mac), Docker, Python,
+QGIS and transport modelling tools such as SUMO and A/B Street. These
+software packages will help with the course but are not essential.
+
+## Data science experience
+
+Attending the Introduction to R one-off 3 hour workshop (semester 1
+Computer Skills workshop) and experience of using R (e.g. having used it
+for work, in previous degrees or having completed an online course) is
+essential. Students can demonstrate this by showing evidence that they
+have worked with R before, have completed an online course such as the
+first 4 sessions in the RStudio Primers series
+<https://rstudio.cloud/learn/primers> or DataCamp’s Free Introduction to
+R course: <https://www.datacamp.com/courses/free-introduction-to-r>.
+This is an advanced and research-led module. Evidence of substantial
+programming and data science experience in previous professional or
+academic work, in languages such as R or Python, also constitutes
+sufficient pre-requisite knowledge for the course.
 
 <!-- ## Course locations -->
 <!-- See the image below for the course locations and the following links: -->
@@ -117,6 +108,11 @@ question please open an issue here (you’ll need a GitHub account):
 <!-- Data for course can be accessed from the repos [Releases](https://github.com/ITSLeeds/TDS/releases) page. -->
 <!-- You can, for example, download and unzip the data folder in a local version of the repo (accessed by downloading and unzipp https://github.com/ITSLeeds/TDS/archive/master.zip ) with the following R commands: -->
 <!-- If you want to be clever you can use the piggyback package: -->
+<!-- ```{r, eval=FALSE, engine='python', echo=FALSE} -->
+<!-- import pandas as pd -->
+<!-- e = pd.read_csv("/mnt/27bfad9a-3474-4e61-9a43-0156ebc67d67/home/robin/ITSLeeds/TDS/sample-data/everyone.csv") -->
+<!-- pd.DataFrame.sort_values(e, "n_coffee") -->
+<!-- ``` -->
 <!-- # Other projects -->
 <!-- - A book on R for Geocomputation: https://github.com/Robinlovelace/geocompr -->
 <!-- - A Python package for OSM data analysis: https://github.com/gboeing/osmnx -->
