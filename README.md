@@ -42,7 +42,7 @@ RAM. See [Section 1.5 of the online guide Reproducible Road Safety
 Research with
 R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio)
 for instructions on how to install key packages we will use in the
-module.[1]
+module.[^1]
 
 It is also recommended that you have installed and have experience with
 GitHub Desktop (or command line git on Linux and Mac), Docker, Python,
@@ -64,30 +64,19 @@ programming and data science experience in previous professional or
 academic work, in languages such as R or Python, also constitutes
 sufficient pre-requisite knowledge for the course.
 
-<!-- ## Course locations -->
-<!-- See the image below for the course locations and the following links: -->
-<!-- The lectures will be in the Business School Maurice Keyworth SR (1.15): http://students.leeds.ac.uk/room/1-01-087-2730-01-115 -->
-<!-- The practicals will be in the West Teaching Lab Cluster (B.16): http://it.leeds.ac.uk/site/custom_scripts/clusters.php -->
+## Course reading
 
-# Slides and lectures
+See the [handbook](handbook-tds.md).
 
-Slides can be found online:
-
--   See <https://itsleeds.github.io/TDS/slides/1-intro.html#1> for the
-    introductory slides, for example
--   Videos of the lectures can be found on the University of Leeds’
-    Blackboard system (you must must
-    [register](https://www.leeds.ac.uk/info/101040/applying/86/how_to_apply_for_masters_courses)
-    to courses such as [Data Science and
-    Analytics](https://courses.leeds.ac.uk/i071/data-science-and-analytics-msc)
-    or [Transport Planning and the
-    Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc)
-    to take the course)
+<!-- # Slides and lectures -->
+<!-- Slides can be found online: -->
+<!-- - See https://itsleeds.github.io/TDS/slides/1-intro.html#1 for the introductory slides, for example -->
+<!-- - Videos of the lectures can be found on the University of Leeds' Blackboard system (you must must [register](https://www.leeds.ac.uk/info/101040/applying/86/how_to_apply_for_masters_courses) to courses such as [Data Science and Analytics](https://courses.leeds.ac.uk/i071/data-science-and-analytics-msc) or [Transport Planning and the Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc) to take the course) -->
 
 # Assessment (for those doing this as credit-bearing)
 
 -   You will build-up a portfolio of work
--   100% coursework assessed, you will submit by **Friday 14th May**:
+-   100% coursework assessed, you will submit by **Friday 13th May**:
     -   **a pdf document up to 10 pages long with figures, tables,
         references explaining how you used data science to research a
         transport problem**
@@ -119,13 +108,15 @@ question please open an issue here (you’ll need a GitHub account):
 <!-- # Building the website -->
 <!-- To publish the slides and other content online, the following commands were used: -->
 
-[1]  For further guidance on setting-up your computer to run R and
-RStudio for spatial data, see these links, we recommend Chapter 2 of
-Geocomputation with R (the Prerequisites section contains links for
-installing spatial software on Mac, Linux and Windows):
-<https://geocompr.robinlovelace.net/spatial-class.html> and Chapter 2 of
-the online book *Efficient R Programming*, particularly sections 2.3 and
-2.5, for details on R installation and
-[set-up](https://csgillespie.github.io/efficientR/set-up.html) and the
-[project management
-section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
+# References
+
+[^1]:  For further guidance on setting-up your computer to run R and
+    RStudio for spatial data, see these links, we recommend Chapter 2 of
+    Geocomputation with R (the Prerequisites section contains links for
+    installing spatial software on Mac, Linux and Windows):
+    <https://geocompr.robinlovelace.net/spatial-class.html> and Chapter
+    2 of the online book *Efficient R Programming*, particularly
+    sections 2.3 and 2.5, for details on R installation and
+    [set-up](https://csgillespie.github.io/efficientR/set-up.html) and
+    the [project management
+    section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
