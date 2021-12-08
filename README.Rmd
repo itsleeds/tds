@@ -1,5 +1,6 @@
 ---
 output: github_document
+bibliography: tds.bib
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -84,25 +85,21 @@ Students can demonstrate this by showing evidence that they have worked with R b
 This is an advanced and research-led module.
 Evidence of substantial programming and data science experience in previous professional or academic work, in languages such as R or Python, also constitutes sufficient pre-requisite knowledge for the course.
 
-<!-- ## Course locations -->
+## Course reading
 
-<!-- See the image below for the course locations and the following links: -->
+See the [handbook](handbook-tds.md).
 
-<!-- The lectures will be in the Business School Maurice Keyworth SR (1.15): http://students.leeds.ac.uk/room/1-01-087-2730-01-115 -->
+<!-- # Slides and lectures -->
 
-<!-- The practicals will be in the West Teaching Lab Cluster (B.16): http://it.leeds.ac.uk/site/custom_scripts/clusters.php -->
+<!-- Slides can be found online: -->
 
-# Slides and lectures
-
-Slides can be found online:
-
-- See https://itsleeds.github.io/TDS/slides/1-intro.html#1 for the introductory slides, for example
-- Videos of the lectures can be found on the University of Leeds' Blackboard system (you must must [register](https://www.leeds.ac.uk/info/101040/applying/86/how_to_apply_for_masters_courses) to courses such as [Data Science and Analytics](https://courses.leeds.ac.uk/i071/data-science-and-analytics-msc) or [Transport Planning and the Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc) to take the course)
+<!-- - See https://itsleeds.github.io/TDS/slides/1-intro.html#1 for the introductory slides, for example -->
+<!-- - Videos of the lectures can be found on the University of Leeds' Blackboard system (you must must [register](https://www.leeds.ac.uk/info/101040/applying/86/how_to_apply_for_masters_courses) to courses such as [Data Science and Analytics](https://courses.leeds.ac.uk/i071/data-science-and-analytics-msc) or [Transport Planning and the Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc) to take the course) -->
 
 # Assessment (for those doing this as credit-bearing)
 
 - You will build-up a portfolio of work
-- 100% coursework assessed, you will submit by **Friday 14th May**:
+- 100% coursework assessed, you will submit by **Friday 13th May**:
   - **a pdf document up to 10 pages long with figures, tables, references explaining how you used data science to research a transport problem**
   - **reproducible code contained in an RMarkdown (.Rmd) document that produced the report**
 - Written in RMarkdown - will be graded for reproducibility
@@ -181,3 +178,5 @@ e %>% arrange(desc(n_coffee))
 # Then...
 source deploy.sh
 ```
+
+# References
