@@ -32,24 +32,19 @@ The module can be taken by students on the [Data Science and Analytics](https://
 
 <!-- The timetable can be found: -->
 
-<!-- - On the University's system (official): [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202021/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) -->
-<!-- - In ical format (for import into Google/Outlook/other Calendar systems): https://github.com/ITSLeeds/TDS/raw/master/timetable-2020.ics -->
-<!-- - As a .csv file (for easy reading as data): https://github.com/ITSLeeds/TDS/blob/master/timetable-2020.csv -->
+- On the University's system (official): [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202122/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
+- In ical format (for import into Google/Outlook/other Calendar systems): https://github.com/ITSLeeds/TDS/raw/master/timetable-2022.ics
+- As a .csv file (for easy reading as data): https://github.com/ITSLeeds/TDS/blob/master/timetable.csv (see table below)
 
 <!-- See below for the sessions -->
 
-<!-- The module timetable is shown in the table below. -->
+The module timetable is shown in the table below.
 
-```{r, message=FALSE, echo=FALSE, eval=FALSE}
-timetable = read_csv("timetable-2020.csv")
+```{r, message=FALSE, echo=FALSE}
+timetable = read_csv("timetable.csv")
 timetable %>% 
-  mutate(Duration = DTEND - DTSTART) %>% 
-  mutate(Duration = case_when(
-    str_detect(SUMMARY, "deadline 1") ~ Duration + 59 + 60 * 3,
-    Duration == min(Duration) ~ Duration + 59,
-    TRUE ~ Duration)) %>% 
-  # mutate(Duration = lubridate::hour(Duration)) %>% 
-  select(-UID, -DTEND) %>% 
+  mutate(`Duration (Hours)` = duration) %>% 
+  select(-description, -duration) %>%
   rename_with(str_to_title) %>% 
   knitr::kable()
 ```
