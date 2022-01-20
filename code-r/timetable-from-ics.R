@@ -10,7 +10,10 @@ calendar::ic_date(.Last.value)
 tt_csv = ics %>% 
   mutate_at(vars(matches("DT")), calendar::ic_datetime) %>% 
   mutate(date = as.Date(DTSTART), duration = DTEND - DTSTART) %>% 
-  select(SUMMARY, DESCRIPTION, date, duration)
+  select(SUMMARY, DESCRIPTION, date, duration) %>% 
+  slice(-4) # todo: remove
+# %>% 
+#   filter(SUMMARY == "TDS Practical")
 names(tt_csv) = tolower(names(tt_csv))
 tt_csv
 
