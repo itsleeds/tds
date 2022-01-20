@@ -1,0 +1,135 @@
+
+<!-- message to students, 2021-01-28 -->
+
+Dear Students and aspiring Data Scientists,
+
+## Welcome
+
+Welcome to Transport Data Science. In this module you will learn data
+science skills and how to apply them to solve real world problems, with
+a focus on transport planning. Transport is by definition a geographic
+phenomenon, meaning the movement from one place to another: “the purpose
+of transportation is to overcome space” (Rodrigue, Comtois, and Slack
+2013).
+
+Becoming good at transport data science therefore means becoming good at
+data science in general and geographic data science in particular. 2021
+is an exciting time to be learning data science for transport
+applications. A wide range of new and open source tools, combined with
+unprecedented amounts of new data, enable researchers to
+visualise/model/understand transport systems in more breadth and depth
+than ever before (Lovelace 2021).
+
+## About the course
+
+Based on an understanding of the evolving nature of data science as a
+collaborative and open source code-driven enterprise, this module takes
+a ‘learning by doing’ approach. The contact time will consist of
+
+-   5 \* one hour lectures that will be released as videos at the
+    beginning of each week (starting from next week)
+-   5 \* 3 hour practicals in which we will work through data science
+    problems and solutions together
+-   A seminar consisting of an hour of an external speaker talking about
+    transport data science used in the wild
+-   most importantly, you will dedicate substantial time (several hours
+    per week) to practicing data science, resulting in a reproducible
+    project portfolio in which you will demonstrate your data science
+    skills
+
+The module timetable is shown in the table below.
+
+| Summary                                           | Date       | Duration |
+|:--------------------------------------------------|:-----------|---------:|
+| TDS Lecture 1                                     | 2022-01-24 |        1 |
+| TDS Lecture 2: The structure of transport data    | 2022-01-31 |        1 |
+| TDS Practical 1                                   | 2022-02-03 |        3 |
+| Lecture 3: Routing                                | 2022-02-07 |        1 |
+| TDS Practical 2: Routing                          | 2022-02-10 |        3 |
+| TDS seminar                                       | 2022-02-16 |        3 |
+| TDS Practical 3: Data from Web Sources            | 2022-02-17 |        3 |
+| TDS Practical 4: OD and route data analysis       | 2022-02-24 |        3 |
+| TDS Lecture 4: Visualising Transport Data         | 2022-03-14 |        1 |
+| TDS Deadline 1: 2 page outline of project         | 2022-03-18 |        1 |
+| TDS Lecture 5: Transport Data Science in Practice | 2022-03-21 |        1 |
+| TDS Practical 5: Visualisation and project work   | 2022-04-28 |        3 |
+| TDS Deadline 2: 10 page project report            | 2022-05-13 |        1 |
+
+You will need to work hard to become a proficient data scientist in the
+transport domain. The work presented in the table above will provide you
+with the foundation you need to progress. But you will need to bring a
+vital ingredient to the course: passion.
+
+## Homework
+
+The first thing you should do is ensure that you have the timetable
+stored safely in your calendar, so you do not miss important practicals
+or seminars. You can watch the lectures in your own time but you *must*
+ensure you have watched each one and taken notes before each practical
+session on Thursdays.
+
+The second thing you should do is ensure that you have the necessary
+software installed on your computer and that you have tested that you
+can use it for the datasets we will be using in the course. **You must
+read and try to complete the exercises in Chapters 1 to 4 of the book
+Reproducible Road Safety Research with R.** Most important section of
+those 4 chapters is Section 1.5, which explains how to install R and
+RStudio. This is not a theoretical section: I suggest you follow the
+instructions here ASAP:
+<https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio>
+
+Other key chapters in that resources are:
+
+-   Chapter 2 on the basics of the statistical programming language R:
+    <https://itsleeds.github.io/rrsrr/basics.html>
+-   Chapter 3 on using RStudio:
+    <https://itsleeds.github.io/rrsrr/rstudio.html>
+-   Chapter 4 on installing R packages, **make sure you can install
+    packages such as sf**: <https://itsleeds.github.io/rrsrr/pkgs.html>
+
+The third and final thing to do is to *engage* with the reading content
+and platforms associated with this module. See the reading list
+associated with the module at
+<https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#reading-list>.
+Read-up on the references and links provided in the References section
+below. Check out the course’s online home on the GitHub platform at
+<https://github.com/ITSLeeds/TDS>. (Fun fact, you can find the source
+code underlying this message
+[here](https://github.com/ITSLeeds/TDS/blob/master/messages/welcome.Rmd).)
+To collaborate on GitHub you should sign-up to get a GitHub account
+here: <https://github.com/> After you have a GitHub account you can ask
+questions by opening an ‘Issue’ in the project’s repository, a common
+way for professional data scientists to communicate about code and their
+work: <https://github.com/ITSLeeds/TDS/issues/> And ensure you can
+access the Transport Data Science Team on Microsoft Teams and please do
+say hello, as shown below.
+
+![](https://user-images.githubusercontent.com/1825120/106159315-8f1fd880-617c-11eb-91be-1a6a123082b2.png)
+
+And please do ask any questions do ask, either via email or preferably
+on Teams or on a GitHub issue. It’s always better ask than to ‘suffer in
+silence!’
+
+I really look forward to working with you all to make this a successful
+and enjoyable module.
+
+# References
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="ref-lovelace_open_2021" class="csl-entry">
+
+Lovelace, Robin. 2021. “Open Source Tools for Geographic Analysis in
+Transport Planning.” *Journal of Geographical Systems*, January.
+<https://doi.org/ghtnrp>.
+
+</div>
+
+<div id="ref-rodrigue_geography_2013" class="csl-entry">
+
+Rodrigue, Jean-Paul, Claude Comtois, and Brian Slack. 2013. *The
+Geography of Transport Systems*. Third. London, New York: Routledge.
+
+</div>
+
+</div>
