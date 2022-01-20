@@ -34,15 +34,16 @@ The module timetable is shown in the table below.
 | TDS Lecture 1                                     | 2022-01-24 |                1 |
 | TDS Lecture 2: The structure of transport data    | 2022-01-31 |                1 |
 | TDS Practical 1                                   | 2022-02-03 |                3 |
-| TDS Practical                                     | 2022-02-03 |                3 |
 | Lecture 3: Routing                                | 2022-02-07 |                1 |
 | TDS Practical 2: Routing                          | 2022-02-10 |                3 |
 | TDS seminar                                       | 2022-02-16 |                3 |
 | TDS Practical 3: Data from Web Sources            | 2022-02-17 |                3 |
 | TDS Practical 4: OD and route data analysis       | 2022-02-24 |                3 |
-| TDS Lecture 3: Visualising Transport Data         | 2022-03-14 |                1 |
+| TDS Lecture 4: Visualising Transport Data         | 2022-03-14 |                1 |
+| TDS Deadline 1: 2 page outline of project         | 2022-03-18 |                1 |
 | TDS Lecture 5: Transport Data Science in Practice | 2022-03-21 |                1 |
 | TDS Practical 5: Visualisation and project work   | 2022-04-28 |                3 |
+| TDS Deadline 2: 10 page project report            | 2022-05-13 |                1 |
 
 <!-- # References -->
 <!-- To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: https://www.zotero.org/groups/956304/tds -->
