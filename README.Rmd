@@ -38,7 +38,8 @@ The module can be taken by students on the [Data Science and Analytics](https://
 
 <!-- See below for the sessions -->
 
-The module timetable is shown in the table below.
+The module timetable can be downloaded as an [ical (.ics) file and added to your calendar here](https://teams.microsoft.com/l/team/19%3aRoB5IN0Rdk4rip9Y0bwQ5TyyO0FEeB76ei27wK8XIqM1%40thread.tacv2/conversations?groupId=0ee6f3e6-292e-4139-af39-4399feb06434&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
+It is also shown in the table below.
 
 ```{r, message=FALSE, echo=FALSE}
 timetable = read_csv("timetable.csv")
