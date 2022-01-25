@@ -27,7 +27,6 @@ If that does not work the packages we will be using are:
 * dodgr
 * opentripplanner
 * igraph
-* ITSleeds/geofabrik
 
 Make sure that you have installed these.
 
