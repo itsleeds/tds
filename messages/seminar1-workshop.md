@@ -1,12 +1,12 @@
 
-# Seminar 1: Data driven and gamified transport planning with A/B Street
+# Seminar 1: From OD data to agent based modelling for car free futures
 
-14:00-14:10: Introduction to the session (Robin) 14:10-14:40: A/B Street
-Lecture (Dustin - video) 14:40-14:55: Q&A
+13:00-13:10: Introduction to the session (Robin) 13:10-13:40: A/B Street
+Lecture (Dustin - video) 13:40-13:55: Q&A
 
-14:55-15:00 Break
+13:55-14:00 Break
 
-15:00-16:00 Exercises 16:00-16:30 Discussion of coursework ideas in
+14:00-15:00 Exercises 15:00-15:30 Discussion of coursework ideas in
 breakout rooms
 
 Exercises, in ascending order of difficulty:
@@ -55,7 +55,7 @@ abstreet.s3-website.us-east-2.amazonaws.com/dev/game/?–dev&gb/leeds/maps/north
         some guesses, where should some cycle lanes go?
     -   From edit mode, you can name your proposal (from “Untitled
         Proposal”). It’s saved in a file in the
-        **data/player/edits/gb/leeds/north\_leeds** folder. We can
+        **data/player/edits/gb/leeds/north_leeds** folder. We can
         share/discuss ideas everybody comes up with later.
 -   Editing traffic signals
     -   Around 6:30 on the North Leeds map, there’s some congestion near
@@ -119,27 +119,55 @@ Reproduce the examples in the README and visualise only the resulting
 driving trips at the disaggregated (building to building) level. The
 results should look like this:
 
-    ## Linking to GEOS 3.8.0, GDAL 3.0.4, PROJ 7.0.0
+    ## Warning in st_centroid.sf(origin_buildings): st_centroid assumes attributes are
+    ## constant over geometries of x
+
+    ## 0 origins with no match in zone ids
+
+    ## 0 destinations with no match in zone ids
+
+    ##  points not in od data removed.
+
+    ## Linking to GEOS 3.10.1, GDAL 3.4.0, PROJ 8.2.0; sf_use_s2() is TRUE
 
 ![](seminar1-workshop_files/figure-gfm/unnamed-chunk-3-1.png)<!-- -->
+
+    ## Default scenario name of 'test' used.
+
+    ## Warning in st_centroid.sf(origin_buildings): st_centroid assumes attributes are
+    ## constant over geometries of x
+
+    ## Warning in st_centroid.sf(destination_buildings): st_centroid assumes attributes
+    ## are constant over geometries of x
+
+    ## 0 origins with no match in zone ids
+
+    ## 0 destinations with no match in zone ids
+
+    ##  points not in od data removed.
+
+![](seminar1-workshop_files/figure-gfm/unnamed-chunk-3-2.png)<!-- -->
 
 Bonus: look-up the documentation for the function `stplanr::route()` and
 use that in combination with the function `stplanr::route_osrm()` to
 calculate driving routes associated with the desire lines shown above.
 
 ``` r
-ablines_dutch_drive_routes = stplanr::route(
-  l = ablines_dutch_drive,
+ablines_drive_routes = stplanr::route(
+  l = ablines_drive,
   route_fun = stplanr::route_osrm,
   osrm.profile = "car"
 )
 ```
 
+    ## Warning in fun(libname, pkgname): rgeos: versions of GEOS runtime 3.10.1-CAPI-1.16.0
+    ## and GEOS at installation 3.9.1-CAPI-1.14.2differ
+
     ## Most common output is sf
 
 ``` r
-ablines_dutch_drive_routes$n = 1
-ablines_rnet = stplanr::overline(ablines_dutch_drive_routes, "n")
+ablines_drive_routes$n = 1
+ablines_rnet = stplanr::overline(ablines_drive_routes, "n")
 tm_shape(ablines_rnet) + tm_lines(lwd = "n", scale = 9)
 ```
 
