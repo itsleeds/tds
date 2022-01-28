@@ -1,13 +1,17 @@
 
 # Seminar 1: From OD data to agent based modelling for car free futures
 
-13:00-13:10: Introduction to the session (Robin) 13:10-13:40: A/B Street
-Lecture (Dustin - video) 13:40-13:55: Q&A
+13:00-13:10: Introduction to the session (Robin)
+
+13:10-13:40: A/B Street Lecture (Dustin - video)
+
+13:40-13:55: Q&A
 
 13:55-14:00 Break
 
-14:00-15:00 Exercises 15:00-15:30 Discussion of coursework ideas in
-breakout rooms
+14:00-15:00 Exercises
+
+15:00-15:30 Discussion of coursework ideas in breakout rooms
 
 Exercises, in ascending order of difficulty:
 
