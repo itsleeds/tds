@@ -94,18 +94,29 @@ Reproduce the examples in the README and visualise only the resulting driving tr
 The results should look like this:
 
 ```{r, echo=FALSE}
-ablines_dutch = ab_scenario(
- houses = leeds_houses,
- buildings = leeds_buildings,
- desire_lines = leeds_desire_lines,
- zones = leeds_zones,
- output_format = "sf"
+od = leeds_od
+zones = leeds_zones
+od[[1]] = c("E02006876")
+ablines = ab_scenario(od, zones = zones, origin_buildings = leeds_buildings)
+plot(leeds_zones$geometry)
+plot(leeds_buildings$geometry, add = TRUE)
+plot(ablines["mode"], add = TRUE)
+ablines_json = ab_json(ablines, scenario_name = "test")
+od = leeds_desire_lines
+names(od)[4:6] = c("Walk", "Bike", "Drive")
+ablines = ab_scenario(
+  od = od,
+  zones = leeds_site_area,
+  zones_d = leeds_zones,
+  origin_buildings = leeds_houses,
+  destination_buildings = leeds_buildings,
+  output = "sf"
 )
-ablines_dutch_drive = ablines_dutch %>% 
-  filter(mode_base == "Drive")
-tm_shape(leeds_buildings, bbox = sf::st_bbox(ablines_dutch_drive)) + tm_polygons() +
+ablines_drive = ablines %>% 
+  filter(mode == "Drive")
+tm_shape(leeds_buildings, bbox = sf::st_bbox(ablines_drive)) + tm_polygons() +
   tm_shape(leeds_houses) + tm_polygons(col = "blue") +
-  tm_shape(ablines_dutch_drive) + tm_lines(col = "red") 
+  tm_shape(ablines_drive) + tm_lines(col = "red") 
 ```
 
 
@@ -113,21 +124,21 @@ Bonus: look-up the documentation for the function `stplanr::route()` and use tha
 
 
 ```{r}
-ablines_dutch_drive_routes = stplanr::route(
-  l = ablines_dutch_drive,
+ablines_drive_routes = stplanr::route(
+  l = ablines_drive,
   route_fun = stplanr::route_osrm,
   osrm.profile = "car"
 )
-ablines_dutch_drive_routes$n = 1
-ablines_rnet = stplanr::overline(ablines_dutch_drive_routes, "n")
+ablines_drive_routes$n = 1
+ablines_rnet = stplanr::overline(ablines_drive_routes, "n")
 tm_shape(ablines_rnet) + tm_lines(lwd = "n", scale = 9)
 ```
 
 What is the mean average and standard deviation of driving route distances in that scenario?
 
 ```{r, eval=FALSE, echo=FALSE}
-mean(ablines_dutch_drive_routes$distance)
-sd(ablines_dutch_drive_routes$distance)
+mean(ablines_drive_routes$distance)
+sd(ablines_drive_routes$distance)
 ```
 
 
