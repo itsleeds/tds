@@ -11,7 +11,11 @@ tt_csv = ics %>%
   mutate_at(vars(matches("DT")), calendar::ic_datetime) %>% 
   mutate(date = as.Date(DTSTART), duration = DTEND - DTSTART) %>% 
   select(SUMMARY, DESCRIPTION, date, duration) %>% 
-  slice(-4) # todo: remove
+  mutate(Start_time = case_when(
+    str_detect(SUMMARY, "Lecture|Prac") ~ "09:00",
+    str_detect(SUMMARY, "eminar|Dead") ~ "13:00"
+  )) %>% 
+  slice(-4) # todo: remove if fixed upstream
 # %>% 
 #   filter(SUMMARY == "TDS Practical")
 names(tt_csv) = tolower(names(tt_csv))
