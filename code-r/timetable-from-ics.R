@@ -10,7 +10,7 @@ calendar::ic_date(.Last.value)
 tt_csv = ics %>% 
   mutate_at(vars(matches("DT")), calendar::ic_datetime) %>% 
   mutate(date = as.Date(DTSTART), duration = DTEND - DTSTART) %>% 
-  select(SUMMARY, DESCRIPTION, date, duration) %>% 
+  select(SUMMARY, date, duration) %>% 
   mutate(Start_time = case_when(
     str_detect(SUMMARY, "Lecture|Prac") ~ "09:00",
     str_detect(SUMMARY, "eminar|Dead") ~ "13:00"

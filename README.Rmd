@@ -45,7 +45,7 @@ It is also shown in the table below.
 timetable = read_csv("timetable.csv")
 timetable %>% 
   mutate(`Duration (Hours)` = duration) %>% 
-  select(-description, -duration) %>%
+  select(-duration) %>%
   rename_with(str_to_title) %>% 
   knitr::kable()
 ```
