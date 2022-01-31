@@ -3,4 +3,4 @@ rl,-1.5,53.8,5,walk
 ct,-1.5, 53.8,3,bicycle
 mm,NA,NA,NA,NA
 jt,-1.6,53.8,1,climb
-gt,NA,NA,NA,NA
+gt,53.8,-1.55,4,walk
