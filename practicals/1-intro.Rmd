@@ -20,11 +20,11 @@ There is one additional package that you will need that is not available on CRAN
 remotes::install_github("Nowosad/spDataLarge")
 ```
 
-## Agenda {-}
+<!-- ## Agenda {-} -->
 
-1. Thinking about transport data science (20 min)
-2. Questions about the homework (10 min)
-3. Practical 2 (2.5 hrs)
+<!-- 1. Thinking about transport data science (20 min) -->
+<!-- 2. Questions about the homework (10 min) -->
+<!-- 3. Practical 2 (2.5 hrs) -->
 
 
 # Thinking about (transport) data science 
