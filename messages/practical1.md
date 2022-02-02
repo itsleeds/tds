@@ -10,3 +10,21 @@
     [practical1](https://github.com/ITSLeeds/TDS/blob/master/practicals/1-intro.md)
     and
     [practical2](https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md)
+
+## Agenda
+
+<!-- - Introduction to the module and team - 30 min -->
+<!-- Each person to say  1) their name and where they are based 2) why they took the module and 3) their level of knowledge of coding. -->
+
+1.  Set-up, thinking about transport data science and homework - 30 min
+2.  Project set-up and using RStudio (this and subsequent points are
+    based on
+    [practical2](https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md)) -
+    30 minutes
+3.  Getting started with transport data in the stplanr package - 30
+    minutes
+4.  Working alone through the questions on processing OD data - 1 hr
+    <!-- running the code in Sections 12.1 to 12.4 the Transport chapter of Geocomputation with R and answering the questions for the Bristol dataset  - 1 hr  -->
+5.  Bonus: Work through [Chapter
+    5](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of
+    R for Data Science
