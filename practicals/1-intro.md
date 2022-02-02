@@ -20,11 +20,10 @@ this requires the package remotes):
 remotes::install_github("Nowosad/spDataLarge")
 ```
 
-## Agenda
-
-1.  Thinking about transport data science (20 min)
-2.  Questions about the homework (10 min)
-3.  Practical 2 (2.5 hrs)
+<!-- ## Agenda {-} -->
+<!-- 1. Thinking about transport data science (20 min) -->
+<!-- 2. Questions about the homework (10 min) -->
+<!-- 3. Practical 2 (2.5 hrs) -->
 
 # 1 Thinking about (transport) data science
 
