@@ -18,6 +18,10 @@ In preparation for the second practical:
 
 -   Watch the routing lecture (see Teams for link)
 
+-   Take a look at the [practical
+    here](https://github.com/ITSLeeds/TDS/blob/master/practicals/6-routing.md),
+    we will run through this during the practical session
+
 -   Bonus 1: Test out GitHub’s issue tracker by responding by saying Hi
     and your name here: <https://github.com/ITSLeeds/TDS/issues/82>
 
