@@ -1,7 +1,7 @@
 
 In preparation for the second practical:
 
--   Consilidate your knowledge of transport (origin-destination) date
+-   Consolidate your knowledge of transport (origin-destination) data
     from the first practical session ([see here for
     notes](https://github.com/ITSLeeds/TDS/blob/master/messages/practical1-notes.R))
     through the rest of the [content for the first
@@ -11,6 +11,10 @@ In preparation for the second practical:
     and
     [4](https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md#4-processing-medium-sized-data-and-basic-visualisation)
     )
+
+-   Complete the homework listed in [practical
+    2](https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md)
+    including creating an RMarkdown document
 
 -   Run this reproducible R script on your computer and let us know if
     you have any issues:
