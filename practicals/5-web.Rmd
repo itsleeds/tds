@@ -131,9 +131,9 @@ Read through Section [7.2](https://geocompr.robinlovelace.net/read-write.html#re
 
 Complete Excersises 4, 5, 6 and 7 of the chapter
 
-## Bonus 1: Geofabrik
+## Bonus 1: osmextract
 
-Take a read of the documentation on the website https://itsleeds.github.io/geofabrik/ 
+Take a read of the documentation for the [`osmextract`](https://docs.ropensci.org/osmextract/index.html) package.
 
 Reproduce the examples
 
