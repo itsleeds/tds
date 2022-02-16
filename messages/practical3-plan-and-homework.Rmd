@@ -1,0 +1,33 @@
+---
+output: github_document
+---
+
+- Review of homework and using RMarkdown (45 minutes)
+
+<!-- Around 30 minutes -->
+
+1) check you have done all aspects of the homework from last week, including creating an RMarkdown document, see [here](https://github.com/ITSLeeds/TDS/blob/master/messages/practical2.md) for details.
+
+2) interact on Teams and on GitHub, if you have any questions about how to do this let me know on Teams, I've just shared a link to a paper on methods for pre-processing OD datasets, any other links/ideas/questions do share, or just say hi there (see link here).
+
+3) start thinking about project ideas and the kinds of datasets you would like to work with for the submission - remember the deadline for submitting a 2 page document outlining your idea is in just over a month (18th March) so it's a good idea to get thinking about your projects already
+
+<!-- 30 minutes or less, then take a break -->
+
+- How to use RMarkdown for courswork, see the template here: https://github.com/ITSLeeds/TDS/blob/master/coursework-template.Rmd
+
+- Testing out overpass
+
+Break
+
+- Getting stats19 data, working on your own (45 minutes)
+- 15 min Q&A
+
+- Getting data with the pct package
+- Getting data from the web
+
+- Homework: Making a start on the interim 2 page report, deadline: 18th March
+- Reading in preparation for Practical 4: 
+  - https://rmarkdown.rstudio.com/
+  - Paper on modelling road crash data: https://arxiv.org/abs/2011.12595
+  - This article on OD data: https://itsleeds.github.io/od/articles/od.html
