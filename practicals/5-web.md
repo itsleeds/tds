@@ -112,7 +112,7 @@ data_osm = opq("leeds uk") %>%
 ``` r
 # if the previous command fails, try:
 data_osm = readRDS(url("https://github.com/ITSLeeds/TDS/releases/download/0.20.1/data_osm_cycle_superhighway.Rds"))
-cycleway_100m_buffer = stplanr::geo_buffer(data_osm$osm_lines, dist = 1000)
+cycleway_100m_buffer = stplanr::geo_buffer(data_osm$osm_lines, dist = 100)
 ```
 
     ## Warning in fun(libname, pkgname): rgeos: versions of GEOS runtime 3.10.1-CAPI-1.16.0
@@ -121,17 +121,62 @@ cycleway_100m_buffer = stplanr::geo_buffer(data_osm$osm_lines, dist = 1000)
 ``` r
 crashes_leeds_lon_lat = crashes_leeds %>% st_transform(4326)
 crashes_near_cycle_superhighway = crashes_leeds_lon_lat[cycleway_100m_buffer, ]
+```
+
+``` r
 tm_shape(data_osm$osm_lines) + tm_lines() +
   tm_shape(crashes_near_cycle_superhighway) + tm_dots("casualty_type")
 ```
 
-![](5-web_files/figure-gfm/unnamed-chunk-11-1.png)<!-- -->
+![](https://user-images.githubusercontent.com/1825120/154372076-b3b74387-a4e1-4574-a647-2d8b4a114fad.png)
 
 -   Filter crashes that happened within a 500 m buffer of the cycle
     infrastructure
 -   Do cyclists seem safer on the cycle superhighway?
 -   Bonus: pull down origin-destination data with the `pct` package
     hosted at: <https://github.com/ITSLeeds/pct>
+
+## Get travel to work data with the PCT
+
+Use the `pct` package’s inbuilt help to find out how to get data for
+West Yorkshire. Hint: the code below gets zones for Leeds:
+
+``` r
+library(pct)
+head(pct::pct_regions)
+```
+
+    ## Simple feature collection with 6 features and 1 field
+    ## Geometry type: MULTIPOLYGON
+    ## Dimension:     XY
+    ## Bounding box:  xmin: -3.193998 ymin: 51.28676 xmax: 0.3339015 ymax: 55.07939
+    ## Geodetic CRS:  WGS 84
+    ##             region_name                       geometry
+    ## 1                london MULTIPOLYGON (((0.2082447 5...
+    ## 2    greater-manchester MULTIPOLYGON (((-2.146328 5...
+    ## 3 liverpool-city-region MULTIPOLYGON (((-2.730525 5...
+    ## 4       south-yorkshire MULTIPOLYGON (((-1.822229 5...
+    ## 5            north-east MULTIPOLYGON (((-1.784972 5...
+    ## 6         west-midlands MULTIPOLYGON (((-1.788081 5...
+
+``` r
+# see all regions with View(pct_regions)
+zones = get_pct_zones(region = "west-yorkshire")
+zones_leeds = zones %>% 
+  filter(lad_name == "Leeds")
+zones_leeds %>% 
+  select(bicycle:taxi_other) %>% 
+  plot()
+```
+
+![](5-web_files/figure-gfm/getzones-1.png)<!-- -->
+
+``` r
+?get_pct_routes_fast
+```
+
+Bonus (if you have time and a decent computer): download and import the
+‘car.zip’ data from <https://github.com/ITSLeeds/NTEM2OD/releases>
 
 ## Getting data from the web
 

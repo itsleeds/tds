@@ -114,16 +114,45 @@ piggyback::pb_download_url("data_osm_cycle_superhighway.Rds")
 ```{r}
 # if the previous command fails, try:
 data_osm = readRDS(url("https://github.com/ITSLeeds/TDS/releases/download/0.20.1/data_osm_cycle_superhighway.Rds"))
-cycleway_100m_buffer = stplanr::geo_buffer(data_osm$osm_lines, dist = 1000)
+cycleway_100m_buffer = stplanr::geo_buffer(data_osm$osm_lines, dist = 100)
 crashes_leeds_lon_lat = crashes_leeds %>% st_transform(4326)
 crashes_near_cycle_superhighway = crashes_leeds_lon_lat[cycleway_100m_buffer, ]
+```
+
+```{r, eval=FALSE}
 tm_shape(data_osm$osm_lines) + tm_lines() +
   tm_shape(crashes_near_cycle_superhighway) + tm_dots("casualty_type")
 ```
 
+
+![](https://user-images.githubusercontent.com/1825120/154372076-b3b74387-a4e1-4574-a647-2d8b4a114fad.png)
+
   - Filter crashes that happened within a 500 m buffer of the cycle infrastructure
   - Do cyclists seem safer on the cycle superhighway?
   - Bonus: pull down origin-destination data with the `pct` package hosted at: https://github.com/ITSLeeds/pct
+
+## Get travel to work data with the PCT
+
+Use the `pct` package's inbuilt help to find out how to get data for West Yorkshire.
+Hint: the code below gets zones for Leeds:
+
+```{r getzones}
+library(pct)
+head(pct::pct_regions)
+# see all regions with View(pct_regions)
+zones = get_pct_zones(region = "west-yorkshire")
+zones_leeds = zones %>% 
+  filter(lad_name == "Leeds")
+zones_leeds %>% 
+  select(bicycle:taxi_other) %>% 
+  plot()
+```
+
+```{r, eval=FALSE}
+?get_pct_routes_fast
+```
+
+Bonus (if you have time and a decent computer): download and import the 'car.zip' data from https://github.com/ITSLeeds/NTEM2OD/releases
 
 ## Getting data from the web
 
