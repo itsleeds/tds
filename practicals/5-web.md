@@ -34,7 +34,7 @@ library(tidyverse)
 
 ``` r
 install.packages("stats19") # the stable version
-remotes::install_github("ropensci/stats19") # the most recent 'development' version
+# remotes::install_github("ropensci/stats19") # the most recent 'development' version
 ```
 
 -   Show crashes involving pedestrians in Manchester by reproducing the
@@ -136,8 +136,8 @@ tm_shape(data_osm$osm_lines) + tm_lines() +
 ## Getting data from the web
 
 Read through Section
-[7.2](https://geocompr.robinlovelace.net/read-write.html#retrieving-data)
-and 7.3 of Geocomputation with R.
+[8.2](https://geocompr.robinlovelace.net/read-write.html#retrieving-data)
+and 8.3 of Geocomputation with R.
 
 Complete Excersises 4, 5, 6 and 7 of the chapter
 
@@ -163,3 +163,8 @@ Identify a region and zonal units of interest from
 -   Join-on data from a non-geographic object
 
 -   Add a data access section to your in progress portfolio
+
+## Bonus 3: find another geographic or transport dataset hosted online and write code to download it
+
+-   Share the code on Teams or in a GitHub issue:
+    <https://github.com/ITSLeeds/TDS/issues>
