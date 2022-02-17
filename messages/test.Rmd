@@ -6,6 +6,7 @@ output: bookdown::html_document2
 #     toc: true
 #     toc_depth: 2
 #     number_section: true
+bibliography: references.bib
 ---
 
 ```{r, include=FALSE}
@@ -19,6 +20,10 @@ library(tmap)
 
 This is some content. It uses the `tidyverse` package.
 **This bold.**
+We build on the the work of @anda2017transport.
+This is another way of doing citations [@anda2017transport].
+
+Here is another one [@peyre2019computational].
 
 ```{r, eval=FALSE}
 # To generate this result I used the following code
@@ -39,3 +44,18 @@ See Figure \@ref(fig:leeds) below.
 ```{r leeds, echo=FALSE, fig.cap="This is a map of Leeds."}
 knitr::include_graphics("map1.png")
 ```
+
+
+
+
+
+```{r}
+1 + 1
+```
+
+# Introduction
+
+
+
+
+# References
