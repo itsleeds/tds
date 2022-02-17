@@ -1,0 +1,41 @@
+---
+title: Test
+output: bookdown::html_document2
+# output:
+#   html_document:
+#     toc: true
+#     toc_depth: 2
+#     number_section: true
+---
+
+```{r, include=FALSE}
+# load some packages
+library(tidyverse)
+library(stplanr)
+library(tmap)
+```
+
+# Context
+
+This is some content. It uses the `tidyverse` package.
+**This bold.**
+
+```{r, eval=FALSE}
+# To generate this result I used the following code
+source("data-processing.R")
+```
+
+
+
+```{r, eval=FALSE, echo=FALSE}
+zones = stplanr::zones_sf
+map1 = tm_shape(zones) +
+  tm_polygons()
+tmap_save(map1, "map1.png")
+```
+
+See Figure \@ref(fig:leeds) below.
+
+```{r leeds, echo=FALSE, fig.cap="This is a map of Leeds."}
+knitr::include_graphics("map1.png")
+```
