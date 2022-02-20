@@ -8,46 +8,28 @@ This package builds on the [routing
 practical](https://github.com/ITSLeeds/TDS/blob/master/practicals/6-routing.md)
 and demonstrates ways to analyse OD and route network data.
 
-As before we will use the `tidyverse` and `sf` packages:
+As before we will use the `tidyverse`, `tmap` and `sf` packages:
 
 ``` r
 library(tidyverse)
+library(tmap)
 library(sf)
 ```
 
 ## Input data
 
-As in the routing practical, we will use desire lines from the NTEM
-project.
-
--   Read them in with the following commands:
-
-``` r
-u = "https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson"
-desire_lines = read_sf(u)
-head(desire_lines)
-```
-
-    ## Simple feature collection with 6 features and 9 fields
-    ## Geometry type: LINESTRING
-    ## Dimension:     XY
-    ## Bounding box:  xmin: -1.547 ymin: 53.7065 xmax: -1.2403 ymax: 53.7979
-    ## Geodetic CRS:  WGS 84
-    ## # A tibble: 6 × 10
-    ##   from      to          all drive passenger  walk cycle  rail   bus
-    ##   <chr>     <chr>     <dbl> <dbl>     <dbl> <dbl> <dbl> <dbl> <dbl>
-    ## 1 E02002444 E02002443  1374    55        24  1121     0     0   174
-    ## 2 E02002443 E02002445  1189   100        44   868     4     0   173
-    ## 3 E02002442 E02002440  1494    83        40  1139    23     0   209
-    ## 4 E02002442 E02002441  1747   349       168   906    62     0   262
-    ## 5 E02002447 E02002448  4930    70        36  4162    98     0   564
-    ## 6 E02006876 E02006875 10314  1854       942  4680   251     0  2587
-    ## # … with 1 more variable: geometry <LINESTRING [°]>
-
 -   Get data on the zones in West Yorkshire with the following command:
 
 ``` r
 zones = pct::get_pct_zones(region = "west-yorkshire", geography = "msoa")
+```
+
+-   Get origin-destination data with the following commands:
+
+``` r
+u = "https://github.com/ITSLeeds/TDS/releases/download/0.1/desire_lines.geojson"
+download.file(u, "desire_lines.geojson")
+desire_lines = read_sf("desire_lines.geojson")
 ```
 
 ## Exploratory analysis of zone data
@@ -94,17 +76,20 @@ zones %>% select(
 
 <img src="od-route-analysis_files/figure-gfm/unnamed-chunk-9-1.png" width="100%" />
 
--   Create a new object called `zones_active_modes` that only contains
-    the `bicycle` and `foot` attribute columns. Plot it (the results
-    should look like those below).
+-   Create a new object called `zones_active_modes` that is identical to
+    the `zones` object but which has a new column called `active`,
+    containing the number of people walking plus the number of people
+    cycling to work (hint: use the function `mutate()`. Plot the spatial
+    distribution of trips made by car and active modes in a facetted map
+    (hint, use `tm_fill(c("active", "car_driver"))`). The results should
+    look like those below (bonus, create a scatter plot showing the
+    relationship between these variables).
 
-<img src="od-route-analysis_files/figure-gfm/unnamed-chunk-10-1.png" width="50%" />
+<img src="od-route-analysis_files/figure-gfm/unnamed-chunk-10-1.png" width="50%" /><img src="od-route-analysis_files/figure-gfm/unnamed-chunk-10-2.png" width="50%" />
 
 -   Which zone has the highest level of cycling, and where is it?
-
--   Use the function `filter()`
-
-### OD Data
+-   Use the function `filter()` to create an object only containing that
+    zone
 
 ### Desire lines
 
@@ -113,12 +98,6 @@ zones %>% select(
     from [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS)):
 
 ``` r
-library(dplyr)
-library(sf)
-u = "https://github.com/ITSLeeds/TDS/releases/download/0.1/desire_lines.geojson"
-
-download.file(u, "desire_lines.geojson")
-desire_lines = read_sf("desire_lines.geojson")
 # note: you can also read-in the file from the url:
 # desire_lines = read_sf(u)
 ```
@@ -190,18 +169,72 @@ desire_lines_pcar = desire_lines_1_3km %>%
 
 <img src="od-route-analysis_files/figure-gfm/unnamed-chunk-20-1.png" width="50%" />
 
+To get not only the most car dependent desire lines but route segments,
+run the following commands:
+
+``` r
+# warning, takes some time, skip this chunk to speed-up results
+routes = pct::get_pct_routes_fast("west-yorkshire", geography = "msoa") 
+routes_dep_100 = routes %>% 
+  filter(id %in% car_dep_100$id)
+saveRDS(routes_dep_100, "routes_dep_100.Rds")
+```
+
+You can read-in the results as follows:
+
+``` r
+u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_dep_100.Rds"
+download.file(url = u, destfile = "routes_dep_100.Rds")
+routes_dep_100 = readRDS("routes_dep_100.Rds")
+```
+
+To convert these routes into route segments, with estimates of n. people
+driving on different parts of the network (based on a small sample of
+total travel), use the overline function (see `?overline` for help):
+
+<img src="od-route-analysis_files/figure-gfm/unnamed-chunk-24-1.png" width="50%" />
+
+What could be done to reduce car dependency in these areas?
+
+Bonus: undertake the analysis above but using desire lines from the NTEM
+project.
+
+-   Read them in with the following commands:
+
+``` r
+u = "https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson"
+desire_lines = read_sf(u)
+head(desire_lines)
+```
+
+    ## Simple feature collection with 6 features and 9 fields
+    ## Geometry type: LINESTRING
+    ## Dimension:     XY
+    ## Bounding box:  xmin: -1.547 ymin: 53.7065 xmax: -1.2403 ymax: 53.7979
+    ## Geodetic CRS:  WGS 84
+    ## # A tibble: 6 × 10
+    ##   from      to          all drive passenger  walk cycle  rail   bus
+    ##   <chr>     <chr>     <dbl> <dbl>     <dbl> <dbl> <dbl> <dbl> <dbl>
+    ## 1 E02002444 E02002443  1374    55        24  1121     0     0   174
+    ## 2 E02002443 E02002445  1189   100        44   868     4     0   173
+    ## 3 E02002442 E02002440  1494    83        40  1139    23     0   209
+    ## 4 E02002442 E02002441  1747   349       168   906    62     0   262
+    ## 5 E02002447 E02002448  4930    70        36  4162    98     0   564
+    ## 6 E02006876 E02006875 10314  1854       942  4680   251     0  2587
+    ## # … with 1 more variable: geometry <LINESTRING [°]>
+
 ## Homework
 
--   Work through Chapter 12 of Geocomputation with R on Transport -
-    <https://geocompr.robinlovelace.net/transport.html>
--   Save your workings in an R script
+Make a start on your coursework and the ‘2 pager’.
 
-Bonus 1 Complete exercise 1 (not bonus)
+Take a read of the documentation for the abstr package:
+<https://a-b-street.github.io/abstr/> that will be useful preparation
+for the seminar.
 
-Bonus 1 (non technical): answer question 3
-
-Bonus 2 (technical): can you reproduce the results for Leeds? This
-starting point may be useful:
+Reproduce the results presented in the [transport chapter of
+Geocomputation with
+R](https://geocompr.robinlovelace.net/transport.html) for another
+region, e.g. West Yorkshire. This starting point may be useful:
 
 ``` r
 region = "west-yorkshire"
