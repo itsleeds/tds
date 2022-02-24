@@ -52,23 +52,23 @@ dim(desire_lines)
 
 - Explore the link between the `zones` and `desire_lines` datasets: what percentage of 'zone IDs' (codes that identify the zones) can be found in the desire lines object (either as zones of origin or destination)?
   - Hint: you can break this question into pieces:
-    - The following command will generate a vector containing logical (boolean) values, each `TRUE` when the corresponding zone ID is contained within the `desire_lines` variable: `zones_in_o = zones$geo_code %in% desire_lines$from`
-  - What percentage of the desire lines are contained within West Yorkshire (and how did you find out)?
+    - The following command will generate a vector containing logical (boolean) values, each `TRUE` when the corresponding zone ID is contained within the `desire_lines` variable: `zones_in_o = zones$geo_code %in% desire_lines$geo_code1`
+  - What percentage of the desire lines are contained within West Yorkshire (and how did you find out)? NB West Yorkshire zones are Bradford, Calderdale, Kirklees, Leeds and Wakefield
   
 ```{r, eval=FALSE, echo=FALSE}
-zones_in_o = zones$geo_code %in% desire_lines$from
+zones_in_o = zones$geo_code %in% desire_lines$geo_code1
 summary(zones_in_o)
-summary(zones$geo_code %in% desire_lines$from)
+summary(zones$geo_code %in% desire_lines$geo_code1)
 #    Mode   FALSE    TRUE 
-# logical      99     200
-200 / 299 # 67%
-summary(zones$geo_code %in% desire_lines$to)
+# logical      22     227
+227 / 299 # 76%
+summary(zones$geo_code %in% desire_lines$geo_code2)
 #    Mode   FALSE    TRUE 
-# logical      79     220 
-220 / 299 # 74%
-from_and_to = c(desire_lines$from, desire_lines$to)
+# logical      63     236 
+236 / 299 # 79%
+from_and_to = c(desire_lines$geo_code1, desire_lines$geo_code2)
 summary(zones$geo_code %in% from_and_to)
-278 / 299 # 93%
+299 / 299 # 100%
 ```
 
 - Plot the number of car trips and walking trips as follows, what do you notice about the results? Where is most potential to increase walking levels, based on these results?
@@ -112,17 +112,9 @@ zones_active_modes %>%
 
 ### Desire lines
 
-- Read-in top 1000 desire lines for Leeds with the following code (hint: rather than typing the url of the file you can copy-paste it from [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS)):
-
-```{r, message=FALSE}
-# note: you can also read-in the file from the url:
-# desire_lines = read_sf(u)
-```
-
 Plot the lines statically as follows:
 
 ```{r}
-library(tmap)
 tm_shape(desire_lines) +
   tm_lines()
 ```
@@ -163,7 +155,7 @@ plot(desire_lines_1_3km$geometry)
 
 Create a new variable called `percent_drive` that contains the percentage of trips driven in each of the lines in the `desire_lines_1_3km` object with the following command:
 
-```{r}
+```{r, echo=FALSE}
 desire_lines_pcar = desire_lines_1_3km %>% 
   mutate(percent_drive = car_driver / all * 100)
 ```
