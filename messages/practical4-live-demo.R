@@ -41,4 +41,22 @@ ggplot(zones_active_percent) +
   ylab("Percent of trips by active modes") +
   xlab("Percent of trips by driving") 
 
+# Get traffic data --------------------------------------------------------
+
+u = "https://storage.googleapis.com/dft-statistics/road-traffic/downloads/data-gov-uk/region_traffic_by_vehicle_type.csv"
+regional_traffic_data = readr::read_csv(u)
+traffic_clean = regional_traffic_data %>%
+  mutate(region_id = as.character(region_id)) %>% 
+  group_by(year, region_id) %>% 
+  summarise(
+    cycling = sum(pedal_cycles),
+    driving = sum(all_motor_vehicles)
+    ) %>% 
+  pivot_longer(cols = matches("ing"))
+
+traffic_clean %>% 
+  ggplot(aes(year, value, colour = region_id)) +
+  geom_line() +
+  facet_wrap(~ name, scales = "free")
+
 
