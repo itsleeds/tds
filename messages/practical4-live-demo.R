@@ -59,4 +59,8 @@ traffic_clean %>%
   geom_line() +
   facet_wrap(~ name, scales = "free")
 
-
+u = "https://storage.googleapis.com/dft-statistics/road-traffic/downloads/data-gov-uk/dft_traffic_counts_raw_counts.zip"
+raw_data = readr::read_csv(u)
+f = basename(u)
+download.file(u, destfile = f)
+raw_data = read_csv(f)
