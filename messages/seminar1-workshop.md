@@ -1,5 +1,5 @@
 
-# Seminar 1: From OD data to agent based modelling for car free futures
+# TDS Seminar: From OD data to agent based modelling for car free futures
 
 13:00-13:10: Introduction to the session (Robin)
 
