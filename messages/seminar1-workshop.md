@@ -1,9 +1,9 @@
 
 # TDS Seminar: From OD data to agent based modelling for car free futures
 
-13:00-13:10: Introduction to the session (Robin)
+13:00-13:10: Introduction to the session
 
-13:10-13:40: A/B Street Lecture (Dustin - video)
+13:10-13:40: A/B Street Lecture
 
 13:40-13:55: Q&A
 
