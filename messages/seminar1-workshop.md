@@ -21,3 +21,11 @@ You can't import new maps or follow along with all the exercises in the web vers
 ## Slides
 
 Find the slides at <https://dabreegster.github.io/talks/tds_seminar_synthpop/slides.html>. (And feel free to use Github to discuss content, raise questions/ideas -- https://github.com/dabreegster/talks/tree/main/tds_seminar_synthpop)
+
+## Location
+
+The seminar will take place in the Parkinson Building, the tallest building in the University of Leeds (you cannot miss it!).
+It's in Parkinson building room B.09.
+We'll be having lunch in the Parkinson building cafe before so feel free to meet there at around 12:30 or in the room around 12:50 to get set-up before the session begins.
+
+Details on the room: https://students.leeds.ac.uk/rooms?type=room&id=100019
