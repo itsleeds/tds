@@ -29,3 +29,5 @@ It's in Parkinson building room B.09.
 We'll be having lunch in the Parkinson building cafe before so feel free to meet there at around 12:30 or in the room around 12:50 to get set-up before the session begins.
 
 Details on the room: https://students.leeds.ac.uk/rooms?type=room&id=100019
+
+For livestream on Teams see [here](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NDE2ZjQzNjQtM2M0YS00ZDFhLWFhN2ItYzA3YjA1YWFmOTNj%40thread.v2/0?context=%7b%22Tid%22%3a%22bdeaeda8-c81d-45ce-863e-5232a535b7cb%22%2c%22Oid%22%3a%22db432bda-89ab-48ff-8016-978914bd784a%22%7d)
