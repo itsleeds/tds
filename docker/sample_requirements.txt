@@ -7,7 +7,7 @@ click==8.0.3
 cryptography==36.0.1
 defusedxml==0.7.1
 distlib==0.3.4
-Django==3.1.4
+Django==3.1.14
 django-allauth==0.43.0
 django-crispy-forms==1.10.0
 django-debug-toolbar==3.2
