@@ -10,7 +10,7 @@ distlib==0.3.4
 Django==3.1.4
 django-allauth==0.43.0
 django-crispy-forms==1.10.0
-django-debug-toolbar==3.2
+django-debug-toolbar==3.2.1
 filelock==3.6.0
 idna==3.3 
 mypy-extensions==0.4.3
