@@ -13,7 +13,7 @@ browseURL("http://ses.leeds.ac.uk/info/21630/timetabling/1291/teaching_week_patt
 w_start = as.Date("2020-09-28") + 364 + 364 + 7
 w_start
 lubridate::wday(w_start, label = TRUE) # start on a Monday
-week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("E", 1:4), 23:30)
+week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("C", 1:4), 23:30)
 n_weeks = length(week_num)
 week_commencing = seq(from = w_start, by = 7, length.out = n_weeks)
 weeks = tibble::tibble(week_num, week_commencing, day = lubridate::wday(week_commencing, label = TRUE))
@@ -46,7 +46,7 @@ lecture_ids = c(
 lecture_day_of_week = 1
 lecture_start_time = "11:00"
 lecture_end_time = "12:00"
-lecture = tibble::tibble(week_num = as.character(c(15:17, 21:22)))
+lecture = tibble::tibble(week_num = as.character(c(14:16, 21:22)))
 lecture = dplyr::inner_join(lecture, weeks)
 lecture$date = lecture$week_commencing + (lecture_day_of_week - 1)
 lecture$DTSTART = lubridate::ymd_hm(paste(lecture$date, lecture_start_time)) 
@@ -80,7 +80,7 @@ practical_descriptions = c(
 practical_day_of_week = 4
 practical_start_time = "09:00"
 practical_end_time = "11:30"
-practical = tibble::tibble(week_num = as.character(c(15:17, 21, 23)))
+practical = tibble::tibble(week_num = as.character(c(15:18, 23)))
 practical = dplyr::inner_join(practical, weeks)
 practical$date = practical$week_commencing + (practical_day_of_week - 1)
 practical$DTSTART = lubridate::ymd_hm(paste(practical$date, practical_start_time)) 
