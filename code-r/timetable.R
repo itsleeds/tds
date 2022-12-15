@@ -8,7 +8,7 @@ library(tidyverse)
 # get dates -----
 # See https://ses.leeds.ac.uk/info/21630/timetabling/1004/teaching_week_patterns
 # browseURL("https://ses.leeds.ac.uk/download/1557/1920_teaching_week_pattern")
-browseURL("http://ses.leeds.ac.uk/info/21630/timetabling/1291/teaching_week_patterns_202223")
+# browseURL("http://ses.leeds.ac.uk/info/21630/timetabling/1291/teaching_week_patterns_202223")
 # w_start = as.Date("2020-09-28") + 364
 w_start = as.Date("2020-09-28") + 364 + 364 + 7
 w_start
@@ -17,29 +17,29 @@ week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("C", 1:4), 23:30)
 n_weeks = length(week_num)
 week_commencing = seq(from = w_start, by = 7, length.out = n_weeks)
 weeks = tibble::tibble(week_num, week_commencing, day = lubridate::wday(week_commencing, label = TRUE))
-View(weeks)
+# View(weeks)
 tt_url = "http://timetable.leeds.ac.uk/teaching/202223/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21"
-browseURL(tt_url)
-download.file(tt_url, "timetable-2022-2023.html")
-piggyback::pb_upload("timetable-2022-2023.html")
-piggyback::pb_new_release(tag = "23")
+# browseURL(tt_url)
+# download.file(tt_url, "timetable-2022-2023.html")
+# piggyback::pb_upload("timetable-2022-2023.html")
+# piggyback::pb_new_release(tag = "23")
 # browseURL("~/onedrive/modules/tds/202021/timetable-uol.html")
 
 # lectures ------------------------------------------------------
 
 lecture_description = c(
   "The structure of transport data and data cleaning",
-  "Visualising transport data",
   "Working with origin-destination data",
   "From origin-destination data to routes",
+  "Visualising transport data",
   "Project work"
 )
 
 lecture_ids = c(
   "structure",
-  "viz",
   "od",
   "routing",
+  "viz",
   "project"
 )
 
@@ -57,23 +57,23 @@ lecture$SUMMARY = paste0("TDS Lecture ", 1:nrow(lecture), ": ", lecture_ids)
 lecture$LOCATION = "Online - Teams"
 lecture$DESCRIPTION = paste0(lecture_description)
 nrow(lecture)
-View(lecture)
+# View(lecture)
 
 # practical sessions ------------------------------------------------------
 
 practical_ids = c(
   "structure",
-  "getting",
-  "od",
   "routing",
+  "od",
+  "getting",
   "project"
 )
 
 practical_descriptions = c(
   "The structure of transport data",
-  "Getting transport data",
-  "Origin-destination data",
   "Routing",
+  "Origin-destination data",
+  "Getting transport data",
   "Project work"
 )
 
@@ -96,7 +96,7 @@ nrow(practical) # there are 5 practicals
 
 seminar_ids = c(
   "trajectories",
-  "rail"
+  "planning"
 )
 seminar_descriptions = c(
   "Mapping trajectories",
@@ -175,9 +175,10 @@ tt_csv = tt_min %>%
   select(SUMMARY, DESCRIPTION, date, duration)
 names(tt_csv) = tolower(names(tt_csv))
 
+
 calendar::ic_write(ic, "timetable.ics") # note: generates faulty calendar with ic[1, ]: bug in ic_read?
 readLines("timetable.ics")
 readr::write_csv(tt_csv, "timetable.csv")
 
-
+View(tt_min)
 
