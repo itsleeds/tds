@@ -95,15 +95,15 @@ nrow(practical) # there are 5 practicals
 # seminars ------------------------------------------------------
 
 seminar_ids = c(
-  "trajectories",
-  "planning"
+  "seminar1",
+  "seminar2"
 )
 seminar_descriptions = c(
-  "Mapping trajectories",
-  "Data science in transport planning"
+  "Seminar 1",
+  "Seminar 2"
 )
 
-seminar_day_of_week = 3
+seminar_day_of_week = c(4, 3)
 seminar_start_time = "14:00"
 seminar_end_time = "16:00"
 seminar = tibble::tibble(week_num = as.character(c(17, 19)))
