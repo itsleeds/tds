@@ -129,8 +129,10 @@ say hello, as shown below.
 <!-- ![](https://user-images.githubusercontent.com/1825120/106159315-8f1fd880-617c-11eb-91be-1a6a123082b2.png) -->
 
 And please do ask any questions do ask, either via email or preferably
-on Minerva or via a GitHub issue. It’s always better ask than to ‘suffer
-in silence!’
+on
+[Minerva](https://minerva.leeds.ac.uk/ultra/courses/_542966_1/outline)
+or via a GitHub issue as described above. It’s always better ask than to
+‘suffer in silence!’
 
 I really look forward to working with you all to make this a successful
 and enjoyable module.
