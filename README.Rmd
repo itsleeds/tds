@@ -24,7 +24,7 @@ RefManageR::WriteBib(c(refs1, refs2), "tds.bib")
 # TDS (Transport Data Science)
 
 This is a GitHub Repository (repo for short) that supports teaching of the Transport Data Science module at the University of Leeds.
-The module can be taken by students on the [Data Science and Analytics](https://courses.leeds.ac.uk/i071/data-science-and-analytics-msc) and (from 2022 onwards) [Transport Planning and the Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc) MSc courses.
+The module can be taken by students on the [Data Science and Analytics](https://courses.leeds.ac.uk/i071/data-science-and-analytics-msc) and the [Transport Planning and the Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc) MSc courses.
 
 <!-- The module catalogue can be found at [`catalogue.md`](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md). -->
 <!-- The computer code accompanying the course can be found in the `code` folders. -->

@@ -54,7 +54,7 @@ lecture$DTEND = lubridate::ymd_hm(paste(lecture$date, lecture_end_time))
 lecture$duration = (lecture$DTEND - lecture$DTSTART)
 lecture$type = "Lecture"
 lecture$SUMMARY = paste0("TDS Lecture ", 1:nrow(lecture), ": ", lecture_ids)
-lecture$LOCATION = "Online - Teams"
+lecture$LOCATION = "Civil Engineering LT B (3.25)"
 lecture$DESCRIPTION = paste0(lecture_description)
 nrow(lecture)
 # View(lecture)
@@ -172,7 +172,7 @@ tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION
 ic = calendar::ical(tt_min)
 tt_csv = tt_min %>% 
   mutate(date = as.Date(DTSTART), duration = DTEND - DTSTART) %>% 
-  select(SUMMARY, DESCRIPTION, date, duration)
+  select(SUMMARY, DESCRIPTION, date, duration, LOCATION)
 names(tt_csv) = tolower(names(tt_csv))
 
 
