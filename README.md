@@ -16,14 +16,14 @@ MSc courses.
 <!-- To run this code you will need R and Python installed plus various packages and libraries. -->
 <!-- The timetable can be found: -->
 
--   On the University’s system (official):
-    [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202122/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
--   In ical format (for import into Google/Outlook/other Calendar
-    systems):
-    <https://github.com/ITSLeeds/TDS/raw/master/timetable-2022.ics>
--   As a .csv file (for easy reading as data):
-    <https://github.com/ITSLeeds/TDS/blob/master/timetable.csv> (see
-    table below)
+- On the University’s system (official):
+  [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202223/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
+- In ical format (for import into Google/Outlook/other Calendar
+  systems):
+  <https://github.com/ITSLeeds/TDS/raw/master/timetable-2022.ics>
+- As a .csv file (for easy reading as data):
+  <https://github.com/ITSLeeds/TDS/blob/master/timetable.csv> (see table
+  below)
 
 <!-- See below for the sessions -->
 
@@ -32,21 +32,23 @@ to your calendar
 here](https://teams.microsoft.com/l/team/19%3aRoB5IN0Rdk4rip9Y0bwQ5TyyO0FEeB76ei27wK8XIqM1%40thread.tacv2/conversations?groupId=0ee6f3e6-292e-4139-af39-4399feb06434&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
 It is also shown in the table below.
 
-| Summary                                           | Date       | Start_time | Duration (Hours) |
-|:--------------------------------------------------|:-----------|:-----------|-----------------:|
-| TDS Lecture 1                                     | 2022-01-24 | 09:00:00   |                1 |
-| TDS Lecture 2: The structure of transport data    | 2022-01-31 | 09:00:00   |                1 |
-| TDS Practical 1                                   | 2022-02-03 | 09:00:00   |                3 |
-| Lecture 3: Routing                                | 2022-02-07 | 09:00:00   |                1 |
-| TDS Practical 2: Routing                          | 2022-02-10 | 09:00:00   |                3 |
-| TDS Practical 3: Data from Web Sources            | 2022-02-17 | 09:00:00   |                3 |
-| TDS Practical 4: OD and route data analysis       | 2022-02-24 | 09:00:00   |                3 |
-| TDS seminar: From OD Data to Dynamic Simulations  | 2022-03-09 | 13:00:00   |                3 |
-| TDS Lecture 4: Visualising Transport Data         | 2022-03-14 | 09:00:00   |                1 |
-| TDS Deadline 1: 2 page outline of project         | 2022-03-18 | 13:00:00   |                1 |
-| TDS Lecture 5: Transport Data Science in Practice | 2022-03-21 | 09:00:00   |                1 |
-| TDS Practical 5: Visualisation and project work   | 2022-04-28 | 09:00:00   |                3 |
-| TDS Deadline 2: 10 page project report            | 2022-05-13 | 13:00:00   |                1 |
+| Summary                    | Description                                       | Date       | Duration (Hours) |
+|:---------------------------|:--------------------------------------------------|:-----------|-----------------:|
+| TDS Lecture 1: structure   | The structure of transport data and data cleaning | 2023-01-30 |               60 |
+| TDS deadline 1             | Computer set-up                                   | 2023-02-03 |                1 |
+| TDS Lecture 2: od          | Working with origin-destination data              | 2023-02-06 |               60 |
+| TDS Practical 1: structure | The structure of transport data                   | 2023-02-09 |              150 |
+| TDS Lecture 3: routing     | From origin-destination data to routes            | 2023-02-13 |               60 |
+| TDS Practical 2: routing   | Routing                                           | 2023-02-16 |              150 |
+| TDS Practical 3: od        | Origin-destination data                           | 2023-02-23 |              150 |
+| TDS seminar 1              | Seminar 1                                         | 2023-02-23 |              120 |
+| TDS deadline 2             | Draft portfolio                                   | 2023-02-24 |                1 |
+| TDS Practical 4: getting   | Getting transport data                            | 2023-03-02 |              150 |
+| TDS seminar 2              | Seminar 2                                         | 2023-03-08 |              120 |
+| TDS Lecture 4: viz         | Visualising transport data                        | 2023-03-20 |               60 |
+| TDS Lecture 5: project     | Project work                                      | 2023-03-27 |               60 |
+| TDS Practical 5: project   | Project work                                      | 2023-05-04 |              150 |
+| TDS deadline 3             | Deadline: coursework, 2pm                         | 2023-05-19 |                1 |
 
 <!-- # References -->
 <!-- To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: https://www.zotero.org/groups/956304/tds -->
@@ -58,11 +60,11 @@ It is also shown in the table below.
 For this module you need to have up-to-date versions of R and RStudio
 installed on a computer you have access to:
 
--   R from [cran.r-project.org](https://cran.r-project.org/)
--   RStudio from
-    [rstudio.com](https://rstudio.com/products/rstudio/download/#download)
--   R packages, which can be installed by opening RStudio and typing
-    `install.packages("stats19")` in the R console, for example.
+- R from [cran.r-project.org](https://cran.r-project.org/)
+- RStudio from
+  [rstudio.com](https://rstudio.com/products/rstudio/download/#download)
+- R packages, which can be installed by opening RStudio and typing
+  `install.packages("stats19")` in the R console, for example.
 
 You should have the latest stable release of R (4.0.0 or above) running
 R on a decent computer, with at least 4 GB RAM and ideally 8 GB or more
@@ -103,17 +105,17 @@ See the [handbook](handbook-tds.md).
 
 # Assessment (for those doing this as credit-bearing)
 
--   You will build-up a portfolio of work
--   100% coursework assessed, you will submit by **Friday 13th May**:
-    -   **a pdf document up to 10 pages long with figures, tables,
-        references explaining how you used data science to research a
-        transport problem**
-    -   **reproducible code contained in an RMarkdown (.Rmd) document
-        that produced the report**
--   Written in RMarkdown - will be graded for reproducibility
--   Code chunks and figures are encouraged
--   You will submit a non-assessed 2 page pdf + Rmd report by **Friday
-    26th March**
+- You will build-up a portfolio of work
+- 100% coursework assessed, you will submit by **Friday 13th May**:
+  - **a pdf document up to 10 pages long with figures, tables,
+    references explaining how you used data science to research a
+    transport problem**
+  - **reproducible code contained in an RMarkdown (.Rmd) document that
+    produced the report**
+- Written in RMarkdown - will be graded for reproducibility
+- Code chunks and figures are encouraged
+- You will submit a non-assessed 2 page pdf + Rmd report by **Friday
+  26th March**
 
 # Issues and contributing
 
