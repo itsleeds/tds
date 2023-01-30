@@ -106,7 +106,7 @@ See the [handbook](handbook-tds.md).
 # Assessment (for those doing this as credit-bearing)
 
 - You will build-up a portfolio of work
-- 100% coursework assessed, you will submit by **Friday 13th May**:
+- 100% coursework assessed, you will submit by **Friday 19th May**:
   - **a pdf document up to 10 pages long with figures, tables,
     references explaining how you used data science to research a
     transport problem**
