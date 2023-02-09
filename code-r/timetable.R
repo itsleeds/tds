@@ -180,5 +180,22 @@ calendar::ic_write(ic, "timetable.ics") # note: generates faulty calendar with i
 readLines("timetable.ics")
 readr::write_csv(tt_csv, "timetable.csv")
 
-View(tt_min)
+# View(tt_min)
 
+# Backup plan -------------------------------------------------------------
+
+tt_backup = tt_csv
+strike_days_feb = c("09", 16, 23)
+strike_days_mar = c("02", 20)
+strike_dates = c(
+  paste0("2023-02-", strike_days_feb),
+  paste0("2023-03-", strike_days_mar)
+)
+tt_backup$strike_day = FALSE
+as.character(tt_backup$date) %in% strike_dates
+tt_backup$strike_day[.Last.value] = TRUE
+# tt_backup$who = "Robin"
+
+tt_backup %>% 
+  select(description, date, who)
+write_csv(tt_backup, "tt_backup.csv")
