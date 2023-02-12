@@ -11,7 +11,7 @@ bibliography:
 
 ## Prior set-up and reading (before practical)
 
-We will use [ITS Go](https://itsleeds.github.io/go/) to do an easy setup of your computer.
+We will use [ITS Go](https://github.com/ITSLeeds/go) to do an easy setup of your computer.
 
 ```{r, eval=FALSE, message=FALSE, warning=FALSE}
 source("https://git.io/JvGjF")
@@ -32,6 +32,35 @@ If that does not work the packages we will be using are:
 Make sure that you have installed these.
 
 Read the OpenTripPlanner package paper for information on routing [@morgan_opentripplanner_2019].
+
+
+
+Note: for this practical to work you need to have installed a recent version of `stplanr` (at least version 0.8.7).
+Check the version you have installed with the following command:
+
+```{r}
+packageVersion("stplanr")
+```
+
+Install the latest CRAN version with the following commands:
+
+```{r, eval=FALSE}
+install.packages("remotes") # install the remotes package
+```
+
+If the installation fails, install `terra` with the [following command](https://github.com/rspatial/terra/).
+
+```{r, eval=FALSE}
+install.packages('terra', repos='https://rspatial.r-universe.dev')
+```
+
+
+```{r}
+remotes::install_cran("stplanr") # install the stplanr package if not up-to-date
+```
+
+
+
 
 
 ## References
