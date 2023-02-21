@@ -7,7 +7,7 @@ This is a GitHub Repository (repo for short) that supports teaching of
 the Transport Data Science module at the University of Leeds. The module
 can be taken by students on the [Data Science and
 Analytics](https://courses.leeds.ac.uk/i071/data-science-and-analytics-msc)
-and (from 2022 onwards) [Transport Planning and the
+and the [Transport Planning and the
 Environment](https://courses.leeds.ac.uk/a386/transport-planning-and-the-environment-msc)
 MSc courses.
 
@@ -32,23 +32,23 @@ to your calendar
 here](https://teams.microsoft.com/l/team/19%3aRoB5IN0Rdk4rip9Y0bwQ5TyyO0FEeB76ei27wK8XIqM1%40thread.tacv2/conversations?groupId=0ee6f3e6-292e-4139-af39-4399feb06434&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
 It is also shown in the table below.
 
-| Summary                    | Description                                       | Date       | Duration (Hours) |
-|:---------------------------|:--------------------------------------------------|:-----------|-----------------:|
-| TDS Lecture 1: structure   | The structure of transport data and data cleaning | 2023-01-30 |               60 |
-| TDS deadline 1             | Computer set-up                                   | 2023-02-03 |                1 |
-| TDS Lecture 2: od          | Working with origin-destination data              | 2023-02-06 |               60 |
-| TDS Practical 1: structure | The structure of transport data                   | 2023-02-09 |              150 |
-| TDS Lecture 3: routing     | From origin-destination data to routes            | 2023-02-13 |               60 |
-| TDS Practical 2: routing   | Routing                                           | 2023-02-16 |              150 |
-| TDS Practical 3: od        | Origin-destination data                           | 2023-02-23 |              150 |
-| TDS seminar 1              | Seminar 1                                         | 2023-02-23 |              120 |
-| TDS deadline 2             | Draft portfolio                                   | 2023-02-24 |                1 |
-| TDS Practical 4: getting   | Getting transport data                            | 2023-03-02 |              150 |
-| TDS seminar 2              | Seminar 2                                         | 2023-03-08 |              120 |
-| TDS Lecture 4: viz         | Visualising transport data                        | 2023-03-20 |               60 |
-| TDS Lecture 5: project     | Project work                                      | 2023-03-27 |               60 |
-| TDS Practical 5: project   | Project work                                      | 2023-05-04 |              150 |
-| TDS deadline 3             | Deadline: coursework, 2pm                         | 2023-05-19 |                1 |
+| Summary      | Description                                       | Date       | Location                             | Duration (Hours) |
+|:-------------|:--------------------------------------------------|:-----------|:-------------------------------------|-----------------:|
+| Lecture 1:   | The structure of transport data and data cleaning | 30/01/2023 | Civil Engineering LT B (3.25)        |               60 |
+| deadline 1   | Computer set-up                                   | 03/02/2023 | Online - Teams                       |                1 |
+| Lecture 2:   | The structure of transport data and data cleaning | 06/02/2023 | Civil Engineering LT B (3.25)        |               60 |
+| Practical 1: | The structure of transport data and data cleaning | 09/02/2023 | West Teaching Lab Cluster (G.29)     |              150 |
+| Lecture 3:   | Routing                                           | 13/02/2023 | Civil Engineering LT B (3.25)        |               60 |
+| Practical 2: | Routing                                           | 16/02/2023 | West Teaching Lab Cluster (G.29)     |              150 |
+| Practical 3: | Getting transport data                            | 23/02/2023 | West Teaching Lab Cluster (G.29)     |              150 |
+| Seminar 1    | Seminar 1                                         | 23/02/2023 | Institute for Transport Studies 1.11 |              120 |
+| deadline 2   | Draft portfolio                                   | 24/02/2023 | Online - Teams                       |                1 |
+| Practical 4: | Cleaning and visualising data                     | 02/03/2023 | West Teaching Lab Cluster (G.29)     |              150 |
+| Seminar 2    | Seminar 2                                         | 08/03/2023 | Institute for Transport Studies 1.11 |              120 |
+| Lecture 4:   | NA                                                | 20/03/2023 | Civil Engineering LT B (3.25)        |               60 |
+| Lecture 5:   | Project work                                      | 27/03/2023 | Civil Engineering LT B (3.25)        |               60 |
+| Practical 5: | Project work                                      | 04/05/2023 | West Teaching Lab Cluster (G.29)     |              150 |
+| Deadline 3   | Deadline: coursework, 2pm                         | 19/05/2023 | Online - Teams                       |                1 |
 
 <!-- # References -->
 <!-- To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: https://www.zotero.org/groups/956304/tds -->
