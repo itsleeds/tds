@@ -68,7 +68,7 @@ plot(pedestrian_casualties["accident_severity"])
 
 ```{r}
 library(tmap)
-tmap_mode("view")
+tmap_mode("plot")
 ```
 
 ```{r, echo=FALSE}
@@ -182,5 +182,57 @@ Identify a region and zonal units of interest from http://geoportal.statistics.g
 ## Bonus 3: find another geographic or transport dataset hosted online and write code to download it
 
 - Share the code on Teams or in a GitHub issue: https://github.com/ITSLeeds/TDS/issues
+
+## Some suggested links
+
+
+### Boundary data 
+The list below provides links to some key data sources that may be of use and interest, starting with the most universal and easy to use, and ending in rather specific datasets.
+-	UK geoportal, providing geographic data at many levels: https://geoportal.statistics.gov.uk
+-	Other national geoportals exist, such as this: http://www.geoportal.org/
+
+
+### UK specific resources
+Students can register with Edina Digimap. It is a service which will allow you to download UK topographic map data.
+https://digimap.edina.ac.uk/webhelp/digimapsupport/about.htm#access/access_to_digimap.htm
+UK census data can be accessed from several places including: https://census.edina.ac.uk/bds.html https://www.nomisweb.co.uk/census/2011
+https://www.nomisweb.co.uk/census/2011
+
+The UK data service hosts a wide variety of spatial and survey data sets.  An example is this recently released land use data
+https://reshare.ukdataservice.ac.uk/854240/
+The Placed-Based Carbon Calculator has transport data about the UK with free downloads on the Data page.
+https://www.carbon.place
+
+The University of Leeds is a partner in the Consumer Data Research Centre.  Examples of data available include 
+Access to Healthy Assets & Hazards (AHAH)
+https://data.cdrc.ac.uk/dataset/access-healthy-assets-hazards-ahah
+And access to online grocery deliveries 
+https://www.cdrc.ac.uk/e-food-deserts/
+Some CDRC datasets are openly available and others are accessible to students and researchers.  You can register with your university of Leeds account
+
+
+### International resources
+The United nations have a number of access points for spatial data.  For example this for data relating to sustainable development goals: 
+https://unstats-undesa.opendata.arcgis.com/
+European Union data sets are available here
+https://ec.europa.eu/eurostat/web/gisco/geodata
+
+There are other data sources and links to data.  Here are some examples.  
+http://freegisdata.rtwilson.com/ Note this has a listing of several transport data sources http://www.gadm.org/ boundary datasets for administrative areas around the world.
+https://www.gislounge.com/world-gis-data/ links to further resources 
+https://library.stanford.edu/research/stanford-geospatial-center/data Stanford University directory of data sources http://www.diva-gis.org/gdata available datasets by country.
+(availability of these resources may change)
+
+### Some sources of transport data
+Some government agencies publish data.  Sometimes these are in spatial formats such as shapefiles.  In other cases they are spreadsheets with zone identifiers which can be joined to spatial data.  
+•	UK government transport data: https://ckan.publishing.service.gov.uk/publisher/department-for-transport
+
+This is an example of a site based in the USA. Most of the data is for the USA, but there are some international data sets.  Some sites such as this require you to join or register to use the data.  
+•	https://data.world/datasets/transportation
+
+
+
+
+
 
 
