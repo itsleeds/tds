@@ -1,10 +1,10 @@
 Data structures
 ================
 Robin Lovelace
-University of Leeds,
-2020-02-10<br/><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png">
+University of Leeds
+<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">
 
-## Review of homework exercise: demo then individual Q\&A
+## Review of homework exercise: demo then individual Q&A
 
 ``` r
 library(tidyverse)
@@ -43,13 +43,13 @@ seq_len(3)
 
 ## Data cleaning on a big dataset
 
-Download the file `wu03ew_v2.zip` from the Wicid website:
+Download the file `wu03uk_v3.zip` from the Wicid website:
 [wicid.ukdataservice.ac.uk](http://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php).
 You should be able to read it in as follows:
 
 ``` r
-unzip("~/Downloads/wu03ew_v2.zip")
-d = read_csv("wu03ew_v2.csv")
+unzip("~/Downloads/wu03uk_v3.zip")
+d = read_csv("wu03uk_v3.csv")
 ```
 
 Load data representing MSOA zones in Isle of Wight. You could download
@@ -70,29 +70,27 @@ plot(zones$geometry)
 
 ## Processing/cleaning
 
-  - Clean the names of the `d` object, e.g. using the following
+-   Clean the names of the `d` object, e.g. using the following
     commands:
-
-<!-- end list -->
 
 ``` r
 names(d) = snakecase::to_snake_case(names(d))
 names(d)[5] = "metro"
 ```
 
-  - Create a new variable called `pcycle` representing the percentage
+-   Create a new variable called `pcycle` representing the percentage
     cycling in each OD pair
 
-  - Create a minimal version of the dataset `d` only containing a few
+-   Create a minimal version of the dataset `d` only containing a few
     key variables
 
-  - What proportion of people in England and Wales are represented in
+-   What proportion of people in England and Wales are represented in
     the dataset `d`
 
-  - Create a subset of the object `d` called `d_iow_origins` that only
+-   Create a subset of the object `d` called `d_iow_origins` that only
     contains routes that originate in Isle of Wight
 
-  - Create a subset that contains only od pairs with origins and
+-   Create a subset that contains only od pairs with origins and
     destinations in Isle of Wight
 
 **Bonus: Convert the origin-destination data you have of Isle of Wight
@@ -110,10 +108,10 @@ mapview::mapview(desire_top)
 
 ## Working on your own datset / project portfolio
 
-  - Identify, download and clean a dataset to include in your coursework
+-   Identify, download and clean a dataset to include in your coursework
     portfolio .Rmd document
 
 ## Homework
 
-  - Consolidate your knowledge of data cleaning by adding reproducible
+-   Consolidate your knowledge of data cleaning by adding reproducible
     data cleaning code to your in-progress project portfolio.

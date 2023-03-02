@@ -9,7 +9,7 @@ bibliography: ../tds.bib
 
 ## Review of homework exercise: demo then individual Q&A
 
-```{r, message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 library(tidyverse)
 library(sf)
 ```
@@ -45,13 +45,13 @@ seq_len(3)
 
 ## Data cleaning on a big dataset
 
-Download the file `wu03ew_v2.zip` from the Wicid website:
+Download the file `wu03uk_v3.zip` from the Wicid website:
 [wicid.ukdataservice.ac.uk](http://wicid.ukdataservice.ac.uk/cider/wicid/downloads.php).
 You should be able to read it in as follows:
 
 ```{r, message=FALSE, eval=FALSE}
-unzip("~/Downloads/wu03ew_v2.zip")
-d = read_csv("wu03ew_v2.csv")
+unzip("~/Downloads/wu03uk_v3.zip")
+d = read_csv("wu03uk_v3.csv")
 ```
 
 Load data representing MSOA zones in Isle of Wight. 
