@@ -31,7 +31,7 @@ Data visualisation is a powerful way to help understand and communicate insights
 Take this dataset:
 
 ```{r}
-crashes_gb = stats19::get_stats19(year = 2018, type = "accidents")
+crashes_gb = stats19::get_stats19(year = 2018, type = "accident")
 crashes_gb
 ```
 
