@@ -37,7 +37,7 @@ Take this
     dataset:
 
 ``` r
-crashes_gb = stats19::get_stats19(year = 2018, type = "accidents")
+crashes_gb = stats19::get_stats19(year = 2018, type = "accident")
 ```
 
     ## Files identified: dftRoadSafetyData_Accidents_2018.csv
