@@ -1,5 +1,5 @@
 ---
-title: "Professional transport data science workflows"
+title: "Professional transport data science workflows and project work"
 subtitle: '<br/>Module: Transport Data Science'
 author: "Robin Lovelace"
 date: 'University of Leeds `r # Sys.Date()()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
@@ -58,14 +58,16 @@ When's the deadline?
 --
 
 ```{r}
-as.Date("2020-05-14")
+as.Date("2023-05-19")
 ```
-
-**2020-05-14**
 
 --
 
-Friday 14th May
+```{r}
+# Friday 19th May
+as.Date("2023-05-19") - Sys.Date()
+```
+
 
 --
 
@@ -85,9 +87,11 @@ Remember the marking criteria:
     
 ---
 
-## '1 pager' document on plans
+## '2 pager' document on plans
 
-- Submit a .zip file containing an .Rmd file and a 1 page pdf
+- Well done everyone who submitted a .zip file containing an .Rmd file and a 1 page pdf
+
+- Based on feedback that you received, and subsequent work, can each person state:
 
   - A draft title of your topic
   - The main dataset that you will use and other datasets that you could use
@@ -103,7 +107,7 @@ Remember the marking criteria:
 # Example
 
 ```{r, echo=FALSE, eval=FALSE}
-browseURL("~/hd/backups/onedrive-backups/onedrive-big-mirror/career/modules/tds/2020-marks/")
+browseURL("~/OneDrive/career/modules/tds/examples/tds-coursework-example-2019-2020.pdf")
 system("rg '201380814' ~/hd/backups/onedrive-backups/onedrive-big-mirror/career/modules/tds/2020-marks/")
 system("rg test ~/hd/backups/onedrive-backups/onedrive-big-mirror/career/modules/tds/2020-marks/")
 file.edit("~/hd/backups/onedrive-backups/onedrive-big-mirror/career/modules/tds/2020-marking/02/122554084-TDS_Coursework_Draft.tex")
@@ -176,40 +180,40 @@ Source: [R for Data Science](https://r4ds.had.co.nz/introduction.html) open sour
 
 <!-- - [Applied statistics](https://machinelearningmastery.com/relationship-between-applied-statistics-and-machine-learning/) vs ML: a continuum -->
 
-![](https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2018/04/Glossary-Mapping-Terms-in-Statistics-to-Terms-in-Machine-Learning.png)
+<!-- ![](https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2018/04/Glossary-Mapping-Terms-in-Statistics-to-Terms-in-Machine-Learning.png) -->
 
----
+<!-- --- -->
 
-# Machine learning types
+<!-- # Machine learning types -->
 
-There are 2 basic types `r Citep(my_bib, "james_introduction_2013a", .opts = list(cite.style = "authoryear"))`
+<!-- There are 2 basic types `r Citep(my_bib, "james_introduction_2013a", .opts = list(cite.style = "authoryear"))` -->
 
-- Supervised learning, when you have a training dataset
+<!-- - Supervised learning, when you have a training dataset -->
 
-- Unsupervised learning, where there is no 'dependent variable'
+<!-- - Unsupervised learning, where there is no 'dependent variable' -->
 
 
----
+<!-- --- -->
 
-# Deep learning
+<!-- # Deep learning -->
 
-- Google is now 'AI First' (NYT [2016](https://www.nytimes.com/2016/12/14/magazine/the-great-ai-awakening.html))
+<!-- - Google is now 'AI First' (NYT [2016](https://www.nytimes.com/2016/12/14/magazine/the-great-ai-awakening.html)) -->
 
-![](https://static01.nyt.com/images/2016/12/18/magazine/18ai8/18ai8-superJumbo.jpg?quality=90&auto=webp)
+<!-- ![](https://static01.nyt.com/images/2016/12/18/magazine/18ai8/18ai8-superJumbo.jpg?quality=90&auto=webp) -->
 
----
+<!-- --- -->
 
-# Example of a machine learning problem
+<!-- # Example of a machine learning problem -->
 
-- Cycling infrastructure is a 'fuzzy' concept
+<!-- - Cycling infrastructure is a 'fuzzy' concept -->
 
-- Difficult to pin down with a simple relationship
+<!-- - Difficult to pin down with a simple relationship -->
 
-- So machine learning should help!
+<!-- - So machine learning should help! -->
 
-- See www.cyipt.bike
+<!-- - See www.cyipt.bike -->
 
----
+<!-- --- -->
 
 # Input data - messy
 
@@ -222,28 +226,28 @@ There are 2 basic types `r Citep(my_bib, "james_introduction_2013a", .opts = lis
 
 ![](https://raw.githubusercontent.com/cyipt/cyipt-website/master/images/ttwa-uptake.png)
 
----
+<!-- --- -->
 
-# Results of ML exercise
+<!-- # Results of ML exercise -->
 
-See https://github.com/cyipt/cyipt/blob/master/model-uptake.md
+<!-- See https://github.com/cyipt/cyipt/blob/master/model-uptake.md -->
 
---
+<!-- -- -->
 
-![](https://raw.githubusercontent.com/cyipt/cyipt/master/model-uptake_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-24-1.png)
----
+<!-- ![](https://raw.githubusercontent.com/cyipt/cyipt/master/model-uptake_files/figure-markdown_github-ascii_identifiers/unnamed-chunk-24-1.png) -->
+<!-- --- -->
 
-# Observations
+<!-- # Observations -->
 
-- Input data is very noisy
+<!-- - Input data is very noisy -->
 
---
+<!-- -- -->
 
-- Machine learning didn't reveal any expected insights in this case
+<!-- - Machine learning didn't reveal any expected insights in this case -->
 
---
+<!-- -- -->
 
-- But did reveal *unexpected* insight: road speeds and traffic volumes seem to be associated with lower uptake of cycling
+<!-- - But did reveal *unexpected* insight: road speeds and traffic volumes seem to be associated with lower uptake of cycling -->
 
 ---
 
