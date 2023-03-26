@@ -251,6 +251,17 @@ Source: [R for Data Science](https://r4ds.had.co.nz/introduction.html) open sour
 
 ---
 
+# Working on your projects
+
+- Plan ahead: what else do you need to do on your project?
+- Schedule work: when will you find time to do it?
+- Use Microsoft Calendar or similar: put it in the calendar.
+- Reproducibility: ensure your .Rmd files are reproducible
+- Ask for help: what do you need help with?
+- Work: get you head down and make use of this time!
+
+---
+
 # References
 
 ```{r, 'refs', results="asis", echo=FALSE}
