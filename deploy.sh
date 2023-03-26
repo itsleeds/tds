@@ -1,4 +1,4 @@
-git clone git@github.com:itsleeds/TDS
+gh repo clone itsleeds/TDS
 cd TDS
 git checkout gh-pages
 ls # check contents
