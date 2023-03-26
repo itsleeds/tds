@@ -17,7 +17,7 @@ MSc courses.
 <!-- The timetable can be found: -->
 
 - On the University’s system (official):
-  [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202223/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
+  [mytimetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202223!module!6856E1BEE4EE6ABF22261FF5840C6E20)
 - In ical format (for import into Google/Outlook/other Calendar
   systems):
   <https://github.com/ITSLeeds/TDS/raw/master/timetable-2022.ics>
@@ -32,23 +32,22 @@ to your calendar
 here](https://teams.microsoft.com/l/team/19%3aRoB5IN0Rdk4rip9Y0bwQ5TyyO0FEeB76ei27wK8XIqM1%40thread.tacv2/conversations?groupId=0ee6f3e6-292e-4139-af39-4399feb06434&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
 It is also shown in the table below.
 
-| Summary      | Description                                       | Date       | Location                             | Duration (Hours) |
-|:-------------|:--------------------------------------------------|:-----------|:-------------------------------------|-----------------:|
-| Lecture 1:   | The structure of transport data and data cleaning | 30/01/2023 | Civil Engineering LT B (3.25)        |               60 |
-| deadline 1   | Computer set-up                                   | 03/02/2023 | Online - Teams                       |                1 |
-| Lecture 2:   | The structure of transport data and data cleaning | 06/02/2023 | Civil Engineering LT B (3.25)        |               60 |
-| Practical 1: | The structure of transport data and data cleaning | 09/02/2023 | West Teaching Lab Cluster (G.29)     |              150 |
-| Lecture 3:   | Routing                                           | 13/02/2023 | Civil Engineering LT B (3.25)        |               60 |
-| Practical 2: | Routing                                           | 16/02/2023 | West Teaching Lab Cluster (G.29)     |              150 |
-| Practical 3: | Getting transport data                            | 23/02/2023 | West Teaching Lab Cluster (G.29)     |              150 |
-| Seminar 1    | Seminar 1                                         | 23/02/2023 | Institute for Transport Studies 1.11 |              120 |
-| deadline 2   | Draft portfolio                                   | 24/02/2023 | Online - Teams                       |                1 |
-| Practical 4: | Cleaning and visualising data                     | 02/03/2023 | West Teaching Lab Cluster (G.29)     |              150 |
-| Seminar 2    | Seminar 2                                         | 08/03/2023 | Institute for Transport Studies 1.11 |              120 |
-| Lecture 4:   | NA                                                | 20/03/2023 | Civil Engineering LT B (3.25)        |               60 |
-| Lecture 5:   | Project work                                      | 27/03/2023 | Civil Engineering LT B (3.25)        |               60 |
-| Practical 5: | Project work                                      | 04/05/2023 | West Teaching Lab Cluster (G.29)     |              150 |
-| Deadline 3   | Deadline: coursework, 2pm                         | 19/05/2023 | Online - Teams                       |                1 |
+| Summary                    | Description                                       | Date       | Location                             | Duration (Hours) |
+|:---------------------------|:--------------------------------------------------|:-----------|:-------------------------------------|-----------------:|
+| TDS Lecture 1: structure   | The structure of transport data and data cleaning | 2023-01-30 | Civil Engineering LT B (3.25)        |               60 |
+| TDS deadline 1             | Computer set-up                                   | 2023-02-03 | Online - Teams                       |                1 |
+| TDS Lecture 2: od          | Working with origin-destination data              | 2023-02-06 | Civil Engineering LT B (3.25)        |               60 |
+| TDS Practical 1: structure | The structure of transport data                   | 2023-02-09 | West Teaching Lab Cluster (G.29)     |              150 |
+| TDS Lecture 3: routing     | From origin-destination data to routes            | 2023-02-13 | Civil Engineering LT B (3.25)        |               60 |
+| TDS Practical 2: routing   | Routing                                           | 2023-02-16 | West Teaching Lab Cluster (G.29)     |              150 |
+| TDS Practical 3: od        | Origin-destination data                           | 2023-02-23 | West Teaching Lab Cluster (G.29)     |              150 |
+| TDS deadline 2             | Draft portfolio                                   | 2023-02-24 | Online - Teams                       |                1 |
+| TDS Practical 4: getting   | Getting transport data                            | 2023-03-02 | West Teaching Lab Cluster (G.29)     |              150 |
+| TDS Lecture 4: viz         | Visualising transport data                        | 2023-03-20 | Civil Engineering LT B (3.25)        |               60 |
+| TDS Lecture 5: project     | Project work                                      | 2023-03-27 | Civil Engineering LT B (3.25)        |               60 |
+| TDS seminar 1              | Seminar                                           | 2023-04-19 | Institute for Transport Studies 1.11 |              180 |
+| TDS Practical 5: project   | Project work                                      | 2023-05-04 | West Teaching Lab Cluster (G.29)     |              150 |
+| TDS deadline 3             | Deadline: coursework, 2pm                         | 2023-05-19 | Online - Teams                       |                1 |
 
 <!-- # References -->
 <!-- To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: https://www.zotero.org/groups/956304/tds -->
