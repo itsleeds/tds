@@ -32,7 +32,7 @@ The module can be taken by students on the [Data Science and Analytics](https://
 
 <!-- The timetable can be found: -->
 
-- On the University's system (official): [http://timetable.leeds.ac.uk/](http://timetable.leeds.ac.uk/teaching/202223/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21)
+- On the University's system (official): [mytimetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202223!module!6856E1BEE4EE6ABF22261FF5840C6E20)
 - In ical format (for import into Google/Outlook/other Calendar systems): https://github.com/ITSLeeds/TDS/raw/master/timetable-2022.ics
 - As a .csv file (for easy reading as data): https://github.com/ITSLeeds/TDS/blob/master/timetable.csv (see table below)
 

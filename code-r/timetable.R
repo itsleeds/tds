@@ -95,20 +95,21 @@ nrow(practical) # there are 5 practicals
 # seminars ------------------------------------------------------
 
 seminar_ids = c(
-  "seminar1",
-  "seminar2"
+  # "seminar1",
+  "seminar"
 )
 seminar_descriptions = c(
-  "Seminar 1",
-  "Seminar 2"
+  # "Seminar 1",
+  "Seminar"
 )
 
-seminar_day_of_week = c(4, 3)
-seminar_start_time = "14:00"
-seminar_end_time = "16:00"
-seminar = tibble::tibble(week_num = as.character(c(17, 19)))
+seminar_day_of_week = c(3)
+seminar_start_time = "10:00"
+seminar_end_time = "13:00"
+seminar = tibble::tibble(week_num = as.character(c(24)))
 seminar = dplyr::inner_join(seminar, weeks)
-seminar$date = seminar$week_commencing + (seminar_day_of_week - 1)
+# seminar$date = seminar$week_commencing + (seminar_day_of_week - 1)
+seminar$date = as.Date("2023-04-19")
 seminar$DTSTART = lubridate::ymd_hm(paste(seminar$date, seminar_start_time)) 
 seminar$DTEND = lubridate::ymd_hm(paste(seminar$date, seminar_end_time))
 seminar$duration = (seminar$DTEND - seminar$DTSTART)
