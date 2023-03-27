@@ -71,7 +71,7 @@ as.Date("2023-05-19") - Sys.Date()
 
 --
 
-Remember the marking criteria:
+Remember the marking [criteria](https://github.com/ITSLeeds/TDS/blob/master/coursework-template.md#04-marks):
 
 --
 
