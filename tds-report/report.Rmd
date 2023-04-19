@@ -1,0 +1,60 @@
+---
+title: "The title of my final TDS Submission (TBC)"
+output:
+  pdf_document:
+    number_sections: true
+---
+
+# Introduction
+
+This is the intro.
+I used RMarkdown.
+To compile the document I used the following shortcut:
+
+```
+Ctrl+Shift+K
+```
+
+You can change this line
+
+```
+  html_document:
+```
+
+to
+
+```
+  pdf_document:
+```
+
+to get PDF output.
+If you get an error no problem: you can save the html file as a PDF in Chrome.
+You can try to get the PDF version working with the following commands.
+
+```{r, eval=FALSE}
+install.packages("remotes")
+remotes::install_cran("tinytex")
+tinytex::install_tinytex()
+```
+
+```{r, echo=FALSE}
+# This code is hidden in the output document
+
+```
+
+
+# Input datasets
+
+An.
+
+
+
+# Data cleaning
+
+# Exploratory analysis
+
+# Visualisation
+
+# Discussion
+
+
