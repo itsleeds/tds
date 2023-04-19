@@ -1,0 +1,50 @@
+
+# Seminar 2: Geographic data in the transport planning industry
+
+This seminar will be in 2 parts
+
+## Part 1: seminar
+
+- Talk by Qian Fu and questions
+
+## Part 2: coursework
+
+### Option 1: working throught the coursework
+
+- Talk over updated dissertation guidance, available here:
+  <https://github.com/ITSLeeds/TDS/blob/master/coursework-template.md#coursework-guidance>
+  ~10 min
+
+- Questions from the group about the coursework ~ 5 m
+
+- Practical work: using RMarkdown to write a coursework topic and
+  technical questions - see
+  <https://bookdown.org/yihui/rmarkdown-cookbook/> - 15 min
+
+### Option 2: accessing OSM data with pydriosm
+
+Try installing the package and follow some of the online documentation:
+<https://colab.research.google.com/drive/11trWfJZ_opp2r4GiksRg19MhFgAsoR3A#scrollTo=eCspbh5wuWWB>
+
+``` bash
+docker run -it ghcr.io/geocompx/docker:mamba /bin/bash
+micromamba install pydriosm
+micromamba install osm2rail
+pip install pydriosm
+```
+
+### Option 3: Getting rail data with R
+
+``` r
+library(osmextract)
+# ?oe_get
+# example from help: "SELECT * FROM 'lines' WHERE oneway == 'yes'"
+
+q = "SELECT * FROM 'lines' WHERE railway == 'rail'"
+# Try for a small area:
+railways_iow = oe_get(place = "isle of wight", query = q, extra_tags = "railway")
+nrow(railways_iow)
+plot(railways_iow$geometry)
+railways_england = oe_get(place = "England", query = q, extra_tags = "railway")
+plot(railways_england$geometry)
+```
