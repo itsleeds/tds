@@ -19,17 +19,12 @@ MSc courses.
 - On the University’s system (official):
   [mytimetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202324!module!D5179CB14D503D52757F4BE89B1C998B)
 - In ical format (for import into Google/Outlook/other Calendar
-  systems):
-  <https://github.com/ITSLeeds/TDS/raw/master/timetable-2022.ics>
+  systems): [timetable.ics](timetable.ics)
 - As a .csv file (for easy reading as data):
   <https://github.com/ITSLeeds/TDS/blob/master/timetable.csv> (see table
   below)
 
 <!-- See below for the sessions -->
-
-The module timetable can be downloaded as an [ical (.ics) file and added
-to your calendar here](timetable.ics). It is also shown in the table
-below.
 
 | Summary                        | Description                                        | Date       | Location                             | Duration (Hours) |
 |:-------------------------------|:---------------------------------------------------|:-----------|:-------------------------------------|-----------------:|
@@ -52,8 +47,13 @@ below.
 
 ## Software
 
-For this module you need to have up-to-date versions of R and RStudio
-installed on a computer you have access to:
+Although you are free to use any software for the course, the emphasis
+on reproducibility means that popular data science languages such as R
+and Python are *highly* recommended.
+
+The teaching will be delivered in R. For this module you therefore need
+to have up-to-date versions of R and RStudio installed on a computer you
+have access to:
 
 - R from [cran.r-project.org](https://cran.r-project.org/)
 - RStudio from
@@ -61,10 +61,13 @@ installed on a computer you have access to:
 - R packages, which can be installed by opening RStudio and typing
   `install.packages("stats19")` in the R console, for example.
 
-You should have the latest stable release of R (4.0.0 or above) running
-R on a decent computer, with at least 4 GB RAM and ideally 8 GB or more
-RAM. See [Section 1.5 of the online guide Reproducible Road Safety
-Research with
+You should have the latest stable release of R (4.3.0 or above) and be
+comfortable setting-up any addition software tools you need for your
+work. Should have access to a computer with decent resources (e.g. a
+laptop with 8 GB of more RAM).
+
+See [Section 1.5 of the online guide Reproducible Road Safety Research
+with
 R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio)
 for instructions on how to install key packages we will use in the
 module.[^1]
@@ -101,7 +104,7 @@ See the [handbook](handbook-tds.md).
 # Assessment (for those doing this as credit-bearing)
 
 - You will build-up a portfolio of work
-- 100% coursework assessed, you will submit by **Friday 19th May**:
+- 100% coursework assessed, you will submit by **Friday 17th May**:
   - **a pdf document up to 10 pages long with figures, tables,
     references explaining how you used data science to research a
     transport problem**
@@ -110,7 +113,7 @@ See the [handbook](handbook-tds.md).
 - Written in RMarkdown - will be graded for reproducibility
 - Code chunks and figures are encouraged
 - You will submit a non-assessed 2 page pdf + Rmd report by **Friday
-  26th March**
+  23rd February**
 
 # Issues and contributing
 
