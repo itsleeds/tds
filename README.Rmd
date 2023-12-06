@@ -32,13 +32,13 @@ The module can be taken by students on the [Data Science and Analytics](https://
 
 <!-- The timetable can be found: -->
 
-- On the University's system (official): [mytimetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202223!module!6856E1BEE4EE6ABF22261FF5840C6E20)
+- On the University's system (official): [mytimetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202324!module!D5179CB14D503D52757F4BE89B1C998B)
 - In ical format (for import into Google/Outlook/other Calendar systems): https://github.com/ITSLeeds/TDS/raw/master/timetable-2022.ics
 - As a .csv file (for easy reading as data): https://github.com/ITSLeeds/TDS/blob/master/timetable.csv (see table below)
 
 <!-- See below for the sessions -->
 
-The module timetable can be downloaded as an [ical (.ics) file and added to your calendar here](https://teams.microsoft.com/l/team/19%3aRoB5IN0Rdk4rip9Y0bwQ5TyyO0FEeB76ei27wK8XIqM1%40thread.tacv2/conversations?groupId=0ee6f3e6-292e-4139-af39-4399feb06434&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
+The module timetable can be downloaded as an [ical (.ics) file and added to your calendar here](timetable.ics).
 It is also shown in the table below.
 
 ```{r, message=FALSE, echo=FALSE}
