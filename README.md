@@ -17,7 +17,7 @@ MSc courses.
 <!-- The timetable can be found: -->
 
 - On the University’s system (official):
-  [mytimetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202223!module!6856E1BEE4EE6ABF22261FF5840C6E20)
+  [mytimetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202324!module!D5179CB14D503D52757F4BE89B1C998B)
 - In ical format (for import into Google/Outlook/other Calendar
   systems):
   <https://github.com/ITSLeeds/TDS/raw/master/timetable-2022.ics>
@@ -28,26 +28,22 @@ MSc courses.
 <!-- See below for the sessions -->
 
 The module timetable can be downloaded as an [ical (.ics) file and added
-to your calendar
-here](https://teams.microsoft.com/l/team/19%3aRoB5IN0Rdk4rip9Y0bwQ5TyyO0FEeB76ei27wK8XIqM1%40thread.tacv2/conversations?groupId=0ee6f3e6-292e-4139-af39-4399feb06434&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb).
-It is also shown in the table below.
+to your calendar here](timetable.ics). It is also shown in the table
+below.
 
-| Summary                    | Description                                       | Date       | Location                             | Duration (Hours) |
-|:---------------------------|:--------------------------------------------------|:-----------|:-------------------------------------|-----------------:|
-| TDS Lecture 1: structure   | The structure of transport data and data cleaning | 2023-01-30 | Civil Engineering LT B (3.25)        |               60 |
-| TDS deadline 1             | Computer set-up                                   | 2023-02-03 | Online - Teams                       |                1 |
-| TDS Lecture 2: od          | Working with origin-destination data              | 2023-02-06 | Civil Engineering LT B (3.25)        |               60 |
-| TDS Practical 1: structure | The structure of transport data                   | 2023-02-09 | West Teaching Lab Cluster (G.29)     |              150 |
-| TDS Lecture 3: routing     | From origin-destination data to routes            | 2023-02-13 | Civil Engineering LT B (3.25)        |               60 |
-| TDS Practical 2: routing   | Routing                                           | 2023-02-16 | West Teaching Lab Cluster (G.29)     |              150 |
-| TDS Practical 3: od        | Origin-destination data                           | 2023-02-23 | West Teaching Lab Cluster (G.29)     |              150 |
-| TDS deadline 2             | Draft portfolio                                   | 2023-02-24 | Online - Teams                       |                1 |
-| TDS Practical 4: getting   | Getting transport data                            | 2023-03-02 | West Teaching Lab Cluster (G.29)     |              150 |
-| TDS Lecture 4: viz         | Visualising transport data                        | 2023-03-20 | Civil Engineering LT B (3.25)        |               60 |
-| TDS Lecture 5: project     | Project work                                      | 2023-03-27 | Civil Engineering LT B (3.25)        |               60 |
-| TDS seminar 1              | Seminar                                           | 2023-04-19 | Institute for Transport Studies 1.11 |              180 |
-| TDS Practical 5: project   | Project work                                      | 2023-05-04 | West Teaching Lab Cluster (G.29)     |              150 |
-| TDS deadline 3             | Deadline: coursework, 2pm                         | 2023-05-19 | Online - Teams                       |                1 |
+| Summary                        | Description                                        | Date       | Location                             | Duration (Hours) |
+|:-------------------------------|:---------------------------------------------------|:-----------|:-------------------------------------|-----------------:|
+| TDS deadline 1                 | Computer set-up                                    | 2024-02-02 | Online - Teams                       |                0 |
+| TDS Practical 1: intro         | Introduction to transport data science             | 2024-02-08 | Irene Manton North Cluster (7.96)    |                3 |
+| TDS Practical 2: structure     | The structure of transport data                    | 2024-02-15 | Irene Manton North Cluster (7.96)    |                3 |
+| TDS Practical 3: od            | Origin-destination data                            | 2024-02-22 | Irene Manton North Cluster (7.96)    |                3 |
+| TDS seminar 1                  | Seminar 1: Tom Van Vuren, Veitch Lister Consulting | 2024-02-22 | Institute for Transport Studies 1.11 |                3 |
+| TDS deadline 2                 | Draft portfolio                                    | 2024-02-23 | Online - Teams                       |                0 |
+| TDS Practical 4: routing       | Routing                                            | 2024-02-29 | Irene Manton North Cluster (7.96)    |                3 |
+| TDS seminar 2                  | Seminar 2 Will Deakin, Network Rail                | 2024-03-21 | Institute for Transport Studies 1.11 |                3 |
+| TDS Practical 5: visualisation | Visualising transport data                         | 2024-05-02 | Irene Manton North Cluster (7.96)    |                3 |
+| TDS Practical 6: project       | Project work                                       | 2024-05-09 | Irene Manton North Cluster (7.96)    |                3 |
+| TDS deadline 3                 | Deadline: coursework, 2pm                          | 2024-05-17 | Online - Teams                       |                0 |
 
 <!-- # References -->
 <!-- To access references collected for this course (and contribute more if you want), you can join the 'tds' Zotero group: https://www.zotero.org/groups/956304/tds -->

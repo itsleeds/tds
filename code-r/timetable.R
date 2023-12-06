@@ -10,7 +10,7 @@ library(tidyverse)
 # browseURL("https://ses.leeds.ac.uk/download/1557/1920_teaching_week_pattern")
 # browseURL("http://ses.leeds.ac.uk/info/21630/timetabling/1291/teaching_week_patterns_202223")
 # w_start = as.Date("2020-09-28") + 364
-w_start = as.Date("2020-09-28") + 364 + 364 + 7
+w_start = as.Date("2020-09-28") + 364 + 364 + 364 + 7
 w_start
 lubridate::wday(w_start, label = TRUE) # start on a Monday
 week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("C", 1:4), 23:30)
@@ -18,69 +18,73 @@ n_weeks = length(week_num)
 week_commencing = seq(from = w_start, by = 7, length.out = n_weeks)
 weeks = tibble::tibble(week_num, week_commencing, day = lubridate::wday(week_commencing, label = TRUE))
 # View(weeks)
-tt_url = "http://timetable.leeds.ac.uk/teaching/202223/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21"
+tt_url = "https://timetable.leeds.ac.uk/teaching/202324/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21"
 # browseURL(tt_url)
 # download.file(tt_url, "timetable-2022-2023.html")
 # piggyback::pb_upload("timetable-2022-2023.html")
 # piggyback::pb_new_release(tag = "23")
 # browseURL("~/onedrive/modules/tds/202021/timetable-uol.html")
 
-# lectures ------------------------------------------------------
+# # lectures ------------------------------------------------------
 
-lecture_description = c(
-  "The structure of transport data and data cleaning",
-  "Working with origin-destination data",
-  "From origin-destination data to routes",
-  "Visualising transport data",
-  "Project work"
-)
+# lecture_description = c(
+#   "The structure of transport data and data cleaning",
+#   "Working with origin-destination data",
+#   "From origin-destination data to routes",
+#   "Visualising transport data",
+#   "Project work"
+# )
 
-lecture_ids = c(
-  "structure",
-  "od",
-  "routing",
-  "viz",
-  "project"
-)
+# lecture_ids = c(
+#   "structure",
+#   "od",
+#   "routing",
+#   "viz",
+#   "project"
+# )
 
-lecture_day_of_week = 1
-lecture_start_time = "11:00"
-lecture_end_time = "12:00"
-lecture = tibble::tibble(week_num = as.character(c(14:16, 21:22)))
-lecture = dplyr::inner_join(lecture, weeks)
-lecture$date = lecture$week_commencing + (lecture_day_of_week - 1)
-lecture$DTSTART = lubridate::ymd_hm(paste(lecture$date, lecture_start_time)) 
-lecture$DTEND = lubridate::ymd_hm(paste(lecture$date, lecture_end_time))
-lecture$duration = (lecture$DTEND - lecture$DTSTART)
-lecture$type = "Lecture"
-lecture$SUMMARY = paste0("TDS Lecture ", 1:nrow(lecture), ": ", lecture_ids)
-  lecture$LOCATION = "Civil Engineering LT B (3.25)"
-lecture$DESCRIPTION = paste0(lecture_description)
-nrow(lecture)
-# View(lecture)
+# lecture_day_of_week = 1
+# lecture_start_time = "11:00"
+# lecture_end_time = "12:00"
+# lecture = tibble::tibble(week_num = as.character(c(14:16, 21:22)))
+# lecture = dplyr::inner_join(lecture, weeks)
+# lecture$date = lecture$week_commencing + (lecture_day_of_week - 1)
+# lecture$DTSTART = lubridate::ymd_hm(paste(lecture$date, lecture_start_time)) 
+# lecture$DTEND = lubridate::ymd_hm(paste(lecture$date, lecture_end_time))
+# lecture$duration = (lecture$DTEND - lecture$DTSTART)
+# lecture$type = "Lecture"
+# lecture$SUMMARY = paste0("TDS Lecture ", 1:nrow(lecture), ": ", lecture_ids)
+#   lecture$LOCATION = "Civil Engineering LT B (3.25)"
+# lecture$DESCRIPTION = paste0(lecture_description)
+# nrow(lecture)
+# # View(lecture)
 
 # practical sessions ------------------------------------------------------
 
 practical_ids = c(
+  "intro",
   "structure",
-  "routing",
   "od",
-  "getting",
+  "routing",
+  # "getting",
+  "visualisation",
   "project"
 )
 
 practical_descriptions = c(
+  "Introduction to transport data science",
   "The structure of transport data",
-  "Routing",
   "Origin-destination data",
-  "Getting transport data",
+  "Routing",
+  # "Getting transport data",
+  "Visualising transport data",
   "Project work"
 )
 
 practical_day_of_week = 4
 practical_start_time = "09:00"
-practical_end_time = "11:30"
-practical = tibble::tibble(week_num = as.character(c(15:18, 23)))
+practical_end_time = "12:00"
+practical = tibble::tibble(week_num = as.character(c(15:18, 23:24)))
 practical = dplyr::inner_join(practical, weeks)
 practical$date = practical$week_commencing + (practical_day_of_week - 1)
 practical$DTSTART = lubridate::ymd_hm(paste(practical$date, practical_start_time)) 
@@ -88,28 +92,28 @@ practical$DTEND = lubridate::ymd_hm(paste(practical$date, practical_end_time))
 practical$duration = (practical$DTEND - practical$DTSTART)
 practical$type = "Computer practical"
 practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_ids)
-practical$LOCATION = "West Teaching Lab Cluster (G.29)"
+practical$LOCATION = "Irene Manton North Cluster (7.96)"
 practical$DESCRIPTION = paste0(practical_descriptions)
-nrow(practical) # there are 5 practicals
+nrow(practical) # there are 6 practicals
 
 # seminars ------------------------------------------------------
 
 seminar_ids = c(
-  # "seminar1",
-  "seminar"
+  "seminar1",
+  "seminar2"
 )
 seminar_descriptions = c(
-  # "Seminar 1",
-  "Seminar"
+  "Seminar 1: Tom Van Vuren, Veitch Lister Consulting",
+  "Seminar 2 Will Deakin, Network Rail"
 )
 
-seminar_day_of_week = c(3)
-seminar_start_time = "10:00"
-seminar_end_time = "13:00"
-seminar = tibble::tibble(week_num = as.character(c(24)))
+seminar_day_of_week = c(4)
+seminar_start_time = c("14:00", "10:00")
+seminar_end_time = c("17:00", "13:00")
+seminar = tibble::tibble(week_num = as.character(c(17, 21)))
 seminar = dplyr::inner_join(seminar, weeks)
-# seminar$date = seminar$week_commencing + (seminar_day_of_week - 1)
-seminar$date = as.Date("2023-04-19")
+seminar$date = seminar$week_commencing + (seminar_day_of_week - 1)
+# seminar$date = as.Date("2023-04-19")
 seminar$DTSTART = lubridate::ymd_hm(paste(seminar$date, seminar_start_time)) 
 seminar$DTEND = lubridate::ymd_hm(paste(seminar$date, seminar_end_time))
 seminar$duration = (seminar$DTEND - seminar$DTSTART)
@@ -148,7 +152,8 @@ deadline$SUMMARY = paste0("TDS deadline ", 1:nrow(deadline))
 deadline$LOCATION = "Online - Teams"
 deadline$DESCRIPTION = deadline_descriptions
 
-timetable = rbind(lecture, practical, seminar, deadline) 
+timetable = rbind(practical, seminar, deadline) 
+timetable$duration
 
 # timetable %>% 
 #   mutate(duration = difftime(DTEND, DTSTART, units = "hours")) %>% 
@@ -172,7 +177,7 @@ tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION
 # ic = calendar::ical(tt_min[1:2, ])
 ic = calendar::ical(tt_min)
 tt_csv = tt_min %>% 
-  mutate(date = as.Date(DTSTART), duration = DTEND - DTSTART) %>% 
+  mutate(date = as.Date(DTSTART), duration = round(as.numeric(DTEND - DTSTART) / 60)) %>% 
   select(SUMMARY, DESCRIPTION, date, duration, LOCATION)
 names(tt_csv) = tolower(names(tt_csv))
 
@@ -181,22 +186,3 @@ calendar::ic_write(ic, "timetable.ics") # note: generates faulty calendar with i
 readLines("timetable.ics")
 readr::write_csv(tt_csv, "timetable.csv")
 
-# View(tt_min)
-
-# Backup plan -------------------------------------------------------------
-
-tt_backup = tt_csv
-strike_days_feb = c("09", 16, 23)
-strike_days_mar = c("02", 20)
-strike_dates = c(
-  paste0("2023-02-", strike_days_feb),
-  paste0("2023-03-", strike_days_mar)
-)
-tt_backup$strike_day = FALSE
-as.character(tt_backup$date) %in% strike_dates
-tt_backup$strike_day[.Last.value] = TRUE
-# tt_backup$who = "Robin"
-
-tt_backup %>% 
-  select(description, date, who)
-write_csv(tt_backup, "tt_backup.csv")
