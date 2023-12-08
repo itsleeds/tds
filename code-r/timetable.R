@@ -103,7 +103,7 @@ seminar_ids = c(
   "seminar2"
 )
 seminar_descriptions = c(
-  "Seminar 1: Tom Van Vuren, Veitch Lister Consulting",
+  "Seminar 1: Tom Van Vuren, Amey and ITS",
   "Seminar 2 Will Deakin, Network Rail"
 )
 
