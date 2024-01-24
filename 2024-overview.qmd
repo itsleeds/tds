@@ -1,0 +1,11 @@
+---
+format: gfm
+---
+
+
+# Session 1
+
+https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md
+
+# Session 2
+
