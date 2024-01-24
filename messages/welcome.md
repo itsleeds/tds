@@ -31,8 +31,7 @@ a ‘learning by doing’ approach, with the content delivered as
 - 2 \* 1 hour seminars, followed by practical sessions
 - feedback on your work
 
-See the module timetable at https://mytimetable.leeds.ac.uk/link?t
-imetable.id=202324!m odule!D 5179CB14D503D52757F4BE89B1C998B and in the
+See the module timetable at https://mytimetable.leeds.ac.uk/link?timetable.id=202324!module!D 5179CB14D503D52757F4BE89B1C998B and in the
 table here: https://github.com/ITSLeeds/TDS#tds-transport-data-science
 
 You will need to work hard to become a proficient data scientist in the
@@ -53,7 +52,7 @@ which you can find here:
 https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio
 
 If you learn better by watching videos, you can watch this video:
-https://www.youtube.com/watch?v =YrEe2TLr3MI
+https://www.youtube.com/watch?v=YrEe2TLr3MI
 
 #### Can I use University of Leeds computers?
 
@@ -70,7 +69,7 @@ You can use a different IDE (Integrated Development Environment) to
 RStudio if you prefer (VS Code is the only other IDE I would recommend),
 but you will need to be able to install R packages and run R scripts. If
 you use VS Code, you will need to install the R extension for VS Code:
-https://marketplace.visualstudio.com/items?i temName=Ikuyadeu.r I
+https://marketplace.visualstudio.com/items?itemName=Ikuyadeu.r I
 recommend taking a read of this guide if you want to try out VS Code for
 data science: https://github.com/RamiKrispin/vscode-r You can also use
 Python, but you will need to be able to install Python packages and run
