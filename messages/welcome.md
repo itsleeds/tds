@@ -110,6 +110,8 @@ collaboration. Ensure you can access them as soon as possible.
   https://teams.microsoft.com/l/channel/19%3a-IqQ19KOCzVzkbPWnQy8d4dUq0MspiN6Dv4BJYMr-ck1%40thread.tacv2/General?groupId=0e661005-2ad9-4aa2-a466-b3a1afa728c1&tenantId=bdeaeda8-c81d-45ce-863e-5232a535b7cb
 - See the reading list associated with the module at
   https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#reading-list.
+- Ensure you can access the module page on Minerva:
+  https://minerva.leeds.ac.uk/ultra/courses/\_551386_1/outline
 - Answer the questionnaire on the Minerva module page: **without
   completing this we cannot add you to the course on GitHub.**
 
@@ -120,6 +122,36 @@ email. My office hours are 10:00 to 12:00 on Mondays.
 
 I really look forward to working with you all to make this a successful
 and enjoyable module.
+
+## Questionnaire
+
+Please complete the questionnaire on the Minerva module page: **without
+completing this we cannot add you to the course on GitHub.** This
+questionnaire assumes you have read and acted on the information in this
+welcome message:
+https://github.com/ITSLeeds/TDS/blob/master/messages/welcome.md
+
+1.  Have you installed R and RStudio on your computer, following the
+    instructions in the welcome message?
+
+2.  Have you read and tried to complete the exercises in Chapters 1 to 4
+    of the book Reproducible Road Safety Research with R?
+
+3.  Have you signed up to GitHub?
+
+4.  What is your GitHub username?
+
+5.  Have you joined the Transport Data Science Team on Microsoft Teams?
+
+6.  Have you got experience with R?
+
+7.  Have you got experience with Python?
+
+8.  Have you got experience with geographic data?
+
+9.  Have you got experience with geographic data?
+
+10. What would you most like to get out of this course?
 
 # References
 
