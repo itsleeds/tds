@@ -112,8 +112,10 @@ collaboration. Ensure you can access them as soon as possible.
   https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#reading-list.
 - Ensure you can access the module page on Minerva:
   https://minerva.leeds.ac.uk/ultra/courses/\_551386_1/outline
-- Answer the questionnaire on the Minerva module page: **without
-  completing this we cannot add you to the course on GitHub.**
+- Answer the questionnaire on the Minerva module page (allow a few hours
+  to do this because it asks you to complete some tasks while you answer
+  the questions): **without completing this we cannot add you to the
+  course on GitHub.**
 
 ## Contact
 
@@ -149,9 +151,7 @@ https://github.com/ITSLeeds/TDS/blob/master/messages/welcome.md
 
 8.  Have you got experience with geographic data?
 
-9.  Have you got experience with geographic data?
-
-10. What would you most like to get out of this course?
+9.  What would you most like to get out of this course?
 
 # References
 
