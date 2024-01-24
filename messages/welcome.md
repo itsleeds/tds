@@ -31,9 +31,10 @@ a ‘learning by doing’ approach, with the content delivered as
 - 2 \* 1 hour seminars, followed by practical sessions
 - feedback on your work
 
-See the module timetable at https://mytimetable.leeds.ac.uk/link?t
-imetable.id=202324!m odule!D 5179CB14D503D52757F4BE89B1C998B and in the
-table here: https://github.com/ITSLeeds/TDS#tds-transport-data-science
+See the module timetable at
+https://mytimetable.leeds.ac.uk/link?timetable.id=202324!module!D5179CB14D503D52757F4BE89B1C998B
+and in the table here:
+https://github.com/ITSLeeds/TDS#tds-transport-data-science
 
 You will need to work hard to become a proficient data scientist in the
 transport domain. The work will provide you with the foundation you need
