@@ -1,11 +1,11 @@
 summary,description,date,duration,location
 TDS deadline 1,Computer set-up,2024-02-02,0,Online - Teams
 TDS Practical 1: intro,Introduction to transport data science,2024-02-08,3,Irene Manton North Cluster (7.96)
-TDS Practical 2: structure,The structure of transport data,2024-02-15,3,Irene Manton North Cluster (7.96)
-TDS Practical 3: od,Origin-destination data,2024-02-22,3,Irene Manton North Cluster (7.96)
+TDS Practical 2: od,Origin-destination data,2024-02-15,3,Irene Manton North Cluster (7.96)
+TDS Practical 3: routing,Routing,2024-02-22,3,Irene Manton North Cluster (7.96)
 TDS seminar 1,"Seminar 1: Tom Van Vuren, Amey and ITS",2024-02-22,3,Institute for Transport Studies 1.11
 TDS deadline 2,Draft portfolio,2024-02-23,0,Online - Teams
-TDS Practical 4: routing,Routing,2024-02-29,3,Irene Manton North Cluster (7.96)
+TDS Practical 4: getting,Getting transport data,2024-02-29,3,Irene Manton North Cluster (7.96)
 TDS seminar 2,"Seminar 2 Will Deakin, Network Rail",2024-03-21,3,Institute for Transport Studies 1.11
 TDS Practical 5: visualisation,Visualising transport data,2024-05-02,3,Irene Manton North Cluster (7.96)
 TDS Practical 6: project,Project work,2024-05-09,3,Irene Manton North Cluster (7.96)
