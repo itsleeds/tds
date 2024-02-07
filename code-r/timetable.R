@@ -63,20 +63,18 @@ tt_url = "https://timetable.leeds.ac.uk/teaching/202324/reporting/Individual?obj
 
 practical_ids = c(
   "intro",
-  "structure",
   "od",
   "routing",
-  # "getting",
+  "getting",
   "visualisation",
   "project"
 )
 
 practical_descriptions = c(
   "Introduction to transport data science",
-  "The structure of transport data",
   "Origin-destination data",
   "Routing",
-  # "Getting transport data",
+  "Getting transport data",
   "Visualising transport data",
   "Project work"
 )
@@ -152,6 +150,7 @@ deadline$SUMMARY = paste0("TDS deadline ", 1:nrow(deadline))
 deadline$LOCATION = "Online - Teams"
 deadline$DESCRIPTION = deadline_descriptions
 
+# setdiff(names(seminar), names(practical))
 timetable = rbind(practical, seminar, deadline) 
 timetable$duration
 
