@@ -1,0 +1,273 @@
+---
+title: "Origin-destination data"
+subtitle: '<br/>Practical'
+author: "Robin Lovelace"
+date: 'University of Leeds `r # Sys.Date()()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
+output:
+  github_document:
+    number_sections: true
+bibliography: ../tds.bib
+---
+
+
+
+## Pre-requisites {-}
+
+You need to have a number of packages installed and loaded.
+Install the packages by typing in the following commands into RStudio (you do not need to add the comments after the `#` symbol):^[
+Note: if you want to install the development version of a package from GitHub, you can do so.
+Try, for example, running the following command: `remotes::install_github("ITSLeeds/pct")`
+]
+
+```{r, eval=FALSE}
+install.packages("remotes")
+pkgs = c(
+  "nycflights13",# data package
+  "pct",         # package for getting travel data in the UK
+  "sf",          # spatial data package
+  "stats19",     # downloads and formats open stats19 crash data
+  "stplanr",     # for working with origin-destination and route data
+  "tidyverse",   # a package for user friendly data science
+  "tmap"         # for making maps
+)
+remotes::install_cran(pkgs)
+remotes::install_github("nowosad/spDataLarge")
+```
+
+Load the tidyverse package as follows:
+
+```{r}
+library(tidyverse)
+```
+
+# Project set-up and tidyverse testing
+
+1. Check your packages are up1.to-date with `update.packages()`
+1. Create an RStudio project with an appropriate name for this module (e.g. `TDSmodule`)
+1. Create appropriate files for code, data and anything else (e.g. images)
+1. Create a script called `learning-tidyverse.R`, e.g. with the following command:
+
+```r
+dir.create("code") # 
+file.edit("code/learning-tidyverse.R")
+```
+
+# Getting started with transport data
+
+We're going to start by looking at the main types of transport data:^[
+Note: if you want to get zone data for a different region you can do so, e.g. with: 
+`zones = sf::read_sf("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/z.geojson")`
+]
+
+In this section we will look at basic transport data in the R package **stplanr**.
+
+Attach the `tidyverse`, `stplanr` and `sf` packages as follows:
+
+```{r}
+library(tidyverse)
+library(stplanr)
+library(sf)
+```
+
+The `stplanr` package contains some data that we can use to demonstrate principles in Data Science, illustrated in the Figure below. Source: Chapter 1 of R for Data Science [@grolemund_r_2016] [available online](https://r4ds.had.co.nz/introduction.html).
+
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
+```{r}
+# import
+od_data = stplanr::od_data_sample
+```
+
+```{r}
+# tidy
+od_data = od_data %>%
+  rename(walk = foot)
+```
+
+
+```{r}
+# transform
+od_data_walk = od_data %>% 
+  filter(walk > 0) %>% 
+  select(geo_code1, geo_code2, all, car_driver, walk) %>% 
+  mutate(proportion_walk = walk / all, proportion_drive = car_driver / all)
+```
+
+```{r}
+# visualise
+plot(od_data_walk)
+```
+
+```{r}
+# model
+model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
+od_data_walk$proportion_walk_predicted = model1$fitted.values
+```
+
+```{r}
+# visualise
+ggplot(od_data_walk) +
+  geom_point(aes(proportion_drive, proportion_walk)) +
+  geom_line(aes(proportion_drive, proportion_walk_predicted))
+```
+
+```{r}
+# transform
+# ...
+```
+
+Exercises
+
+1. What is the class of the data in `od_data`?
+1. Subset (filter) the data to only include OD pairs in which at least one person (`> 0`) person walks (bonus: on what % of the OD pairs does at least 1 person walk?)
+2. Calculate the percentage who cycle in each OD pair in which at least 1 person cycles
+3. Is there a positive relationship between walking and cycling in the data?
+4. Plot the zones representing the `geo_code` variables in the OD data
+5. Bonus: use the function `od2line()` in to convert the OD dataset into geographic desire lines
+
+```{r, echo=FALSE, eval=FALSE}
+#1
+class(od_data)
+```
+
+```{r, echo=FALSE, eval=FALSE}
+#2 
+od_data_walk = od_data %>% 
+  filter(walk > 0)
+nrow(od_data_walk) / nrow(od_data)
+```
+
+```{r, echo=FALSE, eval=FALSE}
+#3
+od_data = od_data %>% 
+  filter(bicycle > 0) %>% 
+  mutate(perc_cycle = (bicycle/all) * 100)
+```
+
+```{r, echo=FALSE, eval=FALSE}
+#4
+od_data_new = od_data %>% 
+  filter(walk > 0, bicycle>0 ) %>% 
+  select(bicycle, walk, all) 
+
+model = lm(walk ~ bicycle, weights = all, data = od_data_new)
+od_data_new$walk_predicted = model$fitted.values
+
+ggplot(od_data_new) +
+  geom_point(aes(bicycle, walk, size = all)) +
+  geom_line(aes(bicycle, walk_predicted))
+```
+
+```{r, echo=FALSE, eval=FALSE}
+#5
+zones = sf::read_sf("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/z.geojson")
+zones_leeds = zones %>% 
+  filter(lad_name == "Leeds")
+plot(zones_leeds$geometry)
+```
+
+```{r, echo=FALSE, eval=FALSE}
+#6
+desire_lines = od2line(flow = od_data, zones)
+plot(desire_lines)
+```
+
+# Processing origin-destination data in Bristol
+
+This section is based on Chapter 12 of Geocomputation with R: https://geocompr.robinlovelace.net/transport.html
+
+The task is to reproduce the results shown in that chapter on your own computer.
+Some code to get started on a subset of the data is shown below.
+
+Start with a medium-sized dataset:
+
+```{r}
+# import
+od = spDataLarge::bristol_od
+head(od)
+```
+
+```{r}
+# tidy
+zones = spDataLarge::bristol_zones
+zones = zones %>% 
+  mutate(local_authority = word(string = name, 1))
+plot(zones %>% select(local_authority), key.pos = 1)
+```
+
+```{r, eval=FALSE, echo=FALSE}
+# Find central data
+# bristol_centre = geo_code("bristol")
+#> [1] -2.597298 51.453802
+```
+
+```{r}
+# transform
+bristol_sf = tmaptools::geocode_OSM("bristol", as.sf = TRUE, return.first.only = T, geometry = "point")
+mapview::mapview(bristol_sf)
+bristol_buffer_10km = geo_buffer(bristol_sf, dist = 10000)
+zones_central = zones[bristol_buffer_10km, , op = sf::st_within]
+# visualise
+mapview::mapview(zones_central)
+```
+
+
+```{r}
+# transform
+od_central = od %>%
+  filter(o %in% zones_central$geo_code) %>% 
+  filter(d %in% zones_central$geo_code) 
+nrow(od_central) / nrow(od)
+desire_lines = od2line(od_central, zones_central)
+desire_lines$distance_direct_m = as.numeric(st_length(desire_lines))
+desire_lines = desire_lines %>% 
+  mutate(proportion_active = (bicycle + foot) / all)
+```
+
+```{r, fig.show='hold', out.width="40%"}
+# visualise
+ggplot(desire_lines) +
+  geom_point(aes(distance_direct_m, proportion_active))
+ggplot(desire_lines) +
+  geom_point(aes(distance_direct_m, proportion_active, size = all), alpha = 0.3)
+```
+
+```{r}
+# model/visualise
+m1 = lm(proportion_active ~ 
+          distance_direct_m + I(distance_direct_m^2),
+        data = desire_lines)
+desire_lines = desire_lines %>% 
+  mutate(
+    new_active_travel = m1$fitted.values * car_driver,
+    new_total_active = new_active_travel + bicycle + foot,
+    new_proportion_active = new_total_active / all
+    ) %>% 
+  arrange(proportion_active)
+ggplot(desire_lines) +
+  geom_point(aes(distance_direct_m, proportion_active, size = all), alpha = 0.3) +
+  geom_point(aes(distance_direct_m, new_proportion_active, size = all), alpha = 0.3, colour = "blue")
+
+```
+
+```{r}
+# visualise
+ggplot(desire_lines) +
+  geom_sf(aes(colour = new_proportion_active, alpha = all))
+```
+
+```{r}
+library(tmap)
+tm_shape(desire_lines) +
+  tm_lines(palette = "-viridis", breaks = c(0, 5, 10, 20, 40, 100) / 100,
+    lwd = "all",
+    scale = 9,
+    title.lwd = "Number of trips",
+    alpha = 0.6,
+    col = c("proportion_active", "new_proportion_active"),
+    title = "Active travel (%)"
+  ) +
+  tm_scale_bar()
+
+```
+
+4) Try mapping OD data for West Yorkshire in preparation for the next practical on routing
