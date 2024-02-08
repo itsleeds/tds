@@ -1,0 +1,45 @@
+---
+format: gfm
+# Try replacing the above with this for PDF output
+# format: pdf
+title: "The impact of lockdowns on collisions"
+number-sections: true
+bibliography: references.bib
+---
+
+# Introduction
+
+This document explores the impact of lockdowns on the rate of collisions.
+
+# Data and methods
+
+Datasets were taken from the STATS19 database and processed with the `stats19` R package [@lovelace2019].
+
+# Results
+
+```{r}
+#| include: false
+library(tidyverse)
+library(stats19)
+dl_stats19(year = 2020, type = "collision")
+collisions_2020 = get_stats19(year = 2020, type = "collision")
+```
+
+See the results in @fig-crashes-per-day.
+
+```{r}
+#| label: fig-crashes-per-day
+#| echo: false
+collisions_per_day = collisions_2020 |> 
+  group_by(date) |> 
+  summarise(
+    n = n()
+  )
+collisions_per_day |> 
+  ggplot(aes(date, n)) +
+  geom_line()
+```
+
+# Conclusion
+
+# References
