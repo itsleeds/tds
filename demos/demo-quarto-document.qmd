@@ -1,5 +1,5 @@
 ---
-format: gfm
+format: pdf
 # Try replacing the above with this for PDF output
 # format: pdf
 title: "The impact of lockdowns on collisions"
