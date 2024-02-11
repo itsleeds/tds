@@ -34,36 +34,26 @@ remotes::install_cran(pkgs)
 remotes::install_github("nowosad/spDataLarge")
 ```
 
-Load the tidyverse package as follows:
-
-```{r}
-library(tidyverse)
-```
 
 # Project set-up and tidyverse testing
 
-1. Check your packages are up1.to-date with `update.packages()`
+1. Check your packages are up-to-date with `update.packages()`
 1. Create an RStudio project with an appropriate name for this module (e.g. `TDSmodule`)
-1. Create appropriate files for code, data and anything else (e.g. images)
-1. Create a script called `learning-tidyverse.R`, e.g. with the following command:
+1. Create appropriate folders for code, data and anything else (e.g. images)
+1. Create a script called `learning-OD.R`, e.g. with the following command:
 
 ```r
 dir.create("code") # 
-file.edit("code/learning-tidyverse.R")
+file.edit("code/learning-OD.R")
 ```
 
-# Getting started with transport data
-
-We're going to start by looking at the main types of transport data:^[
-Note: if you want to get zone data for a different region you can do so, e.g. with: 
-`zones = sf::read_sf("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/z.geojson")`
-]
+# Getting started with OD data
 
 In this section we will look at basic transport data in the R package **stplanr**.
 
 Attach the `tidyverse`, `stplanr` and `sf` packages as follows:
 
-```{r}
+```{r, echo=FALSE}
 library(tidyverse)
 library(stplanr)
 library(sf)
@@ -72,57 +62,61 @@ library(sf)
 The `stplanr` package contains some data that we can use to demonstrate principles in Data Science, illustrated in the Figure below. Source: Chapter 1 of R for Data Science [@grolemund_r_2016] [available online](https://r4ds.had.co.nz/introduction.html).
 
 ![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
-```{r}
-# import
+First we will load some sample data:
+
+```{r, echo=FALSE}
 od_data = stplanr::od_data_sample
 ```
 
-```{r}
-# tidy
+Notice the use of `::` to say that you want the `od_data_smample` object from the `stplanr` package.
+
+You can click on the data in the environment panel to view it or use `head(od_data)`
+
+Now we will rename one of the columns from `foot` to `walk`
+
+```{r, echo=FALSE}
 od_data = od_data %>%
   rename(walk = foot)
 ```
 
+Next we will made a new dataset `od_data_walk` by taking `od_data` and piping it (`%>%`) to `filter` the data frame to only include rows where `walk > 0`. Then `select` a few of the columns and calculate two new columns `proportion_walk` and `proportion_drive`.
 
-```{r}
-# transform
+```{r, echo=FALSE}
 od_data_walk = od_data %>% 
   filter(walk > 0) %>% 
   select(geo_code1, geo_code2, all, car_driver, walk) %>% 
   mutate(proportion_walk = walk / all, proportion_drive = car_driver / all)
 ```
 
+We can use the generic `plot` function to view the relationships between variaibles
+
 ```{r}
-# visualise
 plot(od_data_walk)
 ```
 
-```{r}
-# model
+R has built in modelling functions such as `lm` lets make a simple model to predict the proportion of people who walk based on the proportion of people who drive.
+
+```{r, echo=FALSE}
 model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
 od_data_walk$proportion_walk_predicted = model1$fitted.values
 ```
 
+We can use the `ggplot2` package to graph our model predictions.
+
 ```{r}
-# visualise
 ggplot(od_data_walk) +
   geom_point(aes(proportion_drive, proportion_walk)) +
   geom_line(aes(proportion_drive, proportion_walk_predicted))
-```
-
-```{r}
-# transform
-# ...
 ```
 
 Exercises
 
 1. What is the class of the data in `od_data`?
 1. Subset (filter) the data to only include OD pairs in which at least one person (`> 0`) person walks (bonus: on what % of the OD pairs does at least 1 person walk?)
-2. Calculate the percentage who cycle in each OD pair in which at least 1 person cycles
-3. Is there a positive relationship between walking and cycling in the data?
-4. Plot the zones representing the `geo_code` variables in the OD data
-5. Bonus: use the function `od2line()` in to convert the OD dataset into geographic desire lines
+1. Calculate the percentage who cycle in each OD pair in which at least 1 person cycles
+1. Is there a positive relationship between walking and cycling in the data?
+1. Plot the zones representing the `geo_code` variables in the OD data
+1. Bonus: use the function `od2line()` in to convert the OD dataset into geographic desire lines
 
 ```{r, echo=FALSE, eval=FALSE}
 #1
@@ -186,6 +180,8 @@ od = spDataLarge::bristol_od
 head(od)
 ```
 
+Load the zones for Bristol, and create a new column called `local_authority`. Make a simple map of which Local Authority each zone is in.
+
 ```{r}
 # tidy
 zones = spDataLarge::bristol_zones
@@ -194,13 +190,17 @@ zones = zones %>%
 plot(zones %>% select(local_authority), key.pos = 1)
 ```
 
+WOrk though Sections 13.1 to 13.4 of the Transport Chapter in [Geocomputation with R](https://r.geocompx.org/transport.html) 
+
+
+
 ```{r, eval=FALSE, echo=FALSE}
 # Find central data
 # bristol_centre = geo_code("bristol")
 #> [1] -2.597298 51.453802
 ```
 
-```{r}
+```{r, echo=FASLE, eval=FALSE, include=FALSE}
 # transform
 bristol_sf = tmaptools::geocode_OSM("bristol", as.sf = TRUE, return.first.only = T, geometry = "point")
 mapview::mapview(bristol_sf)
@@ -209,6 +209,8 @@ zones_central = zones[bristol_buffer_10km, , op = sf::st_within]
 # visualise
 mapview::mapview(zones_central)
 ```
+
+
 
 
 ```{r}
@@ -271,3 +273,14 @@ tm_shape(desire_lines) +
 ```
 
 4) Try mapping OD data for West Yorkshire in preparation for the next practical on routing
+
+
+
+
+
+OLD Text
+
+We're going to start by looking at the main types of transport data:^[
+Note: if you want to get zone data for a different region you can do so, e.g. with: 
+`zones = sf::read_sf("https://github.com/npct/pct-outputs-regional-notR/raw/master/commute/msoa/west-yorkshire/z.geojson")`
+]
