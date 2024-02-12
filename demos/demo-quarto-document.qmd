@@ -5,6 +5,8 @@ format: pdf
 title: "The impact of lockdowns on collisions"
 number-sections: true
 bibliography: references.bib
+execute: 
+  cache: refresh
 ---
 
 # Introduction
@@ -21,15 +23,16 @@ Datasets were taken from the STATS19 database and processed with the `stats19` R
 #| include: false
 library(tidyverse)
 library(stats19)
-dl_stats19(year = 2020, type = "collision")
+# dl_stats19(year = 2020, type = "collision")
 collisions_2020 = get_stats19(year = 2020, type = "collision")
 ```
 
-See the results in @fig-crashes-per-day.
+See the results of downloading national crash data from 2020 in @fig-crashes-per-day.
 
 ```{r}
 #| label: fig-crashes-per-day
 #| echo: false
+#| fig-cap: "Crashes over time in 2020"
 collisions_per_day = collisions_2020 |> 
   group_by(date) |> 
   summarise(
@@ -37,8 +40,64 @@ collisions_per_day = collisions_2020 |>
   )
 collisions_per_day |> 
   ggplot(aes(date, n)) +
-  geom_line()
+  geom_line(colour = "red") 
 ```
+
+The equivalent trend for Leeds is shown in @fig-trend-leeds.
+
+The column names available to us are:
+
+```{r}
+names(collisions_2020)
+```
+
+
+```{r}
+#| echo: false
+#| label: fig-trend-leeds
+# Check the local authority of crashes:
+collisions_wy = collisions_2020 |> 
+  filter(police_force == "West Yorkshire")
+collisions_per_day_wy = collisions_wy |> 
+  group_by(date) |> 
+  summarise(
+    n = n()
+  )
+collisions_per_day_wy |> 
+  ggplot(aes(date, n)) +
+  geom_line(colour = "red") 
+
+
+```
+
+Let's put them side-by-side.
+
+```{r}
+# collisions_per_day_combined = bind_rows(
+#   collisions_per_day |> mutate(Area = "GB"),
+#   collisions_per_day_wy |> mutate(Area = "West Yorksire")
+# )
+# # Not sure why the scales here do not work:
+# collisions_per_day_combined |> 
+#   ggplot(aes(date, n)) +
+#   geom_line() +
+#   facet_grid(~Area, shrink = TRUE)
+g1 = collisions_per_day |> 
+  ggplot(aes(date, n)) +
+  geom_line(colour = "red") 
+g2 = collisions_per_day_wy |> 
+  ggplot(aes(date, n)) +
+  geom_line(colour = "red") 
+library(patchwork)
+```
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+g1
+g2
+```
+
 
 # Conclusion
 
