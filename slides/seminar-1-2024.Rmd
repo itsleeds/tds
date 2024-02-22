@@ -1,0 +1,227 @@
+---
+title: "Data science in transport planning"
+subtitle: '<br/>Guest Seminar<br/>Module: Transport Data Science'
+author: "Dr Robin Lovelace<br/>Guest speaker: Tom Van Vuren MBE"
+date: 'Institute for Transport Studies `r # Sys.Date()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
+output:
+  xaringan::moon_reader:
+    # css: ["default", "its.css"]
+    # chakra: libs/remark-latest.min.js
+    lib_dir: libs
+    nature:
+      highlightStyle: github
+      highlightLines: true
+bibliography:
+  # - references.bib
+  - ../tds.bib
+---
+
+background-image: url(https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg)
+background-position: 50% 50%
+class: center, bottom, inverse
+
+# Credit: Mandeep Lota via [flickr](https://www.flickr.com/photos/deepster2k/1096671706)
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(eval = TRUE, echo = FALSE)
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+my_bib = c(
+  ReadBib("../tds.bib")
+)
+library(tmap)
+library(tidyverse)
+```
+
+---
+
+# Housekeeping
+
+Session timings:
+
+- Welcome and refreshments: 13:45-14:00
+- Talk by Tom Van Vuren: 14:00-14:45
+- Questions: 14:45-15:00
+- Break: 5 minutes
+- Practical session part 2 (for Transport Data Science Students)
+
+---
+
+# The history of TDS
+
+- 2017: Transport Data Science created, led by Dr Charles Fox, Computer Scientist, author of Transport Data Science book `r Citep(my_bib, "fox_data_2018", .opts = list(cite.style = "authoryear"))`
+- The focus was on databases and Bayesian methods
+- 2019: I inherited the module, which was attended by ITS students
+- Summer 2019: Python code published in the module 'repo':
+  - [github.com/ITSLeeds](https://github.com/ITSLeeds/TDS/tree/master/code-python)
+- January 2020: Transport Data Science module available to Data Science and Data Analytics MSc students
+- March 2020: Switch to online teaching
+- 2021-2023: Updated module, focus on methods
+- 2024: Switch to combined practical sessions and lectures
+- 2025+: Expand, online course? book? stay in touch!
+
+```{r, echo=FALSE, eval=TRUE}
+# knitr::include_graphics("https://images.springer.com/sgw/books/medium/9783319729527.jpg")
+# blogdown::shortcode("1239930988416897033")
+```
+
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">Milestone passed in my academic career, first online-only delivery of lecture <a href="https://twitter.com/ITSLeeds?ref_src=twsrc%5Etfw">@ITSLeeds</a>, seems to have worked, live code demo with <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>/<a href="https://twitter.com/rstudio?ref_src=twsrc%5Etfw">@rstudio</a>, recording, chat + all🎉<br><br>Thanks students for &#39;attending&#39; + remote participation, we&#39;ll get through this together.<a href="https://twitter.com/hashtag/coronavirus?src=hash&amp;ref_src=twsrc%5Etfw">#coronavirus</a> <a href="https://t.co/wlAUxmZj5r">pic.twitter.com/wlAUxmZj5r</a></p>&mdash; Robin Lovelace (@robinlovelace) <a href="https://twitter.com/robinlovelace/status/1239930988416897033?ref_src=twsrc%5Etfw">March 17, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script> 
+
+???
+
+Skip this bit
+
+---
+
+# Essential reading
+
+<!-- - See https://github.com/ITSLeeds/TDS/blob/master/catalogue.md -->
+
+- Chapter 12, [Transportation](http://geocompr.robinlovelace.net/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://geocompr.robinlovelace.net/)) `r Citep(my_bib, "lovelace_geocomputation_2018", .opts = list(cite.style = "authoryear"))` 
+- Reproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/
+
+
+```{r geocompr-cover, echo=FALSE, out.height="300px"}
+knitr::include_graphics(c(
+  "https://geocompr.robinlovelace.net/images/cover.png",
+  "https://r.geocompx.org/13-transport_files/figure-html/desire-1.png"
+  ))
+```
+
+---
+
+## Timetable: January and February
+
+```{r, message=FALSE}
+library(tidyverse)
+timetable = read_csv("../timetable.csv")
+timetable = timetable %>% 
+  mutate(`Duration (Hours)` = duration) %>% 
+  select(-description, -duration) %>%
+  rename_with(str_to_title)
+```
+
+```{r, echo=FALSE}
+timetable %>% 
+  slice(1:8) %>% 
+  knitr::kable()
+```
+
+---
+
+## Timetable: March to May
+
+```{r, echo=FALSE}
+timetable %>% 
+  slice(9:nrow(timetable)) %>% 
+  knitr::kable()
+```
+
+---
+
+## Objectives
+
+<!-- From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md): -->
+
+- Understand the structure of transport datasets
+- Understand how to obtain, clean and store transport related data
+- Gain proficiency in command-line tools for handling large transport datasets
+- Produce data visualizations, static and interactive
+
+```{r, echo=FALSE}
+# Understand the structure of transport datasets: spatial, temporal and demographic
+# Understand how to obtain, clean and store transport related data
+# Gain proficiency in command-line tools for handling large transport datasets
+# Learn machine learning and data modelling techniques
+# Produce data visualizations, static and interactive
+# Learn where to find large transport datasets and assess data quality
+```
+
+- <font color="red"> Learn how to join together the components of transport data science into a cohesive project portfolio  </font> 
+
+---
+
+## Assessment (for those doing this as credit-bearing)
+
+- You will build-up a portfolio of work
+- 100% coursework assessed, you will submit by **Friday 19th May**:
+  - **a pdf document up to 10 pages long with figures, tables, references explaining how you used data science to research a transport problem**
+  - **reproducible code contained in an RMarkdown (.Rmd) document that produced the report**
+- Written in RMarkdown - will be graded for reproducibility
+- Code chunks and figures are encouraged
+- You will submit a non-assessed 2 page pdf + Rmd report by **18th March**
+
+---
+
+## What is transport data science?
+
+- The application of data science to transport datasets and problems
+
+--
+
+- Raising the question...
+
+--
+
+- What is data science?
+
+<!-- You tell me! -->
+
+--
+
+- A discipline "that allows you to turn raw data into understanding, insight, and knowledge" `r Citep(my_bib, "grolemund_r_2016", .opts = list(cite.style = "authoryear"))`
+
+--
+
+In other words...
+
+- Statistics that is actually useful!
+
+### Deeper question: why transport data science?
+
+- You must answer that question
+
+---
+
+## What is science?
+
+.pull-left[
+- Scientific knowledge is hypotheses that can be falsified
+- Science is the process of *generating falsifiable hypotheses* and *testing them*
+- In a reproducible way
+- Systematically
+
+![](https://media3.giphy.com/media/3ohhworAhxSEHT3zDa/200w.webp?cid=3640f6095c57e8d15767723367d0c596)
+]
+
+--
+
+.pull-right[
+
+- Falsifiability is central to the scientific process `r Citep(my_bib, "popper_logic_1959", .opts = list(cite.style = "authoryear"))`
+- All of which requires software conducive to reproducibility
+
+![](https://duckduckgo.com/i/f2692e7b.jpg)
+]
+
+---
+
+# Introducing Tom and the guest seminar
+
+![](https://private-user-images.githubusercontent.com/1825120/307013437-c78ff59e-5cf6-4766-9e39-07d7fa250be0.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MDg2MDkzNzYsIm5iZiI6MTcwODYwOTA3NiwicGF0aCI6Ii8xODI1MTIwLzMwNzAxMzQzNy1jNzhmZjU5ZS01Y2Y2LTQ3NjYtOWUzOS0wN2Q3ZmEyNTBiZTAucG5nP1gtQW16LUFsZ29yaXRobT1BV1M0LUhNQUMtU0hBMjU2JlgtQW16LUNyZWRlbnRpYWw9QUtJQVZDT0RZTFNBNTNQUUs0WkElMkYyMDI0MDIyMiUyRnVzLWVhc3QtMSUyRnMzJTJGYXdzNF9yZXF1ZXN0JlgtQW16LURhdGU9MjAyNDAyMjJUMTMzNzU2WiZYLUFtei1FeHBpcmVzPTMwMCZYLUFtei1TaWduYXR1cmU9Y2NjNTAxMDM4MjllMjdkZmE0YTJlMjdiODhjY2JlMjNlODU3OGUzNTJlNDFlMDljZGU4NjhkMDU4Y2FhNjQ5NCZYLUFtei1TaWduZWRIZWFkZXJzPWhvc3QmYWN0b3JfaWQ9MCZrZXlfaWQ9MCZyZXBvX2lkPTAifQ.cQYNNlvNgtHVDyDIxhmi3sASvCfFGE_46edbc3rCopA)
+
+---
+
+# References
+
+```{r, 'refs', results="asis", echo=FALSE}
+PrintBibliography(my_bib)
+# RefManageR::WriteBib(my_bib, "refs-geostat.bib")
+```
