@@ -33,9 +33,9 @@ MSc courses.
 | TDS Practical 2: od            | Origin-destination data                | 2024-02-15 | Irene Manton North Cluster (7.96)    |                3 |
 | TDS Practical 3: routing       | Routing                                | 2024-02-22 | Irene Manton North Cluster (7.96)    |                3 |
 | TDS seminar 1                  | Seminar 1: Tom Van Vuren, Amey and ITS | 2024-02-22 | Institute for Transport Studies 1.11 |                3 |
-| TDS deadline 2                 | Draft portfolio                        | 2024-02-23 | Online - Teams                       |                0 |
 | TDS Practical 4: getting       | Getting transport data                 | 2024-02-29 | Irene Manton North Cluster (7.96)    |                3 |
 | TDS seminar 2                  | Seminar 2 Will Deakin, Network Rail    | 2024-03-21 | Institute for Transport Studies 1.11 |                3 |
+| TDS deadline 2                 | Draft portfolio                        | 2024-04-22 | Online - Teams                       |                0 |
 | TDS Practical 5: visualisation | Visualising transport data             | 2024-05-02 | Irene Manton North Cluster (7.96)    |                3 |
 | TDS Practical 6: project       | Project work                           | 2024-05-09 | Irene Manton North Cluster (7.96)    |                3 |
 | TDS deadline 3                 | Deadline: coursework, 2pm              | 2024-05-17 | Online - Teams                       |                0 |
