@@ -11,7 +11,9 @@ at https://github.com/ITSLeeds/TDS/blob/master/coursework-template.Rmd
 and a PDF version of which can be found attached).
 
 Using the template should save you time: no need to combine PDFs because
-the coversheet is already included in the template.
+the coversheet is already included in the template. Note: the 10 page
+limit is for the main body of the report, and does not include the
+coversheet, references, or appendices.
 
 Please do ensure that you are progressing on your coursework: you should
 be adding content to your .Rmd files and then knitting them to PDFs to
