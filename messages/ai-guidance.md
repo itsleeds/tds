@@ -6,7 +6,26 @@ Hi all,
 
 This is just a message to say that the assessment has been categorised
 as “amber” in terms of AI, as highlighted in the attached coversheet (in
-docx and pdf format).
+docx and pdf format, and in the coursework template which can be found
+at https://github.com/ITSLeeds/TDS/blob/master/coursework-template.Rmd
+and a PDF version of which can be found attached).
+
+Using the template should save you time: no need to combine PDFs because
+the coversheet is already included in the template.
+
+Please do ensure that you are progressing on your coursework: you should
+be adding content to your .Rmd files and then knitting them to PDFs to
+check that they look as you expect. Do not leave this to the last
+minute, as it can be time-consuming to fix issues with the formatting.
+
+Any questions, just let me know via email, on Teams, or on GitHub.
+
+All the best,
+
+Robin
+
+P.s. see below the details of the categorisation of the assessment as
+“amber” in terms of AI.
 
 Under this the amber category, AI tools can be used in this assessment
 in an assistive role for the specifically defined processes.  
