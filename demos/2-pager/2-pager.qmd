@@ -1,0 +1,98 @@
+---
+format: pdf
+title: "Transport Data Science Coursework Plan"
+bibliography: 2-pager.bib
+---
+
+```{=html}
+<!-- 
+
+- Deadline for non-assessed submission of a .zip file containing 2 page pdf document with ideas before the final submission. The document will allow you to ask questions (e.g. "does this sound like a reasonable input dataset and topic?") and describe progress on reading in input datasets and the analysis plan. The document will contain:
+  - A draft title of your topic
+
+  - The structure of the document could include
+    - Topics considered
+    - Input datasets
+    - Analysis plan - I suggest creating a workflow diagram for this, e.g. as presented [here](https://user-images.githubusercontent.com/1825120/127524923-7d9f5511-84a6-430b-8de9-a603a5524f39.png)
+    - Motivation for choosing this topic
+    - Questions and options -->
+```
+# Title
+
+The draft title of my project is Exploring the Accessibility of Parks for Wombats in Melbourne.
+
+\[To be confirmed\]
+
+# Research questions considered and motivations
+
+Wombats are a key species
+
+# Prior work
+
+@pereira2023 provides an introduction to the field and guidance on accessibility analysis.
+
+@lovelace2021 provides an overview of existing tools for wombat accessibility analysis.
+
+# Input data
+
+I will use routes from the Propensity to Cycle Tool project as the main input dataset.
+
+@lovelace2017 describes these datasets in detail.
+
+See <https://itsleeds.github.io/QGIS-intro/data-sources-for-transport-data.html>
+
+And <https://beta.source.coop/>
+
+# Questions for the course team
+
+Is the input dataset and research question too ambitious?
+
+I was wondering about using regression with the `xgboost` package.
+I have tried it and managed to get some results shown below.
+
+# Analysis plan
+
+I have 4 full weeks to complete the 10 page report, in that time I will
+
+-   Week 1: complete to introduction to the report and references, write data cleaning code and describe the input dataset
+
+-   ...
+
+-   ...
+
+-   ...
+
+# Importing the data and initial exploration
+
+See below for an initial exploration of the data
+
+```{r}
+#| include: false
+library(stplanr)
+library(tidyverse)
+routes_imported = routes_fast_sf
+names(routes_imported)
+desire_lines = flowlines_sf
+desire_lines$id = 1:nrow(desire_lines)
+routes_imported$id = 1:nrow(routes_imported)
+routes_joined = left_join(
+    routes_imported,
+    desire_lines |> sf::st_drop_geometry()
+)
+```
+
+We aggregated the data with the `overline()` function from the `stplanr` package, resulting in @fig-routes (right).
+
+```{r}
+#| label: fig-routes
+#| layout-ncol: 2
+#| fig-cap: "Routes in Melbourne, Australia"
+#| fig-subcap: "Left: raw data; right: aggregated data"
+routes_joined |>
+  select(Bicycle) |>
+  plot()
+routes_overline = overline(routes_joined, "Bicycle")
+plot(routes_overline)
+```
+
+# References
