@@ -4,21 +4,20 @@ subtitle: '<br/>Practical'
 author: "Robin Lovelace"
 date: 'University of Leeds `r # Sys.Date()()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
 output: github_document
-bibliography: ../cours../tds.bib
 ---
 
 ```{r, echo=FALSE, eval=FALSE}
 # print pdf
-pagedown::chrome_print("practicals/7-viz.Rmd")
-pagedown::chrome_print("practicals/7-viz.html")
-browseURL("practicals/5-web.pdf")
-piggyback::pb_upload("practicals/7-viz.pdf")
-piggyback::pb_download_url("practicals/7-viz.pdf")
+#pagedown::chrome_print("practicals/7-viz.Rmd")
+#pagedown::chrome_print("practicals/7-viz.html")
+#browseURL("practicals/5-web.pdf")
+#piggyback::pb_upload("practicals/7-viz.pdf")
+#piggyback::pb_download_url("practicals/7-viz.pdf")
 ```
 
 ## Review of homework exercise: demo then individual Q&A
 
-```{r}
+```{r, message=FALSE}
 library(tidyverse)
 library(stplanr)
 library(sf)
@@ -30,8 +29,8 @@ Data visualisation is a powerful way to help understand and communicate insights
 
 Take this dataset:
 
-```{r}
-crashes_gb = stats19::get_stats19(year = 2018, type = "accident")
+```{r,message=FALSE}
+crashes_gb = stats19::get_stats19(year = 2018, type = "collision")
 crashes_gb
 ```
 
@@ -57,20 +56,60 @@ ggplot(crashes_gb) + geom_bar(aes(accident_severity))
 ggplot(crashes_gb, aes(speed_limit)) + geom_bar(aes(fill = accident_severity), position = "fill")
 ```
 
+**Exercise**: Improve the plots by:
+
+1. Label the x-axis "Speed Limit (MPH)"
+1. Adjust the x-axis to include a label for each column (e.g. 20, 30, 40, 50, 60, 70), Hint: `scale_x_continuous`
+1. Label the y-axis "Percentage of all collisions"
+1. Adjust the y-axis to be 0-100 rather than 0-1. Hint: `scales::percent_format()`
+1. Label the legend "Collision Severity"
+1. Change the colour palette
+
+```{r, eval=FALSE, echo=FALSE}
+ggplot(crashes_gb, aes(speed_limit)) + 
+  geom_bar(aes(fill = accident_severity), position = "fill", palette = "Blues") +
+  xlab("Speed Limit (MPH)") +
+  ylab("Percentage of all collisions") +
+  labs(fill="Collision Severity") +
+  scale_x_continuous(breaks=seq(20,70,10)) +
+  scale_y_continuous(labels = scales::percent_format(), limits = c(0, 1)) +
+  scale_fill_brewer(palette="Dark2")
+  
+```
+
+
 **Exercise**: Read the documentation that appears when you run this line of code:
 
 ```
 ?facet_grid
 ```
 
-Create a facetted plot with a different facet for each speed limit.
+Create a faceted plot with a different facet for each speed limit.
 
 ```{r, echo=FALSE}
 ggplot(crashes_gb) + geom_bar(aes(accident_severity)) +
   facet_grid(~ speed_limit)
 ```
 
-## Exercises: group
+**Exercise**: Improve this plot by rotating the label text 90 degrees. Hint: `theme` & `element_text`
+
+```{r, echo=FALSE, eval=FALSE}
+ggplot(crashes_gb) + geom_bar(aes(accident_severity)) +
+  facet_grid(~ speed_limit) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+**Exercise**: Adjust this plot to produce a facet for each severity and bar for each speed
+
+```{r, echo=FALSE, eval=FALSE}
+ggplot(crashes_gb) + geom_bar(aes(speed_limit)) +
+  facet_grid(~ accident_severity) +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))
+```
+
+
+
+## Map based plots
 
 1. Create a map showing the number of people walking in the `stplanr` dataset `flowlines_sf` using:
 -base graphics (hint: use `plot()`) and
@@ -92,14 +131,14 @@ plot(flowlines_sf["Taxi"], lwd = lwd)
 
 ```{r, message=FALSE, echo=FALSE}
 library(tmap)
-tmap_mode("view")
+tmap_mode("plot")
 tm_shape(flowlines_sf) +
   tm_lines(col = "Taxi", lwd = "All", scale = 9, palette = "viridis")
 ```
 
 
 
-## Exercises: Individual
+## Exercises
 
 - Based on the `routes_fast_sf` data in the `stplanr` package, identify roads where investment in cycling is likely to be effective.
 
@@ -120,15 +159,26 @@ routes_fast_sf = cbind(routes_fast_sf, flowlines_sf)
 plot(routes_fast_sf["Bicycle"], lwd = routes_fast_sf$All / 50)
 ```
 
+***Exercise***
 
+Create this map as an iterative plot using `tmap`
 
-## tmap 'view mode' results
-
-```{r, echo=FALSE}
+```{r, echo=FALSE, eval=FALSE}
+tmap_mode("view")
 tm_shape(routes_fast_sf) +
   tm_lines(col = "Bicycle", lwd = "All", scale = 9, palette = "RdYlBu")
 ```
 
+
+## Create a complex plot
+
+Choose an example from https://r-graph-gallery.com/best-r-chart-examples.html and try to recreate it.
+
+These example come with code you can copy, so it should be easy to create the example plot. Then try to understand what each step in the process is doing. Try commenting out specific lines of code or changing settings to make your own version of the plot. Can you make an even better plot?
+
+## Apply your new skills to your coursework data
+
+By now you should have identified some data to use in your coursework. Produce a plot that helps you understand that data. Take the oppertunity to get feeback on your analysis and plot design from the demonstrators.
 
 
 ## Exercises bonus (optional)
@@ -139,6 +189,5 @@ tm_shape(routes_fast_sf) +
 
 ## Homework
 
-- To improve you R skills, work through the stats19 tutorial here: https://docs.ropensci.org/stats19/articles/stats19-training.html
-- Work on your portfolios, adding a new visualisation of the data you will use
+- Work on your portfolios, adding a new visualisation of the data you will use. Pepare questions for the next session which is for coursework support.
 
