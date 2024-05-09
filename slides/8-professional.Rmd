@@ -58,14 +58,14 @@ When's the deadline?
 --
 
 ```{r}
-as.Date("2023-05-19")
+as.Date("2024-05-17")
 ```
 
 --
 
 ```{r}
 # Friday 19th May
-as.Date("2023-05-19") - Sys.Date()
+as.Date("2024-05-17") - Sys.Date()
 ```
 
 
@@ -129,7 +129,7 @@ Note:
 - Reproducible
 
 
-See `stats19-example.zip` for an an example of a coursework submission
+See `stats19-example.zip` in the [github.com/ITSLeeds/TDS/releases/tag/23](https://github.com/ITSLeeds/TDS/releases/tag/23) for an an example of a coursework submission
 
 ---
 
