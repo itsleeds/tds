@@ -1,0 +1,8 @@
+---
+format: gfm
+---
+
+```{r}
+d = c("Road A", NA, NA, "Road B")
+zoo::na.locf(d)
+```
