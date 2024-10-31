@@ -4,6 +4,18 @@ title: "Transport Data Science"
 
 A module teaching how to use data science to solve transport problems.
 
+# R or Python?
+
+A common question that arises when starting new digital projects is 'which language should I use?'. 
+
+The answer for most people taking this course will be R, because it is the language we will be teaching in, and the language in which the module team has the most experience.
+
+You can use Python, and we are working on Python examples, but the support for Python should be considered work in progress.
+
+If you do choose to use Python, you will be expected to manage your own Python environment, and to be able to translate the R code examples into Python.
+
+If you are feeling very adventurous, you could try using Julia or another language, but you will be on your own in terms of support.
+
 # Prerequisites
 
 ## General computing prerequisites
@@ -28,10 +40,11 @@ The teaching will be delivered primarily in R, with some Python code snippets an
 Unless you have a good reason to use Python, we recommend you use R for the course.
 
 ### R software prerequisites
+
 For this module you therefore need to have up-to-date versions of R and RStudio installed on a computer you have access to:
 
 - R from [cran.r-project.org](https://cran.r-project.org/)
-- RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download)
+- RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download) (recommended) or VS Code with the R extension installed.
 - R packages, which can be installed by opening RStudio and typing `install.packages("stats19")` in the R console, for example.
 - To install all the dependencies for the module, run the following command in the R console:
 
