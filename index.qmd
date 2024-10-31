@@ -40,7 +40,7 @@ For this module you therefore need to have up-to-date versions of R and RStudio 
 if (!requireNamespace("remotes", quietly = TRUE)) {
   install.packages("remotes")
 }
-remotes::install_github("itsleeds/tdstests")
+remotes::install_github("itsleeds/tds")
 ```
 
 See [Section 1.5 of the online guide Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio) for instructions on how to install key packages we will use in the module.^[
