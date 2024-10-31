@@ -11,7 +11,7 @@ website:
     align: center
     tools:
       - icon: github
-        href: https://github.com/itsleeds/TDStests
+        href: https://github.com/itsleeds/tds
         text: GitHub
     style: docked
     contents:

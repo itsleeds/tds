@@ -1,7 +1,7 @@
 [project]
 channels = ["conda-forge"]
 description = "Add a short description here"
-name = "TDStests"
+name = "tds"
 platforms = ["win-64"]
 version = "0.1.0"
 
