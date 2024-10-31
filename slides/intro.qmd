@@ -1,0 +1,198 @@
+---
+title: "Introduction to transport data science"
+subtitle: '<br/>Module: Transport Data Science'
+author: "Robin Lovelace"
+date: last-modified
+format: revealjs
+# bibliography: tds.bib
+title-slide-attributes:
+    data-background-image: https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg
+    data-background-size: contain
+    data-background-opacity: "0.5"
+# <!-- Credit: Mandeep Lota via [flickr](https://www.flickr.com/photos/deepster2k/1096671706) -->
+---
+
+
+## Who: Transport Data Science team
+
+#### Robin Lovelace
+
+-   Associate Professor of Transport Data Science
+-   Researching transport futures and active travel planning
+-   R developer and teacher, author of Geocomputation with R
+
+#### Yuanxuan Yang
+
+-   Lecturer in Data Science of Transport
+-   New and Emerging Forms of Data: Investigating novel data sources and their applications in urban mobility and transport planning. <!-- - Micromobility: Analyzing the role and impact of micromobility solutions, such as bike-sharing and e-scooters, on urban transport networks.
+    - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. -->
+
+## TDS Team II
+
+#### Malcolm Morgan
+
+-   Senior researcher at ITS with expertise in routing + web
+-   Developer of the Propensity to Cycle Tool and [PBCC](https://www.carbon.place/#8/51.482/-0.151)
+
+#### Zhao Wang
+
+-   Civil Engineer and Data Scientist with expertise in machine learning
+
+#### Demonstrators
+
+-   Juan Pablo Fonseca Zamora
+
+#### You!
+
+<!-- ### Joey Talbot -->
+
+<!-- - PhD in Tropical Ecology -->
+
+<!-- - Worked for Transport for New Homes -->
+
+<!-- - Research Fellow in Transport Data Science -->
+
+<!-- Not working on it 2021 -->
+
+<!-- ### Richard Connors -->
+
+<!-- - Mathematician by training -->
+
+<!-- - Matlab programmer  -->
+
+<!-- - Expertise in dynamic traffic assignment -->
+
+## What is transport data science?
+
+::: {.incremental}
+
+-   The application of data science to transport datasets and problems
+-   Raising the question...
+-   What is data science?
+-   A discipline "that allows you to turn raw data into understanding, insight, and knowledge" (Grolemund, 2016)
+
+In other words...
+
+-   Statistics that is actually useful!
+
+:::
+
+## Why take Transport Data Science
+
+
+::::::: columns
+:::: {.column width="40%"}
+::: incremental
+-   New skills (cutting edge R and/or Python packages)
+-   Potential for impacts
+-   Allows you to do new things with data
+-   It might get you a job!
+:::
+::::
+
+:::: {.column width="60%"}
+::: {layout="[[1,2], [1]]"}
+![](https://r.geocompx.org/images/cover2.png)
+
+![](https://github.com/npct/pct-team/blob/master/figures/front-page-leeds-pct-demo.png?raw=true)
+
+![](images/paste-17.png)
+:::
+::::
+:::::::
+
+## Live demo: [npt.scot web app](https://nptscot.github.io/)
+
+![](https://nptscot.github.io/images/rnet_filters.png)
+
+## The history of TDS
+
+-   2017: Transport Data Science created, led by Dr Charles Fox, Computer Scientist, author of Transport Data Science book (Fox, 2018)
+
+-   The focus was on databases and Bayesian methods
+
+-   2019: I inherited the module, which was attended by ITS students
+
+-   Summer 2019: Python code published in the module 'repo':
+
+    -   [github.com/ITSLeeds](https://github.com/ITSLeeds/TDS/tree/master/code-python)
+
+## History of TDS II
+
+-   January 2020: Available, Data Science MSc course
+-   March 2020: Switch to online teaching
+-   2021-2023: Updated module, focus on methods
+-   2024: Switch to combined practical sessions and lectures
+-   2025+: Expand, online course? book? stay in touch!
+
+<blockquote class="twitter-tweet">
+
+<p lang="en" dir="ltr">
+
+Milestone passed in my academic career, first online-only delivery of lecture <a href="https://twitter.com/ITSLeeds?ref_src=twsrc%5Etfw">@ITSLeeds</a>, seems to have worked, live code demo with <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>/<a href="https://twitter.com/rstudio?ref_src=twsrc%5Etfw">@rstudio</a>, recording, chat + all🎉<br><br>Thanks students for 'attending' + remote participation, we'll get through this together.<a href="https://twitter.com/hashtag/coronavirus?src=hash&amp;ref_src=twsrc%5Etfw">#coronavirus</a> <a href="https://t.co/wlAUxmZj5r">pic.twitter.com/wlAUxmZj5r</a>
+
+</p>
+
+— Robin Lovelace (@robinlovelace) <a href="https://twitter.com/robinlovelace/status/1239930988416897033?ref_src=twsrc%5Etfw">March 17, 2020</a>
+
+</blockquote>
+
+```{=html}
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+```
+
+## Essential reading
+
+-   Chapter 12, [Transportation](http://geocompr.robinlovelace.net/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://geocompr.robinlovelace.net/)) (Lovelace et al. 2019)
+-   Reproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/
+
+## Core reading materials
+
+-   R for Data Science, an introduction to data science with R (available free [online](http://r4ds.had.co.nz/))
+-   Python equivalent
+
+## Optional
+
+There are many good resources on data science for transport applications.
+Do your own research and reading!
+The following are good:
+
+-   If you're interested in network analysis/Python, see this paper on analysing OSM data in Python (Boeing and Waddell, 2017) (available [online](https://arxiv.org/pdf/1611.01890))
+
+-   If you're interested in the range of transport modelling tools, see Lovelace (2021).
+    <!-- [@lovelace_open_2021] -->
+
+For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#bibliography)
+
+## Objectives
+
+<!-- From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md): -->
+
+-   Understand the structure of transport datasets
+
+-   Understand how to obtain, clean and store transport related data
+
+-   Gain proficiency in command-line tools for handling large transport datasets
+
+-   Produce data visualizations, static and interactive
+
+-   <font color="red"> Learn how to join together the components of transport data science into a cohesive project portfolio </font>
+
+## Assessment (for those doing this as credit-bearing)
+
+-   You will build-up a portfolio of work
+-   100% coursework assessed, you will submit by
+-   Written in code - will be graded for reproducibility
+-   Code chunks and figures are encouraged
+-   You will submit a non-assessed 2 page pdf + qmd
+
+## [Schedule](https://itsleeds.github.io/TDStests/schedule.html)
+
+![](images/paste-1.png)
+
+## Feedback
+
+> The module is taught by two really well organised and enthusiastic professors, great module, the seminars, structured and
+unstructured learning was great and well thought out, all came together well
+
+> I wish this module was 60 credits instead of 15 because i just want more of it.

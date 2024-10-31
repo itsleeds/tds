@@ -1,0 +1,172 @@
+---
+title: "Schedule"
+execute: 
+  echo: false
+---
+
+```{r}
+#| include: false
+library(tidyverse)
+```
+
+```{r}
+#| eval: false
+# Aim: create ical of all lectures and practicals of TDS
+# Start date of week 1 (source: https://ses.leeds.ac.uk/info/21630/timetabling/1384/teaching-week-patterns-202425)
+w_start = as.Date("2024-09-30")
+w_start
+lubridate::wday(w_start, label = TRUE) # start on a Monday
+week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("C", 1:4), 23:30)
+n_weeks = length(week_num)
+week_commencing = seq(from = w_start, by = 7, length.out = n_weeks)
+weeks = tibble::tibble(week_num, week_commencing, day = lubridate::wday(week_commencing, label = TRUE))
+
+# practical sessions ------------------------------------------------------
+
+practical_ids = c(
+  "intro",
+  "od",
+  "routing",
+  "getting",
+  "visualisation",
+  "project"
+)
+
+practical_descriptions = c(
+  "Introduction to transport data science",
+  "Origin-destination data",
+  "Routing",
+  "Getting transport data",
+  "Visualising transport data",
+  "Project work"
+)
+
+# Source: https://timetable.leeds.ac.uk/teaching/202425/reporting/textspreadsheet;?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
+# They happen on Thursdays, 10:00-13:00
+practical_day_of_week = 4
+practical_start_time = "10:00"
+practical_end_time = "13:00"
+week_num = as.character(c(14:16, 19, 22:23))
+practical = tibble::tibble(week_num = week_num)
+practical = dplyr::inner_join(practical, weeks)
+practical$date = practical$week_commencing + (practical_day_of_week - 1)
+practical$DTSTART = lubridate::ymd_hm(paste(practical$date, practical_start_time)) 
+practical$DTEND = lubridate::ymd_hm(paste(practical$date, practical_end_time))
+practical$duration = (practical$DTEND - practical$DTSTART)
+practical$type = "Computer practical and lecture"
+practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_ids)
+practical$LOCATION = "Richard Hughes Cluster (1.40)"
+practical$DESCRIPTION = paste0(practical_descriptions)
+nrow(practical) # there are 6 practicals
+
+# seminars ------------------------------------------------------
+
+seminar_ids = c(
+  "seminar1",
+  "seminar2"
+)
+seminar_descriptions = c(
+  "Seminar 1: TBC",
+  "Seminar 2 Will Deakin, Network Rail"
+)
+
+seminar_day_of_week = c(4)
+seminar_start_time = c("10:00", "14:00")
+seminar_end_time = c("11:00", "17:00")
+seminar = tibble::tibble(week_num = as.character(c(17, 21)))
+seminar = dplyr::inner_join(seminar, weeks)
+seminar$date = seminar$week_commencing + (seminar_day_of_week - 1)
+seminar$DTSTART = lubridate::ymd_hm(paste(seminar$date, seminar_start_time)) 
+seminar$DTEND = lubridate::ymd_hm(paste(seminar$date, seminar_end_time))
+seminar$duration = (seminar$DTEND - seminar$DTSTART)
+seminar$type = "Seminar"
+seminar$SUMMARY = paste0("TDS seminar ", 1:nrow(seminar))
+seminar$LOCATION = "Institute for Transport Studies 1.11"
+seminar$DESCRIPTION = paste0(seminar_descriptions, "")
+nrow(seminar) # there is 1 seminar
+
+# deadlines ------------------------------------------------------
+
+deadline_ids = c(
+  "computer setup",
+  "portfolio draft",
+  "portfolio deadline"
+)
+deadline_descriptions = c(
+  "Computer set-up",
+  "Draft portfolio",
+  "Deadline: coursework, 2pm"
+)
+
+# Deadline is 15th May: https://minerva.leeds.ac.uk/webapps/blackboard/content/listContentEditable.jsp?content_id=_629207_1&course_id=_504933_1&mode=reset
+
+deadline_day_of_week = 5
+deadline_start_time = "13:00"
+deadline_end_time = c("13:01", "13:01", "13:01")
+deadline = tibble::tibble(week_num = as.character(c(14, 17, 25)))
+deadline = dplyr::inner_join(deadline, weeks)
+deadline$date = deadline$week_commencing + (deadline_day_of_week - 1)
+deadline$DTSTART = lubridate::ymd_hm(paste(deadline$date, deadline_start_time)) 
+deadline$DTEND = lubridate::ymd_hm(paste(deadline$date, deadline_end_time))
+deadline$duration = (deadline$DTEND - deadline$DTSTART)
+deadline$type = "Deadline"
+deadline$SUMMARY = paste0("TDS deadline ", 1:nrow(deadline))
+deadline$LOCATION = "Online - Teams"
+deadline$DESCRIPTION = deadline_descriptions
+
+# setdiff(names(seminar), names(practical))
+timetable = rbind(practical, seminar, deadline) 
+timetable$duration
+
+timetable$UID = purrr::map_chr(1:nrow(timetable), ~ calendar::ic_guid())
+timetable = timetable |> 
+  arrange(DTSTART) 
+units(timetable$duration) = "hours"
+
+sum(timetable$duration) # 20 - up to 25.05 hours of contact time
+# xlsx::write.xlsx(timetable, "tds-timetable-2020.xlsx")
+
+ic = calendar::ical(timetable) 
+tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID)
+ic = calendar::ical(tt_min)
+tt_csv = tt_min |> 
+  mutate(date = as.Date(DTSTART), duration = round(as.numeric(DTEND - DTSTART) / 60)) |> 
+  select(SUMMARY, DESCRIPTION, date, duration, LOCATION)
+names(tt_csv) = tolower(names(tt_csv))
+calendar::ic_write(ic, "timetable.ics")
+readLines("timetable.ics")
+readr::write_csv(tt_csv, "timetable.csv")
+```
+
+```{r}
+#| eval: false
+system("gh release create 2025")
+system("gh release upload 2025 timetable.ics timetable.csv")
+```
+
+```{r}
+tt_csv = readr::read_csv("timetable.csv")
+timetable = tt_csv |> 
+  mutate(
+    session_code = paste0(
+      # Take 5th character from summary:
+      tolower(str_sub(summary, 5, 5)),
+      # Take first number from summary:
+      str_extract(summary, "\\d")
+    )
+  ) |>
+  transmute(
+    `Session ID` = paste0(
+      "<a href='",
+      session_code,
+      "'>",
+      session_code,
+      "</a>"
+    ),
+    Description = description,
+    Date = date,
+    Duration = duration,
+    Location = location
+  )
+DT::datatable(timetable, rownames = FALSE, escape = FALSE)
+```

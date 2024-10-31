@@ -1,0 +1,257 @@
+---
+title: "Practical 1: Introduction to Transport Data Science"
+bibliography: ../tds.bib
+toc: true
+execute: 
+  cache: true
+---
+
+## Agenda {.unnumbered}
+
+1.  Lecture: an introduction to Transport Data Science (30 min)
+2.  Q&A (15 min) 
+<!-- - Introduction to the module and team - 30 min
+    Each person to say  1) their name and where they are based 2) why they took the module and 3) their level of knowledge of coding. --> 
+3.  Break and networking (15 min)
+<!-- 3. Practical (2 hrs) -->
+4.  Data science and a good research question (30 min)
+5.  Data science foundations (guided): Project set-up and using RStudio or VS Code as an integrated development environment (30 min)
+6.  Focussed work (1 hr)
+  - Working through the questions on processing OD data and running the code in Sections 13.1 to 13.4 the Transport chapter of Geocomputation with R and answering the questions for the Bristol dataset  
+<!-- 1. Bonus: Work through [Chapter 5](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science -->
+
+# What is transport data science and thinking of a good research question {.unnumbered}
+
+-   Based on the contents of the lecture, come up with *your own* definition of data science
+-   How do you see yourself using data science over the next 5 years?
+-   Think of a question about a transport system you know well and how data science could help answer it, perhaps with reference to a sketch like that below
+
+## How to come up with a good research question {.unnumbered}
+
+-   Think about the data you have access to
+-   Think about the problems you want to solve
+-   Think about the methods you want to use and skills you want to learn
+-   Think about how the final report will look and hold-together
+
+#### How much potential is there for cycling across the transport network? {.unnumbered}
+
+![](https://user-images.githubusercontent.com/1825120/127524923-7d9f5511-84a6-430b-8de9-a603a5524f39.png)
+
+#### How can travel to schools be made safer? {.unnumbered}
+
+#### How can hospitals encourage visitors to get there safely? {.unnumbered}
+
+#### Where's the best place to build electric car charging points? {.unnumbered}
+
+See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637) or search for other open access datasets for more ideas
+
+<!-- 2. Work through the transport chapter of Geocomputation with R: https://geocompr.robinlovelace.net/transport.html -->
+
+<!-- See https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md -->
+
+<!-- - In terms of future work in an evolving job market? -->
+
+<!-- - In terms of the kinds of problems you want to solve? -->
+
+<!-- ## Sketching research methods (in groups of 2-4, 30 minutes) -->
+
+<!-- Starting with the 1000 'desire lines' dataset of Leeds, sketch-out some research ideas that cover -->
+
+<!-- 1) Hypotheses: generate two hypotheses that are falsifiable and 2 hypotheses that are not falsifiable -->
+
+<!-- 2) Input data: draw schematic representations of additional datasets that you could use alongside the desire lines dataset, with at least one at each of these levels: -->
+
+<!-- - Zones -->
+
+<!-- - Points -->
+
+<!-- - Routes -->
+
+<!-- - Route networks -->
+
+<!-- - Individual -->
+
+<!-- What temporal and spatial resolution could each one have? -->
+
+<!-- 3) Methods: using a flow diagram (e.g. as shown below) -->
+
+```{r schematic, echo=FALSE}
+# knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/flow-model/flow-diag2.png")
+```
+
+<!-- ## Practical, group computer task (30 minutes) -->
+
+<!-- Create a github account (all). See: https://github.com -->
+
+<!-- Building on the follow code chunk (but with no copy-and-pasting), create a data frame that contains the names, coffee habits and like/dislike of bus travel for everyone in your group (just 1 computer per group): -->
+
+<!-- ```{r} -->
+
+<!-- person_name = c( -->
+
+<!--   "robin", -->
+
+<!--   "malcolm", -->
+
+<!--   "richard" -->
+
+<!-- ) -->
+
+<!-- n_coffee = c( -->
+
+<!--   5, -->
+
+<!--   1, -->
+
+<!--   0 -->
+
+<!-- ) -->
+
+<!-- like_bus_travel = c( -->
+
+<!--   TRUE, -->
+
+<!--   FALSE, -->
+
+<!--   TRUE -->
+
+<!-- ) -->
+
+<!-- personal_data = data.frame(person_name, n_coffee, like_bus_travel) -->
+
+<!-- personal_data -->
+
+<!-- ``` -->
+
+<!-- When you are complete, add your code to https://github.com/ITSLeeds/TDS/blob/master/code-r/01-person-data.R -->
+
+<!-- ## Learning outcomes -->
+
+```{r, echo=FALSE}
+# Identify available datasets and access and clean them
+# Combine datasets from multiple sources
+# Understand what machine learning is, which problems it is appropriate for compared with traditional statistical approaches, and how to implement machine learning techniques
+# Visualise and communicate the results of transport data science, and know about setting-up interactive web applications
+# Deciding when to use local computing power vs cloud services
+```
+
+<!-- - Articulate the relevance and limitations of data-centric analysis applied to transport problems, compared with other methods -->
+
+# Data Science foundations
+
+**Read and try to complete the exercises in Chapters 1 to 4 of the book Reproducible Road Safety Research with R.** It assumes that you have recently updated R and RStudio on your computer.
+For details on installing packages see here: https://docs.ropensci.org/stats19/articles/stats19-training-setup.html
+
+-   Create a new folder (or R project with RStudio) called 'practical1'
+-   In it create file called foundations.qmd
+-   Type the following
+
+![](images/paste-1.png)
+
+-   Knit the document by pressing Ctrl+Shift+K, with the 'Knit' button in RStudio, or by typing `quarto render foundations.qmd` in the PowerShell or Terminal console, the result should look like this:
+
+This is some text:
+
+```{r}
+casualty_type = c("pedestrian", "cyclist", "cat")
+casualty_age = seq(from = 20, to = 60, by = 20)
+crashes = data.frame(casualty_type, casualty_age)
+```
+
+-   
+
+```{r, echo=FALSE}
+casualty_type = c("pedestrian", "cyclist", "cat")
+casualty_age = seq(from = 20, to = 60, by = 20)
+crashes = data.frame(casualty_type, casualty_age)
+vehicle_type = c("car", "bus", "tank")
+crashes$vehicle_type = vehicle_type
+```
+
+We now have a data frame object stored in memory (technically in the global environment) that is used as the basis of the questions.
+
+To get some larger datasets, try the following (from Chapter 8 of RSRR)
+
+::: {.panel-tabset group="language"}
+## R
+
+```{r}
+library(stats19)
+ac = get_stats19(year = 2019, type = "collision")
+ca = get_stats19(year = 2019, type = "cas")
+ve = get_stats19(year = 2019, type = "veh")
+```
+
+## Python
+
+``` python
+# pip install stats19
+import stats19
+ac = stats19.get_stats19(year = 2019, type = "collision")
+ca = stats19.get_stats19(year = 2019, type = "cas")
+ve = stats19.get_stats19(year = 2019, type = "veh")
+```
+:::
+
+2.3.1.
+Use the `$` operator to print the `vehicle_type` column of `crashes`.
+
+```         
+- In R the `$` symbol is used to refer to elemements of a list. So the answer is simply `crashes$vehicle_type`
+```
+
+2.3.2.
+Subsetting the crashes with the `[,]` syntax
+
+```         
+- Try out different combinations on the dataframe
+```
+
+2.3.3.
+**Bonus**: what is the `class()` of the objects created by each of the previous exercises?
+
+```         
+- Explore how many R classes you can find
+```
+
+Let's go through these exercises together:
+
+1.  Subset the `casualty_age` object using the inequality (`<`) so that only elements less than 50 are returned.
+2.  Subset the `crashes` data frame so that only tanks are returned using the `==` operator.
+3.  **Bonus**: assign the age of all tanks to 61.
+
+-   Try running the subsetting code on a larger dataset, e.g. the `ac` object created previously
+
+1.  Coerce the `vehicle_type` column of `crashes` to the class `character`.
+2.  Coerce the `crashes` object into a matrix. What happened to the values?
+3.  **Bonus:** What is the difference between the output of `summary()` on `character` and `factor` variables?
+
+-   We'll explore this together
+
+<!-- ## Completing Chapters 2-4 in the RRSRR document
+
+-   This was your homework but revisit it an ensure you understand every bit and complete it if you haven't already
+
+## Tidyverse
+
+-   Work through Chapter 5 starting with the following code: -->
+
+<!-- library(tidyverse) # Load the package -->
+
+# Data Science foundations
+
+Work through [Chapter 13](https://r.geocompx.org/transport.html) of the book Geocomputation with R, taking care to ask questions about any aspects that you don't understand (your homework will be to complete and make notes on the chapter, including reproducible code).
+
+# Homework
+
+- Complete working through Chapter 13 of the Geocomputation with R book. Make notes in a .qmd file that you can bring to the class to show colleagues and the instructor next week.
+
+<!-- -   Work through chapters 6 and 7 on spatial and temporal data in the [RRSRR tutorial](https://itsleeds.github.io/rrsrr/) to get R foundations
+
+-   Work-through the remaining exercises of the first sections in R4DS chapters 3 and 5
+
+    -   Write your notes in a .R, .Rmd or .qmd file with comments, to show your working (and prove you've done it!)
+
+-   **Bonus 1 (optional)** Run the code in the [demos/demo-quarto-document.qmd](https://github.com/ITSLeeds/TDS/blob/master/demos/demo-quarto-document.qmd) script
+
+Note: you can copy-paste the code from the .qmd file into a new .qmd file on your computer and render it (convert it into a .PDF file) using the following: -->

@@ -1,0 +1,54 @@
+---
+title: "Transport Data Science"
+---
+
+A module teaching how to use data science to solve transport problems.
+
+# Prerequisites
+
+## General computing prerequisites
+
+You should have the latest stable release of R (4.3.0 or above) and be comfortable with computing in general, for example creating folders, moving files, and installing software.
+
+We recommend installing this software on a computer with decent resources (e.g. a laptop with 8 GB of RAM).
+
+## Data science experience prerequisites
+
+Prior experience of using R or Python (e.g. having used it for work, in previous degrees or having completed an online course) is essential.
+
+Students can demonstrate this by showing evidence that they have worked with R before, have completed an online course such as the first 4 sessions in the [RStudio Primers series](https://rstudio.cloud/learn/primers) or [DataCamp’s Free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r).
+
+Evidence of substantial programming and data science experience in previous professional or academic work, in languages such as R or Python, also constitutes sufficient pre-requisite knowledge for the course.
+
+## Software
+
+Although you are free to use any software for the course, the emphasis on reproducibility means that popular popular and established data science languages R and Python are *highly* recommended.
+
+The teaching will be delivered primarily in R, with some Python code snippets and examples.
+Unless you have a good reason to use Python, we recommend you use R for the course.
+
+### R software prerequisites
+For this module you therefore need to have up-to-date versions of R and RStudio installed on a computer you have access to:
+
+- R from [cran.r-project.org](https://cran.r-project.org/)
+- RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download)
+- R packages, which can be installed by opening RStudio and typing `install.packages("stats19")` in the R console, for example.
+- To install all the dependencies for the module, run the following command in the R console:
+
+```{r}
+#| eval: false
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+remotes::install_github("itsleeds/tdstests")
+```
+
+See [Section 1.5 of the online guide Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio) for instructions on how to install key packages we will use in the module.^[
+For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend 
+Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://geocompr.robinlovelace.net/spatial-class.html and Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the 
+[project management section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
+]
+
+### Python software prerequisites
+
+We installing Python with a modern package manager such as `pixi`.

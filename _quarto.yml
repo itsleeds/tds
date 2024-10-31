@@ -1,0 +1,38 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Transport Data Science"
+  sidebar:
+    background: primary
+    # logo: "images/logo.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/itsleeds/TDStests
+        text: GitHub
+    style: docked
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: schedule.qmd
+        text: Schedule
+      - href: materials.qmd
+        text: Materials
+      - href: https://github.com/ITSLeeds/TDS/discussions
+        text: Forum
+      - href: marking-criteria.qmd
+        text: Marking Criteria
+
+format:
+  html:
+    theme: cosmo
+    # css: styles.css
+    toc: true
+    number-sections: true
+
+execute:
+  freeze: auto
+
