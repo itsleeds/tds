@@ -186,7 +186,7 @@ For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://g
 -   Code chunks and figures are encouraged
 -   You will submit a non-assessed 2 page pdf + qmd
 
-## [Schedule](https://itsleeds.github.io/TDStests/schedule.html)
+## [Schedule](https://itsleeds.github.io/tds/schedule.html)
 
 ![](images/paste-1.png)
 
