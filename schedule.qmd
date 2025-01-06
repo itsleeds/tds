@@ -145,7 +145,11 @@ system("gh release upload 2025 timetable.ics timetable.csv")
 ```
 
 ```{r}
+#| include: false
 tt_csv = readr::read_csv("timetable.csv")
+```
+
+```{r}
 timetable = tt_csv |> 
   mutate(
     session_code = paste0(
