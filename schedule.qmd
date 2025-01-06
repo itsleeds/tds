@@ -34,9 +34,9 @@ practical_ids = c(
 
 practical_descriptions = c(
   "Introduction to transport data science (RL, MM, ZW, YY)",
+  "Getting transport data (RL, YY)",
   "Origin-destination data (RL, YY)",
   "Routing (MM, YY)",
-  "Getting transport data (RL, YY)",
   "Visualising transport data (RL, YY)",
   "Project work (RL, MM, ZW, YY)"
 )
