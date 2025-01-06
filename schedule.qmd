@@ -4,6 +4,12 @@ execute:
   echo: false
 ---
 
+<!-- From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
+
+The timetable below is a user-friently representation of the timetable for the module.
+See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) for the official timetable.
+If you spot any discrepancies, please let us know.
+
 ```{r}
 #| include: false
 library(tidyverse)
@@ -175,3 +181,4 @@ timetable = tt_csv |>
   )
 DT::datatable(timetable, rownames = FALSE, escape = FALSE)
 ```
+
