@@ -6,7 +6,7 @@ execute:
 
 <!-- From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
 
-The timetable below is a user-friently representation of the timetable for the module.
+The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2025/timetable.ics) versions).
 See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) for the official timetable.
 If you spot any discrepancies, please let us know.
 
@@ -146,8 +146,8 @@ readr::write_csv(tt_csv, "timetable.csv")
 
 ```{r}
 #| eval: false
-system("gh release create 2025")
-system("gh release upload 2025 timetable.ics timetable.csv")
+# system("gh release create 2025")
+system("gh release upload 2025 timetable.ics timetable.csv --clobber")
 ```
 
 ```{r}
