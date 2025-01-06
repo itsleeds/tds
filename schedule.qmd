@@ -33,12 +33,12 @@ practical_ids = c(
 )
 
 practical_descriptions = c(
-  "Introduction to transport data science",
-  "Origin-destination data",
-  "Routing",
-  "Getting transport data",
-  "Visualising transport data",
-  "Project work"
+  "Introduction to transport data science (RL, MM, ZW, YY)",
+  "Origin-destination data (RL, YY)",
+  "Routing (MM, YY)",
+  "Getting transport data (RL, YY)",
+  "Visualising transport data (RL, YY)",
+  "Project work (RL, MM, ZW, YY)"
 )
 
 # Source: https://timetable.leeds.ac.uk/teaching/202425/reporting/textspreadsheet;?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
@@ -54,9 +54,9 @@ practical$DTSTART = lubridate::ymd_hm(paste(practical$date, practical_start_time
 practical$DTEND = lubridate::ymd_hm(paste(practical$date, practical_end_time))
 practical$duration = (practical$DTEND - practical$DTSTART)
 practical$type = "Computer practical and lecture"
-practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_ids)
+practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_descriptions)
 practical$LOCATION = "Richard Hughes Cluster (1.40)"
-practical$DESCRIPTION = paste0(practical_descriptions)
+practical$DESCRIPTION = paste0(practical$SUMMARY, " Located in ", practical$LOCATION)
 nrow(practical) # there are 6 practicals
 
 # seminars ------------------------------------------------------
@@ -147,6 +147,7 @@ system("gh release upload 2025 timetable.ics timetable.csv")
 ```{r}
 #| include: false
 tt_csv = readr::read_csv("timetable.csv")
+
 ```
 
 ```{r}
