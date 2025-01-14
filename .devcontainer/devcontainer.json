@@ -1,6 +1,6 @@
 {
-	"name": "ghcr.io/geocompx/docker:rocker-rpyjl",
-	"image": "rocker-rpy",
+	"name": "Transport data science container",
+	"image": "ghcr.io/itsleeds/tds",
 	"customizations": {
 		"vscode": {
 			"extensions": [
