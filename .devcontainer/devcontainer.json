@@ -1,6 +1,6 @@
 {
 	"name": "ghcr.io/geocompx/docker:rocker-rpyjl",
-	"image": "rocker-rpyjl",
+	"image": "rocker-rpy",
 	"customizations": {
 		"vscode": {
 			"extensions": [
