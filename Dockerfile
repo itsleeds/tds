@@ -7,6 +7,7 @@ RUN R -e "install.packages(c('tidyverse', 'sf', 'quarto', 'stats19', 'nycflights
 # Install Python packages
 RUN pip3 install jupyter jupyter-cache
 
+
 # Set up VS Code extensions
 RUN code --install-extension reditorsupport.r \
     && code --install-extension GitHub.copilot-chat \
