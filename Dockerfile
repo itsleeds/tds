@@ -1,8 +1,8 @@
 # Use the base image
-FROM ghcr.io/geocompx/rocker-rpy
+FROM ghcr.io/itsleeds/tds
 
 # # Install R packages
-# RUN R -e "install.packages(c('tidyverse', 'sf', 'quarto', 'stats19', 'nycflights13', 'remotes', 'spDataLarge', 'DT', 'calendar', 'reticulate', 'stplanr', 'tmap', 'spData'), repos='http://cran.rstudio.com/')"
+# RUN R -e "remotes::install_github('itsleeds/tds')"
 
 # Install Python packages
 RUN pip3 install jupyter jupyter-cache
