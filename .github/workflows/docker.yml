@@ -30,3 +30,4 @@ jobs:
         context: .
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/tds:latest
+        outputs: type=image,push=true,visibility=public
