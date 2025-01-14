@@ -1,5 +1,5 @@
 # Use the base image
-FROM ghcr.io/itsleeds/tds
+FROM ghcr.io/geocompx/rocker-rpy
 
 # # Install R packages
 RUN R -e "remotes::install_github('itsleeds/tds')"
