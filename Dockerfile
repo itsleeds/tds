@@ -22,6 +22,7 @@ RUN pip3 install jupyter jupyter-cache
 #     && code --install-extension ms-python.python \
 #     && code --install-extension ms-toolsai.jupyter
 
+
 # Set the working directory
 WORKDIR /workspace
 
