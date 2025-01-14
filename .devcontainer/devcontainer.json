@@ -9,9 +9,6 @@
 				"quarto.quarto",
 				"ms-python.python",
 				"ms-toolsai.jupyter"
-                // ,
-                // For Julia support
-				// "julialang.language-julia"
 			]
 		}
 	}
