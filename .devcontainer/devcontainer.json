@@ -1,0 +1,18 @@
+{
+	"name": "ghcr.io/geocompx/docker:rocker-rpyjl",
+	"image": "rocker-rpyjl",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"reditorsupport.r",
+				"GitHub.copilot-chat",
+				"quarto.quarto",
+				"ms-python.python",
+				"ms-toolsai.jupyter"
+                // ,
+                // For Julia support
+				// "julialang.language-julia"
+			]
+		}
+	}
+}
