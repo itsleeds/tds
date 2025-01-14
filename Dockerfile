@@ -2,7 +2,7 @@
 FROM ghcr.io/itsleeds/tds
 
 # # Install R packages
-# RUN R -e "remotes::install_github('itsleeds/tds')"
+RUN R -e "remotes::install_github('itsleeds/tds')"
 
 # Install Python packages
 RUN pip3 install jupyter jupyter-cache
