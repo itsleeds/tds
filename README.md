@@ -9,10 +9,20 @@ Institute for Transport Studies, University of Leeds. See the website at
 https://itsleeds.github.io/tds/ and at
 [leeds.ac.uk](https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202223&M=TRAN-5340M)
 
+## Quickstart
+
+See the course website at
+[itsleeds.github.io/tds](https://itsleeds.github.io/tds/)
+
+The quickest way to get started with the code for many people will be to
+use GitHub Codespaces. Click the “Open in GitHub Codespaces” button
+above to get started.
+
 ## Cloning and contributing
 
-We welcome contributions! To fork and clone the repo, use the following
-commands:
+We welcome contributions!
+
+To fork and clone the repo, use the following commands:
 
 ``` sh
 # install the gh command line tool: https://cli.github.com/
@@ -30,8 +40,7 @@ gh pr create # to create a pull request
 Please create an issue before contributing, so we can discuss the
 changes you’d like to make.
 
-Note: we have branch protections in place so you should create a PR
-before pushing to the main branch.
+<!-- Note: we have branch protections in place so you should create a PR before pushing to the main branch. -->
 
 You can create and work on an issue with the following commands:
 
