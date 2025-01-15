@@ -44,24 +44,6 @@ title-slide-attributes:
 
 #### You!
 
-<!-- ### Joey Talbot -->
-
-<!-- - PhD in Tropical Ecology -->
-
-<!-- - Worked for Transport for New Homes -->
-
-<!-- - Research Fellow in Transport Data Science -->
-
-<!-- Not working on it 2021 -->
-
-<!-- ### Richard Connors -->
-
-<!-- - Mathematician by training -->
-
-<!-- - Matlab programmer  -->
-
-<!-- - Expertise in dynamic traffic assignment -->
-
 ## What is transport data science?
 
 ::: {.incremental}
