@@ -8,3 +8,4 @@ _freeze/
 # pixi environments
 .pixi
 *.egg-info
+*cache*
