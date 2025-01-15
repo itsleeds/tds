@@ -10,6 +10,7 @@ title-slide-attributes:
     data-background-size: contain
     data-background-opacity: "0.5"
 # <!-- Credit: Mandeep Lota via [flickr](https://www.flickr.com/photos/deepster2k/1096671706) -->
+bibliography: ../tds.bib
 ---
 
 ```{r}
@@ -46,7 +47,6 @@ library(dplyr)
 
 #### Demonstrators
 
--   Juan Pablo Fonseca Zamora
 
 #### You!
 
@@ -84,7 +84,7 @@ In other words...
 
 ![](https://github.com/npct/pct-team/blob/master/figures/front-page-leeds-pct-demo.png?raw=true)
 
-![](images/paste-17.png)
+![](../slides/images/paste-17.png)
 :::
 ::::
 :::::::
@@ -191,64 +191,6 @@ See the [schedule](https://itsleeds.github.io/tds/schedule.html) for details
 
 <iframe src="https://itsleeds.github.io/tds/schedule.html" width="100%" height="400px"></iframe>
 
-## Objectives
-
-<!-- From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md): -->
-
-- Understand the structure of transport datasets
-- Understand how to obtain, clean and store transport related data
-- Gain proficiency in command-line tools for handling large transport datasets
-- Produce data visualizations, static and interactive
-
-```{r, echo=FALSE}
-# Understand the structure of transport datasets: spatial, temporal and demographic
-# Understand how to obtain, clean and store transport related data
-# Gain proficiency in command-line tools for handling large transport datasets
-# Learn machine learning and data modelling techniques
-# Produce data visualizations, static and interactive
-# Learn where to find large transport datasets and assess data quality
-```
-
-- <font color="red"> Learn how to join together the components of transport data science into a cohesive project portfolio  </font> 
-
----
-
-## Assessment (for those doing this as credit-bearing)
-
-- You will build-up a portfolio of work
-- 100% coursework assessed, you will submit by **Friday 19th May**:
-  - **a pdf document up to 10 pages long with figures, tables, references explaining how you used data science to research a transport problem**
-  - **reproducible code contained in an RMarkdown (.Rmd) document that produced the report**
-- Written in RMarkdown - will be graded for reproducibility
-- Code chunks and figures are encouraged
-- You will submit a non-assessed 2 page pdf + Rmd report by **18th March**
-
----
-
-## What is transport data science?
-
-- The application of data science to transport datasets and problems
-
---
-
-- Raising the question...
-
---
-
-- What is data science?
-
-<!-- You tell me! -->
-
---
-
-- A discipline "that allows you to turn raw data into understanding, insight, and knowledge" [@grolemund_r_2016]
-
---
-
-In other words...
-
-- Statistics that is actually useful!
-
 ### Deeper question: why transport data science?
 
 - You must answer that question
@@ -257,24 +199,29 @@ In other words...
 
 ## What is science?
 
-.pull-left[
+::: {.columns}
+
+::: {.column width="50%"}
+
 - Scientific knowledge is hypotheses that can be falsified
 - Science is the process of *generating falsifiable hypotheses* and *testing them*
 - In a reproducible way
 - Systematically
 
 ![](https://media3.giphy.com/media/3ohhworAhxSEHT3zDa/200w.webp?cid=3640f6095c57e8d15767723367d0c596)
-]
 
---
+:::
 
-.pull-right[
+::: {.column width="50%"}
 
 - Falsifiability is central to the scientific process [@popper_logic_1959]
 - All of which requires software conducive to reproducibility
 
 ![](https://duckduckgo.com/i/f2692e7b.jpg)
-]
+
+:::
+
+:::
 
 ---
 
