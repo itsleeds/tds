@@ -108,7 +108,7 @@ deadline_descriptions = c(
 
 deadline_day_of_week = 5
 deadline_start_time = "13:00"
-deadline_end_time = c("13:01", "13:01", "13:01")
+deadline_end_time = c("15:01", "13:01", "13:01")
 deadline = tibble::tibble(week_num = as.character(c(14, 17, 25)))
 deadline = dplyr::inner_join(deadline, weeks)
 deadline$date = deadline$week_commencing + (deadline_day_of_week - 1)
@@ -135,9 +135,15 @@ sum(timetable$duration) # 20 - up to 25.05 hours of contact time
 ic = calendar::ical(timetable) 
 tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID)
 ic = calendar::ical(tt_min)
+class(tt_min$DTSTART)
+format(tt_min$DTSTART, "%Y-%m-%d %H:%M")
 tt_csv = tt_min |> 
-  mutate(date = as.Date(DTSTART), duration = round(as.numeric(DTEND - DTSTART) / 60)) |> 
-  select(SUMMARY, DESCRIPTION, date, duration, LOCATION)
+  mutate(
+    time = DTSTART,
+    duration = round(as.numeric(DTEND - DTSTART) / 60)
+  ) |> 
+  select(SUMMARY, DESCRIPTION, time, duration, LOCATION)
+tt_csv$time
 names(tt_csv) = tolower(names(tt_csv))
 calendar::ic_write(ic, "timetable.ics")
 readLines("timetable.ics")
@@ -153,8 +159,8 @@ system("gh release upload 2025 timetable.ics timetable.csv --clobber")
 ```{r}
 #| include: false
 tt_csv = readr::read_csv("timetable.csv")
-
 ```
+
 
 ```{r}
 timetable = tt_csv |> 
@@ -175,7 +181,7 @@ timetable = tt_csv |>
       "</a>"
     ),
     Description = description,
-    Date = date,
+    Time = format(as.POSIXct(time), "%Y-%m-%d %H:%M"),
     Duration = duration,
     Location = location
   )
