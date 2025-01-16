@@ -185,6 +185,6 @@ timetable = tt_csv |>
     Duration = duration,
     Location = location
   )
-DT::datatable(timetable, rownames = FALSE, escape = FALSE)
+DT::datatable(timetable, rownames = FALSE, escape = FALSE, options = list(pageLength = 20))
 ```
 
