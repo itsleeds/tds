@@ -3,6 +3,8 @@
 [![pages-build-deployment](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment)
 [![Open in GitHub
 Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
+[![Docker Image
+Size](https://img.shields.io/docker/image-size/itsleeds/tds?color=blue&label=Image%20Size&trim=1.png)](https://hub.docker.com/r/itsleeds/tds)
 
 This repo contains code for the Transport Data Science module at the
 Institute for Transport Studies, University of Leeds. See the website at
