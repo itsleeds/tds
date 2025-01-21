@@ -1,5 +1,6 @@
 ---
 title: "Reading List"
+bibliography: tds.bib
 ---
 
 This reading list contains key resources for the Transport Data Science module, organized by topic.
