@@ -16,14 +16,24 @@ This reading list contains key resources for the Transport Data Science module, 
 
 - [Quarto](https://quarto.org/) [@allaire_quarto_2024]
   - The software used to create this document, Quarto is a powerful tool for creating reproducible documents with code and data.
+  - See the [technical writing](https://quarto.org/docs/visual-editor/technical.html) page of Quarto's documentation for key information on how to add references, figure captions, and more.
 - [Introduction to GitHub](https://github.com/skills/introduction-to-github) [@heis_introduction_2025]
   - A good starting point for learning how to use GitHub for version control and collaboration.
+  <!-- https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers -->
+  - See also their introduction to Devcontainers at [docs.github.com/en/codespaces/](https://docs.github.com/en/codespaces/)
 - [stats19](https://itsleeds.github.io/stats19/) [@lovelace_stats19_2019]
   - R package for working with official road crash data
 - [stplanr: A Package for Transport Planning](https://doi.org/10.32614/RJ-2018-053) [@lovelace_stplanr_2018]
   - R package for transport planning with various routing and analysis functions
 - [OSMnx: New Methods for Acquiring, Constructing, Analyzing, and Visualizing Complex Street Networks](https://doi.org/10/gbvjxq) [@boeing_osmnx_2017]
   - Useful, if slightly out of date, paper for anyone working with street network data in Python.
+- [A/B Street](https://zenodo.org/record/6331922) [@abstreet_2022]
+  - A traffic simulation game exploring how small changes to streets can improve transportation in cities. Useful for understanding the impact of urban design on transport systems.
+- [osm2streets](https://github.com/a-b-street/osm2streets) [@carlino_osm2streets_2025]
+  - Tool for converting OpenStreetMap data to detailed street networks, useful for transport modeling and analysis.
+  - See Python bindings that can convert OSM data into polygons representing streets as GeoPandas dataframes at [github.com/a-b-street/osm2streets-py](https://github.com/a-b-street/osm2streets/tree/main/osm2streets-py)
+- [od2net](https://github.com/Urban-Analytics-Technology-Platform/od2net) [@carlino_od2net_2024]
+  - Tool for converting origin-destination data into network flows, useful for transport modeling and analysis.
 
 # Research Applications
 
