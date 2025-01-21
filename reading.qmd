@@ -64,4 +64,6 @@ This reading list contains key resources for the Transport Data Science module, 
 - [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building]
   - A guide to the data engineering side of data science, with a focus on reproducibility and automation.
 
+See the [full bibliography](https://www.zotero.org/groups/418217/energy-and-transport/collections/R38L2EXB) on Zotero for more resources, and feel free to suggest additions via a pull request to this document.
+
 # References
