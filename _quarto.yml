@@ -25,6 +25,8 @@ website:
         text: Forum
       - href: marking-criteria.qmd
         text: Marking Criteria
+      - href: reading.qmd
+        text: Reading list
 
 format:
   html:
@@ -32,7 +34,9 @@ format:
     # css: styles.css
     toc: true
     number-sections: true
+    csl: elsevier-harvard.csl
 
 execute:
   freeze: auto
+
 

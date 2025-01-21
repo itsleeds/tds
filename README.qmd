@@ -78,7 +78,14 @@ You can save presentations as PDF files with the following command:
 cd docs/slides
 docker run --rm -t -v .:/slides astefanutti/decktape -s 1280x720 generic https://itsleeds.github.io/tds/slides/intro.html intro.pdf
 firefox intro.pdf
-``` 
- 
+```
+
+We use the Harvard citation style, added as follows:
+
+```bash
+wget https://github.com/citation-style-language/styles/raw/refs/heads/master/elsevier-harvard.csl
+```
+
+
 See documentation on Quarto website for info on publishing.
 
