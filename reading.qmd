@@ -29,30 +29,29 @@ This reading list contains key resources for the Transport Data Science module, 
 
 - [The Propensity to Cycle Tool](https://doi.org/10.5198/jtlu.2016.862) [@lovelace_propensity_2017]
   - Case study of an open source transport planning tool
-- [Data-Driven Strategies for Optimal Bicycle Network Growth](https://doi.org/10/gmf8dc) [@nateraorozco_datadriven_2020]
-  - Data-driven approach to bicycle infrastructure planning using data science
+- [Growing Urban Bicycle Networks](http://arxiv.org/abs/2107.02185) [@szell_growing_2021]
+  - This paper explores methods for auto-suggesting transport network improvements, with reference to reproducible Python code
 
 # Data Visualization
 
 - [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi) [@tufte_visual_2001]
   - Classic work on the principles of data visualization
-- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) [@xie_markdown_2018]
-  - Essential reference for creating reproducible documents in R
 
 ## Miscellaneous
 
 - [Data Science for Transport: A Self-Study Guide with Computer Exercises](https://doi.org/10.1007/978-3-319-72953-4) [@fox_data_2018]
   - An introduction to transport data science with hands-on examples, slightly out of date as of 2025.
 - [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) [@lovelace_reproducible_2020]
-  - Comprehensive guide for analyzing road safety data in R
+  - Introductory guide for analyzing road safety data in R
 - [Open source tools for geographic analysis in transport planning](https://doi.org/10/ghtnrp) [@lovelace_open_2021]
-  - A comprehensive review of open source tools available for transport planning and analysis.
+  - Review of open source tools available for transport planning and analysis.
 - [Python for Data Science](https://aeturrell.github.io/python4DS/) [@turrell_python_2025]
   - A modern guide to data science using Python based on R for Data Science, with practical examples and clear explanations.
 - [The Geography of Transport Systems](https://transportgeography.org/) [@rodrigue_geography_2013]
   - Comprehensive textbook on transport geography and systems
 - [Modelling Transport](https://www.wiley.com/en-us/Modelling+Transport%2C+4th+Edition-p-9781118941485) [@ortuzars._modelling_2001]
   - Foundational text on transport modeling methods
-
+- [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building]
+  - A guide to the data engineering side of data science, with a focus on reproducibility and automation.
 
 # References
