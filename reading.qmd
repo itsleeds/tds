@@ -1,0 +1,58 @@
+---
+title: "Reading List"
+---
+
+This reading list contains key resources for the Transport Data Science module, organized by topic.
+
+## Core Reading
+
+### R Programming and Data Science
+
+- Wickham, H., & Grolemund, G. (2017). [R for Data Science](https://r4ds.had.co.nz/). O'Reilly Media.
+- Lovelace, R., Nowosad, J., & Muenchow, J. (2019). [Geocomputation with R](https://geocompr.robinlovelace.net/). CRC Press.
+- Gillespie, C., & Lovelace, R. (2016). [Efficient R Programming](https://csgillespie.github.io/efficientR/). O'Reilly Media.
+
+### Python for Transport Data Science
+
+- [GeoPandas User Guide](https://geopandas.org/en/stable/getting_started.html) - For spatial data handling in Python
+- [Scientific Python Lectures](https://python-course.eu/python-tutorial/) - Core Python programming concepts
+- McKinney, W. (2022). Python for Data Analysis. O'Reilly Media.
+
+## Transport Data Science
+
+### Key Papers and Reports
+
+- Lovelace, R. (2021). [Open source tools for geographic analysis in transport planning](https://doi.org/10.1016/j.jtrangeo.2021.103104). Journal of Transport Geography.
+- Boeing, G. (2021). [Street Network Models and Indicators for Every Urban Area in the World](https://doi.org/10.1111/gean.12281). Geographical Analysis.
+
+### Online Resources
+
+- [stats19](https://itsleeds.github.io/stats19/) - Working with road crash data
+- [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) - Practical guide for transport safety analysis
+- [Transport Data Science with R](https://transport.data-science.net/) - Supplementary online resource
+
+## Software Setup and Prerequisites
+
+### R Environment
+
+- [CRAN R Installation Guide](https://cran.r-project.org/)
+- [RStudio Download Page](https://rstudio.com/products/rstudio/download/#download)
+- [RStudio Primers](https://rstudio.cloud/learn/primers) - Interactive tutorials for R beginners
+
+### Python Environment
+
+- [Python Installation Guide](https://www.python.org/downloads/)
+- [Getting Started with Pixi](https://prefix.dev/docs/pixi/overview) - For environment management
+- [Visual Studio Code](https://code.visualstudio.com/) - Recommended IDE for Python users
+
+## Additional Resources
+
+### Version Control and Reproducibility
+
+- Bryan, J. (2018). [Happy Git and GitHub for the useR](https://happygitwithr.com/)
+- [Git Introduction](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
+
+### Data Visualization
+
+- Wilke, C. O. (2019). [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/). O'Reilly Media.
+- Healy, K. (2018). [Data Visualization: A Practical Introduction](https://socviz.co/). Princeton University Press.
