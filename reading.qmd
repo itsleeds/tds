@@ -3,64 +3,56 @@ title: "Reading List"
 bibliography: tds.bib
 ---
 
-
 This reading list contains key resources for the Transport Data Science module, organized by topic.
 
 # Core Reading
 
-## R Programming and Data Science
-
 - [R for Data Science](https://r4ds.had.co.nz/) [@wickham_data_2023]
   - This is an excellent and very popular applied introduction to data science with R, covering the Tidyverse and data visualization. It is open access and based on open code, check out the source code at [github.com/hadley/r4ds](https://github.com/hadley/r4ds) for insights into how they use Quarto and embed code in their book.
-- Geocomputation with R [@lovelace_geocomputation_2025]
+- [Geocomputation with R](https://r.geocompx.org/) [@lovelace_geocomputation_2025]
+  - A comprehensive guide to geographic data analysis, visualization, and modeling using R. Essential for understanding spatial aspects of transport data.
 
+# Software and Tools
 
-## Python for Transport Data Science
+- [Quarto](https://quarto.org/) [@allaire_quarto_2024]
+  - The software used to create this document, Quarto is a powerful tool for creating reproducible documents with code and data.
+- [Introduction to GitHub](https://github.com/skills/introduction-to-github) [@heis_introduction_2025]
+  - A good starting point for learning how to use GitHub for version control and collaboration.
+- [stats19](https://itsleeds.github.io/stats19/) [@lovelace_stats19_2019]
+  - R package for working with official road crash data
+- [stplanr: A Package for Transport Planning](https://doi.org/10.32614/RJ-2018-053) [@lovelace_stplanr_2018]
+  - R package for transport planning with various routing and analysis functions
+- [OSMnx: New Methods for Acquiring, Constructing, Analyzing, and Visualizing Complex Street Networks](https://doi.org/10/gbvjxq) [@boeing_osmnx_2017]
+  - Useful, if slightly out of date, paper for anyone working with street network data in Python.
 
-- [GeoPandas User Guide](https://geopandas.org/en/stable/getting_started.html) - For spatial data handling in Python
-- [Scientific Python Lectures](https://python-course.eu/python-tutorial/) - Core Python programming concepts
-- McKinney, W. (2022). Python for Data Analysis. O'Reilly Media.
-- [Python for Data Science]() [@turrell_python_2025]
+# Research Applications
 
+- [The Propensity to Cycle Tool](https://doi.org/10.5198/jtlu.2016.862) [@lovelace_propensity_2017]
+  - Case study of an open source transport planning tool
+- [Data-Driven Strategies for Optimal Bicycle Network Growth](https://doi.org/10/gmf8dc) [@nateraorozco_datadriven_2020]
+  - Data-driven approach to bicycle infrastructure planning using data science
 
-# Transport Data Science
+# Data Visualization
 
-## Key Papers and Reports
+- [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi) [@tufte_visual_2001]
+  - Classic work on the principles of data visualization
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/) [@xie_markdown_2018]
+  - Essential reference for creating reproducible documents in R
 
-- Lovelace, R. (2021). [Open source tools for geographic analysis in transport planning](https://doi.org/10.1016/j.jtrangeo.2021.103104). Journal of Transport Geography.
-- Boeing, G. (2021). [Street Network Models and Indicators for Every Urban Area in the World](https://doi.org/10.1111/gean.12281). Geographical Analysis.
+## Miscellaneous
 
-## Online Resources
-
-- [stats19](https://itsleeds.github.io/stats19/) - Working with road crash data
-- [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) - Practical guide for transport safety analysis
-- [Transport Data Science with R](https://transport.data-science.net/) - Supplementary online resource
-
-# Software Setup and Prerequisites
-
-## R Environment
-
-- [CRAN R Installation Guide](https://cran.r-project.org/)
-- [RStudio Download Page](https://rstudio.com/products/rstudio/download/#download)
-- [RStudio Primers](https://rstudio.cloud/learn/primers) - Interactive tutorials for R beginners
-
-## Python Environment
-
-- [Python Installation Guide](https://www.python.org/downloads/)
-- [Getting Started with Pixi](https://prefix.dev/docs/pixi/overview) - For environment management
-- [Visual Studio Code](https://code.visualstudio.com/) - Recommended IDE for Python users
-
-# Additional Resources
-
-## Version Control and Reproducibility
-
-- Bryan, J. (2018). [Happy Git and GitHub for the useR](https://happygitwithr.com/)
-- [Git Introduction](https://git-scm.com/book/en/v2/Getting-Started-About-Version-Control)
-
-## Data Visualization
-
-- Wilke, C. O. (2019). [Fundamentals of Data Visualization](https://clauswilke.com/dataviz/). O'Reilly Media.
-- Healy, K. (2018). [Data Visualization: A Practical Introduction](https://socviz.co/). Princeton University Press.
+- [Data Science for Transport: A Self-Study Guide with Computer Exercises](https://doi.org/10.1007/978-3-319-72953-4) [@fox_data_2018]
+  - An introduction to transport data science with hands-on examples, slightly out of date as of 2025.
+- [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) [@lovelace_reproducible_2020]
+  - Comprehensive guide for analyzing road safety data in R
+- [Open source tools for geographic analysis in transport planning](https://doi.org/10/ghtnrp) [@lovelace_open_2021]
+  - A comprehensive review of open source tools available for transport planning and analysis.
+- [Python for Data Science](https://aeturrell.github.io/python4DS/) [@turrell_python_2025]
+  - A modern guide to data science using Python based on R for Data Science, with practical examples and clear explanations.
+- [The Geography of Transport Systems](https://transportgeography.org/) [@rodrigue_geography_2013]
+  - Comprehensive textbook on transport geography and systems
+- [Modelling Transport](https://www.wiley.com/en-us/Modelling+Transport%2C+4th+Edition-p-9781118941485) [@ortuzars._modelling_2001]
+  - Foundational text on transport modeling methods
 
 
 # References
