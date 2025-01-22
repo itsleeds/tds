@@ -45,14 +45,25 @@ You could use a cloud-based service such as RStudio Cloud, Google Colab, or GitH
 
 ## Software
 
-Although you are free to use any software for the course, the emphasis on reproducibility and interactive data science means that popular popular and established data science languages such as R and Python are recommended.
+You need to install some software to take the course.
 
-The teaching will be delivered primarily in R, with some Python code snippets and examples.
-Unless you have a good reason to use Python, we recommend you use R for the course.
+The teaching is be delivered primarily in R, with some Python code and examples, so you need to install R (recommended) or Python or both on your computer.
+We recommend that most people use R for the practical sessions and the coursework, unless you have a good reason to use Python.
+If you do choose to use Python or another language, you will have less support: you will need the skills to set-up and manage your own environments.
+Translations of the R code examples into your chosen language will be very welcome, and contributions to the course materials via [Pull Requests on GitHub](https://github.com/itsleeds/tds/pulls) are encouraged.
+
+### Quickstart with GitHub Codespaces
+
+You can use GitHub Codespaces to get started with the course materials in a cloud-based environment.
+Sign-up to GitHub, fork the repository, and click the "Open in GitHub Codespaces" button above to get started.
+You can also use the following link:
+
+[![Open in GitHub
+Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 
 ### R
 
-You should have the latest stable release of R (4.3.0 or above) and RStudio (recommended) or another IDE such as VS Code (if you have prior experience with it) installed on your computer.
+Install a recent version of R (4.3.0 or above) and RStudio (recommended) or another IDE such as VS Code (if you have prior experience with it) with the the following links:
 
 - R from [cran.r-project.org](https://cran.r-project.org/)
 - RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download) (recommended) or VS Code with the R extension installed.
@@ -76,7 +87,15 @@ Chapter 2 of Geocomputation with R (the Prerequisites section contains links for
 ### Python
 
 If you choose to use Python, you should be able to install it and manage your own Python environment, including installing packages and dealing with package conflicts.
-If you use Python we recommend using `pixi`, which can manage both R and Python environments.
+If you use Python we recommend using an environment manager such as `pixi` (which can manage both R and Python environments) or Docker (best practice for reproducibility and isolation).
+
+### Docker (advanced)
+
+We maintain a Docker image that contains all the software you need to complete the course with VS Code, quarto and a Devcontainer set-up.
+Advantages of this approach include that it ensures reproducibility and can save time installing software.
+Disadvantages include that it can be hard to install Docker and can be difficult to use if you are not familiar with Docker.
+We therefore recommend this approach only for people who are confident with Docker and willing to invest time in learning how to use it.
+See [the Docker installation instructions](https://docs.docker.com/get-docker/), the [devcontainers documentation on github.com](https://github.com/devcontainers) and the tds [Dockerfile](https://github.com/itsleeds/tds/blob/main/Dockerfile) and [devcontainer.json](https://github.com/itsleeds/tds/blob/main/.devcontainer/devcontainer.json) for guidance on getting started with Docker.
 
 ## Command-line experience
 
@@ -90,3 +109,7 @@ Prior experience of using R or Python (e.g. having used it for work, in previous
 Students can demonstrate this by showing evidence that they have worked with R before, have completed an online course such as the first 4 sessions in the [RStudio Primers series](https://rstudio.cloud/learn/primers) or [DataCamp’s Free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r).
 
 Evidence of substantial programming and data science experience in previous professional or academic work, in languages such as R or Python, also constitutes sufficient pre-requisite knowledge for the course.
+
+# Contributing to the course
+
+See the [README](https://github.com/itsleeds/tds/tree/main?tab=readme-ov-file#quickstart) for instructions on how to contribute to the course materials.
