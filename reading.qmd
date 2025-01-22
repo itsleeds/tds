@@ -10,7 +10,9 @@ This reading list contains key resources for the Transport Data Science module, 
 - [R for Data Science](https://r4ds.had.co.nz/) [@wickham_data_2023]
   - This is an excellent and very popular applied introduction to data science with R, covering the Tidyverse and data visualization. It is open access and based on open code, check out the source code at [github.com/hadley/r4ds](https://github.com/hadley/r4ds) for insights into how they use Quarto and embed code in their book.
 - [Geocomputation with R](https://r.geocompx.org/) [@lovelace_geocomputation_2025]
-  - A comprehensive guide to geographic data analysis, visualization, and modeling using R. Essential for understanding spatial aspects of transport data.
+  - A comprehensive guide to geographic data analysis, visualization, and modeling using R.
+  <!-- https://r.geocompx.org/transport.html -->
+  - The Transportation chapter, which can be found online at [r.geocompx.org/transport.html](https://r.geocompx.org/transport.html), is a key resource for this module.
 
 # Software and Tools
 
