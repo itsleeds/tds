@@ -4,6 +4,85 @@ number-sections: false
 ---
 
 A module on using data science to solve transport problems.
+This couse is based at the University of Leeds' Institute for Transport Studies.
+It has evolved over a decade of teaching and research in the field and aims to teach you up-to-date and future-proof skills with practical examples and reproducible workflows using industry-standard data science tools.
+
+# Prerequisites
+
+We expect you to have some experience with programming, data science and computing in general before taking this course.
+Experience with geographic data is not required, but is helpful.
+
+## Hardware 
+
+Access to a computer that you have permission to install software on, with at least 8 GB of RAM, is highly recommended.
+You could use a cloud-based service such as RStudio Cloud, Google Colab, or GitHub Codespaces, but you would need to be comfortable with using these services and would miss out on some of the benefits of using your own computer.
+
+## Command-line experience
+
+You should be comfortable with computing in general, for example creating folders, moving files, and installing software.
+You should be comfortable with using command line interfaces such as PowerShell in Windows, Terminal in macOS, or the Linux shell.
+
+## Data science experience prerequisites
+
+Prior experience of using R or Python (e.g. having used it for work, in previous degrees or having completed an online course) is essential.
+
+Students can demonstrate this by showing evidence that they have worked with R before, have completed an online course such as the first 4 sessions in the [RStudio Primers series](https://rstudio.cloud/learn/primers) or [DataCamp’s Free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r).
+
+Evidence of substantial programming and data science experience in previous professional or academic work, in languages such as R or Python, also constitutes sufficient pre-requisite knowledge for the course.
+
+# Software requirements and installation
+
+You need to install some software to take the course.
+
+The teaching is be delivered primarily in R, with some Python code and examples, so you need to install R (recommended) or Python or both on your computer.
+We recommend that most people use R for the practical sessions and the coursework, unless you have a good reason to use Python.
+If you do choose to use Python or another language, you will have less support: you will need the skills to set-up and manage your own environments.
+Translations of the R code examples into your chosen language will be very welcome, and contributions to the course materials via [Pull Requests on GitHub](https://github.com/itsleeds/tds/pulls) are encouraged.
+
+## Quickstart with GitHub Codespaces
+
+You can use GitHub Codespaces to get started with the course materials in a cloud-based environment.
+Sign-up to GitHub, fork the repository, and click the "Open in GitHub Codespaces" button above to get started.
+You can also use the following link:
+
+[![Open in GitHub
+Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
+
+## R
+
+Install a recent version of R (4.3.0 or above) and RStudio (recommended) or another IDE such as VS Code (if you have prior experience with it) with the the following links:
+
+- R from [cran.r-project.org](https://cran.r-project.org/)
+- RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download) (recommended) or VS Code with the R extension installed.
+- R packages, which can be installed by opening RStudio and typing `install.packages("stats19")` in the R console, for example.
+- To install all the dependencies for the module, run the following command in the R console:
+
+```{r}
+#| eval: false
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+remotes::install_github("itsleeds/tds")
+```
+
+See [Section 1.5 of the online guide Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio) for instructions on how to install key packages we will use in the module.^[
+For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend 
+Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://geocompr.robinlovelace.net/spatial-class.html and Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the 
+[project management section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
+]
+
+## Python
+
+If you choose to use Python, you should be able to install it and manage your own Python environment, including installing packages and dealing with package conflicts.
+If you use Python we recommend using an environment manager such as `pixi` (which can manage both R and Python environments) or Docker (best practice for reproducibility and isolation).
+
+## Docker (advanced)
+
+We maintain a Docker image that contains all the software you need to complete the course with VS Code, quarto and a Devcontainer set-up.
+Advantages of this approach include that it ensures reproducibility and can save time installing software.
+Disadvantages include that it can be hard to install Docker and can be difficult to use if you are not familiar with Docker.
+We therefore recommend this approach only for people who are confident with Docker and willing to invest time in learning how to use it.
+See [the Docker installation instructions](https://docs.docker.com/get-docker/), the [devcontainers documentation on github.com](https://github.com/devcontainers) and the tds [Dockerfile](https://github.com/itsleeds/tds/blob/main/Dockerfile) and [devcontainer.json](https://github.com/itsleeds/tds/blob/main/.devcontainer/devcontainer.json) for guidance on getting started with Docker.
 
 # R, Python or other?
 
@@ -35,80 +114,6 @@ geo_data = gpd.read_file("geo_data.gpkg")
 If you do choose to use Python, you will be expected to manage your own Python environment, and to be able to translate the R code examples into Python.
 
 If you are feeling adventurous, you could try using Julia, JavaScript/TypeScript (e.g. via Observable) or another language, but you will be on your own in terms of support.
-
-# Prerequisites
-
-## Hardware 
-
-Access to a computer that you have permission to install software on, with at least 8 GB of RAM, is highly recommended.
-You could use a cloud-based service such as RStudio Cloud, Google Colab, or GitHub Codespaces, but you would need to be comfortable with using these services and would miss out on some of the benefits of using your own computer.
-
-## Software
-
-You need to install some software to take the course.
-
-The teaching is be delivered primarily in R, with some Python code and examples, so you need to install R (recommended) or Python or both on your computer.
-We recommend that most people use R for the practical sessions and the coursework, unless you have a good reason to use Python.
-If you do choose to use Python or another language, you will have less support: you will need the skills to set-up and manage your own environments.
-Translations of the R code examples into your chosen language will be very welcome, and contributions to the course materials via [Pull Requests on GitHub](https://github.com/itsleeds/tds/pulls) are encouraged.
-
-### Quickstart with GitHub Codespaces
-
-You can use GitHub Codespaces to get started with the course materials in a cloud-based environment.
-Sign-up to GitHub, fork the repository, and click the "Open in GitHub Codespaces" button above to get started.
-You can also use the following link:
-
-[![Open in GitHub
-Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
-
-### R
-
-Install a recent version of R (4.3.0 or above) and RStudio (recommended) or another IDE such as VS Code (if you have prior experience with it) with the the following links:
-
-- R from [cran.r-project.org](https://cran.r-project.org/)
-- RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download) (recommended) or VS Code with the R extension installed.
-- R packages, which can be installed by opening RStudio and typing `install.packages("stats19")` in the R console, for example.
-- To install all the dependencies for the module, run the following command in the R console:
-
-```{r}
-#| eval: false
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-remotes::install_github("itsleeds/tds")
-```
-
-See [Section 1.5 of the online guide Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio) for instructions on how to install key packages we will use in the module.^[
-For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend 
-Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://geocompr.robinlovelace.net/spatial-class.html and Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the 
-[project management section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
-]
-
-### Python
-
-If you choose to use Python, you should be able to install it and manage your own Python environment, including installing packages and dealing with package conflicts.
-If you use Python we recommend using an environment manager such as `pixi` (which can manage both R and Python environments) or Docker (best practice for reproducibility and isolation).
-
-### Docker (advanced)
-
-We maintain a Docker image that contains all the software you need to complete the course with VS Code, quarto and a Devcontainer set-up.
-Advantages of this approach include that it ensures reproducibility and can save time installing software.
-Disadvantages include that it can be hard to install Docker and can be difficult to use if you are not familiar with Docker.
-We therefore recommend this approach only for people who are confident with Docker and willing to invest time in learning how to use it.
-See [the Docker installation instructions](https://docs.docker.com/get-docker/), the [devcontainers documentation on github.com](https://github.com/devcontainers) and the tds [Dockerfile](https://github.com/itsleeds/tds/blob/main/Dockerfile) and [devcontainer.json](https://github.com/itsleeds/tds/blob/main/.devcontainer/devcontainer.json) for guidance on getting started with Docker.
-
-## Command-line experience
-
-You should be comfortable with computing in general, for example creating folders, moving files, and installing software.
-You should be comfortable with using command line interfaces such as PowerShell in Windows, Terminal in macOS, or the Linux shell.
-
-## Data science experience prerequisites
-
-Prior experience of using R or Python (e.g. having used it for work, in previous degrees or having completed an online course) is essential.
-
-Students can demonstrate this by showing evidence that they have worked with R before, have completed an online course such as the first 4 sessions in the [RStudio Primers series](https://rstudio.cloud/learn/primers) or [DataCamp’s Free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r).
-
-Evidence of substantial programming and data science experience in previous professional or academic work, in languages such as R or Python, also constitutes sufficient pre-requisite knowledge for the course.
 
 # Contributing to the course
 
