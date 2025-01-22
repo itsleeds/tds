@@ -8,21 +8,59 @@ This reading list contains key resources for the Transport Data Science module, 
 # Core Reading
 
 - [R for Data Science](https://r4ds.had.co.nz/) [@wickham_data_2023]
-  - This is an excellent and very popular applied introduction to data science with R, covering the Tidyverse and data visualization. It is open access and based on open code, check out the source code at [github.com/hadley/r4ds](https://github.com/hadley/r4ds) for insights into how they use Quarto and embed code in their book.
+  - This is an excellent and very popular applied introduction to data science with R, covering the Tidyverse and data visualization. It is open access and based on open code. See [github.com/hadley/r4ds](https://github.com/hadley/r4ds) for insights into how Quarto can be used to embed code in written outputs.
 - [Geocomputation with R](https://r.geocompx.org/) [@lovelace_geocomputation_2025]
-  - A comprehensive guide to geographic data analysis, visualization, and modeling using R.
+  - A guide to geographic data analysis, visualization, and modeling with R.
   <!-- https://r.geocompx.org/transport.html -->
   - The Transportation chapter, which can be found online at [r.geocompx.org/transport.html](https://r.geocompx.org/transport.html), is a key resource for this module.
 
-# Software and Tools
+# Skills Development
 
-- [Quarto](https://quarto.org/) [@allaire_quarto_2024]
-  - The software used to create this document, Quarto is a powerful tool for creating reproducible documents with code and data.
+There is a wealth of material in physical books and online teaching the skills needed for this course.
+The advantage of online materials is that they can be updated more easily, and are often free to access.
+Below are some key resources for developing the skills needed for this course.
+Search online for topics you are interested in and see the [Quarto gallery of books](https://quarto.org/docs/gallery/#books) and the [bookdown.org](https://bookdown.org/) website for more resources.
+
+## Key Skills
+
+- [Quarto](https://quarto.org/) documentation [@allaire_quarto_2024]
+
+    <!-- Articles & Reports
+    Presentations
+    Dashboards
+    Websites
+    Books
+    Interactive Docs -->
+
+  - The software used to create the Transport Data Science course materials and [numerous websites, presentations, dashboards, and books](https://quarto.org/docs/gallery/), Quarto is a powerful tool for creating reproducible documents with code and data.
   - See the [technical writing](https://quarto.org/docs/visual-editor/technical.html) page of Quarto's documentation for key information on how to add references, figure captions, and more.
 - [Introduction to GitHub](https://github.com/skills/introduction-to-github) [@heis_introduction_2025]
   - A good starting point for learning how to use GitHub for version control and collaboration.
   <!-- https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers -->
   - See also their introduction to Devcontainers at [docs.github.com/en/codespaces/](https://docs.github.com/en/codespaces/)
+
+## Python
+
+- [Course Materials for: Geospatial Data Science](https://github.com/mszell/geospatialdatascience) [@szell_course_2025]
+  - Course materials covering various aspects of geospatial data science, including data analysis, visualization, and working with street networks using Python.
+- [Modern Polars](https://kevinheavey.github.io/modern-polars/) [@heavey_modern_2025]
+  - A side-by-side comparison of the Polars and Pandas libraries.
+- [Python Polars: The definitive guide](https://github.com/jeroenjanssens/python-polars-the-definitive-guide) [@janssens_python_2025]
+  - Guide to using the polars for data manipulation in Python, due to be published in February 2025.
+- [A course on Geographic Data Science](https://darribas.org/gds_course/content/home.html) [@arribas-bel_course_2019]
+  - Free and open source online book on using GeoPandas and other Python libraries for geographic data analysis.
+- [Python for Data Analysis](https://wesmckinney.com/book/) [@mckinney_python_2022]
+  - Dta wrangling with Pandas, NumPy, and Jupyter, written by the creator of the Pandas library.
+- [Geocomputation with Python](https://py.geocompx.org/) [@dorman_geocomputation_2025]
+  - Resource for working with geographic data using Python, covering both vector and raster data models.
+
+## R
+
+- [Advanced R](https://adv-r.hadley.nz/) 
+  - A comprehensive guide to advanced programming in R, covering topics such as functional programming and object-oriented programming.
+
+# Software and Tools
+
 - [stats19](https://itsleeds.github.io/stats19/) [@lovelace_stats19_2019]
   - R package for working with official road crash data
 - [stplanr: A Package for Transport Planning](https://doi.org/10.32614/RJ-2018-053) [@lovelace_stplanr_2018]
@@ -48,6 +86,8 @@ This reading list contains key resources for the Transport Data Science module, 
 
 - [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi) [@tufte_visual_2001]
   - Classic work on the principles of data visualization
+- [Visualization Curriculum](https://idl.uw.edu/visualization-curriculum/intro.html) [@heer_visualization_2021]
+  - A data visualization curriculum of interactive notebooks, using Vega-Lite and Altair. This book contains a series of Python-based Jupyter notebooks, with a corresponding set of JavaScript notebooks available online on Observable.
 
 ## Miscellaneous
 
