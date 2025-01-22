@@ -1,0 +1,8 @@
+---
+title: "Practical 6: Project work"
+bibliography: ../tds.bib
+toc: true
+execute: 
+  cache: true
+---
+This is a placeholder page; content will be added soon.
