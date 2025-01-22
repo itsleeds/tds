@@ -5,8 +5,6 @@ name = "tds"
 platforms = ["win-64"]
 version = "0.1.0"
 
-[tasks]
-
 [dependencies]
 jupyter = "*"
 jupyter-cache = "*"
@@ -26,3 +24,6 @@ r-DT = "*"
 r-reticulate = "*"
 r-spData = "*"
 r-pak = "*"
+
+[activation]
+scripts = ["env_setup.sh"]
