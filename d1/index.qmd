@@ -28,6 +28,7 @@ remotes::install_cran("tidyverse")
 remotes::install_cran("osmextract")
 library(tidyverse)
 library(osmextract)
+library(sf)
 ```
 
 ```{r}

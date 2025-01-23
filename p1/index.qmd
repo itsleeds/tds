@@ -176,6 +176,7 @@ To get some larger datasets, try the following (from Chapter 8 of RSRR)
 ## R
 
 ```{r}
+remotes::install_cran("stats19")
 library(stats19)
 ac = get_stats19(year = 2019, type = "collision")
 ca = get_stats19(year = 2019, type = "cas")
