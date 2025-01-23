@@ -1,11 +1,66 @@
 ---
-title: "Computer set-up"
+title: "Welcome and set-up"
 bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
 ---
 
-This is a placeholder page; content will be added soon.
+Dear Transport Data Science students,
 
+As per your [timetable](https://itsleeds.github.io/tds/schedule.html), the first lecture is a week today, Thursday 30th January, from 10:00 to 13:00.
 
+**Location:** [Richard Hughes Cluster](https://maps.app.goo.gl/zn9Hw93hVDk2ALNw8), in the "Cloth Workers Link Building". If you're wondering where that is, you're not alone, I'm not 100% sure. So the first challenge of the module is to ensure that you get there on time, by 09:50, so you have time to get a seat in time for the 10:00 start.
+
+## Homework for next week (deadline: Thursday 30th January)
+
+1. Ensure that you have the timetable stored safely in your calendar, so you do not miss important practicals or seminars.
+2. Ensure that you have the necessary software installed on your computer and that you have tested that you can use it for the datasets we will be using in the course, see https://itsleeds.github.io/tds/#software-requirements-and-installation for guidance on installing the software you need.
+    - Any issues you have with the software installation, please get in touch with me as soon as possible.
+
+Test that you have the necessary software installed by running the following code in R:
+
+```{r}
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+remotes::install_cran("tidyverse")
+remotes::install_cran("osmextract")
+library(tidyverse)
+library(osmextract)
+```
+
+```{r}
+its = oe_get("ITS Leeds", download_directory = tempdir())
+```
+
+```{r}
+#| label: its
+figure = its |>
+  ggplot() +
+  geom_sf(aes(colour = highway)) +
+  theme_void()
+# Save figure
+ggsave("its.png", figure, width = 6, height = 4)
+```
+
+```{r}
+#| label: browse
+#| eval: false
+browseURL("its.png")
+```
+
+<!-- ![ITS](its.png) -->
+
+Show the map by executing the following code, which simply prints the map to the screen:
+
+```{r}
+figure
+```
+
+If you see a map of the area around the Institute for Transport Studies, then you are ready for the first session. If you have any issues, please get in touch with me as soon as possible.
+
+3. Take a look at the [reading list at https://itsleeds.github.io/tds/reading.html](https://itsleeds.github.io/tds/reading.html) and have a read of the Transportation chapter of Geocomputation with R book (you will find the link to the book in the reading list).
+
+4. Sign-up for a GitHub account if you do not already have one, and ensure that you have access to the [TDS GitHub repository](https://github.com/itsleeds/tds) where you will find the course materials.
+    - Please send me an email with you GitHub username so I can add you to the private repository that supports the course.
