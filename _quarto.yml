@@ -17,6 +17,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: https://itsleeds.github.io/tds/#software-requirements-and-installation
+        text: Install required software
       - href: schedule.qmd
         text: Schedule
       - href: materials.qmd
