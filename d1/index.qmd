@@ -4,6 +4,7 @@ bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
+  output: false
 ---
 
 Dear Transport Data Science students,
@@ -56,6 +57,8 @@ browseURL("its.png")
 Show the map by executing the following code, which simply prints the map to the screen:
 
 ```{r}
+#| label: its-map
+#| output: true
 figure
 ```
 
