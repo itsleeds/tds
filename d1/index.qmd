@@ -9,7 +9,7 @@ execute:
 
 Dear Transport Data Science students,
 
-As per your [timetable](https://itsleeds.github.io/tds/schedule.html), the first lecture is a week today, Thursday 30th January, from 10:00 to 13:00.
+As per your [timetable](https://itsleeds.github.io/tds/schedule.html), the first session is Thursday 30th January, from 10:00 to 13:00.
 
 **Location:** [Richard Hughes Cluster](https://maps.app.goo.gl/zn9Hw93hVDk2ALNw8), in the "Cloth Workers Link Building". If you're wondering where that is, you're not alone, I'm not 100% sure. So the first challenge of the module is to ensure that you get there on time, by 09:50, so you have time to get a seat in time for the 10:00 start.
 
