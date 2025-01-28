@@ -21,8 +21,6 @@ website:
         text: Install required software
       - href: schedule.qmd
         text: Schedule
-      - href: materials.qmd
-        text: Materials
       - href: https://github.com/ITSLeeds/TDS/discussions
         text: Forum
       - href: marking-criteria.qmd
