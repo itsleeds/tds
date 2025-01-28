@@ -27,6 +27,12 @@ website:
         text: Marking Criteria
       - href: reading.qmd
         text: Reading list
+  announcement: 
+    icon: info-circle
+    dismissable: true
+    content: "**Alert** please ensure you have completed the [first homework, described here,](https://itsleeds.github.io/tds/d1) by this Friday 31st January"
+    type: primary
+    position: below-navbar
 
 format:
   html:
