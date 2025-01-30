@@ -11,7 +11,7 @@ execute:
 ## Agenda {.unnumbered}
 
 1.  Lecture: an introduction to Transport Data Science (30 min)
-    -   See the [slides](sides.html)
+    -   See the [slides](slides.html)
 2.  Q&A (15 min) <!-- - Introduction to the module and team - 30 min
         Each person to say  1) their name and where they are based 2) why they took the module and 3) their level of knowledge of coding. -->
 3.  Break and networking (15 min) <!-- 3. Practical (2 hrs) -->
