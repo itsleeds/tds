@@ -244,7 +244,7 @@ knitr::include_graphics("https://www.robinlovelace.net/presentations/fourstage.p
 
 4-stage model still dominates transport planning models (Boyce and Williams 2015)
 
-### The four stage model (left)
+## The four stage model
 
 - Impacts the current software landscape
 
@@ -256,84 +256,44 @@ knitr::include_graphics("https://www.robinlovelace.net/presentations/fourstage.p
 
 - Limited cross-department collaboration
 
----
+## Existing products
 
-# Existing products
+Sample of transport modelling software in use by practitioners.
+<!-- Note: citation counts based on searches for company/developer name, the product name and 'transport'. Data source: Google Scholar searches, October 2018. -->
 
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 tms = readr::read_csv("transport-software.csv")[1:5]
 tms = dplyr::arrange(tms, dplyr::desc(Citations))
-knitr::kable(tms, booktabs = TRUE, caption = "Sample of transport modelling software in use by practitioners. Note: citation counts based on searches for company/developer name, the product name and 'transport'. Data source: Google Scholar searches, October 2018.", format = "html")
+knitr::kable(tms, booktabs = TRUE, format = "html")
 ```
 
 ---
 
-# User support
+## User support
 
 Getting help is vital for leaning/improving software
 
---
-
 ![](https://media.giphy.com/media/6HtgBlXu1TIac/giphy.gif)
-
---
 
 "10-Hour Service Pack $2,000" (source: [caliper.com/tcprice.htm](https://www.caliper.com/tcprice.htm))
 
----
 
-# Online communities
+## Online communities
 
 - [gis.stackexchange.com](https://gis.stackexchange.com/questions) has 21,314 questions 
-
 - [r-sig-geo](http://r-sig-geo.2731867.n2.nabble.com/) has 1000s of posts
-
 - RStudio's Discourse community has 65,000+ posts already!
+- No clear transport equivalent (e.g. earthscience.stackexchange.com is in beta)
+- Solution: build our own community!
+  - See https://github.com/ITSLeeds/TDS/issues for example
+  - Place for discussions: https://github.com/itsleeds/tds/discussions 
 
---
-
-- No transport equivalent (e.g. earthscience.stackexchange.com is in beta)
-
-- Potential for a Discourse forum or similar: transport is not (just) GIS
-
----
-
-# Best way to get support is peer-to-peer:
+## Best way to get support is peer-to-peer:
 
 ![](https://www.robinlovelace.net/presentations/rstudio-community.png)
 
 Source: https://community.rstudio.com/about
 
----
-
-# A few prices
-
-```{r, echo=FALSE, eval=TRUE}
-knitr::include_graphics("https://www.robinlovelace.net/presentations/price-transcad.png")
-```
-
-Source: [google.com/search?q=transcad+price](https://www.google.com/search?q=transcad+price)
-
----
-
-background-image: url(https://media.giphy.com/media/YlQQYUIEAZ76o/giphy.gif)
-background-size: cover
-class: center, middle
-
-
-# Future transport software
-
----
-
-# Is already here I
-
-- Example: the Propensity to Cycle Tool ([PCT.bike](http://www.pct.bike/)) (Lovelace et al. 2017)
-
-```{r, echo=FALSE, eval=TRUE}
-knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/figures/early.png")
-```
-
----
 
 ## How is data science used in the PCT?
 
@@ -361,32 +321,22 @@ library(sf)
 desire_lines = read_sf(u)
 ```
 
----
-
 ## Visualising data
 
 A fundamental part of data science is being able to understand your data.
 
 That requires visualisation, R is great for that:
 
-.pull-left[
 ```{r, warning=FALSE, eval=TRUE}
 plot(desire_lines)
 ```
 
-]
-
-.pull-right[
-- Interactively:
+## Interactively
 
 ```{r, message=FALSE, eval=FALSE}
 library(tmap)
 tm_shape(desire_lines) + tm_lines("all")
 ```
-
-]
-
----
 
 ## Processing data with code
 
@@ -400,8 +350,6 @@ car_dependent_routes = desire_lines %>%
   filter(rf_dist_km < 3 & rf_dist_km > 1) 
 ```
 
----
-
 ## Checking the results:
 
 ```{r}
@@ -411,57 +359,21 @@ tm_shape(car_dependent_routes) +
 ```
 
 
----
-
-# Is already here II
-
-- Example: the Cycling Infrastructure Prioritisation Toolkit ([CyIPT.bike](https://www.cyipt.bike))
-
-```{r, echo=FALSE}
-knitr::include_graphics("https://www.cyipt.bike/images/existing-edit.png")
-```
-
----
-
-# R vs Python
+## R vs Python
 
 - Lots of debate on this topic - see https://blog.usejournal.com/python-vs-and-r-for-data-science-833b48ccc91d
 
---
-
 How to decide?
 
---
+
 
 - If priority: getting things done quick (with support from me ;) go with R
 - If you already know Python and are **100% confident you can generate reproducible results**, go with that
 - If you want to be avant-garde and try something else like Julia, do it (as long as it's reproducible)
 
---
 
 ![](https://cdn-images-1.medium.com/max/1600/1*Mk54CziKpHi65sdlwBZcCg.png)
 
----
-
-# Sumo vs netlogo (vs R/Python)
-
-```{r, echo=FALSE, out.width="70%"}
-knitr::include_graphics("https://user-images.githubusercontent.com/1825120/46748345-41c98580-ccab-11e8-8093-b265bd36f639.gif")
-```
-
-Source: [github.com/eclipse/sumo](https://github.com/eclipse/sumo/issues/2409)
-
-.pull-left[
-
-```{r, echo=FALSE, out.width="20%"}
-knitr::include_graphics("https://raw.githubusercontent.com/nldoc/nlrx/master/man/figures/logo.png")
-```
-
-]
-
-Source: [github.com/nldoc/nlrx](https://github.com/nldoc/nlrx)
-
----
 
 ### Gamification
 
@@ -472,30 +384,15 @@ knitr::include_graphics("https://raw.githubusercontent.com/dabreegster/abstreet/
 - Completely open source, written in [rust](https://github.com/citybound/citybound)
 - Source: video at https://github.com/dabreegster/abstreet/#ab-street
 
----
-
-background-image: url(https://media.giphy.com/media/OMeGDxdAsMPzW/giphy.gif)
-background-size: cover
-class: center, middle, inverse
-
-# Code example / questions
-
----
-
-# Summary
+## Summary
 
 - Walk and understand the data before doing complex things
 - Visualise the data, ask questions of it, descriptive stats
 - Only then add complexity to your analysis
 - Starting point for this: [Transport chapter](https://r.geocompx.org/transport.html) of Geocomputation with R [@lovelace_geocomputation_2018]
 
----
 
-## Practical session will involve...
-
-See https://github.com/ITSLeeds/TDS/blob/master/practicals/1-intro.md
-
-That's your working document for today.
+# Practical session 
 
 <!-- - Definition of transport data science -->
 <!-- - About you, level and hopes for the course -->
