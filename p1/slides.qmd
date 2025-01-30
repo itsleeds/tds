@@ -97,8 +97,6 @@ Data science spin-out company: [ImpactML](https://impactml.io/)
 
 ## Data science employability
 
-The number of data science jobs is growing rapidly:
-
 <!-- ![](https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w) -->
 ![](data_growth_time.png)
 
@@ -111,7 +109,7 @@ wget https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a351
 download.file("https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w", "p1/data_growth_time.png")
 ```
 
-"According to the BLS [the Bureau of Labor Statistics in the US], there is an expected 35% increase in the employment level of data scientists between 2022 and 2032." Source: [visualisecurious.com](https://www.visualizecuriosity.com/posts/data-science-job-market-2024)
+The Bureau of Labor Statistics in the US projects a 35% increase in data science roles in decade 2022-2032." Source: [visualisecurious.com](https://www.visualizecuriosity.com/posts/data-science-job-market-2024)
 
 
 ## Live demo: [npt.scot web app](https://nptscot.github.io/)
