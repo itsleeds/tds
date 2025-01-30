@@ -23,6 +23,7 @@ Imports:
     reticulate,
     stplanr,
     tmap,
-    spData
+    spData,
+    zoo
 Remotes:
     nowosad/spDataLarge

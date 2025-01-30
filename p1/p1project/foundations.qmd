@@ -47,6 +47,32 @@ crashes |>
 ```
 
 
+```{r}
+ac = stats19::get_stats19(year = 2020, type = "collision")
+ac
+dim(ac)
+names(ac)
+# aggregate this by day to show 
+# how crash numbers varied over the year
+ac_by_year = ac |>
+  group_by(date) |>
+  summarise(
+    n_crashes = n()
+  )
+ac_by_year |>
+  mutate(
+    `N. crashes per year` = n_crashes,
+    `Week average` = zoo::rollmean(n_crashes, 7, na.pad = TRUE),
+    Date = date,
+  ) |> 
+  ggplot(aes(x = Date, y = `N. crashes per year`)) +
+  geom_point(alpha = 0.1) +
+  ylim(c(0, NA)) +
+  # geom_smooth() +
+  # weekly rolling average
+  geom_line(aes(Date, `Week average`), colour = "blue") +
+  theme_minimal()
+```
 
 
 
