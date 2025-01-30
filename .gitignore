@@ -9,3 +9,4 @@ _freeze/
 .pixi
 *.egg-info
 *cache*
+.Rproj.user
