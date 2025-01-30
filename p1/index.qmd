@@ -141,9 +141,6 @@ See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637)
 
 # Data Science foundations
 
-**Read and try to complete the exercises in Chapters 1 to 4 of the book Reproducible Road Safety Research with R.** It assumes that you have recently updated R and RStudio on your computer.
-For details on installing packages see here: https://docs.ropensci.org/stats19/articles/stats19-training-setup.html
-
 -   Create a new folder (or R project with RStudio) called 'practical1'
 -   In it create file called foundations.qmd
 -   Type the following
@@ -185,7 +182,7 @@ Make sure that you also execute the code in the console so that the objects are 
 Do that by placing the cursor in the code chunk and pressing Ctrl+Enter (or Cmd+Enter on a Mac) or by copying and pasting the code into the console (not recommended).
 We now have a data frame object stored in memory (technically in the global environment) that is used as the basis of the questions.
 
-## Data manipulation basics
+## Data object manipulation basics
 
 1. Use the `$` operator to print the `vehicle_type` column of `crashes`.
 
@@ -225,6 +222,8 @@ crashes[[2]]
 4. **Bonus**: what is the `class()` of the objects created by each of the previous exercises?
 
 - Explore how many R classes you can find
+
+5. **Bonus** (advanced): reproduce the above with Python using the `pandas` or `polars` package
 
 ## Data science on real data
 
@@ -270,23 +269,26 @@ Let's go through these exercises together:
 
 -   We'll explore this together
 
-<!-- ## Completing Chapters 2-4 in the RRSRR document
+## Practical on your own
 
--   This was your homework but revisit it an ensure you understand every bit and complete it if you haven't already
+**Read and try to complete the exercises in Chapters 1 to 4 of the book Reproducible Road Safety Research with R.**
 
-## Tidyverse
+It assumes that you have recently updated R and RStudio on your computer.
+For details on installing packages see [here](https://docs.ropensci.org/stats19/articles/stats19-training-setup.html).
+
+<!-- ## Tidyverse
 
 -   Work through Chapter 5 starting with the following code: -->
 
 <!-- library(tidyverse) # Load the package -->
 
-# Data science and transport
+# Bonus: data science and transport
 
 Work through [Chapter 13](https://r.geocompx.org/transport.html) of the book Geocomputation with R, taking care to ask questions about any aspects that you don't understand (your homework will be to complete and make notes on the chapter, including reproducible code).
 
 # Homework
 
-- Complete working through Chapter 13 of the Geocomputation with R book. Make notes in a .qmd file that you can bring to the class to show colleagues and the instructor next week.
+- Work through Chapter 13 of the Geocomputation with R book. Make notes in a .qmd file that you can bring to the class to show colleagues and the instructor next week.
 
 <!-- -   Work through chapters 6 and 7 on spatial and temporal data in the [RRSRR tutorial](https://itsleeds.github.io/rrsrr/) to get R foundations
 
