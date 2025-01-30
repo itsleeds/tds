@@ -197,11 +197,6 @@ See the [schedule](https://itsleeds.github.io/tds/schedule.html) for details
 
 <iframe src="https://itsleeds.github.io/tds/schedule.html" width="100%" height="400px"></iframe>
 
-### Deeper question: why transport data science?
-
-- You must answer that question
-
----
 
 ## What is science?
 
@@ -238,42 +233,21 @@ Transport modelling software products are a vital component of modern transport 
 - They generate the evidence base on which strategic investments are made and, furthermore,
 - provide a powerful mechanism for researching alternative futures.
 
---
-
 It would not be an overstatement to say that software determines the range of futures that are visible to policymakers. This makes status of transport modelling software and how it may evolve in the future important questions.
 
 What will transport software look like? What will their capabilities be? And who will control? Answers to each of these questions will affect the future of transport systems. 
 
---
 
 - Premise: transport planning/modelling software used in practice ~~will become~~ is becoming increasingly data-driven, modular and open. 
 
----
-
-background-image: url(https://raw.githubusercontent.com/npct/pct-team/master/figures/sdna-san-fran.png)
-background-size: cover
-class: center, middle
-
-# Current transport software
-
---
-
-(Source: Crispin Cooper, author of sDNA)
-
----
-
-.pull-left[
+## Current transport software
 
 
 ```{r, echo=FALSE, out.height="500px"}
 knitr::include_graphics("https://www.robinlovelace.net/presentations/fourstage.png")
 ```
 
-Still dominates transport planning models (Boyce and Williams 2015)
-]
-
-
---
+4-stage model still dominates transport planning models (Boyce and Williams 2015)
 
 ### The four stage model (left)
 
