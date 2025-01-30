@@ -19,7 +19,6 @@ library(tmap)
 library(dplyr)
 ```
 
-
 ## Who: Transport Data Science team
 
 #### Robin Lovelace
@@ -179,10 +178,6 @@ See the [reading list](https://itsleeds.github.io/tds/reading.html) for details
 -   Written in code - will be graded for reproducibility
 -   Code chunks and figures are encouraged
 -   You will submit a non-assessed 2 page pdf + qmd
-
-## [Schedule](https://itsleeds.github.io/tds/schedule.html)
-
-![](images/paste-1.png)
 
 ## Feedback
 
