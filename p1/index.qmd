@@ -185,6 +185,49 @@ Make sure that you also execute the code in the console so that the objects are 
 Do that by placing the cursor in the code chunk and pressing Ctrl+Enter (or Cmd+Enter on a Mac) or by copying and pasting the code into the console (not recommended).
 We now have a data frame object stored in memory (technically in the global environment) that is used as the basis of the questions.
 
+## Data manipulation basics
+
+1. Use the `$` operator to print the `vehicle_type` column of `crashes`.
+
+<details>
+In R the `$` symbol is used to refer to elemements of a list. So the answer is simply:
+
+```{r}
+crashes$vehicle_type
+```
+
+</details>
+
+
+2. Subset the crashes with the `[,]` syntax
+
+<details>
+Try out different combinations on the dataframe `crashes` to see what happens. For example, try:
+
+```{r}
+crashes[1,]
+crashes[,1]
+crashes[1,1]
+```
+
+3. Subset the object with the `[[` syntax.
+
+<details>
+The `[[` operator is used to extract elements from a list. Try:
+
+```{r}
+crashes[[1]]
+crashes[[2]]
+```
+
+</details>
+
+4. **Bonus**: what is the `class()` of the objects created by each of the previous exercises?
+
+- Explore how many R classes you can find
+
+## Data science on real data
+
 To get some larger datasets, try the following (from Chapter 8 of RSRR)
 
 ::: {.panel-tabset group="language"}
@@ -196,39 +239,22 @@ library(stats19)
 ac = get_stats19(year = 2020, type = "collision")
 ca = get_stats19(year = 2020, type = "cas")
 ve = get_stats19(year = 2020, type = "veh")
+# population hurt by road traffic collisions in 2020:
+(nrow(ca) / 67e6) * 100
 ```
 
 ## Python
 
-``` python
-# pip install stats19
-import stats19
-ac = stats19.get_stats19(year = 2020, type = "collision")
-ca = stats19.get_stats19(year = 2020, type = "cas")
-ve = stats19.get_stats19(year = 2020, type = "veh")
+Challenge: reproduce the above code in Python using the `pystats19` package
+
+```python
+# Install the package, e.g. with pip
+!pip install pystats19
+import pystats19
+# See the documentation at https://github.com/Mayazure/py-stats19
 ```
+
 :::
-
-2.3.1.
-Use the `$` operator to print the `vehicle_type` column of `crashes`.
-
-```         
-- In R the `$` symbol is used to refer to elemements of a list. So the answer is simply `crashes$vehicle_type`
-```
-
-2.3.2.
-Subsetting the crashes with the `[,]` syntax
-
-```         
-- Try out different combinations on the dataframe
-```
-
-2.3.3.
-**Bonus**: what is the `class()` of the objects created by each of the previous exercises?
-
-```         
-- Explore how many R classes you can find
-```
 
 Let's go through these exercises together:
 
