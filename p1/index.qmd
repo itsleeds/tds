@@ -11,16 +11,15 @@ execute:
 ## Agenda {.unnumbered}
 
 1.  Lecture: an introduction to Transport Data Science (30 min)
-2.  Q&A (15 min) 
-<!-- - Introduction to the module and team - 30 min
-    Each person to say  1) their name and where they are based 2) why they took the module and 3) their level of knowledge of coding. --> 
-3.  Break and networking (15 min)
-<!-- 3. Practical (2 hrs) -->
+    -   See the [slides](sides.html)
+2.  Q&A (15 min) <!-- - Introduction to the module and team - 30 min
+        Each person to say  1) their name and where they are based 2) why they took the module and 3) their level of knowledge of coding. -->
+3.  Break and networking (15 min) <!-- 3. Practical (2 hrs) -->
 4.  Data science and a good research question (30 min)
 5.  Data science foundations (guided): Project set-up and using RStudio or VS Code as an integrated development environment (30 min)
 6.  Focussed work (1 hr)
-  - Working through the questions on processing OD data and running the code in Sections 13.1 to 13.4 the Transport chapter of Geocomputation with R and answering the questions for the Bristol dataset  
-<!-- 1. Bonus: Work through [Chapter 5](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science -->
+    -   Working through the questions on processing OD data and running the code in Sections 13.1 to 13.4 the Transport chapter of Geocomputation with R and answering the questions for the Bristol dataset\
+        <!-- 1. Bonus: Work through [Chapter 5](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science -->
 
 # What is transport data science and thinking of a good research question {.unnumbered}
 
@@ -141,13 +140,36 @@ See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637)
 
 # Data Science foundations
 
+-   Review of [homework](../d1/)
+
 -   Create a new folder (or R project with RStudio) called 'practical1'
+
 -   In it create file called foundations.qmd
+
 -   Type the following
 
-````{html}
+```{html}
 
 This is some text:
+
+casualty_type = c("pedestrian", "cyclist", "cat")
+casualty_age = seq(from = 20, to = 60, by = 20)
+crashes = data.frame(casualty_type, casualty_age)
+nrow(crashes)
+
+```
+
+-   Knit the document by pressing Ctrl+Shift+K in RStudio or VS Code, with the 'Knit' button in RStudio, or by typing `quarto render foundations.qmd` in the PowerShell or Terminal console, the result should look like this (see @fig-rstudio-foundations):
+
+::: {#fig-rstudio-foundations}
+
+![](images/rstudio-foundations.png)
+
+Illustration of the RStudio interface with a .qmd file open in the top left, the console in the bottom left, the environment in the top right and the files in the bottom right.
+
+:::
+
+The document you are reading is a Quarto document, so we can show the output of the contents of the code in `foundations.qmd` here:
 
 ```{r}
 casualty_type = c("pedestrian", "cyclist", "cat")
@@ -156,38 +178,33 @@ crashes = data.frame(casualty_type, casualty_age)
 nrow(crashes)
 ```
 
-````
-
--   Knit the document by pressing Ctrl+Shift+K, with the 'Knit' button in RStudio, or by typing `quarto render foundations.qmd` in the PowerShell or Terminal console, the result should look like this:
-
-This is some text:
-
-```{r}
-casualty_type = c("pedestrian", "cyclist", "cat")
-casualty_age = seq(from = 20, to = 60, by = 20)
-crashes = data.frame(casualty_type, casualty_age)
-nrow(crashes)
-```
-
-
-```{r, echo=FALSE}
-casualty_type = c("pedestrian", "cyclist", "cat")
-casualty_age = seq(from = 20, to = 60, by = 20)
-crashes = data.frame(casualty_type, casualty_age)
-vehicle_type = c("car", "bus", "tank")
-crashes$vehicle_type = vehicle_type
-```
+There are different ways to execute code.
+When you run the code by 'compiling' the document, the objects are created in a different session.
+For interactive data analysis, it is better to run the code in the console.
 
 Make sure that you also execute the code in the console so that the objects are created in memory.
 Do that by placing the cursor in the code chunk and pressing Ctrl+Enter (or Cmd+Enter on a Mac) or by copying and pasting the code into the console (not recommended).
 We now have a data frame object stored in memory (technically in the global environment) that is used as the basis of the questions.
 
+Next, add to the data frame you created by adding the following code to the code chunk in the .qmd file:
+
+```{r}
+vehicle_type = c("car", "bus", "tank")
+crashes$vehicle_type = vehicle_type
+```
+
+What just happened?
+
+We will explore this together, and then you can try the following data manipulation exercises:
+
 ## Data object manipulation basics
 
-1. Use the `$` operator to print the `vehicle_type` column of `crashes`.
+1.  Use the `$` operator to print the `vehicle_type` column of `crashes`.
 
 <details>
-In R the `$` symbol is used to refer to elemements of a list. So the answer is simply:
+
+In R the `$` symbol is used to refer to elemements of a list.
+So the answer is simply:
 
 ```{r}
 crashes$vehicle_type
@@ -195,11 +212,12 @@ crashes$vehicle_type
 
 </details>
 
-
-2. Subset the crashes with the `[,]` syntax
+2.  Subset the crashes with the `[,]` syntax
 
 <details>
-Try out different combinations on the dataframe `crashes` to see what happens. For example, try:
+
+Try out different combinations on the dataframe `crashes` to see what happens.
+For example, try:
 
 ```{r}
 crashes[1,]
@@ -207,10 +225,12 @@ crashes[,1]
 crashes[1,1]
 ```
 
-3. Subset the object with the `[[` syntax.
+3.  Subset the object with the `[[` syntax.
 
 <details>
-The `[[` operator is used to extract elements from a list. Try:
+
+The `[[` operator is used to extract elements from a list.
+Try:
 
 ```{r}
 crashes[[1]]
@@ -219,11 +239,11 @@ crashes[[2]]
 
 </details>
 
-4. **Bonus**: what is the `class()` of the objects created by each of the previous exercises?
+4.  **Bonus**: what is the `class()` of the objects created by each of the previous exercises?
 
-- Explore how many R classes you can find
+-   Explore how many R classes you can find
 
-5. **Bonus** (advanced): reproduce the above with Python using the `pandas` or `polars` package
+5.  **Bonus** (advanced): reproduce the above with Python using the `pandas` or `polars` package
 
 ## Data science on real data
 
@@ -246,13 +266,12 @@ ve = get_stats19(year = 2020, type = "veh")
 
 Challenge: reproduce the above code in Python using the `pystats19` package
 
-```python
+``` python
 # Install the package, e.g. with pip
 !pip install pystats19
 import pystats19
 # See the documentation at https://github.com/Mayazure/py-stats19
 ```
-
 :::
 
 Let's go through these exercises together:
@@ -269,27 +288,30 @@ Let's go through these exercises together:
 
 -   We'll explore this together
 
-## Practical on your own
+# Self-study practical (1 hr)
 
 **Read and try to complete the exercises in Chapters 1 to 4 of the book Reproducible Road Safety Research with R.**
 
 It assumes that you have recently updated R and RStudio on your computer.
 For details on installing packages see [here](https://docs.ropensci.org/stats19/articles/stats19-training-setup.html).
 
+```{=html}
 <!-- ## Tidyverse
 
 -   Work through Chapter 5 starting with the following code: -->
+```
 
 <!-- library(tidyverse) # Load the package -->
 
-# Bonus: data science and transport
+## Bonus: data science and transport
 
 Work through [Chapter 13](https://r.geocompx.org/transport.html) of the book Geocomputation with R, taking care to ask questions about any aspects that you don't understand (your homework will be to complete and make notes on the chapter, including reproducible code).
 
 # Homework
 
-- Work through Chapter 13 of the Geocomputation with R book. Make notes in a .qmd file that you can bring to the class to show colleagues and the instructor next week.
+-   Work through Chapter 13 of the Geocomputation with R book. Make notes in a .qmd file that you can bring to the class to show colleagues and the instructor next week.
 
+```{=html}
 <!-- -   Work through chapters 6 and 7 on spatial and temporal data in the [RRSRR tutorial](https://itsleeds.github.io/rrsrr/) to get R foundations
 
 -   Work-through the remaining exercises of the first sections in R4DS chapters 3 and 5
@@ -299,3 +321,4 @@ Work through [Chapter 13](https://r.geocompx.org/transport.html) of the book Geo
 -   **Bonus 1 (optional)** Run the code in the [demos/demo-quarto-document.qmd](https://github.com/ITSLeeds/TDS/blob/master/demos/demo-quarto-document.qmd) script
 
 Note: you can copy-paste the code from the .qmd file into a new .qmd file on your computer and render it (convert it into a .PDF file) using the following: -->
+```
