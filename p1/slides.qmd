@@ -152,28 +152,11 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 ```
 
-## Essential reading
+## Reading list
 
--   Chapter 12, [Transportation](http://geocompr.robinlovelace.net/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://geocompr.robinlovelace.net/)) (Lovelace et al. 2019)
--   Reproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/
+See the [reading list](https://itsleeds.github.io/tds/reading.html) for details
 
-## Core reading materials
-
--   R for Data Science, an introduction to data science with R (available free [online](http://r4ds.had.co.nz/))
--   Python equivalent
-
-## Optional
-
-There are many good resources on data science for transport applications.
-Do your own research and reading!
-The following are good:
-
--   If you're interested in network analysis/Python, see this paper on analysing OSM data in Python (Boeing and Waddell, 2017) (available [online](https://arxiv.org/pdf/1611.01890))
-
--   If you're interested in the range of transport modelling tools, see Lovelace (2021).
-    <!-- [@lovelace_open_2021] -->
-
-For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#bibliography)
+<iframe src="https://itsleeds.github.io/tds/reading.html" width="100%" height="600px"></iframe>
 
 ## Objectives
 
