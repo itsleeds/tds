@@ -4,6 +4,8 @@ bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
+  warning: false
+  message: false
 ---
 
 ## Agenda {.unnumbered}
@@ -191,9 +193,9 @@ To get some larger datasets, try the following (from Chapter 8 of RSRR)
 ```{r}
 remotes::install_cran("stats19")
 library(stats19)
-ac = get_stats19(year = 2019, type = "collision")
-ca = get_stats19(year = 2019, type = "cas")
-ve = get_stats19(year = 2019, type = "veh")
+ac = get_stats19(year = 2020, type = "collision")
+ca = get_stats19(year = 2020, type = "cas")
+ve = get_stats19(year = 2020, type = "veh")
 ```
 
 ## Python
@@ -201,9 +203,9 @@ ve = get_stats19(year = 2019, type = "veh")
 ``` python
 # pip install stats19
 import stats19
-ac = stats19.get_stats19(year = 2019, type = "collision")
-ca = stats19.get_stats19(year = 2019, type = "cas")
-ve = stats19.get_stats19(year = 2019, type = "veh")
+ac = stats19.get_stats19(year = 2020, type = "collision")
+ca = stats19.get_stats19(year = 2020, type = "cas")
+ve = stats19.get_stats19(year = 2020, type = "veh")
 ```
 :::
 
@@ -252,7 +254,7 @@ Let's go through these exercises together:
 
 <!-- library(tidyverse) # Load the package -->
 
-# Data Science foundations
+# Data science and transport
 
 Work through [Chapter 13](https://r.geocompx.org/transport.html) of the book Geocomputation with R, taking care to ask questions about any aspects that you don't understand (your homework will be to complete and make notes on the chapter, including reproducible code).
 
