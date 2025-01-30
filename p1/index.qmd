@@ -146,7 +146,18 @@ For details on installing packages see here: https://docs.ropensci.org/stats19/a
 -   In it create file called foundations.qmd
 -   Type the following
 
-![](images/paste-1.png)
+````{html}
+
+This is some text:
+
+```{r}
+casualty_type = c("pedestrian", "cyclist", "cat")
+casualty_age = seq(from = 20, to = 60, by = 20)
+crashes = data.frame(casualty_type, casualty_age)
+nrow(crashes)
+```
+
+````
 
 -   Knit the document by pressing Ctrl+Shift+K, with the 'Knit' button in RStudio, or by typing `quarto render foundations.qmd` in the PowerShell or Terminal console, the result should look like this:
 
@@ -156,9 +167,9 @@ This is some text:
 casualty_type = c("pedestrian", "cyclist", "cat")
 casualty_age = seq(from = 20, to = 60, by = 20)
 crashes = data.frame(casualty_type, casualty_age)
+nrow(crashes)
 ```
 
--   
 
 ```{r, echo=FALSE}
 casualty_type = c("pedestrian", "cyclist", "cat")
@@ -168,6 +179,8 @@ vehicle_type = c("car", "bus", "tank")
 crashes$vehicle_type = vehicle_type
 ```
 
+Make sure that you also execute the code in the console so that the objects are created in memory.
+Do that by placing the cursor in the code chunk and pressing Ctrl+Enter (or Cmd+Enter on a Mac) or by copying and pasting the code into the console (not recommended).
 We now have a data frame object stored in memory (technically in the global environment) that is used as the basis of the questions.
 
 To get some larger datasets, try the following (from Chapter 8 of RSRR)
