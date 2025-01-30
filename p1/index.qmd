@@ -167,6 +167,7 @@ nrow(crashes)
 
 Illustration of the RStudio interface with a .qmd file open in the top left, the console in the bottom left, the environment in the top right and the files in the bottom right.
 
+
 :::
 
 The document you are reading is a Quarto document, so we can show the output of the contents of the code in `foundations.qmd` here:
