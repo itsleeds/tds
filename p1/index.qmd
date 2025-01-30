@@ -18,7 +18,6 @@ execute:
 4.  Data science and a good research question (30 min)
 5.  Data science foundations (guided): Project set-up and using RStudio or VS Code as an integrated development environment (30 min)
 6.  Focussed work (1 hr)
-    -   Working through the questions on processing OD data and running the code in Sections 13.1 to 13.4 the Transport chapter of Geocomputation with R and answering the questions for the Bristol dataset\
         <!-- 1. Bonus: Work through [Chapter 5](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science -->
 
 # What is transport data science and thinking of a good research question {.unnumbered}
@@ -291,7 +290,7 @@ Let's go through these exercises together:
 
 # Self-study practical (1 hr)
 
-**Read and try to complete the exercises in Chapters 1 to 4 of the book Reproducible Road Safety Research with R.**
+**Read and try to complete the exercises in Chapters 1 to 5 of the book [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/).**
 
 It assumes that you have recently updated R and RStudio on your computer.
 For details on installing packages see [here](https://docs.ropensci.org/stats19/articles/stats19-training-setup.html).
