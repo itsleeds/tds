@@ -111,7 +111,7 @@ wget https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a351
 download.file("https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w", "p1/data_growth_time.png")
 ```
 
-Source: [visualisecurious.com](https://www.visualizecuriosity.com/posts/data-science-job-market-2024)
+"According to the BLS [the Bureau of Labor Statistics in the US], there is an expected 35% increase in the employment level of data scientists between 2022 and 2032." Source: [visualisecurious.com](https://www.visualizecuriosity.com/posts/data-science-job-market-2024)
 
 
 ## Live demo: [npt.scot web app](https://nptscot.github.io/)
