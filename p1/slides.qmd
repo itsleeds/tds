@@ -95,6 +95,25 @@ Data science spin-out company: [ImpactML](https://impactml.io/)
 
 <iframe src="https://impactml.io/" width="100%" height="600px"></iframe>
 
+## Data science employability
+
+The number of data science jobs is growing rapidly:
+
+<!-- ![](https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w) -->
+![](data_growth_time.png)
+
+<!-- Local backup:
+wget https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png -O images/data_growth_time.png -->
+
+```{r}
+#| eval: false
+#| echo: false
+download.file("https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w", "p1/data_growth_time.png")
+```
+
+Source: [visualisecurious.com](https://www.visualizecuriosity.com/posts/data-science-job-market-2024)
+
+
 ## Live demo: [npt.scot web app](https://nptscot.github.io/)
 
 ![](https://nptscot.github.io/images/rnet_filters.png)
