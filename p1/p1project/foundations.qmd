@@ -1,0 +1,66 @@
+
+```{r}
+#| results: hide
+# load packages
+library(tidyverse)
+```
+
+
+```{r}
+#| eval: false
+#| echo: false
+quarto::quarto_render("foundations.qmd", "pdf")
+```
+
+
+
+Hello this is some text.
+
+```{r}
+casualty_type = c("cat", "dog", "person")
+casualty_age = seq(from = 20, to = 60, by = 20)
+crashes = data.frame(casualty_type, casualty_age)
+plot(crashes$casualty_age)
+```
+
+Subsetting.
+
+```{r}
+crashes$casualty_type
+crashes[[1]]
+crashes[2,1]
+```
+
+```{r}
+crashes |>
+  select(casualty_type)
+
+crashes |> 
+  filter(casualty_age > 35)
+
+crashes |> 
+  filter(casualty_age-20 > 35)
+
+crashes |>
+  ggplot() +
+  geom_bar(aes(x = casualty_age, fill = casualty_type))
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Python example
+
+```{python}
+casualty_type_py = ["a", "B", "c"]
+casualty_type_py
+```
