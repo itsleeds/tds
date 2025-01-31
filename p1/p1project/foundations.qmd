@@ -1,0 +1,92 @@
+
+```{r}
+#| results: hide
+# load packages
+library(tidyverse)
+```
+
+
+```{r}
+#| eval: false
+#| echo: false
+quarto::quarto_render("foundations.qmd", "pdf")
+```
+
+
+
+Hello this is some text.
+
+```{r}
+casualty_type = c("cat", "dog", "person")
+casualty_age = seq(from = 20, to = 60, by = 20)
+crashes = data.frame(casualty_type, casualty_age)
+plot(crashes$casualty_age)
+```
+
+Subsetting.
+
+```{r}
+crashes$casualty_type
+crashes[[1]]
+crashes[2,1]
+```
+
+```{r}
+crashes |>
+  select(casualty_type)
+
+crashes |> 
+  filter(casualty_age > 35)
+
+crashes |> 
+  filter(casualty_age-20 > 35)
+
+crashes |>
+  ggplot() +
+  geom_bar(aes(x = casualty_age, fill = casualty_type))
+```
+
+
+```{r}
+ac = stats19::get_stats19(year = 2020, type = "collision")
+ac
+dim(ac)
+names(ac)
+# aggregate this by day to show 
+# how crash numbers varied over the year
+ac_by_year = ac |>
+  group_by(date) |>
+  summarise(
+    n_crashes = n()
+  )
+ac_by_year |>
+  mutate(
+    `N. crashes per year` = n_crashes,
+    `Week average` = zoo::rollmean(n_crashes, 7, na.pad = TRUE),
+    Date = date,
+  ) |> 
+  ggplot(aes(x = Date, y = `N. crashes per year`)) +
+  geom_point(alpha = 0.1) +
+  ylim(c(0, NA)) +
+  # geom_smooth() +
+  # weekly rolling average
+  geom_line(aes(Date, `Week average`), colour = "blue") +
+  theme_minimal()
+```
+
+
+
+
+
+
+
+
+
+
+
+# Python example
+
+```{python}
+casualty_type_py = ["a", "B", "c"]
+casualty_type_py
+```
