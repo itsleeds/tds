@@ -24,6 +24,8 @@ Imports:
     stplanr,
     tmap,
     spData,
-    zoo
+    zoo,
+    pct
 Remotes:
-    nowosad/spDataLarge
+    nowosad/spDataLarge,
+    itsleeds/pct

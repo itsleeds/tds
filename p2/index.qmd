@@ -15,6 +15,14 @@ engine: knitr
 
 You should now be familiar with the basics of R and the structure of transport datasets, having completed the [homework](https://itsleeds.github.io/tds/p1/#homework) from the previous session.
 
+# Prerequisites
+
+Note: you may need to install the `pct` package as follows:
+
+```
+remotes::install_github("ITSLeeds/pct")
+```
+
 # Getting started with GIS in R
 
 Note that this practical builds on content in [Geocomputation with R](https://r.geocompx.org). 
