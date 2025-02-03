@@ -407,4 +407,3 @@ knitr::include_graphics("https://raw.githubusercontent.com/dabreegster/abstreet/
 ---
 
 # References
-
