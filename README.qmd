@@ -15,6 +15,23 @@ See the course website at [itsleeds.github.io/tds](https://itsleeds.github.io/td
 
 The quickest way to get started with the code for many people will be to use GitHub Codespaces. Click the [Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/tds?quickstart=1) button above to get started.
 
+If you're using VS Code and have Docker installed you can open the project in a Devcontainer by pressing Ctrl+Shift+P, typing in "Devcontainer", and selecting "Remote-Containers: Reopen in Container".
+
+## Reproducing the website
+
+To reprooduce the website, you can use the following command in R:
+
+```{r}
+#| eval: false
+quarto::quarto_preview()
+```
+
+This is the same as running the following command in the system terminal:
+
+```bash
+quarto preview
+```
+
 ## Cloning and contributing
 
 We welcome contributions!
