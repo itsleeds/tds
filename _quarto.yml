@@ -30,7 +30,7 @@ website:
   announcement: 
     icon: info-circle
     dismissable: true
-    content: "**Alert** ensure you have completed the [first homework, described here,](https://itsleeds.github.io/tds/d1) by this Friday 31st January"
+    content: "**Alert** ensure you have completed the [second homework, described at the end of [itsleeds.github.io/tds/p1](https://itsleeds.github.io/tds/p1/#homework) by this Thursday 6th February."
     type: primary
     position: below-navbar
 
