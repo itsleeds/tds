@@ -21,6 +21,25 @@ use GitHub Codespaces. Click the [Open in GitHub
 Codespaces](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 button above to get started.
 
+If you’re using VS Code and have Docker installed you can open the
+project in a Devcontainer by pressing Ctrl+Shift+P, typing in
+“Devcontainer”, and selecting “Remote-Containers: Reopen in Container”.
+
+## Reproducing the website
+
+To reprooduce the website, you can use the following command in R:
+
+``` r
+quarto::quarto_preview()
+```
+
+This is the same as running the following command in the system
+terminal:
+
+``` bash
+quarto preview
+```
+
 ## Cloning and contributing
 
 We welcome contributions!
@@ -78,5 +97,11 @@ usethis::use_package("quarto")
 ```
 
 You can save presentations as PDF files with the following command:
+
+We use the Harvard citation style, added as follows:
+
+``` bash
+wget https://github.com/citation-style-language/styles/raw/refs/heads/master/elsevier-harvard.csl
+```
 
 See documentation on Quarto website for info on publishing.
