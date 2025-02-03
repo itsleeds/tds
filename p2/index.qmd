@@ -35,14 +35,19 @@ Work through the reproducible code in the "Introducing osmextract" vignette host
 
 Work through the reproducible code in the ["Getting started with stats19" vignette hosted at docs.ropensci.org/stats19](https://docs.ropensci.org/stats19/articles/stats19.html).
 
-# Getting started with open access origin-destination data
+# Census data
 
-- Take a read of and try to reproduce the code in the [vignette "An introduction to origin-destination data"](https://cran.r-project.org/web/packages/od/vignettes/od.html) for the `od` package.
-<!-- https://itsleeds.github.io/pct/articles/pct.html -->
-- Import some OD data using the `pct` package, as documented at [itsleeds.github.io/pct](https://itsleeds.github.io/pct/articles/pct.html).
+## The ONS "create a custom dataset" tool
+
+The Office for National Statistics (ONS) provides a tool to create custom datasets. The tool is flexible and provides datasets in a variety of formats, including CSV. Give the tool a try at [www.ons.gov.uk/datasets/create](https://www.ons.gov.uk/datasets/create).
+
 
 # Homework
 
-1. Download and visualise 3 transport-related datasets of your choice and save the results in a reproducible .qmd file.
+1. In preparation for the next practical session, take a read of and try to reproduce the code in the [vignette "An introduction to origin-destination data"](https://cran.r-project.org/web/packages/od/vignettes/od.html) for the `od` package.
+<!-- https://itsleeds.github.io/pct/articles/pct.html -->
+    - Import some OD data using the `pct` package, as documented at [itsleeds.github.io/pct](https://itsleeds.github.io/pct/articles/pct.html).
+
+2. Download and visualise 3 transport-related datasets of your choice and save the results in a reproducible .qmd file.
     - Bonus: generate a .pdf document showing the results.
 
