@@ -1,0 +1,37 @@
+# Reproducible data science for road safety research
+
+This session will cover the fundamentals of reproducible data science for road safety research, building on a decade's worth of experience working with road traffic casualty datasets for policy-relevant road safety research.
+The UK's open access STATS19 database will be the basis of the session but the skills learned will be applicable to any road safety datasets.
+The session will cover:
+
+-   Importing collision, casualty and vehicle tables
+-   Temporal visualisation and aggregation
+-   Spatial visualisation and aggregation
+-   Joining STATS19 tables
+-   Spatial joins linking infrastructure to collisions
+
+## Recommended reading
+
+The session will build on the following resources, we recommend taking a read of one or more of these before signing-up:
+
+-   The first practical session of the Transport Data Science module, freely available at [itsleeds.github.io/tds/p1/](https://itsleeds.github.io/tds/p1/), for an introduction to data science for transport research
+-   [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) [@lovelace_reproducible_2020]
+    -   Introductory guide for analyzing road safety data in R
+-   Geocomputation with R and [Chapter 13](https://r.geocompx.org/transport.html) in particular [@lovelace_geocomputation_2025]
+-   A paper exploring the spatial distribution of cycling casualties in West Yorkshire, using exploratory data analysis (EDA) techniques [@lovelace2016]
+-   A paper exploring social inequalities in cycling casualties nationwide [@vidaltortosa2021]
+-   Papers investigating the relationships between new contraflow interventions and traffic levels and collision rates in London [@tait2024; @tait2023]
+
+## Where and when
+
+2nd September 2025, 14:00-17:00, Room 1.11, ITS, University of Leeds
+
+Sign-up: TBC
+
+## Prerequisites
+
+-   Basic familiarity with R and RStudio
+-   A laptop with R and RStudio installed
+-   A willingness to learn (see ) and share knowledge
+
+# References
