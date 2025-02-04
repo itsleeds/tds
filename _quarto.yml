@@ -27,6 +27,20 @@ website:
         text: Marking Criteria
       - href: reading.qmd
         text: Reading list
+      # - text: Practical sessions
+      #   contents:
+      #     - href: p1
+      #       text: Practical 1
+      #     - href: p2
+      #       text: Practical 2
+      #     - href: p3
+      #       text: Practical 3
+      #     - href: p4
+      #       text: Practical 4
+      #     - href: p5
+      #       text: Practical 5
+      #     - href: p6
+      #       text: Practical 6
   announcement: 
     icon: info-circle
     dismissable: true
