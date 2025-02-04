@@ -13,7 +13,9 @@ engine: knitr
 
 # Review Homework
 
-You should now be familiar with the basics of R and the structure of transport datasets, having completed the [homework](https://itsleeds.github.io/tds/p1/#homework) from the previous session.
+You should now be familiar with the basics of R, Quarto and the structure of transport datasets, having completed the [homework](https://itsleeds.github.io/tds/p1/#homework) from the previous session.
+
+We will do a demo of trying to reproduce the demo from last week and discuss any issues you had running the code in Chapter 13 of [Geocomputation with R](https://r.geocompx.org).
 
 # Prerequisites
 
@@ -21,6 +23,14 @@ Note: you may need to install the `pct` package as follows:
 
 ```
 remotes::install_github("ITSLeeds/pct")
+```
+
+We will also load the following packages:
+
+```{r}
+#| results: hide
+library(tidyverse)
+library(sf)
 ```
 
 # Getting started with GIS in R
@@ -35,11 +45,108 @@ Work through the reproducible code in the "Introducing osmextract" vignette host
 
 Work through the reproducible code in the ["Getting started with stats19" vignette hosted at docs.ropensci.org/stats19](https://docs.ropensci.org/stats19/articles/stats19.html).
 
+# Boundary datasets
+
+Boundary datasets are useful for mapping and spatial analysis, providing the geographical context for other datasets.
+You can download geographic datasets directly from the [ONS Geoportal](https://geoportal.statistics.gov.uk/).
+
+You can also search for boundary datasets using the `esri2sf` package, which provides a function `esrisearch` to search for datasets on the ESRI ArcGIS platform.
+To illustrate this programatic way of getting boundary data, we will search for the "Local Authority Districts December 2024 Boundaries UK" dataset and download it using the `arcgis` package.
+
+```{r}
+#| eval: false
+pak::pkg_install("elipousson/esri2sf")
+remotes::install_github("r-arcgis/arcgis", dependencies = TRUE)
+res = esri2sf::esrisearch("Local Authority Districts (May 2023) Boundaries UK")
+res = res |>
+  dplyr::filter(type == "Feature Service") |>
+  # # 2023 versions:
+  # dplyr::filter(str_detect(title, "2023")) |>
+  # BUC: 
+  dplyr::filter(str_detect(title, "BUC")) 
+res$title
+u_from_res = paste0(res$url[1], "/0")
+library(arcgis)
+res_sf = arc_read(u_from_res)
+plot(res_sf$geometry)
+```
+
+
 # Census data
 
 ## The ONS "create a custom dataset" tool
 
 The Office for National Statistics (ONS) provides a tool to create custom datasets. The tool is flexible and provides datasets in a variety of formats, including CSV. Give the tool a try at [www.ons.gov.uk/datasets/create](https://www.ons.gov.uk/datasets/create).
+To test the tool, try to get data on travel to work patterns for all usual residents in England and Wales at the local authority level (note: you may need to change the file name to match the one you downloaded).
+
+```{r}
+#| eval: false
+#| echo: false
+# Upload result to GitHub release
+system("gh release list")
+system("gh release upload 2025 custom-filtered-2025-02-04T00_06_30Z.csv")
+
+# And res_sf:
+sf::write_sf(res_sf, "lad_boundaries_2023.geojson")
+system("gh release upload 2025 lad_boundaries_2023.geojson")
+```
+
+```{r}
+#| echo: false
+# Download the datasets:
+base_url = "https://github.com/ITSLeeds/tds/releases/download/2025/"
+if (!file.exists("custom-filtered-2025-02-04T00_06_30Z.csv")) {
+  download.file(paste0(base_url, "custom-filtered-2025-02-04T00_06_30Z.csv"), "custom-filtered-2025-02-04T00_06_30Z.csv")
+  download.file(paste0(base_url, "lad_boundaries_2023.geojson"), "lad_boundaries_2023.geojson")
+}
+res_sf = sf::st_read("lad_boundaries_2023.geojson")
+```
+
+```{r}
+travel_to_work_lad = readr::read_csv("custom-filtered-2025-02-04T00_06_30Z.csv")
+# names(travel_to_work_lad)
+# [1] "Lower tier local authorities Code"                      
+# [2] "Lower tier local authorities"                           
+# [3] "Distance travelled to work (8 categories) Code"         
+# [4] "Distance travelled to work (8 categories)"              
+# [5] "Method used to travel to workplace (12 categories) Code"
+# [6] "Method used to travel to workplace (12 categories)"     
+# [7] "Observation" 
+travel_to_work_updated = travel_to_work_lad |>
+  select(
+    LAD23CD = `2023 Lower tier local authorities Code`,
+    Mode = `Method used to travel to workplace (12 categories)`,
+    Distance = `Distance travelled to work (8 categories)`,
+    Observation = Observation
+  )
+# Pivot wider:
+ttw_wide = travel_to_work_updated |>
+  pivot_wider(names_from = c(Distance, Mode), values_from = Observation)
+summary(res_sf[["LAD23CD"]] %in% travel_to_work_lad[[1]]) 
+# Other way around:
+summary(travel_to_work_lad[[1]] %in% res_sf[["LAD23CD"]])
+names(ttw_wide)
+```
+
+# Joining datasets
+
+Two key ways to join datasets are by spatial location and by a common key. We will demonstrate the latter using the `dplyr` package.
+
+```{r}
+lad_joined = left_join(
+  res_sf,
+  ttw_wide
+)
+```
+
+Let's visualise the results with a choropleth map made using `ggplot2`.
+
+```{r}
+ggplot(lad_joined) +
+  geom_sf(aes(fill = `Less than 5km_Driving a car or van`)) +
+  scale_fill_viridis_c() +
+  theme_minimal()
+```
 
 
 # Homework
@@ -51,3 +158,10 @@ The Office for National Statistics (ONS) provides a tool to create custom datase
 2. Download and visualise 3 transport-related datasets of your choice and save the results in a reproducible .qmd file.
     - Bonus: generate a .pdf document showing the results.
 
+3. Take a quick read of, and try to reproduce some of the code in, at least three of the chapters in R4DS:
+    - [Chapter 1: Data visualisation](https://r4ds.hadley.nz/data-visualize)
+    - [Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
+    - One of you choice, e.g. 
+        - [Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
+        - [Chapter 19: Joins](https://r4ds.hadley.nz/joins.html)
+        - [Chapter 28: Quarto](https://r4ds.hadley.nz/quarto.html)
