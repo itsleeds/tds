@@ -1,3 +1,7 @@
+---
+bibliography: tds.bib
+---
+
 # Reproducible data science for road safety research
 
 This session will cover the fundamentals of reproducible data science for road safety research, building on a decade's worth of experience working with road traffic casualty datasets for policy-relevant road safety research.
