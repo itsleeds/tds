@@ -107,6 +107,8 @@ Search online for topics you are interested in and see the [Quarto gallery of bo
     -   Foundational text on transport modeling methods
 -   [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building]
     -   A guide to the data engineering side of data science, with a focus on reproducibility and automation.
+-   Papers investigating the relationships between new contraflow interventions and traffic levels and collision rates in London [@tait2024; @tait2023]
+
 
 See the [full bibliography](https://www.zotero.org/groups/418217/energy-and-transport/collections/R38L2EXB) on Zotero for more resources, and feel free to suggest additions by opening an issue in the tds issue tracker.
 
