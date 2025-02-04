@@ -125,7 +125,7 @@ ttw_wide = travel_to_work_updated |>
 summary(res_sf[["LAD23CD"]] %in% travel_to_work_lad[[1]]) 
 # Other way around:
 summary(travel_to_work_lad[[1]] %in% res_sf[["LAD23CD"]])
-names(ttw_wide)
+# names(ttw_wide)
 ```
 
 # Joining datasets
