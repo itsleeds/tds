@@ -7,12 +7,11 @@ This reading list contains key resources for the Transport Data Science module, 
 
 # Core Reading
 
-- [R for Data Science](https://r4ds.had.co.nz/) [@wickham_data_2023]
-  - This is an excellent and very popular applied introduction to data science with R, covering the Tidyverse and data visualization. It is open access and based on open code. See [github.com/hadley/r4ds](https://github.com/hadley/r4ds) for insights into how Quarto can be used to embed code in written outputs.
-- [Geocomputation with R](https://r.geocompx.org/) [@lovelace_geocomputation_2025]
-  - A guide to geographic data analysis, visualization, and modeling with R.
-  <!-- https://r.geocompx.org/transport.html -->
-  - The Transportation chapter, which can be found online at [r.geocompx.org/transport.html](https://r.geocompx.org/transport.html), is a key resource for this module.
+-   [R for Data Science](https://r4ds.had.co.nz/) [@wickham_data_2023]
+    -   This is an excellent and very popular applied introduction to data science with R, covering the Tidyverse and data visualization. It is open access and based on open code. See [github.com/hadley/r4ds](https://github.com/hadley/r4ds) for insights into how Quarto can be used to embed code in written outputs.
+-   [Geocomputation with R](https://r.geocompx.org/) [@lovelace_geocomputation_2025]
+    -   A guide to geographic data analysis, visualization, and modeling with R. <!-- https://r.geocompx.org/transport.html -->
+    -   The Transportation chapter, which can be found online at [r.geocompx.org/transport.html](https://r.geocompx.org/transport.html), is a key resource for this module.
 
 # Skills Development
 
@@ -23,88 +22,91 @@ Search online for topics you are interested in and see the [Quarto gallery of bo
 
 ## Key Skills
 
-- [Quarto](https://quarto.org/) documentation [@allaire_quarto_2024]
+-   [Quarto](https://quarto.org/) documentation [@allaire_quarto_2024]
 
+    ```{=html}
     <!-- Articles & Reports
-    Presentations
-    Dashboards
-    Websites
-    Books
-    Interactive Docs -->
+      Presentations
+      Dashboards
+      Websites
+      Books
+      Interactive Docs -->
+    ```
 
-  - The software used to create the Transport Data Science course materials and [numerous websites, presentations, dashboards, and books](https://quarto.org/docs/gallery/), Quarto is a powerful tool for creating reproducible documents with code and data.
-  - See the [technical writing](https://quarto.org/docs/visual-editor/technical.html) page of Quarto's documentation for key information on how to add references, figure captions, and more.
-- [Introduction to GitHub](https://github.com/skills/introduction-to-github) [@heis_introduction_2025]
-  - A good starting point for learning how to use GitHub for version control and collaboration.
-  <!-- https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers -->
-  - See also their introduction to Devcontainers at [docs.github.com/en/codespaces/](https://docs.github.com/en/codespaces/)
+    -   The software used to create the Transport Data Science course materials and [numerous websites, presentations, dashboards, and books](https://quarto.org/docs/gallery/), Quarto is a powerful tool for creating reproducible documents with code and data.
+    -   See the [technical writing](https://quarto.org/docs/visual-editor/technical.html) page of Quarto's documentation for key information on how to add references, figure captions, and more.
+
+-   [Introduction to GitHub](https://github.com/skills/introduction-to-github) [@heis_introduction_2025]
+
+    -   A good starting point for learning how to use GitHub for version control and collaboration. <!-- https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers -->
+    -   See also their introduction to Devcontainers at [docs.github.com/en/codespaces/](https://docs.github.com/en/codespaces/)
 
 ## Python
 
-- [Course Materials for: Geospatial Data Science](https://github.com/mszell/geospatialdatascience) [@szell_course_2025]
-  - Course materials covering various aspects of geospatial data science, including data analysis, visualization, and working with street networks using Python.
-- [Modern Polars](https://kevinheavey.github.io/modern-polars/) [@heavey_modern_2025]
-  - A side-by-side comparison of the Polars and Pandas libraries.
-- [Python Polars: The definitive guide](https://github.com/jeroenjanssens/python-polars-the-definitive-guide) [@janssens_python_2025]
-  - Guide to using the polars for data manipulation in Python, due to be published in February 2025.
-- [A course on Geographic Data Science](https://darribas.org/gds_course/content/home.html) [@arribas-bel_course_2019]
-  - Free and open source online book on using GeoPandas and other Python libraries for geographic data analysis.
-- [Python for Data Analysis](https://wesmckinney.com/book/) [@mckinney_python_2022]
-  - Dta wrangling with Pandas, NumPy, and Jupyter, written by the creator of the Pandas library.
-- [Geocomputation with Python](https://py.geocompx.org/) [@dorman_geocomputation_2025]
-  - Resource for working with geographic data using Python, covering both vector and raster data models.
+-   [Course Materials for: Geospatial Data Science](https://github.com/mszell/geospatialdatascience) [@szell_course_2025]
+    -   Course materials covering various aspects of geospatial data science, including data analysis, visualization, and working with street networks using Python.
+-   [Modern Polars](https://kevinheavey.github.io/modern-polars/) [@heavey_modern_2025]
+    -   A side-by-side comparison of the Polars and Pandas libraries.
+-   [Python Polars: The definitive guide](https://github.com/jeroenjanssens/python-polars-the-definitive-guide) [@janssens_python_2025]
+    -   Guide to using the polars for data manipulation in Python, due to be published in February 2025.
+-   [A course on Geographic Data Science](https://darribas.org/gds_course/content/home.html) [@arribas-bel_course_2019]
+    -   Free and open source online book on using GeoPandas and other Python libraries for geographic data analysis.
+-   [Python for Data Analysis](https://wesmckinney.com/book/) [@mckinney_python_2022]
+    -   Dta wrangling with Pandas, NumPy, and Jupyter, written by the creator of the Pandas library.
+-   [Geocomputation with Python](https://py.geocompx.org/) [@dorman_geocomputation_2025]
+    -   Resource for working with geographic data using Python, covering both vector and raster data models.
 
 ## R
 
-- [Advanced R](https://adv-r.hadley.nz/) 
-  - A comprehensive guide to advanced programming in R, covering topics such as functional programming and object-oriented programming.
+-   [Advanced R](https://adv-r.hadley.nz/)
+    -   A comprehensive guide to advanced programming in R, covering topics such as functional programming and object-oriented programming.
 
 # Software and Tools
 
-- [stats19](https://itsleeds.github.io/stats19/) [@lovelace_stats19_2019]
-  - R package for working with official road crash data
-- [stplanr: A Package for Transport Planning](https://doi.org/10.32614/RJ-2018-053) [@lovelace_stplanr_2018]
-  - R package for transport planning with various routing and analysis functions
-- [OSMnx: New Methods for Acquiring, Constructing, Analyzing, and Visualizing Complex Street Networks](https://doi.org/10/gbvjxq) [@boeing_osmnx_2017]
-  - Useful, if slightly out of date, paper for anyone working with street network data in Python.
-- [A/B Street](https://zenodo.org/record/6331922) [@abstreet_2022]
-  - A traffic simulation game exploring how small changes to streets can improve transportation in cities. Useful for understanding the impact of urban design on transport systems.
-- [osm2streets](https://github.com/a-b-street/osm2streets) [@carlino_osm2streets_2025]
-  - Tool for converting OpenStreetMap data to detailed street networks, useful for transport modeling and analysis.
-  - See Python bindings that can convert OSM data into polygons representing streets as GeoPandas dataframes at [github.com/a-b-street/osm2streets-py](https://github.com/a-b-street/osm2streets/tree/main/osm2streets-py)
-- [od2net](https://github.com/Urban-Analytics-Technology-Platform/od2net) [@carlino_od2net_2024]
-  - Tool for converting origin-destination data into network flows, useful for transport modeling and analysis.
+-   [stats19](https://itsleeds.github.io/stats19/) [@lovelace_stats19_2019]
+    -   R package for working with official road crash data
+-   [stplanr: A Package for Transport Planning](https://doi.org/10.32614/RJ-2018-053) [@lovelace_stplanr_2018]
+    -   R package for transport planning with various routing and analysis functions
+-   [OSMnx: New Methods for Acquiring, Constructing, Analyzing, and Visualizing Complex Street Networks](https://doi.org/10/gbvjxq) [@boeing_osmnx_2017]
+    -   Useful, if slightly out of date, paper for anyone working with street network data in Python.
+-   [A/B Street](https://zenodo.org/record/6331922) [@abstreet_2022]
+    -   A traffic simulation game exploring how small changes to streets can improve transportation in cities. Useful for understanding the impact of urban design on transport systems.
+-   [osm2streets](https://github.com/a-b-street/osm2streets) [@carlino_osm2streets_2025]
+    -   Tool for converting OpenStreetMap data to detailed street networks, useful for transport modeling and analysis.
+    -   See Python bindings that can convert OSM data into polygons representing streets as GeoPandas dataframes at [github.com/a-b-street/osm2streets-py](https://github.com/a-b-street/osm2streets/tree/main/osm2streets-py)
+-   [od2net](https://github.com/Urban-Analytics-Technology-Platform/od2net) [@carlino_od2net_2024]
+    -   Tool for converting origin-destination data into network flows, useful for transport modeling and analysis.
 
 # Research Applications
 
-- [The Propensity to Cycle Tool](https://doi.org/10.5198/jtlu.2016.862) [@lovelace_propensity_2017]
-  - Case study of an open source transport planning tool
-- [Growing Urban Bicycle Networks](http://arxiv.org/abs/2107.02185) [@szell_growing_2021]
-  - This paper explores methods for auto-suggesting transport network improvements, with reference to reproducible Python code
+-   [The Propensity to Cycle Tool](https://doi.org/10.5198/jtlu.2016.862) [@lovelace_propensity_2017]
+    -   Case study of an open source transport planning tool
+-   [Growing Urban Bicycle Networks](http://arxiv.org/abs/2107.02185) [@szell_growing_2021]
+    -   This paper explores methods for auto-suggesting transport network improvements, with reference to reproducible Python code
 
 # Data Visualization
 
-- [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi) [@tufte_visual_2001]
-  - Classic work on the principles of data visualization
-- [Visualization Curriculum](https://idl.uw.edu/visualization-curriculum/intro.html) [@heer_visualization_2021]
-  - A data visualization curriculum of interactive notebooks, using Vega-Lite and Altair. This book contains a series of Python-based Jupyter notebooks, with a corresponding set of JavaScript notebooks available online on Observable.
+-   [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi) [@tufte_visual_2001]
+    -   Classic work on the principles of data visualization
+-   [Visualization Curriculum](https://idl.uw.edu/visualization-curriculum/intro.html) [@heer_visualization_2021]
+    -   A data visualization curriculum of interactive notebooks, using Vega-Lite and Altair. This book contains a series of Python-based Jupyter notebooks, with a corresponding set of JavaScript notebooks available online on Observable.
 
 ## Miscellaneous
 
-- [Data Science for Transport: A Self-Study Guide with Computer Exercises](https://doi.org/10.1007/978-3-319-72953-4) [@fox_data_2018]
-  - An introduction to transport data science with hands-on examples, slightly out of date as of 2025.
-- [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) [@lovelace_reproducible_2020]
-  - Introductory guide for analyzing road safety data in R
-- [Open source tools for geographic analysis in transport planning](https://doi.org/10/ghtnrp) [@lovelace_open_2021]
-  - Review of open source tools available for transport planning and analysis.
-- [Python for Data Science](https://aeturrell.github.io/python4DS/) [@turrell_python_2025]
-  - A modern guide to data science using Python based on R for Data Science, with practical examples and clear explanations.
-- [The Geography of Transport Systems](https://transportgeography.org/) [@rodrigue_geography_2013]
-  - Comprehensive textbook on transport geography and systems
-- [Modelling Transport](https://www.wiley.com/en-us/Modelling+Transport%2C+4th+Edition-p-9781118941485) [@ortuzars._modelling_2001]
-  - Foundational text on transport modeling methods
-- [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building]
-  - A guide to the data engineering side of data science, with a focus on reproducibility and automation.
+-   [Data Science for Transport: A Self-Study Guide with Computer Exercises](https://doi.org/10.1007/978-3-319-72953-4) [@fox_data_2018]
+    -   An introduction to transport data science with hands-on examples, slightly out of date as of 2025.
+-   [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) [@lovelace_reproducible_2020]
+    -   Introductory guide for analyzing road safety data in R
+-   [Open source tools for geographic analysis in transport planning](https://doi.org/10/ghtnrp) [@lovelace_open_2021]
+    -   Review of open source tools available for transport planning and analysis.
+-   [Python for Data Science](https://aeturrell.github.io/python4DS/) [@turrell_python_2025]
+    -   A modern guide to data science using Python based on R for Data Science, with practical examples and clear explanations.
+-   [The Geography of Transport Systems](https://transportgeography.org/) [@rodrigue_geography_2013]
+    -   Comprehensive textbook on transport geography and systems
+-   [Modelling Transport](https://www.wiley.com/en-us/Modelling+Transport%2C+4th+Edition-p-9781118941485) [@ortuzars._modelling_2001]
+    -   Foundational text on transport modeling methods
+-   [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building]
+    -   A guide to the data engineering side of data science, with a focus on reproducibility and automation.
 
 See the [full bibliography](https://www.zotero.org/groups/418217/energy-and-transport/collections/R38L2EXB) on Zotero for more resources, and feel free to suggest additions by opening an issue in the tds issue tracker.
 
