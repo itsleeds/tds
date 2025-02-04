@@ -1,8 +1,9 @@
 ---
 bibliography: tds.bib
+title: Reproducible data science for road safety research
 ---
 
-# Reproducible data science for road safety research
+# Introduction
 
 This session will cover the fundamentals of reproducible data science for road safety research, building on a decade's worth of experience working with road traffic casualty datasets for policy-relevant road safety research.
 The UK's open access STATS19 database will be the basis of the session but the skills learned will be applicable to any road safety datasets.
@@ -14,7 +15,15 @@ The session will cover:
 -   Joining STATS19 tables
 -   Spatial joins linking infrastructure to collisions
 
-## Recommended reading
+# Prerequisites
+
+This course if for anyone interested in road safety research, especially for students, researchers, and practitioners who are already working with road safety data and who would like to improve their data science skills for more reproducible and impactful research.
+
+-   Basic familiarity with R and RStudio
+-   A laptop with R and RStudio installed
+-   A willingness to learn (see recommended reading) and share knowledge
+
+# Recommended reading
 
 The session will build on the following resources, we recommend taking a read of one or more of these before signing-up:
 
@@ -26,16 +35,11 @@ The session will build on the following resources, we recommend taking a read of
 -   A paper exploring social inequalities in cycling casualties nationwide [@vidaltortosa2021]
 -   Papers investigating the relationships between new contraflow interventions and traffic levels and collision rates in London [@tait2024; @tait2023]
 
-## Where and when
+# Where and when
 
 2nd September 2025, 14:00-17:00, Room 1.11, ITS, University of Leeds
 
 Sign-up: TBC
 
-## Prerequisites
-
--   Basic familiarity with R and RStudio
--   A laptop with R and RStudio installed
--   A willingness to learn (see ) and share knowledge
 
 # References
