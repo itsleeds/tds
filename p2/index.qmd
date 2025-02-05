@@ -128,6 +128,10 @@ summary(travel_to_work_lad[[1]] %in% res_sf[["LAD23CD"]])
 # names(ttw_wide)
 ```
 
+# The cadence platform
+
+Sign up to Cadence website at [cadence360.cityscience.com/](https://cadence360.cityscience.com/) by clicking 'Sign In' in the top right. New users can then either create an account or sign in to an existing account.
+
 # Joining datasets
 
 Two key ways to join datasets are by spatial location and by a common key. We will demonstrate the latter using the `dplyr` package.
@@ -143,7 +147,7 @@ Let's visualise the results with a choropleth map made using `ggplot2`.
 
 ```{r}
 ggplot(lad_joined) +
-  geom_sf(aes(fill = `Less than 5km_Driving a car or van`)) +
+  geom_sf(aes(fill = `Less than 5km_Driving a car or van`), colour = NA) +
   scale_fill_viridis_c() +
   theme_minimal()
 ```
