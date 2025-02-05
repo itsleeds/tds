@@ -27,6 +27,8 @@ website:
         text: Marking Criteria
       - href: reading.qmd
         text: Reading list
+      - href: reproducible-road-safety-workshop.qmd
+        text: Reproducible Road Safety Workshop
       # - text: Practical sessions
       #   contents:
       #     - href: p1
