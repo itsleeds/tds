@@ -165,7 +165,7 @@ ggplot(lad_joined) +
 3. Take a quick read of, and try to reproduce some of the code in, at least three of the chapters in R4DS:
     - [Chapter 1: Data visualisation](https://r4ds.hadley.nz/data-visualize)
     - [Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
+    - [Chapter 28: Quarto](https://r4ds.hadley.nz/quarto.html)
     - One of you choice, e.g. 
         - [Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
         - [Chapter 19: Joins](https://r4ds.hadley.nz/joins.html)
-        - [Chapter 28: Quarto](https://r4ds.hadley.nz/quarto.html)
