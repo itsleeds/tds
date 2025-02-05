@@ -41,6 +41,12 @@ Note that this practical builds on content in [Geocomputation with R](https://r.
 
 Work through the reproducible code in the "Introducing osmextract" vignette hosted at [https://docs.ropensci.org/osmextract/articles/osmextract.html](https://docs.ropensci.org/osmextract/articles/osmextract.html).
 
+## Bonus exercises
+
+- Reproduce the examples
+- Get all supermarkets in OSM for West Yorkshire
+- Identify all cycleways in West Yorkshire and, using the stats19 data you have already downloaded, identify all crashes that happened near them.
+
 # Getting road traffic casualty data
 
 Work through the reproducible code in the ["Getting started with stats19" vignette hosted at docs.ropensci.org/stats19](https://docs.ropensci.org/stats19/articles/stats19.html).
@@ -70,7 +76,6 @@ library(arcgis)
 res_sf = arc_read(u_from_res)
 plot(res_sf$geometry)
 ```
-
 
 # Census data
 
@@ -152,6 +157,7 @@ ggplot(lad_joined) +
   theme_minimal()
 ```
 
+See [r.geocompx.org/spatial-operations](https://r.geocompx.org/spatial-operations#spatial-joining) for spatial joins.
 
 # Homework
 
