@@ -244,7 +244,7 @@ Load the  `stplanr` package as follows:
 library(stplanr)
 ```
 
-The `stplanr` package contains some data that we can use to demonstrate principles in Data Science, illustrated in the Figure below. Source: Chapter 1 of R for Data Science [@grolemund_r_2016] [available online](https://r4ds.had.co.nz/introduction.html).
+The `stplanr` package contains some data that we can use to demonstrate principles in Data Science, illustrated in the Figure below. Source: Chapter 1 of R for Data Science [@wickham_data_2023] [available online](https://r4ds.had.co.nz/introduction.html).
 
 ![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
 
