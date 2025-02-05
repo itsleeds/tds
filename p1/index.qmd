@@ -166,7 +166,6 @@ nrow(crashes)
 
 Illustration of the RStudio interface with a .qmd file open in the top left, the console in the bottom left, the environment in the top right and the files in the bottom right.
 
-
 :::
 
 The document you are reading is a Quarto document, so we can show the output of the contents of the code in `foundations.qmd` here:
@@ -316,3 +315,5 @@ For details on installing packages see [here](https://docs.ropensci.org/stats19/
 -   Work through [Chapter 13](https://r.geocompx.org/transport.html) of the Geocomputation with R book. Make notes in a .qmd file that you can bring to the class to show colleagues and the instructor next week.
 
 -   Think of a research question that you could answer with data science, and write it down in a .qmd file. Include a sketch of the data you would need to answer the question.
+
+-   Sign-up to the Cadence platform as outlined at [itsleeds.github.io/tds/p2/#the-cadence-platform](https://itsleeds.github.io/tds/p2/#the-cadence-platform)
