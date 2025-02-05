@@ -12,6 +12,8 @@ This reading list contains key resources for the Transport Data Science module, 
 -   [Geocomputation with R](https://r.geocompx.org/) [@lovelace_geocomputation_2025]
     -   A guide to geographic data analysis, visualization, and modeling with R. <!-- https://r.geocompx.org/transport.html -->
     -   The Transportation chapter, which can be found online at [r.geocompx.org/transport.html](https://r.geocompx.org/transport.html), is a key resource for this module.
+-   [Geocomputation with Python](https://py.geocompx.org/) [@dorman_geocomputation_2025]
+    -   Resource for working with geographic data using Python, covering both vector and raster data models, only core reading if you are using Python for the practical sessions.
 
 # Skills Development
 
@@ -45,16 +47,13 @@ Search online for topics you are interested in and see the [Quarto gallery of bo
 
 -   [Course Materials for: Geospatial Data Science](https://github.com/mszell/geospatialdatascience) [@szell_course_2025]
     -   Course materials covering various aspects of geospatial data science, including data analysis, visualization, and working with street networks using Python.
--   [Modern Polars](https://kevinheavey.github.io/modern-polars/) [@heavey_modern_2025]
-    -   A side-by-side comparison of the Polars and Pandas libraries.
--   [Python Polars: The definitive guide](https://github.com/jeroenjanssens/python-polars-the-definitive-guide) [@janssens_python_2025]
-    -   Guide to using the polars for data manipulation in Python, due to be published in February 2025.
+-   [Modern Polars](https://kevinheavey.github.io/modern-polars/) [@heavey]
+    -   A side-by-side comparison of the Polars and Pandas libraries. <!-- -   [Python Polars: The definitive guide](https://github.com/jeroenjanssens/python-polars-the-definitive-guide) [@janssens_python_2025]
+        -   Guide to using the polars for data manipulation in Python, due to be published in February 2025. -->
 -   [A course on Geographic Data Science](https://darribas.org/gds_course/content/home.html) [@arribas-bel_course_2019]
     -   Free and open source online book on using GeoPandas and other Python libraries for geographic data analysis.
 -   [Python for Data Analysis](https://wesmckinney.com/book/) [@mckinney_python_2022]
     -   Dta wrangling with Pandas, NumPy, and Jupyter, written by the creator of the Pandas library.
--   [Geocomputation with Python](https://py.geocompx.org/) [@dorman_geocomputation_2025]
-    -   Resource for working with geographic data using Python, covering both vector and raster data models.
 
 ## R
 
@@ -108,7 +107,6 @@ Search online for topics you are interested in and see the [Quarto gallery of bo
 -   [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building]
     -   A guide to the data engineering side of data science, with a focus on reproducibility and automation.
 -   Papers investigating the relationships between new contraflow interventions and traffic levels and collision rates in London [@tait2024; @tait2023]
-
 
 See the [full bibliography](https://www.zotero.org/groups/418217/energy-and-transport/collections/R38L2EXB) on Zotero for more resources, and feel free to suggest additions by opening an issue in the tds issue tracker.
 
