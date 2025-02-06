@@ -389,8 +389,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/dabreegster/abstreet/
 - Walk and understand the data before doing complex things
 - Visualise the data, ask questions of it, descriptive stats
 - Only then add complexity to your analysis
-- Starting point for this: [Transport chapter](https://r.geocompx.org/transport.html) of Geocomputation with R [@lovelace_geocomputation_2018]
-
+- Starting point for this: [Transport chapter](https://r.geocompx.org/transport.html) of Geocomputation with R [@lovelace_geocomputation_2025]
 
 # Practical session 
 
