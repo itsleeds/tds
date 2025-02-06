@@ -90,6 +90,27 @@ ac_by_year |>
 
 ```{r}
 # Updated plot with title and legend...
+ac_by_year |>
+  mutate(
+    `N. crashes per year` = n_crashes,
+    `Week average` = zoo::rollmean(n_crashes, 7, na.pad = TRUE),
+    Date = date,
+  ) |> 
+  ggplot(aes(x = Date, y = `N. crashes per year`)) +
+  geom_point(alpha = 0.1) +
+  ylim(c(0, NA)) +
+  # geom_smooth() +
+  # weekly rolling average
+  geom_line(aes(Date, `Week average`, colour = "Week average")) +
+  theme_minimal() +
+  labs(
+    colour = "Legend"
+  ) +
+  scale_colour_manual(values = c("Week average" = "red")) +
+  ggtitle("Collions/day, 2020 to 2021") +
+  theme(
+    legend.position = "bottom"
+  )
 ```
 
 
