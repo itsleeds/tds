@@ -29,12 +29,12 @@ website:
         text: Reading list
       - href: reproducible-road-safety-workshop.qmd
         text: Reproducible Road Safety Workshop
-      # - text: Practical sessions
-      #   contents:
-      #     - href: p1
-      #       text: Practical 1
-      #     - href: p2
-      #       text: Practical 2
+      - text: Practical sessions
+        contents:
+          - href: p1
+            text: Practical 1
+          - href: p2
+            text: Practical 2
       #     - href: p3
       #       text: Practical 3
       #     - href: p4
