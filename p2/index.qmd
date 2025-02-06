@@ -11,13 +11,24 @@ bibliography: ../tds.bib
 engine: knitr
 ---
 
-# Review Homework
+# Introduction
+
+In this practical session, we will learn how to get transport datasets using R.
+The contents of the session are as follows:
+
+- We'll start with a short lecture on data sources and ways of classifying transport datasets (see the [slides](https://itsleeds.github.io/tds/p2/slides.html))
+- Reviewing the homework from the previous session
+- Practical session importing and exploring a range of transport datasets in your own time
+- Bonus: exploring the Cadence platform
+- Homework for the next session
+
+## Review Homework
 
 You should now be familiar with the basics of R, Quarto and the structure of transport datasets, having completed the [homework](https://itsleeds.github.io/tds/p1/#homework) from the previous session.
 
 We will do a demo of trying to reproduce the demo from last week and discuss any issues you had running the code in Chapter 13 of [Geocomputation with R](https://r.geocompx.org).
 
-# Prerequisites
+## Prerequisites
 
 Note: you may need to install the `pct` package as follows:
 
@@ -31,11 +42,11 @@ We will also load the following packages:
 #| results: hide
 library(tidyverse)
 library(sf)
+library(tmap)
 ```
 
-# Getting started with GIS in R
-
-Note that this practical builds on content in [Geocomputation with R](https://r.geocompx.org). 
+Note that this practical uses imports and uses geographic data with the `sf` package.
+Read more about the package in chapters 2 onwards in [Geocomputation with R](https://r.geocompx.org) and in the [sf package documentation](https://r-spatial.github.io/sf/).
 
 # Getting OpenStreetMap data
 
@@ -46,6 +57,79 @@ Work through the reproducible code in the "Introducing osmextract" vignette host
 - Reproduce the examples
 - Get all supermarkets in OSM for West Yorkshire
 - Identify all cycleways in West Yorkshire and, using the stats19 data you have already downloaded, identify all crashes that happened near them.
+
+```{r}
+#| eval: false
+#| echo: false
+library(osmextract)
+region_name = "west yorkshire"
+supermarket_points = oe_get(
+  place = region_name,
+  extra_tags = "shop",
+  query = "SELECT * FROM points WHERE shop='supermarket'"
+)
+supermarket_polygons = oe_get(
+  place = region_name,
+  extra_tags = "shop",
+  query = "SELECT * FROM multipolygons WHERE shop='supermarket'"
+)
+nrow(supermarket_points) # 81
+nrow(supermarket_polygons) # 261
+# Deduplicate points
+supermarket_points_in_polygons = supermarket_points |>
+  sf::st_filter(supermarket_polygons)
+nrow(supermarket_points_in_polygons)  # none
+waldo::compare(names(supermarket_points), names(supermarket_polygons))
+supermarket_points_combined = rbind(
+  supermarket_points |>
+    select(osm_id, name),
+  supermarket_polygon_centroids |>
+    select(osm_id, name)  
+)
+supermarket_frequency = supermarket_points_combined |>
+  count(name, sort = TRUE)
+length(supermarket_frequency$name) # 77
+supermarket_frequency$name[1:20]
+supermarket_points_cleaned = supermarket_points_combined |>
+  mutate(
+    name = case_when(
+      name == "" ~ "Unnamed",
+      str_detect(name, "Tesco") ~ "Tesco",
+      str_detect(name, "Sainsbury") ~ "Sainsbury's",
+      str_detect(name, "Asda") ~ "Asda",
+      str_detect(name, "Morrisons") ~ "Morrisons",
+      str_detect(name, "Aldi|ALDI") ~ "ALDI",
+      str_detect(name, "Lidl") ~ "Lidl",
+      str_detect(name, "Co-op|Coop") ~ "Co-op",
+      str_detect(name, "M&S|Marks & Spencer") ~ "M&S",
+
+      TRUE ~ name
+    )
+  )
+supermarket_frequency_cleaned = supermarket_points_cleaned |>
+  count(name, sort = TRUE)
+length(supermarket_frequency_cleaned$name) # 66
+supermarket_top_5 = supermarket_frequency_cleaned |>
+  slice_max(n, n = 5)
+supermarket_points_cleaned = supermarket_points_cleaned |>
+  mutate(name_simplified = case_when(
+    name %in% supermarket_top_5$name ~ name,
+    TRUE ~ "Other"
+  )) 
+# Save the result:
+sf::st_write(supermarket_points_cleaned, "supermarkets_points_cleaned.geojson")
+system("gh release upload 2025 supermarkets_points_cleaned.geojson")
+```
+
+Import and visualise a dataset with supermarket names and locations with the following code (see the source code of the practical to see how the supermarket data was obtained with `osmextract`):
+
+```{r}
+supermarkets = sf::read_sf("https://github.com/ITSLeeds/tds/releases/download/2025/supermarkets_points_cleaned.geojson")
+library(tmap)
+tmap_mode("view")
+tm_shape(supermarkets) +
+  tm_dots("name_simplified")
+```
 
 # Getting road traffic casualty data
 
