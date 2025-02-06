@@ -85,6 +85,7 @@ usethis::use_description()
 usethis::use_package("stats19")
 usethis::use_package("DT")
 usethis::use_package("quarto")
+usethis::use_package("zonebuilder")
 ```
 
 You can save presentations as PDF files with the following command:
