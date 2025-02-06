@@ -1,0 +1,49 @@
+
+
+```{r}
+#| eval: false
+#| echo: false
+library(tidyverse)
+library(osmextract)
+
+region_name = "lund"
+osm_data_raw = oe_get(place = region_name)
+osm_data_shops = oe_get(
+  place = region_name,
+  query = "
+  SELECT * 
+  FROM 'points' 
+  WHERE shop = 'supermarket'",
+  extra_tags = c("shop")
+)
+dim(osm_data_shops)
+plot(osm_data_shops$geometry)
+
+lund_region = zonebuilder::zb_zone("Lund, sweden")
+library(tmap)
+tmap_mode("view")
+qtm(lund_region)
+lund_6km = lund_region |>
+  filter(circle_id <= 3)
+lund_6km_boundary = sf::st_union(lund_6km)
+qtm(lund_6km_boundary)
+
+osm_data_lund1 = osm_data_shops |>
+  sf::st_filter(lund_6km_boundary)
+nrow(osm_data_lund1)
+qtm(osm_data_lund1)
+
+osm_data_lund2 = oe_get(
+  place = region_name,
+  query = "
+  SELECT * 
+  FROM 'points' 
+  WHERE shop = 'supermarket'",
+  extra_tags = c("shop"),
+  boundary = lund_6km_boundary,
+  boundary_type = "clipsrc"
+)
+
+nrow(osm_data_lund2)
+```
+
