@@ -1,8 +1,6 @@
 
 
 ```{r}
-#| eval: false
-#| echo: false
 library(tidyverse)
 library(osmextract)
 
