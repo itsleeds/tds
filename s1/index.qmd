@@ -5,5 +5,22 @@ toc: true
 execute: 
   cache: true
 ---
-This is a placeholder page; content will be added soon.
 
+# Accessing road traffic count datasets
+
+
+# Cycle counts for West Yorkshire
+
+# Public transport tap-in data
+
+# Network data from OSM
+
+
+
+Note: you can access a simplified network dataset from Ordnance Survey's OpenRoads dataset, search online to find it as a bonus activity.
+
+
+# Links
+
+- See here for a detailed reproducible example of how to visualise transport network datasets: https://github.com/juanfonsecaLS1/netvis-trafficflows
+- See the [`sfnetworks` package](https://luukvdmeer.github.io/sfnetworks/) package for information on how to work with networks, including estimating centality measures and shortest paths.
