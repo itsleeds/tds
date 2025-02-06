@@ -261,3 +261,11 @@ See [r.geocompx.org/spatial-operations](https://r.geocompx.org/spatial-operation
     - One of you choice, e.g. 
         - [Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
         - [Chapter 19: Joins](https://r4ds.hadley.nz/joins.html)
+
+4. Try to reproduce and modify the code I wrote during the live demo to get OSM data for a city of your choice.
+  - See the [source code here: https://github.com/itsleeds/tds/blob/main/p2/demo.qmd](https://github.com/itsleeds/tds/blob/main/p2/demo.qmd)
+  - See the results here: [https://itsleeds.github.io/tds/p2/demo.html](https://itsleeds.github.io/tds/p2/demo.html)
+
+5. Check-out the code I used to generate the interactive map of source code in this Discussion on GitHub: https://github.com/itsleeds/tds/discussions/166
+  - Bonus: comment on the discussion with your thoughts on the code and how it could be improved.
+  - Bonus 2: try opening a new Discussion comment in the tds repo at [github.com/itsleeds/tds/discussions](https://github.com/itsleeds/tds/discussions) and share your thoughts on the practical session.
