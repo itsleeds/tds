@@ -49,8 +49,22 @@ crashes |>
 
 ```{r}
 ac = stats19::get_stats19(year = 2020, type = "collision")
-ac
+class(ac)
 dim(ac)
+ac_2021 = stats19::get_stats19(year = 2021, type = "collision")
+nrow(ac)
+nrow(ac_2021)
+# # After googling "combine 2 data frames" let's try rbind
+# ??combine
+# ?rbind
+ac = rbind(ac, ac_2021)
+dim(ac)
+ac_datetime = c(ac$datetime, ac_2021$datetime)
+length(ac_datetime)
+range(ac_datetime)
+
+class(ac)
+str(ac)
 names(ac)
 # aggregate this by day to show 
 # how crash numbers varied over the year
@@ -70,9 +84,14 @@ ac_by_year |>
   ylim(c(0, NA)) +
   # geom_smooth() +
   # weekly rolling average
-  geom_line(aes(Date, `Week average`), colour = "blue") +
+  geom_line(aes(Date, `Week average`), colour = "red") +
   theme_minimal()
 ```
+
+```{r}
+# Updated plot with title and legend...
+```
+
 
 
 
@@ -90,3 +109,5 @@ ac_by_year |>
 casualty_type_py = ["a", "B", "c"]
 casualty_type_py
 ```
+
+
