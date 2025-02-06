@@ -10,3 +10,4 @@ _freeze/
 *.egg-info
 *cache*
 .Rproj.user
+*.geojson
