@@ -61,6 +61,7 @@ Work through the reproducible code in the "Introducing osmextract" vignette host
 ```{r}
 #| eval: false
 #| echo: false
+library(tidyverse)
 library(osmextract)
 region_name = "west yorkshire"
 supermarket_points = oe_get(
@@ -79,6 +80,8 @@ nrow(supermarket_polygons) # 261
 supermarket_points_in_polygons = supermarket_points |>
   sf::st_filter(supermarket_polygons)
 nrow(supermarket_points_in_polygons)  # none
+supermarket_polygon_centroids = supermarket_polygons |>
+  sf::st_centroid()
 waldo::compare(names(supermarket_points), names(supermarket_polygons))
 supermarket_points_combined = rbind(
   supermarket_points |>
@@ -102,23 +105,22 @@ supermarket_points_cleaned = supermarket_points_combined |>
       str_detect(name, "Lidl") ~ "Lidl",
       str_detect(name, "Co-op|Coop") ~ "Co-op",
       str_detect(name, "M&S|Marks & Spencer") ~ "M&S",
-
       TRUE ~ name
     )
   )
 supermarket_frequency_cleaned = supermarket_points_cleaned |>
   count(name, sort = TRUE)
 length(supermarket_frequency_cleaned$name) # 66
-supermarket_top_5 = supermarket_frequency_cleaned |>
-  slice_max(n, n = 5)
+supermarket_top_6 = supermarket_frequency_cleaned |>
+  slice_max(n, n = 6)
 supermarket_points_cleaned = supermarket_points_cleaned |>
   mutate(name_simplified = case_when(
-    name %in% supermarket_top_5$name ~ name,
+    name %in% supermarket_top_6$name ~ name,
     TRUE ~ "Other"
   )) 
 # Save the result:
-sf::st_write(supermarket_points_cleaned, "supermarkets_points_cleaned.geojson")
-system("gh release upload 2025 supermarkets_points_cleaned.geojson")
+sf::st_write(supermarket_points_cleaned, "supermarkets_points_cleaned.geojson", delete_dsn = TRUE)
+system("gh release upload 2025 supermarkets_points_cleaned.geojson --clobber")
 ```
 
 Import and visualise a dataset with supermarket names and locations with the following code (see the source code of the practical to see how the supermarket data was obtained with `osmextract`):
