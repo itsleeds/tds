@@ -41,7 +41,7 @@ If you need to install any of these packages use:
 ```{r} 
 #| eval: false
 if (!require("pak")) install.packages("pak")
-pak::pkg_install(c("sf", "tidyverse", "remotes"))
+pak::pkg_install(c("sf", "tidyverse", "remotes","ggspatial"))
 # GitHub pkgs
 pak::pkg_install("Nowosad/spDataLarge")
 ```
@@ -49,6 +49,7 @@ pak::pkg_install("Nowosad/spDataLarge")
 ``` {r}
 library(sf)          # vector data package 
 library(tidyverse)   # tidyverse packages
+library(ggspatial)   # ggspatial package
 library(spData)  # spatial data package 
 ```
 
@@ -659,15 +660,24 @@ Now use `tmap` to make a plot showing the number of trips and the percentage of 
 ```{r}
 #| echo: true
 #| output: true
+
+
 desire_lines = desire_lines[order(desire_lines$Active),]
 
-tm_shape(desire_lines) +   # Define the data frame used to make the map
-  tm_lines(col = "Active", # We want to map lines, the colour (col) is based on the "Active" column
-           palette = "plasma", # Select a colour palette
-           alpha = 0.7,    # Make lines slightly transparent
-           lwd = "all") +  # The line width (lwd) is based on the "all" column
-  tm_layout(legend.outside = TRUE) + # Move the ledgend outside the map
-  tm_scale_bar()           # Add a scale bar to the map
+ggplot()+
+  geom_sf(data = desire_lines,  # Define the data frame used to make the map
+          aes(colour = Active,  # We want to map lines, the colour  is based on the "Active" column
+              alpha =  all,     # Make lines slightly transparent and based on the "all" column
+              linewidth = all   # The line width is based on the "all" column
+              ))+
+  scale_colour_viridis_c(option = "C")+         # Select a colour palette
+  scale_linewidth_binned(range = c(0.03,0.6), guide = "legend")+  # Set max and min ranges for line width
+  scale_alpha(range = c(0.1,1), guide = "legend")+                # Set max and min ranges for transparency
+  annotation_scale(location = "br", width_hint = 0.3) +  # Scale bar (bottom left)
+  annotation_north_arrow(location = "tl", which_north = "true",
+                         style = north_arrow_fancy_orienteering()) +  # North arrow (top left)
+  theme_void()
+
 ```
 
 ## Python
@@ -734,6 +744,167 @@ plt.show()
 ::: 
 
 The blue line is a smoothed average of the data. It shows a common concept in transport research, the distance decay curve. In this case it shows that the longer the journey the less likely people are to use active travel. But this concept applies to all kinds of travel decisions. For example you are more likely to travel to a nearby coffee shop than a far away coffee shop. Different types of trip have different curves, but most people always have a bias for shorter trips.
+
+
+
+
+# Processing origin-destination data in London Cycle Hire System 
+
+In this section, we will be working with origin-destination data in London Cycle Hire System (LCHS). As a case study, we are intersted in understanding how a strike in London Underground might impact the origin-destinaiton pairs in the LCHS. In this section, we all also be dealing with origin-destination data with temporal variable.
+
+TfL provide various open data on cycling (link: https://cycling.data.tfl.gov.uk), to make it easier, we have cleaned the data that will be used in this session, and they can be downloaded from (link: xxxx link to the dataset)
+
+
+```{r}
+library(sf)
+```
+
+
+we will start by loading two datasets
+
+```{r}
+
+# load the station location dataset
+bike_docking_stations = st_read("data/bike_docking_stations.geojson")
+bike_trips = read.csv("data/bike_trips.csv")
+
+# load the bike trip origin and destination dataset
+```
+
+
+Explore these datasets using the functions you have learnt (e.g. head, nrow)
+```{r}
+head(bike_docking_stations)
+nrow(bike_docking_stations)
+head(bike_trips)
+nrow(bike_trips)
+```
+
+This is a cleaned data, and we have only included three days' data, including the tube strike day and a day seven days before and a day seven days later for comparison. for example, we can check the unique values in the days. To fulfill this, we would like the time in a better format that is easier to deal with, hence we will firstly make them in POSIXct format.
+
+What is Poxits format
+
+
+```{r}
+bike_trips <- bike_trips %>% mutate(date = date(start_time)) %>%
+  mutate(type_day = case_when(date == as.Date("2015-07-09") ~ "Strike Day",
+                              TRUE ~ "Non-Strike Day"
+                              ))
+
+bike_trips %>% 
+  group_by(date, type_day) %>%
+  summarise(count = n()) %>%
+  ggplot()+
+  geom_bar(aes(x = as.factor(date), 
+               y = count, 
+               fill = type_day), stat = "identity")+
+  theme_minimal()
+
+```
+
+```{r}
+
+bike_trips %>%
+  group_by(date,type_day) %>%
+  summarise(count = n()) %>%
+  group_by(type_day) %>%
+  summarise(mean_count = mean(count))
+
+
+```
+
+
+
+During the Tube Strike, some people adopted bikeshare to replace the Tube travel, hence we should be able to observe some different in trip account
+
+```{r}
+
+bike_trips %>% 
+  mutate(hour = hour(start_time),
+         date = as.factor(date)) %>%
+  group_by(date,hour) %>% summarise(count=n()) %>%
+  ggplot()+
+  geom_line(aes(x=hour,y=count,color=date,group = date),size=1,alpha=.6)+
+  geom_point(aes(x=hour,y=count,color=date),size=2)+
+  scale_x_continuous(breaks = seq(0, 24, by = 4))+
+  theme_bw()
+
+
+
+```
+
+
+We are very intersted in understanding if the increase in trips are spatially homoginised, or there are specific stations has generated and/or attracted lots of trips. Let make a series of maps to visualise them
+
+
+```{r}
+od_strike <- bike_trips %>%
+  filter(type_day == "Strike Day") %>%
+  group_by(start_station_id, end_station_id) %>%
+  summarise(count_strike = n())
+
+
+od_non_strike <- bike_trips %>%
+  filter(type_day == "Non-Strike Day") %>%
+  group_by(start_station_id, end_station_id) %>%
+  summarise(count_non_strike = n()/2)
+
+
+od_change = od_strike %>% full_join(od_non_strike) %>%
+  replace_na(list(count_strike = 0, count_non_strike = 0))
+  
+od_change = filter(od_change, start_station_id != end_station_id) %>%
+  mutate(count_change = count_strike - count_non_strike) %>%
+  mutate(ratio_change = count_strike /(count_strike - count_non_strike))
+
+
+
+od_inter_strike = filter(od_strike, start_station_id != end_station_id)
+strike_desire_lines = od2line(od_inter_strike,bike_docking_stations
+                       )
+
+change_desire_lines = od2line(od_change,bike_docking_stations)
+
+
+```
+
+
+
+
+
+```{r}
+ggplot()+
+  geom_sf(data = change_desire_lines %>% filter(count_change >= 3) %>% arrange(count_change),  # Define the data frame used to make the map
+          aes(colour = count_change,  # We want to map lines, the colour  is based on the "Active" column
+              alpha =  count_change,     # Make lines slightly transparent and based on the "all" column
+              linewidth = count_change   # The line width is based on the "all" column
+              ))+
+  scale_colour_viridis_c(option = "C")+         # Select a colour palette
+  scale_linewidth_binned(range = c(0.01,1.6), guide = "legend")+  # Set max and min ranges for line width
+  scale_alpha(range = c(0.001,1), guide = "legend")+                # Set max and min ranges for transparency
+  annotation_scale(location = "br", width_hint = 0.3) +  # Scale bar (bottom left)y
+  annotation_north_arrow(location = "tl", which_north = "true",
+                         style = north_arrow_fancy_orienteering()) +  # North arrow (top left)
+  theme_void()
+
+```
+
+
+
+
+
+
+How tube strike impacts the availability of available bike and docks?
+```{r}
+
+
+```
+
+
+
+
+
+
 
 
 # Homework
