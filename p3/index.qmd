@@ -783,19 +783,18 @@ Public transport disruptions are becoming increasingly common, triggered by vari
 
 By analyzing how people adapt their travel patterns during such events, we can better inform urban transport planning and decision-making strategies.
 
-For this section, we'll be using cleaned cycling data originally sourced from TfL's open data portal (cycling.data.tfl.gov.uk). To simplify your analysis, we've prepared a dataset that you can download here: [dataset link]
+For this section, we'll be using cleaned cycling data originally sourced from TfL's open data portal (cycling.data.tfl.gov.uk). 
 
-
-Let's begin by loading two datasets that we'll use throughout this practical. Before running the code, ensure you modify the file directory paths to match the location where you have saved these files on your computer. The code below demonstrates how to load the datasets
+Let's begin by loading the following two datasets
 
 ```{r}
 #| echo: true
 #| output: false
 
 # load the station location dataset
-bike_docking_stations = st_read("data/bike_docking_stations.geojson")
+bike_docking_stations = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_docking_stations.geojson")
 # load the bike trip origin and destination dataset
-bike_trips = read.csv("data/bike_trips.csv")
+bike_trips = read.csv("https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_trips.csv")
 ```
 
 
@@ -929,18 +928,18 @@ ggplot()+
 
 ```
 
-To enhance the map, adding some background context could be useful. Let’s try incorporating the River Thames and green spaces (parks) in central London. The cleaned datasets are available for download at [link]. Please note that you may need to adjust the file directory in the code based on where you have stored the files.
+To enhance the map, adding some background context could be useful. Let’s try incorporating the River Thames and green spaces (parks) in central London.
 
 Let’s check how the background looks. You can also customize the colors of the rivers and parks by modifying the values assigned to `fill` and `color`.
 ```{r}
 # load the river and parks
-rivers = st_read("data/rivers.geojson")
-parks = st_read("data/parks.geojson")
+rivers = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson")
+parks = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson")
 
 
 ggplot()+
-  geom_sf(data = parks, fill = "#d9f5e0", color= "#d9f5e0")+
-  geom_sf(data = rivers,color="#08D9D6",linewidth = 3)+
+  geom_sf(data = parks, fill = "#d9f5e0", color= "#d9f5e0")+ # add parks in central London to the map
+  geom_sf(data = rivers,color="#08D9D6",linewidth = 3)+      # add river Thames in central London to the map
     theme_void()
 ```
 
@@ -949,12 +948,12 @@ Now, let’s bring the origin-destination desire lines and the base map together
 ```{r}
 
 ggplot()+
-  geom_sf(data = parks, fill = "#d9f5e0", color= "#d9f5e0")+
-  geom_sf(data = rivers,color="#08D9D6",linewidth = 3)+
-  geom_sf(data = change_desire_lines %>% filter(count_change >= 1) %>% arrange(count_change),  # Define the data frame used to make the map
-          aes(colour = count_change,  # We want to map lines, the colour  is based on the "Active" column
-              alpha =  count_change,     # Make lines slightly transparent and based on the "all" column
-              linewidth = count_change   # The line width is based on the "all" column
+  geom_sf(data = parks, fill = "#d9f5e0", color= "#d9f5e0")+  # add parks in central London to the map
+  geom_sf(data = rivers,color="#08D9D6",linewidth = 3)+       # add river Thames in central London to the map
+  geom_sf(data = change_desire_lines %>% filter(count_change >= 1) %>% arrange(count_change),  # Define the data frame used to visualise the od
+          aes(colour = count_change,     # We want to map lines, the colour is based on the "count_change" column
+              alpha =  count_change,     # Make lines slightly transparent and based on the "count_change" column
+              linewidth = count_change   # The line width is based on the "count_change" column
               ))+
   scale_colour_viridis_c(option = "C")+         # Select a colour palette
   scale_linewidth_binned(range = c(0.01,1.6), guide = "legend")+  # Set max and min ranges for line width
