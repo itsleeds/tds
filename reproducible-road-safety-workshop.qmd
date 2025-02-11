@@ -6,7 +6,9 @@ number-sections: false
 
 # Introduction
 
-This session will cover the fundamentals of reproducible data science for road safety research, building on a decade's worth of experience working with road traffic casualty datasets for policy-relevant road safety research.
+This workshop will take place at the University of Leeds' Institute for Transport Studies (ITS) as part of the [RS5C conference](https://www.vti.se/en/rs5c) that runs from 3rd to 5th September 2025. The workshop takes place on the 2nd September 2025, 14:00-16:00, the day before the main conference starts.
+
+The workshop will cover the fundamentals of reproducible data science for road safety research, building on a decade's worth of experience working with road traffic casualty datasets for policy-relevant road safety research.
 The UK's open access STATS19 database will be the basis of the session but the skills learned will be applicable to any road safety datasets.
 The session will cover:
 
@@ -16,12 +18,23 @@ The session will cover:
 -   Joining STATS19 tables
 -   Spatial joins linking infrastructure to collisions
 
+The course will be taught in R, a free and open-source programming language for data analysis and visualisation that excels at the kind of statistical modelling and visualisation workflows required for high-impact, reproducible and correct road safety research.
+The course will be taught by Professor Robin Lovelace, who has over a decade of experience teaching R for data science and is author of the popular book [Geocomputation with R](https://r.geocompx.org/).
+
+# Who is this for?
+
+The workshop is aimed at anyone interested in road safety research, especially for students, researchers, and practitioners who are already working with road safety data and who would like to improve their data science skills for more reproducible and impactful research.
+
+You are welcome to sign-up and learn from the session if you are new to R or if you want to work through the practical content in another language such as Python or Julia.
+However, the session will be most useful if you have some prior experience with R and RStudio (see links below for recommended reading and places to learn R).
+We highly recommend that attendees already use R or dedicate some time to learning the basics of R before the session.
+
 # Prerequisites
 
-This course if for anyone interested in road safety research, especially for students, researchers, and practitioners who are already working with road safety data and who would like to improve their data science skills for more reproducible and impactful research.
+Attendees should have the following before signing-up:
 
--   Basic familiarity with R and RStudio
--   A laptop with R and RStudio installed
+-   Basic familiarity with R and RStudio or expertise in another programming language for data science
+-   A laptop with R and RStudio [installed](https://posit.co/download/rstudio-desktop/) (or VS Code with the R extension or similar for advanced users)
 -   A willingness to learn (see recommended reading) and share knowledge
 
 # Recommended reading
