@@ -20,6 +20,11 @@ The session will cover:
 
 The course will be taught in R, a free and open-source programming language for data analysis and visualisation that excels at the kind of statistical modelling and visualisation workflows required for high-impact, reproducible and correct road safety research.
 The course will be taught by Professor Robin Lovelace, who has over a decade of experience teaching R for data science and is author of the popular book [Geocomputation with R](https://r.geocompx.org/).
+You will learn how to add value to road traffic casualty date for more data-driven and effective interventions to save lives in relation to the largest cause of death for young people worldwide, as highlighted in the map below.
+
+![](https://itsleeds.github.io/rrsrr/figures/road-casualties.png)
+
+*Road danger levels worldwide in 2016. Data source: World Bank. Reproducible source code: Reproducible Road Safety Research with R, freely available at [itsleeds.github.io/rrsrr/](https://itsleeds.github.io/rrsrr/).*
 
 # Who is this for?
 
