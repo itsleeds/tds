@@ -249,9 +249,8 @@ div.csl-indent {
   </ul></li>
   <li><a href="#getting-started-with-od-data" id="toc-getting-started-with-od-data" class="nav-link" data-scroll-target="#getting-started-with-od-data"><span class="header-section-number">3</span> Getting started with OD data</a></li>
   <li><a href="#processing-origin-destination-data-in-bristol" id="toc-processing-origin-destination-data-in-bristol" class="nav-link" data-scroll-target="#processing-origin-destination-data-in-bristol"><span class="header-section-number">4</span> Processing origin-destination data in Bristol</a></li>
-  <li><a href="#processing-origin-destination-data-in-london-cycle-hire-system" id="toc-processing-origin-destination-data-in-london-cycle-hire-system" class="nav-link" data-scroll-target="#processing-origin-destination-data-in-london-cycle-hire-system"><span class="header-section-number">5</span> Processing origin-destination data in London Cycle Hire System</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">6</span> Homework</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7</span> References</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">5</span> Homework</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">6</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -298,15 +297,14 @@ div.csl-indent {
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"pak"</span>)) <span class="fu">install.packages</span>(<span class="st">"pak"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="fu">c</span>(<span class="st">"sf"</span>, <span class="st">"tidyverse"</span>, <span class="st">"remotes"</span>,<span class="st">"ggspatial"</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="fu">c</span>(<span class="st">"sf"</span>, <span class="st">"tidyverse"</span>, <span class="st">"remotes"</span>))</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># GitHub pkgs</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(<span class="st">"Nowosad/spDataLarge"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)          <span class="co"># vector data package </span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)   <span class="co"># tidyverse packages</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggspatial)   <span class="co"># ggspatial package</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spData)      <span class="co"># spatial data package </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spData)  <span class="co"># spatial data package </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
@@ -938,9 +936,9 @@ file.edit("code/learning-OD.R") -->
 </div>
 </div>
 </div>
-<p>Now use <code>tmap</code> to make a plot showing the number of trips and the percentage of people using active travel. Alternatively, you may use the <code>ggplot2</code> for visualisation.</p>
+<p>Now use <code>tmap</code> to make a plot showing the number of trips and the percentage of people using active travel.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-24-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-24-1" role="tab" aria-controls="tabset-24-1" aria-selected="true">R: tmap</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-24-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-24-2" role="tab" aria-controls="tabset-24-2" aria-selected="false">R: ggplot2</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-24-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-24-3" role="tab" aria-controls="tabset-24-3" aria-selected="false">Python</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-24-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-24-1" role="tab" aria-controls="tabset-24-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-24-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-24-2" role="tab" aria-controls="tabset-24-2" aria-selected="false">Python</a></li></ul>
 <div class="tab-content">
 <div id="tabset-24-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-24-1-tab">
 <div class="cell">
@@ -964,54 +962,28 @@ file.edit("code/learning-OD.R") -->
 </div>
 <div id="tabset-24-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-24-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>desire_lines <span class="ot">=</span> desire_lines[<span class="fu">order</span>(desire_lines<span class="sc">$</span>Active),]</span>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>desire_lines <span class="op">=</span> desire_lines.sort_values(<span class="st">'Active'</span>)</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> desire_lines,  <span class="co"># Define the data frame used to make the map</span></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">colour =</span> Active,  <span class="co"># We want to map lines, the colour  is based on the "Active" column</span></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span>  all,     <span class="co"># Make lines slightly transparent and based on the "all" column</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> all   <span class="co"># The line width is based on the "all" column</span></span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>              ))<span class="sc">+</span></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"C"</span>)<span class="sc">+</span>         <span class="co"># Select a colour palette</span></span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linewidth_binned</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.03</span>,<span class="fl">0.6</span>), <span class="at">guide =</span> <span class="st">"legend"</span>)<span class="sc">+</span>  <span class="co"># Set max and min ranges for line width</span></span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.1</span>,<span class="dv">1</span>), <span class="at">guide =</span> <span class="st">"legend"</span>)<span class="sc">+</span>                <span class="co"># Set max and min ranges for transparency</span></span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"br"</span>, <span class="at">width_hint =</span> <span class="fl">0.3</span>) <span class="sc">+</span>  <span class="co"># Scale bar (bottom left)</span></span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_north_arrow</span>(<span class="at">location =</span> <span class="st">"tl"</span>, <span class="at">which_north =</span> <span class="st">"true"</span>,</span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>                         <span class="at">style =</span> <span class="fu">north_arrow_fancy_orienteering</span>()) <span class="sc">+</span>  <span class="co"># North arrow (top left)</span></span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div id="tabset-24-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-24-3-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>desire_lines <span class="op">=</span> desire_lines.sort_values(<span class="st">'Active'</span>)</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize line widths for plotting</span></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>max_trips <span class="op">=</span> desire_lines[<span class="st">'all'</span>].<span class="bu">max</span>()</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>desire_lines[<span class="st">'linewidth'</span>] <span class="op">=</span> (desire_lines[<span class="st">'all'</span>] <span class="op">/</span> max_trips) <span class="op">*</span> <span class="dv">5</span></span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting desire lines with active travel percentage</span></span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">10</span>))</span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>desire_lines.plot(</span>
-<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax, </span>
-<span id="cb52-11"><a href="#cb52-11" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'Active'</span>, </span>
-<span id="cb52-12"><a href="#cb52-12" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'plasma'</span>, </span>
-<span id="cb52-13"><a href="#cb52-13" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span>desire_lines[<span class="st">'linewidth'</span>], </span>
-<span id="cb52-14"><a href="#cb52-14" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.7</span>, </span>
-<span id="cb52-15"><a href="#cb52-15" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
-<span id="cb52-16"><a href="#cb52-16" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb52-17"><a href="#cb52-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Desire Lines with Active Travel Percentage'</span>)</span>
-<span id="cb52-18"><a href="#cb52-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-19"><a href="#cb52-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Add basemap (optional)</span></span>
-<span id="cb52-20"><a href="#cb52-20" aria-hidden="true" tabindex="-1"></a><span class="co"># ctx.add_basemap(ax, crs=desire_lines.crs.to_string())</span></span>
-<span id="cb52-21"><a href="#cb52-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-22"><a href="#cb52-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Normalize line widths for plotting</span></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>max_trips <span class="op">=</span> desire_lines[<span class="st">'all'</span>].<span class="bu">max</span>()</span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>desire_lines[<span class="st">'linewidth'</span>] <span class="op">=</span> (desire_lines[<span class="st">'all'</span>] <span class="op">/</span> max_trips) <span class="op">*</span> <span class="dv">5</span></span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Plotting desire lines with active travel percentage</span></span>
+<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">10</span>))</span>
+<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>desire_lines.plot(</span>
+<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a>    ax<span class="op">=</span>ax, </span>
+<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>    column<span class="op">=</span><span class="st">'Active'</span>, </span>
+<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>    cmap<span class="op">=</span><span class="st">'plasma'</span>, </span>
+<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>    linewidth<span class="op">=</span>desire_lines[<span class="st">'linewidth'</span>], </span>
+<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>    alpha<span class="op">=</span><span class="fl">0.7</span>, </span>
+<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>    legend<span class="op">=</span><span class="va">True</span></span>
+<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Desire Lines with Active Travel Percentage'</span>)</span>
+<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Add basemap (optional)</span></span>
+<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a><span class="co"># ctx.add_basemap(ax, crs=desire_lines.crs.to_string())</span></span>
+<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1022,12 +994,12 @@ file.edit("code/learning-OD.R") -->
 <div class="tab-content">
 <div id="tabset-25-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-25-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>desire_lines<span class="sc">$</span>distance_direct_m <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">st_length</span>(desire_lines))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>desire_lines<span class="sc">$</span>distance_direct_m <span class="ot">=</span> <span class="fu">as.numeric</span>(<span class="fu">st_length</span>(desire_lines))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div id="tabset-25-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-25-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>desire_lines[<span class="st">'distance_direct_m'</span>] <span class="op">=</span> desire_lines.geometry.length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>desire_lines[<span class="st">'distance_direct_m'</span>] <span class="op">=</span> desire_lines.geometry.length</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
@@ -1038,13 +1010,13 @@ file.edit("code/learning-OD.R") -->
 <div class="tab-content">
 <div id="tabset-26-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-26-1-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(desire_lines) <span class="sc">+</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> distance_direct_m, <span class="at">y =</span> Active, <span class="at">size =</span> all)) <span class="sc">+</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> distance_direct_m, <span class="at">y =</span> Active))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(desire_lines) <span class="sc">+</span></span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x =</span> distance_direct_m, <span class="at">y =</span> Active, <span class="at">size =</span> all)) <span class="sc">+</span></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">x =</span> distance_direct_m, <span class="at">y =</span> Active))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1052,300 +1024,21 @@ file.edit("code/learning-OD.R") -->
 </div>
 <div id="tabset-26-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-26-2-tab">
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>desire_lines, x<span class="op">=</span><span class="st">'distance_direct_m'</span>, y<span class="op">=</span><span class="st">'Active'</span>, size<span class="op">=</span><span class="st">'all'</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>desire_lines, x<span class="op">=</span><span class="st">'distance_direct_m'</span>, y<span class="op">=</span><span class="st">'Active'</span>, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
-<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Distance (meters)'</span>)</span>
-<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Active Travel Percentage'</span>)</span>
-<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Active Travel vs Distance'</span>)</span>
-<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>, <span class="dv">6</span>))</span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>sns.scatterplot(data<span class="op">=</span>desire_lines, x<span class="op">=</span><span class="st">'distance_direct_m'</span>, y<span class="op">=</span><span class="st">'Active'</span>, size<span class="op">=</span><span class="st">'all'</span>, legend<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>sns.regplot(data<span class="op">=</span>desire_lines, x<span class="op">=</span><span class="st">'distance_direct_m'</span>, y<span class="op">=</span><span class="st">'Active'</span>, scatter<span class="op">=</span><span class="va">False</span>, color<span class="op">=</span><span class="st">'red'</span>)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Distance (meters)'</span>)</span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Active Travel Percentage'</span>)</span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Active Travel vs Distance'</span>)</span>
+<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </div>
 </div>
 <p>The blue line is a smoothed average of the data. It shows a common concept in transport research, the distance decay curve. In this case it shows that the longer the journey the less likely people are to use active travel. But this concept applies to all kinds of travel decisions. For example you are more likely to travel to a nearby coffee shop than a far away coffee shop. Different types of trip have different curves, but most people always have a bias for shorter trips.</p>
 </section>
-<section id="processing-origin-destination-data-in-london-cycle-hire-system" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Processing origin-destination data in London Cycle Hire System</h1>
-<p>In this section, we will be working with origin-destination data in London Cycle Hire System (LCHS). We will specifically examine how a London Tube(Underground) strike influenced cyclists’ origin-destination choices.</p>
-<p>Public transport disruptions are becoming increasingly common, triggered by various factors including:</p>
-<ul>
-<li>Infrastructure maintenance requirements</li>
-<li>Natural disasters</li>
-<li>Large-scale events (festivals, strikes, etc.)</li>
-</ul>
-<p>By analyzing how people adapt their travel patterns during such events, we can better inform urban transport planning and decision-making strategies.</p>
-<p>For this section, we’ll be using cleaned cycling data originally sourced from TfL’s open data portal (cycling.data.tfl.gov.uk). To simplify your analysis, we’ve prepared a dataset that you can download here: [dataset link]</p>
-<p>Let’s begin by loading two datasets that we’ll use throughout this practical. Before running the code, ensure you modify the file directory paths to match the location where you have saved these files on your computer. The code below demonstrates how to load the datasets</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the station location dataset</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>bike_docking_stations <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/bike_docking_stations.geojson"</span>)</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load the bike trip origin and destination dataset</span></span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>bike_trips <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"data/bike_trips.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Explore these datasets using the functions you have learnt (e.g.&nbsp;head, nrow)</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bike_docking_stations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 6 features and 2 fields
-Geometry type: POINT
-Dimension:     XY
-Bounding box:  xmin: -0.197574 ymin: 51.49313 xmax: -0.084606 ymax: 51.53006
-Geodetic CRS:  WGS 84
-  station_id                         station_name                   geometry
-1          1           River Street , Clerkenwell POINT (-0.109971 51.52916)
-2          2       Phillimore Gardens, Kensington POINT (-0.197574 51.49961)
-3          3 Christopher Street, Liverpool Street POINT (-0.084606 51.52128)
-4          4      St. Chad's Street, King's Cross POINT (-0.120974 51.53006)
-5          5        Sedding Street, Sloane Square POINT (-0.156876 51.49313)
-6          6       Broadcasting House, Marylebone POINT (-0.144229 51.51812)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(bike_docking_stations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 820</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bike_trips)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>           start_time           stop_time start_station_id end_station_id
-1 2015-07-02 00:00:00 2015-07-02 00:21:00               64            490
-2 2015-07-02 00:00:00 2015-07-02 00:11:00               72            439
-3 2015-07-02 00:00:00 2015-07-02 00:10:00               87            717
-4 2015-07-02 00:00:00 2015-07-02 00:15:00              406            395
-5 2015-07-02 00:00:00 2015-07-02 00:24:00              333            103
-6 2015-07-02 00:00:00 2015-07-02 00:11:00              666            635</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(bike_trips)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 144048</code></pre>
-</div>
-</div>
-<p>Let’s examine our <code>bike_trips</code> data, which covers three specific Thursdays: July 2nd, July 9th, and July 16th, 2015. July 9th marks the London Underground strike, while the other two dates serve as comparison points one week before and after the strike.</p>
-<p>During the Tube Strike, some people adopted bikeshare to replace the Tube travel, hence we should be able to observe some different in trip account.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>bike_trips <span class="ot">&lt;-</span> bike_trips <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">date =</span> <span class="fu">date</span>(start_time)) <span class="sc">%&gt;%</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">type_day =</span> <span class="fu">case_when</span>(date <span class="sc">==</span> <span class="fu">as.Date</span>(<span class="st">"2015-07-09"</span>) <span class="sc">~</span> <span class="st">"Strike Day"</span>,</span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>                              <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Non-Strike Day"</span></span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>                              ))</span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>bike_trips <span class="sc">|&gt;</span></span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date, type_day) <span class="sc">|&gt;</span></span>
-<span id="cb66-7"><a href="#cb66-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb66-8"><a href="#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb66-9"><a href="#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.factor</span>(date), </span>
-<span id="cb66-10"><a href="#cb66-10" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> count, </span>
-<span id="cb66-11"><a href="#cb66-11" aria-hidden="true" tabindex="-1"></a>               <span class="at">fill =</span> type_day), <span class="at">stat =</span> <span class="st">"identity"</span>)<span class="sc">+</span></span>
-<span id="cb66-12"><a href="#cb66-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">"Date"</span>)<span class="sc">+</span></span>
-<span id="cb66-13"><a href="#cb66-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="st">"Count of bike trips"</span>)<span class="sc">+</span></span>
-<span id="cb66-14"><a href="#cb66-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Type of day"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>The increase in trips is likely unevenly distributed by time, so it would be useful to examine the changes and differences by hour. This will help us identify when the most significant changes occur.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>bike_trips <span class="sc">|&gt;</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hour =</span> <span class="fu">hour</span>(start_time),</span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">as.factor</span>(date)) <span class="sc">|&gt;</span></span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(date,hour) <span class="sc">|&gt;</span> <span class="fu">summarise</span>(<span class="at">count=</span><span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x=</span>hour,<span class="at">y=</span>count,<span class="at">color=</span>date,<span class="at">group =</span> date),<span class="at">size=</span><span class="dv">1</span>,<span class="at">alpha=</span>.<span class="dv">6</span>)<span class="sc">+</span></span>
-<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">x=</span>hour,<span class="at">y=</span>count,<span class="at">color=</span>date),<span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
-<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">23</span>, <span class="at">by =</span> <span class="dv">4</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Whist the temporal analysis provide useful summaries, visual analysis of the origin-destination changes allow us to characterise with greater richness the nature of changes in response to the strike events. Let’ try to calculate the changes in o-d and map them!</p>
-<p>To break the task down, we will 1. Calculate the frequeny of each origin-destination pair on the strike day 2. Calculate the average frequancy of each origin-destination pair on the non-strike day 3. find out the difference</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculate the frequeny of each origin-destination pair on the strike day</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>od_strike <span class="ot">&lt;-</span> bike_trips <span class="sc">|&gt;</span></span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type_day <span class="sc">==</span> <span class="st">"Strike Day"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(start_station_id, end_station_id) <span class="sc">|&gt;</span></span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count_strike =</span> <span class="fu">n</span>())</span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Calculate the average frequancy of each origin-destination pair on the non-strike day</span></span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>od_non_strike <span class="ot">&lt;-</span> bike_trips <span class="sc">|&gt;</span></span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type_day <span class="sc">==</span> <span class="st">"Non-Strike Day"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(start_station_id, end_station_id) <span class="sc">|&gt;</span></span>
-<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count_non_strike =</span> <span class="fu">n</span>()<span class="sc">/</span><span class="dv">2</span>) <span class="co"># we have two non-strike days, hence /2 can help get the mean value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>To obtain the changes, we will need to join the origin-destination pairs in the two dataframe we just created.</p>
-<p>The <strong><code>dplyr</code> package</strong> provides a family of intuitive join functions:</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 56%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Join Type</th>
-<th>Function</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Inner Join</strong></td>
-<td><code>inner_join(df1, df2, by = "key")</code></td>
-<td>Keeps only matching rows in both datasets.</td>
-</tr>
-<tr class="even">
-<td><strong>Left Join</strong></td>
-<td><code>left_join(df1, df2, by = "key")</code></td>
-<td>Keeps all rows from <code>df1</code>, adds matching rows from <code>df2</code>.</td>
-</tr>
-<tr class="odd">
-<td><strong>Right Join</strong></td>
-<td><code>right_join(df1, df2, by = "key")</code></td>
-<td>Keeps all rows from <code>df2</code>, adds matching rows from <code>df1</code>.</td>
-</tr>
-<tr class="even">
-<td><strong>Full Join</strong></td>
-<td><code>full_join(df1, df2, by = "key")</code></td>
-<td>Keeps all rows from both datasets.</td>
-</tr>
-<tr class="odd">
-<td><strong>Semi Join</strong></td>
-<td><code>semi_join(df1, df2, by = "key")</code></td>
-<td>Keeps rows from <code>df1</code> that have matches in <code>df2</code>.</td>
-</tr>
-<tr class="even">
-<td><strong>Anti Join</strong></td>
-<td><code>anti_join(df1, df2, by = "key")</code></td>
-<td>Keeps rows from <code>df1</code> that do <strong>not</strong> have matches in <code>df2</code>.</td>
-</tr>
-</tbody>
-</table>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join the two dataframes</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>od_change <span class="ot">=</span> <span class="fu">full_join</span>(od_strike, od_non_strike, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"start_station_id"</span>, <span class="st">"end_station_id"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">count_strike =</span> <span class="dv">0</span>, <span class="at">count_non_strike =</span> <span class="dv">0</span>))</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co">#create(mutate) a new column of changes in od count</span></span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>od_change <span class="ot">=</span> <span class="fu">filter</span>(od_change, start_station_id <span class="sc">!=</span> end_station_id) <span class="sc">|&gt;</span></span>
-<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">count_change =</span> count_strike <span class="sc">-</span> count_non_strike) <span class="sc">|&gt;</span></span>
-<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count_change))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Let have a look at the joined result:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(od_change)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 5
-# Groups:   start_station_id [6]
-  start_station_id end_station_id count_strike count_non_strike count_change
-             &lt;int&gt;          &lt;int&gt;        &lt;int&gt;            &lt;dbl&gt;        &lt;dbl&gt;
-1               14            109           29              5.5         23.5
-2              406            303           36             17           19  
-3               55            109           18              1.5         16.5
-4              307            191           35             18.5         16.5
-5              427            109           14              0.5         13.5
-6              197            194           15              2           13  </code></pre>
-</div>
-</div>
-<p>We have succesfully joined the data, and the output <code>od_change</code> has both the trip count on strike day (<code>count_strike</code>) and non-strike day (<code>count_non_strike</code>), in addition, a new variable of <code>count_change</code> is created. Next, let clean the output further and create the od lines</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># focusing on not self-loop trips</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>od_inter_change <span class="ot">=</span> <span class="fu">filter</span>(od_change, start_station_id <span class="sc">!=</span> end_station_id) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(count_change))</span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create the od lines</span></span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>change_desire_lines <span class="ot">=</span> <span class="fu">od2line</span>(od_change,bike_docking_stations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>We are particularly interested in identifying origin-destination pairs where the number of trips has increased. To focus on these, we use the filter function to select desire lines with at least one additional trip on the strike day. You can adjust the threshold (currently set to 1) as needed.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> change_desire_lines <span class="sc">%&gt;%</span> <span class="fu">filter</span>(count_change <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(count_change),  <span class="co"># Define the data frame used to make the map</span></span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">colour =</span> count_change,     <span class="co"># We want to map lines, the colour  is based on the "count_change" column</span></span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span>  count_change,     <span class="co"># Make lines slightly transparent and based on the "count_change" column</span></span>
-<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> count_change   <span class="co"># The line width is based on the "count_change" column</span></span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>              ))<span class="sc">+</span></span>
-<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"C"</span>)<span class="sc">+</span>                           <span class="co"># Select a colour palette</span></span>
-<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linewidth_binned</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">1.6</span>), <span class="at">guide =</span> <span class="st">"legend"</span>)<span class="sc">+</span>  <span class="co"># Set max and min ranges for line width</span></span>
-<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.001</span>,<span class="fl">0.7</span>), <span class="at">guide =</span> <span class="st">"legend"</span>)<span class="sc">+</span>            <span class="co"># Set max and min ranges for transparency</span></span>
-<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"br"</span>, <span class="at">width_hint =</span> <span class="fl">0.3</span>) <span class="sc">+</span>           <span class="co"># Map scale bar (bottom right)</span></span>
-<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_north_arrow</span>(<span class="at">location =</span> <span class="st">"tl"</span>, <span class="at">which_north =</span> <span class="st">"true"</span>,</span>
-<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a>                         <span class="at">style =</span> <span class="fu">north_arrow_fancy_orienteering</span>()) <span class="sc">+</span>  <span class="co"># North arrow (top left)</span></span>
-<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>To enhance the map, adding some background context could be useful. Let’s try incorporating the River Thames and green spaces (parks) in central London. The cleaned datasets are available for download at [link]. Please note that you may need to adjust the file directory in the code based on where you have stored the files.</p>
-<p>Let’s check how the background looks. You can also customize the colors of the rivers and parks by modifying the values assigned to <code>fill</code> and <code>color</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the river and parks</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>rivers <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/rivers.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Reading layer `rivers' from data source 
-  `/home/runner/work/tds/tds/p3/data/rivers.geojson' using driver `GeoJSON'
-Simple feature collection with 3 features and 0 fields
-Geometry type: GEOMETRYCOLLECTION
-Dimension:     XY
-Bounding box:  xmin: -0.2391075 ymin: 51.4639 xmax: 0.0002165973 ymax: 51.50991
-Geodetic CRS:  WGS 84</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>parks <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"data/parks.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Reading layer `parks' from data source 
-  `/home/runner/work/tds/tds/p3/data/parks.geojson' using driver `GeoJSON'
-Simple feature collection with 288 features and 10 fields
-Geometry type: MULTIPOLYGON
-Dimension:     XY
-Bounding box:  xmin: -0.2391075 ymin: 51.44964 xmax: 0.0002165973 ymax: 51.55098
-Geodetic CRS:  WGS 84</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> parks, <span class="at">fill =</span> <span class="st">"#d9f5e0"</span>, <span class="at">color=</span> <span class="st">"#d9f5e0"</span>)<span class="sc">+</span></span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rivers,<span class="at">color=</span><span class="st">"#08D9D6"</span>,<span class="at">linewidth =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Now, let’s bring the origin-destination desire lines and the base map together! Can you identify key locations where bike trip origin-destination changes are most significant?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> parks, <span class="at">fill =</span> <span class="st">"#d9f5e0"</span>, <span class="at">color=</span> <span class="st">"#d9f5e0"</span>)<span class="sc">+</span></span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rivers,<span class="at">color=</span><span class="st">"#08D9D6"</span>,<span class="at">linewidth =</span> <span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> change_desire_lines <span class="sc">%&gt;%</span> <span class="fu">filter</span>(count_change <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">arrange</span>(count_change),  <span class="co"># Define the data frame used to make the map</span></span>
-<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">colour =</span> count_change,  <span class="co"># We want to map lines, the colour  is based on the "Active" column</span></span>
-<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha =</span>  count_change,     <span class="co"># Make lines slightly transparent and based on the "all" column</span></span>
-<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">linewidth =</span> count_change   <span class="co"># The line width is based on the "all" column</span></span>
-<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>              ))<span class="sc">+</span></span>
-<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"C"</span>)<span class="sc">+</span>         <span class="co"># Select a colour palette</span></span>
-<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linewidth_binned</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">1.6</span>), <span class="at">guide =</span> <span class="st">"legend"</span>)<span class="sc">+</span>  <span class="co"># Set max and min ranges for line width</span></span>
-<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.001</span>,<span class="fl">0.7</span>), <span class="at">guide =</span> <span class="st">"legend"</span>)<span class="sc">+</span>                <span class="co"># Set max and min ranges for transparency</span></span>
-<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"br"</span>, <span class="at">width_hint =</span> <span class="fl">0.3</span>) <span class="sc">+</span>  <span class="co"># Scale bar (bottom left)y</span></span>
-<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_north_arrow</span>(<span class="at">location =</span> <span class="st">"tl"</span>, <span class="at">which_north =</span> <span class="st">"true"</span>,</span>
-<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a>                         <span class="at">style =</span> <span class="fu">north_arrow_fancy_orienteering</span>()) <span class="sc">+</span>  <span class="co"># North arrow (top left)</span></span>
-<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="homework" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Homework</h1>
+<section id="homework" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Homework</h1>
 <ol type="1">
 <li>Read Chapters 2-5 of <a href="https://r.geocompx.org/transport.html">Geocomputation with R</a></li>
 <li>Using knowledge about datasets and new skills covered in the practicals 2 and 3, think of a simple research question. Write a prompt that generates some code to try to answer that question and paste the resulting code into a code chunk in a new .qmd file, e.g.&nbsp;called <code>gen-ai-test.qmd</code>.
@@ -1360,14 +1053,14 @@ Geodetic CRS:  WGS 84</code></pre>
 <li>Bonus: Read more about the <a href="https://ggplot2.tidyverse.org/">ggplot2 package</a></li>
 </ol>
 </section>
-<section id="references" class="level1" data-number="7">
+<section id="references" class="level1" data-number="6">
 
 
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">7 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">6 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-wickham_data_2023" class="csl-entry" role="listitem">
 Wickham, H., Cetinkaya-Rundel, M., Grolemund, G., 2023. <a href="https://r4ds.hadley.nz/">R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></a>, 2nd edition. ed. O’Reilly Media, Beijing Boston Farnham Sebastopol Tokyo.
 </div>
