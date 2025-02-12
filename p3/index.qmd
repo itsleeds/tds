@@ -26,7 +26,6 @@ In groups of 2 or 3 (a demonstrator will help out with each group):
 
 Note that this practical takes sections from Chapters 2 - 8 of [Geocomputation with R](https://r.geocompx.org). You should expand your knowledge by reading these chapters in full.
 
-
 ## Pre-requisites {-}
 
 You need to have a number of packages installed and loaded.
@@ -47,10 +46,10 @@ pak::pkg_install("Nowosad/spDataLarge")
 ```
 
 ``` {r}
-library(sf) # vector data package
+library(sf)        # vector data package
 library(tidyverse) # tidyverse packages
 library(ggspatial) # ggspatial package
-library(spData) # spatial data package
+library(spData)    # spatial data package
 ```
 
 ## Python
@@ -110,7 +109,6 @@ Use some basic R functions to explore the `world` object. e.g. `class(world)`, `
 
 `sf` objects can be plotted with `plot()`.
 
-
 ::: {.panel-tabset}
 ## R
 ```{r}
@@ -158,8 +156,6 @@ plt.show()
 
 Load the `nz` and `nz_height` datasets from the `spData` package.
 
-
-
 ::: {.panel-tabset}
 ## R
 ```{r}
@@ -177,7 +173,6 @@ nz_height = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/head
 :::
 
 We can use `tidyverse` functions like `filter` and `select` on `sf` objects in the same way you did in Practical 1.
-
 
 ::: {.panel-tabset}
 ## R
@@ -229,16 +224,13 @@ canterbury_height = gpd.sjoin(nz_height, canterbury, op='intersects')
 ```
 :::
 
-
 ![Topological relations between vector geometries, inspired by Figures 1 and 2 in Egenhofer and Herring (1990). The relations for which the function(x, y) is true are printed for each geometry pair, with x represented in pink and y represented in blue. The nature of the spatial relationship for each pair is described by the Dimensionally Extended 9-Intersection Model string. ](https://r.geocompx.org/figures/relations-1.png)
-
 
 # Getting started with OD data
 
 In this section we will look at basic transport data in the R package **stplanr**.
 
 Load the  `stplanr` package as follows:
-
 
 ```{r}
 #| echo: true
@@ -325,7 +317,6 @@ plt.show()
 :::
 R has built in modelling functions such as `lm` lets make a simple model to predict the proportion of people who walk based on the proportion of people who drive.
 
-
 ::: {.panel-tabset}
 ## R
 ```{r}
@@ -370,13 +361,11 @@ plt.show()
 
 Exercises
 
-
 1. What is the class of the data in `od_data`?
 2. Subset (filter) the data to only include OD pairs in which at least one person (`> 0`) person walks (bonus: on what % of the OD pairs does at least 1 person walk?)
 3. Calculate the percentage who cycle in each OD pair in which at least 1 person cycles
 4. Is there a positive relationship between walking and cycling in the data?
 5. Bonus: use the function `od2line()` in to convert the OD dataset into geographic desire lines
-
 
 Code for Exercises (click to reveal, but try to do them yourself first)
 
@@ -551,7 +540,6 @@ This section is based on [Chapter 12 of Geocomputation with R](https://geocompr.
 
 We need the `stplanr` package which provides many useful functions for transport analysis and `tmap` package which enables advanced mapping features.
 
-
 ```{r}
 #| echo: true
 #| output: false
@@ -559,7 +547,6 @@ We need the `stplanr` package which provides many useful functions for transport
 library(stplanr)
 library(tmap)
 ```
-
 
 We will start by loading two datasets:
 
@@ -662,7 +649,6 @@ Now use `tmap` to make a plot showing the number of trips and the percentage of 
 #| echo: true
 #| output: true
 
-
 desire_lines = desire_lines[order(desire_lines$Active), ]
 
 tm_shape(desire_lines) + # Define the data frame used to make the map
@@ -676,13 +662,10 @@ tm_shape(desire_lines) + # Define the data frame used to make the map
   tm_scale_bar() # Add a scale bar to the map
 ```
 
-
-
 ## R: ggplot2
 ```{r}
 #| echo: true
 #| output: true
-
 
 desire_lines = desire_lines[order(desire_lines$Active), ]
 
@@ -705,7 +688,6 @@ ggplot() +
   ) + # North arrow (top left)
   theme_void()
 ```
-
 
 ## Python
 ```{python}
@@ -735,7 +717,6 @@ plt.show()
 ```
 :::
 Now that we have geometry attached to our data we can calculate other variables of interest. For example let's calculate the distacne travelled and see if it relates to the percentage of people who use active travel.
-
 
 ::: {.panel-tabset}
 ## R
@@ -772,9 +753,6 @@ plt.show()
 
 The blue line is a smoothed average of the data. It shows a common concept in transport research, the distance decay curve. In this case it shows that the longer the journey the less likely people are to use active travel. But this concept applies to all kinds of travel decisions. For example you are more likely to travel to a nearby coffee shop than a far away coffee shop. Different types of trip have different curves, but most people always have a bias for shorter trips.
 
-
-
-
 # Processing origin-destination data in London Cycle Hire System 
 
 In this section, we will be working with origin-destination data in London Cycle Hire System (LCHS). We will specifically examine how a London Tube(Underground) strike influenced cyclists' origin-destination choices.
@@ -799,7 +777,6 @@ bike_docking_stations = read_sf("https://github.com/itsleeds/tds/releases/downlo
 # load the bike trip origin and destination dataset
 bike_trips = read_csv("https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_trips.csv")
 ```
-
 
 Explore these datasets using the functions you have learnt (e.g. head, nrow)
 ```{r}
@@ -940,7 +917,6 @@ Let’s check how the background looks. You can also customize the colors of the
 # load the river and parks
 rivers = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson")
 parks = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson")
-
 
 ggplot() +
   geom_sf(data = parks, fill = "#d9f5e0", color = "#d9f5e0") + # add parks in central London to the map
