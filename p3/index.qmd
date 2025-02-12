@@ -962,10 +962,6 @@ ggplot()+
   theme_void()
 ```
 
-
-
-
-
 # Homework
 
 1. Read Chapters 2-5 of [Geocomputation with R](https://r.geocompx.org/transport.html) 
