@@ -809,7 +809,7 @@ Let's examine our `bike_trips` data, which covers three specific Thursdays: July
 During the Tube Strike, some people adopted bikeshare to replace the Tube travel, hence we should be able to observe some different in trip account.
 
 ```{r}
-bike_trips <- bike_trips |> mutate(date = date(start_time)) %>%
+bike_trips = bike_trips |> mutate(date = date(start_time)) |>
   mutate(type_day = case_when(date == as.Date("2015-07-09") ~ "Strike Day",
                               TRUE ~ "Non-Strike Day"
                               ))
@@ -849,13 +849,13 @@ To break the task down, we will
 
 ```{r}
 # 1. Calculate the frequeny of each origin-destination pair on the strike day
-od_strike <- bike_trips |>
+od_strike = bike_trips |>
   filter(type_day == "Strike Day") |>
   group_by(start_station_id, end_station_id) |>
   summarise(count_strike = n())
 
 # 2. Calculate the average frequancy of each origin-destination pair on the non-strike day
-od_non_strike <- bike_trips |>
+od_non_strike = bike_trips |>
   filter(type_day == "Non-Strike Day") |>
   group_by(start_station_id, end_station_id) |>
   summarise(count_non_strike = n()/2) # we have two non-strike days, hence /2 can help get the mean value
@@ -873,8 +873,6 @@ The **`dplyr` package** provides a family of intuitive join functions:
 | **Full Join** | `full_join(df1, df2, by = "key")` | Keeps all rows from both datasets. |
 | **Semi Join** | `semi_join(df1, df2, by = "key")` | Keeps rows from `df1` that have matches in `df2`. |
 | **Anti Join** | `anti_join(df1, df2, by = "key")` | Keeps rows from `df1` that do **not** have matches in `df2`. |
-
-
 
 ```{r}
 # join the two dataframes
@@ -901,17 +899,13 @@ od_inter_change = filter(od_change, start_station_id != end_station_id) |> arran
 
 # create the od lines
 change_desire_lines = od2line(od_change,bike_docking_stations)
-
-
 ```
-
 
 We are particularly interested in identifying origin-destination pairs where the number of trips has increased. To focus on these, we use the filter function to select desire lines with at least one additional trip on the strike day. You can adjust the threshold (currently set to 1) as needed.
 
-
 ```{r}
 ggplot()+
-  geom_sf(data = change_desire_lines %>% filter(count_change >= 1) |> arrange(count_change),  # Define the data frame used to make the map
+  geom_sf(data = change_desire_lines |> filter(count_change >= 1) |> arrange(count_change),  # Define the data frame used to make the map
           aes(colour = count_change,     # We want to map lines, the colour  is based on the "count_change" column
               alpha =  count_change,     # Make lines slightly transparent and based on the "count_change" column
               linewidth = count_change   # The line width is based on the "count_change" column
@@ -944,11 +938,17 @@ ggplot()+
 Now, let’s bring the origin-destination desire lines and the base map together! Can you identify key locations where bike trip origin-destination changes are most significant?
 
 ```{r}
+# Define the data frame used to visualise the od
+change_to_plot = change_desire_lines |>
+  filter(count_change >= 1) |>
+  arrange(count_change)
 
-ggplot()+
-  geom_sf(data = parks, fill = "#d9f5e0", color= "#d9f5e0")+  # add parks in central London to the map
-  geom_sf(data = rivers,color="#08D9D6",linewidth = 3)+       # add river Thames in central London to the map
-  geom_sf(data = change_desire_lines %>% filter(count_change >= 1) %>% arrange(count_change),  # Define the data frame used to visualise the od
+ggplot() +
+  # add parks in central London to the map:
+  geom_sf(data = parks, fill = "#d9f5e0", color= "#d9f5e0") +
+  # add river Thames in central London to the map:  
+  geom_sf(data = rivers,color="#08D9D6",linewidth = 3) +
+  geom_sf(data = change_to_plot,  
           aes(colour = count_change,     # We want to map lines, the colour is based on the "count_change" column
               alpha =  count_change,     # Make lines slightly transparent and based on the "count_change" column
               linewidth = count_change   # The line width is based on the "count_change" column
@@ -975,6 +975,5 @@ ggplot()+
     - Bonus: share your code on GitHub, for example by pasting it into the discussion group at [github.com/ITSLeeds/TDS/discussions](https://github.com/itsleeds/tds/discussions/172)
 3. Bonus: Read more about using the [tmap package](https://r-tmap.github.io/tmap/)
 4. Bonus: Read more about the [ggplot2 package](https://ggplot2.tidyverse.org/)
-
 
 # References
