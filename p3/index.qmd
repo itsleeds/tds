@@ -773,8 +773,6 @@ The blue line is a smoothed average of the data. It shows a common concept in tr
 # Processing origin-destination data in London Cycle Hire System 
 
 In this section, we will be working with origin-destination data in London Cycle Hire System (LCHS). We will specifically examine how a London Tube(Underground) strike influenced cyclists' origin-destination choices.
-
-
 Public transport disruptions are becoming increasingly common, triggered by various factors including:
 
 * Infrastructure maintenance requirements
