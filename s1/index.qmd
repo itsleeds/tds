@@ -1,26 +1,188 @@
 ---
-title: "Seminar 1"
+title: "Seminar 1 - Mini-workshop"
 bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
+editor: 
+  markdown: 
+    wrap: 72
+format:
+  html:
+    code-overflow: wrap
 ---
 
-# Accessing road traffic count datasets
+The best way to learn is by exploring data and answering your own
+questions. Here are some datasets that can help you investigate
+questions like:
+
+-   What is the Average Daily People/Bikes/Passengers/Cars?
+
+-   What is the typical daily/weekly/monthly demand profile?
+
+-   Where are the points with the highest demand/flows?
+
+## Some interesting datasets ...
+
+Let's explore some interesting datasets. First we will install (if
+necessary) and load the packages for this examples
+
+```{r}
+options(repos = c(CRAN = "https://cloud.r-project.org"))
+if (!require("remotes")) install.packages("remotes")
+pkgs = c(
+    "sf",
+    "tidyverse",
+    "osmextract",
+    "tmap"
+)
+remotes::install_cran(pkgs)
+sapply(pkgs, require, character.only = TRUE)
+```
+
+### Motorised vehicles counts: Leeds
+
+Many cities/countries publish data from permanent traffic counters.
+These counters can be ANPR cameras, induction loops or low-cost sensors.
+We are going to use data from the sensors in Leeds (available in [Data
+Mill
+North](https://datamillnorth.org/dataset/e6q0n/leeds-annual-traffic-growth))
+
+```{r}
+leeds_car_location <- read_csv(
+  "https://datamillnorth.org/download/e6q0n/9bc51361-d98e-47d3-9963-aeeca3fa0afc/Camera%20Locations.csv"
+  ) 
+
+leeds_car_location_sf <- leeds_car_location |> 
+  st_as_sf(coords = c("X","Y"),
+           crs = 27700)
+```
+
+```{r}
+#| echo: false
+tm_basemap("OpenStreetMap")+
+tm_shape(leeds_car_location_sf)+
+  tm_dots("blue")
+
+```
+
+```{r}
+leeds_car_2019 <- read_csv(
+  "https://datamillnorth.org/download/e6q0n/9e62c1e5-8ba5-4369-9d81-a46c4e23b9fb/Data%202019.csv"
+  )
+```
+
+If you are interested in open traffic count datasets see
+[this](https://juanfonsecals1.github.io/Results_Summary_Maps/)
+
+### Cycle counts for West Yorkshire
+
+Similarly, some cities publish the counts of cyclists:
+
+```{r}
+leeds_bike_location <- read_csv(
+  "https://datamillnorth.org/download/e1dmk/a8c8a11e-1616-4915-a897-9ca5ab4e03b8/Cycle%20Counter%20Locations.csv",skip = 1
+  ) 
+
+leeds_bike_location_sf <- leeds_bike_location |>
+  drop_na(Latitude,Longitude) |> 
+  st_as_sf(coords = c("Longitude","Latitude"),
+           crs = 4326) |> 
+  st_transform(27700)
+```
+
+```{r}
+#| echo: false
+tm_basemap("OpenStreetMap")+
+tm_shape(leeds_bike_location_sf)+
+  tm_dots("darkblue")
+```
+
+```{r}
+leeds_bike_2019 <- read_csv(
+  "https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv"
+  )
+```
+
+### Public transport tap-in data: Bogotá
+
+Public transport ridership data can be difficult to obtain. Fortunately,
+some cities which have systems managed by a public organisation make
+this data available for the public. Bogotá's integrated transport system
+publishes the tap-in data for the BRT system. We will use one of the
+daily reports.
+
+```{r}
+tm_stations_sf <- st_read("Estaciones_Troncales_de_TRANSMILENIO.geojson")
+```
+
+```{r}
+#| echo: false
+tm_basemap("OpenStreetMap")+
+tm_shape(tm_stations_sf)+
+  tm_dots("darkblue")
+```
+
+Monthly boarding data can be manually obtained in the open data portal
+of TransMilenio
+[here](https://storage.googleapis.com/validaciones_tmsa/validaciones_mensuales.html?)
+
+```{r}
+url_tm <- "https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"
+u_bn <- basename(url_tm)
 
 
-# Cycle counts for West Yorkshire
-
-# Public transport tap-in data
-
-# Network data from OSM
-
-
-
-Note: you can access a simplified network dataset from Ordnance Survey's OpenRoads dataset, search online to find it as a bonus activity.
+if(!file.exists(u_bn)){
+  download.file(url = url_tm,
+                destfile = u_bn,
+                mode = "wb")
+}
 
 
-# Links
 
-- See here for a detailed reproducible example of how to visualise transport network datasets: https://github.com/juanfonsecaLS1/netvis-trafficflows
-- See the [`sfnetworks` package](https://luukvdmeer.github.io/sfnetworks/) package for information on how to work with networks, including estimating centality measures and shortest paths.
+url_tm <- "https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"
+
+
+tm_brt_2024 <- read_csv(unz(u_bn,"troncal_2024.csv"))
+```
+
+TfL's crowding data is also a great source of ridership data. See
+[this](https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv).
+
+### Network data from OSM
+
+```{r}
+my_coordinates <- c(-76.78893552474851,18.01206727612776)
+sf_point <- st_point(my_coordinates) |> st_sfc(crs = 4326)
+sf_buffer <- st_buffer(sf_point,dist = 15e3)
+
+```
+
+```{r}
+tm_basemap("OpenStreetMap")+
+  tm_shape(sf_buffer)+
+  tm_borders()
+```
+
+```{r}
+my_network <- oe_get_network(sf_buffer, mode = "walking")
+```
+
+```{r}
+tm_shape(my_network)+
+  tm_lines("highway")
+```
+
+***Note:*** you can access a simplified network dataset from Ordnance
+Survey's [OpenRoads
+dataset](https://www.ordnancesurvey.co.uk/products/os-open-roads).
+
+# Links to other resources
+
+-   See here for a detailed reproducible example of how to visualise
+    transport network datasets:
+    <https://github.com/juanfonsecaLS1/netvis-trafficflows>
+-   See the [`sfnetworks`
+    package](https://luukvdmeer.github.io/sfnetworks/) package for
+    information on how to work with spatial networks, including
+    estimating centality measures and shortest paths.
