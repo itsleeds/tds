@@ -11,6 +11,7 @@ _freeze/
 *cache*
 .Rproj.user
 *.geojson
+*.zip
 
 
 !s1/Estaciones_Troncales_de_TRANSMILENIO.geojson
