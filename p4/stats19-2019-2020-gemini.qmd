@@ -1,5 +1,12 @@
 
 
+See prompt at: https://g.co/gemini/share/4933efa27596
+
+
+Starting with the following R code that starts by loading the tidyverse and stats19 R packages, write a script that finds out which local authorities saw the greatest percentage point decrease in the number of road traffic collisions between 2019 and 2020.
+
+Explore this relationship for the total number of collisions with summary statistics, ggplot2 visualisations, and perhaps a basic model. Furthermore, explore how the % change in collision numbers vary depending on factors such as urban or rural area, casualty severity, and the month used for comparison. 
+
 ```{r}
 #| eval: false
 library(tidyverse)
@@ -112,120 +119,6 @@ print(summary(model))
 model_urban <- lm(change ~ urban_or_rural_area, data = change_by_urban_rural)
 print("\nModel for Urban/Rural Change:")
 print(summary(model_urban))
-```
-
-```r
-library(tidyverse)
-library(stats19)
-
-collisions_2019 = get_stats19(2019)
-collisions_2020 = get_stats19(2020)
-
-collisions_combined = bind_rows(
-  mutate(collisions_2019, year = 2019),
-  mutate(collisions_2020, year = 2020)
-)
-
-
-# Calculate collisions per local authority and year
-collisions_by_la_year <- collisions_combined %>%
-  count(local_authority_district, year)
-
-# Calculate percentage change in collisions
-collisions_change <- collisions_by_la_year %>%
-  group_by(local_authority_district) %>%
-  mutate(change = (n - lag(n)) / lag(n) * 100) %>%
-  filter(year == 2020) %>% # Keep only 2020 data for change calculation
-  arrange(change)
-
-
-# Find the local authorities with the greatest decrease
-greatest_decrease <- collisions_change %>%
-  arrange(change) %>%
-  head(10) # Top 10 decreases
-
-print("Local Authorities with Greatest Percentage Decrease in Collisions:")
-print(greatest_decrease)
-
-# Summary statistics of the change
-print("\nSummary Statistics of Percentage Change:")
-print(summary(collisions_change$change))
-
-# Visualizations
-# Histogram of percentage change
-ggplot(collisions_change, aes(x = change)) +
-  geom_histogram(bins = 30, fill = "skyblue", color = "black") +
-  labs(title = "Distribution of Percentage Change in Collisions",
-       x = "Percentage Change", y = "Frequency")
-
-# Bar plot of the greatest decreases
-ggplot(greatest_decrease, aes(x = reorder(local_authority_district, change), y = change)) +
-  geom_col(fill = "lightgreen", color = "black") +
-  labs(title = "Greatest Decreases in Collisions (2019-2020)",
-       x = "Local Authority", y = "Percentage Change") +
-  coord_flip()
-
-
-# Explore change by urban/rural area
-change_by_urban_rural <- collisions_combined %>%
-  count(urban_or_rural_area, year) %>%
-  group_by(urban_or_rural_area) %>%
-  mutate(change = (n - lag(n)) / lag(n) * 100) %>%
-  filter(year == 2020)
-
-print("\nPercentage Change by Urban/Rural Area:")
-print(change_by_urban_rural)
-
-ggplot(change_by_urban_rural, aes(x = urban_or_rural_area, y = change)) +
-  geom_col(fill = "orange", color = "black") +
-  labs(title = "Percentage Change in Collisions by Urban/Rural Area",
-       x = "Urban/Rural Area", y = "Percentage Change")
-
-
-# Explore change by casualty severity
-change_by_severity <- collisions_combined %>%
-  count(accident_severity, year) %>%
-  group_by(accident_severity) %>%
-  mutate(change = (n - lag(n)) / lag(n) * 100) %>%
-  filter(year == 2020)
-
-print("\nPercentage Change by Casualty Severity:")
-print(change_by_severity)
-
-ggplot(change_by_severity, aes(x = accident_severity, y = change)) +
-  geom_col(fill = "purple", color = "black") +
-  labs(title = "Percentage Change in Collisions by Casualty Severity",
-       x = "Casualty Severity", y = "Percentage Change")
-
-
-# Explore change by month (using date)
-collisions_combined$month <- format(collisions_combined$date, "%m")
-
-change_by_month <- collisions_combined %>%
-  count(month, year) %>%
-  group_by(month) %>%
-  mutate(change = (n - lag(n)) / lag(n) * 100) %>%
-  filter(year == 2020)
-
-print("\nPercentage Change by Month:")
-print(change_by_month)
-
-ggplot(change_by_month, aes(x = month, y = change)) +
-  geom_col(fill = "brown", color = "black") +
-  labs(title = "Percentage Change in Collisions by Month",
-       x = "Month", y = "Percentage Change")
-
-
-# Basic Model (Example: Linear model for overall change)
-model <- lm(change ~ 1, data = collisions_change)  # Intercept-only model
-print("\nBasic Linear Model for Overall Change:")
-print(summary(model))
-
-# More complex model (example)
-model_urban <- lm(change ~ urban_or_rural_area, data = change_by_urban_rural)
-print("\nModel for Urban/Rural Change:")
-print(summary(model_urban))
-
 ```
 
 Key improvements and explanations:
