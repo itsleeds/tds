@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -37,7 +71,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-8c7501d56a77be6f1d36155882a1982f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-15e059e407a6cf5796de0e4a03934673.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -181,8 +215,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#setting-up" id="toc-setting-up" class="nav-link active" data-scroll-target="#setting-up"><span class="header-section-number">1</span> Setting Up</a></li>
+  <li><a href="#using-opentripplanner-to-get-routes" id="toc-using-opentripplanner-to-get-routes" class="nav-link" data-scroll-target="#using-opentripplanner-to-get-routes"><span class="header-section-number">2</span> Using OpenTripPlanner to get routes</a>
+  <ul class="collapse">
+  <li><a href="#connecting-to-opentripplanner" id="toc-connecting-to-opentripplanner" class="nav-link" data-scroll-target="#connecting-to-opentripplanner"><span class="header-section-number">2.1</span> Connecting to OpenTripPlanner</a></li>
+  </ul></li>
+  <li><a href="#route-networks" id="toc-route-networks" class="nav-link" data-scroll-target="#route-networks"><span class="header-section-number">3</span> Route Networks</a></li>
+  <li><a href="#line-merging" id="toc-line-merging" class="nav-link" data-scroll-target="#line-merging"><span class="header-section-number">4</span> Line Merging</a></li>
+  <li><a href="#network-analysis-dodgr" id="toc-network-analysis-dodgr" class="nav-link" data-scroll-target="#network-analysis-dodgr"><span class="header-section-number">5</span> Network Analysis (dodgr)</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -206,9 +253,190 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a placeholder page; content will be added soon.</p>
+<section id="setting-up" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Setting Up</h1>
+<p>If you have not installed the package before hand. You can use ITS Go to do an easy setup of your computer</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://git.io/JvGjF"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The packages we will be using are:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)               <span class="co"># Spatial data functions</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)        <span class="co"># General data manipulation</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stplanr)          <span class="co"># General transport data functions</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dodgr)            <span class="co"># Local routing and network analysis</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(opentripplanner)  <span class="co"># Connect to and use OpenTripPlanner</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)             <span class="co"># Make maps</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(osmextract)       <span class="co"># Download and import OpenStreetMap data</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-opentripplanner-to-get-routes" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Using OpenTripPlanner to get routes</h1>
+<p>We have setup the Multi-modal routing service OpenTripPlanner for West Yorkshire. Try typing this URL — otp. saferactive. org (no spaces) — during the session into your browser. You should see something like this:</p>
+<!-- ![](https://github.com/itsleeds/tdsarchive/blob/master/practicals/otp_screenshot.png?raw=true) -->
+<p><img src="images/otp_screenshot.png" class="img-fluid"></p>
+<p>OTP Web GUI</p>
+<p><em>Exercise</em></p>
+<ol type="1">
+<li>Play with the web interface, finding different types of routes. What strengths/limitations can you find?</li>
+</ol>
+<section id="connecting-to-opentripplanner" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="connecting-to-opentripplanner"><span class="header-section-number">2.1</span> Connecting to OpenTripPlanner</h2>
+<p>To allow R to connect to the OpenTripPlanner server, we will use the <code>opentripplanner</code> package and the function <code>otp_connect</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ip = "localhost" # to run it on your computer (see final bonus exercise)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ip <span class="ot">=</span> <span class="st">"otp.saferactive.org"</span> <span class="co"># an actual server</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>otpcon <span class="ot">=</span> <span class="fu">otp_connect</span>(<span class="at">hostname =</span> ip, </span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">port =</span> <span class="dv">80</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">router =</span> <span class="st">"west-yorkshire"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you have connected successfully, then you should get a message “Router exists.”</p>
+<p>To get some routes, we will start by importing some data we have used previously. Note that the data frame has 78 columns (only a few of which are useful) and 1k rows:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/desire_lines_100.geojson"</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>desire_lines <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(desire_lines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Exercise</em></p>
+<ol start="2" type="1">
+<li><p>Subset the and overwrite the desire_lines data frame with the = assignment operator so that it only has the following columns: geo_code1, geo_code2, all, bicycle, foot, car_driver, and geometry. You can test the that the operation worked by executing the object name, the result should look like that shown below.</p></li>
+<li><p>Use the tmap package to plot the desire_lines. Choose different ways to visualise the data so you can understand local commuter travel patterns. See example plot below.</p></li>
+</ol>
+<p>This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the points from the lines using the <code>stplanr::line2df</code> function. An then select the top 3 desire lines.</p>
+<p><em>Exercise</em></p>
+<ol start="4" type="1">
+<li><p>Produce a data frame called desire which contains the coordinates of the start and endpoints of the lines in desire_lines but not the geometries. Hint <code>?stplanr::line2df</code> and <code>?dplyr::bind_cols</code></p></li>
+<li><p>Subset out the top three desire lines by the total number of commuters and create a new data frame called desire_top. Hint <code>?dplyr::slice_max</code></p></li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>desire_top <span class="ot">=</span> desire_lines <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">top_n</span>(<span class="at">n =</span> <span class="dv">3</span>, <span class="at">wt =</span> car_driver)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>Find the driving routes for desire_top and call them routes_top using opentripplanner::otp_plan</li>
+</ol>
+<p>To find the routes for the first three desire lines use the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>routes_drive_top <span class="ot">=</span> <span class="fu">route</span>(</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">l =</span> desire_top,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">route_fun =</span> otp_plan,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">"CAR"</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">otpcon =</span> otpcon</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>Plot routes_drive_top using the tmap package in interactive mode. You should see something like the image below.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"view"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(routes_drive_top) <span class="sc">+</span> <span class="fu">tm_lines</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can also get Isochrones from OTP.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">sf_use_s2</span>(<span class="cn">FALSE</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>isochrone <span class="ot">=</span> <span class="fu">otp_isochrone</span>(otpcon, <span class="at">fromPlace =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.558655</span>, <span class="fl">53.807870</span>), </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">mode =</span> <span class="fu">c</span>(<span class="st">"BICYCLE"</span>,<span class="st">"TRANSIT"</span>),</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">maxWalkDistance =</span> <span class="dv">3000</span>)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>isochrone<span class="sc">$</span>time <span class="ot">=</span> isochrone<span class="sc">$</span>time <span class="sc">/</span> <span class="dv">60</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(isochrone) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"time"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>To save overloading the server, we have pre-generated some extra routes. Download these routes and load them into R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive.geojson"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>routes_drive <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/routes_transit.geojson"</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>routes_transit <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"transit_routes.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="route-networks" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Route Networks</h1>
+<p>Route networks (also called flow maps) show transport demand on different parts of the road network.</p>
+<p>Now we have the number of commuters and their routes, we can produce a route network map using stplanr::overline.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>rnet_drive <span class="ot">&lt;-</span> <span class="fu">overline</span>(routes_drive, <span class="st">"car_driver"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Exercise</em></p>
+<ol start="8" type="1">
+<li>Make a route network for driving and plot it using the tmap package. How is is different from just plotting the routes?</li>
+</ol>
+</section>
+<section id="line-merging" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Line Merging</h1>
+<p>Notice that routes_transit has returned separate rows for each mode (WALK, RAIL). Notice the route_option column shows that some routes have multiple options.</p>
+<p>Let’s suppose you want a single line for each route.</p>
+<p><em>Exercise</em></p>
+<ol start="9" type="1">
+<li>Filter the routes_transit to contain only one route option per origin-destination pair.</li>
+</ol>
+<p>Now We will group the separate parts of the routes together.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> routes_transit <span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(fromPlace, toPlace) <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">distance =</span> <span class="fu">sum</span>(distance))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We now have a single row, but instead of a <code>LINESTRING</code>, we now have a mix of <code>MULTILINESTRING</code> and <code>LINESTRING</code>, we can convert to a LINESTRING by using <code>st_line_merge()</code>. Note how the different columns where summarised.</p>
+<p>First, we must separate out the <code>MULTILINESTRING</code> and <code>LINESTRING</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>routes_transit_group_ml <span class="ot">=</span> routes_transit_group[<span class="fu">st_geometry_type</span>(routes_transit_group) <span class="sc">==</span> <span class="st">"MULTILINESTRING"</span>, ]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> routes_transit_group[<span class="fu">st_geometry_type</span>(routes_transit_group) <span class="sc">!=</span> <span class="st">"MULTILINESTRING"</span>, ]</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>routes_transit_group_ml <span class="ot">=</span> <span class="fu">st_line_merge</span>(routes_transit_group_ml)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> <span class="fu">rbind</span>(routes_transit_group, routes_transit_group_ml)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Exercise</em></p>
+<ol start="10" type="1">
+<li>Plot the transit routes, what do you notice about them?</li>
+</ol>
+<p><em>Bonus Exercise</em></p>
+<ul>
+<li>Redo exercise 16 but make sure you always select the fastest option.</li>
+</ul>
+</section>
+<section id="network-analysis-dodgr" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Network Analysis (dodgr)</h1>
+<p>Note Some people have have problems running dodgr on Windows, if you do follow these instructions.</p>
+<p>We will now analyse the road network using dodgr. Network analysis can take a very long time on large areas. So we will use the example of the Isle of Wight, which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.</p>
+<p>First we need to download the roads network from the OpenStreetMap using <code>osmextract::oe_get</code>. We will removed most of the paths and other features and just focus on the main roads. Then use <code>dodgr::weight_streetnet</code> to produce a graph of the road network.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> <span class="fu">oe_get</span>(<span class="st">"Isle of Wight"</span>, <span class="at">extra_tags =</span> <span class="fu">c</span>(<span class="st">"maxspeed"</span>,<span class="st">"oneway"</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> roads[<span class="sc">!</span><span class="fu">is.na</span>(roads<span class="sc">$</span>highway),]</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>road_types <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"residential"</span>,<span class="st">"secondary"</span>,<span class="st">"tertiary"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"unclassified"</span>,<span class="st">"primary"</span>,<span class="st">"primary_link"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"secondary_link"</span>,<span class="st">"tertiary_link"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> roads[roads<span class="sc">$</span>highway <span class="sc">%in%</span> road_types, ]</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>graph <span class="ot">=</span> <span class="fu">weight_streetnet</span>(roads)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will find the betweenness centrality of the Isle of Wight road network. This can take a long time, so first lets check how long it will take.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_centrality_time</span>(graph)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>centrality <span class="ot">=</span> <span class="fu">dodgr_centrality</span>(graph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can convert a dodgr graph back into a sf data frame for plotting using <code>dodgr::dodgr_to_sf</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clear_dodgr_cache</span>()</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>centrality_sf <span class="ot">=</span> <span class="fu">dodgr_to_sf</span>(centrality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>Exercise</em></p>
+<ol start="11" type="1">
+<li><p>Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?</p></li>
+<li><p>Use <code>dodgr::dodgr_contract_graph</code> before calculating centrality, how does this affect the computation time and the results?</p></li>
+</ol>
+<p><em>Bonus Exercises</em></p>
+<ul>
+<li>Work though the OpenTripPlanner vignettes Getting Started and Advanced Features to run your own local trip planner for the Isle of Wight.</li>
+</ul>
+<p>Note To use OpenTripPlanner on your own computer requires Java 8. See the Prerequisites for more details. If you can’t install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.</p>
+<ul>
+<li>Read the dodgr vignettes</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
