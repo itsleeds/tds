@@ -14,6 +14,16 @@ bibliography: ../tds.bib
 engine: knitr
 ---
 
+# Introduction
+
+In this practical session, we will learn how to use geogarphic and origin-destination data. The contents of the session are as follows:
+
+- We will start with reviewing the homework from the previous session
+- A short lecture on geographic and origin-destination data (see [slides](https://docs.google.com/presentation/d/1fKXK1ocCSkTQkTQn0eoYWURIfQuFgQwICFiDGVetMek/edit?usp=sharing))
+- Practical session working with various data, including analysing origin-destination trip flows in London Cycle Hire System.
+- Bonus: Geometry operations and spatial analysis
+- Homework and next session
+
 # Review Homework
 
 Your homework last week was to import and visualise some transport datasets.
@@ -827,62 +837,7 @@ bike_trips |>
   scale_x_continuous(breaks = seq(0, 23, by = 4))
 ```
 
-The spatial distribution of change may also be uneven. One assumption is that bike docking stations closer to Tube stations experience higher travel activity than those farther away. To quickly assess whether there is a difference, we can create buffers around Tube stations and calculate the changes in bike docking stations within these buffers. We can then compare these changes to those in docking stations outside the buffers.
-
-Now, let create the buffer zones for tube stations in central london
-
-```{r}
-# import the tube station data
-tube_stations = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson")
-
-# use the bounding box of the bike docking stations to crop the tube stations
-# this can help us focus on central London - which is covered by the LCHS
-tube_stations_central_london = st_crop(tube_stations, st_bbox(bike_docking_stations))
-
-# create the buffer zones, we set the buffer radius to 250m
-# you may adjust the value if you would like to create smaller or larger buffer zones.
-tube_stations_central_london_buffer = st_buffer(tube_stations_central_london %>% st_transform(27700), dist = 250)
-
-# visualise the buffers, tube stations and bike docking stations
-ggplot()+
-  geom_sf(data = tube_stations_central_london_buffer, fill ="#3ba2c7", color = NA, alpha =0.3)+
-  geom_sf(data = tube_stations_central_london, color = "#3ba2c7")+
-  geom_sf(data = bike_docking_stations, color = "#d45b70", size = 0.5)
-```
-```{r}
-tube_stations_central_london_buffer_merged = st_union(tube_stations_central_london_buffer)
-
-ggplot()+
-  geom_sf(data = tube_stations_central_london_buffer_merged, fill ="#3ba2c7", color = NA, alpha =0.3)+
-  geom_sf(data = tube_stations_central_london, color = "#3ba2c7")+
-  geom_sf(data = bike_docking_stations, color = "#d45b70", size = 0.5)
-```
-
-```{r}
-bike_docking_stations = bike_docking_stations |>
-  mutate(inside_tube_buffer = st_within(bike_docking_stations,tube_stations_central_london_buffer_merged %>% st_transform(4326), sparse = FALSE))
-head(bike_docking_stations)
-```
-
-```{r}
-ggplot()+
-  geom_sf(data = tube_stations_central_london_buffer_merged, fill ="#3ba2c7", color = NA, alpha =0.3)+
-  geom_sf(data = bike_docking_stations,
-          aes(color = inside_tube_buffer),
-          size = 1)
-```
-
-```{r}
-bike_trips |> group_by(start_station_id, date, type_day) |>
-  summarise(count = n()) |>
-  left_join(bike_docking_stations |> st_drop_geometry(), by = c("start_station_id" = "station_id")) |>
-  group_by(inside_tube_buffer,date) |>
-  summarise(mean_count = mean(count)) |>
-  ggplot()+
-  geom_bar(aes(x= as.factor(date), y = mean_count, fill = inside_tube_buffer), stat = "identity",position = position_dodge2())
-```
-
-Whist above temporal and spatial analysis provide useful summaries, visual analysis of the origin-destination changes allow us to characterise with greater richness the nature of changes in response to the strike events. Let' try to calculate the changes in o-d and map them!
+Whist above temporal analysis provide useful summaries, visual analysis of the origin-destination changes allow us to characterise with greater richness the nature of changes in response to the strike events. Let' try to calculate the changes in o-d and map them!
 
 To break the task down, we will
 1. Calculate the frequeny of each origin-destination pair on the strike day
@@ -1010,6 +965,98 @@ ggplot() +
     style = north_arrow_fancy_orienteering()
   ) + # North arrow (top left)
   theme_void()
+```
+# Bonus
+
+During the Tube strike, bike docking stations closer to Tube stations are likely to experience higher travel activity than those farther away. 
+
+To quickly assess whether there is a difference, we can create a buffer around Tube stations and calculate the number of trips originating from bike docking stations within the buffer zone. We can then compare these figures to those from docking stations outside the buffer zone.
+
+First, let create the buffer zones for tube stations in central london
+
+```{r}
+# import the tube station data
+tube_stations = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson")
+
+# use the bounding box of the bike docking stations to crop the tube stations
+# this can help us focus on central London - which is covered by the LCHS
+tube_stations_central_london = st_crop(tube_stations, st_bbox(bike_docking_stations))
+
+# create the buffer zones, we set the buffer radius to 250m
+# you may adjust the value if you would like to create smaller or larger buffer zones.
+tube_stations_central_london_buffer = st_buffer(tube_stations_central_london %>% st_transform(27700), dist = 250)
+
+# visualise the buffers, tube stations and bike docking stations
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = tube_stations_central_london, color = "#3ba2c7")+
+  geom_sf(data = bike_docking_stations, color = "#d45b70", size = 0.5)
+```
+
+You may have noticed that we created a buffer for each Tube station. We can merge all the buffers geometry into a single geometry.
+
+`st_union()` is a function in the `sf` package in R, used to merge or dissolve geometries into a single geometry. It is commonly used in spatial data processing when you need to combine multiple polygons, lines, or points into one.
+
+```{r}
+tube_stations_central_london_buffer_merged = st_union(tube_stations_central_london_buffer)
+
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer_merged, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = tube_stations_central_london, color = "#3ba2c7")+
+  geom_sf(data = bike_docking_stations, color = "#d45b70", size = 0.5)
+```
+
+Since we have obtained the merged buffer, let's find out which bike docking stations fall inside the buffer. To achieve this, we can use the `st_within()` function. `st_within()` checks if one geometry is completely inside another geometry.
+
+We also need to create a new column for the `bike_docking_stations` to store the result from `st_within()`
+
+```{r}
+bike_docking_stations = bike_docking_stations |>
+  mutate(inside_tube_buffer = st_within(bike_docking_stations,tube_stations_central_london_buffer_merged %>% st_transform(4326), sparse = FALSE))
+head(bike_docking_stations)
+```
+
+As you can see, the `bike_docking_stations` now has a column named `inside_tube_buffer`, which contains binary outcome. 
+
+Let's plot them and use `inside_tube_buffer` for the colour of the bike docking staions. 
+
+```{r}
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer_merged, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = bike_docking_stations,
+  # use "inside_tube_buffer" for the colour of the bike docking staions
+          aes(color = inside_tube_buffer), 
+          size = 1)
+```
+
+Finally, let’s compare the average number of trips (by trip origin) between the two types of bike docking stations: those inside the buffer and those outside the buffer.
+
+What pattern did you observe?
+
+```{r}
+bike_trips |> 
+  group_by(start_station_id, date, type_day) |> 
+  summarise(count = n(), .groups = "drop") |> 
+  
+  # Join with docking station data to get station attributes (excluding geometry)
+  left_join(
+    bike_docking_stations |> st_drop_geometry(), 
+    by = c("start_station_id" = "station_id")
+  ) |> 
+  
+  # Group by whether the station is inside the Tube buffer and by type_day (strike day or non-strike day)
+  group_by(inside_tube_buffer, type_day) |> 
+  summarise(mean_count = mean(count), .groups = "drop") |> 
+  
+  # Plot the average trip count by type_day, bar fill colour by buffer status
+  ggplot(aes(x = type_day, y = mean_count, fill = inside_tube_buffer)) +
+  geom_bar(stat = "identity", position = position_dodge2()) +
+  labs(
+    x = "Date",
+    y = "Average Trip Count",
+    fill = "Inside Tube Buffer",
+    title = "Comparison of Average Trip Count by Bike Docking Stations"
+  )
 ```
 
 # Homework
