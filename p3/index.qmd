@@ -840,7 +840,63 @@ bike_trips |>
   scale_x_continuous(breaks = seq(0, 23, by = 4))
 
 ```
-Whist the temporal analysis provide useful summaries, visual analysis of the origin-destination changes allow us to characterise with greater richness the nature of changes in response to the strike events. Let' try to calculate the changes in o-d and map them!
+
+The spatial distribution of change may also be uneven. One assumption is that bike docking stations closer to Tube stations experience higher travel activity than those farther away. To quickly assess whether there is a difference, we can create buffers around Tube stations and calculate the changes in bike docking stations within these buffers. We can then compare these changes to those in docking stations outside the buffers.
+
+Now, let create the buffer zones for tube stations in central london
+
+```{r}
+# import the tube station data
+tube_stations = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson")
+
+# use the bounding box of the bike docking stations to crop the tube stations
+# this can help us focus on central London - which is covered by the LCHS
+tube_stations_central_london = st_crop(tube_stations, st_bbox(bike_docking_stations))
+
+# create the buffer zones, we set the buffer radius to 250m
+# you may adjust the value if you would like to create smaller or larger buffer zones.
+tube_stations_central_london_buffer = st_buffer(tube_stations_central_london %>% st_transform(27700), dist = 250)
+
+# visualise the buffers, tube stations and bike docking stations
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = tube_stations_central_london, color = "#3ba2c7")+
+  geom_sf(data = bike_docking_stations, color = "#d45b70", size = 0.5)
+```
+```{r}
+tube_stations_central_london_buffer_merged = st_union(tube_stations_central_london_buffer)
+
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer_merged, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = tube_stations_central_london, color = "#3ba2c7")+
+  geom_sf(data = bike_docking_stations, color = "#d45b70", size = 0.5)
+```
+
+```{r}
+bike_docking_stations = bike_docking_stations |>
+  mutate(inside_tube_buffer = st_within(bike_docking_stations,tube_stations_central_london_buffer_merged %>% st_transform(4326), sparse = FALSE))
+head(bike_docking_stations)
+```
+
+```{r}
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer_merged, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = bike_docking_stations,
+          aes(color = inside_tube_buffer),
+          size = 1)
+```
+
+```{r}
+bike_trips |> group_by(start_station_id, date, type_day) |>
+  summarise(count = n()) |>
+  left_join(bike_docking_stations |> st_drop_geometry(), by = c("start_station_id" = "station_id")) |>
+  group_by(inside_tube_buffer,date) |>
+  summarise(mean_count = mean(count)) |>
+  ggplot()+
+  geom_bar(aes(x= as.factor(date), y = mean_count, fill = inside_tube_buffer), stat = "identity",position = position_dodge2())
+```
+
+Whist above temporal and spatial analysis provide useful summaries, visual analysis of the origin-destination changes allow us to characterise with greater richness the nature of changes in response to the strike events. Let' try to calculate the changes in o-d and map them!
 
 To break the task down, we will
 1. Calculate the frequeny of each origin-destination pair on the strike day
