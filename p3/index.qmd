@@ -26,7 +26,6 @@ In groups of 2 or 3 (a demonstrator will help out with each group):
 
 Note that this practical takes sections from Chapters 2 - 8 of [Geocomputation with R](https://r.geocompx.org). You should expand your knowledge by reading these chapters in full.
 
-
 ## Pre-requisites {-}
 
 You need to have a number of packages installed and loaded.
@@ -41,16 +40,16 @@ If you need to install any of these packages use:
 ```{r} 
 #| eval: false
 if (!require("pak")) install.packages("pak")
-pak::pkg_install(c("sf", "tidyverse", "remotes","ggspatial"))
+pak::pkg_install(c("sf", "tidyverse", "remotes", "ggspatial"))
 # GitHub pkgs
 pak::pkg_install("Nowosad/spDataLarge")
 ```
 
 ``` {r}
-library(sf)          # vector data package 
-library(tidyverse)   # tidyverse packages
-library(ggspatial)   # ggspatial package
-library(spData)      # spatial data package 
+library(sf)        # vector data package
+library(tidyverse) # tidyverse packages
+library(ggspatial) # ggspatial package
+library(spData)    # spatial data package
 ```
 
 ## Python
@@ -110,7 +109,6 @@ Use some basic R functions to explore the `world` object. e.g. `class(world)`, `
 
 `sf` objects can be plotted with `plot()`.
 
-
 ::: {.panel-tabset}
 ## R
 ```{r}
@@ -158,8 +156,6 @@ plt.show()
 
 Load the `nz` and `nz_height` datasets from the `spData` package.
 
-
-
 ::: {.panel-tabset}
 ## R
 ```{r}
@@ -177,7 +173,6 @@ nz_height = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/head
 :::
 
 We can use `tidyverse` functions like `filter` and `select` on `sf` objects in the same way you did in Practical 1.
-
 
 ::: {.panel-tabset}
 ## R
@@ -229,16 +224,13 @@ canterbury_height = gpd.sjoin(nz_height, canterbury, op='intersects')
 ```
 :::
 
-
 ![Topological relations between vector geometries, inspired by Figures 1 and 2 in Egenhofer and Herring (1990). The relations for which the function(x, y) is true are printed for each geometry pair, with x represented in pink and y represented in blue. The nature of the spatial relationship for each pair is described by the Dimensionally Extended 9-Intersection Model string. ](https://r.geocompx.org/figures/relations-1.png)
-
 
 # Getting started with OD data
 
 In this section we will look at basic transport data in the R package **stplanr**.
 
 Load the  `stplanr` package as follows:
-
 
 ```{r}
 #| echo: true
@@ -293,9 +285,9 @@ Next we will made a new dataset `od_data_walk` by taking `od_data` and piping it
 ## R
 ```{r}
 #| echo: true
-od_data_walk = od_data |> 
-  filter(walk > 0) |> 
-  select(geo_code1, geo_code2, all, car_driver, walk) |> 
+od_data_walk = od_data |>
+  filter(walk > 0) |>
+  select(geo_code1, geo_code2, all, car_driver, walk) |>
   mutate(proportion_walk = walk / all, proportion_drive = car_driver / all)
 ```
 
@@ -324,7 +316,6 @@ plt.show()
 ```
 :::
 R has built in modelling functions such as `lm` lets make a simple model to predict the proportion of people who walk based on the proportion of people who drive.
-
 
 ::: {.panel-tabset}
 ## R
@@ -370,13 +361,11 @@ plt.show()
 
 Exercises
 
-
 1. What is the class of the data in `od_data`?
 2. Subset (filter) the data to only include OD pairs in which at least one person (`> 0`) person walks (bonus: on what % of the OD pairs does at least 1 person walk?)
 3. Calculate the percentage who cycle in each OD pair in which at least 1 person cycles
 4. Is there a positive relationship between walking and cycling in the data?
 5. Bonus: use the function `od2line()` in to convert the OD dataset into geographic desire lines
-
 
 Code for Exercises (click to reveal, but try to do them yourself first)
 
@@ -402,7 +391,7 @@ print("Class of od_data:", type(od_data))
 ```{r}
 #| eval: false
 
-od_data_walk = od_data |> 
+od_data_walk = od_data |>
   filter(walk > 0)
 nrow(od_data_walk) / nrow(od_data) * 100
 ```
@@ -419,10 +408,10 @@ print(f"Percentage of OD pairs where at least one person walks: {percentage_walk
 ### R
 ```{r}
 #| eval: false
-#| 
-od_data = od_data |> 
-  filter(bicycle > 0) |> 
-  mutate(perc_cycle = (bicycle/all) * 100)
+#|
+od_data = od_data |>
+  filter(bicycle > 0) |>
+  mutate(perc_cycle = (bicycle / all) * 100)
 ```
 
 ### Python
@@ -439,9 +428,9 @@ od_data_cycle['perc_cycle'] = (od_data_cycle['bicycle'] / od_data_cycle['all']) 
 ```{r}
 #| eval: false
 
-od_data_new = od_data |> 
-  filter(walk > 0, bicycle>0 ) |> 
-  select(bicycle, walk, all) 
+od_data_new = od_data |>
+  filter(walk > 0, bicycle > 0) |>
+  select(bicycle, walk, all)
 
 model = lm(walk ~ bicycle, weights = all, data = od_data_new)
 od_data_new$walk_predicted = model$fitted.values
@@ -486,7 +475,7 @@ plt.show()
 
 desire_lines = stplanr::od2line(flow = od_data, zones = zone)
 plot(desire_lines)
-#save zone as gpkg
+# save zone as gpkg
 sf::st_write(zone, "zone.geojson")
 ```
 
@@ -551,7 +540,6 @@ This section is based on [Chapter 12 of Geocomputation with R](https://geocompr.
 
 We need the `stplanr` package which provides many useful functions for transport analysis and `tmap` package which enables advanced mapping features.
 
-
 ```{r}
 #| echo: true
 #| output: false
@@ -559,7 +547,6 @@ We need the `stplanr` package which provides many useful functions for transport
 library(stplanr)
 library(tmap)
 ```
-
 
 We will start by loading two datasets:
 
@@ -662,45 +649,45 @@ Now use `tmap` to make a plot showing the number of trips and the percentage of 
 #| echo: true
 #| output: true
 
+desire_lines = desire_lines[order(desire_lines$Active), ]
 
-desire_lines = desire_lines[order(desire_lines$Active),]
-
-tm_shape(desire_lines) +   # Define the data frame used to make the map
-  tm_lines(col = "Active", # We want to map lines, the colour (col) is based on the "Active" column
-           palette = "plasma", # Select a colour palette
-           alpha = 0.7,    # Make lines slightly transparent
-           lwd = "all") +  # The line width (lwd) is based on the "all" column
+tm_shape(desire_lines) + # Define the data frame used to make the map
+  tm_lines(
+    col = "Active", # We want to map lines, the colour (col) is based on the "Active" column
+    palette = "plasma", # Select a colour palette
+    alpha = 0.7, # Make lines slightly transparent
+    lwd = "all"
+  ) + # The line width (lwd) is based on the "all" column
   tm_layout(legend.outside = TRUE) + # Move the ledgend outside the map
-  tm_scale_bar()           # Add a scale bar to the map
-
+  tm_scale_bar() # Add a scale bar to the map
 ```
-
-
 
 ## R: ggplot2
 ```{r}
 #| echo: true
 #| output: true
 
+desire_lines = desire_lines[order(desire_lines$Active), ]
 
-desire_lines = desire_lines[order(desire_lines$Active),]
-
-ggplot()+
-  geom_sf(data = desire_lines,  # Define the data frame used to make the map
-          aes(colour = Active,  # We want to map lines, the colour  is based on the "Active" column
-              alpha =  all,     # Make lines slightly transparent and based on the "all" column
-              linewidth = all   # The line width is based on the "all" column
-              ))+
-  scale_colour_viridis_c(option = "C")+         # Select a colour palette
-  scale_linewidth_binned(range = c(0.03,0.6), guide = "legend")+  # Set max and min ranges for line width
-  scale_alpha(range = c(0.1,1), guide = "legend")+                # Set max and min ranges for transparency
-  annotation_scale(location = "br", width_hint = 0.3) +  # Scale bar (bottom left)
-  annotation_north_arrow(location = "tl", which_north = "true",
-                         style = north_arrow_fancy_orienteering()) +  # North arrow (top left)
+ggplot() +
+  geom_sf(
+    data = desire_lines, # Define the data frame used to make the map
+    aes(
+      colour = Active, # We want to map lines, the colour  is based on the "Active" column
+      alpha = all, # Make lines slightly transparent and based on the "all" column
+      linewidth = all # The line width is based on the "all" column
+    )
+  ) +
+  scale_colour_viridis_c(option = "C") + # Select a colour palette
+  scale_linewidth_binned(range = c(0.03, 0.6), guide = "legend") + # Set max and min ranges for line width
+  scale_alpha(range = c(0.1, 1), guide = "legend") + # Set max and min ranges for transparency
+  annotation_scale(location = "br", width_hint = 0.3) + # Scale bar (bottom left)
+  annotation_north_arrow(
+    location = "tl", which_north = "true",
+    style = north_arrow_fancy_orienteering()
+  ) + # North arrow (top left)
   theme_void()
-
 ```
-
 
 ## Python
 ```{python}
@@ -730,7 +717,6 @@ plt.show()
 ```
 :::
 Now that we have geometry attached to our data we can calculate other variables of interest. For example let's calculate the distacne travelled and see if it relates to the percentage of people who use active travel.
-
 
 ::: {.panel-tabset}
 ## R
@@ -767,9 +753,6 @@ plt.show()
 
 The blue line is a smoothed average of the data. It shows a common concept in transport research, the distance decay curve. In this case it shows that the longer the journey the less likely people are to use active travel. But this concept applies to all kinds of travel decisions. For example you are more likely to travel to a nearby coffee shop than a far away coffee shop. Different types of trip have different curves, but most people always have a bias for shorter trips.
 
-
-
-
 # Processing origin-destination data in London Cycle Hire System 
 
 In this section, we will be working with origin-destination data in London Cycle Hire System (LCHS). We will specifically examine how a London Tube(Underground) strike influenced cyclists' origin-destination choices.
@@ -795,7 +778,6 @@ bike_docking_stations = read_sf("https://github.com/itsleeds/tds/releases/downlo
 bike_trips = read_csv("https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_trips.csv")
 ```
 
-
 Explore these datasets using the functions you have learnt (e.g. head, nrow)
 ```{r}
 head(bike_docking_stations)
@@ -809,36 +791,40 @@ Let's examine our `bike_trips` data, which covers three specific Thursdays: July
 During the Tube Strike, some people adopted bikeshare to replace the Tube travel, hence we should be able to observe some different in trip account.
 
 ```{r}
-bike_trips <- bike_trips |> mutate(date = date(start_time)) %>%
-  mutate(type_day = case_when(date == as.Date("2015-07-09") ~ "Strike Day",
-                              TRUE ~ "Non-Strike Day"
-                              ))
+bike_trips = bike_trips |>
+  mutate(date = date(start_time)) |>
+  mutate(type_day = case_when(
+    date == as.Date("2015-07-09") ~ "Strike Day",
+    TRUE ~ "Non-Strike Day"
+  ))
 bike_trips |>
   group_by(date, type_day) |>
   summarise(count = n()) |>
-  ggplot()+
-  geom_bar(aes(x = as.factor(date), 
-               y = count, 
-               fill = type_day), stat = "identity")+
-  xlab("Date")+
-  ylab("Count of bike trips")+
+  ggplot() +
+  geom_bar(aes(
+    x = as.factor(date),
+    y = count,
+    fill = type_day
+  ), stat = "identity") +
+  xlab("Date") +
+  ylab("Count of bike trips") +
   labs(fill = "Type of day")
-
 ```
 
 The increase in trips is likely unevenly distributed by time, so it would be useful to examine the changes and differences by hour. This will help us identify when the most significant changes occur.
 
 ```{r}
-
 bike_trips |>
-  mutate(hour = hour(start_time),
-         date = as.factor(date)) |>
-  group_by(date,hour) |> summarise(count=n()) |>
-  ggplot()+
-  geom_line(aes(x=hour,y=count,color=date,group = date),size=1,alpha=.6)+
-  geom_point(aes(x=hour,y=count,color=date),size=2)+
+  mutate(
+    hour = hour(start_time),
+    date = as.factor(date)
+  ) |>
+  group_by(date, hour) |>
+  summarise(count = n()) |>
+  ggplot() +
+  geom_line(aes(x = hour, y = count, color = date, group = date), size = 1, alpha = .6) +
+  geom_point(aes(x = hour, y = count, color = date), size = 2) +
   scale_x_continuous(breaks = seq(0, 23, by = 4))
-
 ```
 
 The spatial distribution of change may also be uneven. One assumption is that bike docking stations closer to Tube stations experience higher travel activity than those farther away. To quickly assess whether there is a difference, we can create buffers around Tube stations and calculate the changes in bike docking stations within these buffers. We can then compare these changes to those in docking stations outside the buffers.
@@ -905,16 +891,16 @@ To break the task down, we will
 
 ```{r}
 # 1. Calculate the frequeny of each origin-destination pair on the strike day
-od_strike <- bike_trips |>
+od_strike = bike_trips |>
   filter(type_day == "Strike Day") |>
   group_by(start_station_id, end_station_id) |>
   summarise(count_strike = n())
 
 # 2. Calculate the average frequancy of each origin-destination pair on the non-strike day
-od_non_strike <- bike_trips |>
+od_non_strike = bike_trips |>
   filter(type_day == "Non-Strike Day") |>
   group_by(start_station_id, end_station_id) |>
-  summarise(count_non_strike = n()/2) # we have two non-strike days, hence /2 can help get the mean value
+  summarise(count_non_strike = n() / 2) # we have two non-strike days, hence /2 can help get the mean value
 ```
 
 To obtain the changes, we will need to join the origin-destination pairs in the two dataframe we just created. 
@@ -930,14 +916,12 @@ The **`dplyr` package** provides a family of intuitive join functions:
 | **Semi Join** | `semi_join(df1, df2, by = "key")` | Keeps rows from `df1` that have matches in `df2`. |
 | **Anti Join** | `anti_join(df1, df2, by = "key")` | Keeps rows from `df1` that do **not** have matches in `df2`. |
 
-
-
 ```{r}
 # join the two dataframes
 od_change = full_join(od_strike, od_non_strike, by = c("start_station_id", "end_station_id")) |>
   replace_na(list(count_strike = 0, count_non_strike = 0))
 
-#create(mutate) a new column of changes in od count
+# create(mutate) a new column of changes in od count
 od_change = filter(od_change, start_station_id != end_station_id) |>
   mutate(count_change = count_strike - count_non_strike) |>
   arrange(desc(count_change))
@@ -956,30 +940,30 @@ We have succesfully joined the data, and the output `od_change` has both the tri
 od_inter_change = filter(od_change, start_station_id != end_station_id) |> arrange(desc(count_change))
 
 # create the od lines
-change_desire_lines = od2line(od_change,bike_docking_stations)
-
-
+change_desire_lines = od2line(od_change, bike_docking_stations)
 ```
-
 
 We are particularly interested in identifying origin-destination pairs where the number of trips has increased. To focus on these, we use the filter function to select desire lines with at least one additional trip on the strike day. You can adjust the threshold (currently set to 1) as needed.
 
-
 ```{r}
-ggplot()+
-  geom_sf(data = change_desire_lines %>% filter(count_change >= 1) |> arrange(count_change),  # Define the data frame used to make the map
-          aes(colour = count_change,     # We want to map lines, the colour  is based on the "count_change" column
-              alpha =  count_change,     # Make lines slightly transparent and based on the "count_change" column
-              linewidth = count_change   # The line width is based on the "count_change" column
-              ))+
-  scale_colour_viridis_c(option = "C")+                           # Select a colour palette
-  scale_linewidth_binned(range = c(0.01,1.6), guide = "legend")+  # Set max and min ranges for line width
-  scale_alpha(range = c(0.001,0.7), guide = "legend")+            # Set max and min ranges for transparency
-  annotation_scale(location = "br", width_hint = 0.3) +           # Map scale bar (bottom right)
-  annotation_north_arrow(location = "tl", which_north = "true",
-                         style = north_arrow_fancy_orienteering()) +  # North arrow (top left)
+ggplot() +
+  geom_sf(
+    data = change_desire_lines |> filter(count_change >= 1) |> arrange(count_change), # Define the data frame used to make the map
+    aes(
+      colour = count_change, # We want to map lines, the colour  is based on the "count_change" column
+      alpha = count_change, # Make lines slightly transparent and based on the "count_change" column
+      linewidth = count_change # The line width is based on the "count_change" column
+    )
+  ) +
+  scale_colour_viridis_c(option = "C") + # Select a colour palette
+  scale_linewidth_binned(range = c(0.01, 1.6), guide = "legend") + # Set max and min ranges for line width
+  scale_alpha(range = c(0.001, 0.7), guide = "legend") + # Set max and min ranges for transparency
+  annotation_scale(location = "br", width_hint = 0.3) + # Map scale bar (bottom right)
+  annotation_north_arrow(
+    location = "tl", which_north = "true",
+    style = north_arrow_fancy_orienteering()
+  ) + # North arrow (top left)
   theme_void()
-
 ```
 
 To enhance the map, adding some background context could be useful. Let’s try incorporating the River Thames and green spaces (parks) in central London.
@@ -990,31 +974,41 @@ Let’s check how the background looks. You can also customize the colors of the
 rivers = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson")
 parks = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson")
 
-
-ggplot()+
-  geom_sf(data = parks, fill = "#d9f5e0", color= "#d9f5e0")+ # add parks in central London to the map
-  geom_sf(data = rivers,color="#08D9D6",linewidth = 3)+      # add river Thames in central London to the map
-    theme_void()
+ggplot() +
+  geom_sf(data = parks, fill = "#d9f5e0", color = "#d9f5e0") + # add parks in central London to the map
+  geom_sf(data = rivers, color = "#08D9D6", linewidth = 3) + # add river Thames in central London to the map
+  theme_void()
 ```
 
 Now, let’s bring the origin-destination desire lines and the base map together! Can you identify key locations where bike trip origin-destination changes are most significant?
 
 ```{r}
+# Define the data frame used to visualise the od
+change_to_plot = change_desire_lines |>
+  filter(count_change >= 1) |>
+  arrange(count_change)
 
-ggplot()+
-  geom_sf(data = parks, fill = "#d9f5e0", color= "#d9f5e0")+  # add parks in central London to the map
-  geom_sf(data = rivers,color="#08D9D6",linewidth = 3)+       # add river Thames in central London to the map
-  geom_sf(data = change_desire_lines %>% filter(count_change >= 1) %>% arrange(count_change),  # Define the data frame used to visualise the od
-          aes(colour = count_change,     # We want to map lines, the colour is based on the "count_change" column
-              alpha =  count_change,     # Make lines slightly transparent and based on the "count_change" column
-              linewidth = count_change   # The line width is based on the "count_change" column
-              ))+
-  scale_colour_viridis_c(option = "C")+         # Select a colour palette
-  scale_linewidth_binned(range = c(0.01,1.6), guide = "legend")+  # Set max and min ranges for line width
-  scale_alpha(range = c(0.001,0.7), guide = "legend")+                # Set max and min ranges for transparency
-  annotation_scale(location = "br", width_hint = 0.3) +  # Scale bar (bottom left)y
-  annotation_north_arrow(location = "tl", which_north = "true",
-                         style = north_arrow_fancy_orienteering()) +  # North arrow (top left)
+ggplot() +
+  # add parks in central London to the map:
+  geom_sf(data = parks, fill = "#d9f5e0", color = "#d9f5e0") +
+  # add river Thames in central London to the map:
+  geom_sf(data = rivers, color = "#08D9D6", linewidth = 3) +
+  geom_sf(
+    data = change_to_plot,
+    aes(
+      colour = count_change, # We want to map lines, the colour is based on the "count_change" column
+      alpha = count_change, # Make lines slightly transparent and based on the "count_change" column
+      linewidth = count_change # The line width is based on the "count_change" column
+    )
+  ) +
+  scale_colour_viridis_c(option = "C") + # Select a colour palette
+  scale_linewidth_binned(range = c(0.01, 1.6), guide = "legend") + # Set max and min ranges for line width
+  scale_alpha(range = c(0.001, 0.7), guide = "legend") + # Set max and min ranges for transparency
+  annotation_scale(location = "br", width_hint = 0.3) + # Scale bar (bottom left)y
+  annotation_north_arrow(
+    location = "tl", which_north = "true",
+    style = north_arrow_fancy_orienteering()
+  ) + # North arrow (top left)
   theme_void()
 ```
 
@@ -1031,6 +1025,5 @@ ggplot()+
     - Bonus: share your code on GitHub, for example by pasting it into the discussion group at [github.com/ITSLeeds/TDS/discussions](https://github.com/itsleeds/tds/discussions/172)
 3. Bonus: Read more about using the [tmap package](https://r-tmap.github.io/tmap/)
 4. Bonus: Read more about the [ggplot2 package](https://ggplot2.tidyverse.org/)
-
 
 # References
