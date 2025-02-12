@@ -240,18 +240,20 @@ div.csl-indent {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#review-homework" id="toc-review-homework" class="nav-link active" data-scroll-target="#review-homework"><span class="header-section-number">1</span> Review Homework</a></li>
-  <li><a href="#getting-started-with-gis-in-r" id="toc-getting-started-with-gis-in-r" class="nav-link" data-scroll-target="#getting-started-with-gis-in-r"><span class="header-section-number">2</span> Getting started with GIS in R</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#review-homework" id="toc-review-homework" class="nav-link" data-scroll-target="#review-homework"><span class="header-section-number">2</span> Review Homework</a></li>
+  <li><a href="#getting-started-with-gis-in-r" id="toc-getting-started-with-gis-in-r" class="nav-link" data-scroll-target="#getting-started-with-gis-in-r"><span class="header-section-number">3</span> Getting started with GIS in R</a>
   <ul class="collapse">
   <li><a href="#pre-requisites" id="toc-pre-requisites" class="nav-link" data-scroll-target="#pre-requisites">Pre-requisites</a></li>
-  <li><a href="#basic-sf-operations" id="toc-basic-sf-operations" class="nav-link" data-scroll-target="#basic-sf-operations"><span class="header-section-number">2.1</span> Basic sf operations</a></li>
-  <li><a href="#basic-spatial-operations" id="toc-basic-spatial-operations" class="nav-link" data-scroll-target="#basic-spatial-operations"><span class="header-section-number">2.2</span> Basic spatial operations</a></li>
+  <li><a href="#basic-sf-operations" id="toc-basic-sf-operations" class="nav-link" data-scroll-target="#basic-sf-operations"><span class="header-section-number">3.1</span> Basic sf operations</a></li>
+  <li><a href="#basic-spatial-operations" id="toc-basic-spatial-operations" class="nav-link" data-scroll-target="#basic-spatial-operations"><span class="header-section-number">3.2</span> Basic spatial operations</a></li>
   </ul></li>
-  <li><a href="#getting-started-with-od-data" id="toc-getting-started-with-od-data" class="nav-link" data-scroll-target="#getting-started-with-od-data"><span class="header-section-number">3</span> Getting started with OD data</a></li>
-  <li><a href="#processing-origin-destination-data-in-bristol" id="toc-processing-origin-destination-data-in-bristol" class="nav-link" data-scroll-target="#processing-origin-destination-data-in-bristol"><span class="header-section-number">4</span> Processing origin-destination data in Bristol</a></li>
-  <li><a href="#processing-origin-destination-data-in-london-cycle-hire-system" id="toc-processing-origin-destination-data-in-london-cycle-hire-system" class="nav-link" data-scroll-target="#processing-origin-destination-data-in-london-cycle-hire-system"><span class="header-section-number">5</span> Processing origin-destination data in London Cycle Hire System</a></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">6</span> Homework</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7</span> References</a></li>
+  <li><a href="#getting-started-with-od-data" id="toc-getting-started-with-od-data" class="nav-link" data-scroll-target="#getting-started-with-od-data"><span class="header-section-number">4</span> Getting started with OD data</a></li>
+  <li><a href="#processing-origin-destination-data-in-bristol" id="toc-processing-origin-destination-data-in-bristol" class="nav-link" data-scroll-target="#processing-origin-destination-data-in-bristol"><span class="header-section-number">5</span> Processing origin-destination data in Bristol</a></li>
+  <li><a href="#processing-origin-destination-data-in-london-cycle-hire-system" id="toc-processing-origin-destination-data-in-london-cycle-hire-system" class="nav-link" data-scroll-target="#processing-origin-destination-data-in-london-cycle-hire-system"><span class="header-section-number">6</span> Processing origin-destination data in London Cycle Hire System</a></li>
+  <li><a href="#bonus" id="toc-bonus" class="nav-link" data-scroll-target="#bonus"><span class="header-section-number">7</span> Bonus</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">8</span> Homework</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -277,16 +279,27 @@ div.csl-indent {
 </header>
 
 
-<section id="review-homework" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Review Homework</h1>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>In this practical session, we will learn how to use geogarphic and origin-destination data. The contents of the session are as follows:</p>
+<ul>
+<li>We will start with reviewing the homework from the previous session</li>
+<li>A short lecture on geographic and origin-destination data (see <a href="https://docs.google.com/presentation/d/1fKXK1ocCSkTQkTQn0eoYWURIfQuFgQwICFiDGVetMek/edit?usp=sharing">slides</a>)</li>
+<li>Practical session working with various data, including analysing origin-destination trip flows in London Cycle Hire System.</li>
+<li>Bonus: Geometry operations and spatial analysis</li>
+<li>Homework and next session</li>
+</ul>
+</section>
+<section id="review-homework" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Review Homework</h1>
 <p>Your homework last week was to import and visualise some transport datasets. In groups of 2 or 3 (a demonstrator will help out with each group):</p>
 <ul>
 <li>Choose a volunteer from each group to share their code with colleagues (via email or GitHub): can others reproduce the results?</li>
 <li>Discuss the code and suggest improvements</li>
 </ul>
 </section>
-<section id="getting-started-with-gis-in-r" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> Getting started with GIS in R</h1>
+<section id="getting-started-with-gis-in-r" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Getting started with GIS in R</h1>
 <p>Note that this practical takes sections from Chapters 2 - 8 of <a href="https://r.geocompx.org">Geocomputation with R</a>. You should expand your knowledge by reading these chapters in full.</p>
 <section id="pre-requisites" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="pre-requisites">Pre-requisites</h2>
@@ -337,8 +350,8 @@ div.csl-indent {
 <!-- dir.create("code") # 
 file.edit("code/learning-OD.R") -->
 </section>
-<section id="basic-sf-operations" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="basic-sf-operations"><span class="header-section-number">2.1</span> Basic sf operations</h2>
+<section id="basic-sf-operations" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="basic-sf-operations"><span class="header-section-number">3.1</span> Basic sf operations</h2>
 <p>We will start with a simple map of the world. Load the <code>world</code> object from the <code>spData</code> package. Notice the use of <code>::</code> to say that you want the <code>world</code> object from the <code>spData</code> package.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Python</a></li></ul>
@@ -427,8 +440,8 @@ file.edit("code/learning-OD.R") -->
 </div>
 </div>
 </section>
-<section id="basic-spatial-operations" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="basic-spatial-operations"><span class="header-section-number">2.2</span> Basic spatial operations</h2>
+<section id="basic-spatial-operations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="basic-spatial-operations"><span class="header-section-number">3.2</span> Basic spatial operations</h2>
 <p>Load the <code>nz</code> and <code>nz_height</code> datasets from the <code>spData</code> package.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">Python</a></li></ul>
@@ -505,8 +518,8 @@ file.edit("code/learning-OD.R") -->
 </div>
 </section>
 </section>
-<section id="getting-started-with-od-data" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> Getting started with OD data</h1>
+<section id="getting-started-with-od-data" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Getting started with OD data</h1>
 <p>In this section we will look at basic transport data in the R package <strong>stplanr</strong>.</p>
 <p>Load the <code>stplanr</code> package as follows:</p>
 <div class="cell">
@@ -833,8 +846,8 @@ file.edit("code/learning-OD.R") -->
 </div>
 </details>
 </section>
-<section id="processing-origin-destination-data-in-bristol" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Processing origin-destination data in Bristol</h1>
+<section id="processing-origin-destination-data-in-bristol" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Processing origin-destination data in Bristol</h1>
 <p>This section is based on <a href="https://geocompr.robinlovelace.net/transport.html">Chapter 12 of Geocomputation with R</a>. You should read this chapter in full in your own time.</p>
 <p>We need the <code>stplanr</code> package which provides many useful functions for transport analysis and <code>tmap</code> package which enables advanced mapping features.</p>
 <div class="cell">
@@ -1073,8 +1086,8 @@ file.edit("code/learning-OD.R") -->
 </div>
 <p>The blue line is a smoothed average of the data. It shows a common concept in transport research, the distance decay curve. In this case it shows that the longer the journey the less likely people are to use active travel. But this concept applies to all kinds of travel decisions. For example you are more likely to travel to a nearby coffee shop than a far away coffee shop. Different types of trip have different curves, but most people always have a bias for shorter trips.</p>
 </section>
-<section id="processing-origin-destination-data-in-london-cycle-hire-system" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> Processing origin-destination data in London Cycle Hire System</h1>
+<section id="processing-origin-destination-data-in-london-cycle-hire-system" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Processing origin-destination data in London Cycle Hire System</h1>
 <p>In this section, we will be working with origin-destination data in London Cycle Hire System (LCHS). We will specifically examine how a London Tube(Underground) strike influenced cyclists’ origin-destination choices. Public transport disruptions are becoming increasingly common, triggered by various factors including:</p>
 <ul>
 <li>Infrastructure maintenance requirements</li>
@@ -1180,113 +1193,20 @@ Geodetic CRS:  WGS 84
 </div>
 </div>
 </div>
-<p>The spatial distribution of change may also be uneven. One assumption is that bike docking stations closer to Tube stations experience higher travel activity than those farther away. To quickly assess whether there is a difference, we can create buffers around Tube stations and calculate the changes in bike docking stations within these buffers. We can then compare these changes to those in docking stations outside the buffers.</p>
-<p>Now, let create the buffer zones for tube stations in central london</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the tube station data</span></span>
-<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>tube_stations <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson"</span>)</span>
-<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a><span class="co"># use the bounding box of the bike docking stations to crop the tube stations</span></span>
-<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this can help us focus on central London - which is covered by the LCHS</span></span>
-<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london <span class="ot">=</span> <span class="fu">st_crop</span>(tube_stations, <span class="fu">st_bbox</span>(bike_docking_stations))</span>
-<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create the buffer zones, we set the buffer radius to 250m</span></span>
-<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a><span class="co"># you may adjust the value if you would like to create smaller or larger buffer zones.</span></span>
-<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london_buffer <span class="ot">=</span> <span class="fu">st_buffer</span>(tube_stations_central_london <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="dv">27700</span>), <span class="at">dist =</span> <span class="dv">250</span>)</span>
-<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-12"><a href="#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise the buffers, tube stations and bike docking stations</span></span>
-<span id="cb68-13"><a href="#cb68-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb68-14"><a href="#cb68-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london_buffer, <span class="at">fill =</span><span class="st">"#3ba2c7"</span>, <span class="at">color =</span> <span class="cn">NA</span>, <span class="at">alpha =</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
-<span id="cb68-15"><a href="#cb68-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london, <span class="at">color =</span> <span class="st">"#3ba2c7"</span>)<span class="sc">+</span></span>
-<span id="cb68-16"><a href="#cb68-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> bike_docking_stations, <span class="at">color =</span> <span class="st">"#d45b70"</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-59-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london_buffer_merged <span class="ot">=</span> <span class="fu">st_union</span>(tube_stations_central_london_buffer)</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london_buffer_merged, <span class="at">fill =</span><span class="st">"#3ba2c7"</span>, <span class="at">color =</span> <span class="cn">NA</span>, <span class="at">alpha =</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london, <span class="at">color =</span> <span class="st">"#3ba2c7"</span>)<span class="sc">+</span></span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> bike_docking_stations, <span class="at">color =</span> <span class="st">"#d45b70"</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-60-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a>bike_docking_stations <span class="ot">=</span> bike_docking_stations <span class="sc">|&gt;</span></span>
-<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">inside_tube_buffer =</span> <span class="fu">st_within</span>(bike_docking_stations,tube_stations_central_london_buffer_merged <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="dv">4326</span>), <span class="at">sparse =</span> <span class="cn">FALSE</span>))</span>
-<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bike_docking_stations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Simple feature collection with 6 features and 3 fields
-Geometry type: POINT
-Dimension:     XY
-Bounding box:  xmin: -0.197574 ymin: 51.49313 xmax: -0.084606 ymax: 51.53006
-Geodetic CRS:  WGS 84
-# A tibble: 6 × 4
-  station_id station_name                   geometry inside_tube_buffer[,1]
-       &lt;dbl&gt; &lt;chr&gt;                       &lt;POINT [°]&gt; &lt;lgl&gt;                 
-1          1 River Street , Cl… (-0.109971 51.52916) FALSE                 
-2          2 Phillimore Garden… (-0.197574 51.49961) FALSE                 
-3          3 Christopher Stree… (-0.084606 51.52128) FALSE                 
-4          4 St. Chad's Street… (-0.120974 51.53006) TRUE                  
-5          5 Sedding Street, S… (-0.156876 51.49313) TRUE                  
-6          6 Broadcasting Hous… (-0.144229 51.51812) FALSE                 </code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london_buffer_merged, <span class="at">fill =</span><span class="st">"#3ba2c7"</span>, <span class="at">color =</span> <span class="cn">NA</span>, <span class="at">alpha =</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
-<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> bike_docking_stations,</span>
-<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">color =</span> inside_tube_buffer),</span>
-<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a>bike_trips <span class="sc">|&gt;</span> <span class="fu">group_by</span>(start_station_id, date, type_day) <span class="sc">|&gt;</span></span>
-<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>()) <span class="sc">|&gt;</span></span>
-<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(bike_docking_stations <span class="sc">|&gt;</span> <span class="fu">st_drop_geometry</span>(), <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"start_station_id"</span> <span class="ot">=</span> <span class="st">"station_id"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(inside_tube_buffer,date) <span class="sc">|&gt;</span></span>
-<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_count =</span> <span class="fu">mean</span>(count)) <span class="sc">|&gt;</span></span>
-<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">x=</span> <span class="fu">as.factor</span>(date), <span class="at">y =</span> mean_count, <span class="at">fill =</span> inside_tube_buffer), <span class="at">stat =</span> <span class="st">"identity"</span>,<span class="at">position =</span> <span class="fu">position_dodge2</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>Whist above temporal and spatial analysis provide useful summaries, visual analysis of the origin-destination changes allow us to characterise with greater richness the nature of changes in response to the strike events. Let’ try to calculate the changes in o-d and map them!</p>
+<p>Whist above temporal analysis provide useful summaries, visual analysis of the origin-destination changes allow us to characterise with greater richness the nature of changes in response to the strike events. Let’ try to calculate the changes in o-d and map them!</p>
 <p>To break the task down, we will 1. Calculate the frequeny of each origin-destination pair on the strike day 2. Calculate the average frequancy of each origin-destination pair on the non-strike day 3. find out the difference</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculate the frequeny of each origin-destination pair on the strike day</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>od_strike <span class="ot">=</span> bike_trips <span class="sc">|&gt;</span></span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type_day <span class="sc">==</span> <span class="st">"Strike Day"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(start_station_id, end_station_id) <span class="sc">|&gt;</span></span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count_strike =</span> <span class="fu">n</span>())</span>
-<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Calculate the average frequancy of each origin-destination pair on the non-strike day</span></span>
-<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>od_non_strike <span class="ot">=</span> bike_trips <span class="sc">|&gt;</span></span>
-<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type_day <span class="sc">==</span> <span class="st">"Non-Strike Day"</span>) <span class="sc">|&gt;</span></span>
-<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(start_station_id, end_station_id) <span class="sc">|&gt;</span></span>
-<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count_non_strike =</span> <span class="fu">n</span>() <span class="sc">/</span> <span class="dv">2</span>) <span class="co"># we have two non-strike days, hence /2 can help get the mean value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Calculate the frequeny of each origin-destination pair on the strike day</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>od_strike <span class="ot">=</span> bike_trips <span class="sc">|&gt;</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type_day <span class="sc">==</span> <span class="st">"Strike Day"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(start_station_id, end_station_id) <span class="sc">|&gt;</span></span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count_strike =</span> <span class="fu">n</span>())</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Calculate the average frequancy of each origin-destination pair on the non-strike day</span></span>
+<span id="cb68-8"><a href="#cb68-8" aria-hidden="true" tabindex="-1"></a>od_non_strike <span class="ot">=</span> bike_trips <span class="sc">|&gt;</span></span>
+<span id="cb68-9"><a href="#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(type_day <span class="sc">==</span> <span class="st">"Non-Strike Day"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb68-10"><a href="#cb68-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(start_station_id, end_station_id) <span class="sc">|&gt;</span></span>
+<span id="cb68-11"><a href="#cb68-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count_non_strike =</span> <span class="fu">n</span>() <span class="sc">/</span> <span class="dv">2</span>) <span class="co"># we have two non-strike days, hence /2 can help get the mean value</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>To obtain the changes, we will need to join the origin-destination pairs in the two dataframe we just created.</p>
 <p>The <strong><code>dplyr</code> package</strong> provides a family of intuitive join functions:</p>
@@ -1337,18 +1257,18 @@ Geodetic CRS:  WGS 84
 </tbody>
 </table>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join the two dataframes</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>od_change <span class="ot">=</span> <span class="fu">full_join</span>(od_strike, od_non_strike, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"start_station_id"</span>, <span class="st">"end_station_id"</span>)) <span class="sc">|&gt;</span></span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">count_strike =</span> <span class="dv">0</span>, <span class="at">count_non_strike =</span> <span class="dv">0</span>))</span>
-<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create(mutate) a new column of changes in od count</span></span>
-<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>od_change <span class="ot">=</span> <span class="fu">filter</span>(od_change, start_station_id <span class="sc">!=</span> end_station_id) <span class="sc">|&gt;</span></span>
-<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">count_change =</span> count_strike <span class="sc">-</span> count_non_strike) <span class="sc">|&gt;</span></span>
-<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count_change))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># join the two dataframes</span></span>
+<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>od_change <span class="ot">=</span> <span class="fu">full_join</span>(od_strike, od_non_strike, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"start_station_id"</span>, <span class="st">"end_station_id"</span>)) <span class="sc">|&gt;</span></span>
+<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace_na</span>(<span class="fu">list</span>(<span class="at">count_strike =</span> <span class="dv">0</span>, <span class="at">count_non_strike =</span> <span class="dv">0</span>))</span>
+<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="co"># create(mutate) a new column of changes in od count</span></span>
+<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>od_change <span class="ot">=</span> <span class="fu">filter</span>(od_change, start_station_id <span class="sc">!=</span> end_station_id) <span class="sc">|&gt;</span></span>
+<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">count_change =</span> count_strike <span class="sc">-</span> count_non_strike) <span class="sc">|&gt;</span></span>
+<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(count_change))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Let have a look at the joined result:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(od_change)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(od_change)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
 # Groups:   start_station_id [6]
@@ -1364,36 +1284,36 @@ Geodetic CRS:  WGS 84
 </div>
 <p>We have succesfully joined the data, and the output <code>od_change</code> has both the trip count on strike day (<code>count_strike</code>) and non-strike day (<code>count_non_strike</code>), in addition, a new variable of <code>count_change</code> is created. Next, let clean the output further and create the od lines</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="co"># focusing on not self-loop trips</span></span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>od_inter_change <span class="ot">=</span> <span class="fu">filter</span>(od_change, start_station_id <span class="sc">!=</span> end_station_id) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(count_change))</span>
-<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create the od lines</span></span>
-<span id="cb78-5"><a href="#cb78-5" aria-hidden="true" tabindex="-1"></a>change_desire_lines <span class="ot">=</span> <span class="fu">od2line</span>(od_change, bike_docking_stations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># focusing on not self-loop trips</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>od_inter_change <span class="ot">=</span> <span class="fu">filter</span>(od_change, start_station_id <span class="sc">!=</span> end_station_id) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(<span class="fu">desc</span>(count_change))</span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="co"># create the od lines</span></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a>change_desire_lines <span class="ot">=</span> <span class="fu">od2line</span>(od_change, bike_docking_stations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>We are particularly interested in identifying origin-destination pairs where the number of trips has increased. To focus on these, we use the filter function to select desire lines with at least one additional trip on the strike day. You can adjust the threshold (currently set to 1) as needed.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(</span>
-<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> change_desire_lines <span class="sc">|&gt;</span> <span class="fu">filter</span>(count_change <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(count_change), <span class="co"># Define the data frame used to make the map</span></span>
-<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">colour =</span> count_change, <span class="co"># We want to map lines, the colour  is based on the "count_change" column</span></span>
-<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">alpha =</span> count_change, <span class="co"># Make lines slightly transparent and based on the "count_change" column</span></span>
-<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">linewidth =</span> count_change <span class="co"># The line width is based on the "count_change" column</span></span>
-<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"C"</span>) <span class="sc">+</span> <span class="co"># Select a colour palette</span></span>
-<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linewidth_binned</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">1.6</span>), <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span> <span class="co"># Set max and min ranges for line width</span></span>
-<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.7</span>), <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span> <span class="co"># Set max and min ranges for transparency</span></span>
-<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"br"</span>, <span class="at">width_hint =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="co"># Map scale bar (bottom right)</span></span>
-<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_north_arrow</span>(</span>
-<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">location =</span> <span class="st">"tl"</span>, <span class="at">which_north =</span> <span class="st">"true"</span>,</span>
-<span id="cb79-16"><a href="#cb79-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">north_arrow_fancy_orienteering</span>()</span>
-<span id="cb79-17"><a href="#cb79-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="co"># North arrow (top left)</span></span>
-<span id="cb79-18"><a href="#cb79-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb73-2"><a href="#cb73-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(</span>
+<span id="cb73-3"><a href="#cb73-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> change_desire_lines <span class="sc">|&gt;</span> <span class="fu">filter</span>(count_change <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">|&gt;</span> <span class="fu">arrange</span>(count_change), <span class="co"># Define the data frame used to make the map</span></span>
+<span id="cb73-4"><a href="#cb73-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb73-5"><a href="#cb73-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">colour =</span> count_change, <span class="co"># We want to map lines, the colour  is based on the "count_change" column</span></span>
+<span id="cb73-6"><a href="#cb73-6" aria-hidden="true" tabindex="-1"></a>      <span class="at">alpha =</span> count_change, <span class="co"># Make lines slightly transparent and based on the "count_change" column</span></span>
+<span id="cb73-7"><a href="#cb73-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">linewidth =</span> count_change <span class="co"># The line width is based on the "count_change" column</span></span>
+<span id="cb73-8"><a href="#cb73-8" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb73-9"><a href="#cb73-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb73-10"><a href="#cb73-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"C"</span>) <span class="sc">+</span> <span class="co"># Select a colour palette</span></span>
+<span id="cb73-11"><a href="#cb73-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linewidth_binned</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">1.6</span>), <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span> <span class="co"># Set max and min ranges for line width</span></span>
+<span id="cb73-12"><a href="#cb73-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.7</span>), <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span> <span class="co"># Set max and min ranges for transparency</span></span>
+<span id="cb73-13"><a href="#cb73-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"br"</span>, <span class="at">width_hint =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="co"># Map scale bar (bottom right)</span></span>
+<span id="cb73-14"><a href="#cb73-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_north_arrow</span>(</span>
+<span id="cb73-15"><a href="#cb73-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">location =</span> <span class="st">"tl"</span>, <span class="at">which_north =</span> <span class="st">"true"</span>,</span>
+<span id="cb73-16"><a href="#cb73-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">north_arrow_fancy_orienteering</span>()</span>
+<span id="cb73-17"><a href="#cb73-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="co"># North arrow (top left)</span></span>
+<span id="cb73-18"><a href="#cb73-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="index_files/figure-html/unnamed-chunk-68-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="index_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1401,8 +1321,8 @@ Geodetic CRS:  WGS 84
 <p>To enhance the map, adding some background context could be useful. Let’s try incorporating the River Thames and green spaces (parks) in central London.</p>
 <p>Let’s check how the background looks. You can also customize the colors of the rivers and parks by modifying the values assigned to <code>fill</code> and <code>color</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the river and parks</span></span>
-<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>rivers <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the river and parks</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>rivers <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `rivers' from data source 
   `https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson' 
@@ -1413,7 +1333,7 @@ Dimension:     XY
 Bounding box:  xmin: -0.2391075 ymin: 51.4639 xmax: 0.0002165973 ymax: 51.50991
 Geodetic CRS:  WGS 84</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>parks <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>parks <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `parks' from data source 
   `https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson' 
@@ -1424,10 +1344,135 @@ Dimension:     XY
 Bounding box:  xmin: -0.2391075 ymin: 51.44964 xmax: 0.0002165973 ymax: 51.55098
 Geodetic CRS:  WGS 84</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> parks, <span class="at">fill =</span> <span class="st">"#d9f5e0"</span>, <span class="at">color =</span> <span class="st">"#d9f5e0"</span>) <span class="sc">+</span> <span class="co"># add parks in central London to the map</span></span>
-<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rivers, <span class="at">color =</span> <span class="st">"#08D9D6"</span>, <span class="at">linewidth =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="co"># add river Thames in central London to the map</span></span>
-<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> parks, <span class="at">fill =</span> <span class="st">"#d9f5e0"</span>, <span class="at">color =</span> <span class="st">"#d9f5e0"</span>) <span class="sc">+</span> <span class="co"># add parks in central London to the map</span></span>
+<span id="cb78-3"><a href="#cb78-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rivers, <span class="at">color =</span> <span class="st">"#08D9D6"</span>, <span class="at">linewidth =</span> <span class="dv">3</span>) <span class="sc">+</span> <span class="co"># add river Thames in central London to the map</span></span>
+<span id="cb78-4"><a href="#cb78-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Now, let’s bring the origin-destination desire lines and the base map together! Can you identify key locations where bike trip origin-destination changes are most significant?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the data frame used to visualise the od</span></span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a>change_to_plot <span class="ot">=</span> change_desire_lines <span class="sc">|&gt;</span></span>
+<span id="cb79-3"><a href="#cb79-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(count_change <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
+<span id="cb79-4"><a href="#cb79-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(count_change)</span>
+<span id="cb79-5"><a href="#cb79-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb79-6"><a href="#cb79-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb79-7"><a href="#cb79-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add parks in central London to the map:</span></span>
+<span id="cb79-8"><a href="#cb79-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> parks, <span class="at">fill =</span> <span class="st">"#d9f5e0"</span>, <span class="at">color =</span> <span class="st">"#d9f5e0"</span>) <span class="sc">+</span></span>
+<span id="cb79-9"><a href="#cb79-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add river Thames in central London to the map:</span></span>
+<span id="cb79-10"><a href="#cb79-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rivers, <span class="at">color =</span> <span class="st">"#08D9D6"</span>, <span class="at">linewidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb79-11"><a href="#cb79-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(</span>
+<span id="cb79-12"><a href="#cb79-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> change_to_plot,</span>
+<span id="cb79-13"><a href="#cb79-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
+<span id="cb79-14"><a href="#cb79-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">colour =</span> count_change, <span class="co"># We want to map lines, the colour is based on the "count_change" column</span></span>
+<span id="cb79-15"><a href="#cb79-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">alpha =</span> count_change, <span class="co"># Make lines slightly transparent and based on the "count_change" column</span></span>
+<span id="cb79-16"><a href="#cb79-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">linewidth =</span> count_change <span class="co"># The line width is based on the "count_change" column</span></span>
+<span id="cb79-17"><a href="#cb79-17" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb79-18"><a href="#cb79-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb79-19"><a href="#cb79-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"C"</span>) <span class="sc">+</span> <span class="co"># Select a colour palette</span></span>
+<span id="cb79-20"><a href="#cb79-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linewidth_binned</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">1.6</span>), <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span> <span class="co"># Set max and min ranges for line width</span></span>
+<span id="cb79-21"><a href="#cb79-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.7</span>), <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span> <span class="co"># Set max and min ranges for transparency</span></span>
+<span id="cb79-22"><a href="#cb79-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"br"</span>, <span class="at">width_hint =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="co"># Scale bar (bottom left)y</span></span>
+<span id="cb79-23"><a href="#cb79-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_north_arrow</span>(</span>
+<span id="cb79-24"><a href="#cb79-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">location =</span> <span class="st">"tl"</span>, <span class="at">which_north =</span> <span class="st">"true"</span>,</span>
+<span id="cb79-25"><a href="#cb79-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">north_arrow_fancy_orienteering</span>()</span>
+<span id="cb79-26"><a href="#cb79-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="co"># North arrow (top left)</span></span>
+<span id="cb79-27"><a href="#cb79-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bonus" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Bonus</h1>
+<p>During the Tube strike, bike docking stations closer to Tube stations are likely to experience higher travel activity than those farther away.</p>
+<p>To quickly assess whether there is a difference, we can create a buffer around Tube stations and calculate the number of trips originating from bike docking stations within the buffer zone. We can then compare these figures to those from docking stations outside the buffer zone.</p>
+<p>First, let create the buffer zones for tube stations in central london</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the tube station data</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a>tube_stations <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson"</span>)</span>
+<span id="cb80-3"><a href="#cb80-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-4"><a href="#cb80-4" aria-hidden="true" tabindex="-1"></a><span class="co"># use the bounding box of the bike docking stations to crop the tube stations</span></span>
+<span id="cb80-5"><a href="#cb80-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this can help us focus on central London - which is covered by the LCHS</span></span>
+<span id="cb80-6"><a href="#cb80-6" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london <span class="ot">=</span> <span class="fu">st_crop</span>(tube_stations, <span class="fu">st_bbox</span>(bike_docking_stations))</span>
+<span id="cb80-7"><a href="#cb80-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-8"><a href="#cb80-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create the buffer zones, we set the buffer radius to 250m</span></span>
+<span id="cb80-9"><a href="#cb80-9" aria-hidden="true" tabindex="-1"></a><span class="co"># you may adjust the value if you would like to create smaller or larger buffer zones.</span></span>
+<span id="cb80-10"><a href="#cb80-10" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london_buffer <span class="ot">=</span> <span class="fu">st_buffer</span>(tube_stations_central_london <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="dv">27700</span>), <span class="at">dist =</span> <span class="dv">250</span>)</span>
+<span id="cb80-11"><a href="#cb80-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb80-12"><a href="#cb80-12" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise the buffers, tube stations and bike docking stations</span></span>
+<span id="cb80-13"><a href="#cb80-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb80-14"><a href="#cb80-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london_buffer, <span class="at">fill =</span><span class="st">"#3ba2c7"</span>, <span class="at">color =</span> <span class="cn">NA</span>, <span class="at">alpha =</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb80-15"><a href="#cb80-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london, <span class="at">color =</span> <span class="st">"#3ba2c7"</span>)<span class="sc">+</span></span>
+<span id="cb80-16"><a href="#cb80-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> bike_docking_stations, <span class="at">color =</span> <span class="st">"#d45b70"</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-66-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>You may have noticed that we created a buffer for each Tube station. We can merge all the buffers geometry into a single geometry.</p>
+<p><code>st_union()</code> is a function in the <code>sf</code> package in R, used to merge or dissolve geometries into a single geometry. It is commonly used in spatial data processing when you need to combine multiple polygons, lines, or points into one.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london_buffer_merged <span class="ot">=</span> <span class="fu">st_union</span>(tube_stations_central_london_buffer)</span>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london_buffer_merged, <span class="at">fill =</span><span class="st">"#3ba2c7"</span>, <span class="at">color =</span> <span class="cn">NA</span>, <span class="at">alpha =</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london, <span class="at">color =</span> <span class="st">"#3ba2c7"</span>)<span class="sc">+</span></span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> bike_docking_stations, <span class="at">color =</span> <span class="st">"#d45b70"</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Since we have obtained the merged buffer, let’s find out which bike docking stations fall inside the buffer. To achieve this, we can use the <code>st_within()</code> function. <code>st_within()</code> checks if one geometry is completely inside another geometry.</p>
+<p>We also need to create a new column for the <code>bike_docking_stations</code> to store the result from <code>st_within()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>bike_docking_stations <span class="ot">=</span> bike_docking_stations <span class="sc">|&gt;</span></span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">inside_tube_buffer =</span> <span class="fu">st_within</span>(bike_docking_stations,tube_stations_central_london_buffer_merged <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="dv">4326</span>), <span class="at">sparse =</span> <span class="cn">FALSE</span>))</span>
+<span id="cb82-3"><a href="#cb82-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(bike_docking_stations)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 3 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: -0.197574 ymin: 51.49313 xmax: -0.084606 ymax: 51.53006
+Geodetic CRS:  WGS 84
+# A tibble: 6 × 4
+  station_id station_name                   geometry inside_tube_buffer[,1]
+       &lt;dbl&gt; &lt;chr&gt;                       &lt;POINT [°]&gt; &lt;lgl&gt;                 
+1          1 River Street , Cl… (-0.109971 51.52916) FALSE                 
+2          2 Phillimore Garden… (-0.197574 51.49961) FALSE                 
+3          3 Christopher Stree… (-0.084606 51.52128) FALSE                 
+4          4 St. Chad's Street… (-0.120974 51.53006) TRUE                  
+5          5 Sedding Street, S… (-0.156876 51.49313) TRUE                  
+6          6 Broadcasting Hous… (-0.144229 51.51812) FALSE                 </code></pre>
+</div>
+</div>
+<p>As you can see, the <code>bike_docking_stations</code> now has a column named <code>inside_tube_buffer</code>, which contains binary outcome.</p>
+<p>Let’s plot them and use <code>inside_tube_buffer</code> for the colour of the bike docking staions.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london_buffer_merged, <span class="at">fill =</span><span class="st">"#3ba2c7"</span>, <span class="at">color =</span> <span class="cn">NA</span>, <span class="at">alpha =</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> bike_docking_stations,</span>
+<span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># use "inside_tube_buffer" for the colour of the bike docking staions</span></span>
+<span id="cb84-5"><a href="#cb84-5" aria-hidden="true" tabindex="-1"></a>          <span class="fu">aes</span>(<span class="at">color =</span> inside_tube_buffer), </span>
+<span id="cb84-6"><a href="#cb84-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">size =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1436,35 +1481,32 @@ Geodetic CRS:  WGS 84</code></pre>
 </div>
 </div>
 </div>
-<p>Now, let’s bring the origin-destination desire lines and the base map together! Can you identify key locations where bike trip origin-destination changes are most significant?</p>
+<p>Finally, let’s compare the average number of trips (by trip origin) between the two types of bike docking stations: those inside the buffer and those outside the buffer.</p>
+<p>What pattern did you observe?</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the data frame used to visualise the od</span></span>
-<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>change_to_plot <span class="ot">=</span> change_desire_lines <span class="sc">|&gt;</span></span>
-<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(count_change <span class="sc">&gt;=</span> <span class="dv">1</span>) <span class="sc">|&gt;</span></span>
-<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(count_change)</span>
-<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add parks in central London to the map:</span></span>
-<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> parks, <span class="at">fill =</span> <span class="st">"#d9f5e0"</span>, <span class="at">color =</span> <span class="st">"#d9f5e0"</span>) <span class="sc">+</span></span>
-<span id="cb85-9"><a href="#cb85-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># add river Thames in central London to the map:</span></span>
-<span id="cb85-10"><a href="#cb85-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> rivers, <span class="at">color =</span> <span class="st">"#08D9D6"</span>, <span class="at">linewidth =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
-<span id="cb85-11"><a href="#cb85-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(</span>
-<span id="cb85-12"><a href="#cb85-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> change_to_plot,</span>
-<span id="cb85-13"><a href="#cb85-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(</span>
-<span id="cb85-14"><a href="#cb85-14" aria-hidden="true" tabindex="-1"></a>      <span class="at">colour =</span> count_change, <span class="co"># We want to map lines, the colour is based on the "count_change" column</span></span>
-<span id="cb85-15"><a href="#cb85-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">alpha =</span> count_change, <span class="co"># Make lines slightly transparent and based on the "count_change" column</span></span>
-<span id="cb85-16"><a href="#cb85-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">linewidth =</span> count_change <span class="co"># The line width is based on the "count_change" column</span></span>
-<span id="cb85-17"><a href="#cb85-17" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb85-18"><a href="#cb85-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb85-19"><a href="#cb85-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_colour_viridis_c</span>(<span class="at">option =</span> <span class="st">"C"</span>) <span class="sc">+</span> <span class="co"># Select a colour palette</span></span>
-<span id="cb85-20"><a href="#cb85-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_linewidth_binned</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.01</span>, <span class="fl">1.6</span>), <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span> <span class="co"># Set max and min ranges for line width</span></span>
-<span id="cb85-21"><a href="#cb85-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="fl">0.001</span>, <span class="fl">0.7</span>), <span class="at">guide =</span> <span class="st">"legend"</span>) <span class="sc">+</span> <span class="co"># Set max and min ranges for transparency</span></span>
-<span id="cb85-22"><a href="#cb85-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_scale</span>(<span class="at">location =</span> <span class="st">"br"</span>, <span class="at">width_hint =</span> <span class="fl">0.3</span>) <span class="sc">+</span> <span class="co"># Scale bar (bottom left)y</span></span>
-<span id="cb85-23"><a href="#cb85-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotation_north_arrow</span>(</span>
-<span id="cb85-24"><a href="#cb85-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">location =</span> <span class="st">"tl"</span>, <span class="at">which_north =</span> <span class="st">"true"</span>,</span>
-<span id="cb85-25"><a href="#cb85-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">style =</span> <span class="fu">north_arrow_fancy_orienteering</span>()</span>
-<span id="cb85-26"><a href="#cb85-26" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="co"># North arrow (top left)</span></span>
-<span id="cb85-27"><a href="#cb85-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>bike_trips <span class="sc">|&gt;</span> </span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(start_station_id, date, type_day) <span class="sc">|&gt;</span> </span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">count =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Join with docking station data to get station attributes (excluding geometry)</span></span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(</span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>    bike_docking_stations <span class="sc">|&gt;</span> <span class="fu">st_drop_geometry</span>(), </span>
+<span id="cb85-8"><a href="#cb85-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"start_station_id"</span> <span class="ot">=</span> <span class="st">"station_id"</span>)</span>
+<span id="cb85-9"><a href="#cb85-9" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb85-10"><a href="#cb85-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb85-11"><a href="#cb85-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group by whether the station is inside the Tube buffer and by type_day (strike day or non-strike day)</span></span>
+<span id="cb85-12"><a href="#cb85-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(inside_tube_buffer, type_day) <span class="sc">|&gt;</span> </span>
+<span id="cb85-13"><a href="#cb85-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_count =</span> <span class="fu">mean</span>(count), <span class="at">.groups =</span> <span class="st">"drop"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb85-14"><a href="#cb85-14" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb85-15"><a href="#cb85-15" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Plot the average trip count by type_day, bar fill colour by buffer status</span></span>
+<span id="cb85-16"><a href="#cb85-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> type_day, <span class="at">y =</span> mean_count, <span class="at">fill =</span> inside_tube_buffer)) <span class="sc">+</span></span>
+<span id="cb85-17"><a href="#cb85-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="fu">position_dodge2</span>()) <span class="sc">+</span></span>
+<span id="cb85-18"><a href="#cb85-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb85-19"><a href="#cb85-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb85-20"><a href="#cb85-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Average Trip Count"</span>,</span>
+<span id="cb85-21"><a href="#cb85-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Inside Tube Buffer"</span>,</span>
+<span id="cb85-22"><a href="#cb85-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparison of Average Trip Count by Bike Docking Stations"</span></span>
+<span id="cb85-23"><a href="#cb85-23" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1474,8 +1516,8 @@ Geodetic CRS:  WGS 84</code></pre>
 </div>
 </div>
 </section>
-<section id="homework" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> Homework</h1>
+<section id="homework" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Homework</h1>
 <ol type="1">
 <li>Read Chapters 2-5 of <a href="https://r.geocompx.org/transport.html">Geocomputation with R</a></li>
 <li>Using knowledge about datasets and new skills covered in the practicals 2 and 3, think of a simple research question. Write a prompt that generates some code to try to answer that question and paste the resulting code into a code chunk in a new .qmd file, e.g.&nbsp;called <code>gen-ai-test.qmd</code>.
@@ -1490,14 +1532,14 @@ Geodetic CRS:  WGS 84</code></pre>
 <li>Bonus: Read more about the <a href="https://ggplot2.tidyverse.org/">ggplot2 package</a></li>
 </ol>
 </section>
-<section id="references" class="level1" data-number="7">
+<section id="references" class="level1" data-number="9">
 
 
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">7 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">9 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
 <div id="ref-wickham_data_2023" class="csl-entry" role="listitem">
 Wickham, H., Cetinkaya-Rundel, M., Grolemund, G., 2023. <a href="https://r4ds.hadley.nz/">R for <span>Data Science</span>: <span>Import</span>, <span>Tidy</span>, <span>Transform</span>, <span>Visualize</span>, and <span>Model Data</span></a>, 2nd edition. ed. O’Reilly Media, Beijing Boston Farnham Sebastopol Tokyo.
 </div>
