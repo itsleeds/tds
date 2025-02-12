@@ -1541,6 +1541,59 @@ Geodetic CRS:  WGS 84
 <li>Bonus: Read more about using the <a href="https://r-tmap.github.io/tmap/">tmap package</a></li>
 <li>Bonus: Read more about the <a href="https://ggplot2.tidyverse.org/">ggplot2 package</a></li>
 </ol>
+<details>
+<p>I wrote the following prompt:</p>
+<p>Starting with the following R code that starts by loading the tidyverse and stats19 R packages, write a script that finds out which local authorities saw the greatest percentage point decrease in the number of road traffic collisions between 2019 and 2020. Explore this relationship for the total number of collisions with summary statistics, ggplot2 visualisations, and perhaps a basic model. Furthermore, explore how the % change in collision numbers vary depending on factors such as urban or rural area, casualty severity, and the month used for comparison.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>collisions_2019 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="dv">2019</span>)</span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>collisions_2020 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="dv">2020</span>)</span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>collisions_combined <span class="ot">=</span> <span class="fu">bind_rows</span>(</span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(collisions_2019, <span class="at">year =</span> <span class="dv">2019</span>),</span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(collisions_2020, <span class="at">year =</span> <span class="dv">2020</span>)</span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a><span class="co"># names(collisions_2020)</span></span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  [1] "accident_index"                             </span></span>
+<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="co">#  [2] "accident_year"                              </span></span>
+<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a><span class="co">#  [3] "accident_reference"                         </span></span>
+<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a><span class="co">#  [4] "location_easting_osgr"                      </span></span>
+<span id="cb86-14"><a href="#cb86-14" aria-hidden="true" tabindex="-1"></a><span class="co">#  [5] "location_northing_osgr"                     </span></span>
+<span id="cb86-15"><a href="#cb86-15" aria-hidden="true" tabindex="-1"></a><span class="co">#  [6] "longitude"                                  </span></span>
+<span id="cb86-16"><a href="#cb86-16" aria-hidden="true" tabindex="-1"></a><span class="co">#  [7] "latitude"                                   </span></span>
+<span id="cb86-17"><a href="#cb86-17" aria-hidden="true" tabindex="-1"></a><span class="co">#  [8] "police_force"                               </span></span>
+<span id="cb86-18"><a href="#cb86-18" aria-hidden="true" tabindex="-1"></a><span class="co">#  [9] "accident_severity"                          </span></span>
+<span id="cb86-19"><a href="#cb86-19" aria-hidden="true" tabindex="-1"></a><span class="co"># [10] "number_of_vehicles"                         </span></span>
+<span id="cb86-20"><a href="#cb86-20" aria-hidden="true" tabindex="-1"></a><span class="co"># [11] "number_of_casualties"                       </span></span>
+<span id="cb86-21"><a href="#cb86-21" aria-hidden="true" tabindex="-1"></a><span class="co"># [12] "date"                                       </span></span>
+<span id="cb86-22"><a href="#cb86-22" aria-hidden="true" tabindex="-1"></a><span class="co"># [13] "day_of_week"                                </span></span>
+<span id="cb86-23"><a href="#cb86-23" aria-hidden="true" tabindex="-1"></a><span class="co"># [14] "time"                                       </span></span>
+<span id="cb86-24"><a href="#cb86-24" aria-hidden="true" tabindex="-1"></a><span class="co"># [15] "local_authority_district"                   </span></span>
+<span id="cb86-25"><a href="#cb86-25" aria-hidden="true" tabindex="-1"></a><span class="co"># [16] "local_authority_ons_district"               </span></span>
+<span id="cb86-26"><a href="#cb86-26" aria-hidden="true" tabindex="-1"></a><span class="co"># [17] "local_authority_highway"                    </span></span>
+<span id="cb86-27"><a href="#cb86-27" aria-hidden="true" tabindex="-1"></a><span class="co"># [18] "first_road_class"                           </span></span>
+<span id="cb86-28"><a href="#cb86-28" aria-hidden="true" tabindex="-1"></a><span class="co"># [19] "first_road_number"                          </span></span>
+<span id="cb86-29"><a href="#cb86-29" aria-hidden="true" tabindex="-1"></a><span class="co"># [20] "road_type"                                  </span></span>
+<span id="cb86-30"><a href="#cb86-30" aria-hidden="true" tabindex="-1"></a><span class="co"># [21] "speed_limit"                                </span></span>
+<span id="cb86-31"><a href="#cb86-31" aria-hidden="true" tabindex="-1"></a><span class="co"># [22] "junction_detail"                            </span></span>
+<span id="cb86-32"><a href="#cb86-32" aria-hidden="true" tabindex="-1"></a><span class="co"># [23] "junction_control"                           </span></span>
+<span id="cb86-33"><a href="#cb86-33" aria-hidden="true" tabindex="-1"></a><span class="co"># [24] "second_road_class"                          </span></span>
+<span id="cb86-34"><a href="#cb86-34" aria-hidden="true" tabindex="-1"></a><span class="co"># [25] "second_road_number"                         </span></span>
+<span id="cb86-35"><a href="#cb86-35" aria-hidden="true" tabindex="-1"></a><span class="co"># [26] "pedestrian_crossing_human_control"          </span></span>
+<span id="cb86-36"><a href="#cb86-36" aria-hidden="true" tabindex="-1"></a><span class="co"># [27] "pedestrian_crossing_physical_facilities"    </span></span>
+<span id="cb86-37"><a href="#cb86-37" aria-hidden="true" tabindex="-1"></a><span class="co"># [28] "light_conditions"                           </span></span>
+<span id="cb86-38"><a href="#cb86-38" aria-hidden="true" tabindex="-1"></a><span class="co"># [29] "weather_conditions"                         </span></span>
+<span id="cb86-39"><a href="#cb86-39" aria-hidden="true" tabindex="-1"></a><span class="co"># [30] "road_surface_conditions"                    </span></span>
+<span id="cb86-40"><a href="#cb86-40" aria-hidden="true" tabindex="-1"></a><span class="co"># [31] "special_conditions_at_site"                 </span></span>
+<span id="cb86-41"><a href="#cb86-41" aria-hidden="true" tabindex="-1"></a><span class="co"># [32] "carriageway_hazards"                        </span></span>
+<span id="cb86-42"><a href="#cb86-42" aria-hidden="true" tabindex="-1"></a><span class="co"># [33] "urban_or_rural_area"                        </span></span>
+<span id="cb86-43"><a href="#cb86-43" aria-hidden="true" tabindex="-1"></a><span class="co"># [34] "did_police_officer_attend_scene_of_accident"</span></span>
+<span id="cb86-44"><a href="#cb86-44" aria-hidden="true" tabindex="-1"></a><span class="co"># [35] "trunk_road_flag"                            </span></span>
+<span id="cb86-45"><a href="#cb86-45" aria-hidden="true" tabindex="-1"></a><span class="co"># [36] "lsoa_of_accident_location"                  </span></span>
+<span id="cb86-46"><a href="#cb86-46" aria-hidden="true" tabindex="-1"></a><span class="co"># [37] "enhanced_severity_collision"                </span></span>
+<span id="cb86-47"><a href="#cb86-47" aria-hidden="true" tabindex="-1"></a><span class="co"># [38] "datetime" </span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</details>
 </section>
 <section id="references" class="level1" data-number="9">
 
