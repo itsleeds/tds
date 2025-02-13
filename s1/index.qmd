@@ -22,7 +22,7 @@ questions like:
 
 -   Where are the points with the highest demand/flows?
 
-## Some interesting datasets ...
+# Some interesting datasets ...
 
 Let's explore some interesting datasets. First we will install (if
 necessary) and load the packages for this examples
@@ -41,7 +41,7 @@ remotes::install_cran(pkgs)
 sapply(pkgs, require, character.only = TRUE)
 ```
 
-### Motorised vehicles counts: Leeds
+## Motorised vehicles counts: Leeds
 
 Many cities/countries publish data from permanent traffic counters e.g.
 ANPR cameras, induction loops or low-cost sensors. We are going to use
@@ -75,7 +75,7 @@ leeds_car_2019 <- read_csv(
 If you are interested in open traffic count datasets see
 [this](https://juanfonsecals1.github.io/Results_Summary_Maps/)
 
-### Cycle counts for West Yorkshire
+## Cycle counts for West Yorkshire
 
 Some cities would have some dedicated infrastructure to count the number
 of people using bikes at strategic points of the city. We are going to
@@ -113,7 +113,7 @@ Other interesting datasets for you to explore are [Paris cycling
 counters](https://parisdata.opendatasoft.com/explore/dataset/comptage-velo-donnees-compteurs/dataviz/?disjunctive.id_compteur&disjunctive.nom_compteur&disjunctive.id&disjunctive.name)
 or [Scotland](https://usmart.io/org/cyclingscotland/).
 
-### Pedestrian Counts: Melbourne
+## Pedestrian Counts: Melbourne
 
 Cities also monitor the number pedestrians in key locations. We can use
 data from the sensors in Melbourne accessible
@@ -136,7 +136,7 @@ We will extract
 melbourne_dec2024 <- read_csv("https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-monthly-counts-per-hour/exports/csv?lang=en&refine=sensing_date%3A%222024%2F12%22&timezone=Australia%2FMelbourne&use_labels=true&delimiter=%2C")
 ```
 
-### Public transport tap-in data: Bogotá
+## Public transport tap-in data: Bogotá
 
 Public transport ridership data can be difficult to obtain. Fortunately,
 some cities which have systems managed by a public organisation make
@@ -182,7 +182,7 @@ tm_brt_2024 <- read_csv(unz(u_bn,"troncal_2024.csv"))
 TfL's crowding data is also a great source of ridership data. See
 [this](https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv).
 
-### Network data from OSM
+## Network data from OSM
 
 You may be already familiar with getting and using OSM data. This an
 example of how to obtain the network that can be used for pedestrians.
@@ -201,6 +201,7 @@ tm_basemap("OpenStreetMap")+
 ```
 
 ```{r}
+#| results='hide'
 my_network <- oe_get_network(sf_buffer, mode = "walking")
 ```
 
