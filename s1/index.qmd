@@ -42,10 +42,9 @@ sapply(pkgs, require, character.only = TRUE)
 
 ### Motorised vehicles counts: Leeds
 
-Many cities/countries publish data from permanent traffic counters.
-These counters can be ANPR cameras, induction loops or low-cost sensors.
-We are going to use data from the sensors in Leeds (available in [Data
-Mill
+Many cities/countries publish data from permanent traffic counters e.g.
+ANPR cameras, induction loops or low-cost sensors. We are going to use
+data from the sensors in Leeds (available in [Data Mill
 North](https://datamillnorth.org/dataset/e6q0n/leeds-annual-traffic-growth))
 
 ```{r}
@@ -77,7 +76,10 @@ If you are interested in open traffic count datasets see
 
 ### Cycle counts for West Yorkshire
 
-Similarly, some cities publish the counts of cyclists:
+Some cities would have some dedicated infrastructure to count the number
+of people using bikes at strategic points of the city. We are going to
+use some cycle counters from West Yorkshire that you can find
+[here](https://datamillnorth.org/dataset/e1dmk/leeds-annual-cycle-growth):
 
 ```{r}
 leeds_bike_location <- read_csv(
@@ -98,10 +100,39 @@ tm_shape(leeds_bike_location_sf)+
   tm_dots("darkblue")
 ```
 
+The data for 2019:
+
 ```{r}
 leeds_bike_2019 <- read_csv(
   "https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv"
   )
+```
+
+Other interesting datasets for you to explore are [Paris cycling
+counters](https://parisdata.opendatasoft.com/explore/dataset/comptage-velo-donnees-compteurs/dataviz/?disjunctive.id_compteur&disjunctive.nom_compteur&disjunctive.id&disjunctive.name)
+or [Scotland](https://usmart.io/org/cyclingscotland/).
+
+### Pedestrian Counts: Melbourne
+
+Cities also monitor the number pedestrians in key locations. We can use
+data from the sensors in Melbourne accessible
+[here](https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/export/):
+
+```{r}
+melbourne_locations_sf <- st_read("https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-sensor-locations/exports/geojson?lang=en&timezone=Europe%2FLondon")
+```
+
+```{r}
+#| echo: false
+tm_basemap("OpenStreetMap")+
+tm_shape(melbourne_locations_sf)+
+  tm_dots("darkblue")
+```
+
+We will extract
+
+```{r}
+melbourne_dec2024 <- read_csv("https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-monthly-counts-per-hour/exports/csv?lang=en&refine=sensing_date%3A%222024%2F12%22&timezone=Australia%2FMelbourne&use_labels=true&delimiter=%2C")
 ```
 
 ### Public transport tap-in data: Bogotá
@@ -109,8 +140,9 @@ leeds_bike_2019 <- read_csv(
 Public transport ridership data can be difficult to obtain. Fortunately,
 some cities which have systems managed by a public organisation make
 this data available for the public. Bogotá's integrated transport system
-publishes the tap-in data for the BRT system. We will use one of the
-daily reports.
+publishes the tap-in data for the BRT system (see
+[this](https://datosabiertos-transmilenio.hub.arcgis.com/)). We will use
+one of the daily reports.
 
 ```{r}
 tm_stations_sf <- st_read("Estaciones_Troncales_de_TRANSMILENIO.geojson")
@@ -150,6 +182,9 @@ TfL's crowding data is also a great source of ridership data. See
 [this](https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv).
 
 ### Network data from OSM
+
+You may be already familiar with getting and using OSM data. This an
+example of how to obtain the network that can be used for pedestrians.
 
 ```{r}
 my_coordinates <- c(-76.78893552474851,18.01206727612776)
