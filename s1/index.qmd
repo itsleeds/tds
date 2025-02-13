@@ -34,7 +34,8 @@ pkgs = c(
     "sf",
     "tidyverse",
     "osmextract",
-    "tmap"
+    "tmap",
+    "maptiles"
 )
 remotes::install_cran(pkgs)
 sapply(pkgs, require, character.only = TRUE)
