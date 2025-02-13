@@ -4,6 +4,10 @@ bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
+  eval: true
+editor: 
+  markdown: 
+    wrap: 72
 ---
 
 # Setting Up
@@ -17,7 +21,7 @@ source("https://git.io/JvGjF")
 
 The packages we will be using are:
 
-```{r, eval=FALSE}
+```{r, eval=TRUE, echo=FALSE}
 library(sf)               # Spatial data functions
 library(tidyverse)        # General data manipulation
 library(stplanr)          # General transport data functions
@@ -30,12 +34,19 @@ tmap_mode("plot")
 
 # Using OpenTripPlanner to get routes
 
-We have setup the Multi-modal routing service OpenTripPlanner for West
-Yorkshire. Try typing this URL — otp. saferactive. org (no spaces) —
+We have set up the Multi-modal routing service OpenTripPlanner for West
+Yorkshire. Try typing this URL https://otp.robinlovelace.net/ 
 during the session into your browser. You should see something like
 this:
 
-![](images/otp_screenshot.png) OTP Web GUI
+
+
+![](images/otp_screenshot.png)
+Note if you see a grey map use the layers button in the top right to switch to a different basemap.
+
+
+## OTP Web GUI
+
 
 *Exercise*
 
@@ -47,73 +58,146 @@ this:
 To allow R to connect to the OpenTripPlanner server, we will use the
 `opentripplanner` package and the function `otp_connect`.
 
-```{r, eval=FALSE}
+```{r connect, eval=FALSE}
 # ip = "localhost" # to run it on your computer (see final bonus exercise)
-ip = "otp.saferactive.org" # an actual server
+ip = "otp.robinlovelace.net/" # an actual server
 otpcon = otp_connect(hostname = ip, 
-                     port = 80,
+                     ssl = TRUE
+                     port = 443,
                      router = "west-yorkshire")
 ```
 
 If you have connected successfully, then you should get a message “Router exists.”
 
-To get some routes, we will start by importing some data we have used previously. Note that the data frame has 78 columns (only a few of which are useful) and 1k rows:
 
-```{r, eval=FALSE}
-u = "https://github.com/ITSLeeds/TDS/releases/download/22/desire_lines_100.geojson"
+Create a test route. Notice than in the web UI the coordinates are `Lat/Lng` but R uses `Lng/Lat`
+
+```{r testroute, eval=FALSE, message=FALSE, warning=FALSE}
+routes_test = otp_plan(otpcon = otpcon,
+                            fromPlace = c(-1.55555, 53.81005), #Lng/Lat
+                            toPlace = c(-1.54710, 53.79519),
+                            mode = "WALK") 
+```
+You can use multiple modes and combinations try:
+
+* `mode = "WALK"`
+* `mode = c("WALK","TRANSIT")`
+* `mode = c("BICYCLE","TRANSIT")`
+* `mode = "CAR"`
+* `mode = c("CAR_PARK","TRANSIT")`
+
+To get some more routes, we will start by importing some data. The `NTEM_flow.geojson` dataset the contains the top desire lines in West Yorkshire. It was produced from a transport model called the [National Trip End Model](https://data.gov.uk/dataset/11bc7aaf-ddf6-4133-a91d-84e6f20a663e/national-trip-end-model-ntem) and research from the [University of Leeds](https://github.com/ITSLeeds/NTEM2OD).
+
+
+```{r loaddesirelines, message=FALSE}
+u = "https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson"
 desire_lines = read_sf(u)
-dim(desire_lines)
+head(desire_lines)
 ```
 
 
-*Exercise*
+We will also download the points that represent the possible start and end point of trips in the model
 
-2. Subset the and overwrite the desire_lines data frame with the = assignment operator so that it only has the following columns: geo_code1, geo_code2, all, bicycle, foot, car_driver, and geometry. You can test the that the operation worked by executing the object name, the result should look like that shown below.
+```{r loadcentroids, message=FALSE}
+u = "https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_cents.geojson"
+centroids = read_sf(u)
+head(centroids)
+```
+**Exercise** 
 
-3. Use the tmap package to plot the desire_lines. Choose different ways to visualise the data so you can understand local commuter travel patterns. See example plot below.
+2. Plot the `desire_lines` and `centroids` objects using the `tmap` to show the number of travellers on each desire_line and the locations of all centroids.
 
-This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the points from the lines using the `stplanr::line2df` function. An then select the top 3 desire lines.
+```{r, message=FALSE, echo=TRUE}
+tmap_mode("plot") # Change to view for interactive map
+tm_shape(desire_lines) +
+  tm_lines(lwd = "all", col = "all", scale = 4, palette = "-viridis") +
+  tm_shape(centroids) +
+  tm_dots(col = "red")
+```
 
-*Exercise*
 
-4. Produce a data frame called desire which contains the coordinates of the start and endpoints of the lines in desire_lines but not the geometries. Hint `?stplanr::line2df` and `?dplyr::bind_cols`
+3. Produce some different maps for each mode of travel in the `desire_lines` dataset. How do the numbers of travellers change for walking, driving, and train travel? See example plot below.
 
-5. Subset out the top three desire lines by the total number of commuters and create a new data frame called desire_top. Hint `?dplyr::slice_max`
 
-```{r, eval=FALSE}
+```{r, message=FALSE, echo=FALSE}
+tmap_mode("plot") # Change to view for interactive map
+tm_shape(desire_lines) +
+  tm_lines(lwd = "rail", col = "rail", scale = 4, palette = "-viridis", style = "jenks")
+```
+
+This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the start and endpoints using the package `lwgeom`
+
+
+**Exercise**
+
+4. Produce a data frame called `desire_top` which contains the top three `desire_lines` for all travellers. Hint `?slice_max`
+
+```{r, eval=TRUE, echo=FALSE}
 desire_top = desire_lines %>% 
-  top_n(n = 3, wt = car_driver)
+  slice_max(order_by = all,n = 3)
 ```
 
-6. Find the driving routes for desire_top and call them routes_top using opentripplanner::otp_plan
 
-To find the routes for the first three desire lines use the following command:
+5. We need to extract start and end point from those desire lines. We would also like to give each place an ID value
 
-```{r, eval=FALSE}
-routes_drive_top = route(
-  l = desire_top,
-  route_fun = otp_plan,
-  mode = "CAR",
-  otpcon = otpcon
-  )
+```{r, eval=TRUE, echo=TRUE}
+# Extract the start and end points
+fromPlace = lwgeom::st_startpoint(desire_top)
+toPlace = lwgeom::st_endpoint(desire_top)
+
+# This returns just the geometry
+# So make it into an sf data.frame with the ID values from desire_top
+
+fromPlace = st_sf(data.frame(id = desire_top$from, geometry = fromPlace))
+toPlace = st_sf(data.frame(id = desire_top$to, geometry = toPlace))
 ```
 
-7. Plot routes_drive_top using the tmap package in interactive mode. You should see something like the image below.
 
-```{r, eval=FALSE}
-tmap_mode("view")
-tm_shape(routes_drive_top) + tm_lines()
+6. Create a new object called `routes_drive_top`, with driving routes between the OD pairs represented in the `desire_top` object. 
+
+
+Calculate routes for the first three desire lines with the following command:
+
+```{r, message=FALSE,  eval=FALSE}
+routes_drive_top = otp_plan(otpcon = otpcon,
+                            fromPlace = fromPlace,
+                            toPlace = toPlace,
+                            fromID = fromPlace$id,
+                            toID = toPlace$id,
+                            mode = "CAR")
 ```
 
-```{r, eval=FALSE}
+```{r, message=FALSE,  eval=TRUE, echo=FALSE}
+# Save as RDS:
+# saveRDS(routes_drive_top, "routes_drive_top.Rds")
+# piggyback::pb_upload("routes_drive_top.Rds")
+# Download the file.
+# files = piggyback::pb_list()
+# Search for the file:
+# files = files[grepl("routes_drive_top", files$file_name),]
+# u = piggyback::pb_download_url("routes_drive_top.Rds")
+u = "https://github.com/ITSLeeds/TDS/releases/download/23/routes_drive_top.Rds"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+routes_drive_top = readRDS("routes_drive_top.Rds")
+```
+
+
+7. Plot `routes_drive_top` using the `tmap` package mode. You should see something like the image below.
+
+```{r, echo=FALSE}
 tmap_mode("plot")
+```
+
+```{r}
+tm_shape(routes_drive_top) + tm_lines()
 ```
 
 We can also get Isochrones from OTP.
 
-```{r, eval=FALSE}
-sf::sf_use_s2(FALSE)
-isochrone = otp_isochrone(otpcon, fromPlace = c(-1.558655, 53.807870), 
+```{r, message=FALSE, eval=FALSE}
+isochrone = otp_isochrone(otpcon, 
+                          fromPlace = c(-1.558655, 53.807870), 
                           mode = c("BICYCLE","TRANSIT"),
                           maxWalkDistance = 3000)
 isochrone$time = isochrone$time / 60
@@ -121,48 +205,146 @@ tm_shape(isochrone) +
   tm_fill("time", alpha = 0.6)
 ```
 
-To save overloading the server, we have pre-generated some extra routes. Download these routes and load them into R.
 
-```{r, eval=FALSE}
+```{r, message=FALSE, eval=FALSE, echo=FALSE}
+# Save the isochrone as RDS
+saveRDS(isochrone, "isochrone.Rds")
+piggyback::pb_upload("isochrone.Rds")
+```
+
+
+```{r, message=FALSE, eval=TRUE, echo=FALSE}
+u = "https://github.com/ITSLeeds/TDS/releases/download/23/isochrone.Rds"
+if (!file.exists("isochrone.Rds")) download.file(u, "isochrone.Rds", mode = "wb")
+```
+
+```{r, message=FALSE, eval=TRUE, echo=FALSE}
+if (file.exists("isochrone.Rds")){isochrone = readRDS("isochrone.Rds")}
+if (file.exists("p4/isochrone.Rds")){isochrone = readRDS("p4/isochrone.Rds")}
+isochrone = readRDS("isochrone.Rds")
+isochrone$time = isochrone$time / 60
+tm_shape(isochrone) +
+  tm_fill("time", alpha = 0.6)
+```
+
+
+To save you time and to prevent overloading the server, we have pre-generated some extra routes. Download these routes and load them into R.
+
+```{r, message=FALSE, eval=FALSE, echo=FALSE}
+routes_drive = route(l = desire_lines, route_fun = otp_plan, otpcon = otpcon, mode = "CAR")
+# fromPlace = centroids[match(desire_lines$from, centroids$Zone_Code),]
+# toPlace = centroids[match(desire_lines$to, centroids$Zone_Code),]
+# routes_drive = otp_plan(otpcon = otpcon,
+#                             fromPlace = fromPlace,
+#                             toPlace = toPlace,
+#                             fromID = fromPlace$Zone_Code,
+#                             toID = toPlace$Zone_Code,
+#                             mode = "CAR",
+#                             ncores = 20)
+
+sf::write_sf(routes_drive, "routes_drive.geojson", delete_dsn = TRUE)
+piggyback::pb_upload("routes_drive.geojson")
+
+date_time = lubridate::ymd_hms("2022-01-25 09:00:00") 
+routes_transit = route(
+  l = desire_lines, route_fun = otp_plan, otpcon = otpcon,
+  mode = c("WALK","TRANSIT"), date_time = date_time, maxWalkDist = 2000
+  )
+
+# routes_transit = otp_plan(otpcon = otpcon,
+#                             fromPlace = fromPlace,
+#                             toPlace = toPlace,
+#                             fromID = fromPlace$Zone_Code,
+#                             toID = toPlace$Zone_Code,
+#                             mode = c("WALK","TRANSIT"),
+#                             date_time = date_time,
+#                             ncores = 20,
+#                             maxWalkDistance = 2000)
+summary(st_is_valid(routes_transit))
+routes_transit = st_make_valid(routes_transit)
+sf::write_sf(routes_transit, "routes_transit.geojson", delete_dsn = TRUE)
+piggyback::pb_upload("routes_transit.geojson")
+```
+
+```{r, message=FALSE, eval=TRUE, echo=TRUE}
 u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive.geojson"
 routes_drive = read_sf(u)
 u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_transit.geojson"
-routes_transit = read_sf("transit_routes.gpkg")
+routes_transit = read_sf(u)
 ```
 
-# Route Networks
+We will now join the number of drivers onto the driving routes.
 
-Route networks (also called flow maps) show transport demand on different parts of the road network.
+**Exercise**
 
-Now we have the number of commuters and their routes, we can produce a route network map using stplanr::overline.
+8. Create a dataset called `n_driver` from `desire_lines` which only have the columns `from` `to` and `drive`. Hint ?dplyr::select  and ?sf::st_drop_geometry
 
-```{r, eval=FALSE}
-rnet_drive <- overline(routes_drive, "car_driver")
+```{r, message=FALSE, eval=TRUE, echo=FALSE}
+n_driver = desire_lines %>%
+  st_drop_geometry() %>%
+  select(from, to, drive)
 ```
 
-*Exercise* 
+9. Join the `n_driver` data onto the `routes_drive` data by linking `fromPlace = from` and `toPlace = to`. Hint ?dplyr::left_join.
 
-8. Make a route network for driving and plot it using the tmap package. How is is different from just plotting the routes?
+```{r, message=FALSE, eval=TRUE, echo=FALSE}
+routes_drive = left_join(routes_drive, n_driver, by = c("fromPlace" = "from","toPlace" = "to"))
+```
 
-# Line Merging
+10. Plot the routes showing the number of drivers on each route.
 
-Notice that routes_transit has returned separate rows for each mode (WALK, RAIL). Notice the route_option column shows that some routes have multiple options.
+```{r, message=FALSE, eval=TRUE, echo=FALSE}
+tm_shape(routes_drive) +
+  tm_lines(col = "drive", lwd = 2, palette = "-viridis")
+```
 
-Let’s suppose you want a single line for each route.
+## Route Networks (also called flow maps)
 
-*Exercise*
+The map above shows some useful information about where people drive. But it has a problem. When many routes overlap it hides some of the drivers. What would be more useful would be to add those drivers together so we can see the total number of drivers on each road. This is what a route network does.
 
-9. Filter the routes_transit to contain only one route option per origin-destination pair.
+We can produce a route network map using `stplanr::overline`.
+
+```{r, message=FALSE, eval=TRUE, echo=TRUE}
+rnet_drive = overline(routes_drive, "drive")
+```
+
+**Exercise**
+
+10. Make a route network for driving and plot it using the `tmap` package. How is is different from just plotting the routes?
+
+```{r, message=FALSE, eval=TRUE, echo=FALSE}
+tm_shape(rnet_drive) +
+  tm_lines(lwd = 2, col = "drive", style = "jenks", palette = "-viridis")
+```
+
+## Line Merging
+
+Notice that `routes_transit` has returned separate rows for each mode (WALK, RAIL, BUS). Notice the `route_option` column shows that some routes have multiple options.
+
+Let's suppose you want a single line for each route.
+
+**Exercise**
+
+11. Filter the `routes_transit` to contain only one route option per origin-destination pair and only the columns `fromPlace` `toPlace` `distance` `geometry`
+
+
+```{r, eval=TRUE, message=FALSE, echo=FALSE}
+routes_transit = routes_transit %>%
+  filter(route_option == 1) %>%
+  select(fromPlace, toPlace, distance)
+```
+
 
 Now We will group the separate parts of the routes together.
 
-```{r, eval=FALSE}
+```{r, eval=TRUE, message=FALSE}
 routes_transit_group = routes_transit %>%
   dplyr::group_by(fromPlace, toPlace) %>%
   dplyr::summarise(distance = sum(distance))
 ```
 
-We now have a single row, but instead of a `LINESTRING`, we now have a mix of `MULTILINESTRING` and `LINESTRING`, we can convert to a LINESTRING by using `st_line_merge()`. Note how the different columns where summarised.
+We now have a single row, but instead of a `LINESTRING`, we now have a mix of `MULTILINESTRING` and `LINESTRING`, we can convert to a `LINESTRING` by using `st_line_merge()`. Note how the different columns where summarised.
+
 
 First, we must separate out the `MULTILINESTRING` and `LINESTRING`
 
@@ -173,58 +355,85 @@ routes_transit_group_ml = st_line_merge(routes_transit_group_ml)
 routes_transit_group = rbind(routes_transit_group, routes_transit_group_ml)
 ```
 
-*Exercise*
+**Exercise**
 
-10. Plot the transit routes, what do you notice about them?
+12. Plot the transit routes, what do you notice about them?
 
-*Bonus Exercise*
+```{r, message=FALSE, eval=TRUE, echo=FALSE}
+tm_shape(routes_transit_group) +
+  tm_lines(lwd = 2, col = "black", palette = "-viridis")
+```
 
-* Redo exercise 16 but make sure you always select the fastest option.
+
+**Bonus Exercise**: 
+
+13. Redo exercise 16 but make sure you always select the fastest option. You may need to re-download the `routes_transit` data.
 
 # Network Analysis (dodgr)
 
-Note Some people have have problems running dodgr on Windows, if you do follow these instructions.
+**Note** Some people have have problems running dodgr on Windows, if you do follow these [instructions](https://github.com/ITSLeeds/TDS/blob/master/practicals/dodgr-install.md).
 
-We will now analyse the road network using dodgr. Network analysis can take a very long time on large areas. So we will use the example of the Isle of Wight, which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.
+We will now analyse the road network using `dodgr`. Network analysis can take a very long time on large areas. So we will use the example of the [Isle of Wight](https://en.wikipedia.org/wiki/Isle_of_Wight), which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.
+
 
 First we need to download the roads network from the OpenStreetMap using `osmextract::oe_get`. We will removed most of the paths and other features and just focus on the main roads. Then use `dodgr::weight_streetnet` to produce a graph of the road network.
 
-```{r, eval=FALSE}
+```{r, eval=TRUE, warning=FALSE, message=FALSE, results='hide'}
+# Download data from OpenSteetMap
 roads = oe_get("Isle of Wight", extra_tags = c("maxspeed","oneway"))
+
+# Remove non-road data
 roads = roads[!is.na(roads$highway),]
-road_types = c("residential","secondary","tertiary",
-                        "unclassified","primary","primary_link",
-                        "secondary_link","tertiary_link")
+
+# Only get some road types see https://wiki.openstreetmap.org/wiki/Key:highway
+road_types = c("primary","primary_link",
+               "secondary","secondary_link",
+               "tertiary", "tertiary_link",
+               "residential","unclassified")
 roads = roads[roads$highway %in% road_types, ]
+
+# Build a graph
 graph = weight_streetnet(roads)
 ```
 
-We will find the betweenness centrality of the Isle of Wight road network. This can take a long time, so first lets check how long it will take.
 
-```{r, eval=FALSE}
+We will find the betweenness centrality of the Isle of Wight road network. This can take a long time, so first lets check how long it will take. 
+
+```{r, message=TRUE, echo=TRUE}
 estimate_centrality_time(graph)
 centrality = dodgr_centrality(graph)
 ```
 
-We can convert a dodgr graph back into a sf data frame for plotting using `dodgr::dodgr_to_sf`
 
-```{r, eval=FALSE}
+We can convert a `dodgr` graph back into a sf data frame for plotting using `dodgr::dodgr_to_sf`
+
+
+```{r, message=TRUE, echo=TRUE, results='hide'}
 clear_dodgr_cache()
 centrality_sf = dodgr_to_sf(centrality)
 ```
 
+**Exercise**
 
-*Exercise*
+14. Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?
 
-11. Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?
+```{r, message=TRUE, echo=FALSE}
+tm_shape(centrality_sf) +
+  tm_lines("centrality",
+           lwd = 3,
+           n = 8,
+           style = "fisher",
+           palette = "-viridis")
+```
 
-12. Use `dodgr::dodgr_contract_graph` before calculating centrality, how does this affect the computation time and the results?
 
-*Bonus Exercises*
+15. Use `dodgr::dodgr_contract_graph` before calculating centrality, how does this affect the computation time and the results?
 
-* Work though the OpenTripPlanner vignettes Getting Started and Advanced Features to run your own local trip planner for the Isle of Wight.
+**Bonus Exercises**
 
-Note To use OpenTripPlanner on your own computer requires Java 8. See the Prerequisites for more details. If you can’t install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.
+16. Work though the OpenTripPlanner vignettes [Getting Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html) and [Advanced Features](https://docs.ropensci.org/opentripplanner/articles/advanced_features.html) to run your own local trip planner for the Isle of Wight.
 
-* Read the dodgr vignettes
+**Note** To use OpenTripPlanner on your own computer requires Java 8. See the [Prerequisites](https://docs.ropensci.org/opentripplanner/articles/prerequisites.html) for more details. If you can't install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.
+
+17. Read the `dodgr` [vignettes](https://atfutures.github.io/dodgr/articles/index.html)
 
