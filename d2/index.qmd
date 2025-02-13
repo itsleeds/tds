@@ -1,11 +1,34 @@
 ---
-title: "Draft portfolio"
+title: "Formative coursework: portfolio plan and reproducible code"
 bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
 ---
 
-This is a placeholder page, contents will be added
+<!-- Based on https://github.com/itsleeds/tdsarchive/blob/master/coursework-template.md -->
 
 
+- Deadline for non-assessed submission of a .zip file containing a short (5 page max) pdf document with ideas explaining your thoughts on your topic and a plan for completing the coursework by the deadline.
+
+
+ The document will allow you to ask questions to people on the course team (e.g. "does this sound like a reasonable input dataset and topic?") and describe progress on reading in input datasets and the analysis plan.
+ 
+ The document should be written in a .qmd file and should contain:
+  - A draft title of your topic
+  - The main dataset that you will use and other datasets that you could use
+  - Ideas on a research question
+  - Questions you would like to ask about the topic, e.g. 'is this a suitable dataset?'
+  - 2 or more references to the academic literature related to the topic
+  - Minimal code and/or description of where you accessed the data and how you imported it
+  - Any preliminary analysis you have done
+  - The structure of the document could include
+    - Topics considered
+    - Input datasets
+    - Analysis plan - I suggest creating a workflow diagram for this, e.g. as presented [here](https://user-images.githubusercontent.com/1825120/127524923-7d9f5511-84a6-430b-8de9-a603a5524f39.png)
+    - Motivation for choosing this topic
+    - Questions and options 
+
+
+You will submit a .zip file containing the reproducible code (in a .qmd file for most people unless you have a good reason for using another format) and the resulting PDF.
+If you cannot render to PDF directly you can render to HTML and convert to PDF by printing to PDF from your browser.
