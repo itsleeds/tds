@@ -56,9 +56,10 @@ Formative (non-assessed, but required for feedback and guidance).
 **Non-assessed submission deadline**: 18th March 2025
 
 ## Submission Method
-- A `.zip` file containing:
+- A `.zip` file with:
   - A short (5-page max) PDF document.
   - Reproducible code (e.g., `.qmd` file).
+  - A maximum zip file size of 10MB (note: you may need to remove large data files from the folder before zipping).
 - Submitted via Turnitin.
 
 ## Feedback Provision
