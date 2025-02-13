@@ -188,12 +188,14 @@ system("gh release upload 2025 lad_boundaries_2023.geojson")
 base_url = "https://github.com/ITSLeeds/tds/releases/download/2025/"
 if (!file.exists("custom-filtered-2025-02-04T00_06_30Z.csv")) {
   download.file(paste0(base_url, "custom-filtered-2025-02-04T00_06_30Z.csv"), "custom-filtered-2025-02-04T00_06_30Z.csv")
+}
+if (!file.exists("lad_boundaries_2023.geojson")) {
   download.file(paste0(base_url, "lad_boundaries_2023.geojson"), "lad_boundaries_2023.geojson")
 }
-res_sf = sf::st_read("lad_boundaries_2023.geojson")
 ```
 
 ```{r}
+res_sf = sf::st_read("lad_boundaries_2023.geojson")
 travel_to_work_lad = readr::read_csv("custom-filtered-2025-02-04T00_06_30Z.csv")
 # names(travel_to_work_lad)
 # [1] "Lower tier local authorities Code"                      
