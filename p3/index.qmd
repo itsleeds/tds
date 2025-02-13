@@ -81,7 +81,7 @@ import geopandas.datasets
 :::
 
 1. Check your packages are up-to-date with `update.packages()` in R (or equivalent in Python)
-1. Create a project folder with an appropriate name for this session (e.g. `practical2`)
+1. Create a project folder with an appropriate name for this session (e.g. `practical3`)
 1. Create appropriate folders for code, data and anything else (e.g. images)
 1. Create a script called `learning-OD.R`, e.g. with the following command:
 
