@@ -4,6 +4,8 @@ bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
+  message: false
+  warning: false
 editor: 
   markdown: 
     wrap: 72
