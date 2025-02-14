@@ -1,18 +1,9 @@
 Title: Support Teaching and Learning TRAN5340M Transport Data Science 
 Version: 0.0.0.9000
 Authors@R: c(
-     person("Robin", "Lovelace", 
-            email = "R.Lovelace@leeds.ac.uk", 
-            role = c("aut", "cre"),
-            comment = c(ORCID = "0000-0001-5679-6536")),
-     person("Yuanxuan", "Yang", 
-            email = "Y.Yang6@leeds.ac.uk", 
-            role = c("aut", "cre"),
-            comment = c(ORCID = "0000-0002-7970-2544")),
-     person("Malcolm", "Morgan",
-            email = "M.Morgan1@leeds.ac.uk", 
-            role = c("aut", "cre"),
-            comment = c(ORCID = "0000-0002-9488-9183"))
+       person("Robin", "Lovelace", email = "R.Lovelace@leeds.ac.uk", role = c("aut", "cre"), comment = c(ORCID = "0000-0001-5679-6536")),
+       person("Yuanxuan", "Yang", email = "Y.Yang6@leeds.ac.uk", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-7970-2544")),
+       person("Malcolm", "Morgan", email = "M.Morgan1@leeds.ac.uk", role = c("aut", "cre"), comment = c(ORCID = "0000-0002-9488-9183"))
      )
 Description: The aim of 'tds' is to provide R package dependencies for teaching and learning transport data science.
 'tds' supports the TRAN5340M Transport Data Science module at the Institute for Transport Studies, University of Leeds. 
