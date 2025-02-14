@@ -10,12 +10,9 @@ number-sections: true
 ```{r}
 #| echo: false
 #| eval: false
-quarto::quarto_render("d2/index.qmd", output_format = "pdf", output_file = "tds-formative-assessment-brief.pdf")
-# docx:
+# docx format results in higher accessibility scores on Minerva:
 quarto::quarto_render("d2/index.qmd", output_format = "docx", output_file = "tds-formative-assessment-brief.docx")
-file.rename("docs/tds-formative-assessment-brief.pdf", "tds-formative-assessment-brief.pdf")
-file.rename("docs/tds-formative-assessment-brief.docx", "TRAN5340M/TDS Formative Assessment Brief.docx")
-system("gh release upload 2025 tds-formative-assessment-brief.pdf tds-formative-assessment-brief.docx")
+file.rename("docs/tds-formative-assessment-brief.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Formative Assessment Brief.docx")
 ```
 
 ```{bash}
