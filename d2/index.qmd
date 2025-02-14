@@ -13,9 +13,9 @@ number-sections: true
 quarto::quarto_render("d2/index.qmd", output_format = "pdf", output_file = "tds-formative-assessment-brief.pdf")
 # docx:
 quarto::quarto_render("d2/index.qmd", output_format = "docx", output_file = "tds-formative-assessment-brief.docx")
-file.rename("docs/tds-formative-assessment-brief.pdf", "formative-assessment-brief.pdf")
-file.rename("docs/tds-formative-assessment-brief.docx", "formative-assessment-brief.docx")
-system("gh release upload 2025 tds-formative-assessment-brief.pdf")
+file.rename("docs/tds-formative-assessment-brief.pdf", "tds-formative-assessment-brief.pdf")
+file.rename("docs/tds-formative-assessment-brief.docx", "TRAN5340M/TDS Formative Assessment Brief.docx")
+system("gh release upload 2025 tds-formative-assessment-brief.pdf tds-formative-assessment-brief.docx")
 ```
 
 ```{bash}
