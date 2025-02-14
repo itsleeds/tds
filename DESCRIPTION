@@ -1,12 +1,23 @@
-Package: tds
-Title: What the Package Does (One Line, Title Case)
+Title: Support Teaching and Learning TRAN5340M Transport Data Science 
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
-License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
-    license
+Authors@R: c(
+     person("Robin", "Lovelace", 
+            email = "R.Lovelace@leeds.ac.uk", 
+            role = c("aut", "cre"),
+            comment = c(ORCID = "0000-0001-5679-6536")),
+     person("Yuanxuan", "Yang", 
+            email = "Y.Yang6@leeds.ac.uk", 
+            role = c("aut", "cre"),
+            comment = c(ORCID = "0000-0002-7970-2544")),
+     person("Malcolm", "Morgan",
+            email = "M.Morgan1@leeds.ac.uk", 
+            role = c("aut", "cre"),
+            comment = c(ORCID = "0000-0002-9488-9183"))
+     )
+Description: The aim of 'tds' is to provide R package dependencies for teaching and learning transport data science.
+'tds' supports the TRAN5340M Transport Data Science module at the Institute for Transport Studies, University of Leeds. 
+It includes a curated set of dependencies for data processing, visualization, spatial datasets, spatial analysis, and transport modeling.
+License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
