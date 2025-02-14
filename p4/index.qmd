@@ -88,6 +88,34 @@ otpcon = otp_connect(hostname = ip,
                      router = "west-yorkshire")
 ```
 
+<!-- Note: the below is for locally hosted OTP: -->
+
+```{r}
+#| eval: false
+#| echo: false
+# Download the zip file
+# wget https://github.com/ITSLeeds/TDS/releases/download/0.20.1/otp_TDS.zip
+download.file("https://github.com/ITSLeeds/TDS/releases/download/0.20.1/otp_TDS.zip", "otp_TDS.zip")
+# Unzip it:
+# unzip otp_TDS.zip
+unzip("otp_TDS.zip")
+# Install Java 8:
+system("sudo apt-get install openjdk-8-jdk")
+
+# java –Xmx10000M -d64 -jar "D:/OneDrive - University of Leeds/Data/opentripplanner/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "D:/OneDrive - University of Leeds/Data/opentripplanner/graphs" --server --port 8080 --securePort 8081
+```
+
+```{bash}
+#| echo: false
+#| eval: false
+# Run it without nohup to test:
+/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -Xmx10000M -d64 -jar "otp_TDS/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "otp_TDS/graphs" --server --port 8090 --securePort 8091
+
+
+# Same command but with nohup to run in the background:
+nohup /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -Xmx10000M -d64 -jar "otp_TDS/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "otp_TDS/graphs" --server --port 8090 --securePort 8091 &
+```
+
 If you have connected successfully, then you should get a message “Router exists.”
 
 
