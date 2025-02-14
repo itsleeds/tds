@@ -68,6 +68,8 @@ practical$duration = (practical$DTEND - practical$DTSTART)
 practical$type = "Computer practical and lecture"
 practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_descriptions)
 practical$LOCATION = "Richard Hughes Cluster (1.40)"
+# 4th practical is in ITS room 1.11
+practical$LOCATION[4] = "Institute for Transport Studies 1.11"
 practical$DESCRIPTION = paste0(practical$SUMMARY, " Located in ", practical$LOCATION)
 nrow(practical) # 7 practicals
 
