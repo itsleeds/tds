@@ -7,7 +7,7 @@ execute:
 <!-- From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
 
 The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2025/timetable.ics) versions).
-See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) for the official timetable.
+See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) and [mytimetable.eeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202425!module!5216C608F8794D77F15FA9D195AB3C06) for the official timetable.
 If you spot any discrepancies, please let us know.
 
 ```{r}
@@ -45,7 +45,7 @@ practical_descriptions = c(
   "Origin-destination data (RL, YY)",
   "Routing (MM, YY)",
   "Visualising transport data (RL, YY)",
-  "Modelling transport data (RL, MM, ZW, YY)",
+  "Integrating data science compenents to answer a research question (RL, YY)",
   "Project work (RL, MM, ZW, YY)"
 )
 
