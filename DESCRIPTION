@@ -28,7 +28,9 @@ Imports:
     pct,
     zonebuilder,
     ggspatial,
-    dodgr
+    dodgr,
+    opentripplanner,
+    osmextract
 Remotes:
     nowosad/spDataLarge,
     itsleeds/pct,
