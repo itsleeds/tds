@@ -83,6 +83,10 @@ system("sudo apt-get install openjdk-8-jdk")
 ```{bash}
 #| echo: false
 #| eval: false
+# Run it without nohup to test:
+/usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -Xmx10000M -d64 -jar "otp_TDS/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "otp_TDS/graphs" --server --port 8090 --securePort 8091
+
+
 # Same command but with nohup to run in the background:
 nohup /usr/lib/jvm/java-8-openjdk-amd64/jre/bin/java -Xmx10000M -d64 -jar "otp_TDS/otp-1.5.0-shaded.jar" --router west-yorkshire --graphs "otp_TDS/graphs" --server --port 8090 --securePort 8091 &
 ```
