@@ -14,6 +14,16 @@ bibliography: ../tds.bib
 engine: knitr
 ---
 
+# Introduction
+
+In this practical session, we will learn how to use geogarphic and origin-destination data. The contents of the session are as follows:
+
+- We will start with reviewing the homework from the previous session
+- A short lecture on geographic and origin-destination data (see [slides](https://docs.google.com/presentation/d/1fKXK1ocCSkTQkTQn0eoYWURIfQuFgQwICFiDGVetMek/edit?usp=sharing))
+- Practical session working with various data, including analysing origin-destination trip flows in London Cycle Hire System.
+- Bonus: Geometry operations and spatial analysis
+- Homework and next session
+
 # Review Homework
 
 Your homework last week was to import and visualise some transport datasets.
@@ -25,7 +35,6 @@ In groups of 2 or 3 (a demonstrator will help out with each group):
 # Getting started with GIS in R
 
 Note that this practical takes sections from Chapters 2 - 8 of [Geocomputation with R](https://r.geocompx.org). You should expand your knowledge by reading these chapters in full.
-
 
 ## Pre-requisites {-}
 
@@ -41,15 +50,16 @@ If you need to install any of these packages use:
 ```{r} 
 #| eval: false
 if (!require("pak")) install.packages("pak")
-pak::pkg_install(c("sf", "tidyverse", "remotes"))
+pak::pkg_install(c("sf", "tidyverse", "remotes", "ggspatial"))
 # GitHub pkgs
 pak::pkg_install("Nowosad/spDataLarge")
 ```
 
 ``` {r}
-library(sf)          # vector data package 
-library(tidyverse)   # tidyverse packages
-library(spData)  # spatial data package 
+library(sf)        # vector data package
+library(tidyverse) # tidyverse packages
+library(ggspatial) # ggspatial package
+library(spData)    # spatial data package
 ```
 
 ## Python
@@ -71,7 +81,7 @@ import geopandas.datasets
 :::
 
 1. Check your packages are up-to-date with `update.packages()` in R (or equivalent in Python)
-1. Create a project folder with an appropriate name for this session (e.g. `practical2`)
+1. Create a project folder with an appropriate name for this session (e.g. `practical3`)
 1. Create appropriate folders for code, data and anything else (e.g. images)
 1. Create a script called `learning-OD.R`, e.g. with the following command:
 
@@ -108,7 +118,6 @@ world = gpd.read_file(
 Use some basic R functions to explore the `world` object. e.g. `class(world)`, `dim(world)`, `head(world)`, `summary(world)`. Also view the `world` object by clicking on it in the Environment panel.
 
 `sf` objects can be plotted with `plot()`.
-
 
 ::: {.panel-tabset}
 ## R
@@ -157,8 +166,6 @@ plt.show()
 
 Load the `nz` and `nz_height` datasets from the `spData` package.
 
-
-
 ::: {.panel-tabset}
 ## R
 ```{r}
@@ -176,7 +183,6 @@ nz_height = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/head
 :::
 
 We can use `tidyverse` functions like `filter` and `select` on `sf` objects in the same way you did in Practical 1.
-
 
 ::: {.panel-tabset}
 ## R
@@ -228,16 +234,13 @@ canterbury_height = gpd.sjoin(nz_height, canterbury, op='intersects')
 ```
 :::
 
-
 ![Topological relations between vector geometries, inspired by Figures 1 and 2 in Egenhofer and Herring (1990). The relations for which the function(x, y) is true are printed for each geometry pair, with x represented in pink and y represented in blue. The nature of the spatial relationship for each pair is described by the Dimensionally Extended 9-Intersection Model string. ](https://r.geocompx.org/figures/relations-1.png)
-
 
 # Getting started with OD data
 
 In this section we will look at basic transport data in the R package **stplanr**.
 
 Load the  `stplanr` package as follows:
-
 
 ```{r}
 #| echo: true
@@ -292,9 +295,9 @@ Next we will made a new dataset `od_data_walk` by taking `od_data` and piping it
 ## R
 ```{r}
 #| echo: true
-od_data_walk = od_data |> 
-  filter(walk > 0) |> 
-  select(geo_code1, geo_code2, all, car_driver, walk) |> 
+od_data_walk = od_data |>
+  filter(walk > 0) |>
+  select(geo_code1, geo_code2, all, car_driver, walk) |>
   mutate(proportion_walk = walk / all, proportion_drive = car_driver / all)
 ```
 
@@ -323,7 +326,6 @@ plt.show()
 ```
 :::
 R has built in modelling functions such as `lm` lets make a simple model to predict the proportion of people who walk based on the proportion of people who drive.
-
 
 ::: {.panel-tabset}
 ## R
@@ -369,13 +371,11 @@ plt.show()
 
 Exercises
 
-
 1. What is the class of the data in `od_data`?
 2. Subset (filter) the data to only include OD pairs in which at least one person (`> 0`) person walks (bonus: on what % of the OD pairs does at least 1 person walk?)
 3. Calculate the percentage who cycle in each OD pair in which at least 1 person cycles
 4. Is there a positive relationship between walking and cycling in the data?
 5. Bonus: use the function `od2line()` in to convert the OD dataset into geographic desire lines
-
 
 Code for Exercises (click to reveal, but try to do them yourself first)
 
@@ -401,7 +401,7 @@ print("Class of od_data:", type(od_data))
 ```{r}
 #| eval: false
 
-od_data_walk = od_data |> 
+od_data_walk = od_data |>
   filter(walk > 0)
 nrow(od_data_walk) / nrow(od_data) * 100
 ```
@@ -418,10 +418,10 @@ print(f"Percentage of OD pairs where at least one person walks: {percentage_walk
 ### R
 ```{r}
 #| eval: false
-#| 
-od_data = od_data |> 
-  filter(bicycle > 0) |> 
-  mutate(perc_cycle = (bicycle/all) * 100)
+#|
+od_data = od_data |>
+  filter(bicycle > 0) |>
+  mutate(perc_cycle = (bicycle / all) * 100)
 ```
 
 ### Python
@@ -438,9 +438,9 @@ od_data_cycle['perc_cycle'] = (od_data_cycle['bicycle'] / od_data_cycle['all']) 
 ```{r}
 #| eval: false
 
-od_data_new = od_data |> 
-  filter(walk > 0, bicycle>0 ) |> 
-  select(bicycle, walk, all) 
+od_data_new = od_data |>
+  filter(walk > 0, bicycle > 0) |>
+  select(bicycle, walk, all)
 
 model = lm(walk ~ bicycle, weights = all, data = od_data_new)
 od_data_new$walk_predicted = model$fitted.values
@@ -485,7 +485,7 @@ plt.show()
 
 desire_lines = stplanr::od2line(flow = od_data, zones = zone)
 plot(desire_lines)
-#save zone as gpkg
+# save zone as gpkg
 sf::st_write(zone, "zone.geojson")
 ```
 
@@ -550,7 +550,6 @@ This section is based on [Chapter 12 of Geocomputation with R](https://geocompr.
 
 We need the `stplanr` package which provides many useful functions for transport analysis and `tmap` package which enables advanced mapping features.
 
-
 ```{r}
 #| echo: true
 #| output: false
@@ -558,7 +557,6 @@ We need the `stplanr` package which provides many useful functions for transport
 library(stplanr)
 library(tmap)
 ```
-
 
 We will start by loading two datasets:
 
@@ -652,22 +650,53 @@ desire_lines$Active = (desire_lines$bicycle + desire_lines$foot) /
 desire_lines['Active'] = (desire_lines['bicycle'] + desire_lines['foot']) / desire_lines['all'] * 100
 ```
 :::
-Now use `tmap` to make a plot showing the number of trips and the percentage of people using active travel.
+Now use `tmap` to make a plot showing the number of trips and the percentage of people using active travel. Alternatively, you may use the `ggplot2` for visualisation. 
 
 ::: {.panel-tabset}
-## R
+
+## R: tmap
 ```{r}
 #| echo: true
 #| output: true
-desire_lines = desire_lines[order(desire_lines$Active),]
 
-tm_shape(desire_lines) +   # Define the data frame used to make the map
-  tm_lines(col = "Active", # We want to map lines, the colour (col) is based on the "Active" column
-           palette = "plasma", # Select a colour palette
-           alpha = 0.7,    # Make lines slightly transparent
-           lwd = "all") +  # The line width (lwd) is based on the "all" column
+desire_lines = desire_lines[order(desire_lines$Active), ]
+
+tm_shape(desire_lines) + # Define the data frame used to make the map
+  tm_lines(
+    col = "Active", # We want to map lines, the colour (col) is based on the "Active" column
+    palette = "plasma", # Select a colour palette
+    alpha = 0.7, # Make lines slightly transparent
+    lwd = "all"
+  ) + # The line width (lwd) is based on the "all" column
   tm_layout(legend.outside = TRUE) + # Move the ledgend outside the map
-  tm_scale_bar()           # Add a scale bar to the map
+  tm_scale_bar() # Add a scale bar to the map
+```
+
+## R: ggplot2
+```{r}
+#| echo: true
+#| output: true
+
+desire_lines = desire_lines[order(desire_lines$Active), ]
+
+ggplot() +
+  geom_sf(
+    data = desire_lines, # Define the data frame used to make the map
+    aes(
+      colour = Active, # We want to map lines, the colour  is based on the "Active" column
+      alpha = all, # Make lines slightly transparent and based on the "all" column
+      linewidth = all # The line width is based on the "all" column
+    )
+  ) +
+  scale_colour_viridis_c(option = "C") + # Select a colour palette
+  scale_linewidth_binned(range = c(0.03, 0.6), guide = "legend") + # Set max and min ranges for line width
+  scale_alpha(range = c(0.1, 1), guide = "legend") + # Set max and min ranges for transparency
+  annotation_scale(location = "br", width_hint = 0.3) + # Scale bar (bottom left)
+  annotation_north_arrow(
+    location = "tl", which_north = "true",
+    style = north_arrow_fancy_orienteering()
+  ) + # North arrow (top left)
+  theme_void()
 ```
 
 ## Python
@@ -698,7 +727,6 @@ plt.show()
 ```
 :::
 Now that we have geometry attached to our data we can calculate other variables of interest. For example let's calculate the distacne travelled and see if it relates to the percentage of people who use active travel.
-
 
 ::: {.panel-tabset}
 ## R
@@ -735,20 +763,377 @@ plt.show()
 
 The blue line is a smoothed average of the data. It shows a common concept in transport research, the distance decay curve. In this case it shows that the longer the journey the less likely people are to use active travel. But this concept applies to all kinds of travel decisions. For example you are more likely to travel to a nearby coffee shop than a far away coffee shop. Different types of trip have different curves, but most people always have a bias for shorter trips.
 
+# Processing origin-destination data in London Cycle Hire System 
+
+In this section, we will be working with origin-destination data in London Cycle Hire System (LCHS). We will specifically examine how a London Tube(Underground) strike influenced cyclists' origin-destination choices.
+Public transport disruptions are becoming increasingly common, triggered by various factors including:
+
+* Infrastructure maintenance requirements
+* Natural disasters
+* Large-scale events (festivals, strikes, etc.)
+
+By analyzing how people adapt their travel patterns during such events, we can better inform urban transport planning and decision-making strategies.
+
+For this section, we'll be using cleaned cycling data originally sourced from TfL's open data portal (cycling.data.tfl.gov.uk). 
+
+Let's begin by loading the following two datasets
+
+```{r}
+#| echo: true
+#| output: false
+
+# load the station location dataset
+bike_docking_stations = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_docking_stations.geojson")
+# load the bike trip origin and destination dataset
+bike_trips = read_csv("https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_trips.csv")
+```
+
+Explore these datasets using the functions you have learnt (e.g. head, nrow)
+```{r}
+head(bike_docking_stations)
+nrow(bike_docking_stations)
+head(bike_trips)
+nrow(bike_trips)
+```
+
+Let's examine our `bike_trips` data, which covers three specific Thursdays: July 2nd, July 9th, and July 16th, 2015. July 9th marks the London Underground strike, while the other two dates serve as comparison points one week before and after the strike. 
+
+During the Tube Strike, some people adopted bikeshare to replace the Tube travel, hence we should be able to observe some different in trip account.
+
+```{r}
+bike_trips = bike_trips |>
+  mutate(date = date(start_time)) |>
+  mutate(type_day = case_when(
+    date == as.Date("2015-07-09") ~ "Strike Day",
+    TRUE ~ "Non-Strike Day"
+  ))
+bike_trips |>
+  group_by(date, type_day) |>
+  summarise(count = n()) |>
+  ggplot() +
+  geom_bar(aes(
+    x = as.factor(date),
+    y = count,
+    fill = type_day
+  ), stat = "identity") +
+  xlab("Date") +
+  ylab("Count of bike trips") +
+  labs(fill = "Type of day")
+```
+
+The increase in trips is likely unevenly distributed by time, so it would be useful to examine the changes and differences by hour. This will help us identify when the most significant changes occur.
+
+```{r}
+bike_trips |>
+  mutate(
+    hour = hour(start_time),
+    date = as.factor(date)
+  ) |>
+  group_by(date, hour) |>
+  summarise(count = n()) |>
+  ggplot() +
+  geom_line(aes(x = hour, y = count, color = date, group = date), size = 1, alpha = .6) +
+  geom_point(aes(x = hour, y = count, color = date), size = 2) +
+  scale_x_continuous(breaks = seq(0, 23, by = 4))
+```
+
+Whist above temporal analysis provide useful summaries, visual analysis of the origin-destination changes allow us to characterise with greater richness the nature of changes in response to the strike events. Let' try to calculate the changes in o-d and map them!
+
+To break the task down, we will
+1. Calculate the frequeny of each origin-destination pair on the strike day
+2. Calculate the average frequancy of each origin-destination pair on the non-strike day
+3. find out the difference
+
+```{r}
+# 1. Calculate the frequeny of each origin-destination pair on the strike day
+od_strike = bike_trips |>
+  filter(type_day == "Strike Day") |>
+  group_by(start_station_id, end_station_id) |>
+  summarise(count_strike = n())
+
+# 2. Calculate the average frequancy of each origin-destination pair on the non-strike day
+od_non_strike = bike_trips |>
+  filter(type_day == "Non-Strike Day") |>
+  group_by(start_station_id, end_station_id) |>
+  summarise(count_non_strike = n() / 2) # we have two non-strike days, hence /2 can help get the mean value
+```
+
+To obtain the changes, we will need to join the origin-destination pairs in the two dataframe we just created. 
+
+The **`dplyr` package** provides a family of intuitive join functions:
+
+| Join Type   | Function                                    | Description |
+|------------|---------------------------------|-------------|
+| **Inner Join** | `inner_join(df1, df2, by = "key")` | Keeps only matching rows in both datasets. |
+| **Left Join** | `left_join(df1, df2, by = "key")` | Keeps all rows from `df1`, adds matching rows from `df2`. |
+| **Right Join** | `right_join(df1, df2, by = "key")` | Keeps all rows from `df2`, adds matching rows from `df1`. |
+| **Full Join** | `full_join(df1, df2, by = "key")` | Keeps all rows from both datasets. |
+| **Semi Join** | `semi_join(df1, df2, by = "key")` | Keeps rows from `df1` that have matches in `df2`. |
+| **Anti Join** | `anti_join(df1, df2, by = "key")` | Keeps rows from `df1` that do **not** have matches in `df2`. |
+
+```{r}
+# join the two dataframes
+od_change = full_join(od_strike, od_non_strike, by = c("start_station_id", "end_station_id")) |>
+  replace_na(list(count_strike = 0, count_non_strike = 0))
+
+# create(mutate) a new column of changes in od count
+od_change = filter(od_change, start_station_id != end_station_id) |>
+  mutate(count_change = count_strike - count_non_strike) |>
+  arrange(desc(count_change))
+```
+
+Let have a look at the joined result:
+
+```{r}
+head(od_change)
+```
+
+We have succesfully joined the data, and the output `od_change` has both the trip count on strike day (`count_strike`) and non-strike day (`count_non_strike`), in addition, a new variable of `count_change` is created. Next, let clean the output further and create the od lines
+
+```{r}
+# focusing on not self-loop trips
+od_inter_change = filter(od_change, start_station_id != end_station_id) |> arrange(desc(count_change))
+
+# create the od lines
+change_desire_lines = od2line(od_change, bike_docking_stations)
+```
+
+We are particularly interested in identifying origin-destination pairs where the number of trips has increased. To focus on these, we use the filter function to select desire lines with at least one additional trip on the strike day. You can adjust the threshold (currently set to 1) as needed.
+
+```{r}
+ggplot() +
+  geom_sf(
+    data = change_desire_lines |> filter(count_change >= 1) |> arrange(count_change), # Define the data frame used to make the map
+    aes(
+      colour = count_change, # We want to map lines, the colour  is based on the "count_change" column
+      alpha = count_change, # Make lines slightly transparent and based on the "count_change" column
+      linewidth = count_change # The line width is based on the "count_change" column
+    )
+  ) +
+  scale_colour_viridis_c(option = "C") + # Select a colour palette
+  scale_linewidth_binned(range = c(0.01, 1.6), guide = "legend") + # Set max and min ranges for line width
+  scale_alpha(range = c(0.001, 0.7), guide = "legend") + # Set max and min ranges for transparency
+  annotation_scale(location = "br", width_hint = 0.3) + # Map scale bar (bottom right)
+  annotation_north_arrow(
+    location = "tl", which_north = "true",
+    style = north_arrow_fancy_orienteering()
+  ) + # North arrow (top left)
+  theme_void()
+```
+
+To enhance the map, adding some background context could be useful. Let’s try incorporating the River Thames and green spaces (parks) in central London.
+
+Let’s check how the background looks. You can also customize the colors of the rivers and parks by modifying the values assigned to `fill` and `color`.
+```{r}
+# load the river and parks
+rivers = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson")
+parks = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson")
+
+ggplot() +
+  geom_sf(data = parks, fill = "#d9f5e0", color = "#d9f5e0") + # add parks in central London to the map
+  geom_sf(data = rivers, color = "#08D9D6", linewidth = 3) + # add river Thames in central London to the map
+  theme_void()
+```
+
+Now, let’s bring the origin-destination desire lines and the base map together! Can you identify key locations where bike trip origin-destination changes are most significant?
+
+```{r}
+# Define the data frame used to visualise the od
+change_to_plot = change_desire_lines |>
+  filter(count_change >= 1) |>
+  arrange(count_change)
+
+ggplot() +
+  # add parks in central London to the map:
+  geom_sf(data = parks, fill = "#d9f5e0", color = "#d9f5e0") +
+  # add river Thames in central London to the map:
+  geom_sf(data = rivers, color = "#08D9D6", linewidth = 3) +
+  geom_sf(
+    data = change_to_plot,
+    aes(
+      colour = count_change, # We want to map lines, the colour is based on the "count_change" column
+      alpha = count_change, # Make lines slightly transparent and based on the "count_change" column
+      linewidth = count_change # The line width is based on the "count_change" column
+    )
+  ) +
+  scale_colour_viridis_c(option = "C") + # Select a colour palette
+  scale_linewidth_binned(range = c(0.01, 1.6), guide = "legend") + # Set max and min ranges for line width
+  scale_alpha(range = c(0.001, 0.7), guide = "legend") + # Set max and min ranges for transparency
+  annotation_scale(location = "br", width_hint = 0.3) + # Scale bar (bottom left)y
+  annotation_north_arrow(
+    location = "tl", which_north = "true",
+    style = north_arrow_fancy_orienteering()
+  ) + # North arrow (top left)
+  theme_void()
+```
+# Bonus
+
+During the Tube strike, bike docking stations closer to Tube stations are likely to experience higher travel activity than those farther away. 
+
+To quickly assess whether there is a difference, we can create a buffer around Tube stations and calculate the number of trips originating from bike docking stations within the buffer zone. We can then compare these figures to those from docking stations outside the buffer zone.
+
+First, let create the buffer zones for tube stations in central london
+
+```{r}
+# import the tube station data
+tube_stations = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson")
+
+# use the bounding box of the bike docking stations to crop the tube stations
+# this can help us focus on central London - which is covered by the LCHS
+tube_stations_central_london = st_crop(tube_stations, st_bbox(bike_docking_stations))
+
+# create the buffer zones, we set the buffer radius to 250m
+# you may adjust the value if you would like to create smaller or larger buffer zones.
+tube_stations_central_london_buffer = st_buffer(tube_stations_central_london %>% st_transform(27700), dist = 250)
+
+# visualise the buffers, tube stations and bike docking stations
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = tube_stations_central_london, color = "#3ba2c7")+
+  geom_sf(data = bike_docking_stations, color = "#d45b70", size = 0.5)
+```
+
+You may have noticed that we created a buffer for each Tube station. We can merge all the buffers geometry into a single geometry.
+
+`st_union()` is a function in the `sf` package in R, used to merge or dissolve geometries into a single geometry. It is commonly used in spatial data processing when you need to combine multiple polygons, lines, or points into one.
+
+```{r}
+tube_stations_central_london_buffer_merged = st_union(tube_stations_central_london_buffer)
+
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer_merged, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = tube_stations_central_london, color = "#3ba2c7")+
+  geom_sf(data = bike_docking_stations, color = "#d45b70", size = 0.5)
+```
+
+Since we have obtained the merged buffer, let's find out which bike docking stations fall inside the buffer. To achieve this, we can use the `st_within()` function. `st_within()` checks if one geometry is completely inside another geometry.
+
+We also need to create a new column for the `bike_docking_stations` to store the result from `st_within()`
+
+```{r}
+bike_docking_stations = bike_docking_stations |>
+  mutate(inside_tube_buffer = st_within(bike_docking_stations,tube_stations_central_london_buffer_merged %>% st_transform(4326), sparse = FALSE))
+head(bike_docking_stations)
+```
+
+As you can see, the `bike_docking_stations` now has a column named `inside_tube_buffer`, which contains binary outcome. 
+
+Let's plot them and use `inside_tube_buffer` for the colour of the bike docking staions. 
+
+```{r}
+ggplot()+
+  geom_sf(data = tube_stations_central_london_buffer_merged, fill ="#3ba2c7", color = NA, alpha =0.3)+
+  geom_sf(data = bike_docking_stations,
+  # use "inside_tube_buffer" for the colour of the bike docking staions
+          aes(color = inside_tube_buffer), 
+          size = 1)
+```
+
+Finally, let’s compare the average number of trips (by trip origin) between the two types of bike docking stations: those inside the buffer and those outside the buffer.
+
+What pattern did you observe?
+
+```{r}
+bike_trips |> 
+  group_by(start_station_id, date, type_day) |> 
+  summarise(count = n(), .groups = "drop") |> 
+  
+  # Join with docking station data to get station attributes (excluding geometry)
+  left_join(
+    bike_docking_stations |> st_drop_geometry(), 
+    by = c("start_station_id" = "station_id")
+  ) |> 
+  
+  # Group by whether the station is inside the Tube buffer and by type_day (strike day or non-strike day)
+  group_by(inside_tube_buffer, type_day) |> 
+  summarise(mean_count = mean(count), .groups = "drop") |> 
+  
+  # Plot the average trip count by type_day, bar fill colour by buffer status
+  ggplot(aes(x = type_day, y = mean_count, fill = inside_tube_buffer)) +
+  geom_bar(stat = "identity", position = position_dodge2()) +
+  labs(
+    x = "Date",
+    y = "Average Trip Count",
+    fill = "Inside Tube Buffer",
+    title = "Comparison of Average Trip Count by Bike Docking Stations"
+  )
+```
 
 # Homework
 
 1. Read Chapters 2-5 of [Geocomputation with R](https://r.geocompx.org/transport.html) 
-2. Using knowledge about datasets and new skills covered in the practicals 2 and 3, think of a simple research question. Write a prompt that generates some code to try to answer that question and paste the resulting code into a code chunk in a new .qmd file, e.g. called `gen-ai-test.qmd`.
+2. Using knowledge about datasets and new skills covered in the practicals 2 and 3, think of a simple research question that could be answered by analysing/visualising/modelling one of the datasets imported into R in your previous homework (or another dataset you have imported into R).
+3. Write a prompt, starting with your own code that imports the code, to generate some code answering the question and write it down in a new Quarto file called `gen-ai-test.qmd`.
+4. Copy the prompt and paste it into a generative AI chat interface such as [ChatGPT](https://chatgpt.com), [Claude](https://claude.ai/), [DeepSeek](https://chat.deepseek.com/) or [Gemini](https://gemini.google.com/)
+5. Paste the resulting code into a code chunk in a new .qmd file, e.g. called `gen-ai-test.qmd`.
     - Does the code run first time?
+    - Do the results answer the question?
     - Try modifying the code and the prompt to improve the code generated by the AI.
     - Note: in the next practical session we will review the AI-generated code you will share the code with a colleague and they will try to run it.
-    - Bonus: try setting-up Copilot or other code auto-completion system in RStudio using the documentation at
+6. Bonus: try setting-up Copilot or other code auto-completion system in RStudio using the documentation at
     <!-- https://docs.posit.co/ide/user/ide/guide/tools/copilot.html -->
-     [docs.posit.co](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html) or VSCode using the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension.
-    - Bonus: share your code on GitHub, for example by pasting it into the discussion group at [github.com/ITSLeeds/TDS/discussions](https://github.com/itsleeds/tds/discussions/172)
-3. Bonus: Read more about using the [tmap package](https://r-tmap.github.io/tmap/)
-4. Bonus: Read more about the [ggplot2 package](https://ggplot2.tidyverse.org/)
+  [docs.posit.co](https://docs.posit.co/ide/user/ide/guide/tools/copilot.html) or VSCode using the [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) extension.
+7. Bonus: share your code on GitHub, for example by pasting it into the discussion group at [github.com/ITSLeeds/TDS/discussions](https://github.com/itsleeds/tds/discussions/172) or by creating a repo on your own GitHub account.
+8. Bonus: Read more about using the [tmap package](https://r-tmap.github.io/tmap/)
+9. Bonus: Read more about the [ggplot2 package](https://ggplot2.tidyverse.org/)
 
+<details>
+
+I wrote the following prompt:
+
+Starting with the following R code that starts by loading the tidyverse and stats19 R packages, write a script that finds out which local authorities saw the greatest percentage point decrease in the number of road traffic collisions between 2019 and 2020.
+Explore this relationship for the total number of collisions with summary statistics, ggplot2 visualisations, and perhaps a basic model. Furthermore, explore how the % change in collision numbers vary depending on factors such as urban or rural area, casualty severity, and the month used for comparison.
+
+```{r}
+library(tidyverse)
+library(stats19)
+collisions_2019 = get_stats19(2019)
+collisions_2020 = get_stats19(2020)
+collisions_combined = bind_rows(
+  mutate(collisions_2019, year = 2019),
+  mutate(collisions_2020, year = 2020)
+)
+# names(collisions_2020)
+#  [1] "accident_index"                             
+#  [2] "accident_year"                              
+#  [3] "accident_reference"                         
+#  [4] "location_easting_osgr"                      
+#  [5] "location_northing_osgr"                     
+#  [6] "longitude"                                  
+#  [7] "latitude"                                   
+#  [8] "police_force"                               
+#  [9] "accident_severity"                          
+# [10] "number_of_vehicles"                         
+# [11] "number_of_casualties"                       
+# [12] "date"                                       
+# [13] "day_of_week"                                
+# [14] "time"                                       
+# [15] "local_authority_district"                   
+# [16] "local_authority_ons_district"               
+# [17] "local_authority_highway"                    
+# [18] "first_road_class"                           
+# [19] "first_road_number"                          
+# [20] "road_type"                                  
+# [21] "speed_limit"                                
+# [22] "junction_detail"                            
+# [23] "junction_control"                           
+# [24] "second_road_class"                          
+# [25] "second_road_number"                         
+# [26] "pedestrian_crossing_human_control"          
+# [27] "pedestrian_crossing_physical_facilities"    
+# [28] "light_conditions"                           
+# [29] "weather_conditions"                         
+# [30] "road_surface_conditions"                    
+# [31] "special_conditions_at_site"                 
+# [32] "carriageway_hazards"                        
+# [33] "urban_or_rural_area"                        
+# [34] "did_police_officer_attend_scene_of_accident"
+# [35] "trunk_road_flag"                            
+# [36] "lsoa_of_accident_location"                  
+# [37] "enhanced_severity_collision"                
+# [38] "datetime" 
+```
+
+</details>
 
 # References
