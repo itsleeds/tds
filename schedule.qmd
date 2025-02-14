@@ -115,7 +115,7 @@ deadline_descriptions = c(
 deadline_day_of_week = 5
 deadline_start_time = "13:00"
 deadline_end_time = c("15:01", "13:01", "13:01")
-deadline = tibble::tibble(week_num = as.character(c(14, 17, 25)))
+deadline = tibble::tibble(week_num = as.character(c(14, 18, 25)))
 deadline = dplyr::inner_join(deadline, weeks)
 deadline$date = deadline$week_commencing + (deadline_day_of_week - 1)
 deadline$DTSTART = lubridate::ymd_hm(paste(deadline$date, deadline_start_time)) 
