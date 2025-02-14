@@ -15,3 +15,5 @@ _freeze/
 
 
 !s1/Estaciones_Troncales_de_TRANSMILENIO.geojson
+*.docx
+*.pdf
