@@ -68,6 +68,8 @@ practical$duration = (practical$DTEND - practical$DTSTART)
 practical$type = "Computer practical and lecture"
 practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_descriptions)
 practical$LOCATION = "Richard Hughes Cluster (1.40)"
+# 4th practical is in ITS room 1.11
+practical$LOCATION[4] = "Institute for Transport Studies 1.11"
 practical$DESCRIPTION = paste0(practical$SUMMARY, " Located in ", practical$LOCATION)
 nrow(practical) # 7 practicals
 
@@ -115,7 +117,7 @@ deadline_descriptions = c(
 deadline_day_of_week = 5
 deadline_start_time = "13:00"
 deadline_end_time = c("15:01", "13:01", "13:01")
-deadline = tibble::tibble(week_num = as.character(c(14, 17, 25)))
+deadline = tibble::tibble(week_num = as.character(c(14, 18, 25)))
 deadline = dplyr::inner_join(deadline, weeks)
 deadline$date = deadline$week_commencing + (deadline_day_of_week - 1)
 deadline$DTSTART = lubridate::ymd_hm(paste(deadline$date, deadline_start_time)) 
