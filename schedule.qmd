@@ -7,7 +7,7 @@ execute:
 <!-- From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
 
 The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2025/timetable.ics) versions).
-See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) for the official timetable.
+See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) and [mytimetable.eeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202425!module!5216C608F8794D77F15FA9D195AB3C06) for the official timetable.
 If you spot any discrepancies, please let us know.
 
 ```{r}
@@ -31,10 +31,11 @@ weeks = tibble::tibble(week_num, week_commencing, day = lubridate::wday(week_com
 
 practical_ids = c(
   "intro",
+  "getting",
   "od",
   "routing",
-  "getting",
   "visualisation",
+  "modelling",
   "project"
 )
 
@@ -44,6 +45,7 @@ practical_descriptions = c(
   "Origin-destination data (RL, YY)",
   "Routing (MM, YY)",
   "Visualising transport data (RL, YY)",
+  "Integrating data science compenents to answer a research question (RL, YY)",
   "Project work (RL, MM, ZW, YY)"
 )
 
@@ -52,7 +54,11 @@ practical_descriptions = c(
 practical_day_of_week = 4
 practical_start_time = "10:00"
 practical_end_time = "13:00"
-week_num = as.character(c(14:16, 19, 22:23))
+# From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
+# Richard Hughes Cluster (1.40) 		23
+# Richard Hughes Cluster (1.40) 		15-17, 19, 22
+# Richard Hughes Cluster (1.40) 		14	  	 
+week_num = as.character(c(14, 15:17, 19, 22, 23))
 practical = tibble::tibble(week_num = week_num)
 practical = dplyr::inner_join(practical, weeks)
 practical$date = practical$week_commencing + (practical_day_of_week - 1)
@@ -63,7 +69,7 @@ practical$type = "Computer practical and lecture"
 practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_descriptions)
 practical$LOCATION = "Richard Hughes Cluster (1.40)"
 practical$DESCRIPTION = paste0(practical$SUMMARY, " Located in ", practical$LOCATION)
-nrow(practical) # there are 6 practicals
+nrow(practical) # 7 practicals
 
 # seminars ------------------------------------------------------
 
@@ -77,8 +83,8 @@ seminar_descriptions = c(
 )
 
 seminar_day_of_week = c(4)
-seminar_start_time = c("10:00", "14:00")
-seminar_end_time = c("11:00", "17:00")
+seminar_start_time = c("14:00", "10:00")
+seminar_end_time = c("17:00", "11:00")
 seminar = tibble::tibble(week_num = as.character(c(17, 21)))
 seminar = dplyr::inner_join(seminar, weeks)
 seminar$date = seminar$week_commencing + (seminar_day_of_week - 1)
@@ -89,7 +95,7 @@ seminar$type = "Seminar"
 seminar$SUMMARY = paste0("TDS seminar ", 1:nrow(seminar))
 seminar$LOCATION = "Institute for Transport Studies 1.11"
 seminar$DESCRIPTION = paste0(seminar_descriptions, "")
-nrow(seminar) # there is 1 seminar
+nrow(seminar) # 2 seminars
 
 # deadlines ------------------------------------------------------
 
