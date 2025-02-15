@@ -10,6 +10,12 @@ number-sections: true
 
 This is the final assessed coursework submission for the Transport Data Science module. The deadline is **16th May 2025, 14:00**.
 
+The purpose of the coursework is to provide a professional-quality report on the data science project you have worked on.
+You should include a range of techniques and methods you have learned during the module, and apply them to a real-world transport problem.
+The project report should be a cohesive whole, however, not a disjointed portfolio of separate tasks.
+
+A good way to think about the project report is to imagine that you have worked on an important data science project in a large organisation and you are presenting your findings with a view to impressing them with your skills, clearly communicating your results, and providing actionable insights that motivate change.
+
 ## Key Requirements
 
 - **Length**: Maximum 10 pages (excluding references and appendices)
