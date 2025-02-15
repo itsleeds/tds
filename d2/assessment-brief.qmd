@@ -1,0 +1,77 @@
+---
+title: "Detailed Assessment Brief: Portfolio Plan and Reproducible Code"
+bibliography: ../tds.bib
+toc: true
+execute: 
+  cache: true
+number-sections: true
+---
+
+<!-- Original content from index.qmd moved here -->
+
+## Module Code & Title
+
+**TRAN5340M** - Using Data Science to Solve Transport Problems
+
+## Assessment Type and Learning Outcomes
+
+This formative coursework assesses:
+
+1. Development of data science applications for transport problems
+2. Working with datasets and producing reproducible code
+3. Critical engagement with academic literature
+
+## Use of GenAI
+
+**AMBER**: AI tools can be used in an assistive role.  
+
+Permitted uses:
+- Support for research and topic understanding
+- Code testing and debugging
+- Creative inspiration
+- Feedback and proofreading
+
+AI use must be acknowledged in an 'Acknowledgements' section. See [Generative AI and Assessments](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/) for details.
+
+## Submission Requirements
+
+Submit a `.zip` file (max 30 MB) containing:
+
+1. **5-page maximum PDF document** including:
+   - Draft title
+   - Dataset descriptions
+   - Research question
+   - Questions about the topic
+   - At least 2 academic references
+   - Code/data access description
+   - Preliminary analysis
+   - Structure:
+     - Topics considered
+     - Input datasets
+     - Analysis plan
+     - Topic motivation
+     - Questions and options
+
+2. **Reproducible code** in `.qmd` format
+
+## Assessment Criteria
+
+Feedback will focus on:
+
+- Topic clarity and feasibility
+- Dataset appropriateness
+- Academic literature engagement
+- Analysis plan quality
+- Code reproducibility
+
+See the [Marking Criteria](https://itsleeds.github.io/tds/marking-criteria.html) for details.
+
+## Academic Integrity
+
+All work must meet university standards for Academic Integrity. See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance.
+
+## Support Resources
+
+- [Academic Skills | Library | University of Leeds](https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction)
+- [Leeds Harvard Referencing](https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction)
+- [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations)
