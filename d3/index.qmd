@@ -1,35 +1,111 @@
 ---
-title: "Coursework submission 1: Data science project plan and reproducible code"
-toc: false
+title: "Coursework submission 2: Data science project report"
+toc: true
 execute: 
   cache: true
-number-sections: false
+number-sections: true
 ---
 
-This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is **28th February 2025, 13:59**.
+## Overview
 
-## What to Submit
-
-Submit a `.zip` file containing two key items:
-
-1. A **concise PDF document** (recommended length: 2 pages, absolute maximum: 5 pages) outlining:
-    - Your chosen transport-related topic
-    - The main dataset(s) you plan to use
-    - Your research question
-    - At least 2 academic references (see [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for details)
-    - Any initial analysis or questions you have
-
-2. **Reproducible code** as a `.qmd` file showing how you accessed and processed your data
+This is the final assessed coursework submission for the Transport Data Science module. The deadline is **16th May 2025, 14:00**.
 
 ## Key Requirements
 
-- Maximum .zip file size: 30 MB
-- Submit via Turnitin
-- AI tools can be used in an assistive role (must be acknowledged)
-- Use the default quarto referencing style
+- **Length**: Maximum 10 pages (excluding references and appendices)
+- **Word count**: Maximum 3,000 words (excluding tables, code, references, and captions)
+- **Format**: Submit both a PDF file and the source .Rmd/.qmd file in a .zip file
+- **File size**: Maximum 40 MB for the .zip file
+- **Submission**: Via Minerva (Turnitin)
 
-## Support and Feedback
+## Report Structure
 
-- Feedback will be provided within 15 working days
+Your report should include the following key sections:
 
-For full details including assessment criteria, formatting guidelines, and academic integrity requirements, see the [assessment brief](assessment-brief.qmd).
+1. **Introduction**
+   - Clear research question
+   - Context and motivation
+   - Reference to relevant academic, policy and/or technical literature
+
+2. **Input Data and Data Cleaning**
+   - Description of datasets used
+   - Data quality considerations
+   - Data processing steps
+
+3. **Exploratory Data Analysis**
+   - Initial data visualization
+   - Key patterns and relationships
+   - Statistical summaries
+
+4. **Analysis and Results**
+   - Detailed analysis addressing research question
+   - Clear presentation of findings
+   - Supporting visualizations
+
+5. **Discussion**
+   - Interpretation of results
+   - Strengths and limitations of the analysis
+   - Implications for transport planning/policy
+
+6. **Conclusion**
+   - Summary of key findings
+   - Recommendations
+   - Future research directions
+
+7. **References**
+   - Properly formatted citations
+   - Mix of academic and technical sources
+
+## Assessment Criteria
+
+Marks will be awarded in four categories:
+
+1. **Data Processing (20%)**
+   - Selection and effective use of datasets
+   - Data cleaning and preparation
+   - Feature engineering and data transformation
+
+2. **Visualization and Report Quality (20%)**
+   - Clear, well-designed figures
+   - Professional formatting
+   - Effective communication of results
+
+3. **Code Quality and Reproducibility (20%)**
+   - Clean, efficient code
+   - Well-documented
+   - Fully reproducible analysis
+
+4. **Understanding and Impact (40%)**
+   - Clear research question
+   - Appropriate methodology
+   - Critical analysis
+   - Discussion of implications
+
+## Topics and Datasets
+
+Your topic must be entirely different from the one chosen for coursework 1. Some suggested areas include:
+
+- Road safety analysis
+- Infrastructure and travel behavior
+- Traffic congestion patterns
+- Public transport accessibility
+- Active travel infrastructure
+- Transport equity studies
+
+See the [coursework template](https://github.com/ITSLeeds/TDS/raw/master/coursework-template.Rmd) for more detailed topic suggestions and example datasets.
+
+## Technical Requirements
+
+- Use R/RStudio with Quarto or RMarkdown
+- Include all necessary code for reproducibility
+- Document any external data sources
+- Follow R coding style guidelines
+
+## Academic Integrity
+
+- Clearly acknowledge any use of AI tools (AMBER category)
+- Properly cite all sources
+- Include original data processing and analysis work
+- Document any collaboration or assistance received
+
+For questions or clarifications, please use the module Teams channel or contact the module leader.
