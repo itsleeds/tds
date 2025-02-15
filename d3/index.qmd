@@ -14,13 +14,13 @@ This is the final assessed coursework submission for the Transport Data Science 
 
 - **Length**: Maximum 10 pages (excluding references and appendices)
 - **Word count**: Maximum 3,000 words (excluding tables, code, references, and captions)
-- **Format**: Submit both a PDF file and the source .Rmd/.qmd file in a .zip file
+- **Format**: Submit both a PDF file and the source .qmd file in a .zip file
 - **File size**: Maximum 40 MB for the .zip file
 - **Submission**: Via Minerva (Turnitin)
 
 ## Report Structure
 
-Your report should include the following key sections:
+Your report should have a logical structure and clear headings which could include:
 
 1. **Introduction**
    - Clear research question
@@ -49,50 +49,16 @@ Your report should include the following key sections:
 
 6. **Conclusion**
    - Summary of key findings
-   - Recommendations
-   - Future research directions
+   - Recommendations (for policy-makers, practitioners, researchers or others)
+   - Future research directions (what would you like to do if you had more time and what could others with complementary skills do?)
 
 7. **References**
    - Properly formatted citations
-   - Mix of academic and technical sources
+   - Mix of academic and technical/policy/other sources
 
 ## Assessment Criteria
 
-Marks will be awarded in four categories:
-
-1. **Data Processing (20%)**
-   - Selection and effective use of datasets
-   - Data cleaning and preparation
-   - Feature engineering and data transformation
-
-2. **Visualization and Report Quality (20%)**
-   - Clear, well-designed figures
-   - Professional formatting
-   - Effective communication of results
-
-3. **Code Quality and Reproducibility (20%)**
-   - Clean, efficient code
-   - Well-documented
-   - Fully reproducible analysis
-
-4. **Understanding and Impact (40%)**
-   - Clear research question
-   - Appropriate methodology
-   - Critical analysis
-   - Discussion of implications
-
-## Topics and Datasets
-
-Your topic must be entirely different from the one chosen for coursework 1. Some suggested areas include:
-
-- Road safety analysis
-- Infrastructure and travel behavior
-- Traffic congestion patterns
-- Public transport accessibility
-- Active travel infrastructure
-- Transport equity studies
-
-See the [coursework template](https://github.com/ITSLeeds/TDS/raw/master/coursework-template.Rmd) for more detailed topic suggestions and example datasets.
+Marks will be awarded based on the marking criteria outlined in the [marking criteria document](../marking-criteria).
 
 ## Technical Requirements
 
