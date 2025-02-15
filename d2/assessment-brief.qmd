@@ -27,7 +27,7 @@ gh release upload 2025 formative-assessment-brief.pdf
 
 ## Module Code & Title
 
-**TRAN5340M** - Using Data Science to Solve Transport Problems
+**TRAN5340M** - Transport Data Science
 
 ## Assessment Title
 
@@ -64,7 +64,7 @@ Formative (non-assessed, but required for feedback and guidance).
 ## Submission Method
 
 - A `.zip` file with:
-  - A short (5-page max) PDF document.
+  - A short (2-page recommended, 5-page max) PDF document.
   - Reproducible code (e.g., `.qmd` file).
   - A maximum zip file size of 30 MB but ideally less (note: you may need to remove large data files from the folder before zipping).
 - Submitted via Turnitin.
@@ -76,7 +76,7 @@ Feedback will be provided within 15 working days of submission. Written feedback
 ## Module Leader & Contact Details
 
 **Professor Robin Lovelace**  
-r.lovelace@leeds.ac.uk  
+r dot lovelace [at] leeds.ac.uk
 
 ---
 
@@ -126,7 +126,7 @@ Skills@Library hosts useful guidance on academic skills, including specific guid
 
 You will submit a `.zip` file containing:
 
-1. A **5-page maximum PDF document** with the following:
+1. A **concise PDF document** (recommended length: 2 pages, absolute maximum: 5 pages) outlining:
    - A draft title of your topic.
    - The main dataset you will use and other potential datasets.
    - Ideas on a research question.
@@ -156,7 +156,7 @@ You will submit a `.zip` file containing:
 
 ## Presentation/Formatting and Referencing
 
-You must appropriately cite all supporting evidence using the **Leeds Harvard referencing style**. For guidance, visit [Leeds Harvard Referencing](https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction). 
+You must appropriately cite all supporting evidence using appropriate references and a consistent, professional style.
 
 See [the authoring tutorial with RStudio at quarto.org](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for guidance on how to add citations to your document in RStudio's Visual Editor mode.
 
@@ -178,7 +178,7 @@ The assessment is formative so is not assessed, but you will be provided with fe
 - Appropriateness of the selected datasets.
 - Engagement with academic literature.
 - Quality of the analysis plan and workflow diagram.
-- Reproducibility of the code and documentation.
+- Quality of and reproducibility of the code and documentation.
 
 See the [Marking Criteria](https://itsleeds.github.io/tds/marking-criteria.html) for more details.
 
@@ -186,7 +186,7 @@ See the [Marking Criteria](https://itsleeds.github.io/tds/marking-criteria.html)
 
 ## Module Code & Title
 
-**TRAN5340M** - Using Data Science to Solve Transport Problems
+**TRAN5340M** - Transport Data Science
 
 ## Assessment Type and Learning Outcomes
 
@@ -212,7 +212,7 @@ AI use must be acknowledged in an 'Acknowledgements' section. See [Generative AI
 
 Submit a `.zip` file (max 30 MB) containing:
 
-1. **5-page maximum PDF document** including:
+1. **Short** (2-page recommended, 5-page maximum) PDF document including:
    - Draft title
    - Dataset descriptions
    - Research question
@@ -247,6 +247,4 @@ All work must meet university standards for Academic Integrity. See the [For Stu
 
 ## Support Resources
 
-- [Academic Skills | Library | University of Leeds](https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction)
-- [Leeds Harvard Referencing](https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction)
 - [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations)
