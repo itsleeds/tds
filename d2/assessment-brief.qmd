@@ -45,7 +45,7 @@ Portfolio Plan and Reproducible Code Submission
 
 ## Assessment Length/Time Limit Guidance
 
-- A 5-page maximum PDF document outlining your topic, plan, and preliminary analysis.
+- A short (recommended 2 page, 5-page maximum) PDF document outlining your topic, plan, and preliminary analysis.
 - A .zip file containing the reproducible code (in a Quarto document saved as a `.qmd` file) and the resulting PDF.
 
 ## Use of GenAI in This Assessment
