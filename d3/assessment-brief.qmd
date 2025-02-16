@@ -97,38 +97,7 @@ For detailed guidance, see [Generative AI and Assessments](https://generative-ai
 
 ### Recommended Report Structure
 
-1. **Introduction**
-   - Clear research question
-   - Context and motivation
-   - Reference to relevant literature
-
-2. **Input Data and Data Cleaning**
-   - Description of datasets
-   - Data quality considerations
-   - Processing steps
-
-3. **Exploratory Data Analysis**
-   - Initial visualization
-   - Key patterns
-   - Statistical summaries
-
-4. **Analysis and Results**
-   - Detailed analysis
-   - Clear presentation
-   - Supporting visualizations
-
-5. **Discussion**
-   - Result interpretation
-   - Strengths and limitations
-   - Policy implications
-
-6. **Conclusion**
-   - Key findings
-   - Recommendations
-   - Future directions
-
-7. **References**
-   - Properly formatted citations
+{{< include d3/report-structure.qmd >}} 
 
 ### Marking Criteria
 
