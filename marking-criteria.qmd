@@ -5,8 +5,6 @@ format:
     theme: cerulean
 ---
 
-## Marks
-
 Marks are awarded in 4 categories, accounting for the following criteria:
 
 ### Data processing: 20%
