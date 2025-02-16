@@ -26,41 +26,7 @@ A good way to think about the project report is to imagine that you have worked 
 
 ## Report Structure
 
-Your report should have a logical structure and clear headings which could include:
-
-1. **Introduction**
-   - Clear research question
-   - Context and motivation
-   - Reference to relevant academic, policy and/or technical literature
-
-2. **Input Data and Data Cleaning**
-   - Description of datasets used
-   - Data quality considerations
-   - Data processing steps
-
-3. **Exploratory Data Analysis**
-   - Initial data visualization
-   - Key patterns and relationships
-   - Statistical summaries
-
-4. **Analysis and Results**
-   - Detailed analysis addressing research question
-   - Clear presentation of findings
-   - Supporting visualizations
-
-5. **Discussion**
-   - Interpretation of results
-   - Strengths and limitations of the analysis
-   - Implications for transport planning/policy
-
-6. **Conclusion**
-   - Summary of key findings
-   - Recommendations (for policy-makers, practitioners, researchers or others)
-   - Future research directions (what would you like to do if you had more time and what could others with complementary skills do?)
-
-7. **References**
-   - Properly formatted citations
-   - Mix of academic and technical/policy/other sources
+{{< include d3/report-structure.qmd >}} 
 
 ## Assessment Criteria
 
