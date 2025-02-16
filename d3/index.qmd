@@ -26,7 +26,7 @@ A good way to think about the project report is to imagine that you have worked 
 
 ## Report Structure
 
-{{< include d3/report-structure.qmd >}} 
+{{< include report-structure.qmd >}} 
 
 ## Assessment Criteria
 

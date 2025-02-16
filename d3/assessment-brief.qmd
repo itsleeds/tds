@@ -3,6 +3,8 @@ title: "Summative assessment brief: Data science project report"
 bibliography: ../tds.bib
 ---
 
+# Assessment summary
+
 ## Module Code & Title
 
 **TRAN5340M** - Transport Data Science
@@ -97,7 +99,7 @@ For detailed guidance, see [Generative AI and Assessments](https://generative-ai
 
 ### Recommended Report Structure
 
-{{< include d3/report-structure.qmd >}} 
+{{< include report-structure.qmd >}} 
 
 ### Marking Criteria
 
@@ -113,8 +115,6 @@ Your topic must be entirely different from coursework 1. Potential areas include
 - Public transport accessibility
 - Active travel infrastructure
 - Transport equity studies
-
-See the [coursework template](https://github.com/ITSLeeds/TDS/raw/master/coursework-template.Rmd) for detailed suggestions.
 
 ---
 
