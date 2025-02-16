@@ -181,5 +181,6 @@ All work must meet university standards for Academic Integrity. See the [For Stu
 
 - Module forum for questions
 - [Skills@Library](https://library.leeds.ac.uk/info/1402/referencing) for academic writing support
+- See the [course website](https://itsleeds.github.io/tds/d3) for additional resources
 <!-- TODO -->
 <!-- - Course template and examples -->
