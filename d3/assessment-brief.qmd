@@ -3,6 +3,14 @@ title: "Summative assessment brief: Data science project report"
 bibliography: ../tds.bib
 ---
 
+```{r}
+#| echo: false
+#| eval: false
+# docx format results in higher accessibility scores on Minerva:
+quarto::quarto_render("d3/index.qmd", output_format = "docx")
+file.rename("docs/d3/index.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Summative Assessment Brief.docx")
+```
+
 # Assessment summary
 
 ## Module Code & Title

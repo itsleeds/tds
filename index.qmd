@@ -18,7 +18,7 @@ Experience with geographic data is not required, but is helpful.
 Access to a computer that you have permission to install software on, with at least 8 GB of RAM, is highly recommended.
 You could use a cloud-based service such as RStudio Cloud, Google Colab, or GitHub Codespaces, but you would need to be comfortable with using these services and would miss out on some of the benefits of using your own computer.
 
-## Command-line experience
+## Computing experience
 
 You should be comfortable with computing in general, for example creating folders, moving files, and installing software.
 You should be comfortable with using command line interfaces such as PowerShell in Windows, Terminal in macOS, or the Linux shell.
