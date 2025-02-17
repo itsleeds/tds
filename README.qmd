@@ -17,21 +17,6 @@ The quickest way to get started with the code for many people will be to use Git
 
 If you're using VS Code and have Docker installed you can open the project in a Devcontainer by pressing Ctrl+Shift+P, typing in "Devcontainer", and selecting "Remote-Containers: Reopen in Container".
 
-## Reproducing the website
-
-To reprooduce the website, you can use the following command in R:
-
-```{r}
-#| eval: false
-quarto::quarto_preview()
-```
-
-This is the same as running the following command in the system terminal:
-
-```bash
-quarto preview
-```
-
 ## Cloning and contributing
 
 We welcome contributions!
@@ -68,6 +53,30 @@ git commit -m "your message"
 git push
 gh pr create # to create a pull request
 ```
+
+## Reproducing the website
+
+To reprooduce the website, you can use the following command in R:
+
+```{r}
+#| eval: false
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+remotes::install_github("itsleeds/tds")
+```
+
+```{r}
+#| eval: false
+quarto::quarto_preview()
+```
+
+This is the same as running the following command in the system terminal:
+
+```bash
+quarto preview
+```
+
 
 ## Archive
 

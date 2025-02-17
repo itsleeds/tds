@@ -1,0 +1,250 @@
+---
+title: "Formative assessment brief: portfolio plan and reproducible data science code"
+bibliography: ../tds.bib
+# For docx version:
+# toc: false
+# execute: 
+#   cache: true
+# number-sections: true
+---
+
+```{r}
+#| echo: false
+#| eval: false
+# docx format results in higher accessibility scores on Minerva:
+quarto::quarto_render("d2/index.qmd", output_format = "docx", output_file = "tds-formative-assessment-brief.docx")
+file.rename("docs/tds-formative-assessment-brief.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Formative Assessment Brief.docx")
+```
+
+```{bash}
+#| eval: false
+#| echo: false
+gh release upload 2025 formative-assessment-brief.docx
+gh release upload 2025 formative-assessment-brief.pdf
+```
+
+<!-- Based on https://github.com/itsleeds/tdsarchive/blob/master/coursework-template.md -->
+
+## Module Code & Title
+
+**TRAN5340M** - Transport Data Science
+
+## Assessment Title
+
+Formative Coursework: Portfolio Plan and Reproducible Code
+
+## Assessment Type
+
+Portfolio Plan and Reproducible Code Submission
+
+## Learning Outcomes Assessed
+
+1. To develop a clear plan for applying data science techniques to a transport problem.
+2. To demonstrate the ability to work with datasets and produce reproducible code.
+3. To critically engage with academic literature and formulate research questions.
+
+## Assessment Length/Time Limit Guidance
+
+- A short (recommended 2 page, 5-page maximum) PDF document outlining your topic, plan, and preliminary analysis.
+- A .zip file containing the reproducible code (in a Quarto document saved as a `.qmd` file) and the resulting PDF.
+
+## Use of GenAI in This Assessment
+
+**AMBER**: AI tools can be used in an assistive role.  
+You are permitted to use AI tools for specific defined processes within the assessment. See below for further details.
+
+## Weighting
+
+Formative (non-assessed, but required for feedback and guidance).
+
+## Deadline or Date of Assessment
+
+**Non-assessed submission deadline**: 28th February 2025, 13:59.
+
+## Submission Method
+
+- A `.zip` file with:
+  - A short (2-page recommended, 5-page max) PDF document.
+  - Reproducible code (e.g., `.qmd` file).
+  - A maximum zip file size of 30 MB but ideally less (note: you may need to remove large data files from the folder before zipping).
+- Submitted via Turnitin.
+
+## Feedback Provision
+
+Feedback will be provided within 15 working days of submission. Written feedback will be provided alongside guidance on how to proceed with the final coursework.
+
+## Module Leader & Contact Details
+
+**Professor Robin Lovelace**  
+r dot lovelace [at] leeds.ac.uk
+
+---
+
+## Assessment Summary Guidance
+
+This formative coursework is designed to help you plan and receive feedback on your final coursework. You will submit a `.zip` file containing a PDF document and reproducible code. The document should outline your topic, datasets, research questions, and analysis plan. Feedback will be provided to guide your final submission.
+
+---
+
+## Use of GenAI
+
+**Generative AI Category: AMBER**  
+Under this category, AI tools can be used in an assistive role.  
+
+In this assessment, AI tools can be utilised in an assistive role to:  
+- Act as a support tutor, assisting your research on the topic (e.g., asking clarifying questions or suggesting areas to investigate).  
+- Test and debug any code you produce yourself as part of the assignment.  
+- Provide ideas or inspiration to help you overcome a creative block.  
+- Give feedback on content or proofread content that you have generated yourself.  
+
+In this assessment, AI tools **cannot** be utilised to:  
+- Produce the entirety of, or sections of, a piece of work that you submit for assessment beyond that which is outlined above.  
+
+The use of Generative AI must be acknowledged in an **‘Acknowledgements’** section of any piece of academic work where it has been used as a functional tool to assist in the process of creating academic work. The minimum requirement to include in acknowledgement:  
+- Name and version of the generative AI system used (e.g., ChatGPT-4.0).  
+- Publisher (company that made the AI system) (e.g., OpenAI).  
+- URL of the AI system.  
+- Brief description (single sentence) of the context in which the tool was used.  
+
+**Example:**  
+“I acknowledge the use of ChatGPT-3.5 (Open AI, https://chat.openai.com/) to summarise my initial notes and to proofread my final draft.”  
+
+The standard Academic Misconduct procedure applies for students believed to have ignored this categorisation.  
+For detailed guidance, see [Generative AI and Assessments](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/).
+
+---
+
+## General Guidance
+
+Skills@Library hosts useful guidance on academic skills, including specific guidance on academic writing and referencing. Visit [Academic Skills | Library | University of Leeds](https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction).
+
+---
+
+## Assessment Criteria and Process
+
+### Submission Requirements
+
+You will submit a `.zip` file containing:
+
+1. A **concise PDF document** (recommended length: 2 pages, absolute maximum: 5 pages) outlining:
+   - A draft title of your topic.
+   - The main dataset you will use and other potential datasets.
+   - Ideas on a research question.
+   - Questions you would like to ask about the topic (e.g., "Is this a suitable dataset?").
+   - At least **2 references** to academic literature related to the topic.
+   - Minimal code and/or a description of where you accessed the data and how you imported it.
+   - Any preliminary analysis you have done.
+   - A suggested structure for the document:
+     - Topics considered.
+     - Input datasets.
+     - Analysis plan (e.g., a workflow diagram as shown [here](https://user-images.githubusercontent.com/1825120/127524923-7d9f5511-84a6-430b-8de9-a603a5524f39.png)).
+     - Motivation for choosing this topic.
+     - Questions and options.
+2. **Reproducible code** in a `.qmd` file.
+
+### Purpose of the Submission
+
+- To allow you to ask questions to the course team (e.g., "Does this sound like a reasonable input dataset and topic?").
+- To describe progress on reading input datasets and the analysis plan.
+- To receive feedback on your approach before the final submission.
+
+### Rendering Instructions
+
+- If you cannot render to PDF directly, render to HTML and convert to PDF by printing to PDF from your browser.
+
+---
+
+## Presentation/Formatting and Referencing
+
+You must appropriately cite all supporting evidence using appropriate references and a consistent, professional style.
+
+See [the authoring tutorial with RStudio at quarto.org](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for guidance on how to add citations to your document in RStudio's Visual Editor mode.
+
+---
+
+## Academic Misconduct and Plagiarism
+
+The university expects that all the work you do, which includes all forms of assessments submitted and examinations taken, meet the university’s standard for Academic Integrity. All forms of Academic Integrity are investigated through the Academic Misconduct Procedure. This applies to all taught elements of your study, including undergraduate programmes, taught postgraduate study, and taught elements of research degrees. Breaching academic integrity standards can lead to serious penalties.  
+
+Guidance on Academic Integrity and Academic Misconduct can be found on the [For Students website pages](https://students.leeds.ac.uk/info/10110/academic-integrity). Full definitions of offences under the Academic Misconduct Procedure can be found in the [Academic Misconduct Procedure](https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/).  
+
+---
+
+## Assessment Criteria Rubric
+
+The assessment is formative so is not assessed, but you will be provided with feedback on the following criteria:
+
+- Clarity and feasibility of the proposed topic and research question.
+- Appropriateness of the selected datasets.
+- Engagement with academic literature.
+- Quality of the analysis plan and workflow diagram.
+- Quality of and reproducibility of the code and documentation.
+
+See the [Marking Criteria](https://itsleeds.github.io/tds/marking-criteria.html) for more details.
+
+<!-- Original content from index.qmd moved here -->
+
+## Module Code & Title
+
+**TRAN5340M** - Transport Data Science
+
+## Assessment Type and Learning Outcomes
+
+This formative coursework assesses:
+
+1. Development of data science applications for transport problems
+2. Working with datasets and producing reproducible code
+3. Critical engagement with academic literature
+
+## Use of GenAI
+
+**AMBER**: AI tools can be used in an assistive role.  
+
+Permitted uses:
+- Support for research and topic understanding
+- Code testing and debugging
+- Creative inspiration
+- Feedback and proofreading
+
+AI use must be acknowledged in an 'Acknowledgements' section. See [Generative AI and Assessments](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/) for details.
+
+## Submission Requirements
+
+Submit a `.zip` file (max 30 MB) containing:
+
+1. **Short** (2-page recommended, 5-page maximum) PDF document including:
+   - Draft title
+   - Dataset descriptions
+   - Research question
+   - Questions about the topic
+   - At least 2 academic references
+   - Code/data access description
+   - Preliminary analysis
+   - Structure:
+     - Topics considered
+     - Input datasets
+     - Analysis plan
+     - Topic motivation
+     - Questions and options
+
+2. **Reproducible code** in `.qmd` format
+
+## Assessment Criteria
+
+Feedback will focus on:
+
+- Topic clarity and feasibility
+- Dataset appropriateness
+- Academic literature engagement
+- Analysis plan quality
+- Code reproducibility
+
+See the [Marking Criteria](https://itsleeds.github.io/tds/marking-criteria.html) for details.
+
+## Academic Integrity
+
+All work must meet university standards for Academic Integrity. See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance.
+
+## Support Resources
+
+- [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations)
