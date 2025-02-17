@@ -1,0 +1,163 @@
+---
+title: "Summative assessment brief: Data science project report"
+bibliography: ../tds.bib
+---
+
+```{r}
+#| echo: false
+#| eval: false
+# docx format results in higher accessibility scores on Minerva:
+quarto::quarto_render("d3/index.qmd", output_format = "docx")
+file.rename("docs/d3/index.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Summative Assessment Brief.docx")
+```
+
+# Assessment summary
+
+## Module Code & Title
+
+**TRAN5340M** - Transport Data Science
+
+## Assessment Title
+
+Summative Coursework: Data Science Project Report
+
+## Assessment Type
+
+Project Report and Reproducible Code
+
+## Learning Outcomes Assessed
+
+1. To demonstrate advanced data science techniques applied to a transport problem
+2. To show proficiency in data processing, visualization, and analysis
+3. To produce high-quality, reproducible research with clear implications for transport planning/policy
+4. To critically evaluate methodological approaches and results
+
+## Assessment Length/Time Limit Guidance
+
+- Maximum 10 pages (excluding references and appendices)
+- Maximum 3,000 words (excluding tables, code, references, and captions)
+- A .zip file containing the reproducible code (in a Quarto document) and the resulting PDF
+
+## Use of GenAI in This Assessment
+
+**AMBER**: AI tools can be used in an assistive role.  
+You are permitted to use AI tools for specific defined processes within the assessment. See below for further details.
+
+## Weighting
+
+100% of module mark
+
+## Deadline or Date of Assessment
+
+**Submission deadline**: 16th May 2025, 14:00
+
+## Submission Method
+
+- A `.zip` file containing:
+  - A PDF document (max 10 pages)
+  - Reproducible code (`.qmd` file)
+  - Any necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead
+  - Maximum file size: 40 MB
+- Submit via Minerva (Turnitin)
+
+## Feedback Provision
+
+Feedback will be provided within 15 working days of submission.
+
+## Module Leader & Contact Details
+
+**Professor Robin Lovelace**  
+r dot lovelace [at] leeds.ac.uk
+
+---
+
+## Assessment Summary Guidance
+
+This summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions.
+
+---
+
+## Use of GenAI
+
+**Generative AI Category: AMBER**  
+Under this category, AI tools can be used in an assistive role.  
+
+In this assessment, AI tools can be utilised to:  
+- Support code debugging and optimization
+- Assist with data processing techniques
+- Help with visualization approaches
+- Provide feedback on writing clarity
+
+AI tools **cannot** be used to:  
+- Generate complete sections of the report
+- Perform the core analysis
+- Make key analytical decisions
+
+The use of Generative AI must be acknowledged in an **'Acknowledgements'** section, including:  
+- Name and version of the AI system
+- Publisher
+- URL
+- Brief description of use
+
+For detailed guidance, see [Generative AI and Assessments](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/).
+
+---
+
+## Assessment Criteria and Process
+
+### Recommended Report Structure
+
+{{< include report-structure.qmd >}} 
+
+### Marking Criteria
+
+Marks will be awarded based on the information provided at [Marking Criteria](https://itsleeds.github.io/tds/marking-criteria.html).
+
+### Suggested Topics
+
+Your topic must be entirely different from coursework 1. Potential areas include:
+
+- Road safety analysis
+- Infrastructure and travel behavior
+- Traffic congestion patterns
+- Public transport accessibility
+- Active travel infrastructure
+- Transport equity studies
+
+---
+
+## Presentation/Formatting and Referencing
+
+- Use clear headings and structure
+- Include appropriate figures and tables
+- Follow R coding style guidelines
+- Use consistent citation format
+- Provide complete references
+
+See [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for reference formatting.
+
+---
+
+## Academic Misconduct and Plagiarism
+
+All work must meet university standards for Academic Integrity. See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance on Academic Integrity and the [Academic Misconduct Procedure](https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/) for definitions of academic misconduct.
+
+---
+
+## Technical Requirements
+
+- Write the report in a Quarto document to share the source code
+- Include all necessary code
+- Document data sources
+- Ensure reproducibility
+- Follow coding style guidelines
+
+---
+
+## Support Resources
+
+- Module forum for questions
+- [Skills@Library](https://library.leeds.ac.uk/info/1402/referencing) for academic writing support
+- See the [course website](https://itsleeds.github.io/tds/d3) for additional resources
+<!-- TODO -->
+<!-- - Course template and examples -->

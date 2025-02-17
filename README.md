@@ -25,21 +25,6 @@ If you’re using VS Code and have Docker installed you can open the
 project in a Devcontainer by pressing Ctrl+Shift+P, typing in
 “Devcontainer”, and selecting “Remote-Containers: Reopen in Container”.
 
-## Reproducing the website
-
-To reprooduce the website, you can use the following command in R:
-
-``` r
-quarto::quarto_preview()
-```
-
-This is the same as running the following command in the system
-terminal:
-
-``` bash
-quarto preview
-```
-
 ## Cloning and contributing
 
 We welcome contributions!
@@ -78,6 +63,28 @@ git push
 gh pr create # to create a pull request
 ```
 
+## Reproducing the website
+
+To reprooduce the website, you can use the following command in R:
+
+``` r
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+remotes::install_github("itsleeds/tds")
+```
+
+``` r
+quarto::quarto_preview()
+```
+
+This is the same as running the following command in the system
+terminal:
+
+``` bash
+quarto preview
+```
+
 ## Archive
 
 See an archived version of the repo, before we switched to using Quarto,
@@ -94,6 +101,7 @@ usethis::use_description()
 usethis::use_package("stats19")
 usethis::use_package("DT")
 usethis::use_package("quarto")
+usethis::use_package("zonebuilder")
 ```
 
 You can save presentations as PDF files with the following command:
