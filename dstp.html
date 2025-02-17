@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Transport Data Science</title>
+<title>Data Science for Transport Planning – Transport Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,40 +19,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -112,7 +78,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Home</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Transport Data Science
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -145,7 +113,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -236,21 +204,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link active" data-scroll-target="#prerequisites">Prerequisites</a>
-  <ul class="collapse">
-  <li><a href="#hardware" id="toc-hardware" class="nav-link" data-scroll-target="#hardware">Hardware</a></li>
-  <li><a href="#computing-experience" id="toc-computing-experience" class="nav-link" data-scroll-target="#computing-experience">Computing experience</a></li>
-  <li><a href="#data-science-experience-prerequisites" id="toc-data-science-experience-prerequisites" class="nav-link" data-scroll-target="#data-science-experience-prerequisites">Data science experience prerequisites</a></li>
-  </ul></li>
-  <li><a href="#software-requirements-and-installation" id="toc-software-requirements-and-installation" class="nav-link" data-scroll-target="#software-requirements-and-installation">Software requirements and installation</a>
-  <ul class="collapse">
-  <li><a href="#quickstart-with-github-codespaces" id="toc-quickstart-with-github-codespaces" class="nav-link" data-scroll-target="#quickstart-with-github-codespaces">Quickstart with GitHub Codespaces</a></li>
-  <li><a href="#r" id="toc-r" class="nav-link" data-scroll-target="#r">R</a></li>
-  <li><a href="#python" id="toc-python" class="nav-link" data-scroll-target="#python">Python</a></li>
-  <li><a href="#docker-advanced" id="toc-docker-advanced" class="nav-link" data-scroll-target="#docker-advanced">Docker (advanced)</a></li>
-  </ul></li>
-  <li><a href="#r-python-or-other" id="toc-r-python-or-other" class="nav-link" data-scroll-target="#r-python-or-other">R, Python or other?</a></li>
-  <li><a href="#contributing-to-the-course" id="toc-contributing-to-the-course" class="nav-link" data-scroll-target="#contributing-to-the-course">Contributing to the course</a></li>
+  <li><a href="#course-overview" id="toc-course-overview" class="nav-link active" data-scroll-target="#course-overview"><span class="header-section-number">1</span> Course Overview</a></li>
+  <li><a href="#schedule" id="toc-schedule" class="nav-link" data-scroll-target="#schedule"><span class="header-section-number">2</span> Schedule</a></li>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link" data-scroll-target="#learning-objectives"><span class="header-section-number">3</span> Learning Objectives</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites"><span class="header-section-number">4</span> Prerequisites</a></li>
+  <li><a href="#registration" id="toc-registration" class="nav-link" data-scroll-target="#registration"><span class="header-section-number">5</span> Registration</a></li>
   </ul>
 </nav>
     </div>
@@ -259,7 +217,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Transport Data Science</h1>
+<h1 class="title">Data Science for Transport Planning</h1>
 </div>
 
 
@@ -276,99 +234,56 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>A module on using data science to solve transport problems. This couse is based at the University of Leeds’ Institute for Transport Studies (module code <a href="https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202425&amp;M=TRAN-5340M">TRAN5340M</a>). Led by Robin Lovelace, Professor of Transport Data Science and developer of several data-driven solutions for effective transport planning, the course is designed to teach you how to use data science to solve transport problems. It has evolved over a decade of teaching and research in the field and aims to teach you up-to-date and future-proof skills with practical examples and reproducible workflows using industry-standard data science tools.</p>
-<section id="prerequisites" class="level1">
-<h1>Prerequisites</h1>
-<p>We expect you to have some experience with programming, data science and computing in general before taking this course. Experience with geographic data is not required, but is helpful.</p>
-<section id="hardware" class="level2">
-<h2 class="anchored" data-anchor-id="hardware">Hardware</h2>
-<p>Access to a computer that you have permission to install software on, with at least 8 GB of RAM, is highly recommended. You could use a cloud-based service such as RStudio Cloud, Google Colab, or GitHub Codespaces, but you would need to be comfortable with using these services and would miss out on some of the benefits of using your own computer.</p>
+<section id="course-overview" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="course-overview"><span class="header-section-number">1</span> Course Overview</h2>
+<p>Based on demand from industry and government, we’re organising a 2-day course on Data Science for Transport Planning, specifically designed for transport planning practitioners. This course will take place on the 18th and 19th of September.</p>
 </section>
-<section id="computing-experience" class="level2">
-<h2 class="anchored" data-anchor-id="computing-experience">Computing experience</h2>
-<p>You should be comfortable with computing in general, for example creating folders, moving files, and installing software. You should be comfortable with using command line interfaces such as PowerShell in Windows, Terminal in macOS, or the Linux shell.</p>
+<section id="schedule" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="schedule"><span class="header-section-number">2</span> Schedule</h2>
+<p>TBC.</p>
+<!-- ### Day 1: 18th September
+- **09:00 - 10:30**: Introduction to Data Science in Transport Planning
+- **10:30 - 11:00**: Coffee Break
+- **11:00 - 12:30**: Data Collection and Management
+- **12:30 - 13:30**: Lunch Break
+- **13:30 - 15:00**: Data Analysis Techniques
+- **15:00 - 15:30**: Coffee Break
+- **15:30 - 17:00**: Case Studies and Practical Applications
+
+### Day 2: 19th September
+- **09:00 - 10:30**: Advanced Data Analysis
+- **10:30 - 11:00**: Coffee Break
+- **11:00 - 12:30**: Data Visualization and Reporting
+- **12:30 - 13:30**: Lunch Break
+- **13:30 - 15:00**: Interactive Workshop
+- **15:00 - 15:30**: Coffee Break
+- **15:30 - 17:00**: Group Projects and Presentations -->
 </section>
-<section id="data-science-experience-prerequisites" class="level2">
-<h2 class="anchored" data-anchor-id="data-science-experience-prerequisites">Data science experience prerequisites</h2>
-<p>Prior experience of using R or Python (e.g.&nbsp;having used it for work, in previous degrees or having completed an online course) is essential.</p>
-<p>Students can demonstrate this by showing evidence that they have worked with R before, have completed an online course such as the first 4 sessions in the <a href="https://rstudio.cloud/learn/primers">RStudio Primers series</a> or <a href="https://www.datacamp.com/courses/free-introduction-to-r">DataCamp’s Free Introduction to R course</a>.</p>
-<p>Evidence of substantial programming and data science experience in previous professional or academic work, in languages such as R or Python, also constitutes sufficient pre-requisite knowledge for the course.</p>
-</section>
-</section>
-<section id="software-requirements-and-installation" class="level1">
-<h1>Software requirements and installation</h1>
-<p>You need to install some software to take the course.</p>
-<p>The teaching is be delivered primarily in R, with some Python code and examples, so you need to install R (recommended) or Python or both on your computer. We recommend that most people use R for the practical sessions and the coursework, unless you have a good reason to use Python. If you do choose to use Python or another language, you will have less support: you will need the skills to set-up and manage your own environments. Translations of the R code examples into your chosen language will be very welcome, and contributions to the course materials via <a href="https://github.com/itsleeds/tds/pulls">Pull Requests on GitHub</a> are encouraged.</p>
-<section id="quickstart-with-github-codespaces" class="level2">
-<h2 class="anchored" data-anchor-id="quickstart-with-github-codespaces">Quickstart with GitHub Codespaces</h2>
-<p>You can use GitHub Codespaces to get started with the course materials in a cloud-based environment. Sign-up to GitHub, fork the repository, and click the “Open in GitHub Codespaces” button above to get started. You can also use the following link:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://github.com/codespaces/new/itsleeds/tds?quickstart=1"><img src="https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png" class="img-fluid figure-img" alt="Open in GitHub Codespaces"></a></p>
-<figcaption>Open in GitHub Codespaces</figcaption>
-</figure>
-</div>
-</section>
-<section id="r" class="level2">
-<h2 class="anchored" data-anchor-id="r">R</h2>
-<p>Install a recent version of R (4.3.0 or above) and RStudio (recommended) or another IDE such as VS Code (if you have prior experience with it) with the the following links:</p>
+<section id="learning-objectives" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="learning-objectives"><span class="header-section-number">3</span> Learning Objectives</h2>
 <ul>
-<li>R from <a href="https://cran.r-project.org/">cran.r-project.org</a></li>
-<li>RStudio from <a href="https://rstudio.com/products/rstudio/download/#download">rstudio.com</a> (recommended) or VS Code with the R extension installed.</li>
-<li>R packages, which can be installed by opening RStudio and typing <code>install.packages("stats19")</code> in the R console, for example.</li>
-<li>To install all the dependencies for the module, run the following command in the R console:</li>
+<li>Understand the role of data science in transport planning.</li>
+<li>Learn how to collect, manage, and analyze transport data.</li>
+<li>Gain practical experience through case studies and interactive workshops.</li>
+<li>Develop skills in data visualization and reporting.</li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"remotes"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"itsleeds/tds"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>See <a href="https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio">Section 1.5 of the online guide Reproducible Road Safety Research with R</a> for instructions on how to install key packages we will use in the module.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
-<section id="python" class="level2">
-<h2 class="anchored" data-anchor-id="python">Python</h2>
-<p>If you choose to use Python, you should be able to install it and manage your own Python environment, including installing packages and dealing with package conflicts. If you use Python we recommend using an environment manager such as <code>pixi</code> (which can manage both R and Python environments) or Docker (best practice for reproducibility and isolation).</p>
+<section id="prerequisites" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="prerequisites"><span class="header-section-number">4</span> Prerequisites</h2>
+<ul>
+<li>Basic knowledge of transport planning concepts.</li>
+<li>Familiarity with data analysis tools and techniques is beneficial but not required.</li>
+</ul>
 </section>
-<section id="docker-advanced" class="level2">
-<h2 class="anchored" data-anchor-id="docker-advanced">Docker (advanced)</h2>
-<p>We maintain a Docker image that contains all the software you need to complete the course with VS Code, quarto and a Devcontainer set-up. Advantages of this approach include that it ensures reproducibility and can save time installing software. Disadvantages include that it can be hard to install Docker and can be difficult to use if you are not familiar with Docker. We therefore recommend this approach only for people who are confident with Docker and willing to invest time in learning how to use it. See <a href="https://docs.docker.com/get-docker/">the Docker installation instructions</a>, the <a href="https://github.com/devcontainers">devcontainers documentation on github.com</a> and the tds <a href="https://github.com/itsleeds/tds/blob/main/Dockerfile">Dockerfile</a> and <a href="https://github.com/itsleeds/tds/blob/main/.devcontainer/devcontainer.json">devcontainer.json</a> for guidance on getting started with Docker.</p>
-</section>
-</section>
-<section id="r-python-or-other" class="level1">
-<h1>R, Python or other?</h1>
-<p>While the focus of the module is on methods that can be implemented in many languages, we expect most people taking this course will use R for the practicals and for the end our course project. We use R because it is hard to beat in terms of a data science environment <em>with batteries included</em>, with many mature packages for data manipulation, visualisation, and statistical analysis available within seconds, without having to worry about package conflicts or managing environments. R is also the language with which the module team has the most experience.</p>
-<p>Python is another excellent choice for transport data science, and many of the example code chunks we provide in R have been ported to Python examples, as illustrated below, which shows how to load the R package <code>{sf}</code> and the equivalent Python package <code>{geopandas}</code>.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>geo_data <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"geo_data.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="sourceCode" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>geo_data <span class="op">=</span> gpd.read_file(<span class="st">"geo_data.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<p>If you do choose to use Python, you will be expected to manage your own Python environment, and to be able to translate the R code examples into Python.</p>
-<p>If you are feeling adventurous, you could try using Julia, JavaScript/TypeScript (e.g.&nbsp;via Observable) or another language, but you will be on your own in terms of support.</p>
-</section>
-<section id="contributing-to-the-course" class="level1">
-<h1>Contributing to the course</h1>
-<p>See the <a href="https://github.com/itsleeds/tds/tree/main?tab=readme-ov-file#quickstart">README</a> for instructions on how to contribute to the course materials.</p>
+<section id="registration" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="registration"><span class="header-section-number">5</span> Registration</h2>
+<p>TBC.</p>
+<p>We look forward to seeing you at the course!</p>
 
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p> For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://geocompr.robinlovelace.net/spatial-class.html and Chapter 2 of the online book <em>Efficient R Programming</em>, particularly sections 2.3 and 2.5, for details on R installation and <a href="https://csgillespie.github.io/efficientR/set-up.html">set-up</a> and the <a href="https://csgillespie.github.io/efficientR/set-up.html#project-management">project management section</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
