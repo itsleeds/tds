@@ -1,10 +1,49 @@
 ---
-title: "Deadline: coursework, 2pm"
-bibliography: ../tds.bib
+title: "Coursework submission 2: Data science project report"
 toc: true
 execute: 
   cache: true
+number-sections: true
 ---
 
-This is a placeholder page, contents will be added
+## Overview
 
+This is the final assessed coursework submission for the Transport Data Science module. The deadline is **16th May 2025, 14:00**.
+
+The purpose of the coursework is to provide a professional-quality report on the data science project you have worked on.
+You should include a range of techniques and methods you have learned during the module, and apply them to a real-world transport problem.
+The project report should be a cohesive whole, however, not a disjointed portfolio of separate tasks.
+
+A good way to think about the project report is to imagine that you have worked on an important data science project in a large organisation and you are presenting your findings with a view to impressing them with your skills, clearly communicating your results, and providing actionable insights that motivate change.
+
+## Key Requirements
+
+- **Length**: Maximum 10 pages (excluding references and appendices)
+- **Word count**: Maximum 3,000 words (excluding tables, code, references, and captions)
+- **Format**: Submit both a PDF file and the source .qmd file in a .zip file
+- **File size**: Maximum 40 MB for the .zip file
+- **Submission**: Via Minerva (Turnitin)
+
+## Report Structure
+
+{{< include report-structure.qmd >}} 
+
+## Assessment Criteria
+
+Marks will be awarded based on the marking criteria outlined in the [marking criteria document](../marking-criteria).
+
+## Technical Requirements
+
+- Use R/RStudio with Quarto or RMarkdown
+- Include all necessary code for reproducibility
+- Document any external data sources
+- Follow R coding style guidelines
+
+## Academic Integrity
+
+- Clearly acknowledge any use of AI tools (AMBER category)
+- Properly cite all sources
+- Include original data processing and analysis work
+- Document any collaboration or assistance received
+
+For questions or clarifications, please use the module Teams channel or contact the module leader.

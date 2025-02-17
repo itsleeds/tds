@@ -1,0 +1,33 @@
+Your report should have a logical structure and clear headings which could include:
+
+
+1. **Introduction**
+   - Clear research question
+   - Context and motivation
+   - Reference to relevant literature
+
+2. **Input Data and Data Cleaning**
+   - Description of datasets
+   - Data quality considerations
+   - Processing steps
+
+3. **Exploratory Data Analysis**
+   - Initial visualization
+   - Key patterns
+   - Statistical summaries
+
+4. **Analysis and Results**
+   - Detailed analysis
+   - Clear presentation
+   - Supporting visualizations
+
+5. **Discussion and conclusions**
+   - Result, key findings, interpretation
+   - Policy implications/recommendations
+   - Strengths and limitations
+   - Future directions
+
+6. **References**
+   - Properly formatted citations
+   - Mix of academic and technical/policy/other sources
+   - Recommendation: generate these with Quarto (see [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations))

@@ -18,7 +18,7 @@ Experience with geographic data is not required, but is helpful.
 Access to a computer that you have permission to install software on, with at least 8 GB of RAM, is highly recommended.
 You could use a cloud-based service such as RStudio Cloud, Google Colab, or GitHub Codespaces, but you would need to be comfortable with using these services and would miss out on some of the benefits of using your own computer.
 
-## Command-line experience
+## Computing experience
 
 You should be comfortable with computing in general, for example creating folders, moving files, and installing software.
 You should be comfortable with using command line interfaces such as PowerShell in Windows, Terminal in macOS, or the Linux shell.
@@ -111,7 +111,6 @@ geo_data = gpd.read_file("geo_data.gpkg")
 
 :::
 
-, but the support for Python should be considered work in progress.
 If you do choose to use Python, you will be expected to manage your own Python environment, and to be able to translate the R code examples into Python.
 
 If you are feeling adventurous, you could try using Julia, JavaScript/TypeScript (e.g. via Observable) or another language, but you will be on your own in terms of support.
