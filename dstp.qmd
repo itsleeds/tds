@@ -1,0 +1,47 @@
+---
+title: Data Science for Transport Planning
+---
+
+## Course Overview
+
+Based on demand from industry and government, we're organising a 2-day course on Data Science for Transport Planning, specifically designed for transport planning practitioners. This course will take place on the 18th and 19th of September.
+
+## Schedule
+
+TBC.
+
+<!-- ### Day 1: 18th September
+- **09:00 - 10:30**: Introduction to Data Science in Transport Planning
+- **10:30 - 11:00**: Coffee Break
+- **11:00 - 12:30**: Data Collection and Management
+- **12:30 - 13:30**: Lunch Break
+- **13:30 - 15:00**: Data Analysis Techniques
+- **15:00 - 15:30**: Coffee Break
+- **15:30 - 17:00**: Case Studies and Practical Applications
+
+### Day 2: 19th September
+- **09:00 - 10:30**: Advanced Data Analysis
+- **10:30 - 11:00**: Coffee Break
+- **11:00 - 12:30**: Data Visualization and Reporting
+- **12:30 - 13:30**: Lunch Break
+- **13:30 - 15:00**: Interactive Workshop
+- **15:00 - 15:30**: Coffee Break
+- **15:30 - 17:00**: Group Projects and Presentations -->
+
+## Learning Objectives
+
+- Understand the role of data science in transport planning.
+- Learn how to collect, manage, and analyze transport data.
+- Gain practical experience through case studies and interactive workshops.
+- Develop skills in data visualization and reporting.
+
+## Prerequisites
+
+- Basic knowledge of transport planning concepts.
+- Familiarity with data analysis tools and techniques is beneficial but not required.
+
+## Registration
+
+TBC.
+
+We look forward to seeing you at the course!
