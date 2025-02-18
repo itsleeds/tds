@@ -1,11 +1,7 @@
 ---
 title: "Formative assessment brief: portfolio plan and reproducible data science code"
 bibliography: ../tds.bib
-# For docx version:
-# toc: false
-# execute: 
-#   cache: true
-# number-sections: true
+number-sections: true
 ---
 
 ```{r}
@@ -13,7 +9,9 @@ bibliography: ../tds.bib
 #| eval: false
 # docx format results in higher accessibility scores on Minerva:
 quarto::quarto_render("d2/index.qmd", output_format = "docx", output_file = "tds-formative-assessment-brief.docx")
-file.rename("docs/tds-formative-assessment-brief.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Formative Assessment Brief.docx")
+# file.rename("docs/tds-formative-assessment-brief.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Formative Assessment Brief.docx")
+# C:\Users\georl_admin\OneDrive - University of Leeds
+file.rename("docs/tds-formative-assessment-brief.docx", "C:/Users/georl_admin/OneDrive - University of Leeds/career/modules/tds/2024-25/TRAN5340M TDS Formative Assessment Brief.docx")
 ```
 
 ```{bash}

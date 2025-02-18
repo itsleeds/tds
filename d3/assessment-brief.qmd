@@ -1,14 +1,16 @@
 ---
 title: "Summative assessment brief: Data science project report"
 bibliography: ../tds.bib
+number-sections: true
 ---
 
 ```{r}
 #| echo: false
 #| eval: false
 # docx format results in higher accessibility scores on Minerva:
-quarto::quarto_render("d3/index.qmd", output_format = "docx")
-file.rename("docs/d3/index.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Summative Assessment Brief.docx")
+quarto::quarto_render("d3/assessment-brief.qmd", output_format = "docx")
+# file.rename("docs/d3/index.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Summative Assessment Brief.docx")
+file.rename("docs/d3/assessment-brief.docx", "C:/Users/georl_admin/OneDrive - University of Leeds/career/modules/tds/2024-25/TRAN5340M TDS Summative Assessment Brief.docx")
 ```
 
 # Assessment in brief
@@ -59,14 +61,10 @@ Written feedback will be provided alongside guidance on how to proceed with the 
 **Professor Robin Lovelace**\
 r dot lovelace \[at\] leeds.ac.uk
 
-------------------------------------------------------------------------
-
 ## Assessment summary
 
 This summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions.
 
-
-------------------------------------------------------------------------
 
 # Use of GenAI
 
@@ -137,24 +135,44 @@ See the formative assessment brief and feedback from that submission for guidanc
 
 See [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for reference formatting.
 
-# Marking criteria
+# Assessment criteria
 
 Marks will be awarded based on the information provided in the [marking criteria](https://itsleeds.github.io/tds/marking-criteria.html) document.
 
 # Academic misconduct and plagiarism
 
-All work must meet university standards for Academic Integrity. See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance on Academic Integrity and the [Academic Misconduct Procedure](https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/) for definitions of academic misconduct.
+The university expects that all the work you do, which includes all forms of assessments submitted and examinations taken, meet the university’s standard for Academic Integrity.
+All forms of Academic Integrity are investigated through the Academic Misconduct Procedure.
+This applies to all taught elements of your study, including undergraduate programmes, taught postgraduate study, and taught elements of research degrees.
+Breaching academic integrity standards can lead to serious penalties.
 
----
+Guidance on Academic Integrity and Academic Misconduct can be found on the [For Students website pages](https://students.leeds.ac.uk/info/10110/academic-integrity).
+Full definitions of offences under the Academic Misconduct Procedure can be found in the [Academic Misconduct Procedure](https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/).
 
+# Academic integrity
 
+All work must meet university standards for Academic Integrity.
+See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance.
 
----
+# Support resources
 
-## Support Resources
+-   [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations)
+-   [The course website](https://itsleeds.github.io/tds/) for additional resources.
+-   Module forum for questions.
 
-- Module forum for questions
-- [Skills@Library](https://library.leeds.ac.uk/info/1402/referencing) for academic writing support
-- See the [course website](https://itsleeds.github.io/tds/d3) for additional resources
-<!-- TODO -->
-<!-- - Course template and examples -->
+# Resit information
+
+If you fail the module, you will be given the opportunity to resit the assessment. The resit will be capped at the pass mark (50%).
+
+You will submit as before:
+
+- A `.zip` file containing:
+  - A PDF document (max 10 pages)
+  - Reproducible code (`.qmd` file)
+  - Any necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead
+  - Maximum file size: 40 MB
+- Submission: Via Minerva (Blackboard Assignment)
+
+For the coursework you will submit a pdf a document with a maximum of 10 pages that contains code and results demonstrating your transport data science skills.
+
+The topic must be completely different from the topic chosen in your first submission
