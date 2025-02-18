@@ -58,7 +58,7 @@ You are permitted to use AI tools for specific defined processes within the asse
   - Reproducible code (`.qmd` file)
   - Any necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead
   - Maximum file size: 40 MB
-- Submit via Minerva (Turnitin)
+- Submission: Via Minerva (Blackboard Assignment)
 
 ## Feedback Provision
 
@@ -71,7 +71,7 @@ r dot lovelace [at] leeds.ac.uk
 
 ---
 
-## Assessment Summary Guidance
+# Assessment Summary Guidance
 
 This summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions.
 

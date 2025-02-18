@@ -66,7 +66,7 @@ For example:
    - Test code reproducibility
    - Verify file sizes
 
-2. **Submit via Minerva (Turnitin)**
+2. **Submission: Via Minerva (Blackboard Assignment)**
    - Deadline is 14:00 on submission day
    - Each assignment has its own submission point
    - Keep submission confirmation
