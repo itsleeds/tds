@@ -11,43 +11,32 @@ quarto::quarto_render("d3/index.qmd", output_format = "docx")
 file.rename("docs/d3/index.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Summative Assessment Brief.docx")
 ```
 
-# Assessment summary
+# Assessment in brief
 
-## Module Code & Title
+##  Module code and title
 
 **TRAN5340M** - Transport Data Science
 
-## Assessment Title
+##  Assessment title
 
 Summative Coursework: Data Science Project Report
 
-## Assessment Type
+##  Assessment type
 
 Project Report and Reproducible Code
 
-## Learning Outcomes Assessed
+##  Learning outcomes
 
 1. To demonstrate advanced data science techniques applied to a transport problem
 2. To show proficiency in data processing, visualization, and analysis
 3. To produce high-quality, reproducible research with clear implications for transport planning/policy
 4. To critically evaluate methodological approaches and results
 
-## Assessment Length/Time Limit Guidance
-
-- Maximum 10 pages (excluding references and appendices)
-- Maximum 3,000 words (excluding tables, code, references, and captions)
-- A .zip file containing the reproducible code (in a Quarto document) and the resulting PDF
-
-## Use of GenAI in This Assessment
-
-**AMBER**: AI tools can be used in an assistive role.  
-You are permitted to use AI tools for specific defined processes within the assessment. See below for further details.
-
 ## Weighting
 
 100% of module mark
 
-## Deadline or Date of Assessment
+## Deadline
 
 **Submission deadline**: 16th May 2025, 14:00
 
@@ -60,89 +49,72 @@ You are permitted to use AI tools for specific defined processes within the asse
   - Maximum file size: 40 MB
 - Submission: Via Minerva (Blackboard Assignment)
 
-## Feedback Provision
+##  Feedback
 
 Feedback will be provided within 15 working days of submission.
+Written feedback will be provided alongside guidance on how to proceed with the final coursework.
 
-## Module Leader & Contact Details
+## Contact
 
-**Professor Robin Lovelace**  
-r dot lovelace [at] leeds.ac.uk
+**Professor Robin Lovelace**\
+r dot lovelace \[at\] leeds.ac.uk
 
----
+------------------------------------------------------------------------
 
-# Assessment Summary Guidance
+## Assessment summary
 
 This summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions.
 
----
 
-## Use of GenAI
+------------------------------------------------------------------------
 
-**Generative AI Category: AMBER**  
-Under this category, AI tools can be used in an assistive role.  
+# Use of GenAI
 
-In this assessment, AI tools can be utilised to:  
-- Support code debugging and optimization
-- Assist with data processing techniques
-- Help with visualization approaches
-- Provide feedback on writing clarity
+**Generative AI category: AMBER**
 
-AI tools **cannot** be used to:  
-- Generate complete sections of the report
-- Perform the core analysis
-- Make key analytical decisions
+Under this category, AI tools can be used in an assistive role.
 
-The use of Generative AI must be acknowledged in an **'Acknowledgements'** section, including:  
-- Name and version of the AI system
-- Publisher
-- URL
-- Brief description of use
+In this assessment, AI tools can be utilised in an assistive role to:
 
-For detailed guidance, see [Generative AI and Assessments](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/).
+- act as a support tutor supporting your research on the topic. e.g. to ask clarifying questions or to suggest areas to investigate.
+- testing and debugging of any code you produce yourself as part of the assignment.
+- provide ideas or inspiration to help you overcome a creative block.
+- give feedback on content or provide proof reading of content that you have generated yourself.
 
----
+In this assessment, AI tools cannot be utilised to:
 
-## Assessment Criteria and Process
+- produce the entirety of, or sections of, a piece of work that you submit for assessment beyond that which is outlined above.
 
-### Recommended Report Structure
+The use of Generative AI must be acknowledged in an ‘Acknowledgements’ section of any piece of academic work where it has been used as a functional tool to assist in the process of creating academic work.
 
-{{< include report-structure.qmd >}} 
+The minimum requirement to include in acknowledgement:
 
-### Marking Criteria
+- Name and version of the generative AI system used e.g. ChatGPT-4.0
+- Publisher (company that made the AI system) e.g. OpenAI
+- URL of the AI system
+- Brief description (single sentence) of context in which the tool was used.
 
-Marks will be awarded based on the information provided at [Marking Criteria](https://itsleeds.github.io/tds/marking-criteria.html).
+For example: “I acknowledge the use of ChatGPT-3.5 (Open AI, <https://chat.openai.com/>) to summarise my initial notes and to proofread my final draft.
+Best practice is to include a link to the exact prompt used to generate the content, e.g. https://g.co/gemini/share/4933efa27596
 
-### Suggested Topics
+The standard Academic Misconduct procedure applies for students believed to have ignored this categorisation.
 
-Your topic must be entirely different from coursework 1. Potential areas include:
+For detailed guidance see <https://generative-ai.leeds.ac.uk/ai-and> 
 
-- Road safety analysis
-- Infrastructure and travel behavior
-- Traffic congestion patterns
-- Public transport accessibility
-- Active travel infrastructure
-- Transport equity studies
+**General guidance**
 
----
+Skills\@library hosts useful guidance on academic skills including specific guidance on academic writing 
 
-## Presentation/Formatting and Referencing
+# Submission requirements
 
-- Use clear headings and structure
-- Include appropriate figures and tables
-- Follow R coding style guidelines
-- Use consistent citation format
-- Provide complete references
+- A `.zip` file containing:
+  - A PDF document (max 10 pages)
+  - Reproducible code (`.qmd` file)
+  - Any necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead
+  - Maximum file size: 40 MB
+- Submit via Minerva (Turnitin)
 
-See [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for reference formatting.
-
----
-
-## Academic Misconduct and Plagiarism
-
-All work must meet university standards for Academic Integrity. See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance on Academic Integrity and the [Academic Misconduct Procedure](https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/) for definitions of academic misconduct.
-
----
+See the formative assessment brief and feedback from that submission for guidance on topic selection and data sources.
 
 ## Technical Requirements
 
@@ -150,7 +122,32 @@ All work must meet university standards for Academic Integrity. See the [For Stu
 - Include all necessary code
 - Document data sources
 - Ensure reproducibility
-- Follow coding style guidelines
+- Follow a consistent coding style
+
+## Recommended structure
+
+{{< include report-structure.qmd >}} 
+
+## Presentation
+
+- Use clear headings and structure
+- Include appropriate figures and tables
+- Use consistent citation format
+- Provide complete references
+
+See [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for reference formatting.
+
+# Marking criteria
+
+Marks will be awarded based on the information provided in the [marking criteria](https://itsleeds.github.io/tds/marking-criteria.html) document.
+
+# Academic misconduct and plagiarism
+
+All work must meet university standards for Academic Integrity. See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance on Academic Integrity and the [Academic Misconduct Procedure](https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/) for definitions of academic misconduct.
+
+---
+
+
 
 ---
 
