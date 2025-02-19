@@ -161,9 +161,12 @@ head(centroids)
 ```{r, message=FALSE, echo=TRUE}
 tmap_mode("plot") # Change to view for interactive map
 tm_shape(desire_lines) +
-  tm_lines(lwd = "all", col = "all", scale = 4, palette = "-viridis") +
+  tm_lines(col = "all",
+           lwd = "all",  
+           lwd.scale = tm_scale_continuous(values.scale = 10), 
+           col.scale = tm_scale_continuous(values  = "-viridis")) +
   tm_shape(centroids) +
-  tm_dots(col = "red")
+  tm_dots(fill = "red")
 ```
 
 
@@ -173,7 +176,10 @@ tm_shape(desire_lines) +
 ```{r, message=FALSE, echo=FALSE}
 tmap_mode("plot") # Change to view for interactive map
 tm_shape(desire_lines) +
-  tm_lines(lwd = "rail", col = "rail", scale = 4, palette = "-viridis", style = "jenks")
+  tm_lines(lwd = "rail", 
+           col = "rail",
+           lwd.scale = tm_scale_continuous(values.scale = 10), 
+           col.scale = tm_scale_continuous(values  = "-viridis"))
 ```
 
 This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the start and endpoints using the package `lwgeom`
@@ -349,7 +355,9 @@ routes_drive = left_join(routes_drive, n_driver, by = c("fromPlace" = "from","to
 
 ```{r, message=FALSE, eval=TRUE, echo=FALSE}
 tm_shape(routes_drive) +
-  tm_lines(col = "drive", lwd = 2, palette = "-viridis")
+  tm_lines(col = "drive", 
+           lwd = 2, 
+           col.scale = tm_scale_continuous(values  = "-viridis"))
 ```
 
 ## Route Networks (also called flow maps)
@@ -368,7 +376,9 @@ rnet_drive = overline(routes_drive, "drive")
 
 ```{r, message=FALSE, eval=TRUE, echo=FALSE}
 tm_shape(rnet_drive) +
-  tm_lines(lwd = 2, col = "drive", style = "jenks", palette = "-viridis")
+  tm_lines(lwd = 2, 
+           col = "drive", 
+           col.scale = tm_scale_intervals(values  = "-viridis", style = "jenks"))
 ```
 
 **Bonus Exercise**
@@ -429,7 +439,7 @@ tm_shape(routes_transit_group) +
 
 ## Network Analysis (dodgr)
 
-**Note** Some people have have problems running dodgr on Windows, if you do follow these [instructions](https://github.com/ITSLeeds/TDS/blob/master/practicals/dodgr-install.md).
+**Note** Some people have have problems running dodgr on Windows, if you do follow these [instructions](https://github.com/itsleeds/tds/blob/master/practicals/dodgr-install.md).
 
 We will now analyse the road network using `dodgr`. Network analysis can take a very long time on large areas. So we will use the example of the [Isle of Wight](https://en.wikipedia.org/wiki/Isle_of_Wight), which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.
 
@@ -477,11 +487,9 @@ centrality_sf = dodgr_to_sf(centrality)
 
 ```{r, message=TRUE, echo=FALSE}
 tm_shape(centrality_sf) +
-  tm_lines("centrality",
+  tm_lines(col = "centrality",
            lwd = 3,
-           n = 8,
-           style = "fisher",
-           palette = "-viridis")
+           col.scale = tm_scale_intervals(n = 8, values  = "-viridis", style = "fisher"))
 ```
 
 
@@ -493,9 +501,9 @@ tm_shape(centrality_sf) +
 
 **Note** To use OpenTripPlanner on your own computer requires Java 8. See the [Prerequisites](https://docs.ropensci.org/opentripplanner/articles/prerequisites.html) for more details. If you can't install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.
 
-17. Read the `dodgr` [vignettes](https://atfutures.github.io/dodgr/articles/index.html)
+17. Read the `dodgr` [vignettes](https://urbananalyst.github.io/dodgr/articles/index.html)
 
-18. Read the [MinorRoadTraffic](https://github.com/ITSLeeds/MinorRoadTraffic) [vignette](https://github.com/itsleeds/MinorRoadTraffic/blob/main/vignettes/Oxford.md) this is a Masters Dissertation topic where students attempt to predict traffic levels using network analysis. The vignette and the package contain some examples of Transport Data Scien in action.
+18. Read the [MinorRoadTraffic](https://github.com/ITSLeeds/MinorRoadTraffic) [vignette](https://github.com/itsleeds/MinorRoadTraffic/blob/main/vignettes/Oxford.md) this is a Masters Dissertation topic where students attempt to predict traffic levels using network analysis. The vignette and the package contain some examples of Transport Data Science in action.
 
 # Homework
 
