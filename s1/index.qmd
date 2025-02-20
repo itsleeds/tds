@@ -125,9 +125,9 @@ mean_daily_volumes |>
 tmap_mode("view")
 
 leeds_car_location_sf |>
-  left_join(daily_volumes,by = c("Site ID"="Cosit")) |> 
+  left_join(mean_daily_volumes,by = c("Site ID"="Cosit")) |> 
   tm_shape()+
-  tm_dots("daily_volume")
+  tm_dots("daily_volume",size = "daily_volume")
 ```
 
 ## Cycle counts for West Yorkshire
