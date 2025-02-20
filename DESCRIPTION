@@ -8,7 +8,8 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-7970-2544")),
     person("Malcolm", "Morgan", , "M.Morgan1@leeds.ac.uk", role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-9488-9183")),
-    person(, role = "ctb")
+    person("Juan","P. Fonseca-Zamora", ,"ts18jpf@leeds.ac.uk", role = c("aut", "cre"),
+           comment = c(ORCID = "0009-0006-7042-3828"))
   )
 Description: 'tds' supports the TRAN5340M Transport Data Science module at the Institute for Transport Studies, University of Leeds. It provides a comprehensive collection of teaching materials, tutorials, and curated resources to facilitate learning. The package also serves as the foundation for a dedicated website that delivers course content and enhances teaching by integrating key dependencies and resources for data processing, visualization, spatial analysis, and transport modelling.
 License: GPL-3
