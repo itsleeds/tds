@@ -85,7 +85,9 @@ leeds_car_2019 |>
   summarise(mean(Volume))
 
 
-mean_daily_volumes <- leeds_car_2019 |> 
+mean_daily_volumes <- leeds_car_2019 |>
+  # converting cosit to numeric
+  mutate(Cosit = as.numeric(Cosit)) |> 
   # extracting the date
   mutate(time_date = dmy_hm(Sdate),
          # extracts the day
@@ -95,11 +97,12 @@ mean_daily_volumes <- leeds_car_2019 |>
             .by = c(date,Cosit)) |> 
   # Calculating the daily mean 
   summarise(daily_volume = mean(Volume,rm.na = T),
-            .by = Cosit) |> 
-  mutate(Cosit = as.numeric(Cosit))
+            .by = Cosit) 
 
 
 daily_volumes <- leeds_car_2019 |> 
+    # converting cosit to numeric
+  mutate(Cosit = as.numeric(Cosit)) |>
   # extracting the date
   mutate(time_date = dmy_hm(Sdate),
          # extracts the day
