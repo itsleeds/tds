@@ -248,12 +248,6 @@ daily_tapins <- tm_brt_2024 |>
   mutate(numero_estacion = str_extract(Estacion_Parada,"\\(\\d*\\)") |> 
            str_remove_all("(\\(|\\))")) 
   
-
-
-tm_stations_sf <- st_read("s1/Estaciones_Troncales_de_TRANSMILENIO.geojson")
-
-
-
 tm_stations_sf |> 
   left_join(daily_tapins,by = "numero_estacion") |> 
   tm_shape()+
