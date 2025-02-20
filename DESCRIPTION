@@ -10,7 +10,7 @@ Authors@R: c(
            comment = c(ORCID = "0000-0002-9488-9183")),
     person(, role = "ctb")
   )
-Description: The aim of 'tds' is to provide R package dependencies for teaching and learning transport data science. 'tds' supports the TRAN5340M Transport Data Science module at the Institute for Transport Studies, University of Leeds. It includes a curated set of dependencies for data processing, visualization, spatial datasets, spatial analysis, and transport modeling.
+Description: 'tds' supports the TRAN5340M Transport Data Science module at the Institute for Transport Studies, University of Leeds. It provides a comprehensive collection of teaching materials, tutorials, and curated resources to facilitate learning. The package also serves as the foundation for a dedicated website that delivers course content and enhances teaching by integrating key dependencies and resources for data processing, visualization, spatial analysis, and transport modelling.
 License: GPL-3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
