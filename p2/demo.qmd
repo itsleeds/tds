@@ -1,6 +1,7 @@
 
 
 ```{r}
+#| eval: false
 library(tidyverse)
 library(osmextract)
 
