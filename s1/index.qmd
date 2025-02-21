@@ -121,9 +121,6 @@ mean_daily_volumes |>
   ggplot(aes(daily_volume))+
   geom_histogram()
 
-
-tmap_mode("view")
-
 leeds_car_location_sf |>
   left_join(mean_daily_volumes,by = c("Site ID"="Cosit")) |> 
   tm_shape()+
