@@ -77,6 +77,56 @@ leeds_car_2019 <- read_csv(
 If you are interested in open traffic count datasets see
 [this](https://juanfonsecals1.github.io/Results_Summary_Maps/)
 
+#### code 
+
+```{r}
+leeds_car_2019 |> 
+  group_by(Cosit) |> 
+  summarise(mean(Volume))
+
+
+mean_daily_volumes <- leeds_car_2019 |>
+  # converting cosit to numeric
+  mutate(Cosit = as.numeric(Cosit)) |> 
+  # extracting the date
+  mutate(time_date = dmy_hm(Sdate),
+         # extracts the day
+         date = date(time_date)) |> 
+  # calculating the total flows for each day
+  summarise(Volume = sum(Volume,rm.na = T),
+            .by = c(date,Cosit)) |> 
+  # Calculating the daily mean 
+  summarise(daily_volume = mean(Volume,rm.na = T),
+            .by = Cosit) 
+
+
+daily_volumes <- leeds_car_2019 |> 
+    # converting cosit to numeric
+  mutate(Cosit = as.numeric(Cosit)) |>
+  # extracting the date
+  mutate(time_date = dmy_hm(Sdate),
+         # extracts the day
+         date = date(time_date)) |> # calculating the total flows for each day
+  summarise(mean_volume = sum(Volume,rm.na = T),
+          .by = c(date,Cosit))
+
+daily_volumes |> 
+  mutate(Cosit = as.numeric(Cosit)) |> 
+  filter(Cosit == 90201)|> 
+  ggplot(aes(x = date,y = mean_volume))+
+  geom_line()
+  
+
+mean_daily_volumes |> 
+  ggplot(aes(daily_volume))+
+  geom_histogram()
+
+leeds_car_location_sf |>
+  left_join(mean_daily_volumes,by = c("Site ID"="Cosit")) |> 
+  tm_shape()+
+  tm_dots("daily_volume",size = "daily_volume")
+```
+
 ## Cycle counts for West Yorkshire
 
 Some cities would have some dedicated infrastructure to count the number
@@ -183,6 +233,23 @@ tm_brt_2024 <- read_csv(unz(u_bn,"troncal_2024.csv"))
 
 TfL's crowding data is also a great source of ridership data. See
 [this](https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv).
+
+### code
+
+```{r}
+daily_tapins <- tm_brt_2024 |> 
+  summarise(validaciones = sum(validaciones),
+            .by = c(Estacion_Parada,fecha)) |> 
+  summarise(validaciones = mean(validaciones),
+            .by = Estacion_Parada) |> 
+  mutate(numero_estacion = str_extract(Estacion_Parada,"\\(\\d*\\)") |> 
+           str_remove_all("(\\(|\\))")) 
+  
+tm_stations_sf |> 
+  left_join(daily_tapins,by = "numero_estacion") |> 
+  tm_shape()+
+  tm_dots("validaciones",size = "validaciones")
+```
 
 ## Network data from OSM
 
