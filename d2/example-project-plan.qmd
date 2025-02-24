@@ -1,0 +1,166 @@
+---
+title: "Data science project plan"
+subtitle: "Example submission"
+author: "Student ID: 123456"
+toc: false
+execute: 
+  cache: true
+number-sections: false
+bibliography: example-project-plan.bib
+---
+
+```{=html}
+<!-- # Submission guidelines:
+
+This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is **28th February 2025, 13:59**.
+
+## What to Submit
+
+Submit a `.zip` file containing two key items:
+
+1. A **concise PDF document** (recommended length: 2 pages, absolute maximum: 5 pages) outlining:
+    - Your chosen transport-related topic
+    - The main dataset(s) you plan to use
+    - Your research question
+    - At least 2 academic references (see [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for details)
+    - Any initial analysis or questions you have
+
+2. **Reproducible code** as a `.qmd` file showing how you accessed and processed your data
+
+## Key Requirements
+
+- Maximum .zip file size: 30 MB
+- Submit via Turnitin
+- AI tools can be used in an assistive role (must be acknowledged)
+- Use the default quarto referencing style
+
+## Topics and Datasets
+
+Some suggested areas include:
+
+- Road safety analysis
+- Infrastructure and travel behavior
+- Traffic congestion patterns
+- Public transport accessibility
+- Active travel infrastructure
+- Transport equity studies
+- Other transport-related topics are encouraged
+
+Specific examples could include:
+
+- What is the relationship between travel behaviour (e.g. as manifested in origin-destination data represented as desire lines, routes and route networks) and road traffic casualties in a transport region (e.g. London, West Midlands and other regions in the `pct::pct_regions$region_name` data)
+
+- Analysis of a large transport dataset, e.g. https://www.nature.com/articles/sdata201889
+
+- Infrastructure and travel behaviour
+  - What are the relationships between specific types of infrastructure and travel, e.g. between fast roads and walking?
+  - How do official sources of infrastructure data (e.g. the [CID](https://github.com/PublicHealthDataGeek/CycleInfraLnd/)) compare with crowd-sourced datasets such as OpenStreetMap (which can be accessed with the new [`osmextract` R package](https://github.com/ropensci/osmextract))
+  - Using new data sources to support transport planning, e.g. using data from https://telraam.net/ or https://dataforgood.facebook.com/dfg/tools/high-resolution-population-density-maps 
+
+- Changing transport systems
+  - Modelling change in transport systems, e.g. by comparing before/after data for different countries/cities, which countries had the hardest lockdowns and where have changes been longer term? - see here for open data: https://github.com/ActiveConclusion/COVID19_mobility
+  - How have movement patterns changed during the Coronavirus pandemic and what impact is that likely to have long term (see [here](https://saferactive.github.io/trafficalmr/articles/report3.html) for some graphics on this)
+  
+- Software / web development
+  - Creating a package to make a particular data source more accessible, see https://github.com/ropensci/stats19 and https://github.com/elipousson/crashapi examples
+  - Development of a data dashboard, e.g. using [Quarto Dashboards](https://quarto.org/docs/dashboards/)
+  - Development of a web app, e.g. using the [shiny](https://shiny.rstudio.com/) package
+  
+- Road safety - how can we makes roads and transport systems in general safer?
+  - Influence of Road Infrastructure: 
+    - Assessing the role of well-designed pedestrian crossings, roundabouts, and traffic calming measures in preventing road accidents. 
+    - Investigating the correlation between road surface quality (e.g., potholes, uneven surfaces) and the frequency of accidents.
+  - Influence of Traffic Management: 
+    - Assessing the role of traffic lights and speed cameras in preventing road accidents. 
+    - Investigating the correlation between the frequency of accidents and the presence of traffic calming measures (e.g., speed bumps, chicanes, road narrowing, etc.).
+  - Legislation and Enforcement:
+    - 1. Assessing the role of speed limits in preventing road accidents.
+
+- Traffic congestion - how can we reduce congestion?
+  - Data Collection and Analysis:
+    - Utilizing real-time traffic data from platforms like Waze and Google Maps to forecast congestion patterns.
+    - Analyzing historical traffic data to identify recurring congestion patterns and anticipate future traffic bottlenecks.
+  - Machine Learning and Predictive Modeling:
+    - Designing machine learning models that use past and current traffic data to predict future congestion levels.
+  
+
+## Support and Feedback
+
+- Feedback will be provided within 15 working days
+
+For full details including assessment criteria, formatting guidelines, and academic integrity requirements, see the [assessment brief](assessment-brief.qmd). -->
+```
+
+**Note: this is an example submission for illustrative purposes only. You are welcome to choose a related topic but ensure your submission is original.**
+
+# Introduction
+
+Road traffic casualties cause untold pain and suffering, killing an estimated 1.35 million people worldwide each year and ruining the lives of countless others [@worldhealthorganization2018].
+The UK has comparatively safe roads but road traffic casualty rates have plateaued in recent years, according to data from the [Department for Transport's 2023 report](https://www.gov.uk/government/statistics/reported-road-casualties-great-britain-annual-report-2023/reported-road-casualties-great-britain-annual-report-2023).
+There are many causes of traffic collisions but road traffic infrastructure can play a role, as outlined in @tait_contraflows_2023, which found that contraflow cycling on one-way streets can improve the cycling experience and increase participation without increasing crash rates.
+The topic of this project is to investigate the relationship between road traffic casualties and road infrastructure in the UK.
+
+## Working title
+
+**What are the links between new infrastructure and traffic collisions in West Yorkshire?**
+
+# Data
+
+I plan to use the following datasets:
+
+- STATS19 data from the `stats19` R package, 2014-2023
+  - I plan to use the crash-level data converted into spatial format with the `format_sf()` function
+- Traffic calming data from the `osmactive` package
+  - This dataset from OSM contains information on speed bumps, chicanes, and other traffic calming measures
+
+# Research question
+
+**How does the presence of traffic calming measures correlate with road traffic casualties in West Yorkshire?**
+
+# Initial analysis
+
+I loaded the tidyverse and the `stats19` packages (code not shown) and created a map of road traffic casualties in West Yorkshire by converting the dataset into `sf` format using the `ggplot2` package with the folliwng commands:
+
+```{r}
+#| include: false
+#| label: setup
+pkgs = c("tidyverse", "stats19", "nptscot/osmactive")
+# Install pak pkg if not already installed
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pkg_install(pkgs)
+library(tidyverse)
+library(stats19)
+library(osmactive)
+```
+
+
+```{r}
+#| include: false
+#| label: get-data
+osm_transport_network = osmactive::get_travel_network("West Yorkshire")
+collisions_2023 = stats19::get_stats19(year = 2023, type = "collision")
+```
+
+```{r}
+#| label: prep-data
+class(collisions_2023)
+collisions_2023_sf = stats19::format_sf(collisions_2023)
+class(collisions_2023_sf)
+names(collisions_2023_sf)[1:9]
+head(table(collisions_2023_sf$police_force))
+collisions_west_yorkshire_sf = collisions_2023_sf |>
+  filter(police_force == "West Yorkshire")
+```
+
+```{r}
+#| label: plot-data
+ggplot() +
+  geom_sf(data = collisions_west_yorkshire_sf, aes(colour = "accident_severity"))
+```
+
+# Questions
+
+- How do I get the road data? I have tried the following:
+- I am unsure how to link the traffic calming data to the road traffic casualty data. How can I do this?
+
+# References
