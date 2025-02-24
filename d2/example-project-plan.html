@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Student ID: 123456">
 
-<title>Schedule – Transport Data Science</title>
+<title>Data science project plan – Transport Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +21,78 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-15e059e407a6cf5796de0e4a03934673.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-15e059e407a6cf5796de0e4a03934673.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -65,21 +120,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -88,7 +133,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./schedule.html">Schedule</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Transport Data Science
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -106,7 +153,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Transport Data Science</a> 
+      <a href="../">Transport Data Science</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/itsleeds/tds" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
@@ -121,7 +168,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -133,7 +180,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedule.html" class="sidebar-item-text sidebar-link active">
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
@@ -145,19 +192,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./marking-criteria.html" class="sidebar-item-text sidebar-link">
+  <a href="../marking-criteria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Marking Criteria</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reading.html" class="sidebar-item-text sidebar-link">
+  <a href="../reading.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reading list</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reproducible Road Safety Workshop</span></a>
   </div>
 </li>
@@ -172,37 +219,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p1" class="sidebar-item-text sidebar-link">
+  <a href="../p1" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p2" class="sidebar-item-text sidebar-link">
+  <a href="../p2" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p3" class="sidebar-item-text sidebar-link">
+  <a href="../p3" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p4" class="sidebar-item-text sidebar-link">
+  <a href="../p4" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./s1" class="sidebar-item-text sidebar-link">
+  <a href="../s1" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Seminar 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./d2" class="sidebar-item-text sidebar-link">
+  <a href="../d2" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Formative assessment</span></a>
   </div>
 </li>
@@ -213,21 +260,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule</h1>
+<h1 class="title">Data science project plan</h1>
+<p class="subtitle lead">Example submission</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Student ID: 123456 </p>
+          </div>
+  </div>
     
   
     
@@ -238,18 +290,179 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
-<p>The timetable below is a user-friently representation of the timetable for the module (see github for <a href="https://github.com/itsleeds/tds/blob/main/timetable.csv">.csv</a> and <a href="https://github.com/itsleeds/tds/releases/download/2025/timetable.ics">.ics</a> versions). See <a href="https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&amp;idtype=name&amp;identifier=TRAN5340M01&amp;&amp;template=SWSCUST+module+Individual&amp;days=1-7&amp;weeks=1-52&amp;periods=1-21">timetable.leeds.ac.uk</a> and <a href="https://mytimetable.leeds.ac.uk/link?timetable.id=202425!module!5216C608F8794D77F15FA9D195AB3C06">mytimetable.eeds.ac.uk</a> for the official timetable. If you spot any discrepancies, please let us know.</p>
+<!-- # Submission guidelines:
+
+This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is **28th February 2025, 13:59**.
+
+## What to Submit
+
+Submit a `.zip` file containing two key items:
+
+1. A **concise PDF document** (recommended length: 2 pages, absolute maximum: 5 pages) outlining:
+    - Your chosen transport-related topic
+    - The main dataset(s) you plan to use
+    - Your research question
+    - At least 2 academic references (see [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for details)
+    - Any initial analysis or questions you have
+
+2. **Reproducible code** as a `.qmd` file showing how you accessed and processed your data
+
+## Key Requirements
+
+- Maximum .zip file size: 30 MB
+- Submit via Turnitin
+- AI tools can be used in an assistive role (must be acknowledged)
+- Use the default quarto referencing style
+
+## Topics and Datasets
+
+Some suggested areas include:
+
+- Road safety analysis
+- Infrastructure and travel behavior
+- Traffic congestion patterns
+- Public transport accessibility
+- Active travel infrastructure
+- Transport equity studies
+- Other transport-related topics are encouraged
+
+Specific examples could include:
+
+- What is the relationship between travel behaviour (e.g. as manifested in origin-destination data represented as desire lines, routes and route networks) and road traffic casualties in a transport region (e.g. London, West Midlands and other regions in the `pct::pct_regions$region_name` data)
+
+- Analysis of a large transport dataset, e.g. https://www.nature.com/articles/sdata201889
+
+- Infrastructure and travel behaviour
+  - What are the relationships between specific types of infrastructure and travel, e.g. between fast roads and walking?
+  - How do official sources of infrastructure data (e.g. the [CID](https://github.com/PublicHealthDataGeek/CycleInfraLnd/)) compare with crowd-sourced datasets such as OpenStreetMap (which can be accessed with the new [`osmextract` R package](https://github.com/ropensci/osmextract))
+  - Using new data sources to support transport planning, e.g. using data from https://telraam.net/ or https://dataforgood.facebook.com/dfg/tools/high-resolution-population-density-maps 
+
+- Changing transport systems
+  - Modelling change in transport systems, e.g. by comparing before/after data for different countries/cities, which countries had the hardest lockdowns and where have changes been longer term? - see here for open data: https://github.com/ActiveConclusion/COVID19_mobility
+  - How have movement patterns changed during the Coronavirus pandemic and what impact is that likely to have long term (see [here](https://saferactive.github.io/trafficalmr/articles/report3.html) for some graphics on this)
+  
+- Software / web development
+  - Creating a package to make a particular data source more accessible, see https://github.com/ropensci/stats19 and https://github.com/elipousson/crashapi examples
+  - Development of a data dashboard, e.g. using [Quarto Dashboards](https://quarto.org/docs/dashboards/)
+  - Development of a web app, e.g. using the [shiny](https://shiny.rstudio.com/) package
+  
+- Road safety - how can we makes roads and transport systems in general safer?
+  - Influence of Road Infrastructure: 
+    - Assessing the role of well-designed pedestrian crossings, roundabouts, and traffic calming measures in preventing road accidents. 
+    - Investigating the correlation between road surface quality (e.g., potholes, uneven surfaces) and the frequency of accidents.
+  - Influence of Traffic Management: 
+    - Assessing the role of traffic lights and speed cameras in preventing road accidents. 
+    - Investigating the correlation between the frequency of accidents and the presence of traffic calming measures (e.g., speed bumps, chicanes, road narrowing, etc.).
+  - Legislation and Enforcement:
+    - 1. Assessing the role of speed limits in preventing road accidents.
+
+- Traffic congestion - how can we reduce congestion?
+  - Data Collection and Analysis:
+    - Utilizing real-time traffic data from platforms like Waze and Google Maps to forecast congestion patterns.
+    - Analyzing historical traffic data to identify recurring congestion patterns and anticipate future traffic bottlenecks.
+  - Machine Learning and Predictive Modeling:
+    - Designing machine learning models that use past and current traffic data to predict future congestion levels.
+  
+
+## Support and Feedback
+
+- Feedback will be provided within 15 working days
+
+For full details including assessment criteria, formatting guidelines, and academic integrity requirements, see the [assessment brief](assessment-brief.qmd). -->
+<p><strong>Note: this is an example submission for illustrative purposes only. You are welcome to choose a related topic but ensure your submission is original.</strong></p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Road traffic casualties cause untold pain and suffering, killing an estimated 1.35 million people worldwide each year and ruining the lives of countless others <span class="citation" data-cites="worldhealthorganization2018">(<a href="#ref-worldhealthorganization2018" role="doc-biblioref">World Health Organization, 2018</a>)</span>. The UK has comparatively safe roads but road traffic casualty rates have plateaued in recent years, according to data from the <a href="https://www.gov.uk/government/statistics/reported-road-casualties-great-britain-annual-report-2023/reported-road-casualties-great-britain-annual-report-2023">Department for Transport’s 2023 report</a>. There are many causes of traffic collisions but road traffic infrastructure can play a role, as outlined in <span class="citation" data-cites="tait_contraflows_2023">Tait et al. (<a href="#ref-tait_contraflows_2023" role="doc-biblioref">2023</a>)</span>, which found that contraflow cycling on one-way streets can improve the cycling experience and increase participation without increasing crash rates. The topic of this project is to investigate the relationship between road traffic casualties and road infrastructure in the UK.</p>
+<section id="working-title" class="level2">
+<h2 class="anchored" data-anchor-id="working-title">Working title</h2>
+<p><strong>What are the links between new infrastructure and traffic collisions in West Yorkshire?</strong></p>
+</section>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>I plan to use the following datasets:</p>
+<ul>
+<li>STATS19 data from the <code>stats19</code> R package, 2014-2023
+<ul>
+<li>I plan to use the crash-level data converted into spatial format with the <code>format_sf()</code> function</li>
+</ul></li>
+<li>Traffic calming data from the <code>osmactive</code> package
+<ul>
+<li>This dataset from OSM contains information on speed bumps, chicanes, and other traffic calming measures</li>
+</ul></li>
+</ul>
+</section>
+<section id="research-question" class="level1">
+<h1>Research question</h1>
+<p><strong>How does the presence of traffic calming measures correlate with road traffic casualties in West Yorkshire?</strong></p>
+</section>
+<section id="initial-analysis" class="level1">
+<h1>Initial analysis</h1>
+<p>I loaded the tidyverse and the <code>stats19</code> packages (code not shown) and created a map of road traffic casualties in West Yorkshire by converting the dataset into <code>sf</code> format using the <code>ggplot2</code> package with the folliwng commands:</p>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(collisions_2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "spec_tbl_df" "tbl_df"      "tbl"         "data.frame" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>collisions_2023_sf <span class="ot">=</span> stats19<span class="sc">::</span><span class="fu">format_sf</span>(collisions_2023)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>12 rows removed with no coordinates</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(collisions_2023_sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "sf"         "tbl_df"     "tbl"        "data.frame"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(collisions_2023_sf)[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "accident_index"       "accident_year"        "accident_reference"  
+[4] "longitude"            "latitude"             "police_force"        
+[7] "accident_severity"    "number_of_vehicles"   "number_of_casualties"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">table</span>(collisions_2023_sf<span class="sc">$</span>police_force))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Avon and Somerset      Bedfordshire    Cambridgeshire          Cheshire 
+             2281              1297              1518              1533 
+   City of London         Cleveland 
+              174               607 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>collisions_west_yorkshire_sf <span class="ot">=</span> collisions_2023_sf <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(police_force <span class="sc">==</span> <span class="st">"West Yorkshire"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> collisions_west_yorkshire_sf, <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">"accident_severity"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-7f890ac0ea61aa664cf0" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-7f890ac0ea61aa664cf0">{"x":{"filter":"none","vertical":false,"data":[["<a href='p1'>p1<\/a>","<a href='d1'>d1<\/a>","<a href='p2'>p2<\/a>","<a href='p3'>p3<\/a>","<a href='p4'>p4<\/a>","<a href='s1'>s1<\/a>","<a href='d2'>d2<\/a>","<a href='p5'>p5<\/a>","<a href='s2'>s2<\/a>","<a href='p6'>p6<\/a>","<a href='p7'>p7<\/a>","<a href='d3'>d3<\/a>"],["TDS Practical 1: Introduction to transport data science (RL, MM, ZW, YY) Located in Richard Hughes Cluster (1.40)","Computer set-up","TDS Practical 2: Getting transport data (RL, YY) Located in Richard Hughes Cluster (1.40)","TDS Practical 3: Origin-destination data (RL, YY) Located in Richard Hughes Cluster (1.40)","TDS Practical 4: Routing (MM, YY) Located in Institute for Transport Studies 1.11","Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation","Draft portfolio","TDS Practical 5: Visualising transport data (RL, YY) Located in Richard Hughes Cluster (1.40)","Seminar 2 Will Deakin, Network Rail: Network simplication","TDS Practical 6: Integrating data science compenents to answer a research question (RL, YY) Located in Richard Hughes Cluster (1.40)","TDS Practical 7: Project work (RL, MM, ZW, YY) Located in Richard Hughes Cluster (1.40)","Deadline: coursework, 2pm"],["2025-01-30 10:00","2025-01-31 13:00","2025-02-06 10:00","2025-02-13 10:00","2025-02-20 10:00","2025-02-20 14:00","2025-02-28 13:00","2025-03-06 10:00","2025-03-20 10:00","2025-03-27 10:00","2025-05-01 10:00","2025-05-16 13:00"],[3,2,3,3,3,3,0,3,1,3,3,0],["Richard Hughes Cluster (1.40)","Online - Teams","Richard Hughes Cluster (1.40)","Richard Hughes Cluster (1.40)","Institute for Transport Studies 1.11","Institute for Transport Studies 1.11","Online - Teams","Richard Hughes Cluster (1.40)","Institute for Transport Studies 1.11","Richard Hughes Cluster (1.40)","Richard Hughes Cluster (1.40)","Online - Teams"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Session ID<\/th>\n      <th>Description<\/th>\n      <th>Time<\/th>\n      <th>Duration<\/th>\n      <th>Location<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":3},{"name":"Session ID","targets":0},{"name":"Description","targets":1},{"name":"Time","targets":2},{"name":"Duration","targets":3},{"name":"Location","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div>
+<figure class="figure">
+<p><img src="example-project-plan_files/figure-html/plot-data-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
 </div>
+</div>
+</section>
+<section id="questions" class="level1">
+<h1>Questions</h1>
+<ul>
+<li>How do I get the road data? I have tried the following:</li>
+<li>I am unsure how to link the traffic calming data to the road traffic casualty data. How can I do this?</li>
+</ul>
+</section>
+<section id="references" class="level1">
 
 
 
-</main> <!-- /main -->
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-tait_contraflows_2023" class="csl-entry" role="listitem">
+Tait, C., Beecham, R., Lovelace, R., Barber, S., 2023. Contraflows and cycling safety: <span>Evidence</span> from 22&nbsp;years of data involving 508 one-way streets. Accident Analysis &amp; Prevention 179, 106895. <a href="https://doi.org/10.1016/j.aap.2022.106895">https://doi.org/10.1016/j.aap.2022.106895</a>
+</div>
+<div id="ref-worldhealthorganization2018" class="csl-entry" role="listitem">
+World Health Organization, 2018. <a href="https://www.who.int/publications/i/item/9789241565684">Global Status Report On Road Safety 2018</a>. S.l.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
