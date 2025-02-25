@@ -19,7 +19,9 @@ library(tidyverse)
 #| eval: false
 # Aim: create ical of all lectures and practicals of TDS
 # Start date of week 1 (source: https://ses.leeds.ac.uk/info/21630/timetabling/1384/teaching-week-patterns-202425)
-w_start = as.Date("2024-09-30")
+w_start = as.Date("2024-09-30") +
+# A full year:
+  lubridate::weeks(52)
 w_start
 lubridate::wday(w_start, label = TRUE) # start on a Monday
 week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("C", 1:4), 23:30)
@@ -40,13 +42,13 @@ practical_ids = c(
 )
 
 practical_descriptions = c(
-  "Introduction to transport data science (RL, MM, ZW, YY)",
+  "Introduction to transport data science (RL, MM, YY)",
   "Getting transport data (RL, YY)",
   "Origin-destination data (RL, YY)",
   "Routing (MM, YY)",
   "Visualising transport data (RL, YY)",
   "Integrating data science compenents to answer a research question (RL, YY)",
-  "Project work (RL, MM, ZW, YY)"
+  "Project work (RL, MM, YY)"
 )
 
 # Source: https://timetable.leeds.ac.uk/teaching/202425/reporting/textspreadsheet;?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
@@ -54,10 +56,7 @@ practical_descriptions = c(
 practical_day_of_week = 4
 practical_start_time = "10:00"
 practical_end_time = "13:00"
-# From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
-# Richard Hughes Cluster (1.40) 		23
-# Richard Hughes Cluster (1.40) 		15-17, 19, 22
-# Richard Hughes Cluster (1.40) 		14	  	 
+# TODO: remove one for 2026
 week_num = as.character(c(14, 15:17, 19, 22, 23))
 practical = tibble::tibble(week_num = week_num)
 practical = dplyr::inner_join(practical, weeks)
@@ -67,7 +66,7 @@ practical$DTEND = lubridate::ymd_hm(paste(practical$date, practical_end_time))
 practical$duration = (practical$DTEND - practical$DTSTART)
 practical$type = "Computer practical and lecture"
 practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_descriptions)
-practical$LOCATION = "Richard Hughes Cluster (1.40)"
+practical$LOCATION = "TBC"
 # 4th practical is in ITS room 1.11
 practical$LOCATION[4] = "Institute for Transport Studies 1.11"
 practical$DESCRIPTION = paste0(practical$SUMMARY, " Located in ", practical$LOCATION)
@@ -86,7 +85,7 @@ seminar_descriptions = c(
 
 seminar_day_of_week = c(4)
 seminar_start_time = c("14:00", "10:00")
-seminar_end_time = c("17:00", "11:00")
+seminar_end_time = c("17:00", "13:00")
 seminar = tibble::tibble(week_num = as.character(c(17, 21)))
 seminar = dplyr::inner_join(seminar, weeks)
 seminar$date = seminar$week_commencing + (seminar_day_of_week - 1)
