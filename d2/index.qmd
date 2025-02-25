@@ -21,6 +21,12 @@ Submit a `.zip` file containing two key items:
 
 2. **Reproducible code** as a `.qmd` file showing how you accessed and processed your data
 
+## Template and example submission
+
+See the [template](d2/template.qmd) for guidance on the structure of your submission. An example submission is available [here](d2/example.qmd).
+
+See the source code of these files in the course repository: [github.com/itsleeds/tds/tree/main/d2](https://github.com/itsleeds/tds/tree/main/d2).
+
 ## Key Requirements
 
 - Maximum .zip file size: 30 MB
