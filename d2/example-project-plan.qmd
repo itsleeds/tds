@@ -117,28 +117,50 @@ I plan to use the following datasets:
 
 **How does the presence of traffic calming measures correlate with road traffic casualties in West Yorkshire?**
 
+## Sub-questions
+
+1. Is there a spatial correlation between traffic calming infrastructure and crash severity?
+2. Has the temporal trend of crashes changed in areas where new traffic calming measures have been implemented?
+3. Which types of road users (pedestrians, cyclists, drivers) benefit most from traffic calming measures?
+
+# Methods
+
+My analysis will involve several key steps:
+
+1. Spatial analysis using buffer zones around traffic calming features to identify crashes within their influence
+2. Temporal analysis comparing crash rates before and after infrastructure implementation where data permits
+3. Statistical modeling to control for confounding variables (traffic volume, road type, etc.)
+4. Visualization of spatial patterns and hotspots of crashes related to infrastructure
+
 # Initial analysis
 
-I loaded the tidyverse and the `stats19` packages (code not shown) and created a map of road traffic casualties in West Yorkshire by converting the dataset into `sf` format using the `ggplot2` package with the folliwng commands:
+I loaded the tidyverse and the `stats19` packages (code not shown) and created a map of road traffic casualties in West Yorkshire by converting the dataset into `sf` format using the `ggplot2` package with the following commands:
 
 ```{r}
 #| include: false
 #| label: setup
-pkgs = c("tidyverse", "stats19", "nptscot/osmactive")
+pkgs = c("tidyverse", "stats19", "nptscot/osmactive", "sf", "tmap")
 # Install pak pkg if not already installed
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pkg_install(pkgs)
 library(tidyverse)
 library(stats19)
 library(osmactive)
+library(sf)
+library(tmap)
 ```
-
 
 ```{r}
 #| include: false
 #| label: get-data
 osm_transport_network = osmactive::get_travel_network("West Yorkshire")
 collisions_2023 = stats19::get_stats19(year = 2023, type = "collision")
+# Get data for additional years for temporal analysis
+collisions_2022 = stats19::get_stats19(year = 2022, type = "collision")
+collisions_2021 = stats19::get_stats19(year = 2021, type = "collision")
+
+# Also get casualties data to analyze by road user type
+casualties_2023 = stats19::get_stats19(year = 2023, type = "casualty")
 ```
 
 ```{r}
@@ -150,17 +172,211 @@ names(collisions_2023_sf)[1:9]
 head(table(collisions_2023_sf$police_force))
 collisions_west_yorkshire_sf = collisions_2023_sf |>
   filter(police_force == "West Yorkshire")
+
+# Convert earlier years to sf and filter for West Yorkshire
+collisions_2022_sf = stats19::format_sf(collisions_2022) |>
+  filter(police_force == "West Yorkshire")
+collisions_2021_sf = stats19::format_sf(collisions_2021) |>
+  filter(police_force == "West Yorkshire")
+
+# Join casualties with collisions to analyze by road user type
+casualties_2023 = inner_join(
+  casualties_2023,
+  collisions_2023 |> select(accident_index, police_force),
+  by = "accident_index"
+) |> 
+  filter(police_force == "West Yorkshire")
 ```
 
 ```{r}
 #| label: plot-data
 ggplot() +
-  geom_sf(data = collisions_west_yorkshire_sf, aes(colour = "accident_severity"))
+  geom_sf(data = collisions_west_yorkshire_sf, aes(color = accident_severity)) +
+  scale_color_manual(values = c("Fatal" = "red", "Serious" = "orange", "Slight" = "blue")) +
+  labs(title = "Road Traffic Casualties in West Yorkshire (2023)",
+       color = "Accident Severity") +
+  theme_minimal()
 ```
 
-# Questions
+## Analysis of Traffic Calming Measures
 
-- How do I get the road data? I have tried the following:
-- I am unsure how to link the traffic calming data to the road traffic casualty data. How can I do this?
+Now I'll extract traffic calming features from the OSM data and analyze their relationship with crash locations:
+
+```{r}
+#| label: extract-calming-measures
+# Extract traffic calming features from OSM data
+calming_measures = osm_transport_network |>
+  filter(highway == "traffic_calming" | 
+         traffic_calming %in% c("bump", "hump", "cushion", "table", "chicane"))
+
+# Check what we have
+if(nrow(calming_measures) > 0) {
+  print(paste("Number of traffic calming features:", nrow(calming_measures)))
+  print(table(calming_measures$traffic_calming))
+} else {
+  print("No traffic calming features found. Need to refine the extraction method.")
+  # Alternative extraction if needed
+  calming_measures = osm_transport_network |>
+    filter(!is.na(traffic_calming) | grepl("bump|hump|calming", name))
+}
+```
+
+```{r}
+#| label: spatial-join-analysis
+# Create buffer around traffic calming measures (e.g., 50m)
+if(nrow(calming_measures) > 0) {
+  calming_buffer = st_buffer(calming_measures, dist = 50)
+  
+  # Spatial join to find crashes near traffic calming measures
+  crashes_near_calming = st_join(
+    collisions_west_yorkshire_sf,
+    calming_buffer |> select(traffic_calming, osm_id),
+    join = st_intersects,
+    left = TRUE
+  )
+  
+  # Analyze crash severity distribution near calming measures vs. elsewhere
+  crashes_near_calming |>
+    mutate(near_calming = !is.na(osm_id)) |>
+    group_by(near_calming, accident_severity) |>
+    summarise(count = n(), .groups = "drop") |>
+    group_by(near_calming) |>
+    mutate(percentage = count / sum(count) * 100) |>
+    arrange(near_calming, accident_severity) |>
+    knitr::kable(caption = "Crash severity distribution near traffic calming measures vs. elsewhere")
+} else {
+  print("Cannot perform spatial join due to missing traffic calming data")
+}
+```
+
+## Temporal Analysis
+
+Examining crash patterns over time:
+
+```{r}
+#| label: temporal-analysis
+# Combine data from multiple years
+all_crashes = bind_rows(
+  mutate(collisions_2021_sf, year = "2021"),
+  mutate(collisions_2022_sf, year = "2022"),
+  mutate(collisions_west_yorkshire_sf, year = "2023")
+)
+
+# Analysis by year
+annual_summary = all_crashes |>
+  group_by(year, accident_severity) |>
+  summarise(count = n(), .groups = "drop") |>
+  pivot_wider(names_from = accident_severity, values_from = count, values_fill = 0) |>
+  mutate(total = Fatal + Serious + Slight,
+         fatal_serious_ratio = (Fatal + Serious) / total * 100)
+
+# Plot the trend
+ggplot(annual_summary, aes(x = year)) +
+  geom_col(aes(y = total), fill = "lightblue") +
+  geom_line(aes(y = fatal_serious_ratio * 5), color = "red", group = 1, size = 1) + # Scaled for visibility
+  geom_point(aes(y = fatal_serious_ratio * 5), color = "red", size = 3) +
+  scale_y_continuous(
+    name = "Total Crashes",
+    sec.axis = sec_axis(~./5, name = "Fatal + Serious %")
+  ) +
+  labs(title = "Crash Trends in West Yorkshire (2021-2023)",
+       subtitle = "Total crashes and percentage of fatal/serious crashes") +
+  theme_minimal()
+```
+
+## Road User Analysis
+
+Analyzing crash patterns by road user type:
+
+```{r}
+#| label: user-type-analysis
+# Analyze casualties by road user type
+casualties_by_type = casualties_2023 |>
+  group_by(casualty_type) |>
+  summarise(count = n(), .groups = "drop") |>
+  arrange(desc(count))
+
+# Create a visualization
+ggplot(casualties_by_type, aes(x = reorder(casualty_type, count), y = count)) +
+  geom_col(fill = "steelblue") +
+  coord_flip() +
+  labs(
+    title = "Road Casualties by Road User Type in West Yorkshire (2023)",
+    x = "Road User Type",
+    y = "Number of Casualties"
+  ) +
+  theme_minimal()
+```
+
+## Interactive Map Visualization
+
+Creating an interactive map to better visualize the spatial patterns:
+
+```{r}
+#| label: interactive-map
+tmap_mode("view")
+
+tm_shape(collisions_west_yorkshire_sf) +
+  tm_dots(
+    col = "accident_severity",
+    palette = c("Fatal" = "red", "Serious" = "orange", "Slight" = "blue"),
+    size = 0.05,
+    alpha = 0.7,
+    popup.vars = c("accident_severity", "date", "time", "road_type", "speed_limit")
+  ) +
+  tm_layout(title = "Road Traffic Casualties in West Yorkshire (2023)")
+
+# If we successfully extracted calming measures, add them to the map
+if(exists("calming_measures") && nrow(calming_measures) > 0) {
+  tm_shape(calming_measures) +
+    tm_dots(col = "darkgreen", size = 0.02, alpha = 0.7)
+}
+```
+
+# Addressing Project Questions
+
+## How to get road data
+
+To access road network data for West Yorkshire, I can use either:
+
+1. OSM data via the `osmdata` package:
+
+```{r}
+#| label: osm-roads
+#| eval: false
+library(osmdata)
+
+# Define a bounding box for West Yorkshire (approximate)
+west_yorkshire_bbox = getbb("West Yorkshire, UK")
+
+# Query major roads
+roads = opq(west_yorkshire_bbox) |>
+  add_osm_feature(key = "highway", 
+                  value = c("motorway", "trunk", "primary", "secondary", "tertiary")) |>
+  osmdata_sf()
+
+# Extract the road linestrings
+west_yorkshire_roads = roads$osm_lines
+```
+
+2. Official data from Ordnance Survey via the OS Data Hub API (requires registration)
+
+## Linking traffic calming data to road casualties
+
+To link traffic calming measures with crash data, I will use:
+
+1. Spatial proximity analysis with buffers (as demonstrated above)
+2. Network-based analysis to consider crashes on the same road segment
+3. Before-and-after analysis where implementation dates of traffic calming measures are available
+
+# Next Steps
+
+For the final project, I plan to:
+
+1. Expand the analysis to include a 5-year time period (2019-2023)
+2. Obtain more detailed OSM data on traffic calming infrastructure and their installation dates where possible
+3. Use statistical modeling (e.g., negative binomial regression) to analyze the relationship between infrastructure and crash rates
+4. Perform hotspot analysis to identify high-risk areas that could benefit from traffic calming
+5. Create interactive dashboards for exploratory spatial data analysis
 
 # References
