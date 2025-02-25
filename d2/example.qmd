@@ -1,0 +1,153 @@
+---
+title: "Data science project plan"
+subtitle: "Example submission"
+author: "Student ID: 123456"
+toc: false
+# # Uncomment the next line to use the default LaTeX template:
+# format: pdf
+execute: 
+  cache: true
+number-sections: false
+bibliography: references.bib
+---
+
+**Note: this is an example submission for illustrative purposes only. You are welcome to choose a related topic but ensure your submission is original.**
+
+See the source code at [github.com/itsleeds/tds/tree/main/d2](https://github.com/itsleeds/tds/tree/main/d2/example.qmd).
+
+See the rendered PDF at [gitub.com/itsleeds/tds/releases/](https://github.com/itsleeds/tds/releases/download/2025/project-plan-example.pdf).
+
+See the .zip file with the files needed to reproduce this analysis at [gitub.com/itsleeds/tds/releases/](https://github.com/itsleeds/tds/releases/download/2025/formative-assessment-example.zip).
+
+# Introduction
+
+Road traffic casualties cause untold pain and suffering, killing an estimated 1.35 million people worldwide each year and ruining the lives of countless others [@worldhealthorganization2018].
+The UK has comparatively safe roads but road traffic casualty rates have plateaued in recent years, according to data from the [Department for Transport's 2023 report](https://www.gov.uk/government/statistics/reported-road-casualties-great-britain-annual-report-2023/reported-road-casualties-great-britain-annual-report-2023).
+There are many causes of traffic collisions but road traffic infrastructure can play a role, as outlined in @tait_contraflows_2023, which found that contraflow cycling on one-way streets can improve the cycling experience and increase participation without increasing crash rates.
+The topic of this project is to investigate the relationship between road traffic casualties and road infrastructure in West Yorkshire, a region that has been found in previous research to have a higher casualty rate for cyclists than other regions [@lovelace_who_2016].
+
+## Working title
+
+**What are the links between new infrastructure and traffic collisions in West Yorkshire?**
+
+# Data
+
+I plan to use the following datasets:
+
+- STATS19 data from the `stats19` R package, 2014-2023
+  - I plan to use the crash-level data converted into spatial format with the `format_sf()` function
+- Traffic calming data from the `osmactive` package
+  - This dataset from OSM contains information on speed bumps, chicanes, and other traffic calming measures
+
+# Research question
+
+**How does the presence of traffic calming measures correlate with road traffic casualties in West Yorkshire?**
+
+# Initial analysis
+
+I loaded the tidyverse and the `stats19` packages (code not shown) and created a map of road traffic casualties in West Yorkshire by converting the dataset into `sf` format using the `ggplot2` package with the folliwng commands:
+
+```{r}
+#| include: false
+#| label: setup
+pkgs = c("tidyverse", "stats19", "nptscot/osmactive")
+# Install pak pkg if not already installed
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pkg_install(pkgs)
+library(tidyverse)
+library(stats19)
+library(osmactive)
+# Set ggplot2 theme
+theme_set(theme_minimal())
+```
+
+
+```{r}
+#| include: false
+#| label: get-data
+osm_transport_network = osmactive::get_travel_network("West Yorkshire")
+osm_transport_network_20mph = osm_transport_network |>
+  filter(maxspeed == "20 mph")
+collisions_2023 = stats19::get_stats19(year = 2023, type = "collision")
+```
+
+```{r}
+#| label: prep-data
+class(collisions_2023)
+collisions_2023_sf = stats19::format_sf(collisions_2023)
+class(collisions_2023_sf)
+names(collisions_2023_sf)[1:9]
+head(table(collisions_2023_sf$police_force))
+collisions_west_yorkshire_sf = collisions_2023_sf |>
+  filter(police_force == "West Yorkshire") |>
+  # Arrange in descending order of accident severity
+  # so most severe accidents are plotted last:
+  arrange(desc(accident_severity))
+sf::write_sf(collisions_west_yorkshire_sf, "wy.gpkg")
+```
+
+
+```{r}
+#| label: plot
+#| layout-ncol: 2
+osm_transport_network_20mph |>
+  ggplot() +
+  geom_sf()
+ggplot() +
+  geom_sf(
+    data = collisions_west_yorkshire_sf,
+    aes(colour = accident_severity, alpha = accident_severity)
+  ) +
+  scale_alpha_manual(values = c(0.8, 0.4, 0.2))
+```
+
+Road infrastructure data was obtained from the `osmactive` package.
+
+I rendered this document to a PDF file with the following command:
+
+```{r}
+#| eval: false
+quarto::quarto_render(
+  "project-plan.qmd",
+  output_format = "pdf",
+  output_file = "project-plan.pdf"
+)
+```
+
+I created a zip file with the files needed to reproduce this analysis with the following command:
+
+```{r}
+zip(
+  zipfile = "submission.zip",
+  files = c("project-plan.qmd", "project-plan.pdf", "wy.gpkg")
+)
+```
+
+```{r}
+#| eval: false
+#| echo: false
+quarto::quarto_render(
+  "d2/example.qmd",
+  output_format = "pdf",
+  output_file = "project-plan-example.pdf"
+)
+system("gh release upload 2025 docs/project-plan-example.pdf --clobber")
+file.copy("docs/project-plan-example.pdf", "d2/project-plan-example.pdf")
+file.rename("wy.gpkg", "d2/wy.gpkg")
+file.remove("formative-assessment-example.zip")
+setwd("d2")
+zip(
+  zipfile = "formative-assessment-example.zip",
+  files = c("project-plan-example.pdf", "wy.gpkg", "example.qmd")
+)
+setwd("..")
+file.rename("d2/formative-assessment-example.zip", "formative-assessment-example.zip")
+fs::file_size("formative-assessment-example.zip")
+system("gh release upload 2025 formative-assessment-example.zip --clobber")
+```
+
+# Questions
+
+- How do I get other types of transport infrastructure, such as cycle lanes and traffic calming measures? I have read the documentation at  [nptscot.github.io/osmactive](https://nptscot.github.io/osmactive/) but I am unsure how to proceed.
+
+# References
