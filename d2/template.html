@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Student ID:">
 
-<title>Schedule – Transport Data Science</title>
+<title>Data science project plan – Transport Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,24 +21,58 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-15e059e407a6cf5796de0e4a03934673.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-15e059e407a6cf5796de0e4a03934673.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -65,21 +100,11 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<link href="site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
-<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
-<script src="site_libs/datatables-binding-0.33/datatables.js"></script>
-<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
-<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
-<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
-<link href="site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
 
 
 </head>
 
-<body class="nav-sidebar docked">
+<body class="nav-sidebar docked fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -88,7 +113,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./schedule.html">Schedule</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Transport Data Science
+      </li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -106,7 +133,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Transport Data Science</a> 
+      <a href="../">Transport Data Science</a> 
         <div class="sidebar-tools-main">
     <a href="https://github.com/itsleeds/tds" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
 </div>
@@ -121,7 +148,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -133,7 +160,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./schedule.html" class="sidebar-item-text sidebar-link active">
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
@@ -145,19 +172,19 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./marking-criteria.html" class="sidebar-item-text sidebar-link">
+  <a href="../marking-criteria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Marking Criteria</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reading.html" class="sidebar-item-text sidebar-link">
+  <a href="../reading.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reading list</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="../reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reproducible Road Safety Workshop</span></a>
   </div>
 </li>
@@ -172,37 +199,37 @@ ul.task-list li input[type="checkbox"] {
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p1" class="sidebar-item-text sidebar-link">
+  <a href="../p1" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p2" class="sidebar-item-text sidebar-link">
+  <a href="../p2" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p3" class="sidebar-item-text sidebar-link">
+  <a href="../p3" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./p4" class="sidebar-item-text sidebar-link">
+  <a href="../p4" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Practical 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./s1" class="sidebar-item-text sidebar-link">
+  <a href="../s1" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Seminar 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./d2" class="sidebar-item-text sidebar-link">
+  <a href="../d2" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Formative assessment</span></a>
   </div>
 </li>
@@ -213,21 +240,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Schedule</h1>
+<h1 class="title">Data science project plan</h1>
+<p class="subtitle lead">Project submission</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Student ID: </p>
+          </div>
+  </div>
     
   
     
@@ -238,16 +270,97 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
-<p>The timetable below is a user-friently representation of the timetable for the module (see github for <a href="https://github.com/itsleeds/tds/blob/main/timetable.csv">.csv</a> and <a href="https://github.com/itsleeds/tds/releases/download/2025/timetable.ics">.ics</a> versions). See <a href="https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&amp;idtype=name&amp;identifier=TRAN5340M01&amp;&amp;template=SWSCUST+module+Individual&amp;days=1-7&amp;weeks=1-52&amp;periods=1-21">timetable.leeds.ac.uk</a> and <a href="https://mytimetable.leeds.ac.uk/link?timetable.id=202425!module!5216C608F8794D77F15FA9D195AB3C06">mytimetable.eeds.ac.uk</a> for the official timetable. If you spot any discrepancies, please let us know.</p>
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>[Write your introduction here, explaining the context and importance of your chosen topic]</p>
+<section id="working-title" class="level2">
+<h2 class="anchored" data-anchor-id="working-title">Working title</h2>
+<p><strong>[Your project title here]</strong></p>
+</section>
+</section>
+<section id="data" class="level1">
+<h1>Data</h1>
+<p>[List and briefly describe the datasets you plan to use]</p>
+</section>
+<section id="research-question" class="level1">
+<h1>Research question</h1>
+<p><strong>[State your main research question here]</strong></p>
+</section>
+<section id="initial-analysis" class="level1">
+<h1>Initial analysis</h1>
+<p>[Describe your planned analysis approach and include any preliminary data exploration]</p>
+<p>The following code was used to aggregate the data by hour:</p>
 <div class="cell">
-<div class="cell-output-display">
-<div class="datatables html-widget html-fill-item" id="htmlwidget-464abb181a65330bafcb" style="width:100%;height:auto;"></div>
-<script type="application/json" data-for="htmlwidget-464abb181a65330bafcb">{"x":{"filter":"none","vertical":false,"data":[["<a href='p1'>p1<\/a>","<a href='d1'>d1<\/a>","<a href='p2'>p2<\/a>","<a href='p3'>p3<\/a>","<a href='p4'>p4<\/a>","<a href='s1'>s1<\/a>","<a href='d2'>d2<\/a>","<a href='p5'>p5<\/a>","<a href='s2'>s2<\/a>","<a href='p6'>p6<\/a>","<a href='p7'>p7<\/a>","<a href='d3'>d3<\/a>"],["TDS Practical 1: Introduction to transport data science (RL, MM, ZW, YY) Located in Richard Hughes Cluster (1.40)","Computer set-up","TDS Practical 2: Getting transport data (RL, YY) Located in Richard Hughes Cluster (1.40)","TDS Practical 3: Origin-destination data (RL, YY) Located in Richard Hughes Cluster (1.40)","TDS Practical 4: Routing (MM, YY) Located in Institute for Transport Studies 1.11","Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation","Draft portfolio","TDS Practical 5: Visualising transport data (RL, YY) Located in Richard Hughes Cluster (1.40)","Seminar 2 Will Deakin, Network Rail: Network simplication","TDS Practical 6: Integrating data science compenents to answer a research question (RL, YY) Located in Richard Hughes Cluster (1.40)","TDS Practical 7: Project work (RL, MM, ZW, YY) Located in Richard Hughes Cluster (1.40)","Deadline: coursework, 2pm"],["2025-01-30 10:00","2025-01-31 13:00","2025-02-06 10:00","2025-02-13 10:00","2025-02-20 10:00","2025-02-20 14:00","2025-02-28 13:00","2025-03-06 10:00","2025-03-20 10:00","2025-03-27 10:00","2025-05-01 10:00","2025-05-16 13:00"],[3,2,3,3,3,3,0,3,1,3,3,0],["Richard Hughes Cluster (1.40)","Online - Teams","Richard Hughes Cluster (1.40)","Richard Hughes Cluster (1.40)","Institute for Transport Studies 1.11","Institute for Transport Studies 1.11","Online - Teams","Richard Hughes Cluster (1.40)","Institute for Transport Studies 1.11","Richard Hughes Cluster (1.40)","Richard Hughes Cluster (1.40)","Online - Teams"]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th>Session ID<\/th>\n      <th>Description<\/th>\n      <th>Time<\/th>\n      <th>Duration<\/th>\n      <th>Location<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":20,"columnDefs":[{"className":"dt-right","targets":3},{"name":"Session ID","targets":0},{"name":"Description","targets":1},{"name":"Time","targets":2},{"name":"Duration","targets":3},{"name":"Location","targets":4}],"order":[],"autoWidth":false,"orderClasses":false,"lengthMenu":[10,20,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>collisions_hourly <span class="ot">=</span> collisions_2023 <span class="sc">|&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time =</span> lubridate<span class="sc">::</span><span class="fu">hour</span>(datetime)) <span class="sc">|&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(time, accident_severity) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="initial-data-exploration" class="level1">
+<h1>Initial data exploration</h1>
+<p>A visualisation of the data is shown below:</p>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: plotting the first 9 out of 36 attributes; use max.plot = 36 to plot
+all</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in min(x): no non-missing arguments to min; returning Inf</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in max(x): no non-missing arguments to max; returning -Inf</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in min(x): no non-missing arguments to min; returning Inf</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in max(x): no non-missing arguments to max; returning -Inf</code></pre>
+</div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="template_files/figure-html/spatial-temporal-plot-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="cell-output cell-output-stdout quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<pre><code>[1] "Metropolitan Police" "Metropolitan Police" "Metropolitan Police"
+[4] "Metropolitan Police" "Metropolitan Police" "Metropolitan Police"</code></pre>
 </div>
 </div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="template_files/figure-html/spatial-temporal-plot-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="questions" class="level1">
+<h1>Questions</h1>
+<p>[List any questions or challenges you anticipate]</p>
+</section>
+<section id="reproducibility" class="level1">
+<h1>Reproducibility</h1>
+<p>Notes on how to reproduce this analysis are provided in the code chunks above. The full code is available in the <code>.qmd</code> file.</p>
+<p>You could include details on how you created the submitted zip file, e.g.:</p>
+<p>I rendered this document to a PDF file with the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"project-plan.qmd"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="st">"pdf"</span>,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_file =</span> <span class="st">"project-plan.pdf"</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>I created a zip file with the files needed to reproduce this analysis with the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zip</span>(</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">zipfile =</span> <span class="st">"submission.zip"</span>,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">files =</span> <span class="fu">c</span>(<span class="st">"project-plan.qmd"</span>, <span class="st">"project-plan.pdf"</span>, <span class="st">"wy.gpkg"</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="references" class="level1">
+<h1>References</h1>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
