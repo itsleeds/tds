@@ -1,0 +1,86 @@
+---
+title: "Data science project plan"
+subtitle: "Project submission"
+author: "Student ID: "
+toc: false
+# # Uncomment the next line to use the default LaTeX template:
+# format: pdf
+execute: 
+  cache: true
+number-sections: false
+bibliography: references.bib
+---
+
+# Introduction
+
+[Write your introduction here, explaining the context and importance of your chosen topic]
+
+## Working title
+
+**[Your project title here]**
+
+# Data
+
+[List and briefly describe the datasets you plan to use]
+
+# Research question
+
+**[State your main research question here]**
+
+# Initial analysis
+
+[Describe your planned analysis approach and include any preliminary data exploration]
+
+```{r}
+#| include: false
+#| label: setup
+# Install required packages (update list as needed)
+pkgs = c("tidyverse", "stats19", "sf", "nptscot/osmactive")
+# Install pak pkg if not already installed
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pkg_install(pkgs)
+library(tidyverse)
+library(stats19)
+library(osmactive)
+# Set ggplot2 theme
+theme_set(theme_minimal())
+```
+
+```{r}
+#| include: false
+#| label: import-clean
+collisions_2023 = stats19::get_stats19(year = 2023, type = "collision")
+collisions_2023_sf = stats19::format_sf(collisions_2023)
+names(collisions_2023_sf)
+```
+
+The following code was used to aggregate the data by hour:
+
+```{r}
+collisions_hourly = collisions_2023 |>
+  mutate(time = lubridate::hour(datetime)) |>
+  count(time, accident_severity) 
+```
+
+# Initial data exploration
+
+A visualisation of the data is shown below:
+
+```{r}
+#| label: spatial-temporal-plot
+#| layout-ncol: 2
+#| echo: false
+collisions_hourly |>
+  ggplot(aes(x = time, y = n, fill = accident_severity)) +
+  geom_col(position = "dodge") 
+head(collisions_2023$police_force)
+collisions_2023_sf |>
+  filter(police_force == "Metropolitan Police") |>
+  plot()
+```
+
+# Questions
+
+[List any questions or challenges you anticipate]
+
+# References
