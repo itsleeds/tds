@@ -23,9 +23,9 @@ Submit a `.zip` file containing two key items:
 
 ## Template and example submission
 
-See the [template](d2/template.qmd) for guidance on the structure of your submission. An example submission is available [here](d2/example.qmd).
+See the [template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd) file (and [rendered result](template)) for guidance on the structure of your submission. An example submission is available [in the d2/example.qmd file](https://github.com/itsleeds/tds/blob/main/d2/example.qmd) (rendered [here](example)).
 
-See the source code of these files in the course repository: [github.com/itsleeds/tds/tree/main/d2](https://github.com/itsleeds/tds/tree/main/d2).
+See the source code of these files, including the .bib files for creating references, in the course repository: [github.com/itsleeds/tds/tree/main/d2](https://github.com/itsleeds/tds/tree/main/d2).
 
 ## Key Requirements
 
