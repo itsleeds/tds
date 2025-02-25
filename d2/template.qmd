@@ -83,4 +83,31 @@ collisions_2023_sf |>
 
 [List any questions or challenges you anticipate]
 
+# Reproducibility
+
+Notes on how to reproduce this analysis are provided in the code chunks above. The full code is available in the `.qmd` file.
+
+You could include details on how you created the submitted zip file, e.g.:
+
+I rendered this document to a PDF file with the following command:
+
+```{r}
+#| eval: false
+quarto::quarto_render(
+  "project-plan.qmd",
+  output_format = "pdf",
+  output_file = "project-plan.pdf"
+)
+```
+
+I created a zip file with the files needed to reproduce this analysis with the following command:
+
+```{r}
+#| eval: false
+zip(
+  zipfile = "submission.zip",
+  files = c("project-plan.qmd", "project-plan.pdf", "wy.gpkg")
+)
+```
+
 # References
