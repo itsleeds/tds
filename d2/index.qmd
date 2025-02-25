@@ -34,6 +34,10 @@ See the source code of these files, including the .bib files for creating refere
 - AI tools can be used in an assistive role (must be acknowledged)
 - Use the default quarto referencing style
 
+## Writing tips
+
+See [documentation on figures](https://quarto.org/docs/authoring/figures.html#computations), [technical writing](https://quarto.org/docs/visual-editor/technical.html) and [the visual editor mode](https://quarto.org/docs/visual-editor/) from [quarto.org](https://quarto.org) for help with creating figures and citations.
+
 ## Topics and Datasets
 
 Some suggested areas include:
@@ -88,4 +92,4 @@ Specific examples could include:
 
 - Feedback will be provided within 15 working days
 
-For full details including assessment criteria, formatting guidelines, and academic integrity requirements, see the [assessment brief](assessment-brief.qmd).
+For full details including assessment criteria, formatting guidelines, and academic integrity requirements, see the [assessment brief](assessment-brief).
