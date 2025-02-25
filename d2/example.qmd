@@ -117,6 +117,7 @@ quarto::quarto_render(
 I created a zip file with the files needed to reproduce this analysis with the following command:
 
 ```{r}
+#| eval: false
 zip(
   zipfile = "submission.zip",
   files = c("project-plan.qmd", "project-plan.pdf", "wy.gpkg")
