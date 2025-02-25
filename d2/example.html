@@ -290,89 +290,13 @@ div.csl-indent {
 </header>
 
 
-<!-- # Submission guidelines:
-
-This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is **28th February 2025, 13:59**.
-
-## What to Submit
-
-Submit a `.zip` file containing two key items:
-
-1. A **concise PDF document** (recommended length: 2 pages, absolute maximum: 5 pages) outlining:
-    - Your chosen transport-related topic
-    - The main dataset(s) you plan to use
-    - Your research question
-    - At least 2 academic references (see [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for details)
-    - Any initial analysis or questions you have
-
-2. **Reproducible code** as a `.qmd` file showing how you accessed and processed your data
-
-## Key Requirements
-
-- Maximum .zip file size: 30 MB
-- Submit via Turnitin
-- AI tools can be used in an assistive role (must be acknowledged)
-- Use the default quarto referencing style
-
-## Topics and Datasets
-
-Some suggested areas include:
-
-- Road safety analysis
-- Infrastructure and travel behavior
-- Traffic congestion patterns
-- Public transport accessibility
-- Active travel infrastructure
-- Transport equity studies
-- Other transport-related topics are encouraged
-
-Specific examples could include:
-
-- What is the relationship between travel behaviour (e.g. as manifested in origin-destination data represented as desire lines, routes and route networks) and road traffic casualties in a transport region (e.g. London, West Midlands and other regions in the `pct::pct_regions$region_name` data)
-
-- Analysis of a large transport dataset, e.g. https://www.nature.com/articles/sdata201889
-
-- Infrastructure and travel behaviour
-  - What are the relationships between specific types of infrastructure and travel, e.g. between fast roads and walking?
-  - How do official sources of infrastructure data (e.g. the [CID](https://github.com/PublicHealthDataGeek/CycleInfraLnd/)) compare with crowd-sourced datasets such as OpenStreetMap (which can be accessed with the new [`osmextract` R package](https://github.com/ropensci/osmextract))
-  - Using new data sources to support transport planning, e.g. using data from https://telraam.net/ or https://dataforgood.facebook.com/dfg/tools/high-resolution-population-density-maps 
-
-- Changing transport systems
-  - Modelling change in transport systems, e.g. by comparing before/after data for different countries/cities, which countries had the hardest lockdowns and where have changes been longer term? - see here for open data: https://github.com/ActiveConclusion/COVID19_mobility
-  - How have movement patterns changed during the Coronavirus pandemic and what impact is that likely to have long term (see [here](https://saferactive.github.io/trafficalmr/articles/report3.html) for some graphics on this)
-  
-- Software / web development
-  - Creating a package to make a particular data source more accessible, see https://github.com/ropensci/stats19 and https://github.com/elipousson/crashapi examples
-  - Development of a data dashboard, e.g. using [Quarto Dashboards](https://quarto.org/docs/dashboards/)
-  - Development of a web app, e.g. using the [shiny](https://shiny.rstudio.com/) package
-  
-- Road safety - how can we makes roads and transport systems in general safer?
-  - Influence of Road Infrastructure: 
-    - Assessing the role of well-designed pedestrian crossings, roundabouts, and traffic calming measures in preventing road accidents. 
-    - Investigating the correlation between road surface quality (e.g., potholes, uneven surfaces) and the frequency of accidents.
-  - Influence of Traffic Management: 
-    - Assessing the role of traffic lights and speed cameras in preventing road accidents. 
-    - Investigating the correlation between the frequency of accidents and the presence of traffic calming measures (e.g., speed bumps, chicanes, road narrowing, etc.).
-  - Legislation and Enforcement:
-    - 1. Assessing the role of speed limits in preventing road accidents.
-
-- Traffic congestion - how can we reduce congestion?
-  - Data Collection and Analysis:
-    - Utilizing real-time traffic data from platforms like Waze and Google Maps to forecast congestion patterns.
-    - Analyzing historical traffic data to identify recurring congestion patterns and anticipate future traffic bottlenecks.
-  - Machine Learning and Predictive Modeling:
-    - Designing machine learning models that use past and current traffic data to predict future congestion levels.
-  
-
-## Support and Feedback
-
-- Feedback will be provided within 15 working days
-
-For full details including assessment criteria, formatting guidelines, and academic integrity requirements, see the [assessment brief](assessment-brief.qmd). -->
 <p><strong>Note: this is an example submission for illustrative purposes only. You are welcome to choose a related topic but ensure your submission is original.</strong></p>
+<p>See the source code at <a href="https://github.com/itsleeds/tds/tree/main/d2/example.qmd">github.com/itsleeds/tds/tree/main/d2</a>.</p>
+<p>See the rendered PDF at <a href="https://github.com/itsleeds/tds/releases/download/2025/project-plan-example.pdf">gitub.com/itsleeds/tds/releases/</a>.</p>
+<p>See the .zip file with the files needed to reproduce this analysis at <a href="https://github.com/itsleeds/tds/releases/download/2025/formative-assessment-example.zip">gitub.com/itsleeds/tds/releases/</a>.</p>
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Road traffic casualties cause untold pain and suffering, killing an estimated 1.35 million people worldwide each year and ruining the lives of countless others <span class="citation" data-cites="worldhealthorganization2018">(<a href="#ref-worldhealthorganization2018" role="doc-biblioref">World Health Organization, 2018</a>)</span>. The UK has comparatively safe roads but road traffic casualty rates have plateaued in recent years, according to data from the <a href="https://www.gov.uk/government/statistics/reported-road-casualties-great-britain-annual-report-2023/reported-road-casualties-great-britain-annual-report-2023">Department for Transport’s 2023 report</a>. There are many causes of traffic collisions but road traffic infrastructure can play a role, as outlined in <span class="citation" data-cites="tait_contraflows_2023">Tait et al. (<a href="#ref-tait_contraflows_2023" role="doc-biblioref">2023</a>)</span>, which found that contraflow cycling on one-way streets can improve the cycling experience and increase participation without increasing crash rates. The topic of this project is to investigate the relationship between road traffic casualties and road infrastructure in the UK.</p>
+<p>Road traffic casualties cause untold pain and suffering, killing an estimated 1.35 million people worldwide each year and ruining the lives of countless others <span class="citation" data-cites="worldhealthorganization2018">(<a href="#ref-worldhealthorganization2018" role="doc-biblioref">World Health Organization, 2018</a>)</span>. The UK has comparatively safe roads but road traffic casualty rates have plateaued in recent years, according to data from the <a href="https://www.gov.uk/government/statistics/reported-road-casualties-great-britain-annual-report-2023/reported-road-casualties-great-britain-annual-report-2023">Department for Transport’s 2023 report</a>. There are many causes of traffic collisions but road traffic infrastructure can play a role, as outlined in <span class="citation" data-cites="tait_contraflows_2023">Tait et al. (<a href="#ref-tait_contraflows_2023" role="doc-biblioref">2023</a>)</span>, which found that contraflow cycling on one-way streets can improve the cycling experience and increase participation without increasing crash rates. The topic of this project is to investigate the relationship between road traffic casualties and road infrastructure in West Yorkshire, a region that has been found in previous research to have a higher casualty rate for cyclists than other regions <span class="citation" data-cites="lovelace_who_2016">(<a href="#ref-lovelace_who_2016" role="doc-biblioref">Lovelace et al., 2016</a>)</span>.</p>
 <section id="working-title" class="level2">
 <h2 class="anchored" data-anchor-id="working-title">Working title</h2>
 <p><strong>What are the links between new infrastructure and traffic collisions in West Yorkshire?</strong></p>
@@ -427,25 +351,52 @@ Avon and Somerset      Bedfordshire    Cambridgeshire          Cheshire
               174               607 </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>collisions_west_yorkshire_sf <span class="ot">=</span> collisions_2023_sf <span class="sc">|&gt;</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(police_force <span class="sc">==</span> <span class="st">"West Yorkshire"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(police_force <span class="sc">==</span> <span class="st">"West Yorkshire"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Arrange in descending order of accident severity</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># so most severe accidents are plotted last:</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(accident_severity))</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>sf<span class="sc">::</span><span class="fu">write_sf</span>(collisions_west_yorkshire_sf, <span class="st">"wy.gpkg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>osm_transport_network_20mph <span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>()</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> collisions_west_yorkshire_sf,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> accident_severity, <span class="at">alpha =</span> accident_severity)</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.4</span>, <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="example_files/figure-html/plot-1.png" class="img-fluid" width="672"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="example_files/figure-html/plot-2.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+</div>
+<p>Road infrastructure data was obtained from the <code>osmactive</code> package.</p>
+<p>I rendered this document to a PDF file with the following command:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> collisions_west_yorkshire_sf, <span class="fu">aes</span>(<span class="at">colour =</span> <span class="st">"accident_severity"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="example-project-plan_files/figure-html/plot-data-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"project-plan.qmd"</span>,</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_format =</span> <span class="st">"pdf"</span>,</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">output_file =</span> <span class="st">"project-plan.pdf"</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
+<p>I created a zip file with the files needed to reproduce this analysis with the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">zip</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">zipfile =</span> <span class="st">"submission.zip"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">files =</span> <span class="fu">c</span>(<span class="st">"project-plan.qmd"</span>, <span class="st">"project-plan.pdf"</span>, <span class="st">"wy.gpkg"</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="questions" class="level1">
 <h1>Questions</h1>
 <ul>
-<li>How do I get the road data? I have tried the following:</li>
-<li>I am unsure how to link the traffic calming data to the road traffic casualty data. How can I do this?</li>
+<li>How do I get other types of transport infrastructure, such as cycle lanes and traffic calming measures? I have read the documentation at <a href="https://nptscot.github.io/osmactive/">nptscot.github.io/osmactive</a> but I am unsure how to proceed.</li>
 </ul>
 </section>
 <section id="references" class="level1">
@@ -456,6 +407,9 @@ Avon and Somerset      Bedfordshire    Cambridgeshire          Cheshire
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-lovelace_who_2016" class="csl-entry" role="listitem">
+Lovelace, R., Roberts, H., Kellar, I., 2016. Who, where, when: The demographic and geographic distribution of bicycle crashes in <span>West Yorkshire</span>. Transportation Research Part F: Traffic Psychology and Behaviour, Bicycling and bicycle safety 41, Part B. <a href="https://doi.org/10.1016/j.trf.2015.02.010">https://doi.org/10.1016/j.trf.2015.02.010</a>
+</div>
 <div id="ref-tait_contraflows_2023" class="csl-entry" role="listitem">
 Tait, C., Beecham, R., Lovelace, R., Barber, S., 2023. Contraflows and cycling safety: <span>Evidence</span> from 22&nbsp;years of data involving 508 one-way streets. Accident Analysis &amp; Prevention 179, 106895. <a href="https://doi.org/10.1016/j.aap.2022.106895">https://doi.org/10.1016/j.aap.2022.106895</a>
 </div>
