@@ -4,7 +4,291 @@ bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
+  eval: true
+editor: 
+  markdown: 
+    wrap: 72
 ---
-This is a placeholder page; content will be added soon.
+
+# Introduction
+
+In this practical, we will build on the **routing techniques** from Practical 4 by exploring **data visualization** methods for transport analysis. By the end of this practical, you should be able to:
+
+- **Process** real transport demand datasets  
+- **Create** flow maps and isochrones  
+- **Analyze** network centrality  
+- **Visualize** multi-modal journeys  
+- **Generate** 3D transport visualizations  
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 7,
+  fig.height = 5,
+  out.width = "700px"
+)
+```
+
+# Setup
+Below are the libraries we will use throughout this practical:
+```{r}
+# Load necessary libraries
+library(opentripplanner)  # Routing engine (OpenTripPlanner client)
+library(sf)               # Spatial data handling
+library(tmap)             # Thematic mapping
+library(stplanr)          # Transport data functions
+library(dplyr)            # Data manipulation
+library(osmextract)       # OSM data handling
+library(dodgr)            # Network analysis
+library(rayshader)        # 3D data visualization
+library(elevatr)          # Elevation data
+library(gifski)           # Creating GIF animations
+library(rgl)              # 3D visualization device
+
+# Set interactive mapping mode
+tmap_mode("view")
+```
+
+# Flow Map Visualization
+
+Flow maps are useful for understanding the volume of travel between origins and destinations. In this section, we will:
+
+1. Load desire lines (flows) data from a GeoJSON file.
+2. Visualize these lines with widths or colors proportional to demand.
+3. Optionally aggregate route geometries for more realistic depiction of flows along an actual road network.
+
+```{r}
+# Load Demand Data
+desire_lines = read_sf("https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson") |>
+  select(from, to, all, walk, drive, cycle)
+
+# Quick map to see the distribution of car trips
+tm_shape(desire_lines) +
+  tm_lines(
+    lwd = "drive",          # Line width proportional to 'drive' volume
+    scale = 8,              
+    palette = "viridis",    
+    style = "fisher",
+    title.lwd = "Car Trips (NTEM Model)"
+  ) +
+  tm_layout(legend.bg.color = "white")
+```
+
+# Aggregating Flows with Actual Routes
+
+Rather than drawing direct origin-destination lines, we can route each flow along the road network and then aggregate them to see which streets carry the most traffic. This uses stplanr::overline() to merge lines that overlap.
+
+```{r}
+# Download pre-routed lines for demonstration
+u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive_25.geojson"
+routes_drive = read_sf(u)
+
+# Inspect the summary of the drive.x variable (car trips)
+summary(routes_drive$drive.x)
+
+# Optional: remove negative values if they exist (invalid or placeholder data)
+routes_drive = routes_drive |> 
+  mutate(drive.x = ifelse(drive.x < 0, 0, drive.x))
+
+# Aggregate flows where routes overlap
+rnet_drive = stplanr::overline(
+  routes_drive, 
+  attrib = "drive.x", # The attribute to sum or aggregate
+  fun = sum
+)
+
+# Visualize the aggregated route network
+tm_shape(rnet_drive) +
+  tm_lines(
+    lwd = "drive.x", 
+    col = "drive.x",
+    style = "jenks",       # Good for skewed data
+    n = 7,
+    palette = "inferno",   # 'inferno' color palette
+    title.col = "AADT Equivalent",
+    scale = 5
+  ) +
+  tm_scalebar(position = c("left", "bottom"))
+```
+
+# Temporal Visualisation 
+#| TODO: the results of this code chunk are not correct. The code needs to be fixed.
+
+Transport accessibility can change over time due to congestion, transit schedules, etc. In this section, we’ll:
+
+1. Connect to an OpenTripPlanner (OTP) server
+2. Generate isochrones for different departure times
+3. Save maps for each time step, and
+4. Combine those images into an animated GIF.
+
+```{r}
+# Connect to the OTP server
+ip = "otp.robinlovelace.net"  # Example server - replace if needed
+otpcon = otp_connect(
+  hostname = ip,
+  ssl = TRUE,
+  port = 443,
+  router = "west-yorkshire"
+)
+cat("Router:", paste0("https://", ip, ":443/otp/routers/", otpcon$router), "exists\n")
+
+# Create a time sequence (e.g. 7AM to 9AM in 30-min increments)
+time_sequence = seq(7, 9, by = 0.5)
+
+# Define a function to get isochrones for a given hour and return a tmap object
+animate_isochrones = function(hour) {
+  # Construct a POSIXct datetime object (adjust date/time zone as needed)
+  dt = as.POSIXct(
+    paste0("2023-03-15 ", hour, ":00:00"), 
+    tz = "Europe/London"
+  )
+  
+  iso = otp_isochrone(
+    otpcon,
+    fromPlace = c(-1.558, 53.807),  # Example coordinates
+    mode = "BICYCLE",
+    date_time = dt,
+    cutoffSec = seq(900, 3600, 900)  # 15, 30, 45, 60 minutes
+  )
+  
+  # Create a tmap visualization of the isochrones
+  tm_shape(iso) +
+    tm_fill("time", alpha = 0.6, title = "Travel Time (secs)") +
+    tm_borders() +
+    tm_layout(
+      title = paste("Isochrone at", format(dt, "%H:%M")),
+      legend.outside = TRUE
+    )
+}
+
+# Directory to store temporary images
+tmp_img_dir = tempdir()
+img_files = character(length(time_sequence))
+
+for (i in seq_along(time_sequence)) {
+  # Create the map
+  plot_obj = animate_isochrones(time_sequence[i])
+  
+  # Build a filename for each frame
+  img_file = file.path(tmp_img_dir, sprintf("frame_%03d.png", i))
+  
+  # Save map as PNG
+  tmap_save(plot_obj, filename = img_file, width = 800, height = 600)
+  img_files[i] = img_file
+  
+  cat("Saved", img_file, "\n")
+}
+
+# Combine PNG frames into a GIF
+gifski(
+  png_files = img_files,
+  gif_file = "morning_peak.gif",
+  width = 800,
+  height = 600,
+  delay = 1
+)
+
+```
+
+# Network Centrality Analysis
+
+Betweenness centrality is a measure of how often a particular segment (or node) lies on the shortest path between other points in the network. Segments with high betweenness are often considered critical for overall connectivity.
+
+Below, we:
+
+1. Download roads from OpenStreetMap using osmextract.
+2. Weight the network for motor vehicle usage.
+3. Compute centrality using dodgr.
+4. Convert the resulting graph back to an sf object.
+5. Map the centrality values.
+
+```{r}
+# Get Isle of Wight road network
+# We choose 'primary', 'secondary', 'tertiary' roads for demonstration
+roads = oe_get("Isle of Wight", 
+                extra_tags = c("maxspeed", "oneway")) |>
+  filter(highway %in% c("primary", "secondary", "tertiary"))
+
+# Weight the street network for motorcar usage
+graph = weight_streetnet(
+  roads,
+  wt_profile = "motorcar",
+  type_col = "highway",
+  id_col = "osm_id",
+  keep_cols = c("maxspeed", "oneway")
+)
+
+# Calculate betweenness centrality
+centrality = dodgr_centrality(graph)
+
+# Convert to sf for visualization
+centrality_sf = dodgr_to_sf(centrality)
+
+# Visualize critical links
+tm_shape(centrality_sf) +
+  tm_lines(
+    col = "centrality", 
+    lwd = 3, 
+    style = "fisher", 
+    palette = "-viridis",
+    title.col = "Betweenness Centrality"
+  ) +
+  tm_layout(
+    title = "Road Network Criticality Analysis",
+    frame = FALSE
+  )
+
+```
 
 
+# 3D Flow Visualization
+
+Sometimes, a 3D perspective can reveal relationships between travel flows and the underlying topography. Below, we demonstrate how to fetch elevation data and render a 3D hillshade with rayshader. We then outline how you might overlay flow lines onto a 3D terrain model.
+
+```{r}
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+curl::has_internet()
+
+# Example: Elevation data near a location in the UK
+coords = data.frame(x = -2.087918, y = 53.71534)
+coords_sf = st_as_sf(coords, coords = c("x", "y"), crs = 4326)
+
+# Get an elevation raster at zoom level 11 (~ 10m resolution, depending on region)
+elevation = elevatr::get_elev_raster(
+  locations = coords_sf,
+  z = 11
+)
+
+# Convert the raster to a matrix for rayshader
+elev_matrix = rayshader::raster_to_matrix(elevation)
+
+# Create a hillshade layer
+hillshade_matrix = rayshader::ray_shade(elev_matrix, zscale = 15)
+
+# Clear existing rgl device
+rgl::rgl.clear()
+
+# Render a 3D plot of the terrain
+rayshader::plot_3d(
+  heightmap = elev_matrix,
+  hillshade = hillshade_matrix,
+  zscale = 15,
+  windowsize = c(1000, 800)
+)
+
+# Adjust camera view
+rgl::view3d(theta = 30, phi = 30, zoom = 0.75)
+rgl::rglwidget()
+```
+
+
+# Conclusions
+
+In this practical, you learned how to:
+
+1. Load and visualize flow data to understand travel demand.
+2. Aggregate flows along actual routes for more realistic flow mapping.
+3. Generate isochrones at different times, illustrating how accessibility changes.
+4. Analyze network centrality, identifying critical road links.
+5. Experiment with 3D visualizations to integrate topography into transport analysis.
