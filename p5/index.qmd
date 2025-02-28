@@ -130,7 +130,7 @@ m_drive = tm_shape(desire_lines_top) +
 
 m_walk = tm_shape(desire_lines_top) +
   tm_lines(
-    lwd = "walk"
+    lwd = "walk",
     lwd.scale = tm_scale_continuous(values.scale = 9),
     col = "green"
   ) +
