@@ -4,7 +4,275 @@ bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
+  eval: true
+editor: 
+  markdown: 
+    wrap: sentence
 ---
-This is a placeholder page; content will be added soon.
 
+# Introduction
 
+In this practical, we will build on the **routing techniques** from Practical 4 by exploring **data visualization** methods for transport analysis.
+By the end of this practical, you should be able to:
+
+-   Load and preprocess OD flow data
+-   Visualize OD lines and proportional symbol maps
+-   Compare walking, driving, and cycling flows
+-   Aggregate flows along the road network
+-   Identify critical road segments via network centrality
+
+# Setup
+
+Below are the libraries we will use throughout this practical:
+
+```{r}
+knitr::opts_chunk$set(
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 7,
+  fig.height = 5,
+  out.width = "700px"
+)
+
+# Load necessary libraries
+library(opentripplanner)  # Routing engine (OpenTripPlanner client)
+library(sf)               # Spatial data handling
+library(tmap)             # Thematic mapping
+library(stplanr)          # Transport data functions
+library(dplyr)            # Data manipulation
+library(osmextract)       # OSM data handling
+library(dodgr)            # Network analysis
+```
+
+```{r}
+# Set interactive mapping mode
+tmap_mode("view")
+```
+
+# Flow Map Visualization
+
+Flow maps are useful for understanding the volume of travel between origins and destinations.
+In this section, we will:
+
+1.  Load desire lines (flows) data from a GeoJSON file.
+2.  Visualize these lines with widths or colors proportional to demand.
+3.  Optionally aggregate route geometries for more realistic depiction of flows along an actual road network.
+
+```{r}
+# Load Demand Data
+desire_lines = read_sf("https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson") |>
+  select(from, to, all, walk, drive, cycle)
+
+dim(desire_lines)
+# Let's take the top 50 car trips for demonstration
+desire_lines_top = desire_lines |>
+  arrange(desc(drive)) |>
+  head(50)
+
+# Quick map to see the distribution of car trips
+tm_shape(desire_lines_top) +
+  tm_lines(
+    lwd = "drive",
+    lwd.scale = tm_scale_continuous(values.scale = 9)
+  ) +
+  tm_layout(legend.bg.color = "white")
+```
+
+# Proportional Symbol Flow Maps
+
+Now, let's illustrate an alternative method: proportional symbols at origin or destination points.
+This is useful when you want to quickly see where demand is concentrated.
+
+```{r}
+# Summarize total flows by origin
+
+origin_flows = desire_lines |>
+  group_by(from) |>
+  summarise(
+    total_drive = sum(drive, na.rm = TRUE),
+    total_walk  = sum(walk, na.rm = TRUE),
+    total_cycle = sum(cycle, na.rm = TRUE),
+    `% drive` = total_drive / sum(all, na.rm = TRUE),
+    geometry = st_centroid(st_union(geometry))  
+  )
+
+# Simple map with proportional circles for drive volumes
+
+tm_shape(origin_flows) +
+  tm_bubbles(
+    size    = "total_drive",       # bubble size ~ drive volume
+    size.scale = tm_scale_intervals(values.scale = 2, values.range = c(0.5, 2)),
+    fill = "% drive",
+    fill.scale = tm_scale_continuous(values = "brewer.reds")
+  ) +
+  tm_title("Proportional Symbol Map of Drive Demand by Origin")
+```
+
+Each origin is represented by a circle whose radius and color intensity reflect the total number of driving trips.
+You can modify palettes, breaks, and scaling to highlight variations.
+
+# Mode-Specific Analysis
+
+We have have columns walk, drive, cycle in desire_lines.
+We can map them separately or side-by-side.
+We can also color lines by the dominant mode.
+
+```{r}
+# Let's create 3 separate maps: drive, walk, cycle
+tmap_mode("plot")
+m_drive = tm_shape(desire_lines_top) +
+  tm_lines(
+    lwd = "drive",
+    lwd.scale = tm_scale_continuous(values.scale = 9),
+    col = "red"
+  ) +
+  tm_title("Driving Flows")
+
+m_walk = tm_shape(desire_lines_top) +
+  tm_lines(
+    lwd = "walk",
+    lwd.scale = tm_scale_continuous(values.scale = 9),
+    col = "green"
+  ) +
+  tm_title("Walking Flows")
+
+m_cycle = tm_shape(desire_lines_top) +
+  tm_lines(
+    lwd = "cycle",
+    lwd.scale = tm_scale_continuous(values.scale = 9),
+    col = "blue"
+  ) +
+  tm_title("Cycling Flows")
+
+tmap_arrange(m_drive, m_walk, m_cycle, ncol=3)
+```
+
+This tmap_arrange() will output a single figure with three columns, each illustrating flows by one mode.
+Students can visually compare the differences: maybe driving flows are much thicker on longer corridors, while walking flows are concentrated in the city center.
+
+# Aggregating Flows with Actual Routes
+
+Rather than drawing direct origin-destination lines, we can route each flow along the road network and then aggregate them to see which streets carry the most traffic.
+This uses stplanr::overline() to merge lines that overlap.
+
+```{r}
+# Download pre-routed lines for demonstration
+u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive_25.geojson"
+routes_drive = read_sf(u)
+
+# Inspect the summary of the drive.x variable (car trips)
+summary(routes_drive$drive.x)
+
+tm_shape(routes_drive) +
+  tm_lines(
+    lwd = "drive.x",
+    lwd.scale = tm_scale_continuous(values.scale = 9),
+    col = "red"
+  ) +
+  tm_title("Road Congestion (drive_total)")
+```
+
+# Network Centrality Analysis
+
+Betweenness centrality indicates how often a road (or node) lies on the shortest path between other points in a network.
+Roads with high centrality are typically crucial for overall connectivity.
+
+Here, we demonstrate how to:
+
+1.  Download roads from OpenStreetMap (OSM) for the Isle of Wight.
+2.  Weight the network for motor vehicle usage.
+3.  Compute betweenness centrality with dodgr.
+4.  Convert the results back to sf for mapping.
+
+```{r}
+#| eval: false
+# Get Isle of Wight road network
+# We choose 'primary', 'secondary', 'tertiary' roads for demonstration
+roads = oe_get("Isle of Wight", 
+                extra_tags = c("maxspeed", "oneway")) |>
+  filter(highway %in% c("primary", "secondary", "tertiary"))
+
+# Weight the street network for motorcar usage
+graph = weight_streetnet(
+  roads,
+  wt_profile = "motorcar",
+  type_col = "highway",
+  id_col = "osm_id",
+  keep_cols = c("maxspeed", "oneway")
+)
+
+# Calculate betweenness centrality
+centrality = dodgr_centrality(graph)
+
+# Convert to sf for visualization
+centrality_sf = dodgr_to_sf(centrality)
+
+# Visualize critical links
+tm_shape(centrality_sf) +
+  tm_lines(
+    col = "centrality",
+    col.scale = tm_scale_intervals(style = "fisher", values = "-viridis"),
+    col.legend = tm_legend(title = "Betweenness Centrality"),
+    lwd = 3
+  ) 
+```
+
+The code above should generate a map that looks something like this:
+
+![](images/paste-1.png)
+
+High values in the centrality column indicate roads that act as vital connectors in the regional transport network.
+
+# Extra Exercises: 3D Visualization
+
+A 3D perspective can often reveal relationships between travel flows and the underlying topography more effectively.
+Below, we demonstrate how to retrieve elevation data and render a 3D hillshade using the rayshader package.
+You may also be interested in overlaying flow lines onto a 3D terrain model to enhance visualization.
+
+Note: the following code requires you to install the `rayshader` `elevatr` `gifski` `rgl` package.
+Results not shown in website.
+
+```{r}
+#| eval: false
+library(rayshader)        # 3D data visualization
+library(elevatr)          # Elevation data
+library(gifski)           # Creating GIF animations
+library(rgl)              # 3D visualization device
+
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+curl::has_internet()
+# Example: Elevation data near a location in the UK
+coords = data.frame(x = -2.087918, y = 53.71534)
+coords_sf = st_as_sf(coords, coords = c("x", "y"), crs = 4326)
+# Get an elevation raster at zoom level 11 (~ 10m resolution, depending on region)
+elevation = elevatr::get_elev_raster(
+  locations = coords_sf,
+  z = 11
+)
+# Convert the raster to a matrix for rayshader
+elev_matrix = rayshader::raster_to_matrix(elevation)
+# Create a hillshade layer
+hillshade_matrix = rayshader::ray_shade(elev_matrix, zscale = 15)
+# Clear existing rgl device
+rgl::rgl.clear()
+# Render a 3D plot of the terrain
+rayshader::plot_3d(
+  heightmap = elev_matrix,
+  hillshade = hillshade_matrix,
+  zscale = 15,
+  windowsize = c(1000, 800)
+)
+# Adjust camera view
+rgl::view3d(theta = 30, phi = 30, zoom = 0.75)
+rgl::rglwidget()
+
+```
+
+# Conclusions
+
+In this practical, you learned how to:
+
+1.  Create flow maps to visualize travel demand from an OD dataset.
+2.  Compare flows by mode (driving, walking, cycling) to understand differences in spatial patterns.
+3.  Aggregate routes along the road network (using stplanr::overline) to highlight heavily used corridors.
+4.  Compute betweenness centrality (using dodgr) to pinpoint critical road segments crucial for connectivity.
