@@ -7,14 +7,13 @@ execute:
   eval: true
 editor: 
   markdown: 
-    wrap: 72
+    wrap: sentence
 ---
 
 # Introduction
 
-In this practical, we will build on the **routing techniques** from
-Practical 4 by exploring **data visualization** methods for transport
-analysis. By the end of this practical, you should be able to:
+In this practical, we will build on the **routing techniques** from Practical 4 by exploring **data visualization** methods for transport analysis.
+By the end of this practical, you should be able to:
 
 -   Load and preprocess OD flow data
 -   Visualize OD lines and proportional symbol maps
@@ -52,13 +51,12 @@ tmap_mode("view")
 
 # Flow Map Visualization
 
-Flow maps are useful for understanding the volume of travel between
-origins and destinations. In this section, we will:
+Flow maps are useful for understanding the volume of travel between origins and destinations.
+In this section, we will:
 
 1.  Load desire lines (flows) data from a GeoJSON file.
 2.  Visualize these lines with widths or colors proportional to demand.
-3.  Optionally aggregate route geometries for more realistic depiction
-    of flows along an actual road network.
+3.  Optionally aggregate route geometries for more realistic depiction of flows along an actual road network.
 
 ```{r}
 # Load Demand Data
@@ -82,9 +80,8 @@ tm_shape(desire_lines_top) +
 
 # Proportional Symbol Flow Maps
 
-Now, let's illustrate an alternative method: proportional symbols at
-origin or destination points. This is useful when you want to quickly
-see where demand is concentrated.
+Now, let's illustrate an alternative method: proportional symbols at origin or destination points.
+This is useful when you want to quickly see where demand is concentrated.
 
 ```{r}
 # Summarize total flows by origin
@@ -111,15 +108,14 @@ tm_shape(origin_flows) +
   tm_title("Proportional Symbol Map of Drive Demand by Origin")
 ```
 
-Each origin is represented by a circle whose radius and color intensity
-reflect the total number of driving trips. You can modify palettes,
-breaks, and scaling to highlight variations.
+Each origin is represented by a circle whose radius and color intensity reflect the total number of driving trips.
+You can modify palettes, breaks, and scaling to highlight variations.
 
 # Mode-Specific Analysis
 
-We have have columns walk, drive, cycle in desire_lines. We can map them
-separately or side-by-side. We can also color lines by the dominant
-mode.
+We have have columns walk, drive, cycle in desire_lines.
+We can map them separately or side-by-side.
+We can also color lines by the dominant mode.
 
 ```{r}
 # Let's create 3 separate maps: drive, walk, cycle
@@ -151,17 +147,13 @@ m_cycle = tm_shape(desire_lines_top) +
 tmap_arrange(m_drive, m_walk, m_cycle, ncol=3)
 ```
 
-This tmap_arrange() will output a single figure with three columns, each
-illustrating flows by one mode. Students can visually compare the
-differences: maybe driving flows are much thicker on longer corridors,
-while walking flows are concentrated in the city center.
+This tmap_arrange() will output a single figure with three columns, each illustrating flows by one mode.
+Students can visually compare the differences: maybe driving flows are much thicker on longer corridors, while walking flows are concentrated in the city center.
 
 # Aggregating Flows with Actual Routes
 
-Rather than drawing direct origin-destination lines, we can route each
-flow along the road network and then aggregate them to see which streets
-carry the most traffic. This uses stplanr::overline() to merge lines
-that overlap.
+Rather than drawing direct origin-destination lines, we can route each flow along the road network and then aggregate them to see which streets carry the most traffic.
+This uses stplanr::overline() to merge lines that overlap.
 
 ```{r}
 # Download pre-routed lines for demonstration
@@ -182,9 +174,8 @@ tm_shape(routes_drive) +
 
 # Network Centrality Analysis
 
-Betweenness centrality indicates how often a road (or node) lies on the
-shortest path between other points in a network. Roads with high
-centrality are typically crucial for overall connectivity.
+Betweenness centrality indicates how often a road (or node) lies on the shortest path between other points in a network.
+Roads with high centrality are typically crucial for overall connectivity.
 
 Here, we demonstrate how to:
 
@@ -230,19 +221,16 @@ The code above should generate a map that looks something like this:
 
 ![](images/paste-1.png)
 
-High values in the centrality column indicate roads that act as vital
-connectors in the regional transport network.
+High values in the centrality column indicate roads that act as vital connectors in the regional transport network.
 
 # Extra Exercises: 3D Visualization
 
-A 3D perspective can often reveal relationships between travel flows and
-the underlying topography more effectively. Below, we demonstrate how to
-retrieve elevation data and render a 3D hillshade using the rayshader
-package. You may also be interested in overlaying flow lines onto a 3D
-terrain model to enhance visualization.
+A 3D perspective can often reveal relationships between travel flows and the underlying topography more effectively.
+Below, we demonstrate how to retrieve elevation data and render a 3D hillshade using the rayshader package.
+You may also be interested in overlaying flow lines onto a 3D terrain model to enhance visualization.
 
-Note: the following code requires you to install the `rayshader`
-`elevatr` `gifski` `rgl` package. Results not shown in website.
+Note: the following code requires you to install the `rayshader` `elevatr` `gifski` `rgl` package.
+Results not shown in website.
 
 ```{r}
 #| eval: false
@@ -285,9 +273,6 @@ rgl::rglwidget()
 In this practical, you learned how to:
 
 1.  Create flow maps to visualize travel demand from an OD dataset.
-2.  Compare flows by mode (driving, walking, cycling) to understand
-    differences in spatial patterns.
-3.  Aggregate routes along the road network (using stplanr::overline) to
-    highlight heavily used corridors.
-4.  Compute betweenness centrality (using dodgr) to pinpoint critical
-    road segments crucial for connectivity.
+2.  Compare flows by mode (driving, walking, cycling) to understand differences in spatial patterns.
+3.  Aggregate routes along the road network (using stplanr::overline) to highlight heavily used corridors.
+4.  Compute betweenness centrality (using dodgr) to pinpoint critical road segments crucial for connectivity.
