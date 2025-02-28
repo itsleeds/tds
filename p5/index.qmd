@@ -160,7 +160,7 @@ routes_drive = read_sf(u)
 # Inspect the summary of the drive.x variable (car trips)
 summary(routes_drive$drive.x)
 
-tm_shape(roads) +
+tm_shape(routes_drive) +
   tm_lines(
     lwd = "drive.x",
     col = "drive.x",
