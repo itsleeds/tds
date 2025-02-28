@@ -223,6 +223,48 @@ tm_shape(centrality_sf) +
 
 High values in the centrality column indicate roads that act as vital connectors in the regional transport network.
 
+
+# Extra Exercises: 3D Visualization
+
+A 3D perspective can often reveal relationships between travel flows and the underlying topography more effectively. Below, we demonstrate how to retrieve elevation data and render a 3D hillshade using the rayshader package. You may also be interested in overlaying flow lines onto a 3D terrain model to enhance visualization.
+
+Note: the following code requires you to install the `rayshader` `elevatr` `gifski` `rgl` package. Results not shown in website.
+
+```{r}  
+library(rayshader)        # 3D data visualization
+library(elevatr)          # Elevation data
+library(gifski)           # Creating GIF animations
+library(rgl)              # 3D visualization device
+
+assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+curl::has_internet()
+# Example: Elevation data near a location in the UK
+coords = data.frame(x = -2.087918, y = 53.71534)
+coords_sf = st_as_sf(coords, coords = c("x", "y"), crs = 4326)
+# Get an elevation raster at zoom level 11 (~ 10m resolution, depending on region)
+elevation = elevatr::get_elev_raster(
+  locations = coords_sf,
+  z = 11
+)
+# Convert the raster to a matrix for rayshader
+elev_matrix = rayshader::raster_to_matrix(elevation)
+# Create a hillshade layer
+hillshade_matrix = rayshader::ray_shade(elev_matrix, zscale = 15)
+# Clear existing rgl device
+rgl::rgl.clear()
+# Render a 3D plot of the terrain
+rayshader::plot_3d(
+  heightmap = elev_matrix,
+  hillshade = hillshade_matrix,
+  zscale = 15,
+  windowsize = c(1000, 800)
+)
+# Adjust camera view
+rgl::view3d(theta = 30, phi = 30, zoom = 0.75)
+rgl::rglwidget()
+
+```
+
 # Conclusions
 
 In this practical, you learned how to:
