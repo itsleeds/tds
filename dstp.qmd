@@ -30,28 +30,28 @@ This course will take place on the 18th and 19th of September.
     - Stats19 road safety data
 - 12:30 - 13:30: lunch
 - 13:30 - 15:00 Origin-destination data analysis
-- 15:00 - 15:15 break
+- 15:00 - 15:15 break and refreshments
 - 15:15 - 17:00 Routing and route network analysis
+  - This will cover setting up an OpenTripple API and using it to calculate routes and distances using GTFS data.
 
 ### Day 2:
 
 Course times each day:
 
-- 09:30 - 11:00 stats19 data analysis - with spatial/temporal analysis (RL)
-
-- break
-
-- 11:15 - 12:30 OD data with stplanr (RL)
-
-- 12:30 - 13:30: lunch
-
-- 13:30 - 14:45 Local route network analysis (MM)
-
-- break
-
-- 15:00 - 16:00 Data and methods for assessing cycling potential (RL)
-
-- 16:00 - 16:30 (Q&A)
+- 09:00 - 10:45 spatio-temporal data
+  - Demonstration of open-access OD data with hourly resolution
+  - Demonstration with stats19 data for road safety analysis
+- 10:45 - 11:15 break and refreshments
+- 11:15 - 12:30 OD Transport data visualisation
+- 12:30 - 13:30 lunch
+- 13:30 - 15:00 Best practices for data science in transport planning
+  - Version control with Git and GitHub
+  - Reproducible research with Quarto
+- 15:00 - 16:00 Advanced topics
+  - Visualising large datasets
+  - Route network integration
+      - We'll present ways to join different networks, e.g. OSM and OS networks
+  - Deploying your work as web applications
 
 ## Registration
 
