@@ -41,7 +41,7 @@ source("https://git.io/JvGjF")
 
 The packages we will be using are:
 
-```{r, eval=TRUE, echo=TRUE, message=FALSE}
+```{r, echo=TRUE, message=FALSE}
 library(sf)               # Spatial data functions
 library(lwgeom)           # For advanced spatial functions
 library(tidyverse)        # General data manipulation
@@ -189,7 +189,7 @@ This dataset has desire lines, but most routing packages need start and endpoint
 
 4. Produce a data frame called `desire_top` which contains the top three `desire_lines` for all travellers. Hint `?slice_max`
 
-```{r, eval=TRUE, echo=FALSE}
+```{r, echo=FALSE}
 desire_top = desire_lines %>% 
   slice_max(order_by = all,n = 3)
 ```
@@ -197,7 +197,7 @@ desire_top = desire_lines %>%
 
 5. We need to extract start and end point from those desire lines. We would also like to give each place an ID value
 
-```{r, eval=TRUE, echo=TRUE}
+```{r, echo=TRUE}
 # Extract the start and end points
 fromPlace = lwgeom::st_startpoint(desire_top)
 toPlace = lwgeom::st_endpoint(desire_top)
@@ -224,7 +224,7 @@ routes_drive_top = otp_plan(otpcon = otpcon,
                             mode = "CAR")
 ```
 
-```{r, message=FALSE,  eval=TRUE, echo=FALSE}
+```{r, message=FALSE,  echo=FALSE}
 # Save as RDS:
 # saveRDS(routes_drive_top, "routes_drive_top.Rds")
 # piggyback::pb_upload("routes_drive_top.Rds")
@@ -273,12 +273,12 @@ piggyback::pb_upload("isochrone.Rds")
 ```
 
 
-```{r, message=FALSE, eval=TRUE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 u = "https://github.com/ITSLeeds/TDS/releases/download/23/isochrone.Rds"
 if (!file.exists("isochrone.Rds")) download.file(u, "isochrone.Rds", mode = "wb")
 ```
 
-```{r, message=FALSE, eval=TRUE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 if (file.exists("isochrone.Rds")){isochrone = readRDS("isochrone.Rds")}
 if (file.exists("p4/isochrone.Rds")){isochrone = readRDS("p4/isochrone.Rds")}
 isochrone = readRDS("isochrone.Rds")
@@ -326,7 +326,7 @@ sf::write_sf(routes_transit, "routes_transit.geojson", delete_dsn = TRUE)
 piggyback::pb_upload("routes_transit.geojson")
 ```
 
-```{r, message=FALSE, eval=TRUE, echo=TRUE}
+```{r, message=FALSE, echo=TRUE}
 u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive.geojson"
 routes_drive = read_sf(u)
 u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_transit.geojson"
@@ -339,7 +339,7 @@ We will now join the number of drivers onto the driving routes.
 
 8. Create a dataset called `n_driver` from `desire_lines` which only have the columns `from` `to` and `drive`. Hint `?dplyr::select`  and `?sf::st_drop_geometry`
 
-```{r, message=FALSE, eval=TRUE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 n_driver = desire_lines %>%
   st_drop_geometry() %>%
   select(from, to, drive)
@@ -347,13 +347,13 @@ n_driver = desire_lines %>%
 
 9. Join the `n_driver` data onto the `routes_drive` data by linking `fromPlace = from` and `toPlace = to`. Hint `?dplyr::left_join`.
 
-```{r, message=FALSE, eval=TRUE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 routes_drive = left_join(routes_drive, n_driver, by = c("fromPlace" = "from","toPlace" = "to"))
 ```
 
 10. Plot the routes showing the number of drivers on each route.
 
-```{r, message=FALSE, eval=TRUE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 tm_shape(routes_drive) +
   tm_lines(col = "drive", 
            lwd = 2, 
@@ -366,7 +366,7 @@ The map above shows some useful information about where people drive. But it has
 
 We can produce a route network map using `stplanr::overline`.
 
-```{r, message=FALSE, eval=TRUE, echo=TRUE}
+```{r, message=FALSE, echo=TRUE}
 rnet_drive = overline(routes_drive, "drive")
 ```
 
@@ -374,7 +374,7 @@ rnet_drive = overline(routes_drive, "drive")
 
 10. Make a route network for driving and plot it using the `tmap` package. How is is different from just plotting the routes?
 
-```{r, message=FALSE, eval=TRUE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 tm_shape(rnet_drive) +
   tm_lines(lwd = 2, 
            col = "drive", 
@@ -396,7 +396,7 @@ Let's suppose you want a single line for each route.
 11. Filter the `routes_transit` to contain only one route option per origin-destination pair and only the columns `fromPlace` `toPlace` `distance` `geometry`. Hint `filter()` and `select`
 
 
-```{r, eval=TRUE, message=FALSE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 routes_transit = routes_transit |>
   filter(route_option == 1) |>
   select(fromPlace, toPlace, distance)
@@ -405,7 +405,7 @@ routes_transit = routes_transit |>
 
 Now We will group the separate parts of the routes together.
 
-```{r, eval=TRUE, message=FALSE}
+```{r, message=FALSE}
 routes_transit_group = routes_transit |>
   dplyr::group_by(fromPlace, toPlace) |>
   dplyr::summarise(distance = sum(distance))
@@ -427,7 +427,7 @@ routes_transit_group = rbind(routes_transit_group, routes_transit_group_ml)
 
 12. Plot the transit routes, what do you notice about them?
 
-```{r, message=FALSE, eval=TRUE, echo=FALSE}
+```{r, message=FALSE, echo=FALSE}
 tm_shape(routes_transit_group) +
   tm_lines(lwd = 2, col = "black")
 ```
@@ -446,7 +446,7 @@ We will now analyse the road network using `dodgr`. Network analysis can take a 
 
 First we need to download the roads network from the OpenStreetMap using `osmextract::oe_get`. We will removed most of the paths and other features and just focus on the main roads. Then use `dodgr::weight_streetnet` to produce a graph of the road network.
 
-```{r, eval=TRUE, warning=FALSE, message=FALSE, results='hide'}
+```{r, warning=FALSE, message=FALSE, results='hide'}
 # Download data from OpenSteetMap
 roads = oe_get("Isle of Wight", extra_tags = c("maxspeed","oneway"))
 
