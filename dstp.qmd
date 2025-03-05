@@ -26,7 +26,7 @@ This course will take place on the 18th and 19th of September.
 - 10:00 - 11:00 Introduction to Data Science for Transport Planning
 - 11:00 - 12:30 Finding, importing and cleaning transport datasets
     - Origin-destination datasets
-    - OpenStreetMap and Ordnance Survey OpenRoads datasets
+    - OpenStreetMap (OSM) and Ordnance Survey (OS) OpenRoads datasets
     - Stats19 road safety data
 - 12:30 - 13:30: lunch
 - 13:30 - 15:00 Origin-destination data analysis
@@ -50,7 +50,7 @@ Course times each day:
 - 15:00 - 16:00 Advanced topics
   - Visualising large datasets
   - Route network integration
-      - We'll present ways to join different networks, e.g. OSM and OS networks
+      - We'll present ways to join different networks, e.g. OSM networks
   - Deploying your work as web applications
 
 ## Registration
