@@ -4,7 +4,7 @@ bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
-  eval: true
+  eval: false
 editor: 
   markdown: 
     wrap: 72
