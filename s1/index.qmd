@@ -6,6 +6,7 @@ execute:
   cache: true
   message: false
   warning: false
+  eval: false
 editor: 
   markdown: 
     wrap: 72
