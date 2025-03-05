@@ -1,44 +1,57 @@
 ---
-title: Data Science for Transport Planning
+title: "Data Science for Transport Planning: 2 day course"
 ---
 
 ## Course Overview
 
-Based on demand from industry and government, we're organising a 2-day course on Data Science for Transport Planning, specifically designed for transport planning practitioners. This course will take place on the 18th and 19th of September.
+Based on demand, we're organising a 2-day course teaching modern data science skills for transport planning, focussed on transport planning practitioners.
+This course will take place on the 18th and 19th of September 2025.
 
-## Schedule
-
-TBC.
-
-<!-- ### Day 1: 18th September
-- **09:00 - 10:30**: Introduction to Data Science in Transport Planning
-- **10:30 - 11:00**: Coffee Break
-- **11:00 - 12:30**: Data Collection and Management
-- **12:30 - 13:30**: Lunch Break
-- **13:30 - 15:00**: Data Analysis Techniques
-- **15:00 - 15:30**: Coffee Break
-- **15:30 - 17:00**: Case Studies and Practical Applications
-
-### Day 2: 19th September
-- **09:00 - 10:30**: Advanced Data Analysis
-- **10:30 - 11:00**: Coffee Break
-- **11:00 - 12:30**: Data Visualization and Reporting
-- **12:30 - 13:30**: Lunch Break
-- **13:30 - 15:00**: Interactive Workshop
-- **15:00 - 15:30**: Coffee Break
-- **15:30 - 17:00**: Group Projects and Presentations -->
-
-## Learning Objectives
+<!-- ## Learning Objectives
 
 - Understand the role of data science in transport planning.
-- Learn how to collect, manage, and analyze transport data.
-- Gain practical experience through case studies and interactive workshops.
-- Develop skills in data visualization and reporting.
+- Learn how find, import, clean, and analyze transport data.
+- Develop skills in data visualization and reporting. -->
 
 ## Prerequisites
 
-- Basic knowledge of transport planning concepts.
-- Familiarity with data analysis tools and techniques is beneficial but not required.
+- Experience with transport planning concepts and datasets, such as origin-destination data and route networks.
+- Basic programming skills in R, Python or similar.
+- A laptop with R and RStudio (recommended) or a Python distribution such as Anaconda and an editor such as VS Code or Jupyter Notebook set-up.
+
+## Schedule
+
+### Day 1: Introduction to R/RStudio
+
+- 10:00 - 11:00 Introduction to Data Science for Transport Planning
+- 11:00 - 12:30 Finding, importing and cleaning transport datasets
+    - Origin-destination datasets
+    - OpenStreetMap (OSM) and Ordnance Survey (OS) OpenRoads datasets
+    - Stats19 road safety data
+- 12:30 - 13:30: lunch
+- 13:30 - 15:00 Origin-destination data analysis
+- 15:00 - 15:15 break and refreshments
+- 15:15 - 17:00 Routing and route network analysis
+  - This will cover setting up an OpenTripple API and using it to calculate routes and distances using GTFS data.
+
+### Day 2:
+
+Course times each day:
+
+- 09:00 - 10:45 spatio-temporal data
+  - Demonstration of open-access OD data with hourly resolution
+  - Demonstration with stats19 data for road safety analysis
+- 10:45 - 11:15 break and refreshments
+- 11:15 - 12:30 OD Transport data visualisation
+- 12:30 - 13:30 lunch
+- 13:30 - 15:00 Best practices for data science in transport planning
+  - Version control with Git and GitHub
+  - Reproducible research with Quarto
+- 15:00 - 16:00 Advanced topics
+  - Visualising large datasets
+  - Route network integration
+      - We'll present ways to join different networks, e.g. OSM networks
+  - Deploying your work as web applications
 
 ## Registration
 
