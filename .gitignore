@@ -18,3 +18,4 @@ _freeze/
 *.docx
 *.pdf
 otp_TDS
+.Rhistory
