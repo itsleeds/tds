@@ -1,0 +1,362 @@
+---
+title: "Visualising transport data"
+subtitle: "`r emojifont::emoji('world_map')`"
+author: "Robin Lovelace"
+date: "`r # Sys.Date()`"
+output:
+  xaringan::moon_reader:
+    lib_dir: libs
+    nature:
+#      highlightStyle: dracula
+      highlightLines: true
+      ratio: '4:3'
+      countIncrementalSlides: false
+bibliography: viz-references.bib
+---
+
+
+```{r setup, include = FALSE}
+download.file("https://raw.githubusercontent.com/jannes-m/erum18_geocompr/master/pres/rmd/viz-references.bib", "viz-references.bib")
+options(htmltools.dir.version = FALSE)
+library(RefManageR)
+BibOptions(check.entries = FALSE, 
+           bib.style = "authoryear", 
+           cite.style = 'alphabetic', 
+           style = "markdown",
+           first.inits = FALSE,
+           hyperlink = FALSE, 
+           dashed = FALSE)
+if(dir.exists("pres"))
+  f_ref = "pres/rmd/viz-references.bib" else
+    f_ref = "viz-references.bib"
+my_bib = ReadBib(f_ref, check = FALSE)
+knitr::opts_chunk$set(warning = FALSE)
+library(tmap)
+library(spData)
+library(sf)
+
+```
+
+layout: true
+background-image: url(img/r_geocomp_background.png)
+background-size: cover
+
+---
+
+# A brief history of geographic vizualisation
+
+- Humboldt's Naturgemälde (1807, *Geography of Plants*)
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg/2560px-Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg")
+```
+
+
+<!-- - The mappa mundi - largest Mediaval map surviving (~1300 **AD**) -->
+<!-- knitr::include_graphics("https://upload.wikimedia.org/wikipedia/commons/4/48/Hereford-Karte.jpg?download") -->
+
+---
+
+## Good, bad, ugly, wrong
+
+- Aim must be good graphics, but first it's important to avoid pitfalls
+- Source: Free and open book [Data Visualisation](https://clauswilke.com/dataviz/introduction.html)
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://clauswilke.com/dataviz/introduction_files/figure-html/ugly-bad-wrong-examples-1.png")
+```
+
+---
+
+
+## What is data visualisation?
+
+> Data visualization is part art and part science. The challenge is to get the art right without getting the science wrong and vice versa. A data visualization first and foremost has to accurately convey the data. 
+
+--
+
+> In my experience, scientists frequently (though not always!) know how to visualize data without being grossly misleading. However, they may not have a well developed sense of visual aesthetics, and they may inadvertantly make visual choices that detract from their desired message. Designers, on the other hand, may prepare visualizations that look beautiful but play fast and loose with the data.
+
+Source: [Fundamentals of Data Vizualisation](https://serialmentor.com/dataviz/)
+
+---
+
+## Viz 4 policy
+
+
+> [visualisations] are also often the best way to present the findings of [transport] research in a way that is accessible. [visualisation] making is therefore a critical part of [transport] and its emphasis not only on describing, but also changing the world.
+
+Source: [Geocomputation with R](https://geocompr.robinlovelace.net/adv-map.html)
+
+--
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/10/31/1414751968306/d83dffac-d060-4b77-88c0-77916e18e233-1020x397.png?width=620&quality=45&auto=format&fit=max&dpr=2&s=7a52a871a27b3fa6ae167244d4f9845e")
+```
+
+- Visualisations can make findings become 'real'
+
+---
+
+# A brief history of geographic data viz in R
+
+"The core R engine was not designed specifically for the display and analysis
+of maps, and the limited interactive facilities it offers have drawbacks in this
+area" `r Citep(my_bib, "bivand_applied_2013", .opts = list(cite.style = "authoryear"))`.
+
+--
+
+Five years later...
+
+--
+
+"An example showing R's flexibility and evolving geographic capabilities is **leaflet**
+`r Citep(my_bib, "R-leaflet", .opts = list(cite.style = "authoryear"))`,
+a package for making interactive maps that has been extended by the R community, as we'll see in Chapter 9" 
+`r Citep(my_bib, "lovelace_geocomputation_2018a", .opts = list(cite.style = "authoryear"))`.
+
+---
+
+# Base R graphics: sf 
+
+```{r}
+plot(nz)
+```
+
+---
+
+# Base R graphics: sf II
+
+```{r, fig.cap=" ", fig.show='hold', out.width="40%"}
+plot(st_geometry(nz))
+plot(nz_height, add = TRUE)
+sf_cols = sf.colors(n = 2, alpha = 0.2)
+nz$col = factor(x = nz$Island, labels = sf_cols)
+plot(st_geometry(nz), col = as.character(nz$col))
+```
+
+---
+
+# sf graphics: code
+
+```{r, eval=FALSE}
+# facet plots by default
+plot(nz) 
+# plot just geometry, ready for new layers:
+plot(st_geometry(nz), reset = FALSE)
+# addition of new layers
+plot(nz_height, add = TRUE)
+# transparency
+sf_cols = sf.colors(n = 2, alpha = 0.2)
+nz$col = factor(x = nz$Island, labels = sf_cols)
+plot(st_geometry(nz), col = as.character(nz$col))
+#  see ?plot.sf for more
+```
+
+--
+
+## Observations
+
+- Facets by default: useful for seeing patterns.
+- Transparency new, `add = ...` argument the same
+- You can go far with base R graphics 
+`r Citep(my_bib, "murrell_graphics_2016", .opts = list(cite.style = "authoryear"))`.
+
+---
+
+# tmap
+
+- A diverse dedicated mapping R package
+
+```{r, eval=TRUE, message=FALSE, warning=FALSE}
+library(tmap)
+tmap_mode("plot")
+tm_shape(nz) +
+  tm_polygons("Median_income", palette = "RdYlBu")
+```
+
+---
+
+# Why tmap?
+
+- It is powerful and flexible.
+- Concise syntax, attractive maps with minimal code, familiar to **ggplot2** users.
+- Unique capability: same code -> static + interactive maps with switch `tmap_mode()`.
+- Wide range of spatial classes (including `raster` objects) supported.
+- Well documented + developed --- see [`tmap-nutshell`](https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html) and JSS paper
+`r Citep(my_bib, "tennekes_tmap_2018", .opts = list(cite.style = "authoryear"))`.
+
+
+---
+
+# tmap basics
+
+```{r, fig.cap="tmap basics", out.width="32%", fig.show='hold'}
+# Add fill layer to nz shape
+tm_shape(nz) + tm_fill() 
+# Add border layer to nz shape
+tm_shape(nz) + tm_borders() 
+# Add fill and border layers to nz shape
+tm_shape(nz) + tm_fill() + tm_borders() 
+```
+
+<!-- --- -->
+
+<!-- # tmap objects -->
+
+<!-- --- -->
+
+<!-- # Aesthetics -->
+
+<!-- --- -->
+
+<!-- # Layouts -->
+
+<!-- --- -->
+
+<!-- # Facets -->
+
+<!-- --- -->
+
+---
+
+# Animations
+
+- Are easy with **tmap** (section [9.3](http://geocompr.robinlovelace.net/adv-map.html#animated-maps) of geocompr)
+
+```{r, echo=FALSE, out.width="80%"}
+knitr::include_graphics("https://user-images.githubusercontent.com/1825120/38543030-5794b6f0-3c9b-11e8-9da9-10ec1f3ea726.gif")
+```
+
+---
+
+# Interactive maps with mapview
+
+``` r
+m = mapview::mapview(spData::nz)
+m@map
+```
+
+![](https://i.imgur.com/hz98Jru.png)
+
+
+---
+
+# Web mapping applications
+
+- Leaflet integrates with **shiny** via `leaflet::leafletOutput()`, enabling web mapping applications built on R
+- These can be set-up to scale nationally, as illustrated by [pct.bike](http://www.pct.bike/)
+`r Citep(my_bib, "lovelace_propensity_2017", .opts = list(cite.style = "authoryear"))`.
+
+
+```{r, echo=FALSE}
+knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/figures/pct-frontpage.png")
+```
+
+---
+
+## Summary
+
+- Visualisation is an important skill in data science
+- Visualisation is particularly valuable for evidence-based decision-making and policy
+- Open source command software like R provides powerful tools for data visualisation
+- Geographic data visualisation is possible with R using packages such as sf and tmap
+- These visualisation skills will be useful in the lecture next week on project work
+
+---
+
+## Exercise with desire line data in stplanr
+
+1. Create a map showing the number of people walking and cycling in the `stplanr` dataset `flowlines_sf` using:
+-base graphics (hint: use `plot()`) and
+-**tmap** (hint: use `tm_shape(flowlines_sf) + ...`, `palette = "viridis"` and other options shown in `tmaptools::palette_explorer()` give different colourschemes).
+    - Name two advantages of each approach
+    - Bonus: Other mapping packages could be used to show the same data?
+    
+For more information on plotting OD data, see the [stplanr-od](https://docs.ropensci.org/stplanr/articles/stplanr-od.html) vignetted, e.g. with
+
+```r
+vignette("stplanr-od")
+```
+
+
+    
+---
+
+## Result: base graphics
+    
+```{r, echo=TRUE, out.width="70%", fig.show='hold', message=FALSE}
+library(stplanr)
+lwd = flowlines_sf$All / mean(flowlines_sf$All) * 3
+plot(flowlines_sf["Taxi"], lwd = lwd)
+
+```
+
+---
+
+<!-- ## Result: tmap -->
+
+```{r, echo=FALSE, message=FALSE, warning=FALSE, eval=FALSE}
+library(tmap)
+tmap_mode("view")
+tm_shape(flowlines_sf) +
+  tm_lines(col = "Taxi", lwd = "All", scale = 9, palette = "viridis")
+```
+
+
+---
+
+## Bonus exercise
+
+- Based on the `routes_fast_sf` data in the `stplanr` package, identify roads where investment in cycling is likely to be effective.
+
+Starting point:
+
+```{r}
+nrow(flowlines_sf)
+nrow(routes_fast_sf)
+# routes_fast_sf = dplyr::inner_join(routes_fast_sf, flow)
+routes_fast_joined = cbind(routes_fast_sf, flowlines_sf)
+rnet = overline(routes_fast_joined, "Bicycle")
+```
+
+---
+
+## sf results
+
+```{r, echo=FALSE}
+plot(rnet["Bicycle"], lwd = routes_fast_sf$All / 50)
+```
+
+
+---
+
+## tmap 'view mode' results
+
+```{r}
+# tm_shape(rnet) +
+#   tm_lines(col = "Bicycle", lwd = "Bicycle", scale = 9, palette = "RdYlBu")
+```
+
+![](https://user-images.githubusercontent.com/1825120/76854526-26bb5780-6847-11ea-8903-e7466a1aa750.png)
+See [here](https://user-images.githubusercontent.com/1825120/76854526-26bb5780-6847-11ea-8903-e7466a1aa750.png) for result
+---
+
+## Exercises bonus (optional)
+
+- Using data in the `pct` github package, estimate cycling potential in a city of your choice in the UK, and show the results
+
+- See the [pct_training](https://itsleeds.github.io/pct/articles/pct_training.html) vignette for further information
+
+- Work on your portfolios, adding a new visualisation
+
+
+---
+
+class: small
+# References
+
+```{r, 'refs', results="asis", echo=FALSE}
+PrintBibliography(my_bib)
+```
