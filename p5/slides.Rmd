@@ -1,6 +1,6 @@
 ---
 title: "Visualising transport data"
-subtitle: "`r emojifont::emoji('world_map')`"
+subtitle: "`r # emojifont::emoji('world_map')`"
 author: "Robin Lovelace"
 date: "`r # Sys.Date()`"
 output:
