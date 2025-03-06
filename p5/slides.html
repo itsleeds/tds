@@ -10,8 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Robin Lovelace">
-  <meta name="dcterms.date" content="2025-03-06">
-  <title>Transport Data Science – Introduction to transport data science</title>
+  <title>Transport Data Science – Visualising transport data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,6 +28,71 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     /* CSS for citations */
     div.csl-bib-body { }
     div.csl-entry {
@@ -147,9 +211,9 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg" data-background-opacity="0.5" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Introduction to transport data science</h1>
-  <p class="subtitle"><br>Module: Transport Data Science</p>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Visualising transport data</h1>
+  <p class="subtitle"><br>🗺<br>Transport Data Science</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -159,415 +223,255 @@ Robin Lovelace
 </div>
 </div>
 
-  <p class="date">2025-03-06</p>
+  <p class="date">Invalid Date</p>
 </section>
-<section id="who-transport-data-science-team" class="slide level2">
-<h2>Who: Transport Data Science team</h2>
-<h4 id="robin-lovelace">Robin Lovelace</h4>
+<section id="a-brief-history-of-geographic-vizualisation" class="slide level2" data-background-image="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg/2560px-Zentralbibliothek_Z%C3%BCrich_-_Ideen_zu_einer_Geographie_der_Pflanzen_nebst_einem_Naturgem%C3%A4lde_der_Tropenl%C3%A4nder_-_000012142.jpg">
+<h2>A brief history of geographic vizualisation</h2>
 <ul>
-<li>Associate Professor of Transport Data Science</li>
-<li>Researching transport futures and active travel planning</li>
-<li>R developer and teacher, author of Geocomputation with R</li>
-</ul>
-<h4 id="yuanxuan-yang">Yuanxuan Yang</h4>
-<ul>
-<li>Lecturer in Data Science of Transport</li>
-<li>New and Emerging Forms of Data: Investigating novel data sources and their applications in urban mobility and transport planning. <!-- - Micromobility: Analyzing the role and impact of micromobility solutions, such as bike-sharing and e-scooters, on urban transport networks.
-    - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. --></li>
+<li>Humboldt’s Naturgemälde (1807, <em>Geography of Plants</em>)</li>
 </ul>
 </section>
-<section id="tds-team-ii" class="slide level2">
-<h2>TDS Team II</h2>
-<h4 id="malcolm-morgan">Malcolm Morgan</h4>
+<section id="good-bad-ugly-wrong" class="slide level2">
+<h2>Good, bad, ugly, wrong</h2>
 <ul>
-<li>Senior researcher at ITS with expertise in routing + web</li>
-<li>Developer of the Propensity to Cycle Tool and <a href="https://www.carbon.place/#8/51.482/-0.151">PBCC</a></li>
+<li>Aim must be good graphics, but first it’s important to avoid pitfalls</li>
+<li>Source: Free and open book <a href="https://clauswilke.com/dataviz/introduction.html">Data Visualisation</a></li>
 </ul>
-<h4 id="zhao-wang">Zhao Wang</h4>
-<ul>
-<li>Civil Engineer and Data Scientist with expertise in machine learning</li>
-</ul>
-<h4 id="demonstrators">Demonstrators</h4>
-<h4 id="you">You!</h4>
-</section>
-<section id="what-is-transport-data-science" class="slide level2">
-<h2>What is transport data science?</h2>
+
+<img data-src="https://clauswilke.com/dataviz/introduction_files/figure-html/ugly-bad-wrong-examples-1.png" style="width:80.0%" class="r-stretch"></section>
+<section id="what-is-data-visualisation" class="slide level2">
+<h2>What is data visualisation?</h2>
 <div>
 <ul>
-<li class="fragment">The application of data science to transport datasets and problems</li>
-<li class="fragment">Raising the question…</li>
-<li class="fragment">What is data science?</li>
-<li class="fragment">A discipline “that allows you to turn raw data into understanding, insight, and knowledge” (Grolemund, 2016)</li>
-</ul>
-<p>In other words…</p>
-<ul>
-<li class="fragment">Statistics that is actually useful!</li>
+<li class="fragment"><p>Data visualization is part art and part science. The challenge is to get the art right without getting the science wrong and vice versa. A data visualization first and foremost has to accurately convey the data.</p></li>
+<li class="fragment"><p>In my experience, scientists frequently (though not always!) know how to visualize data without being grossly misleading. However, they may not have a well developed sense of visual aesthetics, and they may inadvertantly make visual choices that detract from their desired message. Designers, on the other hand, may prepare visualizations that look beautiful but play fast and loose with the data.</p></li>
 </ul>
 </div>
+<p>Source: <a href="https://serialmentor.com/dataviz/">Fundamentals of Data Vizualisation</a></p>
 </section>
-<section id="why-take-transport-data-science" class="slide level2">
-<h2>Why take Transport Data Science</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
+<section id="viz-4-policy" class="slide level2">
+<h2>Viz 4 policy</h2>
 <div>
 <ul>
-<li class="fragment">New skills (cutting edge R and/or Python packages)</li>
-<li class="fragment">Potential for impacts</li>
-<li class="fragment">Allows you to do new things with data</li>
-<li class="fragment">It might get you a job!</li>
+<li class="fragment">[visualisations] are also often the best way to present the findings of [transport] research in a way that is accessible. [visualisation] making is therefore a critical part of [transport] and its emphasis not only on describing, but also changing the world.</li>
 </ul>
+<p>Source: <a href="https://geocompr.robinlovelace.net/adv-map.html">Geocomputation with R</a></p>
 </div>
-</div><div class="column" style="width:60%;">
+</section>
+<section id="illustration-of-policy-impact" class="slide level2">
+<h2>Illustration of policy impact</h2>
+
+<img data-src="https://i.guim.co.uk/img/static/sys-images/Guardian/Pix/pictures/2014/10/31/1414751968306/d83dffac-d060-4b77-88c0-77916e18e233-1020x397.png?width=620&amp;quality=45&amp;auto=format&amp;fit=max&amp;dpr=2&amp;s=7a52a871a27b3fa6ae167244d4f9845e" class="r-stretch"><ul>
+<li>Visualisations can make findings become ‘real’</li>
+</ul>
+</section>
+<section id="a-brief-history-of-geographic-data-viz-in-r" class="slide level2">
+<h2>A brief history of geographic data viz in R</h2>
 <div>
+<p>“The core R engine was not designed specifically for the display and analysis of maps, and the limited interactive facilities it offers have drawbacks in this area” <span class="citation" data-cites="bivand_applied_2013">(<a href="#/references" role="doc-biblioref" onclick="">Bivand, Pebesma, and G’omez-Rubio 2013</a>)</span>.</p>
+<p>Five years later…</p>
+<p>“An example showing R’s flexibility and evolving geographic capabilities is <strong>leaflet</strong> <span class="citation" data-cites="R-leaflet">(<a href="#/references" role="doc-biblioref" onclick="">Cheng, Karambelkar, and Xie 2018</a>)</span>, a package for making interactive maps that has been extended by the R community, as we’ll see in Chapter 9” <span class="citation" data-cites="lovelace_geocomputation_2018a">(<a href="#/references" role="doc-biblioref" onclick="">Lovelace, Nowosad, and Meunchow 2018</a>)</span>.</p>
+</div>
+</section>
+<section id="base-r-graphics-sf" class="slide level2">
+<h2>Base R graphics: sf</h2>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-3-1.png" width="960" class="r-stretch"></section>
+<section id="base-r-graphics-sf-ii" class="slide level2">
+<h2>Base R graphics: sf II</h2>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-4-1.png" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="slides_files/figure-revealjs/unnamed-chunk-4-2.png" style="width:40.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="sf-graphics-code" class="slide level2">
+<h2>sf graphics: code</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># facet plots by default</span></span>
+<span id="cb1-2"><a></a><span class="fu">plot</span>(nz) </span>
+<span id="cb1-3"><a></a><span class="co"># plot just geometry, ready for new layers:</span></span>
+<span id="cb1-4"><a></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(nz), <span class="at">reset =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb1-5"><a></a><span class="co"># addition of new layers</span></span>
+<span id="cb1-6"><a></a><span class="fu">plot</span>(nz_height, <span class="at">add =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-7"><a></a><span class="co"># transparency</span></span>
+<span id="cb1-8"><a></a>sf_cols <span class="ot">=</span> <span class="fu">sf.colors</span>(<span class="at">n =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)</span>
+<span id="cb1-9"><a></a>nz<span class="sc">$</span>col <span class="ot">=</span> <span class="fu">factor</span>(<span class="at">x =</span> nz<span class="sc">$</span>Island, <span class="at">labels =</span> sf_cols)</span>
+<span id="cb1-10"><a></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(nz), <span class="at">col =</span> <span class="fu">as.character</span>(nz<span class="sc">$</span>col))</span>
+<span id="cb1-11"><a></a><span class="co">#  see ?plot.sf for more</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="observations" class="slide level2 incremental">
+<h2>Observations</h2>
+<ul>
+<li>Facets by default: useful for seeing patterns.</li>
+<li>Transparency new, <code>add = ...</code> argument the same</li>
+<li>You can go far with base R graphics <span class="citation" data-cites="murrell_graphics_2016">(<a href="#/references" role="doc-biblioref" onclick="">Murrell 2016</a>)</span>.</li>
+</ul>
+</section>
+<section id="tmap" class="slide level2">
+<h2>tmap</h2>
+<ul>
+<li>A diverse dedicated mapping R package</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tmap)</span>
+<span id="cb2-2"><a></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb2-3"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span></span>
+<span id="cb2-4"><a></a>  <span class="fu">tm_polygons</span>(<span class="st">"Median_income"</span>, <span class="at">palette =</span> <span class="st">"RdYlBu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 </div>
-<div class="quarto-layout-panel" data-layout="[[1,2], [1]]">
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
+<section id="why-tmap" class="slide level2">
+<h2>Why tmap?</h2>
+<div>
+<ul>
+<li class="fragment">It is powerful and flexible.</li>
+<li class="fragment">Concise syntax, attractive maps with minimal code, familiar to <strong>ggplot2</strong> users.</li>
+<li class="fragment">Unique capability: same code -&gt; static + interactive maps with switch <code>tmap_mode()</code>.</li>
+<li class="fragment">Wide range of spatial classes (including <code>raster</code> objects) supported.</li>
+<li class="fragment">Well documented + developed — see <a href="https://cran.r-project.org/web/packages/tmap/vignettes/tmap-nutshell.html"><code>tmap-nutshell</code></a> and JSS paper <span class="citation" data-cites="tennekes_tmap_2018">(<a href="#/references" role="doc-biblioref" onclick="">Tennekes 2018</a>)</span>.</li>
+</ul>
+</div>
+</section>
+<section id="tmap-basics" class="slide level2">
+<h2>tmap basics</h2>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Add fill layer#|  to nz shape</span></span>
+<span id="cb3-2"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span> <span class="fu">tm_fill</span>() </span>
+<span id="cb3-3"><a></a><span class="co"># Add border layer to nz shape</span></span>
+<span id="cb3-4"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span> <span class="fu">tm_borders</span>() </span>
+<span id="cb3-5"><a></a><span class="co"># Add fill and border layers to nz shape</span></span>
+<span id="cb3-6"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span> <span class="fu">tm_fill</span>() <span class="sc">+</span> <span class="fu">tm_borders</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="https://r.geocompx.org/images/cover2.png"></p>
+<p><img data-src="slides_files/figure-revealjs/tmap-basics-1.png" width="960"></p>
 </div>
-<div class="quarto-layout-cell" style="flex-basis: 66.7%;justify-content: center;">
-<p><img data-src="https://github.com/npct/pct-team/blob/master/figures/front-page-leeds-pct-demo.png?raw=true"></p>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img data-src="slides_files/figure-revealjs/tmap-basics-2.png" width="960"></p>
 </div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="../slides/images/paste-17.png"></p>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img data-src="slides_files/figure-revealjs/tmap-basics-3.png" width="960"></p>
 </div>
 </div>
 </div>
-</div></div>
 </section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
-<p>Data science spin-out company: <a href="https://impactml.io/">ImpactML</a></p>
-<iframe src="https://impactml.io/" width="100%" height="600px">
-</iframe>
-</section>
-<section id="data-science-employability" class="slide level2">
-<h2>Data science employability</h2>
-<!-- ![](https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w) -->
+<section id="animations" class="slide level2">
+<h2>Animations</h2>
+<ul>
+<li>Are easy with <strong>tmap</strong> (section <a href="http://geocompr.robinlovelace.net/adv-map.html#animated-maps">9.3</a> of geocompr)</li>
+</ul>
 
-<!-- Local backup:
-wget https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png -O images/data_growth_time.png -->
-<img data-src="data_growth_time.png" class="r-stretch"><p>The Bureau of Labor Statistics in the US projects a 35% increase in data science roles in decade 2022-2032.” Source: <a href="https://www.visualizecuriosity.com/posts/data-science-job-market-2024">visualisecurious.com</a></p>
-</section>
-<section id="live-demo-npt.scot-web-app" class="slide level2">
-<h2>Live demo: <a href="https://nptscot.github.io/">npt.scot web app</a></h2>
+<img data-src="https://user-images.githubusercontent.com/1825120/38543030-5794b6f0-3c9b-11e8-9da9-10ec1f3ea726.gif" style="width:80.0%" class="r-stretch"></section>
+<section id="interactive-maps-with-mapview" class="slide level2">
+<h2>Interactive maps with mapview</h2>
 
-<img data-src="https://nptscot.github.io/images/rnet_filters.png" class="r-stretch"></section>
-<section id="the-history-of-tds" class="slide level2">
-<h2>The history of TDS</h2>
+<img data-src="https://i.imgur.com/hz98Jru.png" class="r-stretch"></section>
+<section id="web-mapping-applications" class="slide level2">
+<h2>Web mapping applications</h2>
 <ul>
-<li><p>2017: Transport Data Science created, led by Dr Charles Fox, Computer Scientist, author of Transport Data Science book (Fox, 2018)</p></li>
-<li><p>The focus was on databases and Bayesian methods</p></li>
-<li><p>2019: I inherited the module, which was attended by ITS students</p></li>
-<li><p>Summer 2019: Python code published in the module ‘repo’:</p>
-<ul>
-<li><a href="https://github.com/ITSLeeds/TDS/tree/master/code-python">github.com/ITSLeeds</a></li>
-</ul></li>
+<li>Leaflet integrates with <strong>shiny</strong> via <code>leaflet::leafletOutput()</code>, enabling web mapping applications built on R</li>
+<li>These can be set-up to scale nationally, as illustrated by <a href="http://www.pct.bike/">pct.bike</a> <span class="citation" data-cites="lovelace_propensity_2017">(<a href="#/references" role="doc-biblioref" onclick="">Lovelace et al. 2017</a>)</span>.</li>
 </ul>
-</section>
-<section id="history-of-tds-ii" class="slide level2">
-<h2>History of TDS II</h2>
-<ul>
-<li>January 2020: Available, Data Science MSc course</li>
-<li>March 2020: Switch to online teaching</li>
-<li>2021-2023: Updated module, focus on methods</li>
-<li>2024: Switch to combined practical sessions and lectures</li>
-<li>2025+: Expand, online course? book? stay in touch!</li>
-</ul>
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">
-</p><p>Milestone passed in my academic career, first online-only delivery of lecture <a href="https://twitter.com/ITSLeeds?ref_src=twsrc%5Etfw"><span class="citation" data-cites="ITSLeeds">(</span></a><a href="#/references" role="doc-biblioref" onclick=""><strong>ITSLeeds?</strong></a>), seems to have worked, live code demo with <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>/<a href="https://twitter.com/rstudio?ref_src=twsrc%5Etfw">rstudio</a>, recording, chat + all🎉<br><br>Thanks students for ‘attending’ + remote participation, we’ll get through this together.<a href="https://twitter.com/hashtag/coronavirus?src=hash&amp;ref_src=twsrc%5Etfw">#coronavirus</a> <a href="https://t.co/wlAUxmZj5r">pic.twitter.com/wlAUxmZj5r</a></p>
-<p></p>
-<p>— Robin Lovelace <a href="https://twitter.com/robinlovelace/status/1239930988416897033?ref_src=twsrc%5Etfw">March 17, 2020</a></p>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</section>
-<section id="reading-list" class="slide level2">
-<h2>Reading list</h2>
-<p>See the <a href="https://itsleeds.github.io/tds/reading.html">reading list</a> for details</p>
-<iframe src="https://itsleeds.github.io/tds/reading.html" width="100%" height="600px">
-</iframe>
-</section>
-<section id="objectives" class="slide level2">
-<h2>Objectives</h2>
-<!-- From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md): -->
-<ul>
-<li><p>Understand the structure of transport datasets</p></li>
-<li><p>Understand how to obtain, clean and store transport related data</p></li>
-<li><p>Gain proficiency in command-line tools for handling large transport datasets</p></li>
-<li><p>Produce data visualizations, static and interactive</p></li>
-<li><p><font color="red"> Learn how to join together the components of transport data science into a cohesive project portfolio </font></p></li>
-</ul>
-</section>
-<section id="assessment-for-those-doing-this-as-credit-bearing" class="slide level2">
-<h2>Assessment (for those doing this as credit-bearing)</h2>
-<ul>
-<li>You will build-up a portfolio of work</li>
-<li>100% coursework assessed, you will submit by</li>
-<li>Written in code - will be graded for reproducibility</li>
-<li>Code chunks and figures are encouraged</li>
-<li>You will submit a non-assessed 2 page pdf + qmd</li>
-</ul>
-</section>
-<section id="feedback" class="slide level2">
-<h2>Feedback</h2>
-<blockquote>
-<p>The module is taught by two really well organised and enthusiastic professors, great module, the seminars, structured and unstructured learning was great and well thought out, all came together well</p>
-</blockquote>
-<blockquote>
-<p>I wish this module was 60 credits instead of 15 because i just want more of it.</p>
-</blockquote>
-</section>
-<section id="timetable" class="slide level2">
-<h2>Timetable</h2>
-<p>See the <a href="https://itsleeds.github.io/tds/schedule.html">schedule</a> for details</p>
-<iframe src="https://itsleeds.github.io/tds/schedule.html" width="100%" height="400px">
-</iframe>
-</section>
-<section id="what-is-science" class="slide level2">
-<h2>What is science?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Scientific knowledge is hypotheses that can be falsified</li>
-<li>Science is the process of <em>generating falsifiable hypotheses</em> and <em>testing them</em></li>
-<li>In a reproducible way</li>
-<li>Systematically</li>
-</ul>
-<p><img data-src="https://media3.giphy.com/media/3ohhworAhxSEHT3zDa/200w.webp?cid=3640f6095c57e8d15767723367d0c596"></p>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>Falsifiability is central to the scientific process <span class="citation" data-cites="popper_logic_1959">(<a href="#/references" role="doc-biblioref" onclick="">Popper 1959</a>)</span></li>
-<li>All of which requires software conducive to reproducibility</li>
-</ul>
-<p><img data-src="https://duckduckgo.com/i/f2692e7b.jpg"></p>
-</div></div>
-</section>
-<section id="transport-planning-software" class="slide level2">
-<h2>Transport planning software</h2>
-<p>Transport modelling software products are a vital component of modern transport planning <em>and</em> research.</p>
-<ul>
-<li>They generate the evidence base on which strategic investments are made and, furthermore,</li>
-<li>provide a powerful mechanism for researching alternative futures.</li>
-</ul>
-<p>It would not be an overstatement to say that software determines the range of futures that are visible to policymakers. This makes status of transport modelling software and how it may evolve in the future important questions.</p>
-<p>What will transport software look like? What will their capabilities be? And who will control? Answers to each of these questions will affect the future of transport systems.</p>
-<ul>
-<li>Premise: transport planning/modelling software used in practice <del>will become</del> is becoming increasingly data-driven, modular and open.</li>
-</ul>
-</section>
-<section id="current-transport-software" class="slide level2">
-<h2>Current transport software</h2>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="https://www.robinlovelace.net/presentations/fourstage.png" height="500"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>4-stage model still dominates transport planning models (Boyce and Williams 2015)</p>
-</section>
-<section id="the-four-stage-model" class="slide level2">
-<h2>The four stage model</h2>
-<ul>
-<li><p>Impacts the current software landscape</p></li>
-<li><p>Dominated by a few proprietary products</p></li>
-<li><p>Limited support community online</p></li>
-<li><p>High degree of lock-in</p></li>
-<li><p>Limited cross-department collaboration</p></li>
-</ul>
-</section>
-<section id="existing-products" class="slide level2">
-<h2>Existing products</h2>
-<p>Sample of transport modelling software in use by practitioners. <!-- Note: citation counts based on searches for company/developer name, the product name and 'transport'. Data source: Google Scholar searches, October 2018. --></p>
-<div class="cell">
-<div class="cell-output-display">
-<table class="caption-top" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Software</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Company/Developer</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Company HQ</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Licence</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Citations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Visum</td>
-<td style="text-align: left;">PTV</td>
-<td style="text-align: left;">Germany</td>
-<td style="text-align: left;">Proprietary</td>
-<td style="text-align: right;">1810</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MATSim</td>
-<td style="text-align: left;">TU Berlin</td>
-<td style="text-align: left;">Germany</td>
-<td style="text-align: left;">Open source (GPL)</td>
-<td style="text-align: right;">1470</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">TransCAD</td>
-<td style="text-align: left;">Caliper</td>
-<td style="text-align: left;">USA</td>
-<td style="text-align: left;">Proprietary</td>
-<td style="text-align: right;">1360</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SUMO</td>
-<td style="text-align: left;">DLR</td>
-<td style="text-align: left;">Germany</td>
-<td style="text-align: left;">Open source (EPL)</td>
-<td style="text-align: right;">1310</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Emme</td>
-<td style="text-align: left;">INRO</td>
-<td style="text-align: left;">Canada</td>
-<td style="text-align: left;">Proprietary</td>
-<td style="text-align: right;">780</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Cube</td>
-<td style="text-align: left;">Citilabs</td>
-<td style="text-align: left;">USA</td>
-<td style="text-align: left;">Proprietary</td>
-<td style="text-align: right;">400</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sDNA</td>
-<td style="text-align: left;">Cardiff University</td>
-<td style="text-align: left;">UK</td>
-<td style="text-align: left;">Open source (GPL)</td>
-<td style="text-align: right;">170</td>
-</tr>
-</tbody>
-</table>
 
-
-</div>
-</div>
-</section>
-<section id="user-support" class="slide level2">
-<h2>User support</h2>
-<p>Getting help is vital for leaning/improving software</p>
-
-<img data-src="https://media.giphy.com/media/6HtgBlXu1TIac/giphy.gif" class="r-stretch"><p>“10-Hour Service Pack $2,000” (source: <a href="https://www.caliper.com/tcprice.htm">caliper.com/tcprice.htm</a>)</p>
-</section>
-<section id="online-communities" class="slide level2">
-<h2>Online communities</h2>
-<ul>
-<li><a href="https://gis.stackexchange.com/questions">gis.stackexchange.com</a> has 21,314 questions</li>
-<li><a href="http://r-sig-geo.2731867.n2.nabble.com/">r-sig-geo</a> has 1000s of posts</li>
-<li>RStudio’s Discourse community has 65,000+ posts already!</li>
-<li>No clear transport equivalent (e.g.&nbsp;earthscience.stackexchange.com is in beta)</li>
-<li>Solution: build our own community!
-<ul>
-<li>See https://github.com/ITSLeeds/TDS/issues for example</li>
-<li>Place for discussions: https://github.com/itsleeds/tds/discussions</li>
-</ul></li>
-</ul>
-</section>
-<section id="best-way-to-get-support-is-peer-to-peer" class="slide level2">
-<h2>Best way to get support is peer-to-peer:</h2>
-
-<img data-src="https://www.robinlovelace.net/presentations/rstudio-community.png" class="r-stretch"><p>Source: https://community.rstudio.com/about</p>
-</section>
-<section id="how-is-data-science-used-in-the-pct" class="slide level2">
-<h2>How is data science used in the PCT?</h2>
-<ul>
-<li>It’s all reproducible, e.g.:</li>
-<li>Find commuting desire lines in West Yorkshire between 1 and 3 km long in which more people drive than cycle:</li>
-</ul>
-</section>
-<section id="visualising-data" class="slide level2">
-<h2>Visualising data</h2>
-<p>A fundamental part of data science is being able to understand your data.</p>
-<p>That requires visualisation, R is great for that:</p>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
-<section id="interactively" class="slide level2">
-<h2>Interactively</h2>
-</section>
-<section id="processing-data-with-code" class="slide level2">
-<h2>Processing data with code</h2>
-<ul>
-<li><p>Now we have data in our computer, and verified it works, we can use it</p></li>
-<li><p>Which places are most car dependent?</p></li>
-</ul>
-</section>
-<section id="checking-the-results" class="slide level2">
-<h2>Checking the results:</h2>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
-<section id="r-vs-python" class="slide level2">
-<h2>R vs Python</h2>
-<ul>
-<li>Lots of debate on this topic - see https://blog.usejournal.com/python-vs-and-r-for-data-science-833b48ccc91d</li>
-</ul>
-<p>How to decide?</p>
-<ul>
-<li>If priority: getting things done quick (with support from me ;) go with R</li>
-<li>If you already know Python and are <strong>100% confident you can generate reproducible results</strong>, go with that</li>
-<li>If you want to be avant-garde and try something else like Julia, do it (as long as it’s reproducible)</li>
-</ul>
-<p><img data-src="https://cdn-images-1.medium.com/max/1600/1*Mk54CziKpHi65sdlwBZcCg.png"></p>
-<h3 id="gamification">Gamification</h3>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="https://raw.githubusercontent.com/dabreegster/abstreet/master/book/exploring_traffic.gif"></p>
-</figure>
-</div>
-</div>
-</div>
-<ul>
-<li>Completely open source, written in <a href="https://github.com/citybound/citybound">rust</a></li>
-<li>Source: video at https://github.com/dabreegster/abstreet/#ab-street</li>
-</ul>
-</section>
+<img data-src="https://raw.githubusercontent.com/npct/pct-team/master/figures/pct-frontpage.png" class="r-stretch"></section>
 <section id="summary" class="slide level2">
 <h2>Summary</h2>
+<div>
 <ul>
-<li>Walk and understand the data before doing complex things</li>
-<li>Visualise the data, ask questions of it, descriptive stats</li>
-<li>Only then add complexity to your analysis</li>
-<li>Starting point for this: <a href="https://r.geocompx.org/transport.html">Transport chapter</a> of Geocomputation with R <span class="citation" data-cites="lovelace_geocomputation_2025">(<a href="#/references" role="doc-biblioref" onclick="">Lovelace, Nowosad, and Münchow 2025</a>)</span></li>
+<li class="fragment">Visualisation is an important skill in data science</li>
+<li class="fragment">Visualisation is particularly valuable for evidence-based decision-making and policy</li>
+<li class="fragment">Open source command software like R provides powerful tools for data visualisation</li>
+<li class="fragment">Geographic data visualisation is possible with R using packages such as sf and tmap</li>
+<li class="fragment">These visualisation skills will be useful in the lecture next week on project work</li>
+</ul>
+</div>
+</section>
+<section id="exercise-with-desire-line-data-in-stplanr" class="slide level2">
+<h2>Exercise with desire line data in stplanr</h2>
+<ol type="1">
+<li>Create a map showing the number of people walking and cycling in the <code>stplanr</code> dataset <code>flowlines_sf</code> using: -base graphics (hint: use <code>plot()</code>) and -<strong>tmap</strong> (hint: use <code>tm_shape(flowlines_sf) + ...</code>, <code>palette = "viridis"</code> and other options shown in <code>tmaptools::palette_explorer()</code> give different colourschemes).
+<ul>
+<li>Name two advantages of each approach</li>
+<li>Bonus: Other mapping packages could be used to show the same data?</li>
+</ul></li>
+</ol>
+<p>For more information on plotting OD data, see the <a href="https://docs.ropensci.org/stplanr/articles/stplanr-od.html">stplanr-od</a> vignetted, e.g.&nbsp;with</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">vignette</span>(<span class="st">"stplanr-od"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="result-base-graphics" class="slide level2">
+<h2>Result: base graphics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(stplanr)</span>
+<span id="cb5-2"><a></a>lwd <span class="ot">=</span> flowlines_sf<span class="sc">$</span>All <span class="sc">/</span> <span class="fu">mean</span>(flowlines_sf<span class="sc">$</span>All) <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb5-3"><a></a><span class="fu">plot</span>(flowlines_sf[<span class="st">"Taxi"</span>], <span class="at">lwd =</span> lwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+
+</div>
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-11-1.png" style="width:70.0%" class="r-stretch"></section>
+<section id="bonus-exercise" class="slide level2">
+<h2>Bonus exercise</h2>
+<ul>
+<li>Based on the <code>routes_fast_sf</code> data in the <code>stplanr</code> package, identify roads where investment in cycling is likely to be effective.</li>
+</ul>
+<p>Starting point:</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 42</code></pre>
+</div>
+</div>
+</section>
+<section id="sf-results" class="slide level2">
+<h2>sf results</h2>
+
+<img data-src="slides_files/figure-revealjs/unnamed-chunk-13-1.png" width="960" class="r-stretch"></section>
+<section id="tmap-view-mode-results" class="slide level2">
+<h2>tmap ‘view mode’ results</h2>
+<p><img data-src="https://user-images.githubusercontent.com/1825120/76854526-26bb5780-6847-11ea-8903-e7466a1aa750.png"> See <a href="https://user-images.githubusercontent.com/1825120/76854526-26bb5780-6847-11ea-8903-e7466a1aa750.png">here</a> for result</p>
+</section>
+<section id="exercises-bonus-optional" class="slide level2">
+<h2>Exercises bonus (optional)</h2>
+<ul>
+<li><p>Using data in the <code>pct</code> github package, estimate cycling potential in a city of your choice in the UK, and show the results</p></li>
+<li><p>See the <a href="https://itsleeds.github.io/pct/articles/pct_training.html">pct_training</a> vignette for further information</p></li>
+<li><p>Work on your portfolios, adding a new visualisation</p></li>
 </ul>
 </section>
-<section>
-<section id="practical-session" class="title-slide slide level1 center">
-<h1>Practical session</h1>
-<!-- - Definition of transport data science -->
-<!-- - About you, level and hopes for the course -->
-<!-- - Thinking about research methods (you will need pens) -->
-<!-- - The structure of transport datasets -->
-<!--   - How cities are divided up into zones -->
-<!--   - Desire lines representing movement -->
-<!--   - Routes between locations -->
-<!--   - Route networks -->
-<!--   - Agents -->
-</section>
-<section class="slide level2">
-
-</section></section>
-<section id="references" class="title-slide slide level1 smaller scrollable">
-<h1>References</h1>
+<section id="references" class="slide level2 smaller scrollable">
+<h2>References</h2>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-lovelace_geocomputation_2025" class="csl-entry" role="listitem">
-Lovelace, Robin, Jakub Nowosad, and Jannes Münchow. 2025. <em>Geocomputation with <span>R</span></em>. CRC Press. <a href="https://r.geocompx.org/">https://r.geocompx.org/</a>.
+<div id="ref-bivand_applied_2013" class="csl-entry" role="listitem">
+Bivand, Roger S., Edzer Pebesma, and Virgilio G’omez-Rubio. 2013. <em>Applied <span>Spatial Data Analysis</span> with <span>R</span></em>. 2nd ed. 2013 edition. <span>New York</span>: <span>Springer</span>.
 </div>
-<div id="ref-popper_logic_1959" class="csl-entry" role="listitem">
-Popper, Karl. 1959. <em>The <span>Logic</span> of Scientific Discovery</em>. Hutchinson. <a href="http://books.google.com/books?id=MdvaSAAACAAJ&amp;pgis=1">http://books.google.com/books?id=MdvaSAAACAAJ&amp;pgis=1</a>.
+<div id="ref-R-leaflet" class="csl-entry" role="listitem">
+Cheng, Joe, Bhaskar Karambelkar, and Yihui Xie. 2018. <em>Leaflet: <span>Create Interactive Web Maps</span> with the <span>JavaScript</span> ’<span>Leaflet</span>’ <span>Library</span></em>. <a href="https://CRAN.R-project.org/package=leaflet">https://CRAN.R-project.org/package=leaflet</a>.
+</div>
+<div id="ref-lovelace_propensity_2017" class="csl-entry" role="listitem">
+Lovelace, Robin, Anna Goodman, Rachel Aldred, Nikolai Berkoff, Ali Abbas, and James Woodcock. 2017. <span>“The <span>Propensity</span> to <span>Cycle Tool</span>: <span>An</span> Open Source Online System for Sustainable Transport Planning.”</span> <em>Journal of Transport and Land Use</em> 10 (1). <a href="https://doi.org/10.5198/jtlu.2016.862">https://doi.org/10.5198/jtlu.2016.862</a>.
+</div>
+<div id="ref-lovelace_geocomputation_2018a" class="csl-entry" role="listitem">
+Lovelace, Robin, Jakub Nowosad, and Jannes Meunchow. 2018. <em>Geocomputation with <span>R</span></em>. <span>CRC Press</span>. <a href="http://robinlovelace.net/geocompr">http://robinlovelace.net/geocompr</a>.
+</div>
+<div id="ref-murrell_graphics_2016" class="csl-entry" role="listitem">
+Murrell, Paul. 2016. <em>R <span>Graphics</span>, <span>Second Edition</span></em>. <span>CRC Press</span>.
+</div>
+<div id="ref-tennekes_tmap_2018" class="csl-entry" role="listitem">
+Tennekes, Martijn. 2018. <span>“Tmap: <span>Thematic Maps</span> in <span>R</span>.”</span> <em>Journal of Statistical Software, Articles</em> 84 (6): 1–39. <a href="https://doi.org/10.18637/jss.v084.i06">https://doi.org/10.18637/jss.v084.i06</a>.
 </div>
 </div>
 </section>
