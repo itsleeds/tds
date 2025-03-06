@@ -8,21 +8,6 @@ bibliography: viz-references.bib
 ---
 
 ```{r setup, include = FALSE}
-download.file("https://raw.githubusercontent.com/jannes-m/erum18_geocompr/master/pres/rmd/viz-references.bib", "viz-references.bib")
-options(htmltools.dir.version = FALSE)
-library(RefManageR)
-BibOptions(check.entries = FALSE, 
-           bib.style = "authoryear", 
-           cite.style = 'alphabetic', 
-           style = "markdown",
-           first.inits = FALSE,
-           hyperlink = FALSE, 
-           dashed = FALSE)
-if(dir.exists("pres"))
-  f_ref = "pres/rmd/viz-references.bib" else
-    f_ref = "viz-references.bib"
-my_bib = ReadBib(f_ref, check = FALSE)
-knitr::opts_chunk$set(warning = FALSE)
 library(tmap)
 library(spData)
 library(sf)
