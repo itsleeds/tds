@@ -45,7 +45,7 @@ practical_descriptions = c(
   "Origin-destination data (RL, YY)",
   "Routing (MM, YY)",
   "Visualising transport data (RL, YY)",
-  "Integrating data science compenents to answer a research question (RL, YY)",
+  "Joining and combining datasets (RL, YY)",
   "Project work (RL, MM, ZW, YY)"
 )
 
