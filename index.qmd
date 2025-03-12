@@ -3,60 +3,84 @@ title: "Transport Data Science"
 number-sections: false
 ---
 
-A module on using data science to solve transport problems.
-This couse is based at the University of Leeds' Institute for Transport Studies (module code [TRAN5340M](https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202425&M=TRAN-5340M)).
-Led by Robin Lovelace, Professor of Transport Data Science and developer of several data-driven solutions for effective transport planning, the course is designed to teach you how to use data science to solve transport problems.
-It has evolved over a decade of teaching and research in the field and aims to teach you up-to-date and future-proof skills with practical examples and reproducible workflows using industry-standard data science tools.
+This module focuses on applying data science techniques to solve real-world transport problems.
+Based at the University of Leeds' Institute for Transport Studies (module code [TRAN5340M](https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202425&M=TRAN-5340M)), the course is led by Robin Lovelace, Professor of Transport Data Science and developer of several data-driven solutions for effective transport planning.
+
+The course has evolved over a decade of teaching and research in the field. It aims to equip you with up-to-date and future-proof skills through practical examples and reproducible workflows using industry-standard data science tools.
 
 # Prerequisites
 
-We expect you to have some experience with programming, data science and computing in general before taking this course.
-Experience with geographic data is not required, but is helpful.
+Before taking this course, we expect you to have some experience with programming, data science, and general computing.
+While experience with geographic data is helpful, it is not required.
 
 ## Hardware 
 
-Access to a computer that you have permission to install software on, with at least 8 GB of RAM, is highly recommended.
-You could use a cloud-based service such as RStudio Cloud, Google Colab, or GitHub Codespaces, but you would need to be comfortable with using these services and would miss out on some of the benefits of using your own computer.
+We highly recommend having access to a computer with at least 8 GB of RAM that you have permission to install software on.
+
+Alternatively, you could use cloud-based services such as RStudio Cloud, Google Colab, or GitHub Codespaces. However, you would need to be comfortable using these services and may miss out on some benefits of using your own computer.
 
 ## Computing experience
 
-You should be comfortable with computing in general, for example creating folders, moving files, and installing software.
-You should be comfortable with using command line interfaces such as PowerShell in Windows, Terminal in macOS, or the Linux shell.
+You should be comfortable with general computing tasks, such as:
+
+- Creating folders and managing files
+- Installing software
+- Using command line interfaces (PowerShell in Windows, Terminal in macOS, or Linux shell)
 
 ## Data science experience prerequisites
 
-Prior experience of using R or Python (e.g. having used it for work, in previous degrees or having completed an online course) is essential.
+Prior experience using R or Python is essential. This could include:
 
-Students can demonstrate this by showing evidence that they have worked with R before, have completed an online course such as the first 4 sessions in the [RStudio Primers series](https://rstudio.cloud/learn/primers) or [DataCamp’s Free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r).
+- Using these languages in professional work
+- Experience from previous degrees
+- Completion of relevant online courses
 
-Evidence of substantial programming and data science experience in previous professional or academic work, in languages such as R or Python, also constitutes sufficient pre-requisite knowledge for the course.
+Students can demonstrate this prerequisite knowledge by showing evidence they have:
+
+- Worked with R previously
+- Completed online courses such as the first 4 sessions in the [RStudio Primers series](https://rstudio.cloud/learn/primers) 
+- Completed [DataCamp's Free Introduction to R course](https://www.datacamp.com/courses/free-introduction-to-r)
+
+Substantial programming and data science experience in previous professional or academic work using languages like R or Python also satisfies the prerequisite requirements.
 
 # Software requirements and installation
 
-You need to install some software to take the course.
+To participate in this course, you'll need to install specific software.
 
-The teaching is be delivered primarily in R, with some Python code and examples, so you need to install R (recommended) or Python or both on your computer.
-We recommend that most people use R for the practical sessions and the coursework, unless you have a good reason to use Python.
-If you do choose to use Python or another language, you will have less support: you will need the skills to set-up and manage your own environments.
-Translations of the R code examples into your chosen language will be very welcome, and contributions to the course materials via [Pull Requests on GitHub](https://github.com/itsleeds/tds/pulls) are encouraged.
+The teaching is delivered primarily in R, with some Python code and examples. You should install R (recommended), Python, or both on your computer.
+
+We recommend using R for practical sessions and coursework unless you have a specific reason to use Python. If you choose Python or another language, please note:
+
+- You will receive less direct support
+- You'll need skills to set up and manage your own environments
+
+We welcome translations of R code examples into other languages. Contributions to course materials via [Pull Requests on GitHub](https://github.com/itsleeds/tds/pulls) are encouraged.
 
 ## Quickstart with GitHub Codespaces
 
-You can use GitHub Codespaces to get started with the course materials in a cloud-based environment.
-Sign-up to GitHub, fork the repository, and click the "Open in GitHub Codespaces" button above to get started.
-You can also use the following link:
+For a quick cloud-based setup, you can use GitHub Codespaces to access the course materials:
+
+1. Sign up to GitHub
+2. Fork the repository
+3. Click the "Open in GitHub Codespaces" button above
+
+Alternatively, use the following link:
 
 [![Open in GitHub
 Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 
 ## R
 
-Install a recent version of R (4.3.0 or above) and RStudio (recommended) or another IDE such as VS Code (if you have prior experience with it) with the the following links:
+Install a recent version of R (4.3.0 or above) and an IDE:
 
 - R from [cran.r-project.org](https://cran.r-project.org/)
-- RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download) (recommended) or VS Code with the R extension installed.
-- R packages, which can be installed by opening RStudio and typing `install.packages("stats19")` in the R console, for example.
-- To install all the dependencies for the module, run the following command in the R console:
+- RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download) (recommended)
+- Alternatively, VS Code with the R extension installed (if you have prior experience with it)
+
+You'll also need to install R packages:
+
+- Individual packages can be installed by opening RStudio and typing commands like `install.packages("stats19")` in the R console
+- To install all dependencies for the module at once, run the following command in the R console:
 
 ```{r}
 #| eval: false
@@ -74,24 +98,51 @@ Chapter 2 of Geocomputation with R (the Prerequisites section contains links for
 
 ## Python
 
-If you choose to use Python, you should be able to install it and manage your own Python environment, including installing packages and dealing with package conflicts.
-If you use Python we recommend using an environment manager such as `pixi` (which can manage both R and Python environments) or Docker (best practice for reproducibility and isolation).
+If you choose to use Python, you should be comfortable with:
+
+- Installing Python
+- Managing your own Python environment
+- Installing packages and resolving package conflicts
+
+For Python users, we recommend using an environment manager such as:
+
+- `pixi` (which can manage both R and Python environments)
+- Docker (best practice for reproducibility and isolation)
 
 ## Docker (advanced)
 
-We maintain a Docker image that contains all the software you need to complete the course with VS Code, quarto and a Devcontainer set-up.
-Advantages of this approach include that it ensures reproducibility and can save time installing software.
-Disadvantages include that it can be hard to install Docker and can be difficult to use if you are not familiar with Docker.
-We therefore recommend this approach only for people who are confident with Docker and willing to invest time in learning how to use it.
-See [the Docker installation instructions](https://docs.docker.com/get-docker/), the [devcontainers documentation on github.com](https://github.com/devcontainers) and the tds [Dockerfile](https://github.com/itsleeds/tds/blob/main/Dockerfile) and [devcontainer.json](https://github.com/itsleeds/tds/blob/main/.devcontainer/devcontainer.json) for guidance on getting started with Docker.
+We maintain a Docker image containing all necessary software to complete the course with VS Code, Quarto, and a Devcontainer setup.
+
+**Advantages:**
+
+- Ensures reproducibility
+- Saves time installing software
+
+**Disadvantages:**
+
+- Docker can be challenging to install
+- Difficult to use if you're unfamiliar with Docker
+
+We recommend this approach only for people who are confident with Docker or willing to invest time learning it.
+
+For guidance, see:
+
+- [Docker installation instructions](https://docs.docker.com/get-docker/)
+- [Devcontainers documentation on github.com](https://github.com/devcontainers)
+- The tds [Dockerfile](https://github.com/itsleeds/tds/blob/main/Dockerfile) and [devcontainer.json](https://github.com/itsleeds/tds/blob/main/.devcontainer/devcontainer.json)
 
 # R, Python or other?
 
-While the focus of the module is on methods that can be implemented in many languages, we expect most people taking this course will use R for the practicals and for the end our course project.
-We use R because it is hard to beat in terms of a data science environment *with batteries included*, with many mature packages for data manipulation, visualisation, and statistical analysis available within seconds, without having to worry about package conflicts or managing environments.
-R is also the language with which the module team has the most experience.
+While the module focuses on methods implementable in many languages, we expect most participants will use R for practicals and the final course project.
 
-Python is another excellent choice for transport data science, and many of the example code chunks we provide in R have been ported to Python examples, as illustrated below, which shows how to load the R package `{sf}` and the equivalent Python package `{geopandas}`.
+We recommend R because:
+
+- It provides a data science environment *with batteries included*
+- It offers many mature packages for data manipulation, visualization, and statistical analysis
+- These packages are available within seconds without worrying about conflicts or environment management
+- The module team has the most experience with R
+
+Python is another excellent choice for transport data science. Many of our R code examples have been ported to Python, as illustrated below. This example shows how to load the R package `{sf}` and its Python equivalent, `{geopandas}`:
 
 ::: {.panel-tabset}
 
@@ -111,9 +162,18 @@ geo_data = gpd.read_file("geo_data.gpkg")
 
 :::
 
-If you do choose to use Python, you will be expected to manage your own Python environment, and to be able to translate the R code examples into Python.
+If you choose Python, you will need to:
 
-If you are feeling adventurous, you could try using Julia, JavaScript/TypeScript (e.g. via Observable) or another language, but you will be on your own in terms of support.
+- Manage your own Python environment
+- Translate R code examples into Python
+
+For the adventurous, you could try using:
+
+- Julia
+- JavaScript/TypeScript (e.g., via Observable)
+- Other programming languages
+
+However, please note that support for these alternative languages will be limited.
 
 # Contributing to the course
 
