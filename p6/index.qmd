@@ -1,5 +1,5 @@
 ---
-title: "Practical 6: Project work"
+title: "Practical 6: Joining and combining datasets"
 bibliography: ../tds.bib
 toc: true
 execute: 
