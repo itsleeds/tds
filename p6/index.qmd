@@ -1,8 +1,234 @@
 ---
-title: "Practical 6: Joining and combining datasets"
+title: "Practical 6: Joining and Combining Datasets"
 bibliography: ../tds.bib
 toc: true
 execute: 
   cache: true
 ---
-This is a placeholder page; content will be added soon.
+
+# Introduction
+
+In this practical session, we will explore techniques for joining and combining datasets in R, with a specific focus on spatial data analysis. We'll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this practical, you'll learn:
+
+1. How to perform spatial joins between point and polygon data
+2. How to join tables using common identifiers (key-based joins)
+3. How to calculate and visualize derived metrics from joined datasets
+
+The skills developed in this practical are essential for transport data scientists who often need to combine data from various sources to gain comprehensive insights.
+
+## Required Libraries
+
+First, let's load the libraries we'll need for this practical:
+
+```{r}
+#| warning: false
+# Load required libraries
+library(tidyverse)  # Data manipulation and visualization
+library(sf)         # Simple features for spatial data
+library(stats19)    # Package for road crash data
+library(tmap)       # Thematic mapping
+```
+
+Each of these libraries serves a specific purpose:
+
+- `tidyverse`: A collection of R packages designed for data science, including dplyr for data manipulation and ggplot2 for visualization
+- `sf`: Provides support for simple features to represent spatial vector data
+- `stats19`: Facilitates access to the UK's STATS19 road crash data
+- `tmap`: Creates thematic maps with a flexible, layer-based approach
+
+
+# Data Acquisition and Preparation
+
+## Downloading STATS19 Crash Data
+
+We'll begin by downloading road crash data for four years (2019-2022) using the `stats19` package:
+
+```{r}
+#| warning: false
+#| message: false
+# Download STATS19 crash data for 2019-2022
+crashes_2019 <- get_stats19(year = 2019, type = "accidents", ask = FALSE)
+crashes_2020 <- get_stats19(year = 2020, type = "accidents", ask = FALSE)
+crashes_2021 <- get_stats19(year = 2021, type = "accidents", ask = FALSE)
+crashes_2022 <- get_stats19(year = 2022, type = "accidents", ask = FALSE)
+```
+
+The `get_stats19()` function downloads the official road crash data from the UK Department for Transport. The parameters used are:
+
+- `year`: Specifies which year's data to download
+- `type`: Selects the type of data (accidents, vehicles, or casualties)
+- `ask = FALSE`: Automatically downloads without prompting for confirmation
+
+## Combining Multiple Years of Data
+
+Once we have the individual year datasets, we can combine them into a single dataframe using `bind_rows()`:
+
+```{r}
+# Combine all years into one dataset
+crashes <- bind_rows(crashes_2019, crashes_2020, crashes_2021, crashes_2022)
+```
+
+`bind_rows()` from dplyr appends the rows from each dataset, creating a unified dataset spanning all four years. This is more efficient than processing each year separately.
+
+## Converting Crash Data to Spatial Format
+
+To enable spatial operations, we need to convert our crash data into an sf (simple features) object:
+
+```{r}
+# Creating geographic crash data
+crashes_sf = format_sf(crashes)
+```
+
+The `format_sf()` function from the stats19 package converts the crash coordinates into a proper spatial object. The note you might see indicates that rows with missing coordinate values are automatically removed, as spatial objects cannot have NA values for coordinates.
+
+## Filtering for West Yorkshire
+
+We'll now filter the crash data to include only incidents that occurred within the West Yorkshire police force area:
+
+```{r}
+wy = filter(police_boundaries, pfa16nm == "West Yorkshire")
+crashes_wy = crashes_sf[wy, ]
+nrow(crashes_sf)
+nrow(crashes_wy)
+```
+
+This code snippet:
+
+1. Filters the `police_boundaries` dataset (which contains boundary data for all police force areas in England and Wales) to select only West Yorkshire
+2. Uses spatial subsetting (`[wy, ]`) to select crashes that fall within the West Yorkshire boundary
+3. Displays the row counts before and after filtering, showing how many crashes occurred in West Yorkshire compared to the whole dataset
+
+# Spatial Joins
+
+Spatial joins allow us to combine datasets based on their spatial relationships rather than common identifiers. We'll use this technique to identify which LSOA each crash occurred in.
+
+## Loading LSOA Boundary Data
+
+First, we load the LSOA (Lower Super Output Area) boundaries for West Yorkshire:
+
+```{r}
+# 2021 LSOA boundary
+lsoa_wy = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_wy.geojson")
+```
+
+LSOAs are small geographic areas in the UK designed for reporting census and other neighborhood statistics. Each LSOA typically contains 1,000-3,000 people. We're using the 2021 LSOA boundaries, which align with the most recent UK Census.
+
+## Performing a Spatial Join
+
+Now we'll perform a spatial join to determine which LSOA each crash occurred in:
+
+```{r}
+crashes_in_lsoa = crashes_wy %>%
+   st_join(lsoa_wy)
+```
+
+The `st_join()` function links each crash point to the LSOA polygon that contains it. By default, it performs a "within" operation, checking if each point in the first dataset falls within any polygon in the second dataset. After this operation, each crash record will have additional columns from the LSOA dataset, including the LSOA code and name.
+
+## Aggregating Crashes by LSOA
+
+Next, we'll aggregate the crash data to count how many crashes of each severity occurred in each LSOA:
+
+```{r}
+crashes_per_lsoa = crashes_in_lsoa %>% 
+  st_drop_geometry() %>%
+  group_by(lsoa21cd, lsoa21nm) %>%
+  summarize(
+    crash_count = n(),
+    fatal_crashes = sum(accident_severity == "Fatal", na.rm = TRUE),
+    serious_crashes = sum(accident_severity == "Serious", na.rm = TRUE),
+    slight_crashes = sum(accident_severity == "Slight", na.rm = TRUE)
+  ) 
+```
+
+This code:
+1. Drops the geometry column using `st_drop_geometry()` since we only need the tabular data for aggregation
+2. Groups the data by LSOA code and name
+3. Summarizes the data to count the total crashes and crashes by severity in each LSOA
+4. Uses `na.rm = TRUE` to ignore any NA values in the calculations
+
+## Rejoining Aggregated Data to LSOA Boundaries
+
+Now we'll join the aggregated crash counts back to the LSOA boundary data:
+
+```{r}
+lsoa_crashes_wy = lsoa_wy %>%
+  left_join(crashes_per_lsoa, by = c("lsoa21cd", "lsoa21nm"))
+```
+
+We use `left_join()` to preserve all LSOAs, even those with no crashes. The `by` parameter specifies the columns to use for matching rows between the datasets. After this join, we have the spatial boundaries with the crash counts attached.
+
+# Key-Based Joins
+
+In addition to spatial joins, we often need to join datasets based on common identifiers or keys. This is particularly useful for combining spatial data with non-spatial attributes.
+
+## Loading Census Population Data
+
+We'll now load census population data for the LSOAs:
+
+```{r}
+# 2021 Census 
+pop_lsoa = read_csv("https://github.com/itsleeds/tds/releases/download/2025/p6-census2021_lsoa_pop.csv")
+```
+
+This dataset contains population figures from the 2021 UK Census for each LSOA in West Yorkshire.
+
+## Joining Population Data to LSOA Crash Data
+
+Next, we'll join the population data to our LSOA crash data using the LSOA codes and names as keys:
+
+```{r}
+# join dataset by key
+lsoa_crashes_wy = lsoa_crashes_wy %>%
+  left_join(pop_lsoa, by = c("lsoa21cd", "lsoa21nm"))
+```
+
+This operation adds the population data to our existing dataset, allowing us to calculate per-capita crash rates.
+
+# Creating Derived Metrics
+
+With our datasets joined, we can now create derived metrics that provide more insight than the raw counts.
+
+## Calculating Crashes Per Person
+
+We'll calculate the number of crashes per person for each LSOA:
+
+```{r}
+lsoa_crashes_wy = lsoa_crashes_wy %>% 
+  mutate(crash_pp = crash_count/pop)
+```
+
+This derived metric normalizes the crash counts by population, allowing for more meaningful comparisons between areas with different population sizes. Areas with higher values have more crashes relative to their population.
+
+# Visualization
+
+Finally, let's visualize our results using the tmap package:
+
+```{r}
+tm_shape(lsoa_crashes_wy) +
+  tm_polygons(fill = "crash_pp", 
+              title = "Crashes per Person",
+              style = "quantile",
+              palette = "Reds") +
+  tm_layout(title = "Road Crash Rates in West Yorkshire (2019-2022)",
+            title.position = c("center", "top"),
+            legend.position = c("right", "bottom"))
+```
+
+This code creates a choropleth map where:
+- Each LSOA is colored according to its crash rate per person
+- The "Reds" palette uses darker red colors to indicate higher crash rates
+- The quantile style divides the data into equal-sized groups for coloring
+
+# Extensions and Exercises
+
+Now that you understand the basics of joining and combining datasets, try these extensions:
+
+1. Calculate and map the ratio of serious/fatal crashes to total crashes for each LSOA
+2. Join additional census data such as car ownership or deprivation indices to explore correlations with crash rates
+3. Create a focused analysis of a specific district within West Yorkshire (e.g., Leeds or Bradford)
+4. Generate a regression model to explore factors that might predict higher crash rates
+
+# References
+
+- Lovelace, R., Morgan, M., Talbot, J., & Lucas-Smith, M. (2020). stats19: A package for working with open road crash data. Journal of Open Source Software, 5(47), 1181. https://doi.org/10.21105/joss.01181
+
