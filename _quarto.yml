@@ -47,6 +47,8 @@ website:
             text: Formative assessment
           - href: p5
             text: "Practical 5: Visualisation"
+          - href: p6
+            text: "Practical 6: Joins and aggregations"
 
       #       href: p5
       #       text: Practical 5
