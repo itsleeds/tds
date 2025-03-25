@@ -219,7 +219,7 @@ Now we'll perform a spatial join to determine which LSOA each crash occurred in:
 ```{r}
 # Perform spatial join to determine which LSOA each crash occurred in
 # This adds LSOA information to each crash point
-crashes_in_lsoa = crashes_wy |>
+crashes_in_lsoa = st_join(lsoa_wy, crashes_wy)
    st_join(lsoa_wy)
 
 # Check which columns were added from the LSOA dataset
