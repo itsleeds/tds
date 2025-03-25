@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Practical 6: Project work – Transport Data Science</title>
+<title>Practical 6: Joins and aggregations – Transport Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -207,6 +241,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Practical 5: Visualisation</span></a>
   </div>
 </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../p6" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Practical 6: Joins and aggregations</span></a>
+  </div>
+</li>
       </ul>
   </li>
     </ul>
@@ -214,15 +254,50 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a>
+  <ul class="collapse">
+  <li><a href="#required-libraries" id="toc-required-libraries" class="nav-link" data-scroll-target="#required-libraries"><span class="header-section-number">1.1</span> Required libraries</a></li>
+  </ul></li>
+  <li><a href="#data-acquisition-and-preparation" id="toc-data-acquisition-and-preparation" class="nav-link" data-scroll-target="#data-acquisition-and-preparation"><span class="header-section-number">2</span> Data acquisition and preparation</a>
+  <ul class="collapse">
+  <li><a href="#downloading-stats19-crash-data" id="toc-downloading-stats19-crash-data" class="nav-link" data-scroll-target="#downloading-stats19-crash-data"><span class="header-section-number">2.1</span> Downloading STATS19 crash data</a></li>
+  <li><a href="#combining-multiple-years-of-data" id="toc-combining-multiple-years-of-data" class="nav-link" data-scroll-target="#combining-multiple-years-of-data"><span class="header-section-number">2.2</span> Combining multiple years of data</a></li>
+  <li><a href="#converting-crash-data-to-sf-object" id="toc-converting-crash-data-to-sf-object" class="nav-link" data-scroll-target="#converting-crash-data-to-sf-object"><span class="header-section-number">2.3</span> Converting crash data to <code>sf</code> object</a></li>
+  <li><a href="#filtering-for-west-yorkshire" id="toc-filtering-for-west-yorkshire" class="nav-link" data-scroll-target="#filtering-for-west-yorkshire"><span class="header-section-number">2.4</span> Filtering for West Yorkshire</a></li>
+  </ul></li>
+  <li><a href="#spatial-joins" id="toc-spatial-joins" class="nav-link" data-scroll-target="#spatial-joins"><span class="header-section-number">3</span> Spatial joins</a>
+  <ul class="collapse">
+  <li><a href="#what-is-a-spatial-join" id="toc-what-is-a-spatial-join" class="nav-link" data-scroll-target="#what-is-a-spatial-join"><span class="header-section-number">3.1</span> What is a spatial join?</a></li>
+  <li><a href="#loading-lsoa-boundary-data" id="toc-loading-lsoa-boundary-data" class="nav-link" data-scroll-target="#loading-lsoa-boundary-data"><span class="header-section-number">3.2</span> Loading LSOA boundary data</a></li>
+  <li><a href="#performing-a-spatial-join" id="toc-performing-a-spatial-join" class="nav-link" data-scroll-target="#performing-a-spatial-join"><span class="header-section-number">3.3</span> Performing a Spatial Join</a></li>
+  <li><a href="#aggregating-crashes-by-lsoa" id="toc-aggregating-crashes-by-lsoa" class="nav-link" data-scroll-target="#aggregating-crashes-by-lsoa"><span class="header-section-number">3.4</span> Aggregating Crashes by LSOA</a></li>
+  </ul></li>
+  <li><a href="#key-based-joins" id="toc-key-based-joins" class="nav-link" data-scroll-target="#key-based-joins"><span class="header-section-number">4</span> Key-Based Joins</a>
+  <ul class="collapse">
+  <li><a href="#joining-aggregated-crash-count-data-to-lsoa-boundaries" id="toc-joining-aggregated-crash-count-data-to-lsoa-boundaries" class="nav-link" data-scroll-target="#joining-aggregated-crash-count-data-to-lsoa-boundaries"><span class="header-section-number">4.1</span> Joining aggregated crash count data to LSOA Boundaries</a></li>
+  <li><a href="#loading-census-population-data" id="toc-loading-census-population-data" class="nav-link" data-scroll-target="#loading-census-population-data"><span class="header-section-number">4.2</span> Loading census population data</a></li>
+  <li><a href="#joining-population-data" id="toc-joining-population-data" class="nav-link" data-scroll-target="#joining-population-data"><span class="header-section-number">4.3</span> Joining population data</a></li>
+  </ul></li>
+  <li><a href="#creating-new-metrics" id="toc-creating-new-metrics" class="nav-link" data-scroll-target="#creating-new-metrics"><span class="header-section-number">5</span> Creating new metrics</a>
+  <ul class="collapse">
+  <li><a href="#calculating-crashes-per-person" id="toc-calculating-crashes-per-person" class="nav-link" data-scroll-target="#calculating-crashes-per-person"><span class="header-section-number">5.1</span> Calculating Crashes Per Person</a></li>
+  </ul></li>
+  <li><a href="#visualisation" id="toc-visualisation" class="nav-link" data-scroll-target="#visualisation"><span class="header-section-number">6</span> Visualisation</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">7</span> References</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Practical 6: Project work</h1>
+<h1 class="title">Practical 6: Joins and aggregations</h1>
 </div>
 
 
@@ -239,9 +314,616 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>This is a placeholder page; content will be added soon.</p>
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>In this practical session, we will explore techniques for joining, combining and aggregating datasets in R, particularly for spatial data. We’ll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this practical, you’ll learn:</p>
+<ol type="1">
+<li>How to perform spatial joins between point and polygon data</li>
+<li>How to join tables using common identifiers (key-based joins)</li>
+<li>How to calculate and visualize derived metrics from joined datasets</li>
+</ol>
+<p>The skills developed in this practical are essential for transport data scientists who often need to combine data from various sources to gain comprehensive insights.</p>
+<section id="required-libraries" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="required-libraries"><span class="header-section-number">1.1</span> Required libraries</h2>
+<p>First, let’s load the libraries we’ll need for this practical:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load required libraries</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)  <span class="co"># Data manipulation and visualisation</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)         <span class="co"># Simple features for spatial data</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)    <span class="co"># Package for road crash data</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)       <span class="co"># Thematic mapping</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="data-acquisition-and-preparation" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Data acquisition and preparation</h1>
+<section id="downloading-stats19-crash-data" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="downloading-stats19-crash-data"><span class="header-section-number">2.1</span> Downloading STATS19 crash data</h2>
+<p>We’ll begin by downloading road crash data for four years (2019-2022) using the <code>stats19</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download STATS19 crash data for 2019-2023</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We're downloading data for multiple years to have a robust dataset</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>crashes_2019 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2019</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>crashes_2020 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2020</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>crashes_2021 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2021</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>crashes_2022 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>crashes_2023 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2023</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The <code>get_stats19()</code> function downloads the crash data. The parameters used are:</p>
+<ul>
+<li><code>year</code>: Specifies which year’s data to download</li>
+<li><code>type</code>: Selects the type of data (accidents, vehicles, or casualties)</li>
+<li><code>ask = FALSE</code>: Automatically downloads without prompting for confirmation</li>
+</ul>
+</section>
+<section id="combining-multiple-years-of-data" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="combining-multiple-years-of-data"><span class="header-section-number">2.2</span> Combining multiple years of data</h2>
+<p>Once we have the individual year datasets, we can combine them into a single dataframe using <code>bind_rows()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all years into one dataset</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This creates a unified dataset for analysis across the full time period</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">=</span> <span class="fu">bind_rows</span>(crashes_2019, crashes_2020, crashes_2021, crashes_2022, crashes_2023)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's check the dimensions of our combined dataset</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(crashes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 520084     38</code></pre>
+</div>
+</div>
+<p><code>bind_rows()</code> from dplyr appends the rows from each dataset, creating a unified dataset spanning all four years.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<code>bind_rows()</code> vs <code>rbind()</code> in R (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>Both <code>bind_rows()</code> and <code>rbind()</code> combine data frames <strong>row-wise</strong>, but they differ in behaviour and flexibility.</p>
+<hr>
+<p><strong><code>rbind()</code> (Base R)</strong></p>
+<ul>
+<li>Comes from <strong>base R</strong></li>
+<li>Requires <strong>exactly matching column names and types</strong></li>
+<li>Will <strong>throw an error</strong> if the data frames don’t align perfectly</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>))</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"z"</span>, <span class="st">"w"</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(df1, df2)  <span class="co"># ✅ Works</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">c =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rbind</span>(df1, df3)  <span class="co"># ❌ Error: column names do not match</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p><strong><code>bind_rows()</code> (from <code>dplyr</code>)</strong></p>
+<ul>
+<li>Part of the <strong>tidyverse</strong></li>
+<li><strong>More flexible</strong> than <code>rbind()</code></li>
+<li>Automatically <strong>fills in missing columns with NAs</strong></li>
+</ul>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>df1 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>, <span class="at">b =</span> <span class="fu">c</span>(<span class="st">"x"</span>, <span class="st">"y"</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>df3 <span class="ot">=</span> <span class="fu">data.frame</span>(<span class="at">a =</span> <span class="dv">5</span><span class="sc">:</span><span class="dv">6</span>, <span class="at">c =</span> <span class="fu">c</span>(<span class="st">"a"</span>, <span class="st">"b"</span>))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="fu">bind_rows</span>(df1, df3)  <span class="co"># ✅ Works, fills missing columns with NA</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<hr>
+<p><strong>Summary Comparison</strong></p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Feature</th>
+<th><code>rbind()</code></th>
+<th><code>bind_rows()</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>From</td>
+<td>Base R</td>
+<td><code>dplyr</code> (tidyverse)</td>
+</tr>
+<tr class="even">
+<td>Requires same cols?</td>
+<td>✅ Yes</td>
+<td>❌ No</td>
+</tr>
+<tr class="odd">
+<td>Fills missing cols</td>
+<td>❌ Error</td>
+<td>✅ With <code>NA</code></td>
+</tr>
+<tr class="even">
+<td>Ideal use case</td>
+<td>Controlled data</td>
+<td>Flexible data wrangling</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<p><strong>Tip</strong></p>
+<ul>
+<li>Use <code>rbind()</code> if you’re sure the data frames have identical structure.</li>
+<li>Use <code>bind_rows()</code> for robust and flexible row-binding, especially in pipelines.</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="converting-crash-data-to-sf-object" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="converting-crash-data-to-sf-object"><span class="header-section-number">2.3</span> Converting crash data to <code>sf</code> object</h2>
+<p>To enable spatial operations, we need to convert our crash data into an sf (simple features) object:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating geographic crash data</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This converts the data frame into a spatial object with point geometries</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>crashes_sf <span class="ot">=</span> <span class="fu">format_sf</span>(crashes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>93 rows removed with no coordinates</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crashes_sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 36 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: 524920 ymin: 172463 xmax: 540188 ymax: 185266
+Projected CRS: OSGB36 / British National Grid
+# A tibble: 6 × 37
+  accident_index accident_year accident_reference longitude latitude
+  &lt;chr&gt;                  &lt;int&gt; &lt;chr&gt;                  &lt;int&gt;    &lt;int&gt;
+1 2019010128300           2019 010128300                 NA       NA
+2 2019010152270           2019 010152270                 NA       NA
+3 2019010155191           2019 010155191                 NA       NA
+4 2019010155192           2019 010155192                 NA       NA
+5 2019010155194           2019 010155194                 NA       NA
+6 2019010155195           2019 010155195                 NA       NA
+# ℹ 32 more variables: police_force &lt;chr&gt;, accident_severity &lt;chr&gt;,
+#   number_of_vehicles &lt;chr&gt;, number_of_casualties &lt;chr&gt;, date &lt;date&gt;,
+#   day_of_week &lt;chr&gt;, time &lt;chr&gt;, local_authority_district &lt;chr&gt;,
+#   local_authority_ons_district &lt;chr&gt;, local_authority_highway &lt;chr&gt;,
+#   first_road_class &lt;chr&gt;, first_road_number &lt;chr&gt;, road_type &lt;chr&gt;,
+#   speed_limit &lt;chr&gt;, junction_detail &lt;chr&gt;, junction_control &lt;chr&gt;,
+#   second_road_class &lt;chr&gt;, second_road_number &lt;chr&gt;, …</code></pre>
+</div>
+</div>
+<p>The <code>format_sf()</code> function from the <code>stats19</code> package converts the crash coordinates into a spatial object. The note you see indicates that rows with missing coordinate values are automatically removed, as spatial objects cannot have <code>NA</code> values for coordinates/geometry.</p>
+</section>
+<section id="filtering-for-west-yorkshire" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="filtering-for-west-yorkshire"><span class="header-section-number">2.4</span> Filtering for West Yorkshire</h2>
+<p>We’ll now filter the crash data to include only incidents that occurred within the West Yorkshire police force area:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter crashes to only those that occurred in West Yorkshire</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>crashes_wy <span class="ot">=</span> crashes_sf <span class="sc">|&gt;</span> <span class="fu">filter</span>(police_force <span class="sc">==</span> <span class="st">"West Yorkshire"</span>)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Compare the number of rows before and after filtering</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This shows how many crashes occurred in West Yorkshire vs. the whole dataset</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(crashes_sf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 519991</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(crashes_wy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 18912</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="spatial-joins" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Spatial joins</h1>
+<section id="what-is-a-spatial-join" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="what-is-a-spatial-join"><span class="header-section-number">3.1</span> What is a spatial join?</h2>
+<p>A <strong>spatial join</strong> combines two spatial datasets based on their <strong>geographic relationship</strong> — e.g., whether one geometry <strong>intersects</strong>, <strong>contains</strong>, or is <strong>within</strong> another.</p>
+<p>In R, we use the <strong><code>sf</code> package</strong> to handle spatial joins with functions like:</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">st_join</span>(x, y, <span class="at">join =</span> st_intersects)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><code>x</code>: the primary spatial object (e.g.&nbsp;point or line data)</li>
+<li><code>y</code>: the reference spatial object (e.g.&nbsp;polygons)</li>
+<li><code>st_intersects</code>, <code>st_within</code>, <code>st_contains</code>, etc. define the spatial relationship</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Spatial relations (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://r.geocompx.org/figures/relations-1.png" class="img-fluid figure-img"></p>
+<figcaption>Topological relations between vector geometries, inspired by Figures 1 and 2 in Egenhofer and Herring (1990). The relations for which the function(x, y) is true are printed for each geometry pair, with x represented in pink and y represented in blue. The nature of the spatial relationship for each pair is described by the Dimensionally Extended 9-Intersection Model string.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><strong>Why is it useful in transport data science?</strong></p>
+<p>Spatial joins are <strong>essential tools</strong> in transport data science for:</p>
+<ul>
+<li>Mapping transport observations (e.g.&nbsp;crashes, stops, GPS traces) to zones or regions</li>
+<li>Enriching data with attributes from other layers (e.g.&nbsp;population, accessibility, land use)</li>
+<li>Aggregating or summarising transport data by spatial units</li>
+</ul>
+<p>They allow you to <strong>combine spatially referenced datasets</strong> in meaningful ways to gain insights and build models. We’ll use this technique to identify which LSOA each crash occurred in.</p>
+<hr>
+</section>
+<section id="loading-lsoa-boundary-data" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="loading-lsoa-boundary-data"><span class="header-section-number">3.2</span> Loading LSOA boundary data</h2>
+<p>First, we load the LSOA (Lower Super Output Area) boundaries for West Yorkshire:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the 2021 LSOA boundary data for West Yorkshire</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>lsoa_wy <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson"</span>)</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Retain only useful variables: LSOA code (lsoa21cd) and LSOA name (lsoa21nm)</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>lsoa_wy <span class="ot">=</span> lsoa_wy <span class="sc">|&gt;</span> <span class="fu">select</span>(lsoa21cd, lsoa21nm) </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the structure of the data to understand what we're working with</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(lsoa_wy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,404
+Columns: 3
+$ lsoa21cd &lt;chr&gt; "E01010568", "E01010569", "E01010570", "E01010571", "E0101057…
+$ lsoa21nm &lt;chr&gt; "Bradford 016A", "Bradford 016B", "Bradford 018A", "Bradford …
+$ geometry &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((416422.2 43..., MULTIPOLYGON (((…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># How many LSOAs are in our dataset?</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The cat() function in R is short for “concatenate and print”</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of LSOAs in West Yorkshire:"</span>, <span class="fu">nrow</span>(lsoa_wy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of LSOAs in West Yorkshire: 1404</code></pre>
+</div>
+</div>
+<p>LSOAs are small geographic areas in the UK designed for reporting census and other neighborhood statistics. Each LSOA typically contains 400-1,200 households, and usually have a resident population of 1,000-3,000 people. We’re using the 2021 LSOA boundaries, which align with the most recent UK Census.</p>
+</section>
+<section id="performing-a-spatial-join" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="performing-a-spatial-join"><span class="header-section-number">3.3</span> Performing a Spatial Join</h2>
+<p>Now we’ll perform a spatial join to determine which LSOA each crash occurred in:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform spatial join to determine which LSOA each crash occurred in</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This adds LSOA information to each crash point</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>crashes_in_lsoa <span class="ot">=</span> <span class="fu">st_join</span>(lsoa_wy, crashes_wy)</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check which columns were added from the LSOA dataset</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># setdiff finds column names that are new in crashes_in_lsoa</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>added_columns <span class="ot">=</span> <span class="fu">setdiff</span>(<span class="fu">colnames</span>(crashes_in_lsoa), <span class="fu">colnames</span>(crashes_wy))</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="co"># The collapse argument is used in the paste() function,</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="co"># and it controls how to combine multiple elements into a single string. </span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we add ", " between elements</span></span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Columns added from LSOA data:"</span>, <span class="fu">paste</span>(added_columns, <span class="at">collapse=</span><span class="st">", "</span>),<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Columns added from LSOA data: lsoa21cd, lsoa21nm </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if any crashes couldn't be assigned to an LSOA</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>na_lsoa <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(crashes_in_lsoa<span class="sc">$</span>lsoa21cd))</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of crashes not matching any LSOA:"</span>, na_lsoa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of crashes not matching any LSOA: 0</code></pre>
+</div>
+</div>
+<p>The <code>st_join()</code> function links each crash point to the LSOA polygon that contains it. By default, it performs a “within” operation, checking if each point in the first dataset falls within any polygon in the second dataset. After this operation, each crash record will have additional columns from the LSOA dataset, including the LSOA code and name.</p>
+<p>We use the <code>setdiff()</code> function to find column names that are new in crashes_in_lsoa — i.e., the ones that come from lsoa_wy.</p>
+</section>
+<section id="aggregating-crashes-by-lsoa" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="aggregating-crashes-by-lsoa"><span class="header-section-number">3.4</span> Aggregating Crashes by LSOA</h2>
+<p>Next, we’ll aggregate the crash data to count how many crashes of each severity occurred in each LSOA:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Aggregate crash data by LSOA, counting crashes of each severity</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>lsoa_crashes_count <span class="ot">=</span> crashes_in_lsoa <span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Remove geometry column as we only need tabular data for aggregation</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_drop_geometry</span>() <span class="sc">|&gt;</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Group by LSOA identifiers</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(lsoa21cd) <span class="sc">|&gt;</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Count crashes by severity level</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">all_crashes_n =</span> <span class="fu">n</span>(),                                <span class="co"># Total number of crashes</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">fatal_crashes_n =</span> <span class="fu">sum</span>(accident_severity <span class="sc">==</span> <span class="st">"Fatal"</span>),      <span class="co"># Number of fatal crashes</span></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">serious_crashes_n =</span> <span class="fu">sum</span>(accident_severity <span class="sc">==</span> <span class="st">"Serious"</span>),  <span class="co"># Number of serious crashes</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">slight_crashes_n =</span> <span class="fu">sum</span>(accident_severity <span class="sc">==</span> <span class="st">"Slight"</span>)     <span class="co"># Number of slight crashes</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows of the aggregated data</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_crashes_count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 5
+  lsoa21cd  all_crashes_n fatal_crashes_n serious_crashes_n slight_crashes_n
+  &lt;chr&gt;             &lt;int&gt;           &lt;int&gt;             &lt;int&gt;            &lt;int&gt;
+1 E01010568             9               0                 0                9
+2 E01010569             4               0                 2                2
+3 E01010570             2               0                 0                2
+4 E01010571            27               0                 7               20
+5 E01010572             5               1                 3                1
+6 E01010573            15               1                 5                9</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="key-based-joins" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Key-Based Joins</h1>
+<p>In addition to spatial joins, we often need to join datasets based on common identifiers or keys. This is particularly useful for combining spatial data with non-spatial attributes.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recap - join functions (click to expand)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>The <strong><code>dplyr</code> package</strong> provides a family of intuitive join functions:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 55%">
+<col style="width: 20%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Join Type</th>
+<th>Function</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Inner Join</strong></td>
+<td><code>inner_join(df1, df2, by = "key")</code></td>
+<td>Keeps only matching rows in both datasets.</td>
+</tr>
+<tr class="even">
+<td><strong>Left Join</strong></td>
+<td><code>left_join(df1, df2, by = "key")</code></td>
+<td>Keeps all rows from <code>df1</code>, adds matching rows from <code>df2</code>.</td>
+</tr>
+<tr class="odd">
+<td><strong>Right Join</strong></td>
+<td><code>right_join(df1, df2, by = "key")</code></td>
+<td>Keeps all rows from <code>df2</code>, adds matching rows from <code>df1</code>.</td>
+</tr>
+<tr class="even">
+<td><strong>Full Join</strong></td>
+<td><code>full_join(df1, df2, by = "key")</code></td>
+<td>Keeps all rows from both datasets.</td>
+</tr>
+<tr class="odd">
+<td><strong>Semi Join</strong></td>
+<td><code>semi_join(df1, df2, by = "key")</code></td>
+<td>Keeps rows from <code>df1</code> that have matches in <code>df2</code>.</td>
+</tr>
+<tr class="even">
+<td><strong>Anti Join</strong></td>
+<td><code>anti_join(df1, df2, by = "key")</code></td>
+<td>Keeps rows from <code>df1</code> that do <strong>not</strong> have matches in <code>df2</code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<section id="joining-aggregated-crash-count-data-to-lsoa-boundaries" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="joining-aggregated-crash-count-data-to-lsoa-boundaries"><span class="header-section-number">4.1</span> Joining aggregated crash count data to LSOA Boundaries</h2>
+<p>Now we’ll join the aggregated crash counts back to the LSOA boundary data:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join crash count data back to LSOA boundaries</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This preserves the spatial information while adding the crash statistics</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>lsoa_crashes_wy <span class="ot">=</span> lsoa_wy <span class="sc">|&gt;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(lsoa_crashes_count, <span class="at">by =</span> <span class="st">"lsoa21cd"</span>) </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the columns in our joined dataset</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(lsoa_crashes_wy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "lsoa21cd"          "lsoa21nm"          "geometry"         
+[4] "all_crashes_n"     "fatal_crashes_n"   "serious_crashes_n"
+[7] "slight_crashes_n" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NA values with 0 for LSOAs that had no crashes</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>lsoa_crashes_wy <span class="ot">=</span> lsoa_crashes_wy <span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">c</span>(all_crashes_n, fatal_crashes_n, serious_crashes_n, slight_crashes_n), </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>                <span class="sc">~</span><span class="fu">replace_na</span>(., <span class="dv">0</span>)))</span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Count how many LSOAs had zero crashes</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>zero_crash_lsoas <span class="ot">=</span> <span class="fu">sum</span>(lsoa_crashes_wy<span class="sc">$</span>all_crashes_n <span class="sc">==</span> <span class="dv">0</span>)</span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of LSOAs with zero recorded crashes:"</span>, zero_crash_lsoas, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of LSOAs with zero recorded crashes: 0 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Percentage of LSOAs with zero crashes:"</span>, <span class="fu">round</span>((zero_crash_lsoas<span class="sc">/</span><span class="fu">nrow</span>(lsoa_crashes_wy))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Percentage of LSOAs with zero crashes: 0 %</code></pre>
+</div>
+</div>
+<p>We use <code>left_join()</code> to preserve all LSOAs, even those with no crashes. The <code>by</code> parameter specifies the columns to use for matching rows between the datasets. After this join, we have the spatial boundaries with the crash counts attached.</p>
+<p>We also replace NA values with 0 for LSOAs that had no crashes, and calculate how many LSOAs had zero crashes recorded.</p>
+<p><strong>Question</strong>: What happens if you use right_join() instead?</p>
+</section>
+<section id="loading-census-population-data" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="loading-census-population-data"><span class="header-section-number">4.2</span> Loading census population data</h2>
+<p>We’ll now load census population data for the LSOAs, the census data is obtained from <a href="https://www.nomisweb.co.uk/datasets/c2021ts001">nomis</a>, specifically the <strong>Number of usual residents in households and communal establishments</strong> in each LSOA. The data has been further cleaned for better processing.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Load 2021 Census population data for LSOAs</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>pop_lsoa <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p6-census2021_lsoa_pop.csv"</span>)</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the first few rows</span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(pop_lsoa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+  lsoa21cd  lsoa21nm          pop
+  &lt;chr&gt;     &lt;chr&gt;           &lt;dbl&gt;
+1 E01011954 Hartlepool 001A  2284
+2 E01011969 Hartlepool 001B  1344
+3 E01011970 Hartlepool 001C  1070
+4 E01011971 Hartlepool 001D  1323
+5 E01033465 Hartlepool 001F  1955
+6 E01033467 Hartlepool 001G  2264</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic summary statistics of the population data</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(pop_lsoa<span class="sc">$</span>pop)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+    996    1440    1605    1671    1833    9899 </code></pre>
+</div>
+</div>
+<p>This dataset contains population figures from the 2021 UK Census for each LSOA in England and Wales.</p>
+</section>
+<section id="joining-population-data" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="joining-population-data"><span class="header-section-number">4.3</span> Joining population data</h2>
+<p>Next, we’ll join the population data to our LSOA crash data using the LSOA codes and names as keys:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join population data to our LSOA crash data</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>lsoa_crashes_wy <span class="ot">=</span> lsoa_crashes_wy <span class="sc">|&gt;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(pop_lsoa, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"lsoa21cd"</span>, <span class="st">"lsoa21nm"</span>))</span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the first few rows of our joined dataset</span></span>
+<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(lsoa_crashes_wy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 7 fields
+Geometry type: MULTIPOLYGON
+Dimension:     XY
+Bounding box:  xmin: 412793.8 ymin: 437902.1 xmax: 417449.3 ymax: 441428.7
+Projected CRS: OSGB36 / British National Grid
+# A tibble: 6 × 8
+  lsoa21cd  lsoa21nm                      geometry all_crashes_n fatal_crashes_n
+  &lt;chr&gt;     &lt;chr&gt;               &lt;MULTIPOLYGON [m]&gt;         &lt;int&gt;           &lt;int&gt;
+1 E01010568 Bradford 01… (((416422.2 439366.3, 41…             9               0
+2 E01010569 Bradford 01… (((415369 439212.5, 4153…             4               0
+3 E01010570 Bradford 01… (((414005.3 439379, 4141…             2               0
+4 E01010571 Bradford 01… (((415768.6 438654.7, 41…            27               0
+5 E01010572 Bradford 01… (((415616.8 439194.6, 41…             5               1
+6 E01010573 Bradford 01… (((414068.4 441337, 4140…            15               1
+# ℹ 3 more variables: serious_crashes_n &lt;int&gt;, slight_crashes_n &lt;int&gt;,
+#   pop &lt;dbl&gt;</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if we have any missing population values after the join</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>missing_pop <span class="ot">=</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(lsoa_crashes_wy<span class="sc">$</span>pop))</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of LSOAs with missing population data:"</span>, missing_pop, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Number of LSOAs with missing population data: 0 </code></pre>
+</div>
+</div>
+<p>This operation adds the population data to our existing dataset, allowing us to calculate per-capita crash rates.</p>
+</section>
+</section>
+<section id="creating-new-metrics" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> Creating new metrics</h1>
+<p>With our datasets joined, we can now create (<code>mutate()</code>) new metrics that provide more insight than the raw counts.</p>
+<section id="calculating-crashes-per-person" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="calculating-crashes-per-person"><span class="header-section-number">5.1</span> Calculating Crashes Per Person</h2>
+<p>We’ll calculate the number of crashes per person for each LSOA:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate crashes per person for each LSOA</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>lsoa_crashes_wy <span class="ot">=</span> lsoa_crashes_wy <span class="sc">|&gt;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Crashes per person (raw rate)</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">crash_pp =</span> all_crashes_n<span class="sc">/</span>pop,</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Crashes per 1000 people (more intuitive scale)</span></span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">crash_per_1000 =</span> crash_pp <span class="sc">*</span> <span class="dv">1000</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Proportion of crashes that were fatal or serious</span></span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">severity_ratio =</span> (fatal_crashes_n <span class="sc">+</span> serious_crashes_n) <span class="sc">/</span> all_crashes_n</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Replace NaN values in severity_ratio (from dividing by zero)</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>lsoa_crashes_wy<span class="sc">$</span>severity_ratio[<span class="fu">is.nan</span>(lsoa_crashes_wy<span class="sc">$</span>severity_ratio)] <span class="ot">=</span> <span class="dv">0</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics of our derived metrics</span></span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_crashes_wy<span class="sc">$</span>crash_pp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+0.0005053 0.0031756 0.0057412 0.0079535 0.0096852 0.0706781 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_crashes_wy<span class="sc">$</span>crash_per_1000)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.5053  3.1756  5.7412  7.9535  9.6852 70.6781 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_crashes_wy<span class="sc">$</span>severity_ratio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ 0.0000  0.1534  0.2500  0.2696  0.3640  1.0000 </code></pre>
+</div>
+</div>
+<p>These derived metrics normalize the crash counts by population, allowing for more meaningful comparisons between areas with different population sizes. Areas with higher values have more crashes relative to their population.</p>
+</section>
+</section>
+<section id="visualisation" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Visualisation</h1>
+<p>Finally, let’s visualise our results using the tmap package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set tmap mode to static plotting</span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a more intuitive map showing crashes per 1000 people</span></span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>map_crashes_per_1000 <span class="ot">=</span> <span class="fu">tm_shape</span>(lsoa_crashes_wy) <span class="sc">+</span></span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"crash_per_1000"</span>,</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">title =</span> <span class="st">"Crashes per 1000 People"</span>,</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">palette =</span> <span class="st">"Reds"</span>,</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">border.alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">title =</span> <span class="st">"Road Crash Rates in West Yorkshire (2019-2023)"</span>,</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">title.size =</span> <span class="fl">0.9</span>,</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">title.fontface =</span> <span class="st">"bold"</span>,</span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"center"</span>),</span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.text.size =</span> <span class="fl">0.6</span>,</span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title.size =</span> <span class="fl">0.8</span>,</span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">inner.margins =</span> <span class="fu">c</span>(<span class="fl">0.02</span>,<span class="fl">0.02</span>,<span class="fl">0.1</span>, <span class="fl">0.4</span>), <span class="co"># bottom,left,top,right</span></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>            <span class="at">outer.margins =</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>))</span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the map</span></span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a>map_crashes_per_1000</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a map showing the severity ratio</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>map_severity <span class="ot">=</span> <span class="fu">tm_shape</span>(lsoa_crashes_wy) <span class="sc">+</span></span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>(<span class="at">col =</span> <span class="st">"severity_ratio"</span>,</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>              <span class="at">title =</span> <span class="st">"Proportion of </span><span class="sc">\n</span><span class="st">Fatal/Serious Crashes"</span>,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">palette =</span> <span class="st">"Purples"</span>,</span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">border.alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">title =</span> <span class="st">"Crash Severity in West Yorkshire (2019-2023)"</span>,</span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">title.size =</span> <span class="fl">0.9</span>,</span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>            <span class="at">title.fontface =</span> <span class="st">"bold"</span>,</span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.position =</span> <span class="fu">c</span>(<span class="st">"right"</span>, <span class="st">"center"</span>),</span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.text.size =</span> <span class="fl">0.6</span>,</span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.title.size =</span> <span class="fl">0.8</span>,</span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb48-14"><a href="#cb48-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">legend.outside.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb48-15"><a href="#cb48-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">inner.margins =</span> <span class="fu">c</span>(<span class="fl">0.02</span>,<span class="fl">0.02</span>,<span class="fl">0.1</span>, <span class="fl">0.5</span>), <span class="co"># bottom,left,top,right</span></span>
+<span id="cb48-16"><a href="#cb48-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">outer.margins =</span> <span class="fu">c</span>(<span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>, <span class="fl">0.02</span>))</span>
+<span id="cb48-17"><a href="#cb48-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-18"><a href="#cb48-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the map</span></span>
+<span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>map_severity</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>These maps create choropleth visualizations where: - Each LSOA is colored according to its crash rate or severity ratio - The color palettes use darker colors to indicate higher values</p>
+</section>
+<section id="references" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> References</h1>
+<ul>
+<li>Lovelace, R., Morgan, M., Talbot, J., &amp; Lucas-Smith, M. (2020). stats19: A package for working with open road crash data. Journal of Open Source Software, 5(47), 1181. https://doi.org/10.21105/joss.01181</li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
