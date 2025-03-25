@@ -1,5 +1,5 @@
 ---
-title: "Practical 6: Joining and Combining Datasets"
+title: "Practical 6: Joins and aggregations"
 bibliography: ../tds.bib
 toc: true
 execute: 
@@ -8,7 +8,7 @@ execute:
 
 # Introduction
 
-In this practical session, we will explore techniques for joining and combining datasets in R, particularly for spatial data. We'll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this practical, you'll learn:
+In this practical session, we will explore techniques for joining, combining and aggregating datasets in R, particularly for spatial data. We'll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this practical, you'll learn:
 
 1. How to perform spatial joins between point and polygon data
 2. How to join tables using common identifiers (key-based joins)
