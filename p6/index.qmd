@@ -255,10 +255,10 @@ lsoa_crashes_count = crashes_in_lsoa |>
   group_by(lsoa21cd) |>
   # Count crashes by severity level
   summarise(
-    all_crashes_n = n(),                                # Total number of crashes
     fatal_crashes_n = sum(accident_severity == "Fatal"),      # Number of fatal crashes
     serious_crashes_n = sum(accident_severity == "Serious"),  # Number of serious crashes
-    slight_crashes_n = sum(accident_severity == "Slight")     # Number of slight crashes
+    slight_crashes_n = sum(accident_severity == "Slight"),     # Number of slight crashes
+    all_crashes_n = fatal_crashes_n + serious_crashes_n + slight_crashes_n # Total number of crashes
   )
 
 # Display the first few rows of the aggregated data
