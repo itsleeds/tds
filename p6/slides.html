@@ -10,8 +10,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Robin Lovelace">
-  <meta name="dcterms.date" content="2025-03-27">
-  <title>Transport Data Science – Introduction to transport data science</title>
+  <title>Transport Data Science – Joins and Aggregations in Transport Data Science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -29,27 +28,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
-    /* CSS for citations */
-    div.csl-bib-body { }
-    div.csl-entry {
-      clear: both;
-      margin-bottom: 0em;
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
     }
-    .hanging-indent div.csl-entry {
-      margin-left:2em;
-      text-indent:-2em;
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
     }
-    div.csl-left-margin {
-      min-width:2em;
-      float:left;
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
     }
-    div.csl-right-inline {
-      margin-left:2em;
-      padding-left:1em;
-    }
-    div.csl-indent {
-      margin-left: 2em;
-    }  </style>
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -147,9 +191,9 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-background-image="https://c1.staticflickr.com/2/1216/1096671706_571a263b63_b.jpg" data-background-opacity="0.5" data-background-size="contain" class="quarto-title-block center">
-  <h1 class="title">Introduction to transport data science</h1>
-  <p class="subtitle"><br>Module: Transport Data Science</p>
+<section id="title-slide" class="quarto-title-block center">
+  <h1 class="title">Joins and Aggregations in Transport Data Science</h1>
+  <p class="subtitle"><br>🗺<br>Transport Data Science</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
@@ -159,417 +203,91 @@ Robin Lovelace
 </div>
 </div>
 
-  <p class="date">2025-03-27</p>
-</section>
-<section id="who-transport-data-science-team" class="slide level2">
-<h2>Who: Transport Data Science team</h2>
-<h4 id="robin-lovelace">Robin Lovelace</h4>
-<ul>
-<li>Associate Professor of Transport Data Science</li>
-<li>Researching transport futures and active travel planning</li>
-<li>R developer and teacher, author of Geocomputation with R</li>
-</ul>
-<h4 id="yuanxuan-yang">Yuanxuan Yang</h4>
-<ul>
-<li>Lecturer in Data Science of Transport</li>
-<li>New and Emerging Forms of Data: Investigating novel data sources and their applications in urban mobility and transport planning. <!-- - Micromobility: Analyzing the role and impact of micromobility solutions, such as bike-sharing and e-scooters, on urban transport networks.
-    - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. --></li>
-</ul>
-</section>
-<section id="tds-team-ii" class="slide level2">
-<h2>TDS Team II</h2>
-<h4 id="malcolm-morgan">Malcolm Morgan</h4>
-<ul>
-<li>Senior researcher at ITS with expertise in routing + web</li>
-<li>Developer of the Propensity to Cycle Tool and <a href="https://www.carbon.place/#8/51.482/-0.151">PBCC</a></li>
-</ul>
-<h4 id="zhao-wang">Zhao Wang</h4>
-<ul>
-<li>Civil Engineer and Data Scientist with expertise in machine learning</li>
-</ul>
-<h4 id="demonstrators">Demonstrators</h4>
-<h4 id="you">You!</h4>
-</section>
-<section id="what-is-transport-data-science" class="slide level2">
-<h2>What is transport data science?</h2>
-<div>
-<ul>
-<li class="fragment">The application of data science to transport datasets and problems</li>
-<li class="fragment">Raising the question…</li>
-<li class="fragment">What is data science?</li>
-<li class="fragment">A discipline “that allows you to turn raw data into understanding, insight, and knowledge” (Grolemund, 2016)</li>
-</ul>
-<p>In other words…</p>
-<ul>
-<li class="fragment">Statistics that is actually useful!</li>
-</ul>
-</div>
-</section>
-<section id="why-take-transport-data-science" class="slide level2">
-<h2>Why take Transport Data Science</h2>
-<div class="columns">
-<div class="column" style="width:40%;">
-<div>
-<ul>
-<li class="fragment">New skills (cutting edge R and/or Python packages)</li>
-<li class="fragment">Potential for impacts</li>
-<li class="fragment">Allows you to do new things with data</li>
-<li class="fragment">It might get you a job!</li>
-</ul>
-</div>
-</div><div class="column" style="width:60%;">
-<div>
-
-</div>
-<div class="quarto-layout-panel" data-layout="[[1,2], [1]]">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
-<p><img data-src="https://r.geocompx.org/images/cover2.png"></p>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 66.7%;justify-content: center;">
-<p><img data-src="https://github.com/npct/pct-team/blob/master/figures/front-page-leeds-pct-demo.png?raw=true"></p>
-</div>
-</div>
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 100.0%;justify-content: center;">
-<p><img data-src="../slides/images/paste-17.png"></p>
-</div>
-</div>
-</div>
-</div></div>
-</section>
-<section id="example" class="slide level2">
-<h2>Example</h2>
-<p>Data science spin-out company: <a href="https://impactml.io/">ImpactML</a></p>
-<iframe src="https://impactml.io/" width="100%" height="600px">
-</iframe>
-</section>
-<section id="data-science-employability" class="slide level2">
-<h2>Data science employability</h2>
-<!-- ![](https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w) -->
-
-<!-- Local backup:
-wget https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png -O images/data_growth_time.png -->
-<img data-src="data_growth_time.png" class="r-stretch"><p>The Bureau of Labor Statistics in the US projects a 35% increase in data science roles in decade 2022-2032.” Source: <a href="https://www.visualizecuriosity.com/posts/data-science-job-market-2024">visualisecurious.com</a></p>
-</section>
-<section id="live-demo-npt.scot-web-app" class="slide level2">
-<h2>Live demo: <a href="https://nptscot.github.io/">npt.scot web app</a></h2>
-
-<img data-src="https://nptscot.github.io/images/rnet_filters.png" class="r-stretch"></section>
-<section id="the-history-of-tds" class="slide level2">
-<h2>The history of TDS</h2>
-<ul>
-<li><p>2017: Transport Data Science created, led by Dr Charles Fox, Computer Scientist, author of Transport Data Science book (Fox, 2018)</p></li>
-<li><p>The focus was on databases and Bayesian methods</p></li>
-<li><p>2019: I inherited the module, which was attended by ITS students</p></li>
-<li><p>Summer 2019: Python code published in the module ‘repo’:</p>
-<ul>
-<li><a href="https://github.com/ITSLeeds/TDS/tree/master/code-python">github.com/ITSLeeds</a></li>
-</ul></li>
-</ul>
-</section>
-<section id="history-of-tds-ii" class="slide level2">
-<h2>History of TDS II</h2>
-<ul>
-<li>January 2020: Available, Data Science MSc course</li>
-<li>March 2020: Switch to online teaching</li>
-<li>2021-2023: Updated module, focus on methods</li>
-<li>2024: Switch to combined practical sessions and lectures</li>
-<li>2025+: Expand, online course? book? stay in touch!</li>
-</ul>
-<blockquote class="twitter-tweet">
-<p lang="en" dir="ltr">
-</p><p>Milestone passed in my academic career, first online-only delivery of lecture <a href="https://twitter.com/ITSLeeds?ref_src=twsrc%5Etfw"><span class="citation" data-cites="ITSLeeds">(</span></a><a href="#/references" role="doc-biblioref" onclick=""><strong>ITSLeeds?</strong></a>), seems to have worked, live code demo with <a href="https://twitter.com/hashtag/rstats?src=hash&amp;ref_src=twsrc%5Etfw">#rstats</a>/<a href="https://twitter.com/rstudio?ref_src=twsrc%5Etfw">rstudio</a>, recording, chat + all🎉<br><br>Thanks students for ‘attending’ + remote participation, we’ll get through this together.<a href="https://twitter.com/hashtag/coronavirus?src=hash&amp;ref_src=twsrc%5Etfw">#coronavirus</a> <a href="https://t.co/wlAUxmZj5r">pic.twitter.com/wlAUxmZj5r</a></p>
-<p></p>
-<p>— Robin Lovelace <a href="https://twitter.com/robinlovelace/status/1239930988416897033?ref_src=twsrc%5Etfw">March 17, 2020</a></p>
-</blockquote>
-<script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-</section>
-<section id="reading-list" class="slide level2">
-<h2>Reading list</h2>
-<p>See the <a href="https://itsleeds.github.io/tds/reading.html">reading list</a> for details</p>
-<iframe src="https://itsleeds.github.io/tds/reading.html" width="100%" height="600px">
-</iframe>
+  <p class="date">Invalid Date</p>
 </section>
 <section id="objectives" class="slide level2">
 <h2>Objectives</h2>
-<!-- From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md): -->
 <ul>
-<li><p>Understand the structure of transport datasets</p></li>
-<li><p>Understand how to obtain, clean and store transport related data</p></li>
-<li><p>Gain proficiency in command-line tools for handling large transport datasets</p></li>
-<li><p>Produce data visualizations, static and interactive</p></li>
-<li><p><font color="red"> Learn how to join together the components of transport data science into a cohesive project portfolio </font></p></li>
+<li>Understand different types of joins (spatial and key-based)</li>
+<li>Learn how to perform spatial joins with sf and dplyr</li>
+<li>Apply aggregations to summarize data</li>
+<li>Visualize joined datasets</li>
 </ul>
-</section>
-<section id="assessment-for-those-doing-this-as-credit-bearing" class="slide level2">
-<h2>Assessment (for those doing this as credit-bearing)</h2>
-<ul>
-<li>You will build-up a portfolio of work</li>
-<li>100% coursework assessed, you will submit by</li>
-<li>Written in code - will be graded for reproducibility</li>
-<li>Code chunks and figures are encouraged</li>
-<li>You will submit a non-assessed 2 page pdf + qmd</li>
-</ul>
-</section>
-<section id="feedback" class="slide level2">
-<h2>Feedback</h2>
-<blockquote>
-<p>The module is taught by two really well organised and enthusiastic professors, great module, the seminars, structured and unstructured learning was great and well thought out, all came together well</p>
-</blockquote>
-<blockquote>
-<p>I wish this module was 60 credits instead of 15 because i just want more of it.</p>
-</blockquote>
-</section>
-<section id="timetable" class="slide level2">
-<h2>Timetable</h2>
-<p>See the <a href="https://itsleeds.github.io/tds/schedule.html">schedule</a> for details</p>
-<iframe src="https://itsleeds.github.io/tds/schedule.html" width="100%" height="400px">
-</iframe>
-</section>
-<section id="what-is-science" class="slide level2">
-<h2>What is science?</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li>Scientific knowledge is hypotheses that can be falsified</li>
-<li>Science is the process of <em>generating falsifiable hypotheses</em> and <em>testing them</em></li>
-<li>In a reproducible way</li>
-<li>Systematically</li>
-</ul>
-<p><img data-src="https://media3.giphy.com/media/3ohhworAhxSEHT3zDa/200w.webp?cid=3640f6095c57e8d15767723367d0c596"></p>
-</div><div class="column" style="width:50%;">
-<ul>
-<li>Falsifiability is central to the scientific process <span class="citation" data-cites="popper_logic_1959">(<a href="#/references" role="doc-biblioref" onclick="">Popper 1959</a>)</span></li>
-<li>All of which requires software conducive to reproducibility</li>
-</ul>
-<p><img data-src="https://duckduckgo.com/i/f2692e7b.jpg"></p>
-</div></div>
-</section>
-<section id="transport-planning-software" class="slide level2">
-<h2>Transport planning software</h2>
-<p>Transport modelling software products are a vital component of modern transport planning <em>and</em> research.</p>
-<ul>
-<li>They generate the evidence base on which strategic investments are made and, furthermore,</li>
-<li>provide a powerful mechanism for researching alternative futures.</li>
-</ul>
-<p>It would not be an overstatement to say that software determines the range of futures that are visible to policymakers. This makes status of transport modelling software and how it may evolve in the future important questions.</p>
-<p>What will transport software look like? What will their capabilities be? And who will control? Answers to each of these questions will affect the future of transport systems.</p>
-<ul>
-<li>Premise: transport planning/modelling software used in practice <del>will become</del> is becoming increasingly data-driven, modular and open.</li>
-</ul>
-</section>
-<section id="current-transport-software" class="slide level2">
-<h2>Current transport software</h2>
 <div class="cell">
-<div class="cell-output-display">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(sf)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(tmap)</span>
+<span id="cb1-4"><a></a><span class="fu">library</span>(stats19)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="what-is-a-join" class="slide level2">
+<h2>What is a Join?</h2>
 <div>
-<figure>
-<p><img data-src="https://www.robinlovelace.net/presentations/fourstage.png" height="500"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>4-stage model still dominates transport planning models (Boyce and Williams 2015)</p>
-</section>
-<section id="the-four-stage-model" class="slide level2">
-<h2>The four stage model</h2>
 <ul>
-<li><p>Impacts the current software landscape</p></li>
-<li><p>Dominated by a few proprietary products</p></li>
-<li><p>Limited support community online</p></li>
-<li><p>High degree of lock-in</p></li>
-<li><p>Limited cross-department collaboration</p></li>
+<li class="fragment"><strong>Combining datasets</strong> based on common attributes or spatial relationships</li>
+<li class="fragment"><strong>Spatial joins</strong>: Link points (e.g., crashes) to polygons (e.g., LSOAs) using geometry</li>
+<li class="fragment"><strong>Key-based joins</strong>: Match IDs across tables (e.g., LSOA codes)</li>
 </ul>
+</div>
 </section>
-<section id="existing-products" class="slide level2">
-<h2>Existing products</h2>
-<p>Sample of transport modelling software in use by practitioners. <!-- Note: citation counts based on searches for company/developer name, the product name and 'transport'. Data source: Google Scholar searches, October 2018. --></p>
+<section id="spatial-join-example" class="slide level2">
+<h2>Spatial Join Example</h2>
+<ol type="1">
+<li><strong>Load spatial datasets</strong>:</li>
+</ol>
 <div class="cell">
-<div class="cell-output-display">
-<table class="caption-top" data-quarto-postprocess="true">
-<thead>
-<tr class="header">
-<th style="text-align: left;" data-quarto-table-cell-role="th">Software</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Company/Developer</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Company HQ</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">Licence</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">Citations</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Visum</td>
-<td style="text-align: left;">PTV</td>
-<td style="text-align: left;">Germany</td>
-<td style="text-align: left;">Proprietary</td>
-<td style="text-align: right;">1810</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">MATSim</td>
-<td style="text-align: left;">TU Berlin</td>
-<td style="text-align: left;">Germany</td>
-<td style="text-align: left;">Open source (GPL)</td>
-<td style="text-align: right;">1470</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">TransCAD</td>
-<td style="text-align: left;">Caliper</td>
-<td style="text-align: left;">USA</td>
-<td style="text-align: left;">Proprietary</td>
-<td style="text-align: right;">1360</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">SUMO</td>
-<td style="text-align: left;">DLR</td>
-<td style="text-align: left;">Germany</td>
-<td style="text-align: left;">Open source (EPL)</td>
-<td style="text-align: right;">1310</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Emme</td>
-<td style="text-align: left;">INRO</td>
-<td style="text-align: left;">Canada</td>
-<td style="text-align: left;">Proprietary</td>
-<td style="text-align: right;">780</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Cube</td>
-<td style="text-align: left;">Citilabs</td>
-<td style="text-align: left;">USA</td>
-<td style="text-align: left;">Proprietary</td>
-<td style="text-align: right;">400</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">sDNA</td>
-<td style="text-align: left;">Cardiff University</td>
-<td style="text-align: left;">UK</td>
-<td style="text-align: left;">Open source (GPL)</td>
-<td style="text-align: right;">170</td>
-</tr>
-</tbody>
-</table>
-
-
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>path <span class="ot">&lt;-</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson"</span></span>
+<span id="cb2-2"><a></a>lsoa <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(path)</span>
+<span id="cb2-3"><a></a>crashes <span class="ot">&lt;-</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="st">"2023"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</div>
-</section>
-<section id="user-support" class="slide level2">
-<h2>User support</h2>
-<p>Getting help is vital for leaning/improving software</p>
-
-<img data-src="https://media.giphy.com/media/6HtgBlXu1TIac/giphy.gif" class="r-stretch"><p>“10-Hour Service Pack $2,000” (source: <a href="https://www.caliper.com/tcprice.htm">caliper.com/tcprice.htm</a>)</p>
-</section>
-<section id="online-communities" class="slide level2">
-<h2>Online communities</h2>
-<ul>
-<li><a href="https://gis.stackexchange.com/questions">gis.stackexchange.com</a> has 21,314 questions</li>
-<li><a href="http://r-sig-geo.2731867.n2.nabble.com/">r-sig-geo</a> has 1000s of posts</li>
-<li>RStudio’s Discourse community has 65,000+ posts already!</li>
-<li>No clear transport equivalent (e.g.&nbsp;earthscience.stackexchange.com is in beta)</li>
-<li>Solution: build our own community!
-<ul>
-<li>See https://github.com/ITSLeeds/TDS/issues for example</li>
-<li>Place for discussions: https://github.com/itsleeds/tds/discussions</li>
-</ul></li>
-</ul>
-</section>
-<section id="best-way-to-get-support-is-peer-to-peer" class="slide level2">
-<h2>Best way to get support is peer-to-peer:</h2>
-
-<img data-src="https://www.robinlovelace.net/presentations/rstudio-community.png" class="r-stretch"><p>Source: https://community.rstudio.com/about</p>
-</section>
-<section id="how-is-data-science-used-in-the-pct" class="slide level2">
-<h2>How is data science used in the PCT?</h2>
-<ul>
-<li>It’s all reproducible, e.g.:</li>
-<li>Find commuting desire lines in West Yorkshire between 1 and 3 km long in which more people drive than cycle:</li>
-</ul>
-</section>
-<section id="visualising-data" class="slide level2">
-<h2>Visualising data</h2>
-<p>A fundamental part of data science is being able to understand your data.</p>
-<p>That requires visualisation, R is great for that:</p>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-7-1.png" width="960" class="r-stretch"></section>
-<section id="interactively" class="slide level2">
-<h2>Interactively</h2>
-</section>
-<section id="processing-data-with-code" class="slide level2">
-<h2>Processing data with code</h2>
-<ul>
-<li><p>Now we have data in our computer, and verified it works, we can use it</p></li>
-<li><p>Which places are most car dependent?</p></li>
-</ul>
-</section>
-<section id="checking-the-results" class="slide level2">
-<h2>Checking the results:</h2>
-
-<img data-src="slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="960" class="r-stretch"></section>
-<section id="r-vs-python" class="slide level2">
-<h2>R vs Python</h2>
-<ul>
-<li>Lots of debate on this topic - see https://blog.usejournal.com/python-vs-and-r-for-data-science-833b48ccc91d</li>
-</ul>
-<p>How to decide?</p>
-<ul>
-<li>If priority: getting things done quick (with support from me ;) go with R</li>
-<li>If you already know Python and are <strong>100% confident you can generate reproducible results</strong>, go with that</li>
-<li>If you want to be avant-garde and try something else like Julia, do it (as long as it’s reproducible)</li>
-</ul>
-<p><img data-src="https://cdn-images-1.medium.com/max/1600/1*Mk54CziKpHi65sdlwBZcCg.png"></p>
-<h3 id="gamification">Gamification</h3>
+<ol start="2" type="1">
+<li><strong>Perform spatial join</strong>:</li>
+</ol>
 <div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="https://raw.githubusercontent.com/dabreegster/abstreet/master/book/exploring_traffic.gif"></p>
-</figure>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>joined <span class="ot">&lt;-</span> <span class="fu">st_join</span>(lsoa, crashes, <span class="at">join =</span> st_intersects)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<ol start="3" type="1">
+<li><strong>Aggregate results</strong>:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>agg_data <span class="ot">&lt;-</span> joined <span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a></a>  <span class="fu">group_by</span>(lsoa_id) <span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">summarize</span>(<span class="at">total_crashes =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="key-based-joins" class="slide level2">
+<h2>Key-Based Joins</h2>
+<p>Use <code>dplyr</code> functions like <code>left_join</code> to combine data by identifiers:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Example: Join crash counts with population data</span></span>
+<span id="cb5-2"><a></a>final <span class="ot">&lt;-</span> <span class="fu">left_join</span>(agg_data, pop_data, <span class="at">by =</span> <span class="st">"lsoa_id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</section>
+<section id="aggregations" class="slide level2">
+<h2>Aggregations</h2>
 <ul>
-<li>Completely open source, written in <a href="https://github.com/citybound/citybound">rust</a></li>
-<li>Source: video at https://github.com/dabreegster/abstreet/#ab-street</li>
+<li>Group data by spatial units (e.g., LSOA)</li>
+<li>Calculate metrics like <strong>crashes per capita</strong>:</li>
 </ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>final <span class="ot">&lt;-</span> final <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">mutate</span>(<span class="at">crashes_per_capita =</span> total_crashes <span class="sc">/</span> population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section id="summary" class="slide level2">
-<h2>Summary</h2>
-<ul>
-<li>Walk and understand the data before doing complex things</li>
-<li>Visualise the data, ask questions of it, descriptive stats</li>
-<li>Only then add complexity to your analysis</li>
-<li>Starting point for this: <a href="https://r.geocompx.org/transport.html">Transport chapter</a> of Geocomputation with R <span class="citation" data-cites="lovelace_geocomputation_2025">(<a href="#/references" role="doc-biblioref" onclick="">Lovelace, Nowosad, and Münchow 2025</a>)</span></li>
-</ul>
+<section id="visualization" class="slide level2">
+<h2>Visualization</h2>
+<p>Create maps to visualize crash patterns using <code>tmap</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<span id="cb7-2"><a></a><span class="fu">tm_shape</span>(final) <span class="sc">+</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">tm_polygons</span>(<span class="st">"crashes_per_capita"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
-<section>
-<section id="practical-session" class="title-slide slide level1 center">
-<h1>Practical session</h1>
-<!-- - Definition of transport data science -->
-<!-- - About you, level and hopes for the course -->
-<!-- - Thinking about research methods (you will need pens) -->
-<!-- - The structure of transport datasets -->
-<!--   - How cities are divided up into zones -->
-<!--   - Desire lines representing movement -->
-<!--   - Routes between locations -->
-<!--   - Route networks -->
-<!--   - Agents -->
-</section>
-<section class="slide level2">
-
-</section></section>
-<section id="references" class="title-slide slide level1 smaller scrollable">
-<h1>References</h1>
+<section id="references" class="slide level2">
+<h2>References</h2>
+<p>{references}</p>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-lovelace_geocomputation_2025" class="csl-entry" role="listitem">
-Lovelace, Robin, Jakub Nowosad, and Jannes Münchow. 2025. <em>Geocomputation with <span>R</span></em>. CRC Press. <a href="https://r.geocompx.org/">https://r.geocompx.org/</a>.
-</div>
-<div id="ref-popper_logic_1959" class="csl-entry" role="listitem">
-Popper, Karl. 1959. <em>The <span>Logic</span> of Scientific Discovery</em>. Hutchinson. <a href="http://books.google.com/books?id=MdvaSAAACAAJ&amp;pgis=1">http://books.google.com/books?id=MdvaSAAACAAJ&amp;pgis=1</a>.
-</div>
-</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
