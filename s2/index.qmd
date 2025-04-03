@@ -22,7 +22,7 @@ format:
 
 ## Make Things as Simple as Possible...but no Simpler
 
-The slides from [the talk are available here](Transport-Data-Science-20250319-final.pdf)
+The slides from [the talk are available here](https://github.com/itsleeds/tds/tree/main/s2/slides/)
 
 ![](images/WBD-whoami-01.png){width=720}
 
