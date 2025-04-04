@@ -22,7 +22,7 @@ format:
 
 ## Make Things as Simple as Possible...but no Simpler
 
-The slides from [the talk are available here](https://github.com/itsleeds/tds/tree/main/s2/slides/)
+The slides and high-resolution versions of some images from [the talk are available here](https://github.com/anisotropi4/shambles/tree/main/tds)
 
 ![](images/WBD-whoami-01.png){width=720}
 
