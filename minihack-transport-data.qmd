@@ -1,0 +1,83 @@
+---
+title: "Transport Data Minihack: Data Challenges"
+---
+
+# Introduction
+
+This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies staff, students and others interested in transport data.
+It will take place on the 8th May as a pre-event before a lecture on data science and is open to staff and students at the University of Leeds and Transport professions.
+<!-- See here to sign-up. -->
+
+## Objectives
+
+- Reactivate the Transport Data Science Hackathons
+- Facilitate learning and collaboration among participants
+- Outcomes for participants:
+    - Learning basics of packaging and modular coding
+    - Data wrangling with tidyverse
+    - Learning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data
+    - Demonstrate the potential of open data (transparency, participation, research) and reproducible/open work-flows.
+
+## Prerequisites
+
+- None: just an interest in transport data and a willingness to learn
+- Useful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the [Transport Data Science module](https://itsleeds.github.io/tds) for more details
+
+## Schedule
+
+- 13:00 - 13:30: Presentation of the challenges
+  - Transmilenio: Victor Cantillo García
+  - Bring your own data (BYD)
+    - 5 minute pitches by anyone who wants to work on their own data challenge
+- 13:30 - 14:00: Importing the data
+  - Installing any necessary packages
+  - Requesting support for any issues
+- 14:00 - 14:05: Break
+- 14:05 - 15:00: The hackathon
+- 15:15 - 15:45: Presentation of the results
+- 15:45 onwards: Networking and lecture (optional, see [ticketsource.us for tickets](https://www.ticketsource.com/whats-on/leeds/esther-simpson-building-lt-1-01/data-science-for-future-proof-transport-planning-inaugural-lecture-by-professor-robin-lovelace/2025-05-08/16:30/t-avnjvar))
+
+## Prizes
+
+The prize will be Geocomputation with Python or Geocomputation with R (second edition).
+Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):
+
+- Best technical implementation and code
+- Most creative or impactful use of data
+
+The presentations will be assessed by the organisers.
+
+# Data Challenges
+
+## Transmilenio data
+
+- TransMilenio (TM) is the organisation in charge of managing all components of Bogotá's integrated public transport system.
+- TM publishes a lot of their data for public use, in line with the open data policy of Bogotá.
+- Data includes:
+    - **Spatial:** GTFS, station location and lines of BRT, regular buses, and cable lines.
+    - **Counts:** Raw daily tap-in records, and aggregated boarding / alighting and exit counts by station and 15 minutes interval.
+
+### Motivation:
+
+- TM published [some useful maps](https://datosabiertos-transmilenio.hub.arcgis.com/apps/216b13bdc3d84370acac9ceac07836c8/explore) but they are not easily reproducible.
+- Accessing the data is not straightforward as the count information is saved in individual `.csv` files by day.
+
+### Goal:
+
+- Develop a set of functions that can be integrated into an R library to access and analyse the open data published by TM.
+
+## Origin destination data
+
+- See https://github.com/itsleeds/2021-census-od-data for 2021 OD data from the Census
+
+## Bring your own data
+
+Participants are welcome to bring their own data to the event.
+Please mention the dataset in the sign-up form (see link above).
+
+# Challenges
+
+- Write reproducible code for getting/analysing parts of the dataset to make it more reproducible.
+- Present a new case study using the data.
+- **Bonus:** Generalise some of your work by creating a well-documented script or function that can be used by others. The documentation can be with comments (any content preceded by the hashtag `#` symbol in `R` and `Python`) or (advanced) function documentation.
+- Create a visualation of the dataset to generate new insight or tell a story
