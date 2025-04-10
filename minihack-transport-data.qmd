@@ -6,7 +6,7 @@ title: "Transport Data Minihack: Data Challenges"
 
 This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies staff, students and others interested in transport data.
 It will take place on the 8th May as a pre-event before a lecture on data science and is open to staff and students at the University of Leeds and Transport professions.
-<!-- See here to sign-up. -->
+See [here to sign-up](https://forms.office.com/e/fpdE2MJHF5).
 
 ## Objectives
 
