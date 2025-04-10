@@ -12,6 +12,7 @@ The course has evolved over a decade of teaching and research in the field. It a
 
 Before taking this course, we expect you to have some experience with programming, data science, and general computing.
 While experience with geographic data is helpful, it is not required.
+See the [installation](https://itsleeds.github.io/tds/#software-requirements-and-installation) section below for details.
 
 ## Hardware 
 

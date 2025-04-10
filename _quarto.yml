@@ -27,12 +27,12 @@ website:
         text: Marking Criteria
       - href: reading.qmd
         text: Reading list
+      - href: minihack-transport-data.qmd
+        text: Transport Data Minihack 8th May
       - href: dstp.qmd
         text: Data Science for Transport Planning 2 day course
       - href: reproducible-road-safety-workshop.qmd
         text: Reproducible Road Safety Workshop
-      - href: minihack-transport-data.qmd
-        text: Transport Data Minihack
       - text: Practical sessions
         contents:
           - href: p1
