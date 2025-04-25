@@ -1,0 +1,61 @@
+---
+title: "Professional transport data science workflows and project work"
+subtitle: '<br/>🗺<br/>Transport Data Science'
+author: "The Transport Data Science Team"
+date: 'University of Leeds'
+format: revealjs
+bibliography: ../tds.bib
+execute: 
+  eval: false
+  echo: true
+---
+
+
+## Reminder on Coursework {.incremental}
+
+- When's the deadline?
+
+
+```{r}
+as.Date("2025-05-16")
+```
+
+
+- Remember the [marking criteria](https://itsleeds.github.io/tds/marking-criteria.html):
+
+
+## Data science workflows
+
+```{r, echo=FALSE, eval=FALSE}
+file.copy("https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png", "figures/r4ds-workflow.png")
+```
+
+Source: [R for Data Science](https://r4ds.had.co.nz/introduction.html) open source book
+
+
+![](https://d33wubrfki0l68.cloudfront.net/571b056757d68e6df81a3e3853f54d3c76ad6efc/32d37/diagrams/data-science.png)
+
+# Managing time and prioritising ([Source](https://csgillespie.github.io/efficientR/workflow.html))
+
+![](https://csgillespie.github.io/efficientR/_main_files/figure-html/4-1-1.png)
+
+
+
+## Questions to consider and discuss with the module team {.incremental}
+
+- What are the strongest aspects of your coursework idea so far? What are the weakest?
+- What are the priorities over the next three weeks (break it down into a small number of parts)?
+- What do you need to find more literature on?
+- What do you need more data on (you should have all the data already)?
+- What additional skills do you need (now is a good time to ask)?
+umes seem to be associated with lower uptake of cycling -->
+
+## Working on your projects
+
+- Plan ahead: what else do you need to do on your project?
+- Schedule work: when will you find time to do it?
+- Use Microsoft Calendar or similar: put it in the calendar.
+- Reproducibility: ensure your .Rmd files are reproducible
+- Ask for help: what do you need help with?
+- Work: get you head down and make use of this time!
+
