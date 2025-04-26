@@ -43,12 +43,13 @@ Source: [R for Data Science](https://r4ds.had.co.nz/introduction.html) open sour
 
 ## Questions to consider and discuss with the module team {.incremental}
 
+Around 1 hour for this, in parallel with solo working on projects, providing time for the module to talk to each student
+
 - What are the strongest aspects of your coursework idea so far? What are the weakest?
 - What are the priorities over the next three weeks (break it down into a small number of parts)?
 - What do you need to find more literature on?
 - What do you need more data on (you should have all the data already)?
 - What additional skills do you need (now is a good time to ask)?
-umes seem to be associated with lower uptake of cycling -->
 
 ## Working on your projects
 
