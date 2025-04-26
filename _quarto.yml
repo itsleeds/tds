@@ -53,6 +53,8 @@ website:
             text: Seminar 2
           - href: p6
             text: "Practical 6: Joins and aggregations"
+          - href: p7
+            text: "Practical 7: Project work"
 
       #       href: p5
       #       text: Practical 5
