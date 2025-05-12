@@ -1,5 +1,5 @@
 ---
-title: "Online Course Pitch: Mastering Transport Data Science"
+title: "Online Course Pitch: An Introduction to Transport Data Science"
 author: "Course Leader"
 format: html
 editor: visual
@@ -7,7 +7,7 @@ editor: visual
 
 ## Course Overview
 
-This 8-hour online course provides a comprehensive introduction to the exciting field of Transport Data Science. Students will learn the fundamental concepts, tools, and techniques to analyze transport data, gain insights, and contribute to smarter, more efficient, and sustainable transportation systems. The course is designed for individuals with a basic understanding of data concepts and an interest in the transport sector.
+This 8-hour online course provides a comprehensive introduction to the exciting field of Transport Data Science. Students will learn the fundamental concepts, tools, and techniques to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use free and open source data and digital tools to convert open access datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course is designed for people who have experience with data science and would like to apply their skills in the transport sector and for transport professionals and researchers to empower their work with data science.
 
 ## Syllabus (8 hours total)
 
@@ -16,7 +16,7 @@ This 8-hour online course provides a comprehensive introduction to the exciting 
 *   **Lecture (45 mins):**
     *   What is Transport Data Science?
     *   Importance and applications in the modern world.
-    *   Overview of data types in transport (e.g., GPS, ticketing, sensor, survey data).
+    *   Overview of data sources and types in transport planning
     *   Ethical considerations and data privacy.
 *   **Practical (30 mins):**
     *   Setting up the R/Python environment for transport data analysis.
