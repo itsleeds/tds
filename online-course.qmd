@@ -17,10 +17,10 @@ This 8-hour online course provides a comprehensive introduction to the exciting 
     *   What is Transport Data Science?
     *   Importance and applications in the modern world.
     *   Overview of data sources and types in transport planning
-    *   Ethical considerations and data privacy.
+    *   Key challenges and opportunities.
 *   **Practical (30 mins):**
     *   Setting up the R/Python environment for transport data analysis.
-    *   Introduction to key libraries (e.g., `sf`, `dplyr`, `ggplot2` in R; `pandas`, `geopandas`, `matplotlib` in Python).
+    *   Introduction to key packages and tools.
 *   **Test (15 mins):** Quiz on fundamental concepts.
 
 ### Module 2: Data Acquisition and Preprocessing (2 hours)
@@ -40,9 +40,10 @@ This 8-hour online course provides a comprehensive introduction to the exciting 
 *   **Lecture (60 mins):**
     *   Descriptive statistics for transport data.
     *   Visualizing transport patterns:
-        *   Flow maps
-        *   Heatmaps
-        *   Time-series plots
+        *   Transport network datasets
+        *   Flow maps with origin-destination data
+        *   Route assignment with routing engines
+        *   Network generation and network processing
     *   Introduction to network analysis concepts.
 *   **Practical (45 mins):**
     *   Performing EDA on a processed transport dataset.
@@ -51,17 +52,14 @@ This 8-hour online course provides a comprehensive introduction to the exciting 
 
 ### Module 4: Introduction to Transport Modelling and Case Studies (2.5 hours)
 
-*   **Lecture (75 mins):**
+*   **Lecture (30 mins):**
     *   Basic concepts of transport demand modelling.
-    *   Introduction to route choice analysis.
-    *   Predicting travel times and delays (overview).
-    *   Case studies:
-        *   Optimizing public transport schedules.
-        *   Analyzing road safety data.
-        *   Understanding micromobility trends.
-*   **Practical (45 mins):**
+    *   Distance decay and uptake functions.
+    *   Case study: Propensity to Cycle Tool (PCT) and its applications.
+
+*   **Practical (120 mins):**
     *   Working through a guided case study using a real-world (simplified) dataset.
-    *   Applying learned techniques to extract insights.
+
 *   **Test (30 mins):** Final project - a small data analysis task on a new dataset.
 
 ### Course Wrap-up and Next Steps (30 mins)
