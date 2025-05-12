@@ -1,6 +1,6 @@
 ---
 title: "Online Course Pitch: An Introduction to Transport Data Science"
-author: "Course Leader"
+author: "Robin Lovelace"
 format: html
 editor: visual
 ---
