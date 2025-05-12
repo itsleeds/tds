@@ -1,0 +1,87 @@
+---
+title: "Online Course Pitch: Mastering Transport Data Science"
+author: "Course Leader"
+format: html
+editor: visual
+---
+
+## Course Overview
+
+This 8-hour online course provides a comprehensive introduction to the exciting field of Transport Data Science. Students will learn the fundamental concepts, tools, and techniques to analyze transport data, gain insights, and contribute to smarter, more efficient, and sustainable transportation systems. The course is designed for individuals with a basic understanding of data concepts and an interest in the transport sector.
+
+## Syllabus (8 hours total)
+
+### Module 1: Introduction to Transport Data Science (1.5 hours)
+
+*   **Lecture (45 mins):**
+    *   What is Transport Data Science?
+    *   Importance and applications in the modern world.
+    *   Overview of data types in transport (e.g., GPS, ticketing, sensor, survey data).
+    *   Ethical considerations and data privacy.
+*   **Practical (30 mins):**
+    *   Setting up the R/Python environment for transport data analysis.
+    *   Introduction to key libraries (e.g., `sf`, `dplyr`, `ggplot2` in R; `pandas`, `geopandas`, `matplotlib` in Python).
+*   **Test (15 mins):** Quiz on fundamental concepts.
+
+### Module 2: Data Acquisition and Preprocessing (2 hours)
+
+*   **Lecture (60 mins):**
+    *   Sources of transport data (public APIs, open data portals, proprietary data).
+    *   Data cleaning techniques for common transport data issues (missing values, outliers, inconsistencies).
+    *   Data transformation and formatting.
+    *   Introduction to spatial data and coordinate reference systems.
+*   **Practical (45 mins):**
+    *   Downloading and importing a sample transport dataset.
+    *   Applying data cleaning and preprocessing steps.
+*   **Test (15 mins):** Short assignment on data cleaning.
+
+### Module 3: Exploratory Data Analysis (EDA) for Transport (2 hours)
+
+*   **Lecture (60 mins):**
+    *   Descriptive statistics for transport data.
+    *   Visualizing transport patterns:
+        *   Flow maps
+        *   Heatmaps
+        *   Time-series plots
+    *   Introduction to network analysis concepts.
+*   **Practical (45 mins):**
+    *   Performing EDA on a processed transport dataset.
+    *   Creating insightful visualizations.
+*   **Test (15 mins):** Quiz on EDA techniques and interpretation.
+
+### Module 4: Introduction to Transport Modelling and Case Studies (2.5 hours)
+
+*   **Lecture (75 mins):**
+    *   Basic concepts of transport demand modelling.
+    *   Introduction to route choice analysis.
+    *   Predicting travel times and delays (overview).
+    *   Case studies:
+        *   Optimizing public transport schedules.
+        *   Analyzing road safety data.
+        *   Understanding micromobility trends.
+*   **Practical (45 mins):**
+    *   Working through a guided case study using a real-world (simplified) dataset.
+    *   Applying learned techniques to extract insights.
+*   **Test (30 mins):** Final project - a small data analysis task on a new dataset.
+
+### Course Wrap-up and Next Steps (30 mins)
+
+*   **Lecture (30 mins):**
+    *   Recap of key learnings.
+    *   Further learning resources and communities.
+    *   Career opportunities in Transport Data Science.
+    *   Q&A.
+
+## Resourcing
+
+The development and initial delivery of this course is estimated as follows:
+
+*   **Course Leader:** 10 days
+    *   Curriculum design and content creation (lectures, practicals, assessments).
+    *   Recording lectures.
+    *   Overall project management.
+*   **PDRA (Post-Doctoral Research Associate):** 10 days
+    *   Developing practical exercises and solutions.
+    *   Sourcing and preparing datasets.
+    *   Assisting with content review and platform setup.
+    *   Initial TA support during first run.
