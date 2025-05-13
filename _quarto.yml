@@ -55,6 +55,8 @@ website:
             text: "Practical 6: Joins and aggregations"
           - href: p7
             text: "Practical 7: Project work"
+          - href: d3
+            text: Coursework submission
 
       #       href: p5
       #       text: Practical 5
