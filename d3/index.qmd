@@ -30,7 +30,7 @@ A good way to think about the project report is to imagine that you have worked 
 
 ## Assessment Criteria
 
-Marks will be awarded based on the marking criteria outlined in the [marking criteria document](../marking-criteria).
+Marks will be awarded based on the marking criteria outlined in the [marking criteria document](../marking-criteria.html).
 
 ## Technical Requirements
 
