@@ -5,6 +5,13 @@ format: html
 editor: visual
 ---
 
+```{r}
+#| echo: false
+#| eval: false
+# Export to docx
+quarto::quarto_render("online-course.qmd", output_format = "docx", output_file = "~/OneDrive - University of Leeds/career/shortcourses/online-course.docx")
+```
+
 ## Course Overview
 
 This 8-hour online course provides a comprehensive introduction to the exciting field of Transport Data Science. Students will learn the fundamental concepts, tools, and techniques to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use free and open source data and digital tools to convert open access datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course is designed for people who have experience with data science and would like to apply their skills in the transport sector and for transport professionals and researchers to empower their work with data science.
