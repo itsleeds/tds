@@ -1,11 +1,14 @@
 ---
 title: "Marking Criteria"
-format:
-  html:
-    theme: cerulean
 ---
 
-Marks are awarded in 4 categories, accounting for the following criteria:
+<!-- See the source code for this template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd). -->
+
+The report should be written as a Quarto document (`.qmd` file) and submitted as a .zip file containing the qmd file and rendered PDF file.
+See the template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd) for an example.
+
+
+Marks for the submitted report, are awarded in 4 categories, accounting for the following criteria:
 
 ### Data processing: 20%
 
