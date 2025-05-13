@@ -37,6 +37,8 @@ Marks will be awarded based on the marking criteria outlined in the [marking cri
 
 - Write the report in a Quarto document (`.qmd` file)
   - See the template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd).
+  <!-- https://itsleeds.github.io/tds/d2/template -->
+  - See the rendered results at [itsleeds.github.io/tds/d2/template](https://itsleeds.github.io/tds/d2/template) (html version) and [github.com/itsleeds/tds/releases/download/2025/template.pdf](https://github.com/itsleeds/tds/releases/download/2025/template.pdf) (pdf version)
 - Include all necessary code for reproducibility
 - Document any external data sources
 - Follow R coding style guidelines
