@@ -12,9 +12,68 @@ number-sections: false
 bibliography: references.bib
 ---
 
+```{r}
+#| eval: false
+#| echo: false
+# Code to export d2/template.qmd to template.pdf
+# Install tinytex, if not already installed:
+system("quarto install tinytex")
+# Render to PDF:
+quarto::quarto_render(
+  "d2/template.qmd",
+  output_format = "pdf",
+  output_file = "template.pdf"
+)
+list.files(pattern = "template.pdf", recursive = TRUE)
+# Upload as a release
+system("gh release list")
+system("gh release upload 2025 docs/template.pdf")
+```
+
+# TRAN5340M Data Science Coversheet {-}
+
+**Assignment title:**
+
+**Student ID:**
+
+**Word count:**
+
+**Lecturer:**
+
+**Submission Date:**
+
+**Semester:**
+
+**Academic Year:**
+
+**Generative AI Category:**
+
+Amber
+
+Use of Generative Use of Generative Artificial Intelligence (Gen AI) in this assessment – mark one box as appropriate: 
+
+- [ ] I have made no use of Gen AI
+- [ ] I have used Gen AI only for the specific purposes outlined in my acknowledgements
+
+By submitting the work to which this sheet is attached you confirm your compliance with the University’s definition of Academic Integrity as: “a commitment to good study practices and shared values which ensures that my work is a true expression of my own understanding and ideas, giving credit to others where their work contributes to mine”. Double-check that your referencing and use of quotations is consistent with this commitment.  
+
+{{< pagebreak >}}
+
 # Introduction
 
 [Write your introduction here, explaining the context and importance of your chosen topic]
+
+[
+Using this template:
+
+<!-- https://github.com/itsleeds/tds/blob/main/d2/template.qmd -->
+See the source code for this template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd).
+
+Note: the code in that files contains steps to render the file to PDF and create a .zip file for submission.
+
+See the [rendered PDF at github.com/itsleeds/tds/releases/download/2025/template.pdf](https://github.com/itsleeds/tds/releases/download/2025/template.pdf)
+
+]
 
 ## Working title
 
@@ -95,9 +154,9 @@ I rendered this document to a PDF file with the following command:
 ```{r}
 #| eval: false
 quarto::quarto_render(
-  "project-plan.qmd",
+  "submission.qmd",
   output_format = "pdf",
-  output_file = "project-plan.pdf"
+  output_file = "submission.pdf"
 )
 ```
 
@@ -110,5 +169,9 @@ zip(
   files = c("project-plan.qmd", "project-plan.pdf", "wy.gpkg")
 )
 ```
+
+{{< pagebreak >}}
+
+# Acknowledgements
 
 # References
