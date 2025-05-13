@@ -18,7 +18,8 @@ A good way to think about the project report is to imagine that you have worked 
 
 ## Key Requirements
 
-- **Length**: Maximum 10 pages (excluding references and appendices)
+- **Length**: Maximum 10 pages (excluding the [coversheet](https://leeds365-my.sharepoint.com/:w:/g/personal/georl_leeds_ac_uk/EV3pLJQl8HRMswfxm6sduyoBfOcmVx_UICdlkaPBQuiJPw?e=pipgZ6), references, acknowledgements and appendices)
+  - See the template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd), which includes the coversheet
 - **Word count**: Maximum 3,000 words (excluding tables, code, references, and captions)
 - **Format**: Submit both a PDF file and the source .qmd file in a .zip file
 - **File size**: Maximum 40 MB for the .zip file
