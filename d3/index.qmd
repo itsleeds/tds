@@ -34,7 +34,8 @@ Marks will be awarded based on the marking criteria outlined in the [marking cri
 
 ## Technical Requirements
 
-- Use R/RStudio with Quarto or RMarkdown
+- Write the report in a Quarto document (`.qmd` file)
+  - See the template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd).
 - Include all necessary code for reproducibility
 - Document any external data sources
 - Follow R coding style guidelines
