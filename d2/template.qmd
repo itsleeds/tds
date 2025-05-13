@@ -27,7 +27,7 @@ quarto::quarto_render(
 list.files(pattern = "template.pdf", recursive = TRUE)
 # Upload as a release
 system("gh release list")
-system("gh release upload 2025 docs/template.pdf")
+system("gh release upload 2025 docs/template.pdf --clobber")
 ```
 
 # TRAN5340M Data Science Coversheet {-}
