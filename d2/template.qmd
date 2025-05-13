@@ -149,10 +149,13 @@ Notes on how to reproduce this analysis are provided in the code chunks above. T
 
 You could include details on how you created the submitted zip file, e.g.:
 
-I rendered this document to a PDF file with the following command:
+You can render your report to a PDF file with the following commands:
 
 ```{r}
 #| eval: false
+# Install tinytex, enabling quarto to render to PDF:
+system("quarto install tinytex")
+
 quarto::quarto_render(
   "submission.qmd",
   output_format = "pdf",
@@ -160,7 +163,7 @@ quarto::quarto_render(
 )
 ```
 
-I created a zip file with the files needed to reproduce this analysis with the following command:
+You can create a zip file with the files needed to reproduce this analysis with the following command:
 
 ```{r}
 #| eval: false
