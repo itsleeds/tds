@@ -92,13 +92,20 @@ See the [rendered PDF at github.com/itsleeds/tds/releases/download/2025/template
 [Describe your planned analysis approach and include any preliminary data exploration]
 
 ```{r}
+#| label: install-packages
+#| include: false
+pkgs = c("tidyverse", "stats19", "sf", "nptscot/osmactive")
+# Install pak pkg if not already installed
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
+} 
+pak::pkg_install(pkgs)
+```
+
+```{r}
 #| include: false
 #| label: setup
 # Install required packages (update list as needed)
-pkgs = c("tidyverse", "stats19", "sf", "nptscot/osmactive")
-# Install pak pkg if not already installed
-if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
-pak::pkg_install(pkgs)
 library(tidyverse)
 library(stats19)
 library(osmactive)
