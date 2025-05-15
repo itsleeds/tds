@@ -103,6 +103,18 @@ pak::pkg_install(pkgs)
 ```
 
 ```{r}
+#| label: install-packages2
+#| include: false
+# Note: this is just to demonstrate an alternative way of installing packages
+# that are not currently installed (only works with packages that are on CRAN)
+pkgs = c("tidyverse", "stats19", "sf")
+installed_pkgs = installed.packages()
+if (!all(pkgs %in% installed_pkgs)) {
+  install.packages(pkgs[!pkgs %in% installed_pkgs])
+}
+```
+
+```{r}
 #| include: false
 #| label: setup
 # Install required packages (update list as needed)
