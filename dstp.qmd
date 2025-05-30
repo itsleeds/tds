@@ -3,7 +3,7 @@ title: "Data Science for Transport Planning: 2 day course"
 ---
 
 <!-- https://store.leeds.ac.uk/product-catalogue/environment/transport-studies/short-courses/0925dstp2-data-science-for-transport-planning -->
-## Note: tickets are now on sale! Get yours at [store.leeds.ac.uk](https://store.leeds.ac.uk/product-catalogue/environment/transport-studies/short-courses/0925dstp2-data-science-for-transport-planning) {-}
+## Note: tickets are now on sale! Get yours at [store.leeds.ac.uk](https://store.leeds.ac.uk/conferences-and-events/environment/institute-of-transport-studies/0925dstp2-data-science-for-transport-planning) {-}
 
 ## Course Overview
 
