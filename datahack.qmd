@@ -2,6 +2,19 @@
 title: "Transport Data Minihack 2026"
 ---
 
+
+```{r}
+#| eval: false
+#| echo: false
+#| label: docx
+quarto::quarto_render(
+  "datahack.qmd",
+  output_format = "docx",
+  output_file = "datahack-2026-for-comment.docx"
+)
+file.copy("docs/datahack-2026-for-comment.docx", "~/../OneDrive - University of Leeds/shortcourses", overwrite = TRUE)
+```
+
 # Introduction
 
 This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies (ITS) staff and students.
