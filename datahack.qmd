@@ -1,0 +1,58 @@
+---
+title: "Transport Data Minihack 2026"
+---
+
+# Introduction
+
+This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies (ITS) staff and students.
+It is also specifically designed to support ITS MSc students with their dissertation projects by providing a space to ask questions about importing, processing and visualising data.
+
+It will take place on Thursday 7th May 2026.
+It is open to staff and students at ITS.
+Contact the organisers (Robin Lovelace) if you are not based at the University of Leeds and would like to join in.
+
+See [here to sign-up](https://forms.office.com/e/A1ABvMuJAG).
+
+## Objectives
+
+- To create a supportive space for participants to ask questions about working with datasets in general and using data science techniques for working with transport datasets in particular
+- Get support importing datasets for MSc dissertations and other projects
+- Data wrangling with the `tidyverse` R package and other tools
+- Learning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data
+- Showcase the potential of open data (transparency, participation, research) and reproducible/open work-flows
+
+## Prerequisites
+
+- None: just an interest in transport data and a willingness to learn
+- Useful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the [Transport Data Science module](https://itsleeds.github.io/tds) for more details
+
+## Schedule
+
+- 13:00 - 13:30: Introduction to importing, processing and visualising data with RStudio
+  - An indroduction to RStudio
+  - An introduction to Quarto for reproducible reports
+  - An example with origin-destination data in Leeds
+- 13:30 - 14:00: Importing your datasets
+  - Installing any necessary packages
+  - Requesting support for any issues
+- 14:00 - 14:05: Break
+- 14:05 - 15:00: Solo working on your datasets, asking questions, and getting support
+- 15:15 - 15:45: Presentation of the results (optional for participants)
+  - An opportunity for participants to share what they learned
+- 15:45 - 16:00: Networking and sharing ideas
+
+## Prizes
+
+The prize will be Geocomputation with Python or Geocomputation with R (second edition).
+Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):
+
+- Best technical implementation and code
+- Most creative or impactful use of data
+
+The presentations will be assessed by the organisers.
+
+# Challenges
+
+- Write code to automatically download datasets used in your dissertation (if available online) and import them into RStudio
+- Subset the dataset to a particular area, time period or other criteria
+- Create a Quarto report with a summary of the data and analysis
