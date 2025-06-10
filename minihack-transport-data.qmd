@@ -1,16 +1,11 @@
 ---
-title: "Transport Data Minihack 2026"
+title: "Transport Data Minihack: Data Challenges"
 ---
 
 # Introduction
 
-This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies (ITS) staff and students.
-It is also specifically designed to support ITS MSc students with their dissertation projects by providing a space to ask questions about importing, processing and visualising data.
-
-It will take place on Thursday 7th May 2026.
-It is open to staff and students at ITS.
-Contact the organisers (Robin Lovelace) if you are not based at the University of Leeds and would like to join in.
-
+This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies staff and students. Please contact the organisers (Robin Lovelace) if you are not based at the University of Leeds and would like to join in.
+It will take place on the 8th May as a pre-event before a lecture on data science and is open to staff and students at the University of Leeds and Transport professions.
 See [here to sign-up](https://forms.office.com/e/fpdE2MJHF5).
 
 ## Objectives
