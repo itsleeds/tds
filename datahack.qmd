@@ -15,10 +15,9 @@ See [here to sign-up](https://forms.office.com/e/fpdE2MJHF5).
 
 ## Objectives
 
-- Reactivate the Transport Data Science Hackathons
 - Facilitate learning and collaboration among participants
 - Outcomes for participants:
-    - Learning basics of packaging and modular coding
+    - Get suppo
     - Data wrangling with tidyverse
     - Learning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data
     - Demonstrate the potential of open data (transparency, participation, research) and reproducible/open work-flows.
