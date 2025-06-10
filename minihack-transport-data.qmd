@@ -1,5 +1,5 @@
 ---
-title: "Transport Data Minihack: Data Challenges"
+title: "Transport Data Minihack 2026"
 ---
 
 # Introduction
