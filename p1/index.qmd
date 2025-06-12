@@ -28,13 +28,19 @@ execute:
 
 ## How to come up with a good research question {.unnumbered}
 
+<!-- TODO: create flow diagram representing the following -->
 - What knowldege gaps exist in relation to transport systems and decision making?
 - What problems need solving?
   - Who needs to know about the solutions?
   - How has the problem been tackled before?
   - What are the limitations of previous work and publications?
-- Think about the data you have access to
+- Think about the data is available
+  - Can avaialable datasets help answer the question or solve the problem? If not, you can revisit or rephrase the question
 - Think about the methods you want to use and skills you want to learn
+- Is it feasible to answer the question in the time available?
+  - Will you have access to the data you need?
+  - Will you have the skills to analyse the data?
+  - Will you have the skills to visualise and communicate the results?
 - Think about how the final report will look and how others could use and benefit from reading it
 
 #### How much potential is there for cycling across the transport network? {.unnumbered}
