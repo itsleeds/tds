@@ -1,0 +1,92 @@
+---
+title: "Online Course Pitch: An Introduction to Transport Data Science"
+author: "Robin Lovelace"
+format: html
+editor: visual
+---
+
+```{r}
+#| echo: false
+#| eval: false
+# Export to docx
+quarto::quarto_render("online-course.qmd", output_format = "docx", output_file = "~/OneDrive - University of Leeds/career/shortcourses/online-course.docx")
+```
+
+## Course Overview
+
+This 8-hour online course provides a comprehensive introduction to the exciting field of Transport Data Science. Students will learn the fundamental concepts, tools, and techniques to analyze transport datasets, gain insights, and add value. By the end of it, you will be empowered to use free and open source data and digital tools to convert open access datasets into actionable evidence for safer, healthier and more efficient transportation systems. The course is designed for people who have experience with data science and would like to apply their skills in the transport sector and for transport professionals and researchers to empower their work with data science.
+
+## Syllabus (8 hours total)
+
+### Module 1: Introduction to Transport Data Science (1.5 hours)
+
+*   **Lecture (45 mins):**
+    *   What is Transport Data Science?
+    *   Importance and applications in the modern world.
+    *   Overview of data sources and types in transport planning
+    *   Key challenges and opportunities.
+*   **Practical (30 mins):**
+    *   Setting up the R/Python environment for transport data analysis.
+    *   Introduction to key packages and tools.
+*   **Test (15 mins):** Quiz on fundamental concepts.
+
+### Module 2: Data Acquisition and Preprocessing (2 hours)
+
+*   **Lecture (60 mins):**
+    *   Sources of transport data (public APIs, open data portals, proprietary data).
+    *   Data cleaning techniques for common transport data issues (missing values, outliers, inconsistencies).
+    *   Data transformation and formatting.
+    *   Introduction to spatial data and coordinate reference systems.
+*   **Practical (45 mins):**
+    *   Downloading and importing a sample transport dataset.
+    *   Applying data cleaning and preprocessing steps.
+*   **Test (15 mins):** Short assignment on data cleaning.
+
+### Module 3: Exploratory Data Analysis (EDA) for Transport (2 hours)
+
+*   **Lecture (60 mins):**
+    *   Descriptive statistics for transport data.
+    *   Visualizing transport patterns:
+        *   Transport network datasets
+        *   Flow maps with origin-destination data
+        *   Route assignment with routing engines
+        *   Network generation and network processing
+    *   Introduction to network analysis concepts.
+*   **Practical (45 mins):**
+    *   Performing EDA on a processed transport dataset.
+    *   Creating insightful visualizations.
+*   **Test (15 mins):** Quiz on EDA techniques and interpretation.
+
+### Module 4: Introduction to Transport Modelling and Case Studies (2.5 hours)
+
+*   **Lecture (30 mins):**
+    *   Basic concepts of transport demand modelling.
+    *   Distance decay and uptake functions.
+    *   Case study: Propensity to Cycle Tool (PCT) and its applications.
+
+*   **Practical (120 mins):**
+    *   Working through a guided case study using a real-world (simplified) dataset.
+
+*   **Test (30 mins):** Final project - a small data analysis task on a new dataset.
+
+### Course Wrap-up and Next Steps (30 mins)
+
+*   **Lecture (30 mins):**
+    *   Recap of key learnings.
+    *   Further learning resources and communities.
+    *   Career opportunities in Transport Data Science.
+    *   Q&A.
+
+## Resourcing
+
+The development and initial delivery of this course is estimated as follows:
+
+*   **Course Leader:** 10 days
+    *   Curriculum design and content creation (lectures, practicals, assessments).
+    *   Recording lectures.
+    *   Overall project management.
+*   **PDRA (Post-Doctoral Research Associate):** 10 days
+    *   Developing practical exercises and solutions.
+    *   Sourcing and preparing datasets.
+    *   Assisting with content review and platform setup.
+    *   Initial TA support during first run.
