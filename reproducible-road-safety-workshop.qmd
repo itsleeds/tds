@@ -6,7 +6,7 @@ number-sections: false
 
 # Introduction
 
-This workshop will take place at the University of Leeds' Institute for Transport Studies (ITS) as part of the [RS5C conference](https://www.vti.se/en/rs5c) that runs from 3rd to 5th September 2025. The workshop takes place on the 2nd September 2025, 14:00-16:00, the day before the main conference starts.
+This workshop will take place at the University of Leeds' Institute for Transport Studies (ITS) as part of the [RS5C conference](https://www.vti.se/en/rs5c) that runs from 3rd to 5th September 2025. The workshop takes place on the 2nd September 2025, 13:00-16:00 (including 1 hour for a networking lunch), the day before the main conference starts.
 
 The workshop will cover the fundamentals of reproducible data science for road safety research, building on a decade's worth of experience working with road traffic casualty datasets for policy-relevant road safety research.
 The UK's open access STATS19 database will be the basis of the session but the skills learned will be applicable to any road safety datasets.
@@ -106,7 +106,14 @@ The session will build on the following resources, we recommend taking a read of
 
 # Where and when
 
-2nd September 2025, 14:00-16:00, Room 1.11, ITS, University of Leeds
+2nd September 2025, 13:00-16:00, Room 1.11, ITS, University of Leeds
+
+# Agenda
+
+- 13:00-14:00 Networking lunch
+- 14:00-14:15 Introduction to reproducible research for road traffic harm reduction research (Robin Lovelace, University of Leeds)
+- 14:15-14:30 New datasets and tools for understanding and defeating the causes of road danger (Richard Owen, Agilysis)
+- 14:30-16:00 Workshop (Robin Lovelace, Juan Pablo Fonseca Zamora, Caroline Tait, University of Leeds)
 
 # Sign-up!
 
