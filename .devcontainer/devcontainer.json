@@ -1,6 +1,10 @@
 {
 	"name": "Transport data science container",
 	"image": "ghcr.io/itsleeds/tds",
+    // Uncomment the build section below and comment out "image" above to rebuild from ../Dockerfile
+    // "build": {
+    // 	"dockerfile": "../Dockerfile"
+    // },
 	"customizations": {
 		"vscode": {
 			"extensions": [
