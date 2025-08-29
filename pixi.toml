@@ -17,7 +17,6 @@ r-remotes = "*"
 r-DT = "*"
 r-reticulate = "*"
 r-spData = "*"
-r-tmap = "*"
 
 [tasks]
 simple = "echo This is a simple task"
