@@ -1,6 +1,6 @@
 [project]
 channels = ["conda-forge"]
-description = "Add a short description here"
+description = "Transport data science stack"
 name = "tds"
 platforms = ["win-64", "linux-64", "osx-64"]
 version = "0.1.0"
