@@ -28,7 +28,6 @@ Imports:
     calendar,
     reticulate,
     stplanr,
-    tmap,
     spData,
     zoo,
     pct,
