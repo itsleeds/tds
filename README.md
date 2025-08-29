@@ -5,9 +5,8 @@
 Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 [![Docker Image
 Size](https://ghcr-badge.egpl.dev/itsleeds/tds/size?color=%2344cc11&tag=latest&label=image+size&trim=.png)](https://github.com/itsleeds/tds/pkgs/container/tds)
-
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/itsleeds/tds/HEAD)
-[![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-blue?logo=gitpod)](https://gitpod.io/#https://github.com/itsleeds/tds)
+<!-- [![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-blue?logo=gitpod)](https://gitpod.io/#https://github.com/itsleeds/tds) -->
 
 This repo contains code for the Transport Data Science module at the
 Institute for Transport Studies, University of Leeds. See the website at
@@ -24,13 +23,7 @@ use GitHub Codespaces. Click the [Open in GitHub
 Codespaces](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 button above to get started.
 
-Alternatively you can launch this repository on Binder (notebooks) or
-Gitpod (full VS Code workspace):
-
-- Binder: builds a Jupyter environment from `.binder/Dockerfile` and
-  launches notebooks in the browser.
-- Gitpod: opens a VS Code-like workspace; will use the repository
-  `Dockerfile` to build the workspace image.
+Alternatively you can launch this repository on Binder (notebooks).
 
 If you’re using VS Code and have Docker installed you can open the
 project in a Devcontainer by pressing Ctrl+Shift+P, typing in
