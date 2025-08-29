@@ -19,5 +19,8 @@ jobs:
       - name: Install project dependencies with pixi
         run: pixi install
 
+      - name: Run project install tasks (pip + R)
+        run: pixi run install_all
+
       - name: Build site / render with quarto via pixi
         run: pixi run quarto render

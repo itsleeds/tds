@@ -20,5 +20,6 @@ r-spData = "*"
 
 [tasks]
 simple = "echo This is a simple task"
-install_r = { cmd="Rscript install.R"}
+install_r = { cmd="Rscript install.R" }
 install_py = { cmd = "python3 -m pip install --user -r requirements.txt" }
+install_all = { cmd = "python3 -m pip install --user -r requirements.txt && Rscript install.R" }
