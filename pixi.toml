@@ -6,12 +6,6 @@ platforms = ["win-64", "linux-64", "osx-64"]
 version = "0.1.0"
 
 [dependencies]
-jupyter = "*"
-jupyter-cache = "*"
-geopandas = "*"
-matplotlib = "*"
-shapely = "*"
-seaborn = "*"
 quarto = "*"
 r-base = "*"
 r-irkernel = "*"
@@ -23,8 +17,8 @@ r-remotes = "*"
 r-DT = "*"
 r-reticulate = "*"
 r-spData = "*"
-r-pak = "*"
 
 [tasks]
 simple = "echo This is a simple task"
 install_r = { cmd="Rscript install.R"}
+install_py = { cmd = "python3 -m pip install --user -r requirements.txt" }

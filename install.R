@@ -1,1 +1,1 @@
-pak::pak('itsleeds/tds', ask = FALSE)
+remotes::install_github('itsleeds/tds', ask = FALSE)
