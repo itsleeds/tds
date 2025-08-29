@@ -19,7 +19,6 @@ r-DT = "*"
 r-reticulate = "*"
 r-spData = "*"
 r-pak = "*"
-r-geometries = "*"
 r-geosphere = "*"
 
 [tasks]
