@@ -1,0 +1,10 @@
+# Minimal Python requirements for the project. Keep this file pinned for
+# Docker/Gitpod/Binder installs. Add packages here as needed.
+jupyter
+jupyter-cache
+geopandas
+matplotlib
+shapely
+seaborn
+ipykernel
+osmnx
