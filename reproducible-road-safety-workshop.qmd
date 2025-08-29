@@ -51,11 +51,18 @@ Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo
 To check you have the necessary software installed, try running the following, which should result in the figure below.
 
 ```{r}
-#| label: setup
+#| eval: false
 pkgs = c("tidyverse", "stats19")
 # Install pak pkg if not already installed
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pkg_install(pkgs)
+```
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+#| output: false
 library(tidyverse)
 library(stats19)
 # Set ggplot2 theme
