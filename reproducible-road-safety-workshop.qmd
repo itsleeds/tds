@@ -38,9 +38,52 @@ We highly recommend that attendees already use R or dedicate some time to learni
 
 Attendees should have the following before signing-up:
 
--   Basic familiarity with R and RStudio or expertise in another programming language for data science
+-   A GitHub account, which will enable you to run the course via a web browser by clicking on the link below. 
+
+Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
+
+
+-   Basic familiarity with R and RStudio or knowledge of another programming language for data science
 -   A laptop with R and RStudio [installed](https://posit.co/download/rstudio-desktop/) (or VS Code with the R extension or similar for advanced users)
+-   Docker [installed](https://docs.docker.com/get-docker/) if you plan to use VS Code and devcontainers for full reproducibility
 -   A willingness to learn (see recommended reading) and share knowledge
+
+To check you have the necessary software installed, try running the following, which should result in the figure below.
+
+```{r}
+#| label: setup
+pkgs = c("tidyverse", "stats19")
+# Install pak pkg if not already installed
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pkg_install(pkgs)
+library(tidyverse)
+library(stats19)
+# Set ggplot2 theme
+theme_set(theme_minimal())
+collisions_2023 = stats19::get_stats19(year = 2023, type = "collision")
+collisions_2023_sf = stats19::format_sf(collisions_2023)
+class(collisions_2023_sf)
+names(collisions_2023_sf)[1:9]
+head(table(collisions_2023_sf$police_force))
+collisions_west_yorkshire_sf = collisions_2023_sf |>
+  filter(police_force == "West Yorkshire") |>
+  # Arrange in descending order of accident severity
+  # so most severe accidents are plotted last:
+  arrange(desc(accident_severity))
+```
+
+
+```{r}
+#| label: plot
+ggplot() +
+  geom_sf(
+    data = collisions_west_yorkshire_sf,
+    aes(colour = accident_severity, alpha = accident_severity)
+  ) +
+  scale_alpha_manual(values = c(0.8, 0.4, 0.2))
+```
+
+If you cannot reproduce the above code or have any issues with setting up your environment, or any questions about the course, feel free to get in touch via the [GitHub Discussions](https://github.com/itsleeds/tds/discussions) (also requires a GitHub account).
 
 # Recommended reading
 
