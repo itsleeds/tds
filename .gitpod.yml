@@ -1,0 +1,23 @@
+image:
+  file: Dockerfile
+
+tasks:
+  - init: |
+      echo "Initializing Gitpod workspace"
+    command: |
+      echo "Workspace ready"
+
+ports:
+  - port: 8888
+    onOpen: open-preview
+
+vscode:
+  extensions:
+    - reditorsupport.r
+    - GitHub.copilot-chat
+    - quarto.quarto
+    - ms-python.python
+    - ms-toolsai.jupyter
+
+# Optional: Gitpod will reuse your repository's Dockerfile to build the workspace image.
+# If you prefer a separate Gitpod Dockerfile, replace `image.file` with `.gitpod.Dockerfile`.
