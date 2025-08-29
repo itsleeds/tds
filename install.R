@@ -19,8 +19,8 @@ if (!requireNamespace("pak", quietly = TRUE)) {
 # Use pak to install the package and dependencies. pak prefers binaries from
 # RSPM on supported platforms and will significantly reduce compile time.
 if (file.exists("DESCRIPTION")) {
-  pak::local_install(path = ".", ask = FALSE)
+  pak::local_install(ask = FALSE)
 } else {
-  pak::pkg_install("cols4all", ask = FALSE)
+  pak::pak("itsleeds/tds", ask = FALSE)
 }
 
