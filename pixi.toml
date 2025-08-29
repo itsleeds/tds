@@ -21,6 +21,7 @@ r-spData = "*"
 r-pak = "*"
 r-geometries = "*"
 r-geosphere = "*"
+r-tmap = "*"
 
 [tasks]
 simple = "echo This is a simple task"
