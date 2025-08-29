@@ -3,8 +3,10 @@
 [![pages-build-deployment](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment)
 [![Open in GitHub
 Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
-[![Docker Image
-Size](https://ghcr-badge.egpl.dev/itsleeds/tds/size?color=%2344cc11&tag=latest&label=image+size&trim=.png)](https://github.com/itsleeds/tds/pkgs/container/tds)
+![GitHub Downloads (all assets, all
+releases)](https://img.shields.io/github/downloads/itsleeds/tds/total.png)
+[![Docker
+Pulls](https://img.shields.io/badge/Docker:_ghcr.io-image_ghcr)](https://github.com/itsleeds/tds/pkgs/container/tds)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/itsleeds/tds/HEAD)
 <!-- [![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-blue?logo=gitpod)](https://gitpod.io/#https://github.com/itsleeds/tds) -->
 
