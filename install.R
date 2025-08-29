@@ -5,18 +5,22 @@ rspm_url <- "https://packagemanager.rstudio.com/all/latest"
 options(repos = c(CRAN = rspm_url))
 # Prefer binaries on Windows/macOS, but on Linux R does not support type='binary'
 sysname <- tolower(Sys.info()["sysname"] %||% "")
-if (sysname %in% c("windows", "darwin")) {
-  options(pkgType = "binary")
-} else {
-  # Linux: install from RSPM; R will use source packages where binaries are not
-  # supported by the local R installation. RSPM still speeds up installs by
-  # providing prebuilt packages appropriate for many Linux targets.
-  options(pkgType = "source")
+## Use pak with Posit Public Package Manager (RSPM) so installs prefer
+## RSPM-provided binaries where available. pak will fall back to source
+## only when binaries are not available for the platform/version.
+rspm_url <- "https://packagemanager.rstudio.com/all/latest"
+options(repos = c(CRAN = rspm_url))
+
+# Ensure pak is available (install from RSPM)
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak", repos = rspm_url)
 }
 
+# Use pak to install the package and dependencies. pak prefers binaries from
+# RSPM on supported platforms and will significantly reduce compile time.
 if (file.exists("DESCRIPTION")) {
-  remotes::install_local(dependencies = TRUE, ask = FALSE)
+  pak::local_install(path = ".", ask = FALSE)
 } else {
-  remotes::install_github('itsleeds/tds', dependencies = TRUE, ask = FALSE)
+  pak::pkg_install("cols4all", ask = FALSE)
 }
 
