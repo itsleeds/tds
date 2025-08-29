@@ -106,7 +106,9 @@ The session will build on the following resources, we recommend taking a read of
 
 # Where and when
 
-2nd September 2025, 13:00-16:00, Room 1.11, ITS, University of Leeds
+2nd September 2025, 13:00-16:00, Room 1.11, ITS, University of Leeds:
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1617.1334644957128!2d-1.5582207280164118!3d53.808028040466006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795ea95a87d231%3A0xe52f3e3b80037a86!2sInstitute%20for%20Transport%20Studies%20(ITS)!5e1!3m2!1sen!2suk!4v1756474070392!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
 # Agenda
 
