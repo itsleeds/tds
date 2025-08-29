@@ -37,7 +37,8 @@ Imports:
     dodgr,
     opentripplanner,
     osmextract,
-    osmactive
+    osmactive,
+    tmap
 Remotes:
     nowosad/spDataLarge,
     itsleeds/pct,
