@@ -19,10 +19,10 @@ vscode:
     - ms-python.python
     - ms-toolsai.jupyter
 
-GitHub:
-    prebuilds:
-        # enable for the default branch
-        main: true
+github:
+  prebuilds:
+    # enable for the default branch
+    main: true
 
 # Optional: Gitpod will reuse your repository's Dockerfile to build the workspace image.
 # If you prefer a separate Gitpod Dockerfile, replace `image.file` with `.gitpod.Dockerfile`.
