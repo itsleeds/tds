@@ -6,7 +6,8 @@ title: "Geographic and origin-destination data"
 toc: true
 execute: 
   cache: true
-  #eval: true
+  # TODO: re-instate this at some point:
+  eval: false
   warning: false
   message: false
 bibliography: ../tds.bib
