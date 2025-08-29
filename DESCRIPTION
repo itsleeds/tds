@@ -36,10 +36,5 @@ Imports:
     dodgr,
     opentripplanner,
     osmextract,
-    osmactive,
     tmap
-Remotes:
-    nowosad/spDataLarge,
-    itsleeds/pct,
-    zonebuilders/zonebuilder,
-    nptscot/osmactive
+Additional_repositories: https://geocompx.r-universe.dev/
