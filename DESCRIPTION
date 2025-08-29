@@ -36,8 +36,10 @@ Imports:
     ggspatial,
     dodgr,
     opentripplanner,
-    osmextract
+    osmextract,
+    osmactive
 Remotes:
     nowosad/spDataLarge,
     itsleeds/pct,
-    zonebuilders/zonebuilder
+    zonebuilders/zonebuilder,
+    nptscot/osmactive
