@@ -40,7 +40,7 @@ Attendees should have the following before signing-up:
 
 -   A GitHub account, which will enable you to run the course via a web browser by clicking on the link below. 
 
-Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
+[Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 
 
 -   Basic familiarity with R and RStudio or knowledge of another programming language for data science
