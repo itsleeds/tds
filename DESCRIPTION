@@ -23,7 +23,6 @@ Imports:
     stats19,
     nycflights13,
     remotes,
-    spDataLarge,
     DT,
     calendar,
     reticulate,
@@ -37,4 +36,3 @@ Imports:
     opentripplanner,
     osmextract,
     tmap
-Additional_repositories: https://geocompx.r-universe.dev/
