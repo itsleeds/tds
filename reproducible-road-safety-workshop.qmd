@@ -117,6 +117,48 @@ The session will build on the following resources, we recommend taking a read of
 - 14:15-14:30 New datasets and tools for understanding and defeating the causes of road danger (Richard Owen, Agilysis)
 - 14:30-16:00 Workshop (Robin Lovelace, Juan Pablo Fonseca Zamora, Caroline Tait, University of Leeds)
 
+# Workshop tasks
+
+## Workshop tasks
+
+### 1. Importing collision, casualty and vehicle tables (20 min)
+
+- Learn how to load the main STATS19 tables (collision, casualty, vehicle) using the `stats19` R package.
+- Explore the structure and key variables in each table.
+- See [Chapter 4 on R packages](https://itsleeds.github.io/rrsrr/04-pkgs.html) and [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html) for details.
+
+### 2. Temporal visualisation and aggregation (20 min)
+
+- Aggregate collision data by time (e.g., by month or day of week).
+- Create time series plots to identify trends and patterns.
+- See [Chapter 6 on temporal data](https://itsleeds.github.io/rrsrr/06-time.html).
+
+### 3. Spatial visualisation and aggregation (30 min)
+
+- Convert collision data to spatial format and plot on a map.
+- Aggregate collisions by area (e.g., by local authority or police force).
+- Create maps to visualise spatial patterns in road safety data.
+- See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
+
+### 4. Joining STATS19 tables (20 min)
+
+- Join collision, casualty, and vehicle tables to enrich your analysis.
+- Explore relationships between different aspects of road traffic incidents.
+- See [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
+
+---
+
+### Bonus: analysing collision data to answer a research question (for fast finishers)
+
+- Formulate a research question related to road safety (e.g., "How do cycle lanes impact collision rates?").
+- Decide a spatial and temporal extent for the study (e.g. Birmingham, 2020-2023)
+- Generate as many informative visualisations as possible to explore the data, using any technique you want, e.g.:
+    - Use the [osmactive](https://nptscot.github.io/osmactive/) R package to download cycle lane data from OpenStreetMap.
+    - Perform spatial joins to link collision locations with infrastructure data (e.g., cycle lanes, speed limits).
+    - Analyse how infrastructure relates to collision patterns.
+    - See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
+
+
 # Sign-up!
 
 <!-- https://eu.eventscloud.com/ereg/newreg.php?eventid=200280778& -->
