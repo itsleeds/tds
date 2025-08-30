@@ -12,11 +12,11 @@ The workshop will cover the fundamentals of reproducible data science for road s
 The UK's open access STATS19 database will be the basis of the session but the skills learned will be applicable to any road safety datasets.
 The session will cover:
 
--   Importing collision, casualty and vehicle tables
--   Temporal visualisation and aggregation
--   Spatial visualisation and aggregation
--   Joining STATS19 tables
--   Spatial joins linking infrastructure to collisions
+*   **Importing collision, casualty and vehicle tables:** See [Chapter 4 on R packages](https://itsleeds.github.io/rrsrr/04-pkgs.html) and [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
+*   **Temporal visualisation and aggregation:** See [Chapter 6 on temporal data](https://itsleeds.github.io/rrsrr/06-time.html).
+*   **Spatial visualisation and aggregation:** See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
+*   **Joining STATS19 tables:** See [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
+*   **Spatial joins linking infrastructure to collisions:** See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
 
 The course will be taught in R, a free and open-source programming language for data analysis and visualisation that excels at the kind of statistical modelling and visualisation workflows required for high-impact, reproducible and correct road safety research.
 The course will be taught by Professor Robin Lovelace, who has over a decade of experience teaching R for data science and is author of the popular book [Geocomputation with R](https://r.geocompx.org/).
