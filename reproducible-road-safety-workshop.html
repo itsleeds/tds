@@ -309,6 +309,17 @@ div.csl-indent {
   <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">Recommended reading</a></li>
   <li><a href="#where-and-when" id="toc-where-and-when" class="nav-link" data-scroll-target="#where-and-when">Where and when</a></li>
   <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#workshop-tasks" id="toc-workshop-tasks" class="nav-link" data-scroll-target="#workshop-tasks">Workshop tasks</a>
+  <ul class="collapse">
+  <li><a href="#workshop-tasks-1" id="toc-workshop-tasks-1" class="nav-link" data-scroll-target="#workshop-tasks-1">Workshop tasks</a>
+  <ul class="collapse">
+  <li><a href="#importing-collision-casualty-and-vehicle-tables-20-min" id="toc-importing-collision-casualty-and-vehicle-tables-20-min" class="nav-link" data-scroll-target="#importing-collision-casualty-and-vehicle-tables-20-min">1. Importing collision, casualty and vehicle tables (20 min)</a></li>
+  <li><a href="#temporal-visualisation-and-aggregation-20-min" id="toc-temporal-visualisation-and-aggregation-20-min" class="nav-link" data-scroll-target="#temporal-visualisation-and-aggregation-20-min">2. Temporal visualisation and aggregation (20 min)</a></li>
+  <li><a href="#spatial-visualisation-and-aggregation-30-min" id="toc-spatial-visualisation-and-aggregation-30-min" class="nav-link" data-scroll-target="#spatial-visualisation-and-aggregation-30-min">3. Spatial visualisation and aggregation (30 min)</a></li>
+  <li><a href="#joining-stats19-tables-20-min" id="toc-joining-stats19-tables-20-min" class="nav-link" data-scroll-target="#joining-stats19-tables-20-min">4. Joining STATS19 tables (20 min)</a></li>
+  <li><a href="#bonus-analysing-collision-data-to-answer-a-research-question-for-fast-finishers" id="toc-bonus-analysing-collision-data-to-answer-a-research-question-for-fast-finishers" class="nav-link" data-scroll-target="#bonus-analysing-collision-data-to-answer-a-research-question-for-fast-finishers">Bonus: analysing collision data to answer a research question (for fast finishers)</a></li>
+  </ul></li>
+  </ul></li>
   <li><a href="#sign-up" id="toc-sign-up" class="nav-link" data-scroll-target="#sign-up">Sign-up!</a></li>
   <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
@@ -341,11 +352,11 @@ div.csl-indent {
 <p>This workshop will take place at the University of Leeds’ Institute for Transport Studies (ITS) as part of the <a href="https://www.vti.se/en/rs5c">RS5C conference</a> that runs from 3rd to 5th September 2025. The workshop takes place on the 2nd September 2025, 13:00-16:00 (including 1 hour for a networking lunch), the day before the main conference starts.</p>
 <p>The workshop will cover the fundamentals of reproducible data science for road safety research, building on a decade’s worth of experience working with road traffic casualty datasets for policy-relevant road safety research. The UK’s open access STATS19 database will be the basis of the session but the skills learned will be applicable to any road safety datasets. The session will cover:</p>
 <ul>
-<li>Importing collision, casualty and vehicle tables</li>
-<li>Temporal visualisation and aggregation</li>
-<li>Spatial visualisation and aggregation</li>
-<li>Joining STATS19 tables</li>
-<li>Spatial joins linking infrastructure to collisions</li>
+<li><strong>Importing collision, casualty and vehicle tables:</strong> See <a href="https://itsleeds.github.io/rrsrr/04-pkgs.html">Chapter 4 on R packages</a> and <a href="https://itsleeds.github.io/rrsrr/08-join.html">Chapter 8 on joining tables</a>.</li>
+<li><strong>Temporal visualisation and aggregation:</strong> See <a href="https://itsleeds.github.io/rrsrr/06-time.html">Chapter 6 on temporal data</a>.</li>
+<li><strong>Spatial visualisation and aggregation:</strong> See <a href="https://itsleeds.github.io/rrsrr/07-space.html">Chapter 7 on spatial data</a>.</li>
+<li><strong>Joining STATS19 tables:</strong> See <a href="https://itsleeds.github.io/rrsrr/08-join.html">Chapter 8 on joining tables</a>.</li>
+<li><strong>Spatial joins linking infrastructure to collisions:</strong> See <a href="https://itsleeds.github.io/rrsrr/07-space.html">Chapter 7 on spatial data</a>.</li>
 </ul>
 <p>The course will be taught in R, a free and open-source programming language for data analysis and visualisation that excels at the kind of statistical modelling and visualisation workflows required for high-impact, reproducible and correct road safety research. The course will be taught by Professor Robin Lovelace, who has over a decade of experience teaching R for data science and is author of the popular book <a href="https://r.geocompx.org/">Geocomputation with R</a>. You will learn how to add value to road traffic casualty date for more data-driven and effective interventions to save lives in relation to the largest cause of death for young people worldwide, as highlighted in the map below.</p>
 <p><img src="https://itsleeds.github.io/rrsrr/figures/road-casualties.png" class="img-fluid"></p>
@@ -443,6 +454,60 @@ div.csl-indent {
 <li>14:15-14:30 New datasets and tools for understanding and defeating the causes of road danger (Richard Owen, Agilysis)</li>
 <li>14:30-16:00 Workshop (Robin Lovelace, Juan Pablo Fonseca Zamora, Caroline Tait, University of Leeds)</li>
 </ul>
+</section>
+<section id="workshop-tasks" class="level1">
+<h1>Workshop tasks</h1>
+<section id="workshop-tasks-1" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-tasks-1">Workshop tasks</h2>
+<section id="importing-collision-casualty-and-vehicle-tables-20-min" class="level3">
+<h3 class="anchored" data-anchor-id="importing-collision-casualty-and-vehicle-tables-20-min">1. Importing collision, casualty and vehicle tables (20 min)</h3>
+<ul>
+<li>Learn how to load the main STATS19 tables (collision, casualty, vehicle) using the <code>stats19</code> R package.</li>
+<li>Explore the structure and key variables in each table.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/04-pkgs.html">Chapter 4 on R packages</a> and <a href="https://itsleeds.github.io/rrsrr/08-join.html">Chapter 8 on joining tables</a> for details.</li>
+</ul>
+</section>
+<section id="temporal-visualisation-and-aggregation-20-min" class="level3">
+<h3 class="anchored" data-anchor-id="temporal-visualisation-and-aggregation-20-min">2. Temporal visualisation and aggregation (20 min)</h3>
+<ul>
+<li>Aggregate collision data by time (e.g., by month or day of week).</li>
+<li>Create time series plots to identify trends and patterns.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/06-time.html">Chapter 6 on temporal data</a>.</li>
+</ul>
+</section>
+<section id="spatial-visualisation-and-aggregation-30-min" class="level3">
+<h3 class="anchored" data-anchor-id="spatial-visualisation-and-aggregation-30-min">3. Spatial visualisation and aggregation (30 min)</h3>
+<ul>
+<li>Convert collision data to spatial format and plot on a map.</li>
+<li>Aggregate collisions by area (e.g., by local authority or police force).</li>
+<li>Create maps to visualise spatial patterns in road safety data.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/07-space.html">Chapter 7 on spatial data</a>.</li>
+</ul>
+</section>
+<section id="joining-stats19-tables-20-min" class="level3">
+<h3 class="anchored" data-anchor-id="joining-stats19-tables-20-min">4. Joining STATS19 tables (20 min)</h3>
+<ul>
+<li>Join collision, casualty, and vehicle tables to enrich your analysis.</li>
+<li>Explore relationships between different aspects of road traffic incidents.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/08-join.html">Chapter 8 on joining tables</a>.</li>
+</ul>
+<hr>
+</section>
+<section id="bonus-analysing-collision-data-to-answer-a-research-question-for-fast-finishers" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-analysing-collision-data-to-answer-a-research-question-for-fast-finishers">Bonus: analysing collision data to answer a research question (for fast finishers)</h3>
+<ul>
+<li>Formulate a research question related to road safety (e.g., “How do cycle lanes impact collision rates?”).</li>
+<li>Decide a spatial and temporal extent for the study (e.g.&nbsp;Birmingham, 2020-2023)</li>
+<li>Generate as many informative visualisations as possible to explore the data, using any technique you want, e.g.:
+<ul>
+<li>Use the <a href="https://nptscot.github.io/osmactive/">osmactive</a> R package to download cycle lane data from OpenStreetMap.</li>
+<li>Perform spatial joins to link collision locations with infrastructure data (e.g., cycle lanes, speed limits).</li>
+<li>Analyse how infrastructure relates to collision patterns.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/07-space.html">Chapter 7 on spatial data</a>.</li>
+</ul></li>
+</ul>
+</section>
+</section>
 </section>
 <section id="sign-up" class="level1">
 <h1>Sign-up!</h1>
