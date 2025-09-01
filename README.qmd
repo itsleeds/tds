@@ -16,7 +16,7 @@ See the website at https://itsleeds.github.io/tds/ and at [leeds.ac.uk](https://
 
 See the course website at [itsleeds.github.io/tds](https://itsleeds.github.io/tds/)
 
-The quickest way to get started with the code for many people will be to use GitHub Codespaces. Click the [Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/tds?quickstart=1) button above to get started.
+The quickest way to get started with the code without installing anything is to use GitHub Codespaces. Click the [Open in GitHub Codespaces](https://github.com/codespaces/new/itsleeds/tds?quickstart=1) button above to get started (requires [signing-up for a GitHub account](https://github.com/join)).
 
 Alternatively you can launch this repository on Binder (notebooks).
 
