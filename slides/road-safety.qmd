@@ -16,34 +16,34 @@ Reproducible data science for road safety research
 
 ## Agenda
 
- - **13:00-14:00** Networking lunch
- - **14:00-14:15** Introduction to reproducible research
- - **14:15-14:30** New datasets and tools (Richard Owen, Agilysis)
- - **14:30-16:00** Workshop
- - **16:00 onwards** Networking and walk to RS5C reception
+-   **13:00-14:00** Networking lunch
+-   **14:00-14:15** Introduction to reproducible research
+-   **14:15-14:30** New datasets and tools (Richard Owen, Agilysis)
+-   **14:30-16:00** Workshop
+-   **16:00 onwards** Networking and walk to RS5C reception
 
 ## Prerequisites
 
 ### To run the code
 
- - Computer to run the code
-     - Either: A laptop with R, RStudio or VS Code and Docker or similar installed to run the code locally
-     - Or: Access to a cloud-based environment for data science (e.g., GitHub Codespaces or Posit Cloud)
+-   Computer to run the code
+    -   Either: A laptop with R, RStudio or VS Code and Docker or similar installed to run the code locally
+    -   Or: Access to a cloud-based environment for data science (e.g., GitHub Codespaces or Posit Cloud)
 
 ## Learn and share
 
 The following will help:
 
- - An interest in road safety and knowledge of road traffic casualty datasets
- - A willingness to learn and share (LinkedIn, BlueSky, etc)
- - A GitHub account (to ask questions on the Discussions page and share your own code)
- - Familiarity with data science tools, e.g. R, Python, RStudio, VS Code
+-   An interest in road safety and knowledge of road traffic casualty datasets
+-   A willingness to learn and share (LinkedIn, BlueSky, etc)
+-   A GitHub account (to ask questions on the Discussions page and share your own code)
+-   Familiarity with data science tools, e.g. R, Python, RStudio, VS Code
 
 ## Housekeeping
 
- - Connect to the UoL-Guest Wi-Fi network and enter your details.
- - GitHub account sign-up if not done already.
- - R and RStudio installation check, locally or in cloud environment.
+-   Connect to the UoL-Guest Wi-Fi network and enter your details.
+-   GitHub account sign-up if not done already.
+-   R and RStudio installation check, locally or in cloud environment.
 
 ## WiFi
 
@@ -94,34 +94,38 @@ ggplot() +
 
 ## Why are we doing this?
 
-<iframe src="https://photos.lovelaces.org/share/eOsyK8ibSUKMgnCJFaP_DF76l4kKrMvDhQXidzvbh8KbOyfTawwZNREMN8YUQvUuV4s" width="800" height="600" style="border:none;"></iframe>
+<!-- <iframe src="https://photos.lovelaces.org/share/eOsyK8ibSUKMgnCJFaP_DF76l4kKrMvDhQXidzvbh8KbOyfTawwZNREMN8YUQvUuV4s" width="800" height="600" style="border:none;">
+
+</iframe> -->
+
+[![](images/paste-8.png)](https://photos.lovelaces.org/share/eOsyK8ibSUKMgnCJFaP_DF76l4kKrMvDhQXidzvbh8KbOyfTawwZNREMN8YUQvUuV4s)
 
 ## Workshop Tasks
 
- - Importing collision, casualty and vehicle tables (20 min)
- - Temporal visualisation and aggregation (20 min)
- - Spatial visualisation and aggregation (30 min)
- - Joining STATS19 tables (20 min)
+-   Importing collision, casualty and vehicle tables (20 min)
+-   Temporal visualisation and aggregation (20 min)
+-   Spatial visualisation and aggregation (30 min)
+-   Joining STATS19 tables (20 min)
 
 ## Task 1: Importing tables (20 min)
 
- - Learn how to load the main STATS19 tables (collision, casualty, vehicle) using the `stats19` R package.
- - Explore the structure and key variables in each table.
+-   Learn how to load the main STATS19 tables (collision, casualty, vehicle) using the `stats19` R package.
+-   Explore the structure and key variables in each table.
 
 See [Chapter 4](https://itsleeds.github.io/rrsrr/04-pkgs.html) and [Chapter 8](https://itsleeds.github.io/rrsrr/08-join.html) for details.
 
 ## Task 2: Temporal visualisation (20 min)
 
- - Aggregate collision data by time (e.g., by month or day of week).
- - Create time series plots to identify trends and patterns.
+-   Aggregate collision data by time (e.g., by month or day of week).
+-   Create time series plots to identify trends and patterns.
 
 See [Chapter 6 on temporal data](https://itsleeds.github.io/rrsrr/06-time.html).
 
 ## Task 3: Spatial visualisation (30 min)
 
- - Convert collision data to spatial format and plot on a map.
- - Aggregate collisions by area (e.g., by local authority).
- - Create maps to visualise spatial patterns.
+-   Convert collision data to spatial format and plot on a map.
+-   Aggregate collisions by area (e.g., by local authority).
+-   Create maps to visualise spatial patterns.
 
 See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
 
@@ -129,8 +133,8 @@ See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
 
 ## Task 4: Joining tables (20 min)
 
- - Join collision, casualty, and vehicle tables to enrich your analysis.
- - Explore relationships between different aspects of road traffic incidents.
+-   Join collision, casualty, and vehicle tables to enrich your analysis.
+-   Explore relationships between different aspects of road traffic incidents.
 
 See [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
 
@@ -167,16 +171,16 @@ Source: [Google Gemini](https://g.co/gemini/share/849e6bdb9f27)
 
 ## The Logic of Scientific Discovery
 
- - **Core Idea:** Science can't prove theories true, only prove them false.
- - **Falsifiability:** A scientific theory must be testable and able to be disproven.
- - **How Science Progresses:** Through **conjecture** (proposing theories) and **refutation** (trying to prove them wrong).
-     - **Goal:** Not to find "truth," but to eliminate "untruth."
+-   **Core Idea:** Science can't prove theories true, only prove them false.
+-   **Falsifiability:** A scientific theory must be testable and able to be disproven.
+-   **How Science Progresses:** Through **conjecture** (proposing theories) and **refutation** (trying to prove them wrong).
+    -   **Goal:** Not to find "truth," but to eliminate "untruth."
 
 ## Why reproducibility is needed for your work to be scientific
 
- - **The Test of Falsification:** For a finding to be truly scientific, it must be **reproducible**.
- - **Role of Replication:** A failed replication is not a failure of the researcher, but a successful attempt at **falsification**.
- - **Open Science:** Popper's ideas champion the need for transparency (open methods, data, code) so others can perform the critical tests needed to advance science.
+-   **The Test of Falsification:** For a finding to be truly scientific, it must be **reproducible**.
+-   **Role of Replication:** A failed replication is not a failure of the researcher, but a successful attempt at **falsification**.
+-   **Open Science:** Popper's ideas champion the need for transparency (open methods, data, code) so others can perform the critical tests needed to advance science.
 
 ## Stages of open and reproducible science
 
@@ -200,10 +204,10 @@ Source: [Google Gemini](https://g.co/gemini/share/849e6bdb9f27)
 
 ## What can you do with reproducible research?
 
- - **Validate Findings:** Others can replicate your work to confirm results.
- - **Build on Existing Work:** Researchers can use your methods and data to explore new questions.
- - **Increase Trust:** Transparency in research enhances credibility and trustworthiness.
- - **Facilitate Collaboration:** Openly shared resources promote teamwork and knowledge exchange.
+-   **Validate Findings:** Others can replicate your work to confirm results.
+-   **Build on Existing Work:** Researchers can use your methods and data to explore new questions.
+-   **Increase Trust:** Transparency in research enhances credibility and trustworthiness.
+-   **Facilitate Collaboration:** Openly shared resources promote teamwork and knowledge exchange.
 
 ## Example 1: Increasing inequalities in cycling casualties
 
@@ -211,7 +215,7 @@ Source: [Google Gemini](https://g.co/gemini/share/849e6bdb9f27)
 
 [@vidaltortosa2021]
 
----
+------------------------------------------------------------------------
 
 ### Example 2: Contraflow safety [@tait2023]
 
@@ -219,6 +223,7 @@ Source: [Google Gemini](https://g.co/gemini/share/849e6bdb9f27)
 ::: {.column width="50%"}
 ![](images/paste-6.png)
 :::
+
 ::: {.column width="50%"}
 ![](images/paste-7.png)
 :::
@@ -226,7 +231,7 @@ Source: [Google Gemini](https://g.co/gemini/share/849e6bdb9f27)
 
 ## Thank you!
 
- - **Questions?** Get in touch via email or [GitHub Discussions](https://github.com/itsleeds/tds/discussions).
- - See the course homepage at https://itsleeds.github.io/tds/reproducible-road-safety-workshop
- - Interested in more teaching/research opportunities? See the upcoming course on 18th to 19th September and get in touch!
-- Over to Richard Owen (Agylisis) for next presentation before practical
+-   **Questions?** Get in touch via email or [GitHub Discussions](https://github.com/itsleeds/tds/discussions).
+-   See the course homepage at https://itsleeds.github.io/tds/reproducible-road-safety-workshop
+-   Interested in more teaching/research opportunities? See the upcoming course on 18th to 19th September and get in touch!
+-   Over to Richard Owen (Agylisis) for next presentation before practical
