@@ -1,0 +1,148 @@
+---
+title: "Reproducible Data Science for Road Safety Research"
+author: "Professor Robin Lovelace"
+date: "September 2, 2025"
+format: revealjs
+---
+
+## Welcome!
+
+Reproducible data science for road safety research
+
+**RS5C Pre-conference Workshop**
+
+2nd September 2025
+
+---
+
+## Agenda
+
+-   **13:00-14:00** Networking lunch
+-   **14:00-14:15** Introduction to reproducible research
+-   **14:15-14:30** New datasets and tools (Richard Owen, Agilysis)
+-   **14:30-16:00** Workshop
+-   **16:00 onwards** Networking and walk to RS5C reception
+
+---
+
+## Prerequisites
+
+-   A GitHub account
+-   Basic familiarity with R/RStudio
+-   A laptop with R, RStudio, and Docker installed
+-   A willingness to learn and share!
+
+---
+
+## Setup check
+
+To check you have the necessary software installed, try running the following code.
+
+```{r}
+#| eval: false
+#| echo: true
+pkgs = c("tidyverse", "stats19")
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pkg_install(pkgs)
+```
+
+You should be able to generate the map on the next slide.
+
+---
+
+## Setup check: The result
+
+```{r}
+#| label: setup
+#| message: false
+#| warning: false
+#| echo: false
+#| output: false
+library(tidyverse)
+library(stats19)
+theme_set(theme_minimal())
+collisions_2023 = stats19::get_stats19(year = 2023, type = "collision")
+collisions_2023_sf = stats19::format_sf(collisions_2023)
+collisions_west_yorkshire_sf = collisions_2023_sf |>
+  filter(police_force == "West Yorkshire") |>
+  arrange(desc(accident_severity))
+```
+
+```{r}
+#| label: plot
+#| echo: false
+ggplot() +
+  geom_sf(
+    data = collisions_west_yorkshire_sf,
+    aes(colour = accident_severity, alpha = accident_severity)
+  ) +
+  scale_alpha_manual(values = c(0.8, 0.4, 0.2))
+```
+
+---
+
+## Workshop Tasks
+
+-   Importing collision, casualty and vehicle tables (20 min)
+-   Temporal visualisation and aggregation (20 min)
+-   Spatial visualisation and aggregation (30 min)
+-   Joining STATS19 tables (20 min)
+
+---
+
+## Task 1: Importing tables (20 min)
+
+-   Learn how to load the main STATS19 tables (collision, casualty, vehicle) using the `stats19` R package.
+-   Explore the structure and key variables in each table.
+
+See [Chapter 4](https://itsleeds.github.io/rrsrr/04-pkgs.html) and [Chapter 8](https://itsleeds.github.io/rrsrr/08-join.html) for details.
+
+---
+
+## Task 2: Temporal visualisation (20 min)
+
+-   Aggregate collision data by time (e.g., by month or day of week).
+-   Create time series plots to identify trends and patterns.
+
+See [Chapter 6 on temporal data](https://itsleeds.github.io/rrsrr/06-time.html).
+
+---
+
+## Task 3: Spatial visualisation (30 min)
+
+-   Convert collision data to spatial format and plot on a map.
+-   Aggregate collisions by area (e.g., by local authority).
+-   Create maps to visualise spatial patterns.
+
+See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
+
+![](https://itsleeds.github.io/rrsrr/figures/road-casualties.png)
+
+---
+
+## Task 4: Joining tables (20 min)
+
+-   Join collision, casualty, and vehicle tables to enrich your analysis.
+-   Explore relationships between different aspects of road traffic incidents.
+
+See [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
+
+---
+
+## Bonus tasks
+
+For fast finishers or anyone wanting to go the extra mile:
+
+1.  **Create a repo** and share your work on GitHub.
+2.  **Reproduce a map** used in a Leeds City Council consultation.
+3.  **Analyse data** to answer a new research question.
+4.  **Contribute upstream** to an open source road safety project.
+
+![](https://tdscience.github.io/course/images/paste-2.png)
+
+---
+
+## Thank you!
+
+-   **Questions?** Get in touch via email or [GitHub Discussions](https://github.com/itsleeds/tds/discussions).
+-
