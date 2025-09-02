@@ -26,24 +26,25 @@ Reproducible data science for road safety research
 ### To run the code
 
 - Computer to run the code
-  - Either: A laptop with R, RStudio or VS Code and Docker or similar installed to run the code locally
-  - Or: Access to a cloud-based environment for data science (e.g., GitHub Codespaces or Posit Cloud)
+    - Either: A laptop with R, RStudio or VS Code and Docker or similar installed to run the code locally
+    - Or: Access to a cloud-based environment for data science (e.g., GitHub Codespaces or Posit Cloud)
 
-### Learn and share
+## Learn and share
+
+The following will help:
 
 - An interest in road safety and knowledge of road traffic casualty datasets
-- A willingness to learn and share!
+- A willingness to learn and share (LinkedIn, BlueSky, etc)
 - A GitHub account (to ask questions on the Discussions page and share your own code)
 - Familiarity with data science tools, e.g. R, Python, RStudio, VS Code
-
-
-
 
 ## Housekeeping
 
 - Connect to the UoL-Guest Wi-Fi network and enter your details.
 - GitHub account sign-up if not done already.
 - R and RStudio installation check, locally or in cloud environment.
+
+## WiFi
 
 ![](images/paste-2.png)
 
@@ -137,9 +138,50 @@ For fast finishers or anyone wanting to go the extra mile:
 3.  **Analyse data** to answer a new research question.
 4.  **Contribute upstream** to an open source road safety project.
 
+## Output you'll be making in Leeds-focussed bonus task
+
 ![](https://tdscience.github.io/course/images/paste-2.png)
+
+---
+
+:::: columns
+
+::: {.column .fragment .fade-in}
+
+### Why reproducible research?
+
+Source: [Wikipedia](https://en.wikipedia.org/wiki/Karl_Popper)
+
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Karl_Popper.jpg/250px-Karl_Popper.jpg)
+
+:::
+
+::: {.column .fragment .fade-in}
+
+Source: [Google Gemini](https://g.co/gemini/share/849e6bdb9f27)
+
+![](images/paste-3.png)
+
+:::
+
+::::
+
+## The Logic of Scientific Discovery
+
+- **Core Idea:** Science can't prove theories true, only prove them false.
+- **Falsifiability:** A scientific theory must be testable and able to be disproven.
+- **How Science Progresses:** Through **conjecture** (proposing theories) and **refutation** (trying to prove them wrong).
+    - **Goal:** Not to find "truth," but to eliminate "untruth."
+
+## Why reproducibility is needed for your work to be scientific
+
+- **The Test of Falsification:** For a finding to be truly scientific, it must be **reproducible**.
+- **Role of Replication:** A failed replication is not a failure of the researcher, but a successful attempt at **falsification**.
+- **Open Science:** Popper's ideas champion the need for transparency (open methods, data, code) so others can perform the critical tests needed to advance science.
+
 
 ## Thank you!
 
 - **Questions?** Get in touch via email or [GitHub Discussions](https://github.com/itsleeds/tds/discussions).
--
+- See the course homepage at https://itsleeds.github.io/tds/reproducible-road-safety-workshop
+- Interested in more teaching/research opportunities? See the upcoming course on 18th to 19th September and get in touch!
