@@ -117,7 +117,7 @@ The session will build on the following resources, we recommend taking a read of
 - 14:15-14:30 New datasets and tools for understanding and defeating the causes of road danger (Richard Owen, Agilysis)
 - 14:30-16:00 Workshop (Robin Lovelace, Juan Pablo Fonseca Zamora, Caroline Tait, University of Leeds)
 - 16:00-16:15 Post workshop networking and social, downtime
-- 16:15-16:45 Walk to the Cloth Courth for the RS5C drinks reception
+- 16:15-16:45 Walk to the Cloth Hall Courth for the RS5C drinks reception
 
 <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d9425.088274295727!2d-1.5642930689722954!3d53.80244233112874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x48795ea95a87d231%3A0xe52f3e3b80037a86!2sITS%2C%20Institute%20for%20Transport%20StudiesUniversity%20of%20Woodhouse%2C%20Leeds!3m2!1d53.8079508!2d-1.5586552!4m5!1s0x48795c1e7ab6ae41%3A0xa84c0e31cc7a08cb!2sCloth%20Hall%20Court%2C%20Quebec%20St%2C%20Leeds%20LS1%202HA!3m2!1d53.7969691!2d-1.549132!5e0!3m2!1sen!2suk!4v1756725620604!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
