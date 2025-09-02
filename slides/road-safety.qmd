@@ -177,7 +177,7 @@ Source: [Google Gemini](https://g.co/gemini/share/849e6bdb9f27)
 ## Stages of open and reproducible science
 
 ::::: columns
-::: {.column width="30%"}
+::: {.column width="40%"}
 1.  Open access to the publications
 
 2.  Open access to sample (synthetic if sensitive) data
@@ -189,7 +189,7 @@ Source: [Google Gemini](https://g.co/gemini/share/849e6bdb9f27)
 5.  Project deployed in tool for non-specialist use
 :::
 
-::: {.column width="70%"}
+::: {.column width="60%"}
 ![](images/paste-4.png)
 :::
 :::::
