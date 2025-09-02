@@ -148,14 +148,20 @@ The session will build on the following resources, we recommend taking a read of
 - Explore relationships between different aspects of road traffic incidents.
 - See [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
 
-## Bonus 1 (intermediate): reproducing a map used in consultation by Leeds City Council
+## Bonus 1 (intermediate): Create a repo and share your work on GitHub
+
+- Create a GitHub repository for your workshop materials.
+- Commit your code and minimal results, e.g. a figure.
+- Share the link to your repository with others, e.g. in the discussion thread at [github.com/itsleeds/tds/discussions](https://github.com/itsleeds/tds/discussions/239) or on social media.
+
+## Bonus 2 (intermediate): reproducing a map used in consultation by Leeds City Council
 
 See https://tdscience.github.io/course/collisions.html and reproduce the following map on your own set-up:
 
 ![](https://tdscience.github.io/course/images/paste-2.png)
 
 
-## Bonus 2 (advanced): analysing collision data to answer a research question (for fast finishers)
+## Bonus 3 (advanced): analysing collision data to answer a research question (for fast finishers)
 
 - Formulate a research question related to road safety (e.g., "How do cycle lanes impact collision rates?").
 - Decide a spatial and temporal extent for the study (e.g. Birmingham, 2020-2023)
@@ -165,6 +171,19 @@ See https://tdscience.github.io/course/collisions.html and reproduce the followi
     - Analyse how infrastructure relates to collision patterns.
     - See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
 
+## Bonus 4 (advanced): contribute upstream
+
+- Contribute to an existing codebase for making road safety data easier to access for reproducible research.
+  - For example, you could open an issue in the [stats19](https://github.com/itsleeds/stats19) repository.
+  - Or find a related project that could benefit from your expertise and contribute to it, by first opening an issue.
+- Propose a new project or feature that could help improve road safety data analysis.
+- Propose a new codebase to enable reproducible access to analysis-ready road traffic casualty data in a part of the world you are interested in outside the UK.
+  - Feel free to open a Discussion thread at [github.com/itsleeds/tds/discussions](https://github.com/itsleeds/tds/discussions)
+
+
+## Prize
+
+For completing bonus activities and sharing them with others, a free copy of Geocomputation with R Second Edition or Geocomputation with Python will be made available.
 
 # Sign-up!
 
