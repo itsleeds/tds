@@ -13,8 +13,6 @@ Reproducible data science for road safety research
 
 2nd September 2025
 
----
-
 ## Agenda
 
 -   **13:00-14:00** Networking lunch
@@ -23,8 +21,6 @@ Reproducible data science for road safety research
 -   **14:30-16:00** Workshop
 -   **16:00 onwards** Networking and walk to RS5C reception
 
----
-
 ## Prerequisites
 
 -   A GitHub account
@@ -32,7 +28,14 @@ Reproducible data science for road safety research
 -   A laptop with R, RStudio, and Docker installed
 -   A willingness to learn and share!
 
----
+
+## Housekeeping
+
+- Connect to the UoL-Guest Wi-Fi network and enter your details.
+- GitHub account sign-up if not done already.
+- R and RStudio installation check, locally or in cloud environment.
+
+![](images/paste-2.png)
 
 ## Setup check
 
@@ -47,8 +50,6 @@ pak::pkg_install(pkgs)
 ```
 
 You should be able to generate the map on the next slide.
-
----
 
 ## Setup check: The result
 
@@ -79,16 +80,12 @@ ggplot() +
   scale_alpha_manual(values = c(0.8, 0.4, 0.2))
 ```
 
----
-
 ## Workshop Tasks
 
 -   Importing collision, casualty and vehicle tables (20 min)
 -   Temporal visualisation and aggregation (20 min)
 -   Spatial visualisation and aggregation (30 min)
 -   Joining STATS19 tables (20 min)
-
----
 
 ## Task 1: Importing tables (20 min)
 
@@ -97,16 +94,12 @@ ggplot() +
 
 See [Chapter 4](https://itsleeds.github.io/rrsrr/04-pkgs.html) and [Chapter 8](https://itsleeds.github.io/rrsrr/08-join.html) for details.
 
----
-
 ## Task 2: Temporal visualisation (20 min)
 
 -   Aggregate collision data by time (e.g., by month or day of week).
 -   Create time series plots to identify trends and patterns.
 
 See [Chapter 6 on temporal data](https://itsleeds.github.io/rrsrr/06-time.html).
-
----
 
 ## Task 3: Spatial visualisation (30 min)
 
@@ -118,16 +111,12 @@ See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
 
 ![](https://itsleeds.github.io/rrsrr/figures/road-casualties.png)
 
----
-
 ## Task 4: Joining tables (20 min)
 
 -   Join collision, casualty, and vehicle tables to enrich your analysis.
 -   Explore relationships between different aspects of road traffic incidents.
 
 See [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
-
----
 
 ## Bonus tasks
 
@@ -139,8 +128,6 @@ For fast finishers or anyone wanting to go the extra mile:
 4.  **Contribute upstream** to an open source road safety project.
 
 ![](https://tdscience.github.io/course/images/paste-2.png)
-
----
 
 ## Thank you!
 
