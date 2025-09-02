@@ -92,6 +92,10 @@ ggplot() +
   scale_alpha_manual(values = c(0.8, 0.4, 0.2))
 ```
 
+## Why are we doing this?
+
+<iframe src="https://photos.lovelaces.org/share/eOsyK8ibSUKMgnCJFaP_DF76l4kKrMvDhQXidzvbh8KbOyfTawwZNREMN8YUQvUuV4s" width="800" height="600" style="border:none;"></iframe>
+
 ## Workshop Tasks
 
  - Importing collision, casualty and vehicle tables (20 min)
