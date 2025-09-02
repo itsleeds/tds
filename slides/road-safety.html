@@ -95,7 +95,27 @@
     code span.va { color: #111111; } /* Variable */
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
-  </style>
+    /* CSS for citations */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+      margin-bottom: 0em;
+    }
+    .hanging-indent div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }  </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
@@ -360,7 +380,7 @@ Professor Robin Lovelace
 <section id="stages-of-open-and-reproducible-science" class="slide level2">
 <h2>Stages of open and reproducible science</h2>
 <div class="columns">
-<div class="column" style="width:30%;">
+<div class="column" style="width:40%;">
 <ol type="1">
 <li><p>Open access to the publications</p></li>
 <li><p>Open access to sample (synthetic if sensitive) data</p></li>
@@ -368,19 +388,52 @@ Professor Robin Lovelace
 <li><p>Fully reproducible paper published with documentation</p></li>
 <li><p>Project deployed in tool for non-specialist use</p></li>
 </ol>
-</div><div class="column" style="width:70%;">
+</div><div class="column" style="width:60%;">
 <p><img data-src="images/paste-4.png"></p>
 </div></div>
 </section>
-<section id="thank-you" class="slide level2">
+<section id="what-can-you-do-with-reproducible-research" class="slide level2">
+<h2>What can you do with reproducible research?</h2>
+<ul>
+<li><strong>Validate Findings:</strong> Others can replicate your work to confirm results.</li>
+<li><strong>Build on Existing Work:</strong> Researchers can use your methods and data to explore new questions.</li>
+<li><strong>Increase Trust:</strong> Transparency in research enhances credibility and trustworthiness.</li>
+<li><strong>Facilitate Collaboration:</strong> Openly shared resources promote teamwork and knowledge exchange.</li>
+</ul>
+</section>
+<section id="example-1-increasing-inequalities-in-cycling-casualties" class="slide level2">
+<h2>Example 1: Increasing inequalities in cycling casualties</h2>
+
+<img data-src="images/paste-5.png" class="r-stretch"><p><span class="citation" data-cites="vidaltortosa2021">(<a href="#/thank-you" role="doc-biblioref" onclick="">Vidal Tortosa et al. 2021</a>)</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="example-2-contraflow-safety-tait2023">Example 2: Contraflow safety <span class="citation" data-cites="tait2023">(<a href="#/thank-you" role="doc-biblioref" onclick="">Tait et al. 2023</a>)</span></h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><img data-src="images/paste-6.png"></p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="images/paste-7.png"></p>
+</div></div>
+</section>
+<section id="thank-you" class="slide level2 smaller scrollable">
 <h2>Thank you!</h2>
 <ul>
 <li><strong>Questions?</strong> Get in touch via email or <a href="https://github.com/itsleeds/tds/discussions">GitHub Discussions</a>.</li>
 <li>See the course homepage at https://itsleeds.github.io/tds/reproducible-road-safety-workshop</li>
 <li>Interested in more teaching/research opportunities? See the upcoming course on 18th to 19th September and get in touch!</li>
+<li>Over to Richard Owen (Agylisis) for next presentation before practical</li>
 </ul>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-tait2023" class="csl-entry" role="listitem">
+Tait, Caroline, Roger Beecham, Robin Lovelace, and Stuart Barber. 2023. <span>“Contraflows and Cycling Safety: Evidence from 22&nbsp;Years of Data Involving 508 One-Way Streets.”</span> <em>Accident Analysis &amp; Prevention</em> 179 (January): 106895. <a href="https://doi.org/10.1016/j.aap.2022.106895">https://doi.org/10.1016/j.aap.2022.106895</a>.
+</div>
+<div id="ref-vidaltortosa2021" class="csl-entry" role="listitem">
+Vidal Tortosa, Eugeni, Robin Lovelace, Eva Heinen, and Richard P. Mann. 2021. <span>“Socioeconomic Inequalities in Cycling Safety: An Analysis of Cycling Injury Risk by Residential Deprivation Level in England.”</span> <em>Journal of Transport &amp; Health</em> 23 (December): 101291. <a href="https://doi.org/10.1016/j.jth.2021.101291">https://doi.org/10.1016/j.jth.2021.101291</a>.
+</div>
+</div>
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
