@@ -123,6 +123,8 @@ The session will build on the following resources, we recommend taking a read of
 
 # Workshop tasks
 
+See workshop slides at [slides/road-safety.html](slides/road-safety.html).
+
 ## Importing collision, casualty and vehicle tables (20 min)
 
 - Learn how to load the main STATS19 tables (collision, casualty, vehicle) using the `stats19` R package.
