@@ -7,7 +7,6 @@ format: gfm
 ![GitHub Downloads (all assets, all releases)](https://img.shields.io/github/downloads/itsleeds/tds/total)
 [![Docker Pulls](https://img.shields.io/badge/Docker:_ghcr.io-image_ghcr)](https://github.com/itsleeds/tds/pkgs/container/tds)
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/itsleeds/tds/HEAD)
-<!-- [![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-blue?logo=gitpod)](https://gitpod.io/#https://github.com/itsleeds/tds) -->
 
 This repo contains code for the Transport Data Science module at the Institute for Transport Studies, University of Leeds.
 See the website at https://itsleeds.github.io/tds/ and at [leeds.ac.uk](https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202223&M=TRAN-5340M)
