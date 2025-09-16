@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.34">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Robin Lovelace">
   <title>Transport Data Science – Joins and Aggregations in Transport Data Science</title>
@@ -95,7 +95,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -215,10 +215,10 @@ Robin Lovelace
 <li>Visualize joined datasets</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(sf)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(sf)</span>
 <span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
 <span id="cb1-3"><a></a><span class="fu">library</span>(tmap)</span>
-<span id="cb1-4"><a></a><span class="fu">library</span>(stats19)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a></a><span class="fu">library</span>(stats19)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="what-is-a-join" class="slide level2">
@@ -235,31 +235,31 @@ Robin Lovelace
 <li><strong>Load spatial datasets</strong>:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>path <span class="ot">&lt;-</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson"</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>path <span class="ot">&lt;-</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson"</span></span>
 <span id="cb2-2"><a></a>lsoa <span class="ot">&lt;-</span> <span class="fu">read_sf</span>(path)</span>
-<span id="cb2-3"><a></a>crashes <span class="ot">&lt;-</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="st">"2023"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-3"><a></a>crashes <span class="ot">&lt;-</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="st">"2023"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="2" type="1">
 <li><strong>Perform spatial join</strong>:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>joined <span class="ot">&lt;-</span> <span class="fu">st_join</span>(lsoa, crashes, <span class="at">join =</span> st_intersects)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a>joined <span class="ot">&lt;-</span> <span class="fu">st_join</span>(lsoa, crashes, <span class="at">join =</span> st_intersects)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="3" type="1">
 <li><strong>Aggregate results</strong>:</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>agg_data <span class="ot">&lt;-</span> joined <span class="sc">|&gt;</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>agg_data <span class="ot">&lt;-</span> joined <span class="sc">|&gt;</span></span>
 <span id="cb4-2"><a></a>  <span class="fu">group_by</span>(lsoa_id) <span class="sc">|&gt;</span></span>
-<span id="cb4-3"><a></a>  <span class="fu">summarize</span>(<span class="at">total_crashes =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a></a>  <span class="fu">summarize</span>(<span class="at">total_crashes =</span> <span class="fu">n</span>())</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="key-based-joins" class="slide level2">
 <h2>Key-Based Joins</h2>
 <p>Use <code>dplyr</code> functions like <code>left_join</code> to combine data by identifiers:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Example: Join crash counts with population data</span></span>
-<span id="cb5-2"><a></a>final <span class="ot">&lt;-</span> <span class="fu">left_join</span>(agg_data, pop_data, <span class="at">by =</span> <span class="st">"lsoa_id"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># Example: Join crash counts with population data</span></span>
+<span id="cb5-2"><a></a>final <span class="ot">&lt;-</span> <span class="fu">left_join</span>(agg_data, pop_data, <span class="at">by =</span> <span class="st">"lsoa_id"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="aggregations" class="slide level2">
@@ -269,17 +269,17 @@ Robin Lovelace
 <li>Calculate metrics like <strong>crashes per capita</strong>:</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>final <span class="ot">&lt;-</span> final <span class="sc">|&gt;</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">mutate</span>(<span class="at">crashes_per_capita =</span> total_crashes <span class="sc">/</span> population)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>final <span class="ot">&lt;-</span> final <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a></a>  <span class="fu">mutate</span>(<span class="at">crashes_per_capita =</span> total_crashes <span class="sc">/</span> population)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="visualization" class="slide level2">
 <h2>Visualization</h2>
 <p>Create maps to visualize crash patterns using <code>tmap</code>:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
 <span id="cb7-2"><a></a><span class="fu">tm_shape</span>(final) <span class="sc">+</span></span>
-<span id="cb7-3"><a></a>  <span class="fu">tm_polygons</span>(<span class="st">"crashes_per_capita"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb7-3"><a></a>  <span class="fu">tm_polygons</span>(<span class="st">"crashes_per_capita"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="references" class="slide level2">
@@ -477,7 +477,7 @@ Robin Lovelace
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -589,13 +589,14 @@ Robin Lovelace
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

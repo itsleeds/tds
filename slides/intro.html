@@ -6,11 +6,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.34">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Robin Lovelace">
-  <meta name="dcterms.date" content="2025-09-10">
+  <meta name="dcterms.date" content="2025-09-16">
   <title>Transport Data Science – Introduction to transport data science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -30,7 +30,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -139,7 +139,7 @@ Robin Lovelace
 </div>
 </div>
 
-  <p class="date">2025-09-10</p>
+  <p class="date">2025-09-16</p>
 </section>
 <section id="who-transport-data-science-team" class="slide level2">
 <h2>Who: Transport Data Science team</h2>
@@ -250,7 +250,7 @@ Robin Lovelace
 <section id="essential-reading" class="slide level2">
 <h2>Essential reading</h2>
 <ul>
-<li>Chapter 12, <a href="http://geocompr.robinlovelace.net/transport.html">Transportation</a> of Geocomputation with R, a open book on geographic data in R (available free <a href="http://geocompr.robinlovelace.net/">online</a>) (Lovelace et al.&nbsp;2019)</li>
+<li>Chapter 13, <a href="http://r.geocompx.org/transport.html">Transportation</a> of Geocomputation with R, a open book on geographic data in R (available free <a href="http://r.geocompx.org/">online</a>) (Lovelace et al.&nbsp;2019)</li>
 <li>Reproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/</li>
 </ul>
 </section>
@@ -495,7 +495,7 @@ Robin Lovelace
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -569,13 +569,14 @@ Robin Lovelace
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy

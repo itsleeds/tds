@@ -6,8 +6,8 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.34">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.24">
 
   <meta name="author" content="Robin Lovelace">
   <title>Transport Data Science – Visualising transport data</title>
@@ -115,7 +115,7 @@
     div.csl-indent {
       margin-left: 2em;
     }  </style>
-  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-f563837468303362081e247dddd440d0.css">
+  <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-534cd8e3a96973385dffff3f4709048d.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -253,7 +253,7 @@ Robin Lovelace
 <ul>
 <li class="fragment">[visualisations] are also often the best way to present the findings of [transport] research in a way that is accessible. [visualisation] making is therefore a critical part of [transport] and its emphasis not only on describing, but also changing the world.</li>
 </ul>
-<p>Source: <a href="https://geocompr.robinlovelace.net/adv-map.html">Geocomputation with R</a></p>
+<p>Source: <a href="https://r.geocompx.org/adv-map.html">Geocomputation with R</a></p>
 </section>
 <section id="illustration-of-policy-impact" class="slide level2">
 <h2>Illustration of policy impact</h2>
@@ -294,7 +294,7 @@ Robin Lovelace
 <section id="sf-graphics-code" class="slide level2">
 <h2>sf graphics: code</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># facet plots by default</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="co"># facet plots by default</span></span>
 <span id="cb1-2"><a></a><span class="fu">plot</span>(nz) </span>
 <span id="cb1-3"><a></a><span class="co"># plot just geometry, ready for new layers:</span></span>
 <span id="cb1-4"><a></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(nz), <span class="at">reset =</span> <span class="cn">FALSE</span>)</span>
@@ -304,7 +304,7 @@ Robin Lovelace
 <span id="cb1-8"><a></a>sf_cols <span class="ot">=</span> <span class="fu">sf.colors</span>(<span class="at">n =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.2</span>)</span>
 <span id="cb1-9"><a></a>nz<span class="sc">$</span>col <span class="ot">=</span> <span class="fu">factor</span>(<span class="at">x =</span> nz<span class="sc">$</span>Island, <span class="at">labels =</span> sf_cols)</span>
 <span id="cb1-10"><a></a><span class="fu">plot</span>(<span class="fu">st_geometry</span>(nz), <span class="at">col =</span> <span class="fu">as.character</span>(nz<span class="sc">$</span>col))</span>
-<span id="cb1-11"><a></a><span class="co">#  see ?plot.sf for more</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-11"><a></a><span class="co">#  see ?plot.sf for more</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="observations" class="slide level2 incremental">
@@ -321,10 +321,10 @@ Robin Lovelace
 <li>A diverse dedicated mapping R package</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tmap)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="fu">library</span>(tmap)</span>
 <span id="cb2-2"><a></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span>
 <span id="cb2-3"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span></span>
-<span id="cb2-4"><a></a>  <span class="fu">tm_polygons</span>(<span class="st">"Median_income"</span>, <span class="at">palette =</span> <span class="st">"RdYlBu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-4"><a></a>  <span class="fu">tm_polygons</span>(<span class="st">"Median_income"</span>, <span class="at">palette =</span> <span class="st">"RdYlBu"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-6-1.png" width="960" class="r-stretch"></section>
@@ -340,12 +340,12 @@ Robin Lovelace
 </section>
 <section id="tmap-basics" class="slide level2">
 <h2>tmap basics</h2>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Add fill layer#|  to nz shape</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="co"># Add fill layer#|  to nz shape</span></span>
 <span id="cb3-2"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span> <span class="fu">tm_fill</span>() </span>
 <span id="cb3-3"><a></a><span class="co"># Add border layer to nz shape</span></span>
 <span id="cb3-4"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span> <span class="fu">tm_borders</span>() </span>
 <span id="cb3-5"><a></a><span class="co"># Add fill and border layers to nz shape</span></span>
-<span id="cb3-6"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span> <span class="fu">tm_fill</span>() <span class="sc">+</span> <span class="fu">tm_borders</span>() </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-6"><a></a><span class="fu">tm_shape</span>(nz) <span class="sc">+</span> <span class="fu">tm_fill</span>() <span class="sc">+</span> <span class="fu">tm_borders</span>() </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell quarto-layout-panel" data-layout-ncol="3">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
@@ -363,7 +363,7 @@ Robin Lovelace
 <section id="animations" class="slide level2">
 <h2>Animations</h2>
 <ul>
-<li>Are easy with <strong>tmap</strong> (section <a href="http://geocompr.robinlovelace.net/adv-map.html#animated-maps">9.3</a> of geocompr)</li>
+<li>Are easy with <strong>tmap</strong> (section <a href="http://r.geocompx.org/adv-map.html#animated-maps">9.3</a> of geocompr)</li>
 </ul>
 
 <img data-src="https://user-images.githubusercontent.com/1825120/38543030-5794b6f0-3c9b-11e8-9da9-10ec1f3ea726.gif" style="width:80.0%" class="r-stretch"></section>
@@ -399,14 +399,14 @@ Robin Lovelace
 </ul></li>
 </ol>
 <p>For more information on plotting OD data, see the <a href="https://docs.ropensci.org/stplanr/articles/stplanr-od.html">stplanr-od</a> vignetted, e.g.&nbsp;with</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">vignette</span>(<span class="st">"stplanr-od"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">vignette</span>(<span class="st">"stplanr-od"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="result-base-graphics" class="slide level2">
 <h2>Result: base graphics</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(stplanr)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">library</span>(stplanr)</span>
 <span id="cb5-2"><a></a>lwd <span class="ot">=</span> flowlines_sf<span class="sc">$</span>All <span class="sc">/</span> <span class="fu">mean</span>(flowlines_sf<span class="sc">$</span>All) <span class="sc">*</span> <span class="dv">3</span></span>
-<span id="cb5-3"><a></a><span class="fu">plot</span>(flowlines_sf[<span class="st">"Taxi"</span>], <span class="at">lwd =</span> lwd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-3"><a></a><span class="fu">plot</span>(flowlines_sf[<span class="st">"Taxi"</span>], <span class="at">lwd =</span> lwd)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 
 </div>
 <img data-src="slides_files/figure-revealjs/unnamed-chunk-10-1.png" style="width:70.0%" class="r-stretch"></section>
@@ -655,7 +655,7 @@ Tennekes, Martijn. 2018. <span>“Tmap: <span>Thematic Maps</span> in <span>R</s
         margin: 0.1,
 
         math: {
-          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
           config: 'TeX-AMS_HTML-full',
           tex2jax: {
             inlineMath: [['\\(','\\)']],
@@ -767,13 +767,14 @@ Tennekes, Martijn. 2018. <span>“Tmap: <span>Thematic Maps</span> in <span>R</s
           e.clearSelection();
         }
         const getTextToCopy = function(trigger) {
-            const codeEl = trigger.previousElementSibling.cloneNode(true);
-            for (const childEl of codeEl.children) {
-              if (isCodeAnnotation(childEl)) {
-                childEl.remove();
-              }
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
             }
-            return codeEl.innerText;
+          }
+          return codeEl.innerText;
         }
         const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
           text: getTextToCopy
