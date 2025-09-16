@@ -41,7 +41,7 @@ Source: [Fundamentals of Data Vizualisation](https://serialmentor.com/dataviz/)
 ::: incremental
 - [visualisations] are also often the best way to present the findings of [transport] research in a way that is accessible. [visualisation] making is therefore a critical part of [transport] and its emphasis not only on describing, but also changing the world.
 
-Source: [Geocomputation with R](https://geocompr.robinlovelace.net/adv-map.html)
+Source: [Geocomputation with R](https://r.geocompx.org/adv-map.html)
 
 :::
 
@@ -149,7 +149,7 @@ tm_shape(nz) + tm_fill() + tm_borders()
 
 ## Animations
 
-- Are easy with **tmap** (section [9.3](http://geocompr.robinlovelace.net/adv-map.html#animated-maps) of geocompr)
+- Are easy with **tmap** (section [9.3](http://r.geocompx.org/adv-map.html#animated-maps) of geocompr)
 
 ```{r, echo=FALSE, out.width="80%"}
 knitr::include_graphics("https://user-images.githubusercontent.com/1825120/38543030-5794b6f0-3c9b-11e8-9da9-10ec1f3ea726.gif")
