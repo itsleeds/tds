@@ -45,7 +45,7 @@ execute:
 
 See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637) or search for other open access datasets for more ideas
 
-<!-- 2. Work through the transport chapter of Geocomputation with R: https://geocompr.robinlovelace.net/transport.html -->
+<!-- 2. Work through the transport chapter of Geocomputation with R: https://r.geocompx.org/transport.html -->
 
 <!-- See https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md -->
 

@@ -125,7 +125,7 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 
 ## Essential reading
 
--   Chapter 12, [Transportation](http://geocompr.robinlovelace.net/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://geocompr.robinlovelace.net/)) (Lovelace et al. 2019)
+-   Chapter 13, [Transportation](http://r.geocompx.org/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://r.geocompx.org/)) (Lovelace et al. 2019)
 -   Reproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/
 
 ## Core reading materials
