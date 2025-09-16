@@ -547,7 +547,7 @@ desire_lines.plot()
 
 # Processing origin-destination data in Bristol
 
-This section is based on [Chapter 12 of Geocomputation with R](https://geocompr.robinlovelace.net/transport.html). You should read this chapter in full in your own time.
+This section is based on [Chapter 13 of Geocomputation with R](https://r.geocompx.org/transport.html). You should read this chapter in full in your own time.
 
 We need the `stplanr` package which provides many useful functions for transport analysis and `tmap` package which enables advanced mapping features.
 

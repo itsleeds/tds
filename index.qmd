@@ -93,7 +93,7 @@ remotes::install_github("itsleeds/tds")
 
 See [Section 1.5 of the online guide Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio) for instructions on how to install key packages we will use in the module.^[
 For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend 
-Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://geocompr.robinlovelace.net/spatial-class.html and Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the 
+Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://r.geocompx.org/spatial-class.html and Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the 
 [project management section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
 ]
 
