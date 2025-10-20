@@ -35,26 +35,26 @@ website:
         text: Reproducible Road Safety Workshop
       - text: Practical sessions
         contents:
-          - href: p1
-            text: Practical 1
-          - href: p2
-            text: Practical 2
-          - href: p3
-            text: Practical 3
-          - href: p4
-            text: Practical 4
           - href: s1
+            text: Session 1
+          - href: s2
+            text: Session 2
+          - href: s3
+            text: Session 3
+          - href: s4
+            text: Session 4
+          - href: seminar-1
             text: Seminar 1
           - href: d2
             text: Formative assessment
-          - href: p5
-            text: "Practical 5: Visualisation"
-          - href: s2
+          - href: s5
+            text: "Session 5: Visualisation"
+          - href: seminar-2
             text: Seminar 2
-          - href: p6
-            text: "Practical 6: Joins and aggregations"
+          - href: s6
+            text: "Session 6: Joins and aggregations"
           - href: p7
-            text: "Practical 7: Project work"
+            text: "Session 7: Project work"
           - href: d3
             text: Coursework submission
 

@@ -1,5 +1,5 @@
 ---
-title: "Practical 5: Visualising transport data"
+title: "Session 5: Visualising transport data"
 bibliography: ../tds.bib
 toc: true
 execute: 
@@ -12,7 +12,7 @@ editor:
 
 # Introduction
 
-In this practical, we will build on the **routing techniques** from Practical 4 by exploring **data visualization** methods for transport analysis.
+In this practical, we will build on the **routing techniques** from Session 4 by exploring **data visualization** methods for transport analysis.
 By the end of this practical, you should be able to:
 
 -   Load and preprocess OD flow data

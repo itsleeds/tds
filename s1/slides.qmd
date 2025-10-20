@@ -105,7 +105,7 @@ wget https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a351
 ```{r}
 #| eval: false
 #| echo: false
-download.file("https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w", "p1/data_growth_time.png")
+download.file("https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a3517db5-8810-44ef-a199-28fb3c6387ab/data_growth_time.png?format=2500w", "s1/data_growth_time.png")
 ```
 
 The Bureau of Labor Statistics in the US projects a 35% increase in data science roles in decade 2022-2032." Source: [visualisecurious.com](https://www.visualizecuriosity.com/posts/data-science-job-market-2024)

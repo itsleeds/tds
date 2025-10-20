@@ -1,5 +1,5 @@
 ---
-title: "Practical 4: Routing"
+title: "Session 4: Routing"
 bibliography: ../tds.bib
 toc: true
 execute: 
@@ -284,7 +284,7 @@ if (!file.exists("isochrone.Rds")) download.file(u, "isochrone.Rds", mode = "wb"
 
 ```{r, message=FALSE, echo=FALSE}
 if (file.exists("isochrone.Rds")){isochrone = readRDS("isochrone.Rds")}
-if (file.exists("p4/isochrone.Rds")){isochrone = readRDS("p4/isochrone.Rds")}
+if (file.exists("s4/isochrone.Rds")){isochrone = readRDS("s4/isochrone.Rds")}
 isochrone = readRDS("isochrone.Rds")
 isochrone$time = isochrone$time / 60
 tm_shape(isochrone) +

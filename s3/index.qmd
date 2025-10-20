@@ -1,5 +1,5 @@
 ---
-title: "Geographic and origin-destination data"
+title: "Session 3: Geographic and origin-destination data"
 # subtitle: '<br/>Practical'
 # author: "Malcolm Morgan and Robin Lovelace"
 # date: 'University of Leeds `r # Sys.Date()()`<br/><img class="img-footer" alt="" src="https://comms.leeds.ac.uk/wp-content/themes/toolkit-wordpress-theme/img/logo.png">'
@@ -183,7 +183,7 @@ nz_height = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/head
 ```
 :::
 
-We can use `tidyverse` functions like `filter` and `select` on `sf` objects in the same way you did in Practical 1.
+We can use `tidyverse` functions like `filter` and `select` on `sf` objects in the same way you did in Session 1.
 
 ::: {.panel-tabset}
 ## R
