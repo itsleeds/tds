@@ -35,6 +35,8 @@ website:
         text: Reproducible Road Safety Workshop
       - text: Sessions
         contents:
+          - href: d1
+            text: Introduction and setup
           - href: s1
             text: Session 1
           - href: s2
