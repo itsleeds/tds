@@ -60,14 +60,11 @@ Yorkshire. Try typing this URL https://otp.robinlovelace.net/
 during the session into your browser. You should see something like
 this:
 
-
-
 ![](images/otp_screenshot.png)
 Note if you see a grey map use the layers button in the top right to switch to a different basemap.
 
 
 ### OTP Web GUI
-
 
 **Exercise**
 
@@ -82,10 +79,12 @@ To allow R to connect to the OpenTripPlanner server, we will use the
 ```{r connect, eval=FALSE}
 # ip = "localhost" # to run it on your computer (see final bonus exercise)
 ip = "otp.robinlovelace.net" # an actual server
-otpcon = otp_connect(hostname = ip, 
-                     ssl = TRUE
-                     port = 443,
-                     router = "west-yorkshire")
+otpcon = otp_connect(
+  hostname = ip, 
+  ssl = TRUE,
+  port = 443,
+  router = "west-yorkshire"
+)
 ```
 
 <!-- Note: the below is for locally hosted OTP: -->
@@ -122,11 +121,14 @@ If you have connected successfully, then you should get a message “Router exis
 Create a test route. Notice than in the web UI the coordinates are `Lat/Lng` but R uses `Lng/Lat`
 
 ```{r testroute, eval=FALSE, message=FALSE, warning=FALSE}
-routes_test = otp_plan(otpcon = otpcon,
-                            fromPlace = c(-1.55555, 53.81005), #Lng/Lat
-                            toPlace = c(-1.54710, 53.79519),
-                            mode = "WALK") 
+routes_test = otp_plan(
+  otpcon = otpcon,
+  fromPlace = c(-1.55555, 53.81005),
+  toPlace = c(-1.54710, 53.79519),
+  mode = "WALK"
+)
 ```
+
 You can use multiple modes and combinations try:
 
 * `mode = "WALK"`
@@ -154,6 +156,7 @@ u = "https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_cents.geojson"
 centroids = read_sf(u)
 head(centroids)
 ```
+
 **Exercise** 
 
 2. Plot the `desire_lines` and `centroids` objects using the `tmap` package to show the number of travellers on each desire_line and the locations of all centroids.
@@ -184,7 +187,6 @@ tm_shape(desire_lines) +
 
 This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the start and endpoints using the package `lwgeom`
 
-
 **Exercise**
 
 4. Produce a data frame called `desire_top` which contains the top three `desire_lines` for all travellers. Hint `?slice_max`
@@ -198,15 +200,15 @@ desire_top = desire_lines %>%
 5. We need to extract start and end point from those desire lines. We would also like to give each place an ID value
 
 ```{r, echo=TRUE}
-# Extract the start and end points
-fromPlace = lwgeom::st_startpoint(desire_top)
-toPlace = lwgeom::st_endpoint(desire_top)
-
-# This returns just the geometry
-# So make it into an sf data.frame with the ID values from desire_top
-
-fromPlace = st_sf(data.frame(id = desire_top$from, geometry = fromPlace))
-toPlace = st_sf(data.frame(id = desire_top$to, geometry = toPlace))
+# Extract start and end points
+fromPlace = sf::st_sf(
+  data.frame(id = desire_top$from),
+  geometry = lwgeom::st_startpoint(desire_top)
+)
+toPlace = sf::st_sf(
+  data.frame(id = desire_top$to),
+  geometry = lwgeom::st_endpoint(desire_top)
+)
 ```
 
 
@@ -217,11 +219,13 @@ Calculate routes for the first three desire lines with the following command:
 
 ```{r, message=FALSE,  eval=FALSE}
 routes_drive_top = otp_plan(otpcon = otpcon,
-                            fromPlace = fromPlace,
-                            toPlace = toPlace,
-                            fromID = fromPlace$id,
-                            toID = toPlace$id,
-                            mode = "CAR")
+  otpcon = otpcon,
+  fromPlace = fromPlace,
+  toPlace = toPlace,
+  fromID = fromPlace$id,
+  toID = toPlace$id,
+  mode = "CAR"
+)
 ```
 
 ```{r, message=FALSE,  echo=FALSE}
@@ -309,7 +313,7 @@ date_time = lubridate::ymd_hms("2022-01-25 09:00:00")
 routes_transit = route(
   l = desire_lines, route_fun = otp_plan, otpcon = otpcon,
   mode = c("WALK","TRANSIT"), date_time = date_time, maxWalkDist = 2000
-  )
+)
 
 # routes_transit = otp_plan(otpcon = otpcon,
 #                             fromPlace = fromPlace,
