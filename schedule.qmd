@@ -173,11 +173,11 @@ tt_csv = readr::read_csv("timetable.csv")
 ```{r}
 timetable = tt_csv |> 
   mutate(
-    session_code = paste0(
-      # Take first letter after "TDS " (s for session, d for deadline):
-      tolower(str_sub(summary, 5, 5)),
-      # Take first number from summary:
-      str_extract(summary, "\\d")
+    session_code = case_when(
+      str_detect(summary, "TDS Session") ~ paste0("s", str_extract(summary, "\\d")),
+      str_detect(summary, "TDS seminar") ~ paste0("seminar-", str_extract(summary, "\\d")),
+      str_detect(summary, "TDS deadline") ~ paste0("d", str_extract(summary, "\\d")),
+      TRUE ~ "unknown"
     )
   ) |>
   transmute(
