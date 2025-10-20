@@ -4,10 +4,10 @@ execute:
   echo: false
 ---
 
-<!-- From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
+<!-- From https://timetable.leeds.ac.uk/teaching/202526/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
 
-The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2025/timetable.ics) versions).
-See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) and [mytimetable.eeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202425!module!5216C608F8794D77F15FA9D195AB3C06) for the official timetable.
+The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2026/timetable.ics) versions).
+See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202526/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) and [mytimetable.eeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202526!module!5216C608F8794D77F15FA9D195AB3C06) for the official timetable.
 If you spot any discrepancies, please let us know.
 
 ```{r}
@@ -18,8 +18,8 @@ library(tidyverse)
 ```{r}
 #| eval: false
 # Aim: create ical of all lectures and practicals of TDS
-# Start date of week 1 (source: https://ses.leeds.ac.uk/info/21630/timetabling/1384/teaching-week-patterns-202425)
-w_start = as.Date("2024-09-30")
+# Start date of week 1 (source: https://www.leeds.ac.uk/term-dates)
+w_start = as.Date("2025-09-29")
 w_start
 lubridate::wday(w_start, label = TRUE) # start on a Monday
 week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("C", 1:4), 23:30)
@@ -160,8 +160,8 @@ readr::write_csv(tt_csv, "timetable.csv")
 
 ```{r}
 #| eval: false
-# system("gh release create 2025")
-system("gh release upload 2025 timetable.ics timetable.csv --clobber")
+# system("gh release create 2026")
+system("gh release upload 2026 timetable.ics timetable.csv --clobber")
 ```
 
 ```{r}
