@@ -308,9 +308,9 @@ For details on installing packages see [here](https://docs.ropensci.org/stats19/
 
 # Homework
 
-- Reproduce the code I wrote during this session, e.g. by copy-pasting this code into the console or source editor of RStudio: [github.com/github.com/itsleeds/tds/blob/main/s1/p1project/foundations.qmd](https://github.com/itsleeds/tds/blob/main/s1/p1project/foundations.qmd)
-  - See the raw file at [github.com/itsleeds/tds/raw/refs/heads/main/s1/p1project/foundations.qmd](https://github.com/itsleeds/tds/raw/refs/heads/main/s1/p1project/foundations.qmd)
-  - See the rendered result at [itsleeds.github.io/tds/s1/p1project/foundations.html](https://itsleeds.github.io/tds/s1/p1project/foundations.html)
+- Reproduce the code I wrote during this session, e.g. by copy-pasting this code into the console or source editor of RStudio: [github.com/github.com/itsleeds/tds/blob/main/s1/s1project/foundations.qmd](https://github.com/itsleeds/tds/blob/main/s1/s1project/foundations.qmd)
+  - See the raw file at [github.com/itsleeds/tds/raw/refs/heads/main/s1/s1project/foundations.qmd](https://github.com/itsleeds/tds/raw/refs/heads/main/s1/s1project/foundations.qmd)
+  - See the rendered result at [itsleeds.github.io/tds/s1/s1project/foundations.html](https://itsleeds.github.io/tds/s1/s1project/foundations.html)
 
 -   Work through [Chapter 13](https://r.geocompx.org/transport.html) of the Geocomputation with R book. Make notes in a .qmd file that you can bring to the class to show colleagues and the instructor next week.
 
