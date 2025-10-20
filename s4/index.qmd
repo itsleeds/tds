@@ -443,7 +443,7 @@ tm_shape(routes_transit_group) +
 
 ## Network Analysis (dodgr)
 
-**Note** Some people have have problems running dodgr on Windows, if you do follow these [instructions](https://github.com/itsleeds/tds/blob/master/practicals/dodgr-install.md).
+**Note** Some people have have problems running dodgr on Windows, if you do follow these [instructions](https://github.com/itsleeds/tds/blob/main/s4/dodgr-install.md).
 
 We will now analyse the road network using `dodgr`. Network analysis can take a very long time on large areas. So we will use the example of the [Isle of Wight](https://en.wikipedia.org/wiki/Isle_of_Wight), which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.
 

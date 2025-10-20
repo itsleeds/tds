@@ -81,7 +81,7 @@ seminar_ids = c(
 )
 seminar_descriptions = c(
   "Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation",
-  "Seminar 2 Will Deakin, Network Rail: Network simplication"
+  "Seminar 2: Will Deakin, Network Rail: Network simplification"
 )
 
 seminar_day_of_week = c(4)
