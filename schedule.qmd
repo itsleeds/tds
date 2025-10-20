@@ -174,7 +174,7 @@ tt_csv = readr::read_csv("timetable.csv")
 timetable = tt_csv |> 
   mutate(
     session_code = paste0(
-      # Take 5th character from summary:
+      # Take first letter after "TDS " (s for session, d for deadline):
       tolower(str_sub(summary, 5, 5)),
       # Take first number from summary:
       str_extract(summary, "\\d")
