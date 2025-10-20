@@ -19,3 +19,10 @@ _freeze/
 *.pdf
 otp_TDS
 .Rhistory
+
+# Quarto build artifacts
+*.html
+site_libs/
+*_files/
+*.knit.md
+*.rmarkdown
