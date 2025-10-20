@@ -12,8 +12,8 @@ editor:
 
 # Introduction
 
-In this practical, we will build on the **routing techniques** from Session 4 by exploring **data visualization** methods for transport analysis.
-By the end of this practical, you should be able to:
+In this session, we will build on the **routing techniques** from Session 4 by exploring **data visualization** methods for transport analysis.
+By the end of this session, you should be able to:
 
 -   Load and preprocess OD flow data
 -   Visualize OD lines and proportional symbol maps
@@ -23,7 +23,7 @@ By the end of this practical, you should be able to:
 
 # Setup
 
-Below are the libraries we will use throughout this practical:
+Below are the libraries we will use throughout this session:
 
 ```{r}
 knitr::opts_chunk$set(
@@ -270,7 +270,7 @@ rgl::rglwidget()
 
 # Conclusions
 
-In this practical, you learned how to:
+In this session, you learned how to:
 
 1.  Create flow maps to visualize travel demand from an OD dataset.
 2.  Compare flows by mode (driving, walking, cycling) to understand differences in spatial patterns.

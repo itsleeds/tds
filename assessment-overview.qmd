@@ -125,7 +125,7 @@ Both assessments are categorized as **AMBER** for AI usage:
 
 1. **Academic Support**
    - Module team can be contacted via email
-   - Practical sessions
+   - Weekly sessions
 
 2. **Technical Support**
    - Code templates and examples provided in the course website

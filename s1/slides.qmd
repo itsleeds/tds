@@ -132,7 +132,7 @@ The Bureau of Labor Statistics in the US projects a 35% increase in data science
 -   January 2020: Available, Data Science MSc course
 -   March 2020: Switch to online teaching
 -   2021-2023: Updated module, focus on methods
--   2024: Switch to combined practical sessions and lectures
+-   2024: Switch to combined lecture and practical sessions
 -   2025+: Expand, online course? book? stay in touch!
 
 <blockquote class="twitter-tweet">
@@ -391,7 +391,7 @@ knitr::include_graphics("https://raw.githubusercontent.com/dabreegster/abstreet/
 - Only then add complexity to your analysis
 - Starting point for this: [Transport chapter](https://r.geocompx.org/transport.html) of Geocomputation with R [@lovelace_geocomputation_2025]
 
-# Practical session 
+# Session activities
 
 <!-- - Definition of transport data science -->
 <!-- - About you, level and hopes for the course -->

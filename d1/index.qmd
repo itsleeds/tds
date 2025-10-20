@@ -15,7 +15,7 @@ As per your [timetable](https://itsleeds.github.io/tds/schedule.html), the first
 
 ## Homework for next week (deadline: Friday 31st January, 14:00)
 
-1. Ensure that you have the timetable stored safely in your calendar, so you do not miss important practicals or seminars.
+1. Ensure that you have the timetable stored safely in your calendar, so you do not miss important sessions or seminars.
 2. Ensure that you have the necessary software installed on your computer and that you have tested that you can use it for the datasets we will be using in the course, see https://itsleeds.github.io/tds/#software-requirements-and-installation for guidance on installing the software you need.
     - Any issues you have with the software installation, please get in touch with me as soon as possible.
 

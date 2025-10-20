@@ -13,7 +13,7 @@ This reading list contains key resources for the Transport Data Science module, 
     -   A guide to geographic data analysis, visualization, and modeling with R. <!-- https://r.geocompx.org/transport.html -->
     -   The Transportation chapter, which can be found online at [r.geocompx.org/transport.html](https://r.geocompx.org/transport.html), is a key resource for this module.
 -   [Geocomputation with Python](https://py.geocompx.org/) [@dorman_geocomputation_2025]
-    -   Resource for working with geographic data using Python, covering both vector and raster data models, only core reading if you are using Python for the practical sessions.
+    -   Resource for working with geographic data using Python, covering both vector and raster data models, only core reading if you are using Python for the sessions.
 
 # Skills Development
 

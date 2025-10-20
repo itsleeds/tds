@@ -13,12 +13,12 @@ engine: knitr
 
 # Introduction
 
-In this practical session, we will learn how to get transport datasets using R.
+In this session, we will learn how to get transport datasets using R.
 The contents of the session are as follows:
 
-- We'll start with a short lecture on data sources and ways of classifying transport datasets (see the [slides](https://itsleeds.github.io/tds/p2/slides.html))
+- We'll start with a short lecture on data sources and ways of classifying transport datasets (see the [slides](https://itsleeds.github.io/tds/s2/slides.html))
 - Reviewing the homework from the previous session
-- Practical session importing and exploring a range of transport datasets in your own time
+- Session activities: importing and exploring a range of transport datasets in your own time
 - Bonus: exploring the Cadence platform
 - Homework for the next session
 
@@ -45,7 +45,7 @@ library(sf)
 library(tmap)
 ```
 
-Note that this practical uses imports and uses geographic data with the `sf` package.
+Note that this session uses imports and uses geographic data with the `sf` package.
 Read more about the package in chapters 2 onwards in [Geocomputation with R](https://r.geocompx.org) and in the [sf package documentation](https://r-spatial.github.io/sf/).
 
 # Getting OpenStreetMap data
@@ -123,7 +123,7 @@ sf::st_write(supermarket_points_cleaned, "supermarkets_points_cleaned.geojson", 
 system("gh release upload 2025 supermarkets_points_cleaned.geojson --clobber")
 ```
 
-Import and visualise a dataset with supermarket names and locations with the following code (see the [source code of the practical](https://github.com/itsleeds/tds/discussions/166) to see how the supermarket data was obtained with `osmextract`):
+Import and visualise a dataset with supermarket names and locations with the following code (see the [source code of the session](https://github.com/itsleeds/tds/discussions/166) to see how the supermarket data was obtained with `osmextract`):
 
 ```{r}
 supermarkets = sf::read_sf("https://github.com/ITSLeeds/tds/releases/download/2025/supermarkets_points_cleaned.geojson")
@@ -249,7 +249,7 @@ See [r.geocompx.org/spatial-operations](https://r.geocompx.org/spatial-operation
 
 # Homework
 
-1. In preparation for the next practical session, take a read of and try to reproduce the code in the [vignette "An introduction to origin-destination data"](https://cran.r-project.org/web/packages/od/vignettes/od.html) for the `od` package.
+1. In preparation for the next session, take a read of and try to reproduce the code in the [vignette "An introduction to origin-destination data"](https://cran.r-project.org/web/packages/od/vignettes/od.html) for the `od` package.
 <!-- https://itsleeds.github.io/pct/articles/pct.html -->
     - Import some OD data using the `pct` package, as documented at [itsleeds.github.io/pct](https://itsleeds.github.io/pct/articles/pct.html).
 
@@ -270,4 +270,4 @@ See [r.geocompx.org/spatial-operations](https://r.geocompx.org/spatial-operation
 
 5. Check-out the code I used to generate the interactive map of source code in this Discussion on GitHub: https://github.com/itsleeds/tds/discussions/166
     - Bonus: comment on the discussion with your thoughts on the code and how it could be improved.
-    - Bonus 2: try opening a new Discussion comment in the tds repo at [github.com/itsleeds/tds/discussions](https://github.com/itsleeds/tds/discussions) and share your thoughts on the practical session.
+    - Bonus 2: try opening a new Discussion comment in the tds repo at [github.com/itsleeds/tds/discussions](https://github.com/itsleeds/tds/discussions) and share your thoughts on the session.

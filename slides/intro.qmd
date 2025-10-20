@@ -104,7 +104,7 @@ In other words...
 -   January 2020: Available, Data Science MSc course
 -   March 2020: Switch to online teaching
 -   2021-2023: Updated module, focus on methods
--   2024: Switch to combined practical sessions and lectures
+-   2024: Switch to combined lecture and practical sessions
 -   2025+: Expand, online course? book? stay in touch!
 
 <blockquote class="twitter-tweet">

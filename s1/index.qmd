@@ -141,7 +141,7 @@ See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637)
 
 -   Review of [homework](../d1/)
 
--   Create a new folder (or R project with RStudio) called 'practical1'
+-   Create a new folder (or R project with RStudio) called 'session1'
 
 -   In it create file called foundations.qmd
 

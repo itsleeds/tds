@@ -12,11 +12,11 @@ editor:
 
 # Introduction
 
-In this practical session, we will learn how to use routing engines and network analysis. The contents of the session are as follows:
+In this session, we will learn how to use routing engines and network analysis. The contents of the session are as follows:
 
 * We will start with reviewing the homework from the previous session
 * A lecture on graph theory and routing. [Slides here](https://github.com/itsleeds/tds/releases/download/2025/Lecture.4.-.Routing.pptx)
-* Practical session on routing in R
+* Session activities: routing in R
 * Homework and next session
 
 # Review Homework (20 mins)

@@ -170,9 +170,9 @@ Good starting points in your research may be:
 <!-- https://github.com/ropenspain/spanishoddata -->
 -   There are many other R packages to help access data, including the [spanishoddata](https://github.com/ropenspain/spanishoddata) package for Spanish origin-destination data
 
-## Practical demo
+## Demo
 
-See practical session at [itsleeds.github.io/tds/s2/](https://itsleeds.github.io/tds/s2/)
+See session activities at [itsleeds.github.io/tds/s2/](https://itsleeds.github.io/tds/s2/)
 
 -   That involves:
 
