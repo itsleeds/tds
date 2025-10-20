@@ -45,13 +45,13 @@ website:
             text: Session 3
           - href: s4
             text: Session 4
-          - href: seminar-1
+          - href: sem1
             text: Seminar 1
           - href: d2
             text: Formative assessment
           - href: s5
             text: "Session 5: Visualisation"
-          - href: seminar-2
+          - href: sem2
             text: Seminar 2
           - href: s6
             text: "Session 6: Joins and aggregations"
