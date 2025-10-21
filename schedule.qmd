@@ -6,7 +6,7 @@ execute:
 
 <!-- From https://timetable.leeds.ac.uk/teaching/202526/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
 
-The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2026/timetable.ics) versions).
+The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/data/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2026/timetable.ics) versions).
 See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202526/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) and [mytimetable.eeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202526!module!5216C608F8794D77F15FA9D195AB3C06) for the official timetable.
 If you spot any discrepancies, please let us know.
 
@@ -153,20 +153,20 @@ tt_csv = tt_min |>
   select(SUMMARY, DESCRIPTION, time, duration, LOCATION)
 tt_csv$time
 names(tt_csv) = tolower(names(tt_csv))
-calendar::ic_write(ic, "timetable.ics")
-readLines("timetable.ics")
-readr::write_csv(tt_csv, "timetable.csv")
+calendar::ic_write(ic, "data/timetable.ics")
+readLines("data/timetable.ics")
+readr::write_csv(tt_csv, "data/timetable.csv")
 ```
 
 ```{r}
 #| eval: false
 # system("gh release create 2026")
-system("gh release upload 2026 timetable.ics timetable.csv --clobber")
+system("gh release upload 2026 data/timetable.ics data/timetable.csv --clobber")
 ```
 
 ```{r}
 #| include: false
-tt_csv = readr::read_csv("timetable.csv")
+tt_csv = readr::read_csv("data/timetable.csv")
 ```
 
 
