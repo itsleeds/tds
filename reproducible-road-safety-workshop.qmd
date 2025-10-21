@@ -2,6 +2,8 @@
 bibliography: tds.bib
 title: Reproducible data science for road safety research
 number-sections: false
+execute: 
+  eval: false
 ---
 
 # Introduction
