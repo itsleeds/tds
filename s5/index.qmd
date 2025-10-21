@@ -1,1633 +1,283 @@
----------------
-
+---
 title: "Session 5: AI for Transport Planning"
-
-bibliography: ../tds.bibtitle: "Session 5: AI for Transport Planning"
-
+bibliography: ../tds.bib
 toc: true
-
-execute: bibliography: ../tds.bibtitle: "Session 5: AI for Transport Planning"
-
+execute: 
   cache: true
-
-  eval: truetoc: true
-
+  eval: true
 editor: 
-
-  markdown: execute: bibliography: ../tds.bibtitle: "Session 5: AI for Transport Planning"title: "Session 5: Visualising transport data"
-
+  markdown: 
     wrap: sentence
+---
 
----  cache: true
+# Introduction
 
-
-
-# Introduction  eval: truetoc: true
-
-
-
-Artificial Intelligence (AI) is rapidly transforming transport planning and data science.editor: 
-
+Artificial Intelligence (AI) is rapidly transforming transport planning and data science.
 In this session, we explore how AI tools—particularly **GitHub Copilot** and **large language models (LLMs)**—can enhance productivity, code quality, and problem-solving in transport data analysis.
-
-  markdown: execute: bibliography: ../tds.bibbibliography: ../tds.bib
 
 By the end of this session, you should be able to:
 
-    wrap: sentence
-
 -   Understand the role of AI in modern transport planning workflows
-
--   Use GitHub Copilot effectively for R and Python coding---  cache: true
-
+-   Use GitHub Copilot effectively for R and Python coding
 -   Apply prompt engineering techniques for transport data tasks
-
 -   Recognize ethical considerations and limitations of AI tools
-
 -   Integrate AI-assisted coding into reproducible research practices
 
-# Introduction  eval: truetoc: truetoc: true
-
 # Why AI for Transport Planning?
-
-
 
 Transport planning involves:
 
-Artificial Intelligence (AI) is rapidly transforming transport planning and data science.editor: 
-
 -   **Complex spatial data** (networks, zones, flows)
-
--   **Large datasets** (GPS traces, survey data, traffic counts)In this session, we explore how AI tools—particularly **GitHub Copilot** and **large language models (LLMs)**—can enhance productivity, code quality, and problem-solving in transport data analysis.
-
+-   **Large datasets** (GPS traces, survey data, traffic counts)
 -   **Interdisciplinary methods** (statistics, optimization, visualization)
+-   **Reproducibility requirements** (code, documentation, version control)
 
--   **Reproducibility requirements** (code, documentation, version control)  markdown: execute: execute: 
+AI tools can assist with:
 
-
-
-AI tools can assist with:By the end of this session, you should be able to:
-
-
-
-1.  **Code generation** - Writing boilerplate, data transformations, plotting    wrap: sentence
-
+1.  **Code generation** - Writing boilerplate, data transformations, plotting
 2.  **Debugging** - Identifying errors and suggesting fixes
-
-3.  **Documentation** - Generating comments, README files, and reports-   Understand the role of AI in modern transport planning workflows
-
+3.  **Documentation** - Generating comments, README files, and reports
 4.  **Learning** - Explaining unfamiliar functions or concepts
+5.  **Optimization** - Suggesting more efficient algorithms or approaches
 
-5.  **Optimization** - Suggesting more efficient algorithms or approaches-   Use GitHub Copilot effectively for R and Python coding---  cache: true  cache: true
+# GitHub Copilot for Transport Data Science
 
+## What is GitHub Copilot?
 
-
-# GitHub Copilot for Transport Data Science-   Apply prompt engineering techniques for transport data tasks
-
-
-
-## What is GitHub Copilot?-   Recognize ethical considerations and limitations of AI tools
-
-
-
-GitHub Copilot is an **AI pair programmer** that suggests code completions in your editor (VS Code, RStudio, etc.).-   Integrate AI-assisted coding into reproducible research practices
-
+GitHub Copilot is an **AI pair programmer** that suggests code completions in your editor (VS Code, RStudio, etc.).
 It is powered by large language models trained on billions of lines of public code.
-
-# Introduction  eval: true  eval: true
 
 ## Setting Up Copilot
 
-# Why AI for Transport Planning?
-
 Students can access GitHub Copilot for free through the [GitHub Student Developer Pack](https://education.github.com/pack):
 
-
-
 1.  Verify your student status at [education.github.com](https://education.github.com)
-
-2.  Install the Copilot extension in your IDE (VS Code, RStudio, etc.)Transport planning involves:
-
+2.  Install the Copilot extension in your IDE (VS Code, RStudio, etc.)
 3.  Sign in with your GitHub account
+4.  Start coding - Copilot will suggest completions automatically
 
-4.  Start coding - Copilot will suggest completions automaticallyArtificial Intelligence (AI) is rapidly transforming transport planning and data science.editor: editor: 
+## Practical Examples
 
+### Example 1: Loading and Filtering Transport Data
 
+**Prompt (as a comment in R):**
 
-## Practical Examples-   **Complex spatial data** (networks, zones, flows)
-
-
-
-### Example 1: Loading and Filtering Transport Data-   **Large datasets** (GPS traces, survey data, traffic counts)In this session, we explore how AI tools—particularly **GitHub Copilot** and **large language models (LLMs)**—can enhance productivity, code quality, and problem-solving in transport data analysis.
-
-
-
-**Prompt (as a comment in R):**-   **Interdisciplinary methods** (statistics, optimization, visualization)
-
-
-
-```{r}-   **Reproducibility requirements** (code, documentation, version control)  markdown:   markdown: 
-
+```{r}
 #| eval: false
-
 # Load cycle hire data from London and filter trips longer than 30 minutes
-
 ```
-
-AI tools can assist with:By the end of this session, you should be able to:
 
 **Copilot might suggest:**
 
-
-
 ```{r}
-
-#| eval: false1.  **Code generation** - Writing boilerplate, data transformations, plotting    wrap: sentence    wrap: sentence
-
+#| eval: false
 library(dplyr)
+library(readr)
 
-library(readr)2.  **Debugging** - Identifying errors and suggesting fixes
-
-
-
-# Load cycle hire data3.  **Documentation** - Generating comments, README files, and reports-   Understand the role of AI in modern transport planning workflows
-
+# Load cycle hire data
 cycle_data = read_csv("cycle_hire.csv")
 
-4.  **Learning** - Explaining unfamiliar functions or concepts
-
 # Filter trips longer than 30 minutes
-
-long_trips = cycle_data |>5.  **Optimization** - Suggesting more efficient algorithms or approaches-   Use GitHub Copilot effectively for R and Python coding------
-
+long_trips = cycle_data |>
   filter(duration_minutes > 30)
-
 ```
 
-
-
-### Example 2: Creating an Interactive Map# GitHub Copilot for Transport Data Science-   Apply prompt engineering techniques for transport data tasks
-
-
+### Example 2: Creating an Interactive Map
 
 **Prompt:**
 
-
-
-```{r}## What is GitHub Copilot?-   Recognize ethical considerations and limitations of AI tools
-
+```{r}
 #| eval: false
-
 # Create an interactive map showing bike share stations in Leeds using tmap
-
 ```
-
-GitHub Copilot is an **AI pair programmer** that suggests code completions in your editor (VS Code, RStudio, etc.).-   Integrate AI-assisted coding into reproducible research practices
 
 **Copilot might suggest:**
 
-It is powered by large language models trained on billions of lines of public code.
-
 ```{r}
-
-#| eval: false# Introduction# Introduction
-
+#| eval: false
 library(sf)
+library(tmap)
 
-library(tmap)## Setting Up Copilot
-
-
-
-# Load bike share stations# Why AI for Transport Planning?
-
+# Load bike share stations
 stations = st_read("bike_stations.geojson")
 
-Students can access GitHub Copilot for free through the [GitHub Student Developer Pack](https://education.github.com/pack):
-
 # Create interactive map
-
 tmap_mode("view")
-
 tm_shape(stations) +
-
-  tm_dots(size = 0.5, col = "blue", alpha = 0.7) +1.  Verify your student status at [education.github.com](https://education.github.com)
-
+  tm_dots(size = 0.5, col = "blue", alpha = 0.7) +
   tm_basemap("OpenStreetMap")
-
-```2.  Install the Copilot extension in your IDE (VS Code, RStudio, etc.)Transport planning involves:
-
-
-
-### Example 3: Routing Analysis3.  Sign in with your GitHub account
-
-
-
-**Prompt:**4.  Start coding - Copilot will suggest completions automaticallyArtificial Intelligence (AI) is rapidly transforming transport planning and data science.In this session, we will build on the **routing techniques** from Session 4 by exploring **data visualization** methods for transport analysis.
-
-
-
-```{r}
-
-#| eval: false
-
-# Calculate cycling routes between origin-destination pairs using stplanr## Practical Examples-   **Complex spatial data** (networks, zones, flows)
-
 ```
 
+### Example 3: Routing Analysis
 
+**Prompt:**
+
+```{r}
+#| eval: false
+# Calculate cycling routes between origin-destination pairs using stplanr
+```
 
 **Copilot might suggest:**
 
-### Example 1: Loading and Filtering Transport Data-   **Large datasets** (GPS traces, survey data, traffic counts)In this session, we explore how AI tools—particularly **GitHub Copilot** and **large language models (LLMs)**—can enhance productivity, code quality, and problem-solving in transport data analysis.By the end of this session, you should be able to:
-
 ```{r}
-
 #| eval: false
-
 library(stplanr)
-
-library(sf)**Prompt (as a comment in R):**-   **Interdisciplinary methods** (statistics, optimization, visualization)
-
-
+library(sf)
 
 # Create OD data
-
 od = data.frame(
-
-  from_lon = c(-1.55, -1.56),```{r}-   **Reproducibility requirements** (code, documentation, version control)
-
+  from_lon = c(-1.55, -1.56),
   from_lat = c(53.80, 53.81),
-
-  to_lon = c(-1.54, -1.53),#| eval: false
-
+  to_lon = c(-1.54, -1.53),
   to_lat = c(53.79, 53.78)
+)
 
-)# Load cycle hire data from London and filter trips longer than 30 minutes
-
-
-
-# Convert to spatial lines```
-
+# Convert to spatial lines
 od_sf = od_to_sf(od, crs = 4326)
 
-AI tools can assist with:By the end of this session, you should be able to:-   Load and preprocess OD flow data
-
 # Route using CycleStreets API
-
-routes = route_cyclestreets(od_sf, plan = "fastest")**Copilot might suggest:**
-
+routes = route_cyclestreets(od_sf, plan = "fastest")
 ```
-
-
 
 ## Best Practices for Using Copilot
 
-```{r}
-
 ### ✅ Do:
 
-#| eval: false1.  **Code generation** - Writing boilerplate, data transformations, plotting-   Visualize OD lines and proportional symbol maps
-
 -   **Write clear comments** describing what you want
-
--   **Review suggestions carefully** - Copilot can make mistakeslibrary(dplyr)
-
+-   **Review suggestions carefully** - Copilot can make mistakes
 -   **Test generated code** before using in production
-
--   **Use Copilot for learning** - examine suggestions to understand new approacheslibrary(readr)2.  **Debugging** - Identifying errors and suggesting fixes
-
+-   **Use Copilot for learning** - examine suggestions to understand new approaches
 -   **Iterate on prompts** - refine your requests if initial suggestions aren't helpful
-
-
 
 ### ❌ Don't:
 
-# Load cycle hire data3.  **Documentation** - Generating comments, README files, and reports-   Understand the role of AI in modern transport planning workflows-   Compare walking, driving, and cycling flows
-
 -   **Blindly accept suggestions** without understanding them
-
--   **Share sensitive data** in prompts (API keys, personal information)cycle_data = read_csv("cycle_hire.csv")
-
+-   **Share sensitive data** in prompts (API keys, personal information)
 -   **Rely solely on AI** - develop your own understanding
-
--   **Ignore licensing** - be aware of code provenance4.  **Learning** - Explaining unfamiliar functions or concepts
-
+-   **Ignore licensing** - be aware of code provenance
 -   **Skip testing** - AI-generated code needs validation
-
-# Filter trips longer than 30 minutes
 
 # Prompt Engineering for Transport Tasks
 
-long_trips = cycle_data |>5.  **Optimization** - Suggesting more efficient algorithms or approaches-   Use GitHub Copilot effectively for R and Python coding-   Aggregate flows along the road network
-
 **Effective prompts** help AI generate better code:
-
-  filter(duration_minutes > 30)
 
 ## Structure of a Good Prompt
 
-```
-
 1.  **Context** - What domain/dataset are you working with?
-
 2.  **Task** - What do you want to accomplish?
-
 3.  **Constraints** - Any specific requirements (packages, formats)?
-
-4.  **Example** - Show desired input/output if possible### Example 2: Creating an Interactive Map# GitHub Copilot for Transport Data Science-   Apply prompt engineering techniques for transport data tasks-   Identify critical road segments via network centrality
-
-
+4.  **Example** - Show desired input/output if possible
 
 ## Example Prompts
 
-
-
-### Poor Prompt:**Prompt:**
-
-
+### Poor Prompt:
 
 ```{r}
-
 #| eval: false
-
-# Make a map```{r}## What is GitHub Copilot?-   Recognize ethical considerations and limitations of AI tools
-
+# Make a map
 ```
-
-#| eval: false
 
 ### Better Prompt:
 
-# Create an interactive map showing bike share stations in Leeds using tmap
-
 ```{r}
-
-#| eval: false```
-
+#| eval: false
 # Create an interactive map of Leeds showing:
-
-# - Bike share stations as blue circlesGitHub Copilot is an **AI pair programmer** that suggests code completions in your editor (VS Code, RStudio, etc.).-   Integrate AI-assisted coding into reproducible research practices# Setup
-
+# - Bike share stations as blue circles
 # - Cycle routes as green lines
-
-# - Background OpenStreetMap tiles**Copilot might suggest:**
-
+# - Background OpenStreetMap tiles
 # Use tmap and sf packages
+```
 
-```It is powered by large language models trained on billions of lines of public code.
+### Excellent Prompt:
 
-
-
-### Excellent Prompt:```{r}
-
-
-
-```{r}#| eval: false
-
+```{r}
 #| eval: false
-
-# Create an interactive map of Leeds bike infrastructure:library(sf)
-
+# Create an interactive map of Leeds bike infrastructure:
 # Input: bike_stations.geojson (sf points), cycle_routes.geojson (sf lines)
-
-# Requirements:library(tmap)## Setting Up Copilot
-
+# Requirements:
 #   - Use tmap in view mode
-
 #   - Stations: blue circles, size proportional to capacity
-
 #   - Routes: green lines, width 2px
-
-#   - Popup showing station name and capacity# Load bike share stations# Why AI for Transport Planning?Below are the libraries we will use throughout this session:
-
+#   - Popup showing station name and capacity
 #   - OpenStreetMap basemap
-
-# Output: Interactive HTML mapstations = st_read("bike_stations.geojson")
-
-```
-
-Students can access GitHub Copilot for free through the [GitHub Student Developer Pack](https://education.github.com/pack):
-
-# AI Tools Beyond Copilot
-
-# Create interactive map
-
-## ChatGPT / Claude for Transport Analysis
-
-tmap_mode("view")
-
--   **Data exploration** - "How do I analyze origin-destination matrices in R?"
-
--   **Debugging** - Paste error messages for explanationstm_shape(stations) +
-
--   **Code review** - Ask for suggestions to improve efficiency
-
--   **Documentation** - Generate README files or method descriptions  tm_dots(size = 0.5, col = "blue", alpha = 0.7) +1.  Verify your student status at [education.github.com](https://education.github.com)
-
-
-
-## AI-Powered Tools for Transport  tm_basemap("OpenStreetMap")
-
-
-
--   **OpenAI Codex** - Powers GitHub Copilot```2.  Install the Copilot extension in your IDE (VS Code, RStudio, etc.)Transport planning involves:```{r}
-
--   **Cursor** - AI-first code editor
-
--   **Copilot Chat** - Conversational AI in VS Code
-
--   **Tabnine** - Alternative code completion tool
-
--   **Amazon CodeWhisperer** - AWS-focused AI assistant### Example 3: Routing Analysis3.  Sign in with your GitHub account
-
-
-
-# Ethical Considerations
-
-
-
-## Bias and Fairness**Prompt:**4.  Start coding - Copilot will suggest completions automaticallyknitr::opts_chunk$set(
-
-
-
--   AI models are trained on historical data, which may contain biases
-
--   Be critical when AI suggests transport solutions that may disadvantage certain communities
-
--   Validate outputs against equity and accessibility principles```{r}
-
-
-
-## Data Privacy#| eval: false
-
-
-
--   Avoid sending sensitive transport data (personal GPS traces, private surveys) to AI services# Calculate cycling routes between origin-destination pairs using stplanr## Practical Examples-   **Complex spatial data** (networks, zones, flows)  message = FALSE,
-
--   Use anonymized or synthetic data for demonstrations
-
--   Review your organization's AI usage policies```
-
-
-
-## Academic Integrity
-
-
-
--   **Cite AI tools** when used significantly in your work**Copilot might suggest:**
-
--   **Understand the code** you submit - you are responsible for it
-
--   **Follow assignment guidelines** on AI usage (this module encourages AI use!)### Example 1: Loading and Filtering Transport Data-   **Large datasets** (GPS traces, survey data, traffic counts)  warning = FALSE,
-
--   **Develop your skills** - AI is a tool to enhance, not replace, learning
-
-```{r}
-
-## Limitations
-
-#| eval: false
-
--   AI can generate **plausible but incorrect** code
-
--   AI lacks **domain expertise** in specialized transport methodslibrary(stplanr)
-
--   AI cannot **validate results** - you must check outputs
-
--   AI may suggest **outdated approaches** or deprecated functionslibrary(sf)**Prompt (as a comment in R):**-   **Interdisciplinary methods** (statistics, optimization, visualization)  fig.width = 7,
-
-
-
-# AI Rating for This Module
-
-
-
-::: {.callout-tip}# Create OD data
-
-## AI Usage: Green (Encouraged)
-
-od = data.frame(
-
-This module **actively encourages** the use of AI tools including GitHub Copilot, ChatGPT, and similar assistants.
-
-  from_lon = c(-1.55, -1.56),```{r}-   **Reproducibility requirements** (code, documentation, version control)  fig.height = 5,
-
-**You should:**
-
-  from_lat = c(53.80, 53.81),
-
-- Use AI to accelerate coding and problem-solving
-
-- Learn from AI suggestions and explanations  to_lon = c(-1.54, -1.53),#| eval: false
-
-- Document your AI usage in reflective sections
-
-- Develop critical evaluation skills for AI outputs  to_lat = c(53.79, 53.78)
-
-
-
-**We expect:**)# Load cycle hire data from London and filter trips longer than 30 minutes  out.width = "700px"
-
-
-
-- You understand the code you submit (whether AI-generated or not)
-
-- You can explain your methods and results
-
-- You test and validate all code before submission# Convert to spatial lines```
-
-- You acknowledge significant AI contributions in your work
-
-:::od_sf = od_to_sf(od, crs = 4326)
-
-
-
-# Practical Exercise: AI-Assisted AnalysisAI tools can assist with:)
-
-
-
-## Task 1: Generate Data Loading Code# Route using CycleStreets API
-
-
-
-Use GitHub Copilot or ChatGPT to:routes = route_cyclestreets(od_sf, plan = "fastest")**Copilot might suggest:**
-
-
-
-1.  Load origin-destination data for a UK city```
-
-2.  Filter for trips by a specific mode (e.g., cycling)
-
-3.  Calculate summary statistics (total trips, average distance)
-
-
-
-**Prompt template:**## Best Practices for Using Copilot
-
-
-
-```{r}```{r}
-
-#| eval: false
-
-# Load OD data from [city] and calculate cycling trip statistics### ✅ Do:
-
-# Data format: CSV with columns origin, destination, mode, distance, trips
-
-# Filter for mode == "bike" and calculate:#| eval: false1.  **Code generation** - Writing boilerplate, data transformations, plotting# Load necessary libraries
-
-#   - Total number of trips
-
-#   - Average trip distance-   **Write clear comments** describing what you want
-
-#   - Top 5 origin zones by trip count
-
-```-   **Review suggestions carefully** - Copilot can make mistakeslibrary(dplyr)
-
-
-
-## Task 2: Create Visualization-   **Test generated code** before using in production
-
-
-
-Use AI to generate code for:-   **Use Copilot for learning** - examine suggestions to understand new approacheslibrary(readr)2.  **Debugging** - Identifying errors and suggesting fixeslibrary(opentripplanner)  # Routing engine (OpenTripPlanner client)
-
-
-
--   An interactive map showing top cycling routes-   **Iterate on prompts** - refine your requests if initial suggestions aren't helpful
-
--   A bar chart of trips by hour of day
-
--   A spatial heatmap of trip density
-
-
-
-## Task 3: Debug and Optimize### ❌ Don't:
-
-
-
-1.  Intentionally introduce an error in your code# Load cycle hire data3.  **Documentation** - Generating comments, README files, and reportslibrary(sf)               # Spatial data handling
-
-2.  Use Copilot Chat or ChatGPT to diagnose and fix it
-
-3.  Ask AI to suggest performance optimizations-   **Blindly accept suggestions** without understanding them
-
-
-
-# Further Resources-   **Share sensitive data** in prompts (API keys, personal information)cycle_data = read_csv("cycle_hire.csv")
-
-
-
-## Learning More-   **Rely solely on AI** - develop your own understanding
-
-
-
--   [GitHub Copilot Documentation](https://docs.github.com/en/copilot)-   **Ignore licensing** - be aware of code provenance4.  **Learning** - Explaining unfamiliar functions or conceptslibrary(tmap)             # Thematic mapping
-
--   [Prompt Engineering Guide](https://www.promptingguide.ai/)
-
--   [OpenAI Cookbook](https://github.com/openai/openai-cookbook) - Examples for GPT-   **Skip testing** - AI-generated code needs validation
-
--   [AI for Data Science](https://www.oreilly.com/library/view/ai-assisted-programming/9781098164556/) - O'Reilly book
-
-# Filter trips longer than 30 minutes
-
-## Transport-Specific AI Applications
-
-# Prompt Engineering for Transport Tasks
-
--   **Traffic prediction** - ML models for congestion forecasting
-
--   **Demand modeling** - Neural networks for trip generationlong_trips = cycle_data |>5.  **Optimization** - Suggesting more efficient algorithms or approacheslibrary(stplanr)          # Transport data functions
-
--   **Route optimization** - Reinforcement learning for vehicle routing
-
--   **Image analysis** - Computer vision for traffic counting**Effective prompts** help AI generate better code:
-
--   **Natural language processing** - Analyzing transport surveys and reports
-
-  filter(duration_minutes > 30)
-
-## Research Directions
-
-## Structure of a Good Prompt
-
--   @boeing_using_2023 - Using LLMs for urban planning
-
--   @wang_large_2023 - LLMs for traffic management```library(dplyr)            # Data manipulation
-
--   @yuan_large_2024 - Foundation models in transportation
-
-1.  **Context** - What domain/dataset are you working with?
-
-# Summary
-
-2.  **Task** - What do you want to accomplish?
-
-AI tools like GitHub Copilot are transforming how we work with transport data:
-
-3.  **Constraints** - Any specific requirements (packages, formats)?
-
--   **Accelerate coding** with intelligent suggestions
-
--   **Learn faster** by examining AI-generated examples4.  **Example** - Show desired input/output if possible### Example 2: Creating an Interactive Map# GitHub Copilot for Transport Data Sciencelibrary(osmextract)       # OSM data handling
-
--   **Focus on analysis** rather than syntax
-
--   **Maintain critical thinking** - AI is a tool, not a replacement for expertise
-
-
-
-**Key Takeaways:**## Example Prompts
-
-
-
-1.  Use AI to enhance productivity, not replace understanding
-
-2.  Write clear prompts for better results
-
-3.  Always review, test, and validate AI suggestions### Poor Prompt:**Prompt:**library(dodgr)            # Network analysis
-
-4.  Be mindful of ethical considerations and limitations
-
-5.  Embrace AI as part of modern reproducible research workflows
-
-
-
-# Homework```{r}
-
-
-
-1.  **Set up GitHub Copilot** on your computer (free for students)#| eval: false
-
-2.  **Complete one analysis** from a previous session using AI assistance - document what worked well and what didn't
-
-3.  **Write a reflection** (200-300 words) on how AI tools could benefit your transport planning work# Make a map```{r}## What is GitHub Copilot?```
-
-4.  **Share one insight** you gained from using AI in the course discussion forum
-
-```
-
-# References
-
-#| eval: false
-
-::: {#refs}
-
-:::### Better Prompt:
-
-
-# Create an interactive map showing bike share stations in Leeds using tmap
-
-```{r}
-
-#| eval: false```
-
-# Create an interactive map of Leeds showing:
-
-# - Bike share stations as blue circlesGitHub Copilot is an **AI pair programmer** that suggests code completions in your editor (VS Code, RStudio, etc.).```{r}
-
-# - Cycle routes as green lines
-
-# - Background OpenStreetMap tiles**Copilot might suggest:**
-
-# Use tmap and sf packages
-
-```It is powered by large language models trained on billions of lines of public code.# Set interactive mapping mode
-
-
-
-### Excellent Prompt:```{r}
-
-
-
-```{r}#| eval: falsetmap_mode("view")
-
-#| eval: false
-
-# Create an interactive map of Leeds bike infrastructure:library(sf)
-
-# Input: bike_stations.geojson (sf points), cycle_routes.geojson (sf lines)
-
-# Requirements:library(tmap)## Setting Up Copilot```
-
-#   - Use tmap in view mode
-
-#   - Stations: blue circles, size proportional to capacity
-
-#   - Routes: green lines, width 2px
-
-#   - Popup showing station name and capacity# Load bike share stations
-
-#   - OpenStreetMap basemap
-
-# Output: Interactive HTML mapstations = st_read("bike_stations.geojson")
-
-```
-
-Students can access GitHub Copilot for free through the [GitHub Student Developer Pack](https://education.github.com/pack):# Flow Map Visualization
-
-# AI Tools Beyond Copilot
-
-# Create interactive map
-
-## ChatGPT / Claude for Transport Analysis
-
-tmap_mode("view")
-
--   **Data exploration** - "How do I analyze origin-destination matrices in R?"
-
--   **Debugging** - Paste error messages for explanationstm_shape(stations) +
-
--   **Code review** - Ask for suggestions to improve efficiency
-
--   **Documentation** - Generate README files or method descriptions  tm_dots(size = 0.5, col = "blue", alpha = 0.7) +1.  Verify your student status at [education.github.com](https://education.github.com)Flow maps are useful for understanding the volume of travel between origins and destinations.
-
-
-
-## AI-Powered Tools for Transport  tm_basemap("OpenStreetMap")
-
-
-
--   **OpenAI Codex** - Powers GitHub Copilot```2.  Install the Copilot extension in your IDE (VS Code, RStudio, etc.)In this section, we will:
-
--   **Cursor** - AI-first code editor
-
--   **Copilot Chat** - Conversational AI in VS Code
-
--   **Tabnine** - Alternative code completion tool
-
--   **Amazon CodeWhisperer** - AWS-focused AI assistant### Example 3: Routing Analysis3.  Sign in with your GitHub account
-
-
-
-# Ethical Considerations
-
-
-
-## Bias and Fairness**Prompt:**4.  Start coding - Copilot will suggest completions automatically1.  Load desire lines (flows) data from a GeoJSON file.
-
-
-
--   AI models are trained on historical data, which may contain biases
-
--   Be critical when AI suggests transport solutions that may disadvantage certain communities
-
--   Validate outputs against equity and accessibility principles```{r}2.  Visualize these lines with widths or colors proportional to demand.
-
-
-
-## Data Privacy#| eval: false
-
-
-
--   Avoid sending sensitive transport data (personal GPS traces, private surveys) to AI services# Calculate cycling routes between origin-destination pairs using stplanr## Practical Examples3.  Optionally aggregate route geometries for more realistic depiction of flows along an actual road network.
-
--   Use anonymized or synthetic data for demonstrations
-
--   Review your organization's AI usage policies```
-
-
-
-## Academic Integrity
-
-
-
--   **Cite AI tools** when used significantly in your work**Copilot might suggest:**
-
--   **Understand the code** you submit - you are responsible for it
-
--   **Follow assignment guidelines** on AI usage (this module encourages AI use!)### Example 1: Loading and Filtering Transport Data```{r}
-
--   **Develop your skills** - AI is a tool to enhance, not replace, learning
-
-```{r}
-
-## Limitations
-
-#| eval: false# Load Demand Data
-
--   AI can generate **plausible but incorrect** code
-
--   AI lacks **domain expertise** in specialized transport methodslibrary(stplanr)
-
--   AI cannot **validate results** - you must check outputs
-
--   AI may suggest **outdated approaches** or deprecated functionslibrary(sf)**Prompt (as a comment in R):**desire_lines = read_sf("https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson") |>
-
-
-
-# AI Rating for This Module
-
-
-
-::: {.callout-tip}# Create OD data  select(from, to, all, walk, drive, cycle)
-
-## AI Usage: Green (Encouraged)
-
-od = data.frame(
-
-This module **actively encourages** the use of AI tools including GitHub Copilot, ChatGPT, and similar assistants.
-
-  from_lon = c(-1.55, -1.56),```{r}
-
-**You should:**
-
-  from_lat = c(53.80, 53.81),
-
-- Use AI to accelerate coding and problem-solving
-
-- Learn from AI suggestions and explanations  to_lon = c(-1.54, -1.53),#| eval: falsedim(desire_lines)
-
-- Document your AI usage in reflective sections
-
-- Develop critical evaluation skills for AI outputs  to_lat = c(53.79, 53.78)
-
-
-
-**We expect:**)# Load cycle hire data from London and filter trips longer than 30 minutes# Let's take the top 50 car trips for demonstration
-
-
-
-- You understand the code you submit (whether AI-generated or not)
-
-- You can explain your methods and results
-
-- You test and validate all code before submission# Convert to spatial lines```desire_lines_top = desire_lines |>
-
-- You acknowledge significant AI contributions in your work
-
-:::od_sf = od_to_sf(od, crs = 4326)
-
-
-
-# Practical Exercise: AI-Assisted Analysis  arrange(desc(drive)) |>
-
-
-
-## Task 1: Generate Data Loading Code# Route using CycleStreets API
-
-
-
-Use GitHub Copilot or ChatGPT to:routes = route_cyclestreets(od_sf, plan = "fastest")**Copilot might suggest:**  head(50)
-
-
-
-1.  Load origin-destination data for a UK city```
-
-2.  Filter for trips by a specific mode (e.g., cycling)
-
-3.  Calculate summary statistics (total trips, average distance)
-
-
-
-**Prompt template:**## Best Practices for Using Copilot
-
-
-
-```{r}```{r}# Quick map to see the distribution of car trips
-
-#| eval: false
-
-# Load OD data from [city] and calculate cycling trip statistics### ✅ Do:
-
-# Data format: CSV with columns origin, destination, mode, distance, trips
-
-# Filter for mode == "bike" and calculate:#| eval: falsetm_shape(desire_lines_top) +
-
-#   - Total number of trips
-
-#   - Average trip distance-   **Write clear comments** describing what you want
-
-#   - Top 5 origin zones by trip count
-
-```-   **Review suggestions carefully** - Copilot can make mistakeslibrary(dplyr)  tm_lines(
-
-
-
-## Task 2: Create Visualization-   **Test generated code** before using in production
-
-
-
-Use AI to generate code for:-   **Use Copilot for learning** - examine suggestions to understand new approacheslibrary(readr)    lwd = "drive",
-
-
-
--   An interactive map showing top cycling routes-   **Iterate on prompts** - refine your requests if initial suggestions aren't helpful
-
--   A bar chart of trips by hour of day
-
--   A spatial heatmap of trip density    lwd.scale = tm_scale_continuous(values.scale = 9)
-
-
-
-## Task 3: Debug and Optimize### ❌ Don't:
-
-
-
-1.  Intentionally introduce an error in your code# Load cycle hire data  ) +
-
-2.  Use Copilot Chat or ChatGPT to diagnose and fix it
-
-3.  Ask AI to suggest performance optimizations-   **Blindly accept suggestions** without understanding them
-
-
-
-# Further Resources-   **Share sensitive data** in prompts (API keys, personal information)cycle_data = read_csv("cycle_hire.csv")  tm_layout(legend.bg.color = "white")
-
-
-
-## Learning More-   **Rely solely on AI** - develop your own understanding
-
-
-
--   [GitHub Copilot Documentation](https://docs.github.com/en/copilot)-   **Ignore licensing** - be aware of code provenance```
-
--   [Prompt Engineering Guide](https://www.promptingguide.ai/)
-
--   [OpenAI Cookbook](https://github.com/openai/openai-cookbook) - Examples for GPT-   **Skip testing** - AI-generated code needs validation
-
--   [AI for Data Science](https://www.oreilly.com/library/view/ai-assisted-programming/9781098164556/) - O'Reilly book
-
-# Filter trips longer than 30 minutes
-
-## Transport-Specific AI Applications
-
-# Prompt Engineering for Transport Tasks
-
--   **Traffic prediction** - ML models for congestion forecasting
-
--   **Demand modeling** - Neural networks for trip generationlong_trips = cycle_data |># Proportional Symbol Flow Maps
-
--   **Route optimization** - Reinforcement learning for vehicle routing
-
--   **Image analysis** - Computer vision for traffic counting**Effective prompts** help AI generate better code:
-
--   **Natural language processing** - Analyzing transport surveys and reports
-
-  filter(duration_minutes > 30)
-
-## Research Directions
-
-## Structure of a Good Prompt
-
--   @boeing_using_2023 - Using LLMs for urban planning
-
--   @wang_large_2023 - LLMs for traffic management```Now, let's illustrate an alternative method: proportional symbols at origin or destination points.
-
--   @yuan_large_2024 - Foundation models in transportation
-
-1.  **Context** - What domain/dataset are you working with?
-
-# Summary
-
-2.  **Task** - What do you want to accomplish?This is useful when you want to quickly see where demand is concentrated.
-
-AI tools like GitHub Copilot are transforming how we work with transport data:
-
-3.  **Constraints** - Any specific requirements (packages, formats)?
-
--   **Accelerate coding** with intelligent suggestions
-
--   **Learn faster** by examining AI-generated examples4.  **Example** - Show desired input/output if possible### Example 2: Creating an Interactive Map
-
--   **Focus on analysis** rather than syntax
-
--   **Maintain critical thinking** - AI is a tool, not a replacement for expertise
-
-
-
-**Key Takeaways:**## Example Prompts```{r}
-
-
-
-1.  Use AI to enhance productivity, not replace understanding
-
-2.  Write clear prompts for better results
-
-3.  Always review, test, and validate AI suggestions### Poor Prompt:**Prompt:**# Summarize total flows by origin
-
-4.  Be mindful of ethical considerations and limitations
-
-5.  Embrace AI as part of modern reproducible research workflows
-
-
-
-# Homework```{r}
-
-
-
-1.  **Set up GitHub Copilot** on your computer (free for students)#| eval: false
-
-2.  **Complete one analysis** from a previous session using AI assistance - document what worked well and what didn't
-
-3.  **Write a reflection** (200-300 words) on how AI tools could benefit your transport planning work# Make a map```{r}origin_flows = desire_lines |>
-
-4.  **Share one insight** you gained from using AI in the course discussion forum
-
-```
-
-# References
-
-#| eval: false  group_by(from) |>
-
-::: {#refs}
-
-:::### Better Prompt:
-
-
-# Create an interactive map showing bike share stations in Leeds using tmap  summarise(
-
-```{r}
-
-#| eval: false```    total_drive = sum(drive, na.rm = TRUE),
-
-# Create an interactive map of Leeds showing:
-
-# - Bike share stations as blue circles    total_walk  = sum(walk, na.rm = TRUE),
-
-# - Cycle routes as green lines
-
-# - Background OpenStreetMap tiles**Copilot might suggest:**    total_cycle = sum(cycle, na.rm = TRUE),
-
-# Use tmap and sf packages
-
-```    `% drive` = total_drive / sum(all, na.rm = TRUE),
-
-
-
-### Excellent Prompt:```{r}    geometry = st_centroid(st_union(geometry))  
-
-
-
-```{r}#| eval: false  )
-
-#| eval: false
-
-# Create an interactive map of Leeds bike infrastructure:library(sf)
-
-# Input: bike_stations.geojson (sf points), cycle_routes.geojson (sf lines)
-
-# Requirements:library(tmap)# Simple map with proportional circles for drive volumes
-
-#   - Use tmap in view mode
-
-#   - Stations: blue circles, size proportional to capacity
-
-#   - Routes: green lines, width 2px
-
-#   - Popup showing station name and capacity# Load bike share stationstm_shape(origin_flows) +
-
-#   - OpenStreetMap basemap
-
-# Output: Interactive HTML mapstations = st_read("bike_stations.geojson")  tm_bubbles(
-
-```
-
-    size    = "total_drive",       # bubble size ~ drive volume
-
-# AI Tools Beyond Copilot
-
-# Create interactive map    size.scale = tm_scale_intervals(values.scale = 2, values.range = c(0.5, 2)),
-
-## ChatGPT / Claude for Transport Analysis
-
-tmap_mode("view")    fill = "% drive",
-
--   **Data exploration** - "How do I analyze origin-destination matrices in R?"
-
--   **Debugging** - Paste error messages for explanationstm_shape(stations) +    fill.scale = tm_scale_continuous(values = "brewer.reds")
-
--   **Code review** - Ask for suggestions to improve efficiency
-
--   **Documentation** - Generate README files or method descriptions  tm_dots(size = 0.5, col = "blue", alpha = 0.7) +  ) +
-
-
-
-## AI-Powered Tools for Transport  tm_basemap("OpenStreetMap")  tm_title("Proportional Symbol Map of Drive Demand by Origin")
-
-
-
--   **OpenAI Codex** - Powers GitHub Copilot``````
-
--   **Cursor** - AI-first code editor
-
--   **Copilot Chat** - Conversational AI in VS Code
-
--   **Tabnine** - Alternative code completion tool
-
--   **Amazon CodeWhisperer** - AWS-focused AI assistant### Example 3: Routing AnalysisEach origin is represented by a circle whose radius and color intensity reflect the total number of driving trips.
-
-
-
-# Ethical ConsiderationsYou can modify palettes, breaks, and scaling to highlight variations.
-
-
-
-## Bias and Fairness**Prompt:**
-
-
-
--   AI models are trained on historical data, which may contain biases# Mode-Specific Analysis
-
--   Be critical when AI suggests transport solutions that may disadvantage certain communities
-
--   Validate outputs against equity and accessibility principles```{r}
-
-
-
-## Data Privacy#| eval: falseWe have have columns walk, drive, cycle in desire_lines.
-
-
-
--   Avoid sending sensitive transport data (personal GPS traces, private surveys) to AI services# Calculate cycling routes between origin-destination pairs using stplanrWe can map them separately or side-by-side.
-
--   Use anonymized or synthetic data for demonstrations
-
--   Review your organization's AI usage policies```We can also color lines by the dominant mode.
-
-
-
-## Academic Integrity
-
-
-
--   **Cite AI tools** when used significantly in your work**Copilot might suggest:**```{r}
-
--   **Understand the code** you submit - you are responsible for it
-
--   **Follow assignment guidelines** on AI usage (this module encourages AI use!)# Let's create 3 separate maps: drive, walk, cycle
-
--   **Develop your skills** - AI is a tool to enhance, not replace, learning
-
-```{r}tmap_mode("plot")
-
-## Limitations
-
-#| eval: falsem_drive = tm_shape(desire_lines_top) +
-
--   AI can generate **plausible but incorrect** code
-
--   AI lacks **domain expertise** in specialized transport methodslibrary(stplanr)  tm_lines(
-
--   AI cannot **validate results** - you must check outputs
-
--   AI may suggest **outdated approaches** or deprecated functionslibrary(sf)    lwd = "drive",
-
-
-
-# AI Rating for This Module    lwd.scale = tm_scale_continuous(values.scale = 9),
-
-
-
-::: {.callout-tip}# Create OD data    col = "red"
-
-## AI Usage: Green (Encouraged)
-
-od = data.frame(  ) +
-
-This module **actively encourages** the use of AI tools including GitHub Copilot, ChatGPT, and similar assistants.
-
-  from_lon = c(-1.55, -1.56),  tm_title("Driving Flows")
-
-**You should:**
-
-- Use AI to accelerate coding and problem-solving  from_lat = c(53.80, 53.81),
-
-- Learn from AI suggestions and explanations
-
-- Document your AI usage in reflective sections  to_lon = c(-1.54, -1.53),m_walk = tm_shape(desire_lines_top) +
-
-- Develop critical evaluation skills for AI outputs
-
-  to_lat = c(53.79, 53.78)  tm_lines(
-
-**We expect:**
-
-- You understand the code you submit (whether AI-generated or not))    lwd = "walk",
-
-- You can explain your methods and results
-
-- You test and validate all code before submission    lwd.scale = tm_scale_continuous(values.scale = 9),
-
-- You acknowledge significant AI contributions in your work
-
-:::# Convert to spatial lines    col = "green"
-
-
-
-# Practical Exercise: AI-Assisted Analysisod_sf = od_to_sf(od, crs = 4326)  ) +
-
-
-
-## Task 1: Generate Data Loading Code  tm_title("Walking Flows")
-
-
-
-Use GitHub Copilot or ChatGPT to:# Route using CycleStreets API
-
-
-
-1.  Load origin-destination data for a UK cityroutes = route_cyclestreets(od_sf, plan = "fastest")m_cycle = tm_shape(desire_lines_top) +
-
-2.  Filter for trips by a specific mode (e.g., cycling)
-
-3.  Calculate summary statistics (total trips, average distance)```  tm_lines(
-
-
-
-**Prompt template:**    lwd = "cycle",
-
-
-
-```{r}## Best Practices for Using Copilot    lwd.scale = tm_scale_continuous(values.scale = 9),
-
-#| eval: false
-
-# Load OD data from [city] and calculate cycling trip statistics    col = "blue"
-
-# Data format: CSV with columns origin, destination, mode, distance, trips
-
-# Filter for mode == "bike" and calculate:### ✅ Do:  ) +
-
-#   - Total number of trips
-
-#   - Average trip distance  tm_title("Cycling Flows")
-
-#   - Top 5 origin zones by trip count
-
-```-   **Write clear comments** describing what you want
-
-
-
-## Task 2: Create Visualization-   **Review suggestions carefully** - Copilot can make mistakestmap_arrange(m_drive, m_walk, m_cycle, ncol=3)
-
-
-
-Use AI to generate code for:-   **Test generated code** before using in production```
-
-
-
--   An interactive map showing top cycling routes-   **Use Copilot for learning** - examine suggestions to understand new approaches
-
--   A bar chart of trips by hour of day
-
--   A spatial heatmap of trip density-   **Iterate on prompts** - refine your requests if initial suggestions aren't helpfulThis tmap_arrange() will output a single figure with three columns, each illustrating flows by one mode.
-
-
-
-## Task 3: Debug and OptimizeStudents can visually compare the differences: maybe driving flows are much thicker on longer corridors, while walking flows are concentrated in the city center.
-
-
-
-1.  Intentionally introduce an error in your code### ❌ Don't:
-
-2.  Use Copilot Chat or ChatGPT to diagnose and fix it
-
-3.  Ask AI to suggest performance optimizations# Aggregating Flows with Actual Routes
-
-
-
-# Further Resources-   **Blindly accept suggestions** without understanding them
-
-
-
-## Learning More-   **Share sensitive data** in prompts (API keys, personal information)Rather than drawing direct origin-destination lines, we can route each flow along the road network and then aggregate them to see which streets carry the most traffic.
-
-
-
--   [GitHub Copilot Documentation](https://docs.github.com/en/copilot)-   **Rely solely on AI** - develop your own understandingThis uses stplanr::overline() to merge lines that overlap.
-
--   [Prompt Engineering Guide](https://www.promptingguide.ai/)
-
--   [OpenAI Cookbook](https://github.com/openai/openai-cookbook) - Examples for GPT-   **Ignore licensing** - be aware of code provenance
-
--   [AI for Data Science](https://www.oreilly.com/library/view/ai-assisted-programming/9781098164556/) - O'Reilly book
-
--   **Skip testing** - AI-generated code needs validation```{r}
-
-## Transport-Specific AI Applications
-
-# Download pre-routed lines for demonstration
-
--   **Traffic prediction** - ML models for congestion forecasting
-
--   **Demand modeling** - Neural networks for trip generation# Prompt Engineering for Transport Tasksu = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive_25.geojson"
-
--   **Route optimization** - Reinforcement learning for vehicle routing
-
--   **Image analysis** - Computer vision for traffic countingroutes_drive = read_sf(u)
-
--   **Natural language processing** - Analyzing transport surveys and reports
-
-**Effective prompts** help AI generate better code:
-
-## Research Directions
-
-# Inspect the summary of the drive.x variable (car trips)
-
--   Using LLMs for urban planning and transport analysis
-
--   Foundation models in transportation research## Structure of a Good Promptsummary(routes_drive$drive.x)
-
--   AI-powered traffic management systems
-
-
-
-# Summary
-
-1.  **Context** - What domain/dataset are you working with?tm_shape(routes_drive) +
-
-AI tools like GitHub Copilot are transforming how we work with transport data:
-
-2.  **Task** - What do you want to accomplish?  tm_lines(
-
--   **Accelerate coding** with intelligent suggestions
-
--   **Learn faster** by examining AI-generated examples3.  **Constraints** - Any specific requirements (packages, formats)?    lwd = "drive.x",
-
--   **Focus on analysis** rather than syntax
-
--   **Maintain critical thinking** - AI is a tool, not a replacement for expertise4.  **Example** - Show desired input/output if possible    lwd.scale = tm_scale_continuous(values.scale = 9),
-
-
-
-**Key Takeaways:**    col = "red"
-
-
-
-1.  Use AI to enhance productivity, not replace understanding## Example Prompts  ) +
-
-2.  Write clear prompts for better results
-
-3.  Always review, test, and validate AI suggestions  tm_title("Road Congestion (drive_total)")
-
-4.  Be mindful of ethical considerations and limitations
-
-5.  Embrace AI as part of modern reproducible research workflows### Poor Prompt:```
-
-
-
-# Homework
-
-
-
-1.  **Set up GitHub Copilot** on your computer (free for students)```{r}# Network Centrality Analysis
-
-2.  **Complete one analysis** from a previous session using AI assistance - document what worked well and what didn't
-
-3.  **Write a reflection** (200-300 words) on how AI tools could benefit your transport planning work#| eval: false
-
-4.  **Share one insight** you gained from using AI in the course discussion forum
-
-# Make a mapBetweenness centrality indicates how often a road (or node) lies on the shortest path between other points in a network.
-
-# References
-
-```Roads with high centrality are typically crucial for overall connectivity.
-
-::: {#refs}
-
-:::
-
-
-### Better Prompt:Here, we demonstrate how to:
-
-
-
-```{r}1.  Download roads from OpenStreetMap (OSM) for the Isle of Wight.
-
-#| eval: false2.  Weight the network for motor vehicle usage.
-
-# Create an interactive map of Leeds showing:3.  Compute betweenness centrality with dodgr.
-
-# - Bike share stations as blue circles4.  Convert the results back to sf for mapping.
-
-# - Cycle routes as green lines
-
-# - Background OpenStreetMap tiles```{r}
-
-# Use tmap and sf packages#| eval: false
-
-```# Get Isle of Wight road network
-
-# We choose 'primary', 'secondary', 'tertiary' roads for demonstration
-
-### Excellent Prompt:roads = oe_get("Isle of Wight", 
-
-                extra_tags = c("maxspeed", "oneway")) |>
-
-```{r}  filter(highway %in% c("primary", "secondary", "tertiary"))
-
-#| eval: false
-
-# Create an interactive map of Leeds bike infrastructure:# Weight the street network for motorcar usage
-
-# Input: bike_stations.geojson (sf points), cycle_routes.geojson (sf lines)graph = weight_streetnet(
-
-# Requirements:  roads,
-
-#   - Use tmap in view mode  wt_profile = "motorcar",
-
-#   - Stations: blue circles, size proportional to capacity  type_col = "highway",
-
-#   - Routes: green lines, width 2px  id_col = "osm_id",
-
-#   - Popup showing station name and capacity  keep_cols = c("maxspeed", "oneway")
-
-#   - OpenStreetMap basemap)
-
 # Output: Interactive HTML map
-
-```# Calculate betweenness centrality
-
-centrality = dodgr_centrality(graph)
+```
 
 # AI Tools Beyond Copilot
 
-# Convert to sf for visualization
+## ChatGPT / Claude for Transport Analysis
 
-## ChatGPT / Claude for Transport Analysiscentrality_sf = dodgr_to_sf(centrality)
+-   **Data exploration** - "How do I analyze origin-destination matrices in R?"
+-   **Debugging** - Paste error messages for explanations
+-   **Code review** - Ask for suggestions to improve efficiency
+-   **Documentation** - Generate README files or method descriptions
 
+## AI-Powered Tools for Transport
 
-
--   **Data exploration** - "How do I analyze origin-destination matrices in R?"# Visualize critical links
-
--   **Debugging** - Paste error messages for explanationstm_shape(centrality_sf) +
-
--   **Code review** - Ask for suggestions to improve efficiency  tm_lines(
-
--   **Documentation** - Generate README files or method descriptions    col = "centrality",
-
-    col.scale = tm_scale_intervals(style = "fisher", values = "-viridis"),
-
-## AI-Powered Tools for Transport    col.legend = tm_legend(title = "Betweenness Centrality"),
-
-    lwd = 3
-
--   **OpenAI Codex** - Powers GitHub Copilot  ) 
-
--   **Cursor** - AI-first code editor```
-
+-   **OpenAI Codex** - Powers GitHub Copilot
+-   **Cursor** - AI-first code editor
 -   **Copilot Chat** - Conversational AI in VS Code
-
--   **Tabnine** - Alternative code completion toolThe code above should generate a map that looks something like this:
-
+-   **Tabnine** - Alternative code completion tool
 -   **Amazon CodeWhisperer** - AWS-focused AI assistant
 
-![](images/paste-1.png)
-
 # Ethical Considerations
-
-High values in the centrality column indicate roads that act as vital connectors in the regional transport network.
 
 ## Bias and Fairness
 
-# Extra Exercises: 3D Visualization
-
 -   AI models are trained on historical data, which may contain biases
-
--   Be critical when AI suggests transport solutions that may disadvantage certain communitiesA 3D perspective can often reveal relationships between travel flows and the underlying topography more effectively.
-
--   Validate outputs against equity and accessibility principlesBelow, we demonstrate how to retrieve elevation data and render a 3D hillshade using the rayshader package.
-
-You may also be interested in overlaying flow lines onto a 3D terrain model to enhance visualization.
+-   Be critical when AI suggests transport solutions that may disadvantage certain communities
+-   Validate outputs against equity and accessibility principles
 
 ## Data Privacy
 
-Note: the following code requires you to install the `rayshader` `elevatr` `gifski` `rgl` package.
-
--   Avoid sending sensitive transport data (personal GPS traces, private surveys) to AI servicesResults not shown in website.
-
+-   Avoid sending sensitive transport data (personal GPS traces, private surveys) to AI services
 -   Use anonymized or synthetic data for demonstrations
+-   Review your organization's AI usage policies
 
--   Review your organization's AI usage policies```{r}
+## Academic Integrity
 
-#| eval: false
-
-## Academic Integritylibrary(rayshader)        # 3D data visualization
-
-library(elevatr)          # Elevation data
-
--   **Cite AI tools** when used significantly in your worklibrary(gifski)           # Creating GIF animations
-
--   **Understand the code** you submit - you are responsible for itlibrary(rgl)              # 3D visualization device
-
+-   **Cite AI tools** when used significantly in your work
+-   **Understand the code** you submit - you are responsible for it
 -   **Follow assignment guidelines** on AI usage (this module encourages AI use!)
+-   **Develop your skills** - AI is a tool to enhance, not replace, learning
 
--   **Develop your skills** - AI is a tool to enhance, not replace, learningassign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+## Limitations
 
-curl::has_internet()
+-   AI can generate **plausible but incorrect** code
+-   AI lacks **domain expertise** in specialized transport methods
+-   AI cannot **validate results** - you must check outputs
+-   AI may suggest **outdated approaches** or deprecated functions
 
-## Limitations# Example: Elevation data near a location in the UK
+# AI Rating for This Module
 
-coords = data.frame(x = -2.087918, y = 53.71534)
+::: {.callout-tip}
+## AI Usage: Green (Encouraged)
 
--   AI can generate **plausible but incorrect** codecoords_sf = st_as_sf(coords, coords = c("x", "y"), crs = 4326)
+This module **actively encourages** the use of AI tools including GitHub Copilot, ChatGPT, and similar assistants.
 
--   AI lacks **domain expertise** in specialized transport methods# Get an elevation raster at zoom level 11 (~ 10m resolution, depending on region)
+**You should:**
 
--   AI cannot **validate results** - you must check outputselevation = elevatr::get_elev_raster(
+- Use AI to accelerate coding and problem-solving
+- Learn from AI suggestions and explanations
+- Document your AI usage in reflective sections
+- Develop critical evaluation skills for AI outputs
 
--   AI may suggest **outdated approaches** or deprecated functions  locations = coords_sf,
+**We expect:**
 
-  z = 11
-
-# AI Rating for This Module)
-
-# Convert the raster to a matrix for rayshader
-
-::: {.callout-tip}elev_matrix = rayshader::raster_to_matrix(elevation)
-
-## AI Usage: Green (Encouraged)# Create a hillshade layer
-
-hillshade_matrix = rayshader::ray_shade(elev_matrix, zscale = 15)
-
-This module **actively encourages** the use of AI tools including GitHub Copilot, ChatGPT, and similar assistants.# Clear existing rgl device
-
-rgl::rgl.clear()
-
-**You should:**# Render a 3D plot of the terrain
-
-- Use AI to accelerate coding and problem-solvingrayshader::plot_3d(
-
-- Learn from AI suggestions and explanations  heightmap = elev_matrix,
-
-- Document your AI usage in reflective sections  hillshade = hillshade_matrix,
-
-- Develop critical evaluation skills for AI outputs  zscale = 15,
-
-  windowsize = c(1000, 800)
-
-**We expect:**)
-
-- You understand the code you submit (whether AI-generated or not)# Adjust camera view
-
-- You can explain your methods and resultsrgl::view3d(theta = 30, phi = 30, zoom = 0.75)
-
-- You test and validate all code before submissionrgl::rglwidget()
-
+- You understand the code you submit (whether AI-generated or not)
+- You can explain your methods and results
+- You test and validate all code before submission
 - You acknowledge significant AI contributions in your work
+:::
 
-:::```
+# Practical Exercise: AI-Assisted Analysis
 
+## Task 1: Generate Data Loading Code
 
+Use GitHub Copilot or ChatGPT to:
 
-# Practical Exercise: AI-Assisted Analysis# Conclusions
-
-
-
-## Task 1: Generate Data Loading CodeIn this session, you learned how to:
-
-
-
-Use GitHub Copilot or ChatGPT to:1.  Create flow maps to visualize travel demand from an OD dataset.
-
-2.  Compare flows by mode (driving, walking, cycling) to understand differences in spatial patterns.
-
-1.  Load origin-destination data for a UK city3.  Aggregate routes along the road network (using stplanr::overline) to highlight heavily used corridors.
-
-2.  Filter for trips by a specific mode (e.g., cycling)4.  Compute betweenness centrality (using dodgr) to pinpoint critical road segments crucial for connectivity.
+1.  Load origin-destination data for a UK city
+2.  Filter for trips by a specific mode (e.g., cycling)
 3.  Calculate summary statistics (total trips, average distance)
 
 **Prompt template:**
