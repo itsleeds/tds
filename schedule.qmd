@@ -32,18 +32,18 @@ weeks = tibble::tibble(week_num, week_commencing, day = lubridate::wday(week_com
 session_ids = c(
   "intro",
   "getting",
+  "ai",
   "od",
   "routing",
-  "ai",
   "modelling"
 )
 
 session_descriptions = c(
   "Introduction to transport data science (RL, MM, YY)",
   "Getting transport data (RL, YY)",
+  "AI for transport planning (RL, MM, YY)",
   "Origin-destination data (RL, YY)",
   "Routing (MM, RL)",
-  "AI for transport planning (RL, MM, YY)",
   "Joining and combining datasets (RL, MM, YY)"
 )
 
