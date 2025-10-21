@@ -619,5 +619,3 @@ A well-organized report should include:
 - [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building_2023]
 
 # References
-
-- Lovelace, R., Morgan, M., Talbot, J., & Lucas-Smith, M. (2020). stats19: A package for working with open road crash data. Journal of Open Source Software, 5(47), 1181. https://doi.org/10.21105/joss.01181
