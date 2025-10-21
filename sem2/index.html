@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Seminar 2 - – Transport Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-0a56e2a435498ab8a1f808c51343976e.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Transport Data Science
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Transport Data Science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/itsleeds/tds" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://itsleeds.github.io/tds/#software-requirements-and-installation" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Install required software</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/ITSLeeds/TDS/discussions" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../marking-criteria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Marking Criteria</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading list</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../minihack-transport-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transport Data Minihack 8th May</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dstp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Science for Transport Planning 2 day course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible Road Safety Workshop</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s3" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s4" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sem1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminar 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formative assessment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s5" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 5: Visualisation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sem2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminar 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s6" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 6: Joins and aggregations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s7" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 7: Project work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d3" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coursework submission</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#seminar-2-will-deakin" id="toc-seminar-2-will-deakin" class="nav-link active" data-scroll-target="#seminar-2-will-deakin"><span class="header-section-number">1</span> Seminar 2: Will Deakin</a>
+  <ul class="collapse">
+  <li><a href="#make-things-as-simple-as-possiblebut-no-simpler" id="toc-make-things-as-simple-as-possiblebut-no-simpler" class="nav-link" data-scroll-target="#make-things-as-simple-as-possiblebut-no-simpler"><span class="header-section-number">1.1</span> Make Things as Simple as Possible…but no Simpler</a></li>
+  <li><a href="#the-global-railway" id="toc-the-global-railway" class="nav-link" data-scroll-target="#the-global-railway"><span class="header-section-number">1.2</span> The Global Railway</a></li>
+  <li><a href="#the-british-railway" id="toc-the-british-railway" class="nav-link" data-scroll-target="#the-british-railway"><span class="header-section-number">1.3</span> The British Railway</a></li>
+  </ul></li>
+  <li><a href="#logical-models" id="toc-logical-models" class="nav-link" data-scroll-target="#logical-models"><span class="header-section-number">2</span> Logical Models</a>
+  <ul class="collapse">
+  <li><a href="#logical-network-model" id="toc-logical-network-model" class="nav-link" data-scroll-target="#logical-network-model"><span class="header-section-number">2.1</span> Logical Network Model</a></li>
+  <li><a href="#logical-operations-model" id="toc-logical-operations-model" class="nav-link" data-scroll-target="#logical-operations-model"><span class="header-section-number">2.2</span> Logical Operations Model</a></li>
+  </ul></li>
+  <li><a href="#emissions" id="toc-emissions" class="nav-link" data-scroll-target="#emissions"><span class="header-section-number">3</span> Emissions</a>
+  <ul class="collapse">
+  <li><a href="#green-house-gases-co2" id="toc-green-house-gases-co2" class="nav-link" data-scroll-target="#green-house-gases-co2"><span class="header-section-number">3.1</span> Green House Gases (CO<sub>2</sub>)</a></li>
+  <li><a href="#national-greenhouse-emissions-1990-2020" id="toc-national-greenhouse-emissions-1990-2020" class="nav-link" data-scroll-target="#national-greenhouse-emissions-1990-2020"><span class="header-section-number">3.2</span> National Greenhouse Emissions 1990-2020</a></li>
+  <li><a href="#transport-greenhouse-emissions-1990-2020" id="toc-transport-greenhouse-emissions-1990-2020" class="nav-link" data-scroll-target="#transport-greenhouse-emissions-1990-2020"><span class="header-section-number">3.3</span> Transport Greenhouse Emissions 1990-2020</a></li>
+  </ul></li>
+  <li><a href="#data-visualisation" id="toc-data-visualisation" class="nav-link" data-scroll-target="#data-visualisation"><span class="header-section-number">4</span> Data Visualisation</a>
+  <ul class="collapse">
+  <li><a href="#system-visualisation" id="toc-system-visualisation" class="nav-link" data-scroll-target="#system-visualisation"><span class="header-section-number">4.1</span> System Visualisation</a></li>
+  <li><a href="#operation-railway" id="toc-operation-railway" class="nav-link" data-scroll-target="#operation-railway"><span class="header-section-number">4.2</span> Operation Railway</a></li>
+  </ul></li>
+  <li><a href="#a-very-european-railway" id="toc-a-very-european-railway" class="nav-link" data-scroll-target="#a-very-european-railway"><span class="header-section-number">5</span> A Very European Railway</a></li>
+  <li><a href="#insights-from-open-data" id="toc-insights-from-open-data" class="nav-link" data-scroll-target="#insights-from-open-data"><span class="header-section-number">6</span> Insights from Open Data</a>
+  <ul class="collapse">
+  <li><a href="#the-power-of-social-media" id="toc-the-power-of-social-media" class="nav-link" data-scroll-target="#the-power-of-social-media"><span class="header-section-number">6.1</span> The Power of Social Media</a></li>
+  <li><a href="#the-power-of-open-data" id="toc-the-power-of-open-data" class="nav-link" data-scroll-target="#the-power-of-open-data"><span class="header-section-number">6.2</span> The Power of Open Data</a></li>
+  <li><a href="#seconds-of-fame" id="toc-seconds-of-fame" class="nav-link" data-scroll-target="#seconds-of-fame"><span class="header-section-number">6.3</span> 15 Seconds of Fame</a></li>
+  <li><a href="#simple-visualisations" id="toc-simple-visualisations" class="nav-link" data-scroll-target="#simple-visualisations"><span class="header-section-number">6.4</span> Simple Visualisations</a></li>
+  </ul></li>
+  <li><a href="#network-simplification" id="toc-network-simplification" class="nav-link" data-scroll-target="#network-simplification"><span class="header-section-number">7</span> Network Simplification</a>
+  <ul class="collapse">
+  <li><a href="#shortest-path-census-flow" id="toc-shortest-path-census-flow" class="nav-link" data-scroll-target="#shortest-path-census-flow"><span class="header-section-number">7.1</span> Shortest path census flow</a></li>
+  <li><a href="#output-area-oa-census-2011-centroid" id="toc-output-area-oa-census-2011-centroid" class="nav-link" data-scroll-target="#output-area-oa-census-2011-centroid"><span class="header-section-number">7.2</span> Output Area (OA) Census 2011 centroid</a></li>
+  <li><a href="#full-oa-2011-delaunay-mesh" id="toc-full-oa-2011-delaunay-mesh" class="nav-link" data-scroll-target="#full-oa-2011-delaunay-mesh"><span class="header-section-number">7.3</span> Full OA 2011 Delaunay mesh</a></li>
+  <li><a href="#oa-2011-odm-mesh" id="toc-oa-2011-odm-mesh" class="nav-link" data-scroll-target="#oa-2011-odm-mesh"><span class="header-section-number">7.4</span> OA 2011 ODM mesh</a></li>
+  <li><a href="#network-simplification-and-parenx" id="toc-network-simplification-and-parenx" class="nav-link" data-scroll-target="#network-simplification-and-parenx"><span class="header-section-number">7.5</span> Network simplification and parenx</a>
+  <ul class="collapse">
+  <li><a href="#parenx-cookbook" id="toc-parenx-cookbook" class="nav-link" data-scroll-target="#parenx-cookbook"><span class="header-section-number">7.5.1</span> parenx cookbook</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#parting-words" id="toc-parting-words" class="nav-link" data-scroll-target="#parting-words"><span class="header-section-number">8</span> Parting Words</a>
+  <ul class="collapse">
+  <li><a href="#make-it-look-good." id="toc-make-it-look-good." class="nav-link" data-scroll-target="#make-it-look-good."><span class="header-section-number">8.1</span> Make it look good.</a></li>
+  <li><a href="#the-railway" id="toc-the-railway" class="nav-link" data-scroll-target="#the-railway"><span class="header-section-number">8.2</span> The Railway</a></li>
+  </ul></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">9</span> References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Seminar 2 -</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="seminar-2-will-deakin" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Seminar 2: Will Deakin</h1>
+<section id="make-things-as-simple-as-possiblebut-no-simpler" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="make-things-as-simple-as-possiblebut-no-simpler"><span class="header-section-number">1.1</span> Make Things as Simple as Possible…but no Simpler</h2>
+<p>The slides and high-resolution versions of some images from <a href="https://github.com/anisotropi4/shambles/tree/main/tds">the talk are available here</a></p>
+<p><img src="images/WBD-whoami-01.png" class="img-fluid" width="720"></p>
+</section>
+<section id="the-global-railway" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="the-global-railway"><span class="header-section-number">1.2</span> The Global Railway</h2>
+<p>The railway is international, noting the location of the United Kingdom</p>
+<p><img src="images/railway.png" class="img-fluid" width="720"></p>
+</section>
+<section id="the-british-railway" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="the-british-railway"><span class="header-section-number">1.3</span> The British Railway</h2>
+<p>The operation of railway infrastructure in Britain is organised into thirteen routes and six regions.</p>
+<p><img src="images/routes-and-regions.png" class="img-fluid" width="480"></p>
+<p>This diagram show four routes that make up the Eastern region.</p>
+</section>
+</section>
+<section id="logical-models" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Logical Models</h1>
+<p>To understand the a complex system like the railway it helps to decompose the system into a set of logical processes.</p>
+<section id="logical-network-model" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="logical-network-model"><span class="header-section-number">2.1</span> Logical Network Model</h2>
+<p>The timetable production process can be modeled as a series of processes and interactions between railway operators and infrastructure manager.</p>
+<p><img src="images/ITTS-model.png" class="img-fluid" width="720"></p>
+</section>
+<section id="logical-operations-model" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="logical-operations-model"><span class="header-section-number">2.2</span> Logical Operations Model</h2>
+<p>The operation production process can be modeled as series of processes and data exchange.</p>
+<p><img src="images/TM-model.png" class="img-fluid" width="480"></p>
+</section>
+</section>
+<section id="emissions" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Emissions</h1>
+<p>Why does rail matter</p>
+<p><img src="images/carbon.jpg" class="img-fluid" width="720"></p>
+<p>Climate change and environmental degradation are an existential threat to UK, Europe and the world</p>
+<ul>
+<li>We need rail modal shift to rail freight transport&nbsp;to delivery</li>
+<li>no net emissions of greenhouse gases by 2050</li>
+<li>economic growth decoupled from resource use</li>
+<li>where no person and no place left behind</li>
+</ul>
+<p>(From the European Rail Green Deal 2019)</p>
+<section id="green-house-gases-co2" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="green-house-gases-co2"><span class="header-section-number">3.1</span> Green House Gases (CO<sub>2</sub>)</h2>
+<p>UK produced 455 million tonnes CO<sub>2</sub> equivalent (mtCO2e) in 2019</p>
+<p>Transport accounted for 122 mtCO2e (26.8%) of which</p>
+<ul>
+<li>HGV 19.5 mtCO2e (16.0%/4.2%)</li>
+<li>All rail 1.7 mtCO2e (1.4%/0.04%)</li>
+<li>A freight train removes up to 76 HGVs from our roads</li>
+</ul>
+</section>
+<section id="national-greenhouse-emissions-1990-2020" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="national-greenhouse-emissions-1990-2020"><span class="header-section-number">3.2</span> National Greenhouse Emissions 1990-2020</h2>
+<p><img src="images/national-emissions.png" class="img-fluid" width="720"></p>
+</section>
+<section id="transport-greenhouse-emissions-1990-2020" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="transport-greenhouse-emissions-1990-2020"><span class="header-section-number">3.3</span> Transport Greenhouse Emissions 1990-2020</h2>
+<p><img src="images/transport-emissions.png" class="img-fluid" width="720"></p>
+<p>(from DfT Transport Statistics (2021))</p>
+</section>
+</section>
+<section id="data-visualisation" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Data Visualisation</h1>
+<p>Rail electrification</p>
+<p><img src="images/European-Rail-Electrification.png" class="img-fluid" width="720"></p>
+<p>Rail network in black, electrified rail in red.</p>
+<section id="system-visualisation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="system-visualisation"><span class="header-section-number">4.1</span> System Visualisation</h2>
+<p>An Open-TrainTimes (OTT) schematic view of Leeds Stations</p>
+<p><img src="images/OTT-Leeds.png" class="img-fluid" width="720"></p>
+<ul>
+<li>OpenTrainTimes: <a href="https://www.opentraintimes.com/maps/signalling/spc5#T_LEEDS">here</a></li>
+<li>National Rail Enquiries <a href="https://ojp.nationalrail.co.uk/service/planjourney/search">here</a></li>
+<li>Realtime Trains <a href="https://www.realtimetrains.co.uk/search/detailed/gb-nr:LDS">here</a></li>
+</ul>
+</section>
+<section id="operation-railway" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="operation-railway"><span class="header-section-number">4.2</span> Operation Railway</h2>
+<p>The view of live operational railway systems.</p>
+<p><img src="images/control-room.png" class="img-fluid" width="720"></p>
+</section>
+</section>
+<section id="a-very-european-railway" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> A Very European Railway</h1>
+<p>A full automated luxury high-speed European rail network</p>
+<p><img src="images/Europe-0100-hx.png" class="img-fluid" width="480"> <img src="images/Europe-0200-hx.png" class="img-fluid" width="480"> <img src="images/Europe-0330-hx.png" class="img-fluid" width="480"></p>
+<p>Projecting population data onto labeled, scaled h3 hexagon to create a theoretical high-speed rail network.</p>
+</section>
+<section id="insights-from-open-data" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> Insights from Open Data</h1>
+<p>Using Office of Road and Rail (ORR) Origin and Destination Matrix (ODM) data for rail journeys overlaid onto the railway centre-line track-model.</p>
+<p><img src="images/chthulu.png" class="img-fluid" width="480"></p>
+<section id="the-power-of-social-media" class="level2" data-number="6.1">
+<h2 data-number="6.1" class="anchored" data-anchor-id="the-power-of-social-media"><span class="header-section-number">6.1</span> The Power of Social Media</h2>
+<p>The benefit of positive social media interaction.</p>
+<p><img src="images/flow-data.png" class="img-fluid"></p>
+</section>
+<section id="the-power-of-open-data" class="level2" data-number="6.2">
+<h2 data-number="6.2" class="anchored" data-anchor-id="the-power-of-open-data"><span class="header-section-number">6.2</span> The Power of Open Data</h2>
+<p>All data used is on the basis that it under open or permissive license.</p>
+<ol type="1">
+<li>The base map of mainland Britain is derived from the&nbsp;<a href="https://hub.worldpop.org/">WorldPop</a>&nbsp;base maps under&nbsp;<a href="https://creativecommons.org/licenses/by/4.0/">CC 4.0 by deed</a>&nbsp;retrieved 2023-09-07.</li>
+<li>The centre-line track-model is hosted by&nbsp;<a href="https://github.com/openraildata/network-rail-gis">OpenRailData</a>&nbsp;under the&nbsp;<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government License</a>(OGL)&nbsp;by Network Rail, retrieved 2023-07-11.</li>
+<li>The <a href="https://raildata.org.uk/partnerDetails/1034/details">Origin Destination Matrix</a> data, for example&nbsp;ODM 2022-23, were published by the&nbsp;Office of Road and Rail&nbsp;on the Rail Development Group Rail Data Marketplace, under the&nbsp;<a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>. Retrieved 2024-02-18.</li>
+<li>The&nbsp;<a href="https://raildata.org.uk/partnerDetails/1034/details">Station Attributes for All-Mainline Stations</a> published by the&nbsp;Office of Road and Rail&nbsp;under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>. Retrieved 2024-02-18.</li>
+<li>The&nbsp;<a href="">Network Rail CORPUS dataset</a>&nbsp;is an open data feed which is released under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a>. Retrieved 2023-11-29 as a local copy.</li>
+<li>The <a href="">National Public Transport Access Network</a>&nbsp;(NaPTAN)&nbsp;under&nbsp;the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">OGL</a> and is updated each time the scripts are run.</li>
+<li>While this implementation now uses NaPTAN and CORPUS to validate and identify six closed stations, the Isle of Wight ferry-link continues to use&nbsp;OpenStreetMap data, licensed under&nbsp;<a href="https://openstreetmap.org/copyright">CC-BY-SA 2.0</a>&nbsp;through the&nbsp;<a href="https://overpass-turbo.eu/">OverPassAPI Turbo</a>&nbsp;service, and is updated each time the scripts are run.</li>
+</ol>
+</section>
+<section id="seconds-of-fame" class="level2" data-number="6.3">
+<h2 data-number="6.3" class="anchored" data-anchor-id="seconds-of-fame"><span class="header-section-number">6.3</span> 15 Seconds of Fame</h2>
+<p>The original 2018/19 visualisation recieved 500k X/Twitter views within a week, as well as an <a href="https://open-innovations.org/blog/2024-01-08-passenger-journeys-pictures-at-a-rail-transport-exhibition">OpenInnovations blog</a> post and a Bloomberg article <a href="https://www.bloomberg.com/news/features/2024-02-08/british-rail-train-ticket-data-maps-show-how-a-nation-travels-before-hs2">Nine Maps Show How Britain Is on the Move</a>.</p>
+<p>All code and data is published on GitHub under my <a href="https://github.com/anisotropi4/kingfisher">anisotropi4/kingfisher</a> repository and updated with the ORR publication of the additional 2020-2024 financial year data.</p>
+</section>
+<section id="simple-visualisations" class="level2" data-number="6.4">
+<h2 data-number="6.4" class="anchored" data-anchor-id="simple-visualisations"><span class="header-section-number">6.4</span> Simple Visualisations</h2>
+<p>The squares and coolest countries in Europe.</p>
+<p><img src="images/social-media.png" class="img-fluid" width="720"></p>
+</section>
+</section>
+<section id="network-simplification" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> Network Simplification</h1>
+<p>Simplifing the full 2011 Output Area (OA) network to project .</p>
+<section id="shortest-path-census-flow" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="shortest-path-census-flow"><span class="header-section-number">7.1</span> Shortest path census flow</h2>
+<p><img src="images/msoa-total-2011.png" class="img-fluid" width="360"></p>
+<p><img src="images/oa-total-2011.png" class="img-fluid" width="360"></p>
+<p><img src="images/msoa-total-2021.png" class="img-fluid" width="360"></p>
+</section>
+<section id="output-area-oa-census-2011-centroid" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="output-area-oa-census-2011-centroid"><span class="header-section-number">7.2</span> Output Area (OA) Census 2011 centroid</h2>
+<p><img src="images/nx-oa-2011.png" class="img-fluid" width="480"></p>
+</section>
+<section id="full-oa-2011-delaunay-mesh" class="level2" data-number="7.3">
+<h2 data-number="7.3" class="anchored" data-anchor-id="full-oa-2011-delaunay-mesh"><span class="header-section-number">7.3</span> Full OA 2011 Delaunay mesh</h2>
+<p><img src="images/nx-all-2011.png" class="img-fluid" width="480"></p>
+</section>
+<section id="oa-2011-odm-mesh" class="level2" data-number="7.4">
+<h2 data-number="7.4" class="anchored" data-anchor-id="oa-2011-odm-mesh"><span class="header-section-number">7.4</span> OA 2011 ODM mesh</h2>
+<p><img src="images/oa-core-2011.png" class="img-fluid" width="480"></p>
+</section>
+<section id="network-simplification-and-parenx" class="level2" data-number="7.5">
+<h2 data-number="7.5" class="anchored" data-anchor-id="network-simplification-and-parenx"><span class="header-section-number">7.5</span> Network simplification and parenx</h2>
+<p>The <a href="https://nptscot.github.io/networkmerge/paper.html">network merge paper is here</a>.</p>
+<p><img src="images/PyPi-parenx.png" class="img-fluid" width="720"></p>
+<p>The <a href="https://pypi.org/project/parenx/">parenx</a> PyPi module.</p>
+<section id="parenx-cookbook" class="level3" data-number="7.5.1">
+<h3 data-number="7.5.1" class="anchored" data-anchor-id="parenx-cookbook"><span class="header-section-number">7.5.1</span> parenx cookbook</h3>
+<p>The <a href="https://nptscot.github.io/networkmerge/cookbook.html">parenx cookbook</a> shows examples of how to use the parenx library.</p>
+</section>
+</section>
+</section>
+<section id="parting-words" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> Parting Words</h1>
+<section id="make-it-look-good." class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="make-it-look-good."><span class="header-section-number">8.1</span> Make it look good.</h2>
+<p><img src="images/E-Coli.png" class="img-fluid" width="480"></p>
+<p>Art E-coli statue.</p>
+</section>
+<section id="the-railway" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="the-railway"><span class="header-section-number">8.2</span> The Railway</h2>
+<p>Beeching 1963 and today.</p>
+<p><img src="images/beeching-both.png" class="img-fluid" width="720"></p>
+</section>
+</section>
+<section id="references" class="level1" data-number="9">
+<h1 data-number="9"><span class="header-section-number">9</span> References</h1>
+<div>
+<ol class="example" type="1">
+<li>Wikipedia, International Klein Blue (#002FA7), <a href="https://en.wikipedia.org/wiki/International_Klein_Blue">here</a></li>
+<li>Rail Alphabet, description and download, <a href="https://www.strathpefferjunction.com/british-railway-typefaces-fonts/">here</a></li>
+<li>SPSmiler, “London Underground Tube”, <a href="https://commons.wikimedia.org/wiki/File:Why_London_Underground_is_nicknamed_The_Tube.jpg">here</a></li>
+<li>Homer, Iliad, Perseus Digital Library <a href="http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0133">here</a>, accessed 4 May 2022</li>
+<li>Transport Statistics Department for Transport, <a href="https://www.gov.uk/government/statistics/transport-statistics-great-britain-2021/transport-statistics-great-britain-2021">here</a></li>
+<li>Department for Business, Energy &amp; Industry Strategy, <a href="https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2021">here</a></li>
+<li>Open Rail Data wiki, <a href="https://wiki.openraildata.com/index.php/Main_Page">here</a></li>
+<li>Rail Development Group “Concept of Operations – Stock and Crew System” (RDG-CONOPS/NTI/002 Issue 1.1) January 2021 <a href="https://www.raildeliverygroup.com/media-centre-docman/acop/284-rdgconceptofoperations-stockandcrewv1-0-reformat/file.html">here</a></li>
+<li>National Electronic Sectional Appendix (NESA) <a href="https://www.networkrail.co.uk/industry-and-commercial/information-for-operators/national-electronic-sectional-appendix/">here</a></li>
+<li>NESA table extract <a href="https://github.com/anisotropi4/nesa">here</a></li>
+<li>Department for Transport Energy and environment: data tables (ENV0201) <a href="https://www.gov.uk/government/statistical-data-sets/energy-and-environment-data-tables-env">here</a></li>
+<li>WorldPop Project <a href="https://www.worldpop.org/">here</a>, data licensed under <a href="https://creativecommons.org/licenses/by/4.0/">creative commons 4.0</a></li>
+<li>EC Global Human Settlement layer <a href="">here</a>, data licensed under <a href="https://creativecommons.org/licenses/by/4.0/">creative commons 4.0</a></li>
+<li>OpenStreetMap <a href="">here</a>, data licensed under <a href="https://opendatacommons.org/licenses/odbl/1-0/">Open Database License (ODbL) v1.0</a></li>
+<li>Overpass Turbo <a href="https://overpass-turbo.eu/">here</a></li>
+<li>python language <a href="">here</a>, licensed under PSF for python 3.11 <a href="https://docs.python.org/3/license.html">here</a></li>
+<li>Pandas <a href="https://pandas.pydata.org/">here</a>, licensed under BSD 3-clause license</li>
+<li>GeoPandas <a href="https://geopandas.org/">here</a>, licensed under BSD 3-clause license</li>
+<li>Department for Transport “Great British Railways: Williams-Shapps plan for rail”, <a href="https://www.gov.uk/government/publications/great-british-railways-williams-shapps-plan-for-rail">here</a></li>
+<li>UK Electrification map, <a href="https://electricrailmap.gitlab.io/">here</a></li>
+<li>Railway Industry Association “Why Rail Electrification”, 2021, <a href="https://www.riagb.org.uk/RIA/Newsroom/Publications%20Folder/Why_Rail_Electrification_Report.aspx">here</a></li>
+<li>European Agency for Railways “Fostering Rail Through Green Deal – part 2 Freight”, 2021, <a href="https://www.era.europa.eu/content/era-report-fostering-railway-sector-through-european-green-deal-part-2-freight_en">here</a></li>
+<li>RailNet Europe, “Timetabling and Capacity Redesign (TTR)”, 2022, <a href="https://rne.eu/sales-timetabling/ttr">here</a></li>
+<li>Network Rail, “Rail freight forecasts Scenarios for 2033-34 and 2043-44”, 2016, <a href="https://www.networkrail.co.uk/wp-content/uploads/2020/08/Rail-freight-forecasts-Scenarios-for-2033-34-and-2043-44.pdf">here</a></li>
+<li>Shapely <a href="https://shapely.readthedocs.io/en/stable/">here</a>, licensed under BSD 3-clause license</li>
+<li>Rasterio <a href="https://rasterio.readthedocs.io/en/latest/index.html">here</a>, under the Rasterio license <a href="https://rasterio.readthedocs.io/en/stable/intro.html">here</a></li>
+<li>Tobler <a href="https://pysal.org/tobler">here</a>, under BSD license</li>
+<li>QGIS <a href="">here</a>, under the Attribution-ShareAlike 3.0 license</li>
+<li>OSMnx: Boeing, G. 2017. <a href="https://geoffboeing.com/publications/osmnx-complex-street-networks/">OSMnx</a>: New Methods for Acquiring, Constructing, Analyzing, and Visualizing Complex Street Networks.&nbsp;Computers, Environment and Urban Systems&nbsp;65, 126-139.</li>
+<li>Uber H3 <a href="https://github.com/uber/h3-py">here</a>, licensed under the Apache license 2.0</li>
+</ol>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/itsleeds\.github\.io\/tds\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Session 4: Routing – Transport Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6a7e4aab8b5a4574c6841f97b9d51d73.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Transport Data Science
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Transport Data Science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/itsleeds/tds" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://itsleeds.github.io/tds/#software-requirements-and-installation" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Install required software</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/ITSLeeds/TDS/discussions" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../marking-criteria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Marking Criteria</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading list</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../minihack-transport-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transport Data Minihack 8th May</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dstp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Science for Transport Planning 2 day course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible Road Safety Workshop</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s3" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s4" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sem1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminar 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formative assessment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s5" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 5: Visualisation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sem2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminar 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s6" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 6: Joins and aggregations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s7" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 7: Project work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d3" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coursework submission</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">1</span> Introduction</a></li>
+  <li><a href="#review-homework-20-mins" id="toc-review-homework-20-mins" class="nav-link" data-scroll-target="#review-homework-20-mins"><span class="header-section-number">2</span> Review Homework (20 mins)</a></li>
+  <li><a href="#routing-pratical" id="toc-routing-pratical" class="nav-link" data-scroll-target="#routing-pratical"><span class="header-section-number">3</span> Routing Pratical</a>
+  <ul class="collapse">
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">3.1</span> Setup</a></li>
+  <li><a href="#using-opentripplanner-to-get-routes" id="toc-using-opentripplanner-to-get-routes" class="nav-link" data-scroll-target="#using-opentripplanner-to-get-routes"><span class="header-section-number">3.2</span> Using OpenTripPlanner to get routes</a>
+  <ul class="collapse">
+  <li><a href="#otp-web-gui" id="toc-otp-web-gui" class="nav-link" data-scroll-target="#otp-web-gui"><span class="header-section-number">3.2.1</span> OTP Web GUI</a></li>
+  <li><a href="#connecting-to-opentripplanner-in-r" id="toc-connecting-to-opentripplanner-in-r" class="nav-link" data-scroll-target="#connecting-to-opentripplanner-in-r"><span class="header-section-number">3.2.2</span> Connecting to OpenTripPlanner in R</a></li>
+  <li><a href="#isochrones" id="toc-isochrones" class="nav-link" data-scroll-target="#isochrones"><span class="header-section-number">3.2.3</span> Isochrones</a></li>
+  </ul></li>
+  <li><a href="#route-networks-also-called-flow-maps" id="toc-route-networks-also-called-flow-maps" class="nav-link" data-scroll-target="#route-networks-also-called-flow-maps"><span class="header-section-number">3.3</span> Route Networks (also called flow maps)</a>
+  <ul class="collapse">
+  <li><a href="#line-merging" id="toc-line-merging" class="nav-link" data-scroll-target="#line-merging"><span class="header-section-number">3.3.1</span> Line Merging</a></li>
+  </ul></li>
+  <li><a href="#network-analysis-dodgr" id="toc-network-analysis-dodgr" class="nav-link" data-scroll-target="#network-analysis-dodgr"><span class="header-section-number">3.4</span> Network Analysis (dodgr)</a></li>
+  </ul></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">4</span> Homework</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Session 4: Routing</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Introduction</h1>
+<p>In this session, we will learn how to use routing engines and network analysis. The contents of the session are as follows:</p>
+<ul>
+<li>We will start with reviewing the homework from the previous session</li>
+<li>A lecture on graph theory and routing. <a href="https://github.com/itsleeds/tds/releases/download/2025/Lecture.4.-.Routing.pptx">Slides here</a></li>
+<li>Session activities: routing in R</li>
+<li>Homework and next session</li>
+</ul>
+</section>
+<section id="review-homework-20-mins" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Review Homework (20 mins)</h1>
+<p>Your homework last week was to review some AI written code. Divide into groups of 2-3 people and share the question you asked AI, the code it produced, and the results it got.</p>
+<ul>
+<li>Does the code run first time?</li>
+<li>Do the results answer the question?</li>
+<li>Try modifying the code and the prompt to improve the code generated by the AI.</li>
+<li>Discuss in your groups the strengths and weaknesses of AI written code.</li>
+</ul>
+</section>
+<section id="routing-pratical" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Routing Pratical</h1>
+<section id="setup" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">3.1</span> Setup</h2>
+<p>If you have not installed the packages before hand. You can use ITS Go to do an easy set-up of your computer</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"https://git.io/JvGjF"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>The packages we will be using are:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)               <span class="co"># Spatial data functions</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lwgeom)           <span class="co"># For advanced spatial functions</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)        <span class="co"># General data manipulation</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stplanr)          <span class="co"># General transport data functions</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dodgr)            <span class="co"># Local routing and network analysis</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(opentripplanner)  <span class="co"># Connect to and use OpenTripPlanner</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tmap)             <span class="co"># Make maps</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(osmextract)       <span class="co"># Download and import OpenStreetMap data</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="using-opentripplanner-to-get-routes" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="using-opentripplanner-to-get-routes"><span class="header-section-number">3.2</span> Using OpenTripPlanner to get routes</h2>
+<p>We have set up the Multi-modal routing service OpenTripPlanner for West Yorkshire. Try typing this URL https://otp.robinlovelace.net/ during the session into your browser. You should see something like this:</p>
+<p><img src="images/otp_screenshot.png" class="img-fluid"> Note if you see a grey map use the layers button in the top right to switch to a different basemap.</p>
+<section id="otp-web-gui" class="level3" data-number="3.2.1">
+<h3 data-number="3.2.1" class="anchored" data-anchor-id="otp-web-gui"><span class="header-section-number">3.2.1</span> OTP Web GUI</h3>
+<p><strong>Exercise</strong></p>
+<ol type="1">
+<li>Play with the web interface, finding different types of routes. What strengths/limitations can you find?</li>
+</ol>
+</section>
+<section id="connecting-to-opentripplanner-in-r" class="level3" data-number="3.2.2">
+<h3 data-number="3.2.2" class="anchored" data-anchor-id="connecting-to-opentripplanner-in-r"><span class="header-section-number">3.2.2</span> Connecting to OpenTripPlanner in R</h3>
+<p>To allow R to connect to the OpenTripPlanner server, we will use the <code>opentripplanner</code> package and the function <code>otp_connect</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ip = "localhost" # to run it on your computer (see final bonus exercise)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ip <span class="ot">=</span> <span class="st">"otp.robinlovelace.net"</span> <span class="co"># an actual server</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>otpcon <span class="ot">=</span> <span class="fu">otp_connect</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">hostname =</span> ip, </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ssl =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">port =</span> <span class="dv">443</span>,</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">router =</span> <span class="st">"west-yorkshire"</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<!-- Note: the below is for locally hosted OTP: -->
+<p>If you have connected successfully, then you should get a message “Router exists.”</p>
+<p>Create a test route. Notice than in the web UI the coordinates are <code>Lat/Lng</code> but R uses <code>Lng/Lat</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>routes_test <span class="ot">=</span> <span class="fu">otp_plan</span>(</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">otpcon =</span> otpcon,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fromPlace =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.55555</span>, <span class="fl">53.81005</span>),</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">toPlace =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.54710</span>, <span class="fl">53.79519</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">"WALK"</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>You can use multiple modes and combinations try:</p>
+<ul>
+<li><code>mode = "WALK"</code></li>
+<li><code>mode = c("WALK","TRANSIT")</code></li>
+<li><code>mode = c("BICYCLE","TRANSIT")</code></li>
+<li><code>mode = "CAR"</code></li>
+<li><code>mode = c("CAR_PARK","TRANSIT")</code></li>
+</ul>
+<p>Use some of the functions you have already learnt like <code>head</code>,<code>plot</code>, and <code>summary</code> to understand the data you have produced.</p>
+<p>To get some more routes, we will start by importing some data. The <code>NTEM_flow.geojson</code> dataset the contains the top desire lines in West Yorkshire. It was produced from a transport model called the <a href="https://data.gov.uk/dataset/11bc7aaf-ddf6-4133-a91d-84e6f20a663e/national-trip-end-model-ntem">National Trip End Model</a> and research from the <a href="https://github.com/ITSLeeds/NTEM2OD">University of Leeds</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>desire_lines <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(desire_lines)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will also download the points that represent the possible start and end point of trips in the model</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_cents.geojson"</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(centroids)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Exercise</strong></p>
+<ol start="2" type="1">
+<li>Plot the <code>desire_lines</code> and <code>centroids</code> objects using the <code>tmap</code> package to show the number of travellers on each desire_line and the locations of all centroids.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>) <span class="co"># Change to view for interactive map</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(desire_lines) <span class="sc">+</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">"all"</span>,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">lwd =</span> <span class="st">"all"</span>,  </span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">lwd.scale =</span> <span class="fu">tm_scale_continuous</span>(<span class="at">values.scale =</span> <span class="dv">10</span>), </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">col.scale =</span> <span class="fu">tm_scale_continuous</span>(<span class="at">values  =</span> <span class="st">"-viridis"</span>)) <span class="sc">+</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(centroids) <span class="sc">+</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">"red"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Produce some different maps for each mode of travel in the <code>desire_lines</code> dataset. How do the numbers of travellers change for walking, driving, and train travel? See example plot below.</li>
+</ol>
+<p>This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the start and endpoints using the package <code>lwgeom</code></p>
+<p><strong>Exercise</strong></p>
+<ol start="4" type="1">
+<li>Produce a data frame called <code>desire_top</code> which contains the top three <code>desire_lines</code> for all travellers. Hint <code>?slice_max</code></li>
+</ol>
+<ol start="5" type="1">
+<li>We need to extract start and end point from those desire lines. We would also like to give each place an ID value</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract start and end points</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fromPlace <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sf</span>(</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> desire_top<span class="sc">$</span>from),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">geometry =</span> lwgeom<span class="sc">::</span><span class="fu">st_startpoint</span>(desire_top)</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>toPlace <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sf</span>(</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> desire_top<span class="sc">$</span>to),</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">geometry =</span> lwgeom<span class="sc">::</span><span class="fu">st_endpoint</span>(desire_top)</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="6" type="1">
+<li>Create a new object called <code>routes_drive_top</code>, with driving routes between the OD pairs represented in the <code>desire_top</code> object.</li>
+</ol>
+<p>Calculate routes for the first three desire lines with the following command:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>routes_drive_top <span class="ot">=</span> <span class="fu">otp_plan</span>(<span class="at">otpcon =</span> otpcon,</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">otpcon =</span> otpcon,</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fromPlace =</span> fromPlace,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">toPlace =</span> toPlace,</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fromID =</span> fromPlace<span class="sc">$</span>id,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">toID =</span> toPlace<span class="sc">$</span>id,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">"CAR"</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="7" type="1">
+<li>Plot <code>routes_drive_top</code> using the <code>tmap</code> package mode. You should see something like the image below.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(routes_drive_top) <span class="sc">+</span> <span class="fu">tm_lines</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="isochrones" class="level3" data-number="3.2.3">
+<h3 data-number="3.2.3" class="anchored" data-anchor-id="isochrones"><span class="header-section-number">3.2.3</span> Isochrones</h3>
+<p>We can also get Isochrones from OTP. In this case lets work out how far we can travel in one hour by cycling and public transport.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>isochrone <span class="ot">=</span> <span class="fu">otp_isochrone</span>(otpcon, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">fromPlace =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.558655</span>, <span class="fl">53.807870</span>), </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">mode =</span> <span class="fu">c</span>(<span class="st">"BICYCLE"</span>,<span class="st">"TRANSIT"</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">maxWalkDistance =</span> <span class="dv">3000</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>isochrone<span class="sc">$</span>time <span class="ot">=</span> isochrone<span class="sc">$</span>time <span class="sc">/</span> <span class="dv">60</span> <span class="co"># Convert from seconds to minutes</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(isochrone) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"time"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Experiment with some different isochrones by changing the mode, and start location. Ty overlaying the OD data on top of you isochrones. Can you see a relationship between travel time and travel demand?</p>
+<p>To save you time and to prevent overloading the server, we have pre-generated some extra routes. Download these routes and load them into R.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive.geojson"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>routes_drive <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/routes_transit.geojson"</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>routes_transit <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will now join the number of drivers onto the driving routes.</p>
+<p><strong>Exercise</strong></p>
+<ol start="8" type="1">
+<li>Create a dataset called <code>n_driver</code> from <code>desire_lines</code> which only have the columns <code>from</code> <code>to</code> and <code>drive</code>. Hint <code>?dplyr::select</code> and <code>?sf::st_drop_geometry</code></li>
+</ol>
+<ol start="9" type="1">
+<li>Join the <code>n_driver</code> data onto the <code>routes_drive</code> data by linking <code>fromPlace = from</code> and <code>toPlace = to</code>. Hint <code>?dplyr::left_join</code>.</li>
+</ol>
+<ol start="10" type="1">
+<li>Plot the routes showing the number of drivers on each route.</li>
+</ol>
+</section>
+</section>
+<section id="route-networks-also-called-flow-maps" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="route-networks-also-called-flow-maps"><span class="header-section-number">3.3</span> Route Networks (also called flow maps)</h2>
+<p>The map above shows some useful information about where people drive. But it has a problem. When many routes overlap it hides some of the drivers. What would be more useful would be to add those drivers together so we can see the total number of drivers on each road. This is what a route network does.</p>
+<p>We can produce a route network map using <code>stplanr::overline</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rnet_drive <span class="ot">=</span> <span class="fu">overline</span>(routes_drive, <span class="st">"drive"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Exercise</strong></p>
+<ol start="10" type="1">
+<li>Make a route network for driving and plot it using the <code>tmap</code> package. How is is different from just plotting the routes?</li>
+</ol>
+<p><strong>Bonus Exercise</strong></p>
+<ul>
+<li>Read the <a href="https://journals.sagepub.com/doi/10.1177/2399808320942779">paper</a> about the overline function.</li>
+</ul>
+<section id="line-merging" class="level3" data-number="3.3.1">
+<h3 data-number="3.3.1" class="anchored" data-anchor-id="line-merging"><span class="header-section-number">3.3.1</span> Line Merging</h3>
+<p>Notice that <code>routes_transit</code> has returned separate rows for each mode (WALK, RAIL, BUS). Notice the <code>route_option</code> column shows that some routes have multiple options.</p>
+<p>Let’s suppose you want a single line for each route.</p>
+<p><strong>Exercise</strong></p>
+<ol start="11" type="1">
+<li>Filter the <code>routes_transit</code> to contain only one route option per origin-destination pair and only the columns <code>fromPlace</code> <code>toPlace</code> <code>distance</code> <code>geometry</code>. Hint <code>filter()</code> and <code>select</code></li>
+</ol>
+<p>Now We will group the separate parts of the routes together.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> routes_transit <span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(fromPlace, toPlace) <span class="sc">|&gt;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">distance =</span> <span class="fu">sum</span>(distance))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We now have a single row, but instead of a <code>LINESTRING</code>, we now have a mix of <code>MULTILINESTRING</code> and <code>LINESTRING</code>, we can convert to a <code>LINESTRING</code> by using <code>st_line_merge()</code>. Note how the different columns where summarised.</p>
+<p>First, we must separate out the <code>MULTILINESTRING</code> and <code>LINESTRING</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>routes_transit_group_ml <span class="ot">=</span> routes_transit_group[<span class="fu">st_geometry_type</span>(routes_transit_group) <span class="sc">==</span> <span class="st">"MULTILINESTRING"</span>, ]</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> routes_transit_group[<span class="fu">st_geometry_type</span>(routes_transit_group) <span class="sc">!=</span> <span class="st">"MULTILINESTRING"</span>, ]</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>routes_transit_group_ml <span class="ot">=</span> <span class="fu">st_line_merge</span>(routes_transit_group_ml)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> <span class="fu">rbind</span>(routes_transit_group, routes_transit_group_ml)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Exercise</strong></p>
+<ol start="12" type="1">
+<li>Plot the transit routes, what do you notice about them?</li>
+</ol>
+<p><strong>Bonus Exercise</strong>:</p>
+<ol start="13" type="1">
+<li>Redo exercise 16 but make sure you always select the fastest option. You may need to re-download the <code>routes_transit</code> data if you have overwritten the original data.</li>
+</ol>
+</section>
+</section>
+<section id="network-analysis-dodgr" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="network-analysis-dodgr"><span class="header-section-number">3.4</span> Network Analysis (dodgr)</h2>
+<p><strong>Note</strong> Some people have have problems running dodgr on Windows, if you do follow these <a href="https://github.com/itsleeds/tds/blob/main/s4/dodgr-install.md">instructions</a>.</p>
+<p>We will now analyse the road network using <code>dodgr</code>. Network analysis can take a very long time on large areas. So we will use the example of the <a href="https://en.wikipedia.org/wiki/Isle_of_Wight">Isle of Wight</a>, which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.</p>
+<p>First we need to download the roads network from the OpenStreetMap using <code>osmextract::oe_get</code>. We will removed most of the paths and other features and just focus on the main roads. Then use <code>dodgr::weight_streetnet</code> to produce a graph of the road network.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data from OpenSteetMap</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> <span class="fu">oe_get</span>(<span class="st">"Isle of Wight"</span>, <span class="at">extra_tags =</span> <span class="fu">c</span>(<span class="st">"maxspeed"</span>,<span class="st">"oneway"</span>))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove non-road data</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> roads[<span class="sc">!</span><span class="fu">is.na</span>(roads<span class="sc">$</span>highway),]</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Only get some road types see https://wiki.openstreetmap.org/wiki/Key:highway</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>road_types <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"primary"</span>,<span class="st">"primary_link"</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"secondary"</span>,<span class="st">"secondary_link"</span>,</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"tertiary"</span>, <span class="st">"tertiary_link"</span>,</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"residential"</span>,<span class="st">"unclassified"</span>)</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> roads[roads<span class="sc">$</span>highway <span class="sc">%in%</span> road_types, ]</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a graph</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>graph <span class="ot">=</span> <span class="fu">weight_streetnet</span>(roads)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We will find the <a href="https://en.wikipedia.org/wiki/Betweenness_centrality">betweenness centrality</a> of the Isle of Wight road network. This can take a long time, so first lets check how long it will take.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_centrality_time</span>(graph)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>centrality <span class="ot">=</span> <span class="fu">dodgr_centrality</span>(graph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We can convert a <code>dodgr</code> graph back into a sf data frame for plotting using <code>dodgr::dodgr_to_sf</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clear_dodgr_cache</span>()</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>centrality_sf <span class="ot">=</span> <span class="fu">dodgr_to_sf</span>(centrality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Exercise</strong></p>
+<ol start="14" type="1">
+<li>Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?</li>
+</ol>
+<ol start="15" type="1">
+<li>Use <code>dodgr::dodgr_contract_graph</code> before calculating centrality, how does this affect the computation time and the results?</li>
+</ol>
+<p><strong>Bonus Exercises</strong></p>
+<ol start="16" type="1">
+<li>Work though the OpenTripPlanner vignettes <a href="https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html">Getting Started</a> and <a href="https://docs.ropensci.org/opentripplanner/articles/advanced_features.html">Advanced Features</a> to run your own local trip planner for the Isle of Wight.</li>
+</ol>
+<p><strong>Note</strong> To use OpenTripPlanner on your own computer requires Java 8. See the <a href="https://docs.ropensci.org/opentripplanner/articles/prerequisites.html">Prerequisites</a> for more details. If you can’t install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.</p>
+<ol start="17" type="1">
+<li><p>Read the <code>dodgr</code> <a href="https://urbananalyst.github.io/dodgr/articles/index.html">vignettes</a></p></li>
+<li><p>Read the <a href="https://github.com/ITSLeeds/MinorRoadTraffic">MinorRoadTraffic</a> <a href="https://github.com/itsleeds/MinorRoadTraffic/blob/main/vignettes/Oxford.md">vignette</a> this is a Masters Dissertation topic where students attempt to predict traffic levels using network analysis. The vignette and the package contain some examples of Transport Data Science in action.</p></li>
+</ol>
+</section>
+</section>
+<section id="homework" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Homework</h1>
+<p>Prepare you <a href="https://itsleeds.github.io/tds/d2/">draft portfolio</a> for submission on the 28th February.</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/itsleeds\.github\.io\/tds\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

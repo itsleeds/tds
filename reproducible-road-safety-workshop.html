@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Reproducible data science for road safety research – Transport Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-6a7e4aab8b5a4574c6841f97b9d51d73.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./reproducible-road-safety-workshop.html">Reproducible Road Safety Workshop</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Transport Data Science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/itsleeds/tds" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://itsleeds.github.io/tds/#software-requirements-and-installation" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Install required software</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/ITSLeeds/TDS/discussions" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./marking-criteria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Marking Criteria</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading list</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./minihack-transport-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transport Data Minihack 8th May</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./dstp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Science for Transport Planning 2 day course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Reproducible Road Safety Workshop</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s3" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s4" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sem1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminar 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formative assessment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s5" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 5: Visualisation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sem2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminar 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s6" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 6: Joins and aggregations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./s7" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 7: Project work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./d3" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coursework submission</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#who-is-this-for" id="toc-who-is-this-for" class="nav-link" data-scroll-target="#who-is-this-for">Who is this for?</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#recommended-reading" id="toc-recommended-reading" class="nav-link" data-scroll-target="#recommended-reading">Recommended reading</a></li>
+  <li><a href="#where-and-when" id="toc-where-and-when" class="nav-link" data-scroll-target="#where-and-when">Where and when</a></li>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#workshop-tasks" id="toc-workshop-tasks" class="nav-link" data-scroll-target="#workshop-tasks">Workshop tasks</a>
+  <ul class="collapse">
+  <li><a href="#importing-collision-casualty-and-vehicle-tables-20-min" id="toc-importing-collision-casualty-and-vehicle-tables-20-min" class="nav-link" data-scroll-target="#importing-collision-casualty-and-vehicle-tables-20-min">Importing collision, casualty and vehicle tables (20 min)</a></li>
+  <li><a href="#temporal-visualisation-and-aggregation-20-min" id="toc-temporal-visualisation-and-aggregation-20-min" class="nav-link" data-scroll-target="#temporal-visualisation-and-aggregation-20-min">Temporal visualisation and aggregation (20 min)</a></li>
+  <li><a href="#spatial-visualisation-and-aggregation-30-min" id="toc-spatial-visualisation-and-aggregation-30-min" class="nav-link" data-scroll-target="#spatial-visualisation-and-aggregation-30-min">Spatial visualisation and aggregation (30 min)</a></li>
+  <li><a href="#joining-stats19-tables-20-min" id="toc-joining-stats19-tables-20-min" class="nav-link" data-scroll-target="#joining-stats19-tables-20-min">Joining STATS19 tables (20 min)</a></li>
+  <li><a href="#bonuses" id="toc-bonuses" class="nav-link" data-scroll-target="#bonuses">Bonuses</a>
+  <ul class="collapse">
+  <li><a href="#bonus-1-intermediate-create-a-repo-and-share-your-work-on-github" id="toc-bonus-1-intermediate-create-a-repo-and-share-your-work-on-github" class="nav-link" data-scroll-target="#bonus-1-intermediate-create-a-repo-and-share-your-work-on-github">Bonus 1 (intermediate): Create a repo and share your work on GitHub</a></li>
+  <li><a href="#bonus-2-intermediate-reproducing-a-map-used-in-consultation-by-leeds-city-council" id="toc-bonus-2-intermediate-reproducing-a-map-used-in-consultation-by-leeds-city-council" class="nav-link" data-scroll-target="#bonus-2-intermediate-reproducing-a-map-used-in-consultation-by-leeds-city-council">Bonus 2 (intermediate): reproducing a map used in consultation by Leeds City Council</a></li>
+  <li><a href="#bonus-3-advanced-analysing-collision-data-to-answer-a-research-question" id="toc-bonus-3-advanced-analysing-collision-data-to-answer-a-research-question" class="nav-link" data-scroll-target="#bonus-3-advanced-analysing-collision-data-to-answer-a-research-question">Bonus 3 (advanced): analysing collision data to answer a research question</a></li>
+  <li><a href="#bonus-4-advanced-contribute-upstream" id="toc-bonus-4-advanced-contribute-upstream" class="nav-link" data-scroll-target="#bonus-4-advanced-contribute-upstream">Bonus 4 (advanced): contribute upstream</a></li>
+  </ul></li>
+  <li><a href="#prize" id="toc-prize" class="nav-link" data-scroll-target="#prize">Prize</a></li>
+  </ul></li>
+  <li><a href="#sign-up" id="toc-sign-up" class="nav-link" data-scroll-target="#sign-up">Sign-up!</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Reproducible data science for road safety research</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>This workshop will take place at the University of Leeds’ Institute for Transport Studies (ITS) as part of the <a href="https://www.vti.se/en/rs5c">RS5C conference</a> that runs from 3rd to 5th September 2025. The workshop takes place on the 2nd September 2025, 13:00-16:00 (including 1 hour for a networking lunch), the day before the main conference starts.</p>
+<p>The workshop will cover the fundamentals of reproducible data science for road safety research, building on a decade’s worth of experience working with road traffic casualty datasets for policy-relevant road safety research. The UK’s open access STATS19 database will be the basis of the session but the skills learned will be applicable to any road safety datasets. The session will cover:</p>
+<ul>
+<li><strong>Importing collision, casualty and vehicle tables:</strong> See <a href="https://itsleeds.github.io/rrsrr/04-pkgs.html">Chapter 4 on R packages</a> and <a href="https://itsleeds.github.io/rrsrr/08-join.html">Chapter 8 on joining tables</a>.</li>
+<li><strong>Temporal visualisation and aggregation:</strong> See <a href="https://itsleeds.github.io/rrsrr/06-time.html">Chapter 6 on temporal data</a>.</li>
+<li><strong>Spatial visualisation and aggregation:</strong> See <a href="https://itsleeds.github.io/rrsrr/07-space.html">Chapter 7 on spatial data</a>.</li>
+<li><strong>Joining STATS19 tables:</strong> See <a href="https://itsleeds.github.io/rrsrr/08-join.html">Chapter 8 on joining tables</a>.</li>
+<li><strong>Spatial joins linking infrastructure to collisions:</strong> See <a href="https://itsleeds.github.io/rrsrr/07-space.html">Chapter 7 on spatial data</a>.</li>
+</ul>
+<p>The course will be taught in R, a free and open-source programming language for data analysis and visualisation that excels at the kind of statistical modelling and visualisation workflows required for high-impact, reproducible and correct road safety research. The course will be taught by Professor Robin Lovelace, who has over a decade of experience teaching R for data science and is author of the popular book <a href="https://r.geocompx.org/">Geocomputation with R</a>. You will learn how to add value to road traffic casualty date for more data-driven and effective interventions to save lives in relation to the largest cause of death for young people worldwide, as highlighted in the map below.</p>
+<p><img src="https://itsleeds.github.io/rrsrr/figures/road-casualties.png" class="img-fluid"></p>
+<p><em>Road danger levels worldwide in 2016. Data source: World Bank. Reproducible source code: Reproducible Road Safety Research with R, freely available at <a href="https://itsleeds.github.io/rrsrr/">itsleeds.github.io/rrsrr/</a>.</em></p>
+</section>
+<section id="who-is-this-for" class="level1">
+<h1>Who is this for?</h1>
+<p>The workshop is aimed at anyone interested in road safety research, especially for students, researchers, and practitioners who are already working with road safety data and who would like to improve their data science skills for more reproducible and impactful research.</p>
+<p>You are welcome to sign-up and learn from the session if you are new to R or if you want to work through the practical content in another language such as Python or Julia. However, the session will be most useful if you have some prior experience with R and RStudio (see links below for recommended reading and places to learn R). We highly recommend that attendees already use R or dedicate some time to learning the basics of R before the session.</p>
+</section>
+<section id="prerequisites" class="level1">
+<h1>Prerequisites</h1>
+<p>Attendees should have the following before signing-up:</p>
+<ul>
+<li>A GitHub account, which will enable you to run the course via a web browser by clicking on the link below.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://github.com/codespaces/new/itsleeds/tds?quickstart=1"><img src="https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png" class="img-fluid figure-img" alt="Open in GitHub Codespaces"></a></p>
+<figcaption>Open in GitHub Codespaces</figcaption>
+</figure>
+</div>
+<ul>
+<li>Basic familiarity with R and RStudio or knowledge of another programming language for data science</li>
+<li>A laptop with R and RStudio <a href="https://posit.co/download/rstudio-desktop/">installed</a> (or VS Code with the R extension or similar for advanced users)</li>
+<li>Docker <a href="https://docs.docker.com/get-docker/">installed</a> if you plan to use VS Code and devcontainers for full reproducibility</li>
+<li>A willingness to learn (see recommended reading) and share knowledge</li>
+</ul>
+<p>To check you have the necessary software installed, try running the following, which should result in the figure below.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"tidyverse"</span>, <span class="st">"stats19"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Install pak pkg if not already installed</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">requireNamespace</span>(<span class="st">"pak"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>)) <span class="fu">install.packages</span>(<span class="st">"pak"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>pak<span class="sc">::</span><span class="fu">pkg_install</span>(pkgs)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#| label: setup</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#| message: false</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Set ggplot2 theme</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>collisions_2023 <span class="ot">=</span> stats19<span class="sc">::</span><span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2023</span>, <span class="at">type =</span> <span class="st">"collision"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>collisions_2023_sf <span class="ot">=</span> stats19<span class="sc">::</span><span class="fu">format_sf</span>(collisions_2023)</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(collisions_2023_sf)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(collisions_2023_sf)[<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>]</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">table</span>(collisions_2023_sf<span class="sc">$</span>police_force))</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>collisions_west_yorkshire_sf <span class="ot">=</span> collisions_2023_sf <span class="sc">|&gt;</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(police_force <span class="sc">==</span> <span class="st">"West Yorkshire"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Arrange in descending order of accident severity</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="co"># so most severe accidents are plotted last:</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(accident_severity))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> collisions_west_yorkshire_sf,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">colour =</span> accident_severity, <span class="at">alpha =</span> accident_severity)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_alpha_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="fl">0.8</span>, <span class="fl">0.4</span>, <span class="fl">0.2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>If you cannot reproduce the above code or have any issues with setting up your environment, or any questions about the course, feel free to get in touch via the <a href="https://github.com/itsleeds/tds/discussions">GitHub Discussions</a> (also requires a GitHub account).</p>
+</section>
+<section id="recommended-reading" class="level1">
+<h1>Recommended reading</h1>
+<p>The session will build on the following resources, we recommend taking a read of one or more of these before signing-up:</p>
+<ul>
+<li>The first practical session of the Transport Data Science module, freely available at <a href="https://itsleeds.github.io/tds/s1/">itsleeds.github.io/tds/s1/</a>, for an introduction to data science for transport research</li>
+<li><a href="https://itsleeds.github.io/rrsrr/">Reproducible Road Safety Research with R</a> <span class="citation" data-cites="lovelace_reproducible_2020">(<a href="#ref-lovelace_reproducible_2020" role="doc-biblioref">Lovelace, 2020</a>)</span>
+<ul>
+<li>Introductory guide for analyzing road safety data in R</li>
+</ul></li>
+<li>Geocomputation with R and <a href="https://r.geocompx.org/transport.html">Chapter 13</a> in particular <span class="citation" data-cites="lovelace_geocomputation_2025">(<a href="#ref-lovelace_geocomputation_2025" role="doc-biblioref">Lovelace et al., 2025</a>)</span></li>
+<li>A paper exploring the spatial distribution of cycling casualties in West Yorkshire, using exploratory data analysis (EDA) techniques <span class="citation" data-cites="lovelace2016">(<a href="#ref-lovelace2016" role="doc-biblioref">Lovelace et al., 2016</a>)</span></li>
+<li>A paper exploring social inequalities in cycling casualties nationwide <span class="citation" data-cites="vidaltortosa2021">(<a href="#ref-vidaltortosa2021" role="doc-biblioref">Vidal Tortosa et al., 2021</a>)</span></li>
+<li>Papers investigating the relationships between new contraflow interventions and traffic levels and collision rates in London <span class="citation" data-cites="tait2024 tait2023">(<a href="#ref-tait2024" role="doc-biblioref">Tait et al., 2024</a>, <a href="#ref-tait2023" role="doc-biblioref">2023</a>)</span></li>
+</ul>
+</section>
+<section id="where-and-when" class="level1">
+<h1>Where and when</h1>
+<p>2nd September 2025, 13:00-16:00, Room 1.11, ITS, University of Leeds:</p>
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1617.1334644957128!2d-1.5582207280164118!3d53.808028040466006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795ea95a87d231%3A0xe52f3e3b80037a86!2sInstitute%20for%20Transport%20Studies%20(ITS)!5e1!3m2!1sen!2suk!4v1756474070392!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</section>
+<section id="agenda" class="level1">
+<h1>Agenda</h1>
+<ul>
+<li>13:00-14:00 Networking lunch</li>
+<li>14:00-14:15 Introduction to reproducible research for road traffic harm reduction research (Robin Lovelace, University of Leeds)</li>
+<li>14:15-14:30 New datasets and tools for understanding and defeating the causes of road danger (Richard Owen, Agilysis)</li>
+<li>14:30-16:00 Workshop (Robin Lovelace, Juan Pablo Fonseca Zamora, Caroline Tait, University of Leeds)</li>
+<li>16:00-16:15 Post workshop networking and social, downtime</li>
+<li>16:15-16:45 Walk to the Cloth Hall Courth for the RS5C drinks reception</li>
+</ul>
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d9425.088274295727!2d-1.5642930689722954!3d53.80244233112874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x48795ea95a87d231%3A0xe52f3e3b80037a86!2sITS%2C%20Institute%20for%20Transport%20StudiesUniversity%20of%20Woodhouse%2C%20Leeds!3m2!1d53.8079508!2d-1.5586552!4m5!1s0x48795c1e7ab6ae41%3A0xa84c0e31cc7a08cb!2sCloth%20Hall%20Court%2C%20Quebec%20St%2C%20Leeds%20LS1%202HA!3m2!1d53.7969691!2d-1.549132!5e0!3m2!1sen!2suk!4v1756725620604!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+</section>
+<section id="workshop-tasks" class="level1">
+<h1>Workshop tasks</h1>
+<p>See workshop slides at <a href="slides/road-safety.html">slides/road-safety.html</a>.</p>
+<section id="importing-collision-casualty-and-vehicle-tables-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="importing-collision-casualty-and-vehicle-tables-20-min">Importing collision, casualty and vehicle tables (20 min)</h2>
+<ul>
+<li>Learn how to load the main STATS19 tables (collision, casualty, vehicle) using the <code>stats19</code> R package.</li>
+<li>Explore the structure and key variables in each table.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/04-pkgs.html">Chapter 4 on R packages</a> and <a href="https://itsleeds.github.io/rrsrr/08-join.html">Chapter 8 on joining tables</a> for details.</li>
+</ul>
+</section>
+<section id="temporal-visualisation-and-aggregation-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="temporal-visualisation-and-aggregation-20-min">Temporal visualisation and aggregation (20 min)</h2>
+<ul>
+<li>Aggregate collision data by time (e.g., by month or day of week).</li>
+<li>Create time series plots to identify trends and patterns.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/06-time.html">Chapter 6 on temporal data</a>.</li>
+</ul>
+</section>
+<section id="spatial-visualisation-and-aggregation-30-min" class="level2">
+<h2 class="anchored" data-anchor-id="spatial-visualisation-and-aggregation-30-min">Spatial visualisation and aggregation (30 min)</h2>
+<ul>
+<li>Convert collision data to spatial format and plot on a map.</li>
+<li>Aggregate collisions by area (e.g., by local authority or police force).</li>
+<li>Create maps to visualise spatial patterns in road safety data.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/07-space.html">Chapter 7 on spatial data</a>.</li>
+</ul>
+</section>
+<section id="joining-stats19-tables-20-min" class="level2">
+<h2 class="anchored" data-anchor-id="joining-stats19-tables-20-min">Joining STATS19 tables (20 min)</h2>
+<ul>
+<li>Join collision, casualty, and vehicle tables to enrich your analysis.</li>
+<li>Explore relationships between different aspects of road traffic incidents.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/08-join.html">Chapter 8 on joining tables</a>.</li>
+</ul>
+</section>
+<section id="bonuses" class="level2">
+<h2 class="anchored" data-anchor-id="bonuses">Bonuses</h2>
+<p>We have developed a series of bonus exercises for fast finishers, for people who already have the skills covered in the main workshop, or for anyone who wants to go the extra mile. So feel free to work on these bonus exercises if you:</p>
+<ul>
+<li>Complete the main tasks early, or</li>
+<li>Think you will learn more by exploring additional resources or tackling more complex problems, and</li>
+<li>Feel free to continue working on these bonus exercises after the workshop ends, there is plenty of work represented here, especially in Bonus 4, and we’re not expecting anyone to develop an entire R/Python package during the 1.5 hour workshop!</li>
+</ul>
+<p>These tasks are also designed to support people managing others or developing teaching/research programs to think about tasks and activities to assign to their students or teams.</p>
+<section id="bonus-1-intermediate-create-a-repo-and-share-your-work-on-github" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-1-intermediate-create-a-repo-and-share-your-work-on-github">Bonus 1 (intermediate): Create a repo and share your work on GitHub</h3>
+<ul>
+<li>Create a GitHub repository for your workshop materials.</li>
+<li>Commit your code and minimal results, e.g.&nbsp;a figure.</li>
+<li>Share the link to your repository with others, e.g.&nbsp;in the discussion thread at <a href="https://github.com/itsleeds/tds/discussions/239">github.com/itsleeds/tds/discussions</a> or on social media.</li>
+</ul>
+</section>
+<section id="bonus-2-intermediate-reproducing-a-map-used-in-consultation-by-leeds-city-council" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-2-intermediate-reproducing-a-map-used-in-consultation-by-leeds-city-council">Bonus 2 (intermediate): reproducing a map used in consultation by Leeds City Council</h3>
+<p>See https://tdscience.github.io/course/collisions.html and reproduce the following map on your own set-up:</p>
+<p><img src="https://tdscience.github.io/course/images/paste-2.png" class="img-fluid"></p>
+</section>
+<section id="bonus-3-advanced-analysing-collision-data-to-answer-a-research-question" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-3-advanced-analysing-collision-data-to-answer-a-research-question">Bonus 3 (advanced): analysing collision data to answer a research question</h3>
+<ul>
+<li>Formulate a research question related to road safety (e.g., “How do cycle lanes impact collision rates?”).</li>
+<li>Decide a spatial and temporal extent for the study (e.g.&nbsp;Birmingham, 2020-2023)</li>
+<li>Generate as many informative visualisations as possible to explore the data, using any technique you want, e.g.:
+<ul>
+<li>Use the <a href="https://nptscot.github.io/osmactive/">osmactive</a> R package to download cycle lane data from OpenStreetMap.</li>
+<li>Perform spatial joins to link collision locations with infrastructure data (e.g., cycle lanes, speed limits).</li>
+<li>Analyse how infrastructure relates to collision patterns.</li>
+<li>See <a href="https://itsleeds.github.io/rrsrr/07-space.html">Chapter 7 on spatial data</a>.</li>
+</ul></li>
+</ul>
+</section>
+<section id="bonus-4-advanced-contribute-upstream" class="level3">
+<h3 class="anchored" data-anchor-id="bonus-4-advanced-contribute-upstream">Bonus 4 (advanced): contribute upstream</h3>
+<ul>
+<li>Contribute to an existing codebase for making road safety data easier to access for reproducible research.
+<ul>
+<li>For example, you could open an issue in the <a href="https://github.com/itsleeds/stats19">stats19</a> repository.</li>
+<li>Or find a related project that could benefit from your expertise and contribute to it, by first opening an issue.</li>
+</ul></li>
+<li>Propose a new project or feature that could help improve road safety data analysis.</li>
+<li>Propose a new codebase to enable reproducible access to analysis-ready road traffic casualty data in a part of the world you are interested in outside the UK.
+<ul>
+<li>Feel free to open a Discussion thread at <a href="https://github.com/itsleeds/tds/discussions">github.com/itsleeds/tds/discussions</a></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="prize" class="level2">
+<h2 class="anchored" data-anchor-id="prize">Prize</h2>
+<p>For completing bonus activities and sharing them with others, a free copy of Geocomputation with R Second Edition or Geocomputation with Python will be made available.</p>
+</section>
+</section>
+<section id="sign-up" class="level1">
+<h1>Sign-up!</h1>
+<!-- https://eu.eventscloud.com/ereg/newreg.php?eventid=200280778& -->
+<p>Sign-up (£50) at <a href="https://eu.eventscloud.com/ereg/newreg.php?eventid=200280778">the University of Leeds conference website at eu.eventscloud.com/ereg/newreg.php?eventid=200280778</a></p>
+</section>
+<section id="references" class="level1">
+
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-lovelace_reproducible_2020" class="csl-entry" role="listitem">
+Lovelace, R., 2020. <a href="https://www.racfoundation.org/wp-content/uploads/Reproducible_road_safety_research_with_R_Lovelace_December_2020.pdf">Reproducible road safety research with <span>R</span></a>. RAC Foundation.
+</div>
+<div id="ref-lovelace_geocomputation_2025" class="csl-entry" role="listitem">
+Lovelace, R., Nowosad, J., Münchow, J., 2025. <a href="https://r.geocompx.org/">Geocomputation with <span>R</span></a>. CRC Press.
+</div>
+<div id="ref-lovelace2016" class="csl-entry" role="listitem">
+Lovelace, R., Roberts, H., Kellar, I., 2016. Who, where, when: The demographic and geographic distribution of bicycle crashes in west yorkshire. Transportation Research Part F: Traffic Psychology and Behaviour, Bicycling and bicycle safety 41, Part B. <a href="https://doi.org/10.1016/j.trf.2015.02.010">https://doi.org/10.1016/j.trf.2015.02.010</a>
+</div>
+<div id="ref-tait2024" class="csl-entry" role="listitem">
+Tait, C., Beecham, R., Lovelace, R., Barber, S., 2024. Build it but will they come? Exploring the impact of introducing contraflow cycling on cycling volumes with crowd-sourced data. Journal of Transport &amp; Health 35, 101758. <a href="https://doi.org/10.1016/j.jth.2024.101758">https://doi.org/10.1016/j.jth.2024.101758</a>
+</div>
+<div id="ref-tait2023" class="csl-entry" role="listitem">
+Tait, C., Beecham, R., Lovelace, R., Barber, S., 2023. Contraflows and cycling safety: Evidence from 22&nbsp;years of data involving 508 one-way streets. Accident Analysis &amp; Prevention 179, 106895. <a href="https://doi.org/10.1016/j.aap.2022.106895">https://doi.org/10.1016/j.aap.2022.106895</a>
+</div>
+<div id="ref-vidaltortosa2021" class="csl-entry" role="listitem">
+Vidal Tortosa, E., Lovelace, R., Heinen, E., Mann, R.P., 2021. Socioeconomic inequalities in cycling safety: An analysis of cycling injury risk by residential deprivation level in England. Journal of Transport &amp; Health 23, 101291. <a href="https://doi.org/10.1016/j.jth.2021.101291">https://doi.org/10.1016/j.jth.2021.101291</a>
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/itsleeds\.github\.io\/tds\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

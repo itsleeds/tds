@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Session 1: Introduction to Transport Data Science – Transport Data Science</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-6a7e4aab8b5a4574c6841f97b9d51d73.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Transport Data Science
+      </li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Transport Data Science</a> 
+        <div class="sidebar-tools-main">
+    <a href="https://github.com/itsleeds/tds" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Home</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://itsleeds.github.io/tds/#software-requirements-and-installation" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Install required software</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Schedule</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://github.com/ITSLeeds/TDS/discussions" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Forum</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../marking-criteria.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Marking Criteria</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reading.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reading list</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../minihack-transport-data.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Transport Data Minihack 8th May</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../dstp.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Data Science for Transport Planning 2 day course</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Reproducible Road Safety Workshop</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true">
+ <span class="menu-text">Sessions</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction and setup</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s3" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 3</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s4" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sem1" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminar 1</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Formative assessment</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s5" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 5: Visualisation</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sem2" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seminar 2</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s6" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 6: Joins and aggregations</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s7" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 7: Project work</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../d3" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Coursework submission</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link active" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#what-is-transport-data-science-and-thinking-of-a-good-research-question" id="toc-what-is-transport-data-science-and-thinking-of-a-good-research-question" class="nav-link" data-scroll-target="#what-is-transport-data-science-and-thinking-of-a-good-research-question">What is transport data science and thinking of a good research question</a>
+  <ul class="collapse">
+  <li><a href="#how-to-come-up-with-a-good-research-question" id="toc-how-to-come-up-with-a-good-research-question" class="nav-link" data-scroll-target="#how-to-come-up-with-a-good-research-question">How to come up with a good research question</a></li>
+  </ul></li>
+  <li><a href="#data-science-foundations" id="toc-data-science-foundations" class="nav-link" data-scroll-target="#data-science-foundations"><span class="header-section-number">1</span> Data Science foundations</a>
+  <ul class="collapse">
+  <li><a href="#data-object-manipulation-basics" id="toc-data-object-manipulation-basics" class="nav-link" data-scroll-target="#data-object-manipulation-basics"><span class="header-section-number">1.1</span> Data object manipulation basics</a></li>
+  <li><a href="#data-science-on-real-data" id="toc-data-science-on-real-data" class="nav-link" data-scroll-target="#data-science-on-real-data"><span class="header-section-number">1.2</span> Data science on real data</a></li>
+  </ul></li>
+  <li><a href="#self-study-practical-1-hr" id="toc-self-study-practical-1-hr" class="nav-link" data-scroll-target="#self-study-practical-1-hr"><span class="header-section-number">2</span> Self-study practical (1 hr)</a>
+  <ul class="collapse">
+  <li><a href="#bonus-data-science-and-transport" id="toc-bonus-data-science-and-transport" class="nav-link" data-scroll-target="#bonus-data-science-and-transport"><span class="header-section-number">2.1</span> Bonus: data science and transport</a></li>
+  </ul></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">3</span> Homework</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Session 1: Introduction to Transport Data Science</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="agenda" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="agenda">Agenda</h2>
+<ol type="1">
+<li>Lecture: an introduction to Transport Data Science (30 min)
+<ul>
+<li>See the <a href="slides.html">slides</a></li>
+</ul></li>
+<li>Q&amp;A (15 min) <!-- - Introduction to the module and team - 30 min
+        Each person to say  1) their name and where they are based 2) why they took the module and 3) their level of knowledge of coding. --></li>
+<li>Break and networking (15 min) <!-- 3. Practical (2 hrs) --></li>
+<li>Data science and a good research question (30 min)</li>
+<li>Data science foundations (guided): Project set-up and using RStudio or VS Code as an integrated development environment (30 min)</li>
+<li>Focussed work (1 hr) <!-- 1. Bonus: Work through [Chapter 5](https://r4ds.had.co.nz/transform.html#filter-rows-with-filter) of R for Data Science --></li>
+</ol>
+</section>
+<section id="what-is-transport-data-science-and-thinking-of-a-good-research-question" class="level1 unnumbered">
+<h1 class="unnumbered">What is transport data science and thinking of a good research question</h1>
+<ul>
+<li>Based on the contents of the lecture, come up with <em>your own</em> definition of data science</li>
+<li>How do you see yourself using data science over the next 5 years?</li>
+<li>Think of a question about a transport system you know well and how data science could help answer it, perhaps with reference to a sketch like that below</li>
+</ul>
+<section id="how-to-come-up-with-a-good-research-question" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="how-to-come-up-with-a-good-research-question">How to come up with a good research question</h2>
+<ul>
+<li>Think about the data you have access to</li>
+<li>Think about the problems you want to solve</li>
+<li>Think about the methods you want to use and skills you want to learn</li>
+<li>Think about how the final report will look and hold-together</li>
+</ul>
+<section id="how-much-potential-is-there-for-cycling-across-the-transport-network" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="how-much-potential-is-there-for-cycling-across-the-transport-network">How much potential is there for cycling across the transport network?</h4>
+<p><img src="https://user-images.githubusercontent.com/1825120/127524923-7d9f5511-84a6-430b-8de9-a603a5524f39.png" class="img-fluid"></p>
+</section>
+<section id="how-can-travel-to-schools-be-made-safer" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="how-can-travel-to-schools-be-made-safer">How can travel to schools be made safer?</h4>
+</section>
+<section id="how-can-hospitals-encourage-visitors-to-get-there-safely" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="how-can-hospitals-encourage-visitors-to-get-there-safely">How can hospitals encourage visitors to get there safely?</h4>
+</section>
+<section id="wheres-the-best-place-to-build-electric-car-charging-points" class="level4 unnumbered">
+<h4 class="unnumbered anchored" data-anchor-id="wheres-the-best-place-to-build-electric-car-charging-points">Where’s the best place to build electric car charging points?</h4>
+<p>See <a href="https://www.openstreetmap.org/#map=19/53.80689/-1.55637">openstreetmap.org</a> or search for other open access datasets for more ideas</p>
+<!-- 2. Work through the transport chapter of Geocomputation with R: https://r.geocompx.org/transport.html -->
+<!-- See https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md -->
+<!-- - In terms of future work in an evolving job market? -->
+<!-- - In terms of the kinds of problems you want to solve? -->
+<!-- ## Sketching research methods (in groups of 2-4, 30 minutes) -->
+<!-- Starting with the 1000 'desire lines' dataset of Leeds, sketch-out some research ideas that cover -->
+<!-- 1) Hypotheses: generate two hypotheses that are falsifiable and 2 hypotheses that are not falsifiable -->
+<!-- 2) Input data: draw schematic representations of additional datasets that you could use alongside the desire lines dataset, with at least one at each of these levels: -->
+<!-- - Zones -->
+<!-- - Points -->
+<!-- - Routes -->
+<!-- - Route networks -->
+<!-- - Individual -->
+<!-- What temporal and spatial resolution could each one have? -->
+<!-- 3) Methods: using a flow diagram (e.g. as shown below) -->
+<!-- ## Practical, group computer task (30 minutes) -->
+<!-- Create a github account (all). See: https://github.com -->
+<!-- Building on the follow code chunk (but with no copy-and-pasting), create a data frame that contains the names, coffee habits and like/dislike of bus travel for everyone in your group (just 1 computer per group): -->
+<!-- ```{r} -->
+<!-- person_name = c( -->
+<!--   "robin", -->
+<!--   "malcolm", -->
+<!--   "richard" -->
+<!-- ) -->
+<!-- n_coffee = c( -->
+<!--   5, -->
+<!--   1, -->
+<!--   0 -->
+<!-- ) -->
+<!-- like_bus_travel = c( -->
+<!--   TRUE, -->
+<!--   FALSE, -->
+<!--   TRUE -->
+<!-- ) -->
+<!-- personal_data = data.frame(person_name, n_coffee, like_bus_travel) -->
+<!-- personal_data -->
+<!-- ``` -->
+<!-- When you are complete, add your code to https://github.com/ITSLeeds/TDS/blob/master/code-r/01-person-data.R -->
+<!-- ## Learning outcomes -->
+<!-- - Articulate the relevance and limitations of data-centric analysis applied to transport problems, compared with other methods -->
+</section>
+</section>
+</section>
+<section id="data-science-foundations" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Data Science foundations</h1>
+<ul>
+<li><p>Review of <a href="../d1/">homework</a></p></li>
+<li><p>Create a new folder (or R project with RStudio) called ‘session1’</p></li>
+<li><p>In it create file called foundations.qmd</p></li>
+<li><p>Type the following</p></li>
+</ul>
+<div class="cell">
+<p>This is some text:</p>
+<p>casualty_type = c(“pedestrian”, “cyclist”, “cat”) casualty_age = seq(from = 20, to = 60, by = 20)</p>
+</div>
+<ul>
+<li>Knit the document by pressing Ctrl+Shift+K in RStudio or VS Code, with the ‘Knit’ button in RStudio, or by typing <code>quarto render foundations.qmd</code> in the PowerShell or Terminal console, the result should look like this (see <a href="#fig-rstudio-foundations" class="quarto-xref">Figure&nbsp;1</a>):</li>
+</ul>
+<div id="fig-rstudio-foundations" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-rstudio-foundations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/rstudio-foundations.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-rstudio-foundations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Illustration of the RStudio interface with a .qmd file open in the top left, the console in the bottom left, the environment in the top right and the files in the bottom right.
+</figcaption>
+</figure>
+</div>
+<p>The document you are reading is a Quarto document, so we can show the output of the contents of the code in <code>foundations.qmd</code> here:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>casualty_type <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"pedestrian"</span>, <span class="st">"cyclist"</span>, <span class="st">"cat"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>casualty_age <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="dv">20</span>, <span class="at">to =</span> <span class="dv">60</span>, <span class="at">by =</span> <span class="dv">20</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">=</span> <span class="fu">data.frame</span>(casualty_type, casualty_age)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(crashes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>There are different ways to execute code. When you run the code by ‘compiling’ the document, the objects are created in a different session. For interactive data analysis, it is better to run the code in the console.</p>
+<p>Make sure that you also execute the code in the console so that the objects are created in memory. Do that by placing the cursor in the code chunk and pressing Ctrl+Enter (or Cmd+Enter on a Mac) or by copying and pasting the code into the console (not recommended). We now have a data frame object stored in memory (technically in the global environment) that is used as the basis of the questions.</p>
+<p>Next, add to the data frame you created by adding the following code to the code chunk in the .qmd file:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>vehicle_type <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"car"</span>, <span class="st">"bus"</span>, <span class="st">"tank"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>crashes<span class="sc">$</span>vehicle_type <span class="ot">=</span> vehicle_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>What just happened?</p>
+<p>We will explore this together, and then you can try the following data manipulation exercises:</p>
+<section id="data-object-manipulation-basics" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="data-object-manipulation-basics"><span class="header-section-number">1.1</span> Data object manipulation basics</h2>
+<ol type="1">
+<li>Use the <code>$</code> operator to print the <code>vehicle_type</code> column of <code>crashes</code>.</li>
+</ol>
+<details>
+<p>In R the <code>$</code> symbol is used to refer to elemements of a list. So the answer is simply:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>crashes<span class="sc">$</span>vehicle_type</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "car"  "bus"  "tank"</code></pre>
+</div>
+</div>
+</details>
+<ol start="2" type="1">
+<li>Subset the crashes with the <code>[,]</code> syntax</li>
+</ol>
+<details>
+<p>Try out different combinations on the dataframe <code>crashes</code> to see what happens. For example, try:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>crashes[<span class="dv">1</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  casualty_type casualty_age vehicle_type
+1    pedestrian           20          car</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>crashes[,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "pedestrian" "cyclist"    "cat"       </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>crashes[<span class="dv">1</span>,<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "pedestrian"</code></pre>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Subset the object with the <code>[[</code> syntax.</li>
+</ol>
+<details>
+<p>The <code>[[</code> operator is used to extract elements from a list. Try:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>crashes[[<span class="dv">1</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "pedestrian" "cyclist"    "cat"       </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>crashes[[<span class="dv">2</span>]]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20 40 60</code></pre>
+</div>
+</div>
+</details>
+<ol start="4" type="1">
+<li><strong>Bonus</strong>: what is the <code>class()</code> of the objects created by each of the previous exercises?</li>
+</ol>
+<ul>
+<li>Explore how many R classes you can find</li>
+</ul>
+<ol start="5" type="1">
+<li><strong>Bonus</strong> (advanced): reproduce the above with Python using the <code>pandas</code> or <code>polars</code> package</li>
+</ol>
+</details></section>
+<section id="data-science-on-real-data" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="data-science-on-real-data"><span class="header-section-number">1.2</span> Data science on real data</h2>
+<p>To get some larger datasets, try the following (from Chapter 8 of RSRR)</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset" data-group="language">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" aria-current="page">R</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Python</a></li></ul>
+<div class="tab-content" data-group="language">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_cran</span>(<span class="st">"stats19"</span>)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(stats19)</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>ac <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2020</span>, <span class="at">type =</span> <span class="st">"collision"</span>)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>ca <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2020</span>, <span class="at">type =</span> <span class="st">"cas"</span>)</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>ve <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2020</span>, <span class="at">type =</span> <span class="st">"veh"</span>)</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co"># population hurt by road traffic collisions in 2020:</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>(<span class="fu">nrow</span>(ca) <span class="sc">/</span> <span class="fl">67e6</span>) <span class="sc">*</span> <span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1725134</code></pre>
+</div>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Challenge: reproduce the above code in Python using the <code>pystats19</code> package</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install the package, e.g. with pip</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="op">!</span>pip install pystats19</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pystats19</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># See the documentation at https://github.com/Mayazure/py-stats19</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>Let’s go through these exercises together:</p>
+<ol type="1">
+<li>Subset the <code>casualty_age</code> object using the inequality (<code>&lt;</code>) so that only elements less than 50 are returned.</li>
+<li>Subset the <code>crashes</code> data frame so that only tanks are returned using the <code>==</code> operator.</li>
+<li><strong>Bonus</strong>: assign the age of all tanks to 61.</li>
+</ol>
+<ul>
+<li>Try running the subsetting code on a larger dataset, e.g.&nbsp;the <code>ac</code> object created previously</li>
+</ul>
+<ol type="1">
+<li>Coerce the <code>vehicle_type</code> column of <code>crashes</code> to the class <code>character</code>.</li>
+<li>Coerce the <code>crashes</code> object into a matrix. What happened to the values?</li>
+<li><strong>Bonus:</strong> What is the difference between the output of <code>summary()</code> on <code>character</code> and <code>factor</code> variables?</li>
+</ol>
+<ul>
+<li>We’ll explore this together</li>
+</ul>
+</section>
+</section>
+<section id="self-study-practical-1-hr" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> Self-study practical (1 hr)</h1>
+<p><strong>Read and try to complete the exercises in Chapters 1 to 5 of the book <a href="https://itsleeds.github.io/rrsrr/">Reproducible Road Safety Research with R</a>.</strong></p>
+<p>It assumes that you have recently updated R and RStudio on your computer. For details on installing packages see <a href="https://docs.ropensci.org/stats19/articles/stats19-training-setup.html">here</a>.</p>
+<div class="cell">
+<!-- ## Tidyverse
+
+-   Work through Chapter 5 starting with the following code: -->
+</div>
+<!-- library(tidyverse) # Load the package -->
+<section id="bonus-data-science-and-transport" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="bonus-data-science-and-transport"><span class="header-section-number">2.1</span> Bonus: data science and transport</h2>
+<ul>
+<li>Work through <a href="https://r.geocompx.org/transport.html">Chapter 13</a> of the book Geocomputation with R, taking care to ask questions about any aspects that you don’t understand (your homework will be to complete and make notes on the chapter, including reproducible code).</li>
+</ul>
+</section>
+</section>
+<section id="homework" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Homework</h1>
+<ul>
+<li><p>Reproduce the code I wrote during this session, e.g.&nbsp;by copy-pasting this code into the console or source editor of RStudio: <a href="https://github.com/itsleeds/tds/blob/main/s1/s1project/foundations.qmd">github.com/github.com/itsleeds/tds/blob/main/s1/s1project/foundations.qmd</a></p>
+<ul>
+<li>See the raw file at <a href="https://github.com/itsleeds/tds/raw/refs/heads/main/s1/s1project/foundations.qmd">github.com/itsleeds/tds/raw/refs/heads/main/s1/s1project/foundations.qmd</a></li>
+<li>See the rendered result at <a href="https://itsleeds.github.io/tds/s1/s1project/foundations.html">itsleeds.github.io/tds/s1/s1project/foundations.html</a></li>
+</ul></li>
+<li><p>Work through <a href="https://r.geocompx.org/transport.html">Chapter 13</a> of the Geocomputation with R book. Make notes in a .qmd file that you can bring to the class to show colleagues and the instructor next week.</p></li>
+<li><p>Think of a research question that you could answer with data science, and write it down in a .qmd file. Include a sketch of the data you would need to answer the question.</p></li>
+<li><p>Sign-up to the Cadence platform as outlined at <a href="https://itsleeds.github.io/tds/s2/#the-cadence-platform">itsleeds.github.io/tds/s2/#the-cadence-platform</a></p></li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/itsleeds\.github\.io\/tds\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
