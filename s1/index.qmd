@@ -294,7 +294,7 @@ Let's go through these exercises together:
 It assumes that you have recently updated R and RStudio on your computer.
 For details on installing packages see [here](https://docs.ropensci.org/stats19/articles/stats19-training-setup.html).
 
-```{=html}
+```{asis}
 <!-- ## Tidyverse
 
 -   Work through Chapter 5 starting with the following code: -->
