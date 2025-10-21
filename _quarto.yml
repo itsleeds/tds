@@ -42,19 +42,19 @@ website:
           - href: s2
             text: Session 2
           - href: s3
-            text: Session 3
+            text: "Session 3: AI for Transport Planning"
           - href: s4
             text: Session 4
+          - href: s5
+            text: Session 5
           - href: sem1
             text: Seminar 1
           - href: d2
             text: Formative assessment
-          - href: s5
-            text: "Session 5: Visualisation"
           - href: sem2
             text: Seminar 2
           - href: s6
-            text: "Session 6: Joins and aggregations"
+            text: "Session 6: Joins, models and publishing"
           - href: d3
             text: Coursework submission
 

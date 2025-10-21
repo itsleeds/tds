@@ -1,13 +1,12 @@
 summary,description,time,duration,location
-"TDS Session 1: Introduction to transport data science (RL, MM, ZW, YY)","TDS Session 1: Introduction to transport data science (RL, MM, ZW, YY) Located in Richard Hughes Cluster (1.40)",2026-01-29T10:00:00Z,3,Richard Hughes Cluster (1.40)
+"TDS Session 1: Introduction to transport data science (RL, MM, YY)","TDS Session 1: Introduction to transport data science (RL, MM, YY) Located in Michael Sadler SR (LG.15)",2026-01-29T10:00:00Z,3,Michael Sadler SR (LG.15)
 TDS deadline 1,Computer set-up,2026-01-30T13:00:00Z,2,Online - Teams
-"TDS Session 2: Getting transport data (RL, YY)","TDS Session 2: Getting transport data (RL, YY) Located in Richard Hughes Cluster (1.40)",2026-02-05T10:00:00Z,3,Richard Hughes Cluster (1.40)
-"TDS Session 3: Origin-destination data (RL, YY)","TDS Session 3: Origin-destination data (RL, YY) Located in Richard Hughes Cluster (1.40)",2026-02-12T10:00:00Z,3,Richard Hughes Cluster (1.40)
-"TDS Session 4: Routing (MM, YY)","TDS Session 4: Routing (MM, YY) Located in Institute for Transport Studies 1.11",2026-02-19T10:00:00Z,3,Institute for Transport Studies 1.11
-TDS seminar 1,"Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation",2026-02-19T14:00:00Z,3,Institute for Transport Studies 1.11
+"TDS Session 2: Getting transport data (RL, YY)","TDS Session 2: Getting transport data (RL, YY) Located in Michael Sadler SR (LG.15)",2026-02-05T10:00:00Z,3,Michael Sadler SR (LG.15)
+"TDS Session 3: AI for transport planning (RL, YY)","TDS Session 3: AI for transport planning (RL, YY) Located in Michael Sadler SR (LG.15)",2026-02-12T10:00:00Z,3,Michael Sadler SR (LG.15)
+"TDS Session 4: Origin-destination data (RL, YY)","TDS Session 4: Origin-destination data (RL, YY) Located in Institute for Transport Studies Room 1.11a-c",2026-02-19T10:00:00Z,3,Institute for Transport Studies Room 1.11a-c
+TDS seminar 1,"Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation and transport data visualisation",2026-02-19T14:00:00Z,3,Institute for Transport Studies Room 1.11a-c
 TDS deadline 2,Draft portfolio,2026-02-27T13:00:00Z,0,Online - Teams
-"TDS Session 5: Visualising transport data (RL, YY)","TDS Session 5: Visualising transport data (RL, YY) Located in Richard Hughes Cluster (1.40)",2026-03-05T10:00:00Z,3,Richard Hughes Cluster (1.40)
-TDS seminar 2,"Seminar 2: Will Deakin, Network Rail: Network simplification",2026-03-19T10:00:00Z,1,Institute for Transport Studies 1.11
-"TDS Session 6: Joining and combining datasets (RL, YY)","TDS Session 6: Joining and combining datasets (RL, YY) Located in Richard Hughes Cluster (1.40)",2026-03-26T10:00:00Z,3,Richard Hughes Cluster (1.40)
-"TDS Session 7: Project work (RL, MM, ZW, YY)","TDS Session 7: Project work (RL, MM, ZW, YY) Located in Richard Hughes Cluster (1.40)",2026-04-30T10:00:00Z,3,Richard Hughes Cluster (1.40)
+"TDS Session 5: Routing (MM, RL)","TDS Session 5: Routing (MM, RL) Located in Michael Sadler SR (LG.15)",2026-03-05T10:00:00Z,3,Michael Sadler SR (LG.15)
+TDS seminar 2,"Seminar 2: Will Deakin, Network Rail: Network simplification",2026-03-19T10:00:00Z,1,Institute for Transport Studies Room 1.11a-c
+"TDS Session 6: Joins, models and publishing your work (RL, MM, YY)","TDS Session 6: Joins, models and publishing your work (RL, MM, YY) Located in Michael Sadler SR (LG.15)",2026-03-26T10:00:00Z,3,Michael Sadler SR (LG.15)
 TDS deadline 3,"Deadline: coursework, 2pm",2026-05-15T13:00:00Z,0,Online - Teams

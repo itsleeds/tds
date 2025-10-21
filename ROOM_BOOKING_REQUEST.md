@@ -9,25 +9,29 @@
 ## Room Bookings Required
 
 ### Sessions (6 x 3-hour sessions)
-**Location:** Michael Sadler SR (LG.15) Multi-mode  
 **Time:** Thursdays, 10:00-13:00
 
+**Michael Sadler SR (LG.15) Multi-mode:**
 1. **Thursday, 29 January 2026** - Week 14 - Session 1: Introduction to transport data science
 2. **Thursday, 5 February 2026** - Week 15 - Session 2: Getting transport data
-3. **Thursday, 12 February 2026** - Week 16 - Session 3: Origin-destination data
-4. **Thursday, 19 February 2026** - Week 17 - Session 4: Routing
-5. **Thursday, 5 March 2026** - Week 19 - Session 5: Visualising transport data
-6. **Thursday, 26 March 2026** - Week 22 - Session 6: Joining and combining datasets
+3. **Thursday, 12 February 2026** - Week 16 - Session 3: AI for transport planning
+5. **Thursday, 5 March 2026** - Week 19 - Session 5: Routing
+6. **Thursday, 26 March 2026** - Week 22 - Session 6: Joins, models and publishing your work
 
-### Seminars (2 x 3-hour seminars)
-**Location:** Michael Sadler SR (LG.15) Multi-mode
+**Institute for Transport Studies Room 1.11a-c:**
+4. **Thursday, 19 February 2026** - Week 17 - Session 4: Origin-destination data
 
-7. **Thursday, 19 February 2026** - Week 17 - Seminar 1: Juan Fonseca (Traffic estimation) - 14:00-17:00
+### Seminars
+**Institute for Transport Studies Room 1.11a-c:**
+
+7. **Thursday, 19 February 2026** - Week 17 - Seminar 1: Juan Fonseca (Traffic estimation and transport data visualisation) - 14:00-17:00
 8. **Thursday, 19 March 2026** - Week 21 - Seminar 2: Will Deakin, Network Rail (Network simplification) - 10:00-11:00
 
 ## Summary
 - **Total bookings:** 8 (6 sessions + 2 seminars)
-- **Location:** Michael Sadler SR (LG.15) Multi-mode for all
+- **Locations:** 
+  - Michael Sadler SR (LG.15) Multi-mode: Sessions 1, 2, 3, 5, 6
+  - Institute for Transport Studies Room 1.11a-c: Session 4, Seminar 1, Seminar 2
 - **Days:** All Thursdays
 - **Weeks:** 14, 15, 16, 17, 19, 21, 22
 
