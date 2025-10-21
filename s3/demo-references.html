@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>dodgr-install – Transport Data Science</title>
+<title>demo-references – Transport Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -55,7 +55,27 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -226,13 +246,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../s3" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Session 3</span></a>
+ <span class="menu-text">Session 3: AI for Transport Planning</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../s4" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 4</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../s5" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Session 5</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -249,12 +275,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../s5" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Session 5: Visualisation</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../sem2" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Seminar 2</span></a>
   </div>
@@ -262,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../s6" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Session 6: Joins and aggregations</span></a>
+ <span class="menu-text">Session 6: Joins, models and publishing</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -283,7 +303,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#local-install-of-dodgr" id="toc-local-install-of-dodgr" class="nav-link active" data-scroll-target="#local-install-of-dodgr"><span class="header-section-number">1</span> Local Install of dodgr</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link active" data-scroll-target="#references"><span class="header-section-number">1</span> References</a></li>
   </ul>
 </nav>
     </div>
@@ -293,35 +313,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="local-install-of-dodgr" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Local Install of dodgr</h1>
-<p>Malcolm Morgan University of Leeds, 2020-02-11<br><img class="img-footer" alt="" src="http://www.stephanehess.me.uk/images/picture3.png"></p>
-<p>Only if you cannot run the dodgr examples.</p>
-<p>This will locally compile the latest version of dodgr on you computer.</p>
-<ol type="1">
-<li>Save your work in progress and close RStudio</li>
-<li>Go to <a href="https://github.com/ATFutures/dodgr/" class="uri">https://github.com/ATFutures/dodgr/</a> and click Clone or download</li>
-<li>Choose download zip</li>
-<li>Unzip the folder</li>
-<li>In the unziped folder find and open dodgr.Rproj a new Rstudio session will open.</li>
-<li>Run this code.</li>
-</ol>
-<!-- end list -->
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">remove.packages</span>(<span class="st">"dodgr"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="st">"devtools"</span> <span class="sc">%in%</span> <span class="fu">installed.packages</span>()[,<span class="dv">1</span>]){</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install</span>(<span class="st">"."</span>, <span class="at">export_all =</span> <span class="cn">TRUE</span>, <span class="at">upgrade =</span> <span class="st">"never"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dodgr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<ol type="1">
-<li>Close RStudio and open a new Rstudio session with your TDS work.</li>
-<li>Dodgr should now work</li>
-</ol>
+<p>You can cite packages as follows:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">citation</span>(<span class="st">"osmextract"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>Open up the .bib file, e.g.&nbsp;with</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">file.edit</span>(<span class="st">"s5/demo-references.bib"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>I used the <code>osmextract</code> package <span class="citation" data-cites="osmextract">(<a href="#ref-osmextract" role="doc-biblioref">Gilardi and Lovelace, 2024</a>)</span>.</p>
+<p><span class="citation" data-cites="ferster2019">(<a href="#ref-ferster2019" role="doc-biblioref">Ferster et al., 2019</a>)</span></p>
+<p><span class="citation" data-cites="Kaiser2024">(<a href="#ref-Kaiser2024" role="doc-biblioref">Kaiser et al., 2024</a>)</span></p>
+<section id="references" class="level1" data-number="1">
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">1 References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-ferster2019" class="csl-entry" role="listitem">
+Ferster, C., Fischer, J., Manaugh, K., Nelson, T., Winters, M., 2019. Using OpenStreetMap to inventory bicycle infrastructure: A comparison with open data from cities. International Journal of Sustainable Transportation 14, 64–73. <a href="https://doi.org/10.1080/15568318.2018.1519746">https://doi.org/10.1080/15568318.2018.1519746</a>
+</div>
+<div id="ref-osmextract" class="csl-entry" role="listitem">
+Gilardi, A., Lovelace, R., 2024. <a href="https://CRAN.R-project.org/package=osmextract">Osmextract: Download and import open street map data extracts</a>.
+</div>
+<div id="ref-Kaiser2024" class="csl-entry" role="listitem">
+Kaiser, S.K., Klein, N., Kaack, L.H., 2024. From counting stations to city-wide estimates: Data-driven bicycle volume extrapolation. arXiv. <a href="https://doi.org/10.48550/ARXIV.2406.18454">https://doi.org/10.48550/ARXIV.2406.18454</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
