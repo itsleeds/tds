@@ -1,4 +1,4 @@
-docs
+docs/
 
 /.quarto/
 _freeze/
@@ -13,12 +13,14 @@ _freeze/
 *.geojson
 *.zip
 
-
+# Large files
 !s1/Estaciones_Troncales_de_TRANSMILENIO.geojson
-*.docx
 *.pdf
 otp_TDS
 .Rhistory
+*.ppt*
+*.doc*
+
 
 # Quarto build artifacts
 *.html
