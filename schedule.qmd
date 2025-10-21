@@ -35,18 +35,16 @@ session_ids = c(
   "od",
   "routing",
   "visualisation",
-  "modelling",
-  "project"
+  "modelling"
 )
 
 session_descriptions = c(
-  "Introduction to transport data science (RL, MM, ZW, YY)",
+  "Introduction to transport data science (RL, MM, YY)",
   "Getting transport data (RL, YY)",
   "Origin-destination data (RL, YY)",
   "Routing (MM, YY)",
   "Visualising transport data (RL, YY)",
-  "Joining and combining datasets (RL, YY)",
-  "Project work (RL, MM, ZW, YY)"
+  "Joining and combining datasets (RL, MM, YY)"
 )
 
 # Source: https://timetable.leeds.ac.uk/teaching/202425/reporting/textspreadsheet;?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
@@ -54,24 +52,20 @@ session_descriptions = c(
 session_day_of_week = 4
 session_start_time = "10:00"
 session_end_time = "13:00"
-# From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
-# Richard Hughes Cluster (1.40) 		23
-# Richard Hughes Cluster (1.40) 		15-17, 19, 22
-# Richard Hughes Cluster (1.40) 		14	  	 
-week_num = as.character(c(14, 15:17, 19, 22, 23))
+# From https://timetable.leeds.ac.uk/teaching/202526/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
+# Michael Sadler SR (LG.15) Multi-mode - weeks 14-17, 19, 22
+week_num = as.character(c(14, 15:17, 19, 22))
 sessions = tibble::tibble(week_num = week_num)
 sessions = dplyr::inner_join(sessions, weeks)
 sessions$date = sessions$week_commencing + (session_day_of_week - 1)
 sessions$DTSTART = lubridate::ymd_hm(paste(sessions$date, session_start_time)) 
 sessions$DTEND = lubridate::ymd_hm(paste(sessions$date, session_end_time))
 sessions$duration = (sessions$DTEND - sessions$DTSTART)
-sessions$type = "Combined lecture and computer session"
+sessions$type = "Lecture and Seminar"
 sessions$SUMMARY = paste0("TDS Session ", 1:nrow(sessions), ": ", session_descriptions)
-sessions$LOCATION = "Richard Hughes Cluster (1.40)"
-# 4th session is in ITS room 1.11
-sessions$LOCATION[4] = "Institute for Transport Studies 1.11"
+sessions$LOCATION = "Michael Sadler SR (LG.15)"
 sessions$DESCRIPTION = paste0(sessions$SUMMARY, " Located in ", sessions$LOCATION)
-nrow(sessions) # 7 sessions
+nrow(sessions) # 6 sessions
 
 # seminars ------------------------------------------------------
 
@@ -95,7 +89,7 @@ seminar$DTEND = lubridate::ymd_hm(paste(seminar$date, seminar_end_time))
 seminar$duration = (seminar$DTEND - seminar$DTSTART)
 seminar$type = "Seminar"
 seminar$SUMMARY = paste0("TDS seminar ", 1:nrow(seminar))
-seminar$LOCATION = "Institute for Transport Studies 1.11"
+seminar$LOCATION = "Michael Sadler SR (LG.15)"
 seminar$DESCRIPTION = paste0(seminar_descriptions, "")
 nrow(seminar) # 2 seminars
 
