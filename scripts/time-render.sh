@@ -5,8 +5,9 @@ set -euo pipefail
 # Usage: ./scripts/time-render.sh [file1.qmd file2.qmd ...]
 # If no files are given, it will time a small default set (index.qmd and s*/index.qmd).
 
-OUT_DIR="/tmp/tds_timing"
+OUT_DIR="$(pwd)/scripts/_timing_logs"
 RESULT_CSV="$(pwd)/scripts/timing-results.csv"
+mkdir -p "${OUT_DIR}"
 PROFILE="timing"
 
 mkdir -p "${OUT_DIR}"
