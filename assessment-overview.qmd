@@ -110,10 +110,11 @@ For example:
 
 ### Use of AI Tools
 
-Both assessments are categorized as **AMBER** for AI usage:
-- AI tools permitted in assistive role only
-- Usage must be acknowledged
-- Core analysis must be original work
+Both assessments are categorized as **GREEN** for AI usage:
+- AI tools actively encouraged for coding and problem-solving
+- Usage should be documented in reflective sections
+- You must understand and be able to explain all submitted work
+- Critical evaluation of AI outputs is expected
 
 ### Academic Integrity
 

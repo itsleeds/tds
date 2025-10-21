@@ -1,278 +1,991 @@
----
-title: "Session 5: Visualising transport data"
-bibliography: ../tds.bib
+---------
+
+title: "Session 5: AI for Transport Planning"
+
+bibliography: ../tds.bibtitle: "Session 5: AI for Transport Planning"title: "Session 5: Visualising transport data"
+
 toc: true
-execute: 
+
+execute: bibliography: ../tds.bibbibliography: ../tds.bib
+
   cache: true
-  eval: true
+
+  eval: truetoc: truetoc: true
+
 editor: 
-  markdown: 
+
+  markdown: execute: execute: 
+
     wrap: sentence
----
 
-# Introduction
+---  cache: true  cache: true
 
-In this session, we will build on the **routing techniques** from Session 4 by exploring **data visualization** methods for transport analysis.
+
+
+# Introduction  eval: true  eval: true
+
+
+
+Artificial Intelligence (AI) is rapidly transforming transport planning and data science.editor: editor: 
+
+In this session, we explore how AI tools—particularly **GitHub Copilot** and **large language models (LLMs)**—can enhance productivity, code quality, and problem-solving in transport data analysis.
+
+  markdown:   markdown: 
+
 By the end of this session, you should be able to:
 
--   Load and preprocess OD flow data
--   Visualize OD lines and proportional symbol maps
--   Compare walking, driving, and cycling flows
--   Aggregate flows along the road network
--   Identify critical road segments via network centrality
+    wrap: sentence    wrap: sentence
 
-# Setup
+-   Understand the role of AI in modern transport planning workflows
 
-Below are the libraries we will use throughout this session:
+-   Use GitHub Copilot effectively for R and Python coding------
 
-```{r}
-knitr::opts_chunk$set(
-  message = FALSE,
-  warning = FALSE,
-  fig.width = 7,
-  fig.height = 5,
-  out.width = "700px"
-)
+-   Apply prompt engineering techniques for transport data tasks
 
-# Load necessary libraries
-library(opentripplanner)  # Routing engine (OpenTripPlanner client)
-library(sf)               # Spatial data handling
-library(tmap)             # Thematic mapping
-library(stplanr)          # Transport data functions
-library(dplyr)            # Data manipulation
-library(osmextract)       # OSM data handling
-library(dodgr)            # Network analysis
+-   Recognize ethical considerations and limitations of AI tools
+
+-   Integrate AI-assisted coding into reproducible research practices
+
+# Introduction# Introduction
+
+# Why AI for Transport Planning?
+
+
+
+Transport planning involves:
+
+Artificial Intelligence (AI) is rapidly transforming transport planning and data science.In this session, we will build on the **routing techniques** from Session 4 by exploring **data visualization** methods for transport analysis.
+
+-   **Complex spatial data** (networks, zones, flows)
+
+-   **Large datasets** (GPS traces, survey data, traffic counts)In this session, we explore how AI tools—particularly **GitHub Copilot** and **large language models (LLMs)**—can enhance productivity, code quality, and problem-solving in transport data analysis.By the end of this session, you should be able to:
+
+-   **Interdisciplinary methods** (statistics, optimization, visualization)
+
+-   **Reproducibility requirements** (code, documentation, version control)
+
+
+
+AI tools can assist with:By the end of this session, you should be able to:-   Load and preprocess OD flow data
+
+
+
+1.  **Code generation** - Writing boilerplate, data transformations, plotting-   Visualize OD lines and proportional symbol maps
+
+2.  **Debugging** - Identifying errors and suggesting fixes
+
+3.  **Documentation** - Generating comments, README files, and reports-   Understand the role of AI in modern transport planning workflows-   Compare walking, driving, and cycling flows
+
+4.  **Learning** - Explaining unfamiliar functions or concepts
+
+5.  **Optimization** - Suggesting more efficient algorithms or approaches-   Use GitHub Copilot effectively for R and Python coding-   Aggregate flows along the road network
+
+
+
+# GitHub Copilot for Transport Data Science-   Apply prompt engineering techniques for transport data tasks-   Identify critical road segments via network centrality
+
+
+
+## What is GitHub Copilot?-   Recognize ethical considerations and limitations of AI tools
+
+
+
+GitHub Copilot is an **AI pair programmer** that suggests code completions in your editor (VS Code, RStudio, etc.).-   Integrate AI-assisted coding into reproducible research practices# Setup
+
+It is powered by large language models trained on billions of lines of public code.
+
+
+
+## Setting Up Copilot
+
+# Why AI for Transport Planning?Below are the libraries we will use throughout this session:
+
+Students can access GitHub Copilot for free through the [GitHub Student Developer Pack](https://education.github.com/pack):
+
+
+
+1.  Verify your student status at [education.github.com](https://education.github.com)
+
+2.  Install the Copilot extension in your IDE (VS Code, RStudio, etc.)Transport planning involves:```{r}
+
+3.  Sign in with your GitHub account
+
+4.  Start coding - Copilot will suggest completions automaticallyknitr::opts_chunk$set(
+
+
+
+## Practical Examples-   **Complex spatial data** (networks, zones, flows)  message = FALSE,
+
+
+
+### Example 1: Loading and Filtering Transport Data-   **Large datasets** (GPS traces, survey data, traffic counts)  warning = FALSE,
+
+
+
+**Prompt (as a comment in R):**-   **Interdisciplinary methods** (statistics, optimization, visualization)  fig.width = 7,
+
+
+
+```{r}-   **Reproducibility requirements** (code, documentation, version control)  fig.height = 5,
+
+#| eval: false
+
+# Load cycle hire data from London and filter trips longer than 30 minutes  out.width = "700px"
+
 ```
 
+AI tools can assist with:)
+
+**Copilot might suggest:**
+
+
+
 ```{r}
-# Set interactive mapping mode
+
+#| eval: false1.  **Code generation** - Writing boilerplate, data transformations, plotting# Load necessary libraries
+
+library(dplyr)
+
+library(readr)2.  **Debugging** - Identifying errors and suggesting fixeslibrary(opentripplanner)  # Routing engine (OpenTripPlanner client)
+
+
+
+# Load cycle hire data3.  **Documentation** - Generating comments, README files, and reportslibrary(sf)               # Spatial data handling
+
+cycle_data = read_csv("cycle_hire.csv")
+
+4.  **Learning** - Explaining unfamiliar functions or conceptslibrary(tmap)             # Thematic mapping
+
+# Filter trips longer than 30 minutes
+
+long_trips = cycle_data |>5.  **Optimization** - Suggesting more efficient algorithms or approacheslibrary(stplanr)          # Transport data functions
+
+  filter(duration_minutes > 30)
+
+```library(dplyr)            # Data manipulation
+
+
+
+### Example 2: Creating an Interactive Map# GitHub Copilot for Transport Data Sciencelibrary(osmextract)       # OSM data handling
+
+
+
+**Prompt:**library(dodgr)            # Network analysis
+
+
+
+```{r}## What is GitHub Copilot?```
+
+#| eval: false
+
+# Create an interactive map showing bike share stations in Leeds using tmap
+
+```
+
+GitHub Copilot is an **AI pair programmer** that suggests code completions in your editor (VS Code, RStudio, etc.).```{r}
+
+**Copilot might suggest:**
+
+It is powered by large language models trained on billions of lines of public code.# Set interactive mapping mode
+
+```{r}
+
+#| eval: falsetmap_mode("view")
+
+library(sf)
+
+library(tmap)## Setting Up Copilot```
+
+
+
+# Load bike share stations
+
+stations = st_read("bike_stations.geojson")
+
+Students can access GitHub Copilot for free through the [GitHub Student Developer Pack](https://education.github.com/pack):# Flow Map Visualization
+
+# Create interactive map
+
 tmap_mode("view")
+
+tm_shape(stations) +
+
+  tm_dots(size = 0.5, col = "blue", alpha = 0.7) +1.  Verify your student status at [education.github.com](https://education.github.com)Flow maps are useful for understanding the volume of travel between origins and destinations.
+
+  tm_basemap("OpenStreetMap")
+
+```2.  Install the Copilot extension in your IDE (VS Code, RStudio, etc.)In this section, we will:
+
+
+
+### Example 3: Routing Analysis3.  Sign in with your GitHub account
+
+
+
+**Prompt:**4.  Start coding - Copilot will suggest completions automatically1.  Load desire lines (flows) data from a GeoJSON file.
+
+
+
+```{r}2.  Visualize these lines with widths or colors proportional to demand.
+
+#| eval: false
+
+# Calculate cycling routes between origin-destination pairs using stplanr## Practical Examples3.  Optionally aggregate route geometries for more realistic depiction of flows along an actual road network.
+
 ```
 
-# Flow Map Visualization
 
-Flow maps are useful for understanding the volume of travel between origins and destinations.
-In this section, we will:
 
-1.  Load desire lines (flows) data from a GeoJSON file.
-2.  Visualize these lines with widths or colors proportional to demand.
-3.  Optionally aggregate route geometries for more realistic depiction of flows along an actual road network.
+**Copilot might suggest:**
+
+### Example 1: Loading and Filtering Transport Data```{r}
 
 ```{r}
-# Load Demand Data
-desire_lines = read_sf("https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson") |>
-  select(from, to, all, walk, drive, cycle)
 
-dim(desire_lines)
-# Let's take the top 50 car trips for demonstration
-desire_lines_top = desire_lines |>
+#| eval: false# Load Demand Data
+
+library(stplanr)
+
+library(sf)**Prompt (as a comment in R):**desire_lines = read_sf("https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson") |>
+
+
+
+# Create OD data  select(from, to, all, walk, drive, cycle)
+
+od = data.frame(
+
+  from_lon = c(-1.55, -1.56),```{r}
+
+  from_lat = c(53.80, 53.81),
+
+  to_lon = c(-1.54, -1.53),#| eval: falsedim(desire_lines)
+
+  to_lat = c(53.79, 53.78)
+
+)# Load cycle hire data from London and filter trips longer than 30 minutes# Let's take the top 50 car trips for demonstration
+
+
+
+# Convert to spatial lines```desire_lines_top = desire_lines |>
+
+od_sf = od_to_sf(od, crs = 4326)
+
   arrange(desc(drive)) |>
-  head(50)
 
-# Quick map to see the distribution of car trips
-tm_shape(desire_lines_top) +
-  tm_lines(
-    lwd = "drive",
+# Route using CycleStreets API
+
+routes = route_cyclestreets(od_sf, plan = "fastest")**Copilot might suggest:**  head(50)
+
+```
+
+
+
+## Best Practices for Using Copilot
+
+```{r}# Quick map to see the distribution of car trips
+
+### ✅ Do:
+
+#| eval: falsetm_shape(desire_lines_top) +
+
+-   **Write clear comments** describing what you want
+
+-   **Review suggestions carefully** - Copilot can make mistakeslibrary(dplyr)  tm_lines(
+
+-   **Test generated code** before using in production
+
+-   **Use Copilot for learning** - examine suggestions to understand new approacheslibrary(readr)    lwd = "drive",
+
+-   **Iterate on prompts** - refine your requests if initial suggestions aren't helpful
+
     lwd.scale = tm_scale_continuous(values.scale = 9)
-  ) +
-  tm_layout(legend.bg.color = "white")
-```
 
-# Proportional Symbol Flow Maps
+### ❌ Don't:
 
-Now, let's illustrate an alternative method: proportional symbols at origin or destination points.
-This is useful when you want to quickly see where demand is concentrated.
+# Load cycle hire data  ) +
+
+-   **Blindly accept suggestions** without understanding them
+
+-   **Share sensitive data** in prompts (API keys, personal information)cycle_data = read_csv("cycle_hire.csv")  tm_layout(legend.bg.color = "white")
+
+-   **Rely solely on AI** - develop your own understanding
+
+-   **Ignore licensing** - be aware of code provenance```
+
+-   **Skip testing** - AI-generated code needs validation
+
+# Filter trips longer than 30 minutes
+
+# Prompt Engineering for Transport Tasks
+
+long_trips = cycle_data |># Proportional Symbol Flow Maps
+
+**Effective prompts** help AI generate better code:
+
+  filter(duration_minutes > 30)
+
+## Structure of a Good Prompt
+
+```Now, let's illustrate an alternative method: proportional symbols at origin or destination points.
+
+1.  **Context** - What domain/dataset are you working with?
+
+2.  **Task** - What do you want to accomplish?This is useful when you want to quickly see where demand is concentrated.
+
+3.  **Constraints** - Any specific requirements (packages, formats)?
+
+4.  **Example** - Show desired input/output if possible### Example 2: Creating an Interactive Map
+
+
+
+## Example Prompts```{r}
+
+
+
+### Poor Prompt:**Prompt:**# Summarize total flows by origin
+
+
 
 ```{r}
-# Summarize total flows by origin
 
-origin_flows = desire_lines |>
-  group_by(from) |>
-  summarise(
-    total_drive = sum(drive, na.rm = TRUE),
-    total_walk  = sum(walk, na.rm = TRUE),
-    total_cycle = sum(cycle, na.rm = TRUE),
-    `% drive` = total_drive / sum(all, na.rm = TRUE),
-    geometry = st_centroid(st_union(geometry))  
-  )
+#| eval: false
 
-# Simple map with proportional circles for drive volumes
+# Make a map```{r}origin_flows = desire_lines |>
 
-tm_shape(origin_flows) +
-  tm_bubbles(
+```
+
+#| eval: false  group_by(from) |>
+
+### Better Prompt:
+
+# Create an interactive map showing bike share stations in Leeds using tmap  summarise(
+
+```{r}
+
+#| eval: false```    total_drive = sum(drive, na.rm = TRUE),
+
+# Create an interactive map of Leeds showing:
+
+# - Bike share stations as blue circles    total_walk  = sum(walk, na.rm = TRUE),
+
+# - Cycle routes as green lines
+
+# - Background OpenStreetMap tiles**Copilot might suggest:**    total_cycle = sum(cycle, na.rm = TRUE),
+
+# Use tmap and sf packages
+
+```    `% drive` = total_drive / sum(all, na.rm = TRUE),
+
+
+
+### Excellent Prompt:```{r}    geometry = st_centroid(st_union(geometry))  
+
+
+
+```{r}#| eval: false  )
+
+#| eval: false
+
+# Create an interactive map of Leeds bike infrastructure:library(sf)
+
+# Input: bike_stations.geojson (sf points), cycle_routes.geojson (sf lines)
+
+# Requirements:library(tmap)# Simple map with proportional circles for drive volumes
+
+#   - Use tmap in view mode
+
+#   - Stations: blue circles, size proportional to capacity
+
+#   - Routes: green lines, width 2px
+
+#   - Popup showing station name and capacity# Load bike share stationstm_shape(origin_flows) +
+
+#   - OpenStreetMap basemap
+
+# Output: Interactive HTML mapstations = st_read("bike_stations.geojson")  tm_bubbles(
+
+```
+
     size    = "total_drive",       # bubble size ~ drive volume
-    size.scale = tm_scale_intervals(values.scale = 2, values.range = c(0.5, 2)),
-    fill = "% drive",
-    fill.scale = tm_scale_continuous(values = "brewer.reds")
-  ) +
-  tm_title("Proportional Symbol Map of Drive Demand by Origin")
-```
 
-Each origin is represented by a circle whose radius and color intensity reflect the total number of driving trips.
-You can modify palettes, breaks, and scaling to highlight variations.
+# AI Tools Beyond Copilot
 
-# Mode-Specific Analysis
+# Create interactive map    size.scale = tm_scale_intervals(values.scale = 2, values.range = c(0.5, 2)),
 
-We have have columns walk, drive, cycle in desire_lines.
-We can map them separately or side-by-side.
-We can also color lines by the dominant mode.
+## ChatGPT / Claude for Transport Analysis
 
-```{r}
-# Let's create 3 separate maps: drive, walk, cycle
-tmap_mode("plot")
-m_drive = tm_shape(desire_lines_top) +
-  tm_lines(
-    lwd = "drive",
-    lwd.scale = tm_scale_continuous(values.scale = 9),
-    col = "red"
-  ) +
-  tm_title("Driving Flows")
+tmap_mode("view")    fill = "% drive",
 
-m_walk = tm_shape(desire_lines_top) +
-  tm_lines(
-    lwd = "walk",
-    lwd.scale = tm_scale_continuous(values.scale = 9),
-    col = "green"
-  ) +
-  tm_title("Walking Flows")
+-   **Data exploration** - "How do I analyze origin-destination matrices in R?"
 
-m_cycle = tm_shape(desire_lines_top) +
-  tm_lines(
-    lwd = "cycle",
-    lwd.scale = tm_scale_continuous(values.scale = 9),
-    col = "blue"
-  ) +
-  tm_title("Cycling Flows")
+-   **Debugging** - Paste error messages for explanationstm_shape(stations) +    fill.scale = tm_scale_continuous(values = "brewer.reds")
 
-tmap_arrange(m_drive, m_walk, m_cycle, ncol=3)
-```
+-   **Code review** - Ask for suggestions to improve efficiency
 
-This tmap_arrange() will output a single figure with three columns, each illustrating flows by one mode.
-Students can visually compare the differences: maybe driving flows are much thicker on longer corridors, while walking flows are concentrated in the city center.
+-   **Documentation** - Generate README files or method descriptions  tm_dots(size = 0.5, col = "blue", alpha = 0.7) +  ) +
 
-# Aggregating Flows with Actual Routes
 
-Rather than drawing direct origin-destination lines, we can route each flow along the road network and then aggregate them to see which streets carry the most traffic.
-This uses stplanr::overline() to merge lines that overlap.
 
-```{r}
+## AI-Powered Tools for Transport  tm_basemap("OpenStreetMap")  tm_title("Proportional Symbol Map of Drive Demand by Origin")
+
+
+
+-   **OpenAI Codex** - Powers GitHub Copilot``````
+
+-   **Cursor** - AI-first code editor
+
+-   **Copilot Chat** - Conversational AI in VS Code
+
+-   **Tabnine** - Alternative code completion tool
+
+-   **Amazon CodeWhisperer** - AWS-focused AI assistant### Example 3: Routing AnalysisEach origin is represented by a circle whose radius and color intensity reflect the total number of driving trips.
+
+
+
+# Ethical ConsiderationsYou can modify palettes, breaks, and scaling to highlight variations.
+
+
+
+## Bias and Fairness**Prompt:**
+
+
+
+-   AI models are trained on historical data, which may contain biases# Mode-Specific Analysis
+
+-   Be critical when AI suggests transport solutions that may disadvantage certain communities
+
+-   Validate outputs against equity and accessibility principles```{r}
+
+
+
+## Data Privacy#| eval: falseWe have have columns walk, drive, cycle in desire_lines.
+
+
+
+-   Avoid sending sensitive transport data (personal GPS traces, private surveys) to AI services# Calculate cycling routes between origin-destination pairs using stplanrWe can map them separately or side-by-side.
+
+-   Use anonymized or synthetic data for demonstrations
+
+-   Review your organization's AI usage policies```We can also color lines by the dominant mode.
+
+
+
+## Academic Integrity
+
+
+
+-   **Cite AI tools** when used significantly in your work**Copilot might suggest:**```{r}
+
+-   **Understand the code** you submit - you are responsible for it
+
+-   **Follow assignment guidelines** on AI usage (this module encourages AI use!)# Let's create 3 separate maps: drive, walk, cycle
+
+-   **Develop your skills** - AI is a tool to enhance, not replace, learning
+
+```{r}tmap_mode("plot")
+
+## Limitations
+
+#| eval: falsem_drive = tm_shape(desire_lines_top) +
+
+-   AI can generate **plausible but incorrect** code
+
+-   AI lacks **domain expertise** in specialized transport methodslibrary(stplanr)  tm_lines(
+
+-   AI cannot **validate results** - you must check outputs
+
+-   AI may suggest **outdated approaches** or deprecated functionslibrary(sf)    lwd = "drive",
+
+
+
+# AI Rating for This Module    lwd.scale = tm_scale_continuous(values.scale = 9),
+
+
+
+::: {.callout-tip}# Create OD data    col = "red"
+
+## AI Usage: Green (Encouraged)
+
+od = data.frame(  ) +
+
+This module **actively encourages** the use of AI tools including GitHub Copilot, ChatGPT, and similar assistants.
+
+  from_lon = c(-1.55, -1.56),  tm_title("Driving Flows")
+
+**You should:**
+
+- Use AI to accelerate coding and problem-solving  from_lat = c(53.80, 53.81),
+
+- Learn from AI suggestions and explanations
+
+- Document your AI usage in reflective sections  to_lon = c(-1.54, -1.53),m_walk = tm_shape(desire_lines_top) +
+
+- Develop critical evaluation skills for AI outputs
+
+  to_lat = c(53.79, 53.78)  tm_lines(
+
+**We expect:**
+
+- You understand the code you submit (whether AI-generated or not))    lwd = "walk",
+
+- You can explain your methods and results
+
+- You test and validate all code before submission    lwd.scale = tm_scale_continuous(values.scale = 9),
+
+- You acknowledge significant AI contributions in your work
+
+:::# Convert to spatial lines    col = "green"
+
+
+
+# Practical Exercise: AI-Assisted Analysisod_sf = od_to_sf(od, crs = 4326)  ) +
+
+
+
+## Task 1: Generate Data Loading Code  tm_title("Walking Flows")
+
+
+
+Use GitHub Copilot or ChatGPT to:# Route using CycleStreets API
+
+
+
+1.  Load origin-destination data for a UK cityroutes = route_cyclestreets(od_sf, plan = "fastest")m_cycle = tm_shape(desire_lines_top) +
+
+2.  Filter for trips by a specific mode (e.g., cycling)
+
+3.  Calculate summary statistics (total trips, average distance)```  tm_lines(
+
+
+
+**Prompt template:**    lwd = "cycle",
+
+
+
+```{r}## Best Practices for Using Copilot    lwd.scale = tm_scale_continuous(values.scale = 9),
+
+#| eval: false
+
+# Load OD data from [city] and calculate cycling trip statistics    col = "blue"
+
+# Data format: CSV with columns origin, destination, mode, distance, trips
+
+# Filter for mode == "bike" and calculate:### ✅ Do:  ) +
+
+#   - Total number of trips
+
+#   - Average trip distance  tm_title("Cycling Flows")
+
+#   - Top 5 origin zones by trip count
+
+```-   **Write clear comments** describing what you want
+
+
+
+## Task 2: Create Visualization-   **Review suggestions carefully** - Copilot can make mistakestmap_arrange(m_drive, m_walk, m_cycle, ncol=3)
+
+
+
+Use AI to generate code for:-   **Test generated code** before using in production```
+
+
+
+-   An interactive map showing top cycling routes-   **Use Copilot for learning** - examine suggestions to understand new approaches
+
+-   A bar chart of trips by hour of day
+
+-   A spatial heatmap of trip density-   **Iterate on prompts** - refine your requests if initial suggestions aren't helpfulThis tmap_arrange() will output a single figure with three columns, each illustrating flows by one mode.
+
+
+
+## Task 3: Debug and OptimizeStudents can visually compare the differences: maybe driving flows are much thicker on longer corridors, while walking flows are concentrated in the city center.
+
+
+
+1.  Intentionally introduce an error in your code### ❌ Don't:
+
+2.  Use Copilot Chat or ChatGPT to diagnose and fix it
+
+3.  Ask AI to suggest performance optimizations# Aggregating Flows with Actual Routes
+
+
+
+# Further Resources-   **Blindly accept suggestions** without understanding them
+
+
+
+## Learning More-   **Share sensitive data** in prompts (API keys, personal information)Rather than drawing direct origin-destination lines, we can route each flow along the road network and then aggregate them to see which streets carry the most traffic.
+
+
+
+-   [GitHub Copilot Documentation](https://docs.github.com/en/copilot)-   **Rely solely on AI** - develop your own understandingThis uses stplanr::overline() to merge lines that overlap.
+
+-   [Prompt Engineering Guide](https://www.promptingguide.ai/)
+
+-   [OpenAI Cookbook](https://github.com/openai/openai-cookbook) - Examples for GPT-   **Ignore licensing** - be aware of code provenance
+
+-   [AI for Data Science](https://www.oreilly.com/library/view/ai-assisted-programming/9781098164556/) - O'Reilly book
+
+-   **Skip testing** - AI-generated code needs validation```{r}
+
+## Transport-Specific AI Applications
+
 # Download pre-routed lines for demonstration
-u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive_25.geojson"
-routes_drive = read_sf(u)
+
+-   **Traffic prediction** - ML models for congestion forecasting
+
+-   **Demand modeling** - Neural networks for trip generation# Prompt Engineering for Transport Tasksu = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive_25.geojson"
+
+-   **Route optimization** - Reinforcement learning for vehicle routing
+
+-   **Image analysis** - Computer vision for traffic countingroutes_drive = read_sf(u)
+
+-   **Natural language processing** - Analyzing transport surveys and reports
+
+**Effective prompts** help AI generate better code:
+
+## Research Directions
 
 # Inspect the summary of the drive.x variable (car trips)
-summary(routes_drive$drive.x)
 
-tm_shape(routes_drive) +
-  tm_lines(
-    lwd = "drive.x",
-    lwd.scale = tm_scale_continuous(values.scale = 9),
-    col = "red"
-  ) +
-  tm_title("Road Congestion (drive_total)")
-```
+-   Using LLMs for urban planning and transport analysis
 
-# Network Centrality Analysis
+-   Foundation models in transportation research## Structure of a Good Promptsummary(routes_drive$drive.x)
 
-Betweenness centrality indicates how often a road (or node) lies on the shortest path between other points in a network.
-Roads with high centrality are typically crucial for overall connectivity.
+-   AI-powered traffic management systems
 
-Here, we demonstrate how to:
 
-1.  Download roads from OpenStreetMap (OSM) for the Isle of Wight.
-2.  Weight the network for motor vehicle usage.
-3.  Compute betweenness centrality with dodgr.
-4.  Convert the results back to sf for mapping.
 
-```{r}
-#| eval: false
-# Get Isle of Wight road network
+# Summary
+
+1.  **Context** - What domain/dataset are you working with?tm_shape(routes_drive) +
+
+AI tools like GitHub Copilot are transforming how we work with transport data:
+
+2.  **Task** - What do you want to accomplish?  tm_lines(
+
+-   **Accelerate coding** with intelligent suggestions
+
+-   **Learn faster** by examining AI-generated examples3.  **Constraints** - Any specific requirements (packages, formats)?    lwd = "drive.x",
+
+-   **Focus on analysis** rather than syntax
+
+-   **Maintain critical thinking** - AI is a tool, not a replacement for expertise4.  **Example** - Show desired input/output if possible    lwd.scale = tm_scale_continuous(values.scale = 9),
+
+
+
+**Key Takeaways:**    col = "red"
+
+
+
+1.  Use AI to enhance productivity, not replace understanding## Example Prompts  ) +
+
+2.  Write clear prompts for better results
+
+3.  Always review, test, and validate AI suggestions  tm_title("Road Congestion (drive_total)")
+
+4.  Be mindful of ethical considerations and limitations
+
+5.  Embrace AI as part of modern reproducible research workflows### Poor Prompt:```
+
+
+
+# Homework
+
+
+
+1.  **Set up GitHub Copilot** on your computer (free for students)```{r}# Network Centrality Analysis
+
+2.  **Complete one analysis** from a previous session using AI assistance - document what worked well and what didn't
+
+3.  **Write a reflection** (200-300 words) on how AI tools could benefit your transport planning work#| eval: false
+
+4.  **Share one insight** you gained from using AI in the course discussion forum
+
+# Make a mapBetweenness centrality indicates how often a road (or node) lies on the shortest path between other points in a network.
+
+# References
+
+```Roads with high centrality are typically crucial for overall connectivity.
+
+::: {#refs}
+
+:::
+
+
+### Better Prompt:Here, we demonstrate how to:
+
+
+
+```{r}1.  Download roads from OpenStreetMap (OSM) for the Isle of Wight.
+
+#| eval: false2.  Weight the network for motor vehicle usage.
+
+# Create an interactive map of Leeds showing:3.  Compute betweenness centrality with dodgr.
+
+# - Bike share stations as blue circles4.  Convert the results back to sf for mapping.
+
+# - Cycle routes as green lines
+
+# - Background OpenStreetMap tiles```{r}
+
+# Use tmap and sf packages#| eval: false
+
+```# Get Isle of Wight road network
+
 # We choose 'primary', 'secondary', 'tertiary' roads for demonstration
-roads = oe_get("Isle of Wight", 
+
+### Excellent Prompt:roads = oe_get("Isle of Wight", 
+
                 extra_tags = c("maxspeed", "oneway")) |>
-  filter(highway %in% c("primary", "secondary", "tertiary"))
 
-# Weight the street network for motorcar usage
-graph = weight_streetnet(
-  roads,
-  wt_profile = "motorcar",
-  type_col = "highway",
-  id_col = "osm_id",
-  keep_cols = c("maxspeed", "oneway")
-)
+```{r}  filter(highway %in% c("primary", "secondary", "tertiary"))
 
-# Calculate betweenness centrality
+#| eval: false
+
+# Create an interactive map of Leeds bike infrastructure:# Weight the street network for motorcar usage
+
+# Input: bike_stations.geojson (sf points), cycle_routes.geojson (sf lines)graph = weight_streetnet(
+
+# Requirements:  roads,
+
+#   - Use tmap in view mode  wt_profile = "motorcar",
+
+#   - Stations: blue circles, size proportional to capacity  type_col = "highway",
+
+#   - Routes: green lines, width 2px  id_col = "osm_id",
+
+#   - Popup showing station name and capacity  keep_cols = c("maxspeed", "oneway")
+
+#   - OpenStreetMap basemap)
+
+# Output: Interactive HTML map
+
+```# Calculate betweenness centrality
+
 centrality = dodgr_centrality(graph)
 
+# AI Tools Beyond Copilot
+
 # Convert to sf for visualization
-centrality_sf = dodgr_to_sf(centrality)
 
-# Visualize critical links
-tm_shape(centrality_sf) +
-  tm_lines(
-    col = "centrality",
+## ChatGPT / Claude for Transport Analysiscentrality_sf = dodgr_to_sf(centrality)
+
+
+
+-   **Data exploration** - "How do I analyze origin-destination matrices in R?"# Visualize critical links
+
+-   **Debugging** - Paste error messages for explanationstm_shape(centrality_sf) +
+
+-   **Code review** - Ask for suggestions to improve efficiency  tm_lines(
+
+-   **Documentation** - Generate README files or method descriptions    col = "centrality",
+
     col.scale = tm_scale_intervals(style = "fisher", values = "-viridis"),
-    col.legend = tm_legend(title = "Betweenness Centrality"),
-    lwd = 3
-  ) 
-```
 
-The code above should generate a map that looks something like this:
+## AI-Powered Tools for Transport    col.legend = tm_legend(title = "Betweenness Centrality"),
+
+    lwd = 3
+
+-   **OpenAI Codex** - Powers GitHub Copilot  ) 
+
+-   **Cursor** - AI-first code editor```
+
+-   **Copilot Chat** - Conversational AI in VS Code
+
+-   **Tabnine** - Alternative code completion toolThe code above should generate a map that looks something like this:
+
+-   **Amazon CodeWhisperer** - AWS-focused AI assistant
 
 ![](images/paste-1.png)
 
+# Ethical Considerations
+
 High values in the centrality column indicate roads that act as vital connectors in the regional transport network.
+
+## Bias and Fairness
 
 # Extra Exercises: 3D Visualization
 
-A 3D perspective can often reveal relationships between travel flows and the underlying topography more effectively.
-Below, we demonstrate how to retrieve elevation data and render a 3D hillshade using the rayshader package.
+-   AI models are trained on historical data, which may contain biases
+
+-   Be critical when AI suggests transport solutions that may disadvantage certain communitiesA 3D perspective can often reveal relationships between travel flows and the underlying topography more effectively.
+
+-   Validate outputs against equity and accessibility principlesBelow, we demonstrate how to retrieve elevation data and render a 3D hillshade using the rayshader package.
+
 You may also be interested in overlaying flow lines onto a 3D terrain model to enhance visualization.
 
+## Data Privacy
+
 Note: the following code requires you to install the `rayshader` `elevatr` `gifski` `rgl` package.
-Results not shown in website.
+
+-   Avoid sending sensitive transport data (personal GPS traces, private surveys) to AI servicesResults not shown in website.
+
+-   Use anonymized or synthetic data for demonstrations
+
+-   Review your organization's AI usage policies```{r}
+
+#| eval: false
+
+## Academic Integritylibrary(rayshader)        # 3D data visualization
+
+library(elevatr)          # Elevation data
+
+-   **Cite AI tools** when used significantly in your worklibrary(gifski)           # Creating GIF animations
+
+-   **Understand the code** you submit - you are responsible for itlibrary(rgl)              # 3D visualization device
+
+-   **Follow assignment guidelines** on AI usage (this module encourages AI use!)
+
+-   **Develop your skills** - AI is a tool to enhance, not replace, learningassign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
+
+curl::has_internet()
+
+## Limitations# Example: Elevation data near a location in the UK
+
+coords = data.frame(x = -2.087918, y = 53.71534)
+
+-   AI can generate **plausible but incorrect** codecoords_sf = st_as_sf(coords, coords = c("x", "y"), crs = 4326)
+
+-   AI lacks **domain expertise** in specialized transport methods# Get an elevation raster at zoom level 11 (~ 10m resolution, depending on region)
+
+-   AI cannot **validate results** - you must check outputselevation = elevatr::get_elev_raster(
+
+-   AI may suggest **outdated approaches** or deprecated functions  locations = coords_sf,
+
+  z = 11
+
+# AI Rating for This Module)
+
+# Convert the raster to a matrix for rayshader
+
+::: {.callout-tip}elev_matrix = rayshader::raster_to_matrix(elevation)
+
+## AI Usage: Green (Encouraged)# Create a hillshade layer
+
+hillshade_matrix = rayshader::ray_shade(elev_matrix, zscale = 15)
+
+This module **actively encourages** the use of AI tools including GitHub Copilot, ChatGPT, and similar assistants.# Clear existing rgl device
+
+rgl::rgl.clear()
+
+**You should:**# Render a 3D plot of the terrain
+
+- Use AI to accelerate coding and problem-solvingrayshader::plot_3d(
+
+- Learn from AI suggestions and explanations  heightmap = elev_matrix,
+
+- Document your AI usage in reflective sections  hillshade = hillshade_matrix,
+
+- Develop critical evaluation skills for AI outputs  zscale = 15,
+
+  windowsize = c(1000, 800)
+
+**We expect:**)
+
+- You understand the code you submit (whether AI-generated or not)# Adjust camera view
+
+- You can explain your methods and resultsrgl::view3d(theta = 30, phi = 30, zoom = 0.75)
+
+- You test and validate all code before submissionrgl::rglwidget()
+
+- You acknowledge significant AI contributions in your work
+
+:::```
+
+
+
+# Practical Exercise: AI-Assisted Analysis# Conclusions
+
+
+
+## Task 1: Generate Data Loading CodeIn this session, you learned how to:
+
+
+
+Use GitHub Copilot or ChatGPT to:1.  Create flow maps to visualize travel demand from an OD dataset.
+
+2.  Compare flows by mode (driving, walking, cycling) to understand differences in spatial patterns.
+
+1.  Load origin-destination data for a UK city3.  Aggregate routes along the road network (using stplanr::overline) to highlight heavily used corridors.
+
+2.  Filter for trips by a specific mode (e.g., cycling)4.  Compute betweenness centrality (using dodgr) to pinpoint critical road segments crucial for connectivity.
+3.  Calculate summary statistics (total trips, average distance)
+
+**Prompt template:**
 
 ```{r}
 #| eval: false
-library(rayshader)        # 3D data visualization
-library(elevatr)          # Elevation data
-library(gifski)           # Creating GIF animations
-library(rgl)              # 3D visualization device
-
-assign("has_internet_via_proxy", TRUE, environment(curl::has_internet))
-curl::has_internet()
-# Example: Elevation data near a location in the UK
-coords = data.frame(x = -2.087918, y = 53.71534)
-coords_sf = st_as_sf(coords, coords = c("x", "y"), crs = 4326)
-# Get an elevation raster at zoom level 11 (~ 10m resolution, depending on region)
-elevation = elevatr::get_elev_raster(
-  locations = coords_sf,
-  z = 11
-)
-# Convert the raster to a matrix for rayshader
-elev_matrix = rayshader::raster_to_matrix(elevation)
-# Create a hillshade layer
-hillshade_matrix = rayshader::ray_shade(elev_matrix, zscale = 15)
-# Clear existing rgl device
-rgl::rgl.clear()
-# Render a 3D plot of the terrain
-rayshader::plot_3d(
-  heightmap = elev_matrix,
-  hillshade = hillshade_matrix,
-  zscale = 15,
-  windowsize = c(1000, 800)
-)
-# Adjust camera view
-rgl::view3d(theta = 30, phi = 30, zoom = 0.75)
-rgl::rglwidget()
-
+# Load OD data from [city] and calculate cycling trip statistics
+# Data format: CSV with columns origin, destination, mode, distance, trips
+# Filter for mode == "bike" and calculate:
+#   - Total number of trips
+#   - Average trip distance
+#   - Top 5 origin zones by trip count
 ```
 
-# Conclusions
+## Task 2: Create Visualization
 
-In this session, you learned how to:
+Use AI to generate code for:
 
-1.  Create flow maps to visualize travel demand from an OD dataset.
-2.  Compare flows by mode (driving, walking, cycling) to understand differences in spatial patterns.
-3.  Aggregate routes along the road network (using stplanr::overline) to highlight heavily used corridors.
-4.  Compute betweenness centrality (using dodgr) to pinpoint critical road segments crucial for connectivity.
+-   An interactive map showing top cycling routes
+-   A bar chart of trips by hour of day
+-   A spatial heatmap of trip density
+
+## Task 3: Debug and Optimize
+
+1.  Intentionally introduce an error in your code
+2.  Use Copilot Chat or ChatGPT to diagnose and fix it
+3.  Ask AI to suggest performance optimizations
+
+# Further Resources
+
+## Learning More
+
+-   [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
+-   [Prompt Engineering Guide](https://www.promptingguide.ai/)
+-   [OpenAI Cookbook](https://github.com/openai/openai-cookbook) - Examples for GPT
+-   [AI for Data Science](https://www.oreilly.com/library/view/ai-assisted-programming/9781098164556/) - O'Reilly book
+
+## Transport-Specific AI Applications
+
+-   **Traffic prediction** - ML models for congestion forecasting
+-   **Demand modeling** - Neural networks for trip generation
+-   **Route optimization** - Reinforcement learning for vehicle routing
+-   **Image analysis** - Computer vision for traffic counting
+-   **Natural language processing** - Analyzing transport surveys and reports
+
+## Research Directions
+
+-   @boeing_using_2023 - Using LLMs for urban planning
+-   @wang_large_2023 - LLMs for traffic management
+-   @yuan_large_2024 - Foundation models in transportation
+
+# Summary
+
+AI tools like GitHub Copilot are transforming how we work with transport data:
+
+-   **Accelerate coding** with intelligent suggestions
+-   **Learn faster** by examining AI-generated examples
+-   **Focus on analysis** rather than syntax
+-   **Maintain critical thinking** - AI is a tool, not a replacement for expertise
+
+**Key Takeaways:**
+
+1.  Use AI to enhance productivity, not replace understanding
+2.  Write clear prompts for better results
+3.  Always review, test, and validate AI suggestions
+4.  Be mindful of ethical considerations and limitations
+5.  Embrace AI as part of modern reproducible research workflows
+
+# Homework
+
+1.  **Set up GitHub Copilot** on your computer (free for students)
+2.  **Complete one analysis** from a previous session using AI assistance - document what worked well and what didn't
+3.  **Write a reflection** (200-300 words) on how AI tools could benefit your transport planning work
+4.  **Share one insight** you gained from using AI in the course discussion forum
+
+# References
+
+::: {#refs}
+:::

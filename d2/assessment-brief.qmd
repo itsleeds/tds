@@ -78,16 +78,21 @@ The purpose of this formative assessment is:
 
 # Use of GenAI
 
-**Generative AI category: AMBER**
+**Generative AI category: GREEN**
 
-Under this category, AI tools can be used in an assistive role.
+Under this category, AI tools are actively encouraged and can be used extensively.
 
-In this assessment, AI tools can be utilised in an assistive role to:
+In this assessment, AI tools can be utilised to:
 
-- act as a support tutor supporting your research on the topic. e.g. to ask clarifying questions or to suggest areas to investigate.
-- testing and debugging of any code you produce yourself as part of the assignment.
-- provide ideas or inspiration to help you overcome a creative block.
-- give feedback on content or provide proof reading of content that you have generated yourself.
+- Generate, test, and debug code for your transport data analysis
+- Assist with data visualization and mapping
+- Provide explanations of transport concepts and methods
+- Help with code optimization and best practices
+- Support your research on the topic by suggesting areas to investigate
+- Give feedback on content and provide proofreading
+- Accelerate your learning and productivity
+
+**Important:** You must understand and be able to explain all code and analysis you submit, whether AI-generated or not. Document your AI usage in reflective sections of your portfolio.
 
 In this assessment, AI tools cannot be utilised to:
 

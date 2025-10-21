@@ -43,7 +43,7 @@ session_descriptions = c(
   "Getting transport data (RL, YY)",
   "Origin-destination data (RL, YY)",
   "Routing (MM, RL)",
-  "Visualising transport data (RL, YY)",
+  "AI for transport planning (RL, MM, YY)",
   "Joining and combining datasets (RL, MM, YY)"
 )
 
@@ -74,7 +74,7 @@ seminar_ids = c(
   "seminar2"
 )
 seminar_descriptions = c(
-  "Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation",
+  "Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation and transport data visualisation",
   "Seminar 2: Will Deakin, Network Rail: Network simplification"
 )
 

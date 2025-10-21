@@ -16,7 +16,7 @@
 2. **Thursday, 5 February 2026** - Week 15 - Session 2: Getting transport data
 3. **Thursday, 12 February 2026** - Week 16 - Session 3: Origin-destination data
 4. **Thursday, 19 February 2026** - Week 17 - Session 4: Routing
-5. **Thursday, 5 March 2026** - Week 19 - Session 5: Visualising transport data
+5. **Thursday, 5 March 2026** - Week 19 - Session 5: AI for transport planning
 6. **Thursday, 26 March 2026** - Week 22 - Session 6: Joining and combining datasets
 
 ### Seminars (2 x 3-hour seminars)

@@ -45,9 +45,9 @@ Marks will be awarded based on the marking criteria outlined in the [marking cri
 
 ## Academic Integrity
 
-- Clearly acknowledge any use of AI tools (AMBER category)
+- Clearly acknowledge any use of AI tools (GREEN category - encouraged)
 - Properly cite all sources
-- Include original data processing and analysis work
+- Ensure you understand and can explain all submitted work
 - Document any collaboration or assistance received
 
 For questions or clarifications, please use the module Teams channel or contact the module leader.

@@ -48,12 +48,12 @@ system("gh release upload 2025 docs/template.pdf --clobber")
 
 **Generative AI Category:**
 
-Amber
+Green
 
-Use of Generative Use of Generative Artificial Intelligence (Gen AI) in this assessment – mark one box as appropriate: 
+Use of Generative Artificial Intelligence (Gen AI) in this assessment – mark one box as appropriate: 
 
 - [ ] I have made no use of Gen AI
-- [ ] I have used Gen AI only for the specific purposes outlined in my acknowledgements
+- [ ] I have used Gen AI as outlined in my acknowledgements (encouraged for this module)
 
 By submitting the work to which this sheet is attached you confirm your compliance with the University’s definition of Academic Integrity as: “a commitment to good study practices and shared values which ensures that my work is a true expression of my own understanding and ideas, giving credit to others where their work contributes to mine”. Double-check that your referencing and use of quotations is consistent with this commitment.  
 
