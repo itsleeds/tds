@@ -147,15 +147,11 @@ See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637)
 
 -   Type the following
 
-```{html}
-
+```{asis}
 This is some text:
 
 casualty_type = c("pedestrian", "cyclist", "cat")
 casualty_age = seq(from = 20, to = 60, by = 20)
-crashes = data.frame(casualty_type, casualty_age)
-nrow(crashes)
-
 ```
 
 -   Knit the document by pressing Ctrl+Shift+K in RStudio or VS Code, with the 'Knit' button in RStudio, or by typing `quarto render foundations.qmd` in the PowerShell or Terminal console, the result should look like this (see @fig-rstudio-foundations):

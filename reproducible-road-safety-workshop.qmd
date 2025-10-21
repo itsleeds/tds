@@ -58,9 +58,7 @@ pkgs = c("tidyverse", "stats19")
 # Install pak pkg if not already installed
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pkg_install(pkgs)
-```
 
-```{r}
 #| label: setup
 #| message: false
 #| warning: false
