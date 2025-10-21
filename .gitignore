@@ -1,7 +1,7 @@
 docs
 
 /.quarto/
-# _freeze/ commented out to allow tracking for CI/CD
+_freeze/
 *.csv
 *.ics
 
