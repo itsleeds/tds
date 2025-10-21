@@ -104,7 +104,7 @@ Search online for topics you are interested in and see the [Quarto gallery of bo
     -   Comprehensive textbook on transport geography and systems
 -   [Modelling Transport](https://www.wiley.com/en-us/Modelling+Transport%2C+4th+Edition-p-9781118941485) [@ortuzars._modelling_2001]
     -   Foundational text on transport modeling methods
--   [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building]
+-   [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building_2023]
     -   A guide to the data engineering side of data science, with a focus on reproducibility and automation.
 -   Papers investigating the relationships between new contraflow interventions and traffic levels and collision rates in London [@tait2024; @tait2023]
 

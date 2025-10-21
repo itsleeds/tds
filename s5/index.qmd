@@ -321,15 +321,7 @@ Use AI to generate code for:
 -   **Demand modeling** - Neural networks for trip generation
 -   **Route optimization** - Reinforcement learning for vehicle routing
 -   **Image analysis** - Computer vision for traffic counting
--   **Natural language processing** - Analyzing transport surveys and reports
-
-## Research Directions
-
--   @boeing_using_2023 - Using LLMs for urban planning
--   @wang_large_2023 - LLMs for traffic management
--   @yuan_large_2024 - Foundation models in transportation
-
-# Summary
+-   **Natural language processing** - Analyzing transport surveys and reports# Summary
 
 AI tools like GitHub Copilot are transforming how we work with transport data:
 
