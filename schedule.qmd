@@ -34,7 +34,7 @@ session_ids = c(
   "getting",
   "od",
   "routing",
-  "visualisation",
+  "ai",
   "modelling"
 )
 
