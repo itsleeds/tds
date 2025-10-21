@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>test – Transport Data Science</title>
+<title>room_booking_request – Transport Data Science</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,61 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c8ee433604b3e4c86981822377eb9bec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c8ee433604b3e4c86981822377eb9bec.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -129,7 +94,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
+      <a href="./index.html" class="sidebar-logo-link">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://github.com/itsleeds/tds" title="GitHub" class="quarto-navigation-tool px-1" aria-label="GitHub"><i class="bi bi-github"></i></a>
@@ -144,7 +109,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
@@ -156,7 +121,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../schedule.html" class="sidebar-item-text sidebar-link">
+  <a href="./schedule.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Schedule</span></a>
   </div>
 </li>
@@ -168,31 +133,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../marking-criteria.html" class="sidebar-item-text sidebar-link">
+  <a href="./marking-criteria.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Marking Criteria</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reading.html" class="sidebar-item-text sidebar-link">
+  <a href="./reading.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reading list</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../minihack-transport-data.html" class="sidebar-item-text sidebar-link">
+  <a href="./minihack-transport-data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Transport Data Minihack 8th May</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../dstp.html" class="sidebar-item-text sidebar-link">
+  <a href="./dstp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Data Science for Transport Planning 2 day course</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
+  <a href="./reproducible-road-safety-workshop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Reproducible Road Safety Workshop</span></a>
   </div>
 </li>
@@ -207,67 +172,67 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../d1" class="sidebar-item-text sidebar-link">
+  <a href="./d1" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction and setup</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../s1" class="sidebar-item-text sidebar-link">
+  <a href="./s1" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../s2" class="sidebar-item-text sidebar-link">
+  <a href="./s2" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../s3" class="sidebar-item-text sidebar-link">
+  <a href="./s3" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 3</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../s4" class="sidebar-item-text sidebar-link">
+  <a href="./s4" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 4</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sem1" class="sidebar-item-text sidebar-link">
+  <a href="./sem1" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Seminar 1</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../d2" class="sidebar-item-text sidebar-link">
+  <a href="./d2" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Formative assessment</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../s5" class="sidebar-item-text sidebar-link">
+  <a href="./s5" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 5: Visualisation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../sem2" class="sidebar-item-text sidebar-link">
+  <a href="./sem2" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Seminar 2</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../s6" class="sidebar-item-text sidebar-link">
+  <a href="./s6" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Session 6: Joins and aggregations</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../d3" class="sidebar-item-text sidebar-link">
+  <a href="./d3" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Coursework submission</span></a>
   </div>
 </li>
@@ -278,8 +243,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#room-booking-request-for-tran5340m01---transport-data-science" id="toc-room-booking-request-for-tran5340m01---transport-data-science" class="nav-link active" data-scroll-target="#room-booking-request-for-tran5340m01---transport-data-science"><span class="header-section-number">1</span> Room Booking Request for TRAN5340M01 - Transport Data Science</a>
+  <ul class="collapse">
+  <li><a href="#module-details" id="toc-module-details" class="nav-link" data-scroll-target="#module-details"><span class="header-section-number">1.1</span> Module Details</a></li>
+  <li><a href="#room-bookings-required" id="toc-room-bookings-required" class="nav-link" data-scroll-target="#room-bookings-required"><span class="header-section-number">1.2</span> Room Bookings Required</a>
+  <ul class="collapse">
+  <li><a href="#sessions-6-x-3-hour-sessions" id="toc-sessions-6-x-3-hour-sessions" class="nav-link" data-scroll-target="#sessions-6-x-3-hour-sessions"><span class="header-section-number">1.2.1</span> Sessions (6 x 3-hour sessions)</a></li>
+  <li><a href="#seminars-2-x-3-hour-seminars" id="toc-seminars-2-x-3-hour-seminars" class="nav-link" data-scroll-target="#seminars-2-x-3-hour-seminars"><span class="header-section-number">1.2.2</span> Seminars (2 x 3-hour seminars)</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">1.3</span> Summary</a></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes"><span class="header-section-number">1.4</span> Notes</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
@@ -287,15 +268,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<div id="2b7694ce" class="cell" data-execution_count="1">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="op">=</span> <span class="dv">1</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>1</code></pre>
-</div>
-</div>
+<section id="room-booking-request-for-tran5340m01---transport-data-science" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Room Booking Request for TRAN5340M01 - Transport Data Science</h1>
+<section id="module-details" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="module-details"><span class="header-section-number">1.1</span> Module Details</h2>
+<ul>
+<li><strong>Module Code:</strong> TRAN5340M01</li>
+<li><strong>Module Name:</strong> Transport Data Science</li>
+<li><strong>Academic Year:</strong> 2025/26 (Semester 2)</li>
+<li><strong>Staff:</strong> Dr Robin Lovelace, Dr Malcolm Morgan, Dr Yuanxuan Yang</li>
+</ul>
+</section>
+<section id="room-bookings-required" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="room-bookings-required"><span class="header-section-number">1.2</span> Room Bookings Required</h2>
+<section id="sessions-6-x-3-hour-sessions" class="level3" data-number="1.2.1">
+<h3 data-number="1.2.1" class="anchored" data-anchor-id="sessions-6-x-3-hour-sessions"><span class="header-section-number">1.2.1</span> Sessions (6 x 3-hour sessions)</h3>
+<p><strong>Location:</strong> Michael Sadler SR (LG.15) Multi-mode<br>
+<strong>Time:</strong> Thursdays, 10:00-13:00</p>
+<ol type="1">
+<li><strong>Thursday, 29 January 2026</strong> - Week 14 - Session 1: Introduction to transport data science</li>
+<li><strong>Thursday, 5 February 2026</strong> - Week 15 - Session 2: Getting transport data</li>
+<li><strong>Thursday, 12 February 2026</strong> - Week 16 - Session 3: Origin-destination data</li>
+<li><strong>Thursday, 19 February 2026</strong> - Week 17 - Session 4: Routing</li>
+<li><strong>Thursday, 5 March 2026</strong> - Week 19 - Session 5: Visualising transport data</li>
+<li><strong>Thursday, 26 March 2026</strong> - Week 22 - Session 6: Joining and combining datasets</li>
+</ol>
+</section>
+<section id="seminars-2-x-3-hour-seminars" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="seminars-2-x-3-hour-seminars"><span class="header-section-number">1.2.2</span> Seminars (2 x 3-hour seminars)</h3>
+<p><strong>Location:</strong> Michael Sadler SR (LG.15) Multi-mode</p>
+<ol start="7" type="1">
+<li><strong>Thursday, 19 February 2026</strong> - Week 17 - Seminar 1: Juan Fonseca (Traffic estimation) - 14:00-17:00</li>
+<li><strong>Thursday, 19 March 2026</strong> - Week 21 - Seminar 2: Will Deakin, Network Rail (Network simplification) - 10:00-11:00</li>
+</ol>
+</section>
+</section>
+<section id="summary" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="summary"><span class="header-section-number">1.3</span> Summary</h2>
+<ul>
+<li><strong>Total bookings:</strong> 8 (6 sessions + 2 seminars)</li>
+<li><strong>Location:</strong> Michael Sadler SR (LG.15) Multi-mode for all</li>
+<li><strong>Days:</strong> All Thursdays</li>
+<li><strong>Weeks:</strong> 14, 15, 16, 17, 19, 21, 22</li>
+</ul>
+</section>
+<section id="notes" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="notes"><span class="header-section-number">1.4</span> Notes</h2>
+<ul>
+<li>Session 4 (Week 17) has both a regular session (10:00-13:00) and Seminar 1 (14:00-17:00)</li>
+<li>All sessions require computer access for students</li>
+<li>Multi-mode room required to accommodate diverse teaching methods</li>
+</ul>
+<hr>
+<p><em>Generated: 21 October 2025</em></p>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
