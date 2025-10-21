@@ -41,10 +41,10 @@ session_ids = c(
 session_descriptions = c(
   "Introduction to transport data science (RL, MM, YY)",
   "Getting transport data (RL, YY)",
-  "AI for transport planning (RL, MM, YY)",
+  "AI for transport planning (RL, YY)",
   "Origin-destination data (RL, YY)",
   "Routing (MM, RL)",
-  "Joining and combining datasets (RL, MM, YY)"
+  "Joins, models and publishing your work (RL, MM, YY)"
 )
 
 # Source: https://timetable.leeds.ac.uk/teaching/202425/reporting/textspreadsheet;?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21

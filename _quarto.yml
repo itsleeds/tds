@@ -54,7 +54,7 @@ website:
           - href: sem2
             text: Seminar 2
           - href: s6
-            text: "Session 6: Joins and aggregations"
+            text: "Session 6: Joins, models and publishing"
           - href: d3
             text: Coursework submission
 

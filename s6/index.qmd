@@ -1,5 +1,5 @@
 ---
-title: "Session 6: Joins and aggregations"
+title: "Session 6: Joins, models and publishing your work"
 bibliography: ../tds.bib
 toc: true
 execute: 
@@ -9,11 +9,22 @@ execute:
 
 # Introduction
 
+By "publishing" in this context, we primarily mean submitting your project for assessment. However, the skills you learn here apply to various forms of publication:
+
+- **Reports** (similar to the documents created in this module)
+- **Academic papers** for journals or conferences
+- **Presentations** (which can be created with Quarto using `format: revealjs`)
+- **Web applications** or interactive dashboards
+- **Blog posts** or technical documentation
+
+The key principle is that good data science work should be reproducible, well-documented, and clearly communicated. This session will help you develop those skills.
+
 In this session, we will explore techniques for joining, combining and aggregating datasets in R, particularly for spatial data. We'll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this session, you'll learn:
 
 1. How to perform spatial joins between point and polygon data
 2. How to join tables using common identifiers (key-based joins)
 3. How to calculate and visualize derived metrics from joined datasets
+4. How to create professional-looking reports with Quarto
 
 The skills developed in this session are essential for transport data scientists who often need to combine data from various sources to gain comprehensive insights.
 
@@ -438,6 +449,174 @@ map_severity
 These maps create choropleth visualizations where:
 - Each LSOA is colored according to its crash rate or severity ratio
 - The color palettes use darker colors to indicate higher values
+
+# Publishing your work with Quarto
+
+Now that you've learned how to analyze and visualize transport data, let's focus on how to present your work professionally for assessment or publication.
+
+## Citations and references
+
+Properly citing sources is crucial for academic work and professional reports. Quarto makes this easy with built-in citation support.
+
+### Adding citations
+
+To cite a source, use the `@` symbol followed by the citation key from your `.bib` file:
+
+```markdown
+Recent research shows that cycling infrastructure reduces casualty rates [@lovelace_stats19_2019].
+
+You can also use multiple citations [@lovelace_stats19_2019; @morgan_2020].
+
+For in-text citations with the author's name, use: As shown by @lovelace_stats19_2019, ...
+```
+
+### Managing your bibliography
+
+1. Create a `.bib` file (e.g., `references.bib`) with your references
+2. Add it to your YAML header:
+   ```yaml
+   ---
+   title: "My Transport Analysis"
+   bibliography: references.bib
+   ---
+   ```
+3. Citations will automatically appear in your document with a References section at the end
+
+You can find citation keys from Google Scholar, Zotero, or other reference managers.
+
+## Cross-references for figures and tables
+
+Cross-references allow you to refer to figures, tables, and sections by number, which automatically updates if you reorganize your document.
+
+### Figure cross-references
+
+````markdown
+```{{r}}
+#| label: fig-crash-map
+#| fig-cap: "Distribution of road crashes in West Yorkshire"
+
+# Your plotting code here
+tm_shape(crashes_sf) + tm_dots()
+```
+
+As shown in @fig-crash-map, crashes are concentrated in urban areas.
+````
+
+### Table cross-references
+
+````markdown
+```{{r}}
+#| label: tbl-crash-summary
+#| tbl-cap: "Summary statistics for road crashes"
+
+crash_summary |> 
+  knitr::kable()
+```
+
+@tbl-crash-summary presents the key statistics.
+````
+
+### Section cross-references
+
+```markdown
+# Introduction {#sec-intro}
+
+See @sec-intro for background information.
+```
+
+## Making your reports look professional
+
+### Choosing output formats
+
+Quarto supports multiple output formats. Specify in your YAML header:
+
+```yaml
+---
+title: "My Report"
+format: 
+  html:
+    theme: cosmo
+    toc: true
+    number-sections: true
+  pdf:
+    documentclass: article
+  revealjs:  # For presentations
+    theme: dark
+---
+```
+
+### Formatting tips
+
+**Code chunk options** control how code appears:
+
+````markdown
+```{{r}}
+#| echo: false      # Hide code, show only output
+#| warning: false   # Suppress warnings
+#| message: false   # Suppress messages
+#| fig-width: 8     # Set figure width
+#| fig-height: 6    # Set figure height
+
+# Your code here
+```
+````
+
+**Callout blocks** highlight important information:
+
+```markdown
+:::{.callout-note}
+This analysis uses STATS19 data from 2019-2023.
+:::
+
+:::{.callout-warning}
+Data completeness varies by year and region.
+:::
+
+:::{.callout-tip}
+Consider using interactive maps for web outputs.
+:::
+```
+
+**Tables** can be formatted nicely with `knitr::kable()` or the `gt` package:
+
+```r
+library(knitr)
+crash_summary |> 
+  knitr::kable(
+    caption = "Crash statistics by severity",
+    digits = 2,
+    format.args = list(big.mark = ",")
+  )
+```
+
+### Document structure
+
+A well-organized report should include:
+
+1. **Title and metadata** (author, date, affiliation)
+2. **Abstract or Executive Summary** (brief overview)
+3. **Introduction** (context and objectives)
+4. **Methods** (data sources, analysis techniques)
+5. **Results** (findings with figures and tables)
+6. **Discussion** (interpretation and implications)
+7. **Conclusion** (summary and recommendations)
+8. **References** (automatically generated by Quarto)
+
+### Tips for submission
+
+- **Use version control**: Commit your work regularly with Git
+- **Check your output**: Always render your document before submission to catch errors
+- **Follow formatting guidelines**: Check if there are specific requirements (word count, citation style, etc.)
+- **Include reproducible code**: Make sure others can run your analysis
+- **Proofread carefully**: Check for typos, broken links, and missing figures
+
+## Additional resources
+
+- [Quarto documentation](https://quarto.org/docs/guide/)
+- [Quarto citations guide](https://quarto.org/docs/authoring/footnotes-and-citations.html)
+- [Quarto cross-references](https://quarto.org/docs/authoring/cross-references.html)
+- [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+- [Building Reproducible Analytical Pipelines with R](https://raps-with-r.dev/) [@rodrigues_building_2023]
 
 # References
 

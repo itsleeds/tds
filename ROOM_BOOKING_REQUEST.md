@@ -17,7 +17,7 @@
 3. **Thursday, 12 February 2026** - Week 16 - Session 3: AI for transport planning
 4. **Thursday, 19 February 2026** - Week 17 - Session 4: Origin-destination data
 5. **Thursday, 5 March 2026** - Week 19 - Session 5: Routing
-6. **Thursday, 26 March 2026** - Week 22 - Session 6: Joining and combining datasets
+6. **Thursday, 26 March 2026** - Week 22 - Session 6: Joins, models and publishing your work
 
 ### Seminars (2 x 3-hour seminars)
 **Location:** Michael Sadler SR (LG.15) Multi-mode
