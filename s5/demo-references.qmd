@@ -19,7 +19,7 @@ Open up the .bib file, e.g. with
 
 ```{r}
 #| eval: false
-file.edit("p5/demo-references.bib")
+file.edit("s5/demo-references.bib")
 ```
 
 I used the `osmextract` package [@osmextract].

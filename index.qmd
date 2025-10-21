@@ -50,7 +50,7 @@ To participate in this course, you'll need to install specific software.
 
 The teaching is delivered primarily in R, with some Python code and examples. You should install R (recommended), Python, or both on your computer.
 
-We recommend using R for practical sessions and coursework unless you have a specific reason to use Python. If you choose Python or another language, please note:
+We recommend using R for sessions and coursework unless you have a specific reason to use Python. If you choose Python or another language, please note:
 
 - You will receive less direct support
 - You'll need skills to set up and manage your own environments
@@ -134,7 +134,7 @@ For guidance, see:
 
 # R, Python or other?
 
-While the module focuses on methods implementable in many languages, we expect most participants will use R for practicals and the final course project.
+While the module focuses on methods implementable in many languages, we expect most participants will use R for sessions and the final course project.
 
 We recommend R because:
 

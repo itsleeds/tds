@@ -2,6 +2,8 @@
 bibliography: tds.bib
 title: Reproducible data science for road safety research
 number-sections: false
+execute: 
+  eval: false
 ---
 
 # Introduction
@@ -56,9 +58,7 @@ pkgs = c("tidyverse", "stats19")
 # Install pak pkg if not already installed
 if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
 pak::pkg_install(pkgs)
-```
 
-```{r}
 #| label: setup
 #| message: false
 #| warning: false
@@ -96,7 +96,7 @@ If you cannot reproduce the above code or have any issues with setting up your e
 
 The session will build on the following resources, we recommend taking a read of one or more of these before signing-up:
 
-- The first practical session of the Transport Data Science module, freely available at [itsleeds.github.io/tds/p1/](https://itsleeds.github.io/tds/p1/), for an introduction to data science for transport research
+- The first practical session of the Transport Data Science module, freely available at [itsleeds.github.io/tds/s1/](https://itsleeds.github.io/tds/s1/), for an introduction to data science for transport research
 - [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) [@lovelace_reproducible_2020]
     - Introductory guide for analyzing road safety data in R
 - Geocomputation with R and [Chapter 13](https://r.geocompx.org/transport.html) in particular [@lovelace_geocomputation_2025]

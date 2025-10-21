@@ -4,6 +4,8 @@ author: "Professor Robin Lovelace"
 date: "September 2, 2025"
 format: revealjs
 bibliography: references.bib
+execute: 
+  eval: false
 ---
 
 ## Welcome!

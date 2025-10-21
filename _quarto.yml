@@ -33,28 +33,30 @@ website:
         text: Data Science for Transport Planning 2 day course
       - href: reproducible-road-safety-workshop.qmd
         text: Reproducible Road Safety Workshop
-      - text: Practical sessions
+      - text: Sessions
         contents:
-          - href: p1
-            text: Practical 1
-          - href: p2
-            text: Practical 2
-          - href: p3
-            text: Practical 3
-          - href: p4
-            text: Practical 4
+          - href: d1
+            text: Introduction and setup
           - href: s1
+            text: Session 1
+          - href: s2
+            text: Session 2
+          - href: s3
+            text: Session 3
+          - href: s4
+            text: Session 4
+          - href: sem1
             text: Seminar 1
           - href: d2
             text: Formative assessment
-          - href: p5
-            text: "Practical 5: Visualisation"
-          - href: s2
+          - href: s5
+            text: "Session 5: Visualisation"
+          - href: sem2
             text: Seminar 2
-          - href: p6
-            text: "Practical 6: Joins and aggregations"
-          - href: p7
-            text: "Practical 7: Project work"
+          - href: s6
+            text: "Session 6: Joins and aggregations"
+          - href: s7
+            text: "Session 7: Project work"
           - href: d3
             text: Coursework submission
 
@@ -65,8 +67,8 @@ website:
   # announcement: 
   #   icon: info-circle
   #   dismissable: true
-    # content: "**Alert** ensure you have completed the second homework, described at the end of [itsleeds.github.io/tds/p1](https://itsleeds.github.io/tds/p1/#homework) by this Thursday 6th February."
-    # content: "**Homework to present at the next session**: Ensure you have completed the second homework, described at the end of [itsleeds.github.io/tds/p3](https://itsleeds.github.io/tds/p3/#homework) by **Thursday 20th February**. Note: there will be a practical (10:00-13:00) AND a seminar (14:00-17:00) on this day. Location: Institute for Transport Studies, room 1.11."
+    # content: "**Alert** ensure you have completed the second homework, described at the end of [itsleeds.github.io/tds/s1](https://itsleeds.github.io/tds/s1/#homework) by this Thursday 6th February."
+    # content: "**Homework to present at the next session**: Ensure you have completed the second homework, described at the end of [itsleeds.github.io/tds/s3](https://itsleeds.github.io/tds/s3/#homework) by **Thursday 20th February**. Note: there will be a session (10:00-13:00) AND a seminar (14:00-17:00) on this day. Location: Institute for Transport Studies, room 1.11."
     # content: "**Deadline for the [formative assessment](https://itsleeds.github.io/tds/d2) is Friday 28th February.**"
     # type: primary
     # position: below-navbar

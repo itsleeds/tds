@@ -1,0 +1,252 @@
+---
+title: "Seminar 2 - "
+bibliography: ../tds.bib
+toc: true
+execute:
+  cache: true
+  message: false
+  warning: false
+  eval: false
+editor:
+  markdown:
+    wrap: 72
+format:
+  html:
+    code-overflow: wrap
+    citations-hover: false
+    footnotes-hover: false
+    crossrefs-hover: false
+---
+
+# Seminar 2: Will Deakin
+
+## Make Things as Simple as Possible...but no Simpler
+
+The slides and high-resolution versions of some images from [the talk are available here](https://github.com/anisotropi4/shambles/tree/main/tds)
+
+![](images/WBD-whoami-01.png){width=720}
+
+## The Global Railway
+
+The railway is international, noting the location of the United Kingdom
+
+![](images/railway.png){width=720}
+
+## The British Railway
+
+The operation of railway infrastructure in Britain is organised into thirteen routes and six regions.
+
+![](images/routes-and-regions.png){width=480}
+
+This diagram show four routes that make up the Eastern region.
+
+# Logical Models
+
+To understand the a complex system like the railway it helps to decompose the system into a set of logical processes.
+
+
+## Logical Network Model
+
+The timetable production process can be modeled as a series of processes and interactions between railway operators and infrastructure manager.
+
+![](images/ITTS-model.png){width=720}
+
+## Logical Operations Model
+
+The operation production process can be modeled as series of processes and data exchange.
+
+![](images/TM-model.png){width=480}
+
+# Emissions
+
+Why does rail matter
+
+![](images/carbon.jpg){width=720}
+
+Climate change and environmental degradation are an existential threat to UK, Europe and the world
+
+- We need rail modal shift to rail freight transport to delivery
+- no net emissions of greenhouse gases by 2050
+- economic growth decoupled from resource use
+- where no person and no place left behind
+
+(From the European Rail Green Deal 2019)
+
+## Green House Gases (CO~2~)
+
+UK produced 455 million tonnes CO~2~ equivalent (mtCO2e) in 2019
+
+
+Transport accounted for 122 mtCO2e (26.8%) of which
+
+
+- HGV 19.5 mtCO2e (16.0%/4.2%)
+- All rail 1.7 mtCO2e (1.4%/0.04%)
+- A freight train removes up to 76 HGVs from our roads
+
+## National Greenhouse Emissions 1990-2020
+
+![](images/national-emissions.png){width=720}
+
+## Transport Greenhouse Emissions 1990-2020
+![](images/transport-emissions.png){width=720}
+
+
+(from DfT Transport Statistics (2021))
+
+# Data Visualisation
+
+Rail electrification
+
+![](images/European-Rail-Electrification.png){width=720}
+
+Rail network in black, electrified rail in red.
+
+## System Visualisation
+
+An Open-TrainTimes (OTT) schematic view of Leeds Stations
+
+![](images/OTT-Leeds.png){width=720}
+
+- OpenTrainTimes: [here](https://www.opentraintimes.com/maps/signalling/spc5#T_LEEDS)
+- National Rail Enquiries [here](https://ojp.nationalrail.co.uk/service/planjourney/search)
+- Realtime Trains [here](https://www.realtimetrains.co.uk/search/detailed/gb-nr:LDS)
+
+
+## Operation Railway
+The view of live operational railway systems.
+
+![](images/control-room.png){width=720}
+
+
+# A Very European Railway
+
+A full automated luxury high-speed European rail network
+
+![](images/Europe-0100-hx.png){width=480}
+![](images/Europe-0200-hx.png){width=480}
+![](images/Europe-0330-hx.png){width=480}
+
+Projecting population data onto labeled, scaled h3 hexagon to create a theoretical high-speed rail network.
+
+# Insights from Open Data
+
+Using Office of Road and Rail (ORR) Origin and Destination Matrix (ODM) data for rail journeys overlaid onto the railway centre-line track-model.
+
+![](images/chthulu.png){width=480}
+
+## The Power of Social Media
+
+The benefit of positive social media interaction.
+
+![](images/flow-data.png)
+
+## The Power of Open Data
+
+All data used is on the basis that it under open or permissive license.
+
+1.  The base map of mainland Britain is derived from the [WorldPop](https://hub.worldpop.org/) base maps under [CC 4.0 by deed](https://creativecommons.org/licenses/by/4.0/) retrieved 2023-09-07.
+2.  The centre-line track-model is hosted by [OpenRailData](https://github.com/openraildata/network-rail-gis) under the [Open Government License](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/)(OGL) by Network Rail, retrieved 2023-07-11.
+3.  The [Origin Destination Matrix](https://raildata.org.uk/partnerDetails/1034/details) data, for example ODM 2022-23, were published by the Office of Road and Rail on the Rail Development Group Rail Data Marketplace, under the [OGL](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). Retrieved 2024-02-18.
+4.  The [Station Attributes for All-Mainline Stations](https://raildata.org.uk/partnerDetails/1034/details) published by the Office of Road and Rail under the [OGL](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). Retrieved 2024-02-18.
+5.  The [Network Rail CORPUS dataset]() is an open data feed which is released under the [OGL](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/). Retrieved 2023-11-29 as a local copy.
+6.  The [National Public Transport Access Network]() (NaPTAN) under the [OGL](https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/) and is updated each time the scripts are run.
+7.  While this implementation now uses NaPTAN and CORPUS to validate and identify six closed stations, the Isle of Wight ferry-link continues to use OpenStreetMap data, licensed under [CC-BY-SA 2.0](https://openstreetmap.org/copyright) through the [OverPassAPI Turbo](https://overpass-turbo.eu/) service, and is updated each time the scripts are run.
+
+
+## 15 Seconds of Fame
+
+The original 2018/19 visualisation recieved 500k X/Twitter views within a week, as well as an [OpenInnovations blog](https://open-innovations.org/blog/2024-01-08-passenger-journeys-pictures-at-a-rail-transport-exhibition) post and a Bloomberg article [Nine Maps Show How Britain Is on the Move](https://www.bloomberg.com/news/features/2024-02-08/british-rail-train-ticket-data-maps-show-how-a-nation-travels-before-hs2).
+
+All code and data is published on GitHub under my [anisotropi4/kingfisher](https://github.com/anisotropi4/kingfisher) repository and updated with the ORR publication of the additional 2020-2024 financial year data.
+
+## Simple Visualisations
+
+The squares and coolest countries in Europe.
+
+![](images/social-media.png){width=720}
+
+# Network Simplification
+
+Simplifing the full 2011 Output Area (OA) network to project .
+
+## Shortest path census flow
+
+![](images/msoa-total-2011.png){width=360}
+
+![](images/oa-total-2011.png){width=360}
+
+![](images/msoa-total-2021.png){width=360}
+
+## Output Area (OA) Census 2011 centroid
+
+![](images/nx-oa-2011.png){width=480}
+
+## Full OA 2011 Delaunay mesh
+
+![](images/nx-all-2011.png){width=480}
+
+## OA 2011 ODM mesh
+
+![](images/oa-core-2011.png){width=480}
+
+## Network simplification and parenx
+
+The [network merge paper is here](https://nptscot.github.io/networkmerge/paper.html).
+
+![](images/PyPi-parenx.png){width=720}
+
+The [parenx](https://pypi.org/project/parenx/) PyPi module.
+
+### parenx cookbook
+
+The [parenx cookbook](https://nptscot.github.io/networkmerge/cookbook.html) shows examples of how to use the parenx library.
+
+# Parting Words
+
+## Make it look good.
+
+![](images/E-Coli.png){width=480}
+
+Art E-coli statue.
+
+## The Railway
+
+Beeching 1963 and today.
+
+![](images/beeching-both.png){width=720}
+
+# References
+
+::: {}
+(@) Wikipedia, International Klein Blue (#002FA7), [here](https://en.wikipedia.org/wiki/International_Klein_Blue)
+(@) Rail Alphabet, description and download, [here](https://www.strathpefferjunction.com/british-railway-typefaces-fonts/)
+(@) SPSmiler, “London Underground Tube”, [here](https://commons.wikimedia.org/wiki/File:Why_London_Underground_is_nicknamed_The_Tube.jpg)
+(@) Homer, Iliad, Perseus Digital Library [here](http://www.perseus.tufts.edu/hopper/text?doc=Perseus:text:1999.01.0133), accessed 4 May 2022
+(@) Transport Statistics Department for Transport, [here](https://www.gov.uk/government/statistics/transport-statistics-great-britain-2021/transport-statistics-great-britain-2021)
+(@) Department for Business, Energy & Industry Strategy, [here](https://www.gov.uk/government/publications/greenhouse-gas-reporting-conversion-factors-2021)
+(@) Open Rail Data wiki, [here](https://wiki.openraildata.com/index.php/Main_Page)
+(@) Rail Development Group “Concept of Operations – Stock and Crew System”  (RDG-CONOPS/NTI/002 Issue 1.1) January 2021 [here](https://www.raildeliverygroup.com/media-centre-docman/acop/284-rdgconceptofoperations-stockandcrewv1-0-reformat/file.html)
+(@) National Electronic Sectional Appendix (NESA) [here](https://www.networkrail.co.uk/industry-and-commercial/information-for-operators/national-electronic-sectional-appendix/)
+(@) NESA table extract [here](https://github.com/anisotropi4/nesa)
+(@) Department for Transport Energy and environment: data tables (ENV0201) [here](https://www.gov.uk/government/statistical-data-sets/energy-and-environment-data-tables-env)
+(@) WorldPop Project [here](https://www.worldpop.org/), data licensed under [creative commons 4.0](https://creativecommons.org/licenses/by/4.0/)
+(@) EC Global Human Settlement layer [here](), data licensed under [creative commons 4.0](https://creativecommons.org/licenses/by/4.0/)
+(@) OpenStreetMap [here](), data licensed under [Open Database License (ODbL) v1.0](https://opendatacommons.org/licenses/odbl/1-0/)
+(@) Overpass Turbo [here](https://overpass-turbo.eu/)
+(@) python language [here](), licensed under PSF for python 3.11 [here](https://docs.python.org/3/license.html)
+(@) Pandas [here](https://pandas.pydata.org/), licensed under BSD 3-clause license
+(@) GeoPandas [here](https://geopandas.org/), licensed under BSD 3-clause license
+(@) Department for Transport “Great British Railways: Williams-Shapps plan for rail”, [here](https://www.gov.uk/government/publications/great-british-railways-williams-shapps-plan-for-rail)
+(@) UK Electrification map, [here](https://electricrailmap.gitlab.io/)
+(@) Railway Industry Association “Why Rail Electrification”, 2021, [here](https://www.riagb.org.uk/RIA/Newsroom/Publications%20Folder/Why_Rail_Electrification_Report.aspx)
+(@) European Agency for Railways “Fostering Rail Through Green Deal – part 2 Freight”, 2021, [here](https://www.era.europa.eu/content/era-report-fostering-railway-sector-through-european-green-deal-part-2-freight_en)
+(@) RailNet Europe, “Timetabling and Capacity Redesign (TTR)”, 2022, [here](https://rne.eu/sales-timetabling/ttr)
+(@) Network Rail, “Rail freight forecasts Scenarios for 2033-34 and 2043-44”, 2016, [here](https://www.networkrail.co.uk/wp-content/uploads/2020/08/Rail-freight-forecasts-Scenarios-for-2033-34-and-2043-44.pdf)
+(@) Shapely [here](https://shapely.readthedocs.io/en/stable/), licensed under BSD 3-clause license
+(@) Rasterio [here](https://rasterio.readthedocs.io/en/latest/index.html), under the Rasterio license [here](https://rasterio.readthedocs.io/en/stable/intro.html)
+(@) Tobler [here](https://pysal.org/tobler), under BSD license
+(@) QGIS [here](), under the Attribution-ShareAlike 3.0 license
+(@) OSMnx: Boeing, G. 2017. [OSMnx](https://geoffboeing.com/publications/osmnx-complex-street-networks/): New Methods for Acquiring, Constructing, Analyzing, and Visualizing Complex Street Networks. Computers, Environment and Urban Systems 65, 126-139.
+(@) Uber H3 [here](https://github.com/uber/h3-py), licensed under the Apache license 2.0
+:::
