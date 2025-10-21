@@ -64,6 +64,8 @@ sessions$duration = (sessions$DTEND - sessions$DTSTART)
 sessions$type = "Lecture and Seminar"
 sessions$SUMMARY = paste0("TDS Session ", 1:nrow(sessions), ": ", session_descriptions)
 sessions$LOCATION = "Michael Sadler SR (LG.15)"
+# Update Session 4 to ITS Room 1.11a-c (week 17)
+sessions$LOCATION[sessions$week_num == "17"] = "Institute for Transport Studies Room 1.11a-c"
 sessions$DESCRIPTION = paste0(sessions$SUMMARY, " Located in ", sessions$LOCATION)
 nrow(sessions) # 6 sessions
 
@@ -89,7 +91,7 @@ seminar$DTEND = lubridate::ymd_hm(paste(seminar$date, seminar_end_time))
 seminar$duration = (seminar$DTEND - seminar$DTSTART)
 seminar$type = "Seminar"
 seminar$SUMMARY = paste0("TDS seminar ", 1:nrow(seminar))
-seminar$LOCATION = "Michael Sadler SR (LG.15)"
+seminar$LOCATION = "Institute for Transport Studies Room 1.11a-c"
 seminar$DESCRIPTION = paste0(seminar_descriptions, "")
 nrow(seminar) # 2 seminars
 
@@ -132,7 +134,6 @@ timetable = timetable |>
 units(timetable$duration) = "hours"
 
 sum(timetable$duration) # 20 - up to 25.05 hours of contact time
-# xlsx::write.xlsx(timetable, "tds-timetable-2020.xlsx")
 
 ic = calendar::ical(timetable) 
 tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID)
@@ -150,6 +151,8 @@ names(tt_csv) = tolower(names(tt_csv))
 calendar::ic_write(ic, "data/timetable.ics")
 readLines("data/timetable.ics")
 readr::write_csv(tt_csv, "data/timetable.csv")
+# Export timetable to Excel:
+writexl::write_xlsx(tt_csv, "~/OneDrive/career/modules/tds/2026/TRAN5340M-timetable-draft-v2.xlsx")
 ```
 
 ```{r}
