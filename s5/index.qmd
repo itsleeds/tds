@@ -312,8 +312,7 @@ Use AI to generate code for:
 
 -   [GitHub Copilot Documentation](https://docs.github.com/en/copilot)
 -   [Prompt Engineering Guide](https://www.promptingguide.ai/)
--   [OpenAI Cookbook](https://github.com/openai/openai-cookbook) - Examples for GPT
--   [AI for Data Science](https://www.oreilly.com/library/view/ai-assisted-programming/9781098164556/) - O'Reilly book
+-   [Anthropic's Prompt Engineering Interactive Tutorial](https://github.com/anthropics/prompt-eng-interactive-tutorial)
 
 ## Transport-Specific AI Applications
 
