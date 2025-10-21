@@ -55,8 +55,6 @@ website:
             text: Seminar 2
           - href: s6
             text: "Session 6: Joins and aggregations"
-          - href: s7
-            text: "Session 7: Project work"
           - href: d3
             text: Coursework submission
 
