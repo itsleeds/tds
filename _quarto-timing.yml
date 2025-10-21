@@ -1,0 +1,32 @@
+project:
+  type: website
+
+execute:
+  freeze: false
+  cache: false
+  echo: true
+  message: true
+  warning: true
+  error: true
+
+format:
+  html:
+    keep-md: true
+
+# Timing profile: disables caching and freezing so each render runs for
+# an accurate timing measurement. Use with: `quarto render --profile timing <file>`
+# Quarto timing profile: forces real execution to measure durations
+# Usage: quarto render --profile timing <file>
+
+project:
+  # inherit everything else from base _quarto.yml
+  output-dir: _site
+
+execute:
+  # ensure we actually run code to measure time
+  eval: true
+  # disable freeze and cache so timings reflect full cost
+  freeze: false
+  cache: false
+  warning: false
+  message: false
