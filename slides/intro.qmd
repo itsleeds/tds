@@ -13,6 +13,14 @@ title-slide-attributes:
 embed-resources: true
 ---
 
+```{r}
+#| echo: false
+#| eval: false
+# Copy self-contained version to OneDrive:
+quarto::quarto_render("slides/intro.qmd")
+file.copy("docs/slides/intro.html", "~/OneDrive/career/modules/tds/intro.html", overwrite = TRUE)
+```
+
 ## Who: Transport Data Science team
 
 #### Robin Lovelace
@@ -181,6 +189,14 @@ For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://g
 
 ## Feedback
 
+### 2024
+
 > The module is taught by two really well organised and enthusiastic professors, great module, the seminars, structured and unstructured learning was great and well thought out, all came together well
 
 > I wish this module was 60 credits instead of 15 because i just want more of it.
+
+### 2025
+
+> The leaders were incredibly helpful during
+practical sessions and feedback was constructive. I liked having the opportunity to discuss what I had achieved so far with peers,
+as this led to the sharing of ideas and insight from other degree disciplines also.
