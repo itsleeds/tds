@@ -12,7 +12,6 @@ title-slide-attributes:
 # <!-- Credit: Mandeep Lota via [flickr](https://www.flickr.com/photos/deepster2k/1096671706) -->
 ---
 
-
 ## Who: Transport Data Science team
 
 #### Robin Lovelace
@@ -25,7 +24,7 @@ title-slide-attributes:
 
 -   Lecturer in Data Science of Transport
 -   New and Emerging Forms of Data: Investigating novel data sources and their applications in urban mobility and transport planning. <!-- - Micromobility: Analyzing the role and impact of micromobility solutions, such as bike-sharing and e-scooters, on urban transport networks.
-    - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. -->
+        - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. -->
 
 ## TDS Team II
 
@@ -46,8 +45,7 @@ title-slide-attributes:
 
 ## What is transport data science?
 
-::: {.incremental}
-
+::: incremental
 -   The application of data science to transport datasets and problems
 -   Raising the question...
 -   What is data science?
@@ -56,11 +54,9 @@ title-slide-attributes:
 In other words...
 
 -   Statistics that is actually useful!
-
 :::
 
 ## Why take Transport Data Science
-
 
 ::::::: columns
 :::: {.column width="40%"}
@@ -101,11 +97,24 @@ In other words...
 
 ## History of TDS II
 
--   January 2020: Available, Data Science MSc course
--   March 2020: Switch to online teaching
+::::: columns
+::: {.column width="50%"}
+-   2020: Available to Data Science students
 -   2021-2023: Updated module, focus on methods
--   2024: Switch to combined lecture and practical sessions
--   2026+: Expand, online course, building an international community
+-   2024: Switch to combined lecture and practicals
+-   2025: Addition of Python and Quarto
+-   2026: Addition of AI 
+-   2027+: Expansion 🚀
+:::
+
+::: {.column width="50%"}
+![](images/online-teaching-tweet.png)
+:::
+::::
+
+```{=html}
+<!-- 
+## Online teaching 
 
 <blockquote class="twitter-tweet">
 
@@ -117,10 +126,7 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 
 — Robin Lovelace <a href="https://twitter.com/robinlovelace/status/1239930988416897033?ref_src=twsrc%5Etfw">March 17, 2020</a>
 
-</blockquote>
-
-```{=html}
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</blockquote> -->
 ```
 
 ## Essential reading
@@ -174,7 +180,6 @@ For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://g
 
 ## Feedback
 
-> The module is taught by two really well organised and enthusiastic professors, great module, the seminars, structured and
-unstructured learning was great and well thought out, all came together well
+> The module is taught by two really well organised and enthusiastic professors, great module, the seminars, structured and unstructured learning was great and well thought out, all came together well
 
 > I wish this module was 60 credits instead of 15 because i just want more of it.
