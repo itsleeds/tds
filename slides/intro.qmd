@@ -17,9 +17,9 @@ title-slide-attributes:
 
 #### Robin Lovelace
 
--   Associate Professor of Transport Data Science
+-   Professor of Transport Data Science
 -   Researching transport futures and active travel planning
--   R developer and teacher, author of Geocomputation with R
+-   Data scientist, web application developer, author of Geocomputation with R
 
 #### Yuanxuan Yang
 
@@ -105,7 +105,7 @@ In other words...
 -   March 2020: Switch to online teaching
 -   2021-2023: Updated module, focus on methods
 -   2024: Switch to combined lecture and practical sessions
--   2025+: Expand, online course? book? stay in touch!
+-   2026+: Expand, online course, building an international community
 
 <blockquote class="twitter-tweet">
 
