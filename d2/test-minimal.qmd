@@ -1,0 +1,141 @@
+---
+title: "Test"
+format: docx
+---
+
+# Introduction
+
+Car dependency in the UK remains high. Most trips nationally are made by car (as a driver or passenger), particularly outside the largest cities. This brings clear benefits in terms of flexibility and access, but also creates costs: congestion on urban networks, greenhouse-gas emissions and air pollution from road traffic, pressure on household budgets, physical inactivity, and inequities for people who cannot drive or afford a car. Geography matters: dense urban areas tend to have more viable options for walking, cycling and public transport, while rural and peripheral areas are often harder to serve without cars.
+
+Policy and market trends point in multiple directions. Electrification reduces tailpipe emissions but does not, on its own, solve congestion, road danger, or the space required for parking. Public transport investment, street design measures (e.g. bus priority, safer cycling networks, low-traffic neighbourhoods), and demand management can enable some trips to shift to more space- and energy-efficient modes. Understanding the scale of car use today—and how small changes in behaviour could shift the balance—helps frame realistic pathways to reduce car dependency while maintaining accessibility.
+
+Below is a tiny, self-contained Python example that works with an illustrative snapshot of trip shares by mode. It computes a simple “car dependency index” and explores what happens if car trips fall by 10% with the difference split equally between walking and bus. The numbers are placeholders for discussion rather than official statistics.
+
+```{python}
+#| label: car-dependency-snapshot
+#| echo: true
+#| eval: false
+
+# Illustrative UK trip mode shares (fractions summing to 1.0)
+modes = {
+	"Car (driver)": 0.52,
+	"Car (passenger)": 0.10,
+	"Walking": 0.25,
+	"Bus/coach": 0.06,
+	"Rail": 0.04,
+	"Cycle": 0.02,
+	"Other": 0.01,
+}
+
+car_share = modes["Car (driver)"] + modes["Car (passenger)"]
+non_car_share = 1 - car_share
+
+# A simple car dependency index (CDI): ratio of car to non-car trips
+cdi = car_share / non_car_share
+
+print(f"Estimated car mode share: {car_share:.0%}")
+print(f"Car dependency index (car/non-car): {cdi:.2f}")
+
+# Scenario: car trips fall by 10%, shifted equally to walking and bus
+shift = 0.10 * car_share
+walk_share2 = modes["Walking"] + shift/2
+bus_share2 = modes["Bus/coach"] + shift/2
+car_share2 = car_share * 0.90
+
+print("\nScenario: 10% reduction in car trips (shifted to walking/bus)")
+print(f"Car share -> {car_share2:.0%}")
+print(f"Walking share -> {walk_share2:.0%}")
+print(f"Bus share -> {bus_share2:.0%}")
+```
+
+# References
+
+```{r}
+#| label: collisions-2020-per-day
+#| echo: true
+#| warning: false
+#| message: false
+#| eval: true
+
+# Import STATS19 collision data for 2020 and plot collisions per day.
+# This uses the stats19 package's high-level helper to download and parse
+# the official DfT STATS19 files with correctly-typed columns.
+
+# Packages (install if needed)
+pkgs <- c("stats19", "dplyr", "ggplot2")
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pkg_install(pkgs)
+library(stats19)
+library(dplyr)
+library(ggplot2)
+
+# Download and read collisions for 2020
+collisions_2020 <- stats19::get_stats19(
+	year = 2020,
+	type = "collision",
+	format = TRUE,
+	ask = FALSE
+)
+
+# Ensure `date` is a Date column (format=TRUE should already do this)
+if (!inherits(collisions_2020$date, "Date")) {
+	collisions_2020$date <- as.Date(collisions_2020$date)
+}
+
+# Aggregate collisions per day
+collisions_per_day <- collisions_2020 |>
+	count(date, name = "n") |>
+	arrange(date)
+
+# Plot collisions per day
+ggplot(collisions_per_day, aes(x = date, y = n)) +
+	geom_line(color = "#2C7FB8", size = 0.5) +
+	labs(
+		title = "STATS19 collisions per day (2020, Great Britain)",
+		x = "Date",
+		y = "Number of collisions",
+		caption = "Source: DfT STATS19 via stats19 R package"
+	) +
+	theme_minimal()
+```
+
+```{r}
+#| label: collisions-regional-comparison
+#| echo: true
+#| warning: false
+#| message: false
+#| eval: false
+#| fig-width: 10
+#| fig-height: 6
+
+# Compare collision trends across three police forces using small multiples.
+# This demonstrates geographic variation in road safety patterns.
+# We focus on West Yorkshire (urban/mixed), Devon and Cornwall (rural/coastal),
+# and West Mercia (covering Herefordshire and surrounding areas).
+
+# Filter to our three forces
+forces_of_interest <- c("West Yorkshire", "Devon and Cornwall", "West Mercia")
+
+collisions_regional <- collisions_2020 |>
+	filter(police_force %in% forces_of_interest) |>
+	count(police_force, date, name = "n") |>
+	arrange(police_force, date)
+
+# Create small multiples plot
+ggplot(collisions_regional, aes(x = date, y = n)) +
+	geom_line(color = "#2C7FB8", size = 0.4) +
+	geom_smooth(method = "loess", se = FALSE, color = "#E34A33", size = 0.8) +
+	facet_wrap(~ police_force, ncol = 1, scales = "free_y") +
+	labs(
+		title = "Daily collisions in three police force areas (2020)",
+		subtitle = "Blue line: daily counts; red line: smoothed trend",
+		x = "Date",
+		y = "Number of collisions",
+		caption = "Source: DfT STATS19 via stats19 R package"
+	) +
+	theme_minimal() +
+	theme(
+		strip.text = element_text(face = "bold", hjust = 0),
+		panel.spacing = unit(1, "lines")
+	)
+```
