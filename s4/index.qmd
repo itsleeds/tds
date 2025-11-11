@@ -617,7 +617,7 @@ You will notice that the `od` datasets has shared id values with the `zones` dat
 
 ::: {.panel-tabset}
 ## R
-```{r, echo = T, results = 'hide', warning=FALSE, message=FALSE}
+```{r}
 od_inter = filter(od, o != d)
 desire_lines = od2line(od_inter, zones)
 ```
@@ -638,7 +638,7 @@ Let's calculate the percentage of trips that are made by active travel
 
 ::: {.panel-tabset}
 ## R
-```{r, echo = T, results = 'hide'}
+```{r}
 desire_lines$Active = (desire_lines$bicycle + desire_lines$foot) /
   desire_lines$all * 100
 ```
