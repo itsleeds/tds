@@ -561,7 +561,7 @@ We will start by loading two datasets:
 ::: {.panel-tabset}
 ## R
 ```{r}
-od = st_read("https://github.com/itsleeds/tds/releases/download/2026/s4-od.csv")
+od = read.csv("https://github.com/itsleeds/tds/releases/download/2026/s4-od.csv")
 zones = st_read("https://github.com/itsleeds/tds/releases/download/2026/s4-zones.geojson")
 ```
 
