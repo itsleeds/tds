@@ -1,3 +1,7 @@
+---
+execute:
+  eval: false
+---
 
 ```{r}
 #| results: hide
@@ -112,17 +116,6 @@ ac_by_year |>
     legend.position = "bottom"
   )
 ```
-
-
-
-
-
-
-
-
-
-
-
 
 # Python example
 
