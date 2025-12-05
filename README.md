@@ -11,8 +11,8 @@ Pulls](https://img.shields.io/badge/Docker:_ghcr.io-image_ghcr)](https://github.
 
 This repo contains code for the Transport Data Science module at the
 Institute for Transport Studies, University of Leeds. See the website at
-https://itsleeds.github.io/tds/ and at
-[leeds.ac.uk](https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202223&M=TRAN-5340M)
+https://itsleeds.github.io/tds/ and a summary of the catelogue entry at
+[leeds.ac.uk](https://catalogue.leeds.ac.uk/Module/TP/TRAN/5340M/202526)
 
 ## Quickstart
 
