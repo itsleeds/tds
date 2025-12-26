@@ -28,3 +28,5 @@ site_libs/
 *_files/
 *.knit.md
 *.rmarkdown
+
+**/*.quarto_ipynb
