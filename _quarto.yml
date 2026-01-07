@@ -4,6 +4,8 @@ project:
 
 website:
   title: "Transport Data Science"
+  repo-url: https://github.com/itsleeds/tds
+  repo-actions: [edit]
   sidebar:
     background: primary
     # logo: "images/logo.png"
