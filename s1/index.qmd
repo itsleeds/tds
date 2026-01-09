@@ -88,7 +88,6 @@ See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637)
 <!-- ```{r} -->
 
 <!-- person_name = c( -->
-
 <!--   "robin", -->
 
 <!--   "malcolm", -->
