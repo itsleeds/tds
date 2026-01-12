@@ -623,181 +623,564 @@
     "text": "Introduction to Transport Data Science"
   },
   {
-    "objectID": "minihack-transport-data.html",
-    "href": "minihack-transport-data.html",
-    "title": "Transport Data Minihack: Data Challenges",
+    "objectID": "module-info.html",
+    "href": "module-info.html",
+    "title": "Module Information and Help",
     "section": "",
-    "text": "This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies staff and students. Please contact the organisers (Robin Lovelace) if you are not based at the University of Leeds and would like to join in. It will take place on the 8th May as a pre-event before a lecture on data science and is open to staff and students at the University of Leeds and Transport professions. See here to sign-up.\n\n\n\nReactivate the Transport Data Science Hackathons\nFacilitate learning and collaboration among participants\nOutcomes for participants:\n\nLearning basics of packaging and modular coding\nData wrangling with tidyverse\nLearning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data\nDemonstrate the potential of open data (transparency, participation, research) and reproducible/open work-flows.\n\n\n\n\n\n\nNone: just an interest in transport data and a willingness to learn\nUseful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the Transport Data Science module for more details\n\n\n\n\n\n13:00 - 13:30: Presentation of the challenges\n\nTransmilenio: Victor Cantillo García\nBring your own data (BYD)\n\n5 minute pitches by anyone who wants to work on their own data challenge\n\n\n13:30 - 14:00: Importing the data\n\nInstalling any necessary packages\nRequesting support for any issues\n\n14:00 - 14:05: Break\n14:05 - 15:00: The hackathon\n15:15 - 15:45: Presentation of the results\n15:45 onwards: Networking and lecture (optional, see ticketsource.us for tickets)\n\n\n\n\nThe prize will be Geocomputation with Python or Geocomputation with R (second edition). Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):\n\nBest technical implementation and code\nMost creative or impactful use of data\n\nThe presentations will be assessed by the organisers.",
-    "crumbs": [
-      "Transport Data Minihack 8th May"
-    ]
+    "text": "Welcome to the Transport Data Science module.\nModule Leader: Robin Lovelace\nDescription: This module focuses on applying data science techniques to solve real-world transport problems. It teaches data science and AI-driven code development techniques to solve applied transport problems using a range of transport datasets. This involves origin-destination modelling, routing, mode choice estimation, and geocomputation using open source software. You’ll gain practical skills for sharing code and publishing reproducible results for maximum societal benefit.\nTeaching Delivery: Topics will be delivered in a series of weekly sessions in which is a lecture followed by a practical. Two seminars throughout the the module provide an opportunity to apply the methods and techniques to real-world problems, with input from external experts working in the field. Material for lectures will be posted on Minerva and/or this website, usually 48 hours before the lectures.\nIn the following sections you will find more information about the module.\nPlease browse the Reading List for material that will be relevant to your classes."
   },
   {
-    "objectID": "minihack-transport-data.html#objectives",
-    "href": "minihack-transport-data.html#objectives",
-    "title": "Transport Data Minihack: Data Challenges",
+    "objectID": "module-info.html#welcome",
+    "href": "module-info.html#welcome",
+    "title": "Module Information and Help",
     "section": "",
-    "text": "Reactivate the Transport Data Science Hackathons\nFacilitate learning and collaboration among participants\nOutcomes for participants:\n\nLearning basics of packaging and modular coding\nData wrangling with tidyverse\nLearning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data\nDemonstrate the potential of open data (transparency, participation, research) and reproducible/open work-flows.",
-    "crumbs": [
-      "Transport Data Minihack 8th May"
-    ]
+    "text": "Welcome to the Transport Data Science module.\nModule Leader: Robin Lovelace\nDescription: This module focuses on applying data science techniques to solve real-world transport problems. It teaches data science and AI-driven code development techniques to solve applied transport problems using a range of transport datasets. This involves origin-destination modelling, routing, mode choice estimation, and geocomputation using open source software. You’ll gain practical skills for sharing code and publishing reproducible results for maximum societal benefit.\nTeaching Delivery: Topics will be delivered in a series of weekly sessions in which is a lecture followed by a practical. Two seminars throughout the the module provide an opportunity to apply the methods and techniques to real-world problems, with input from external experts working in the field. Material for lectures will be posted on Minerva and/or this website, usually 48 hours before the lectures.\nIn the following sections you will find more information about the module.\nPlease browse the Reading List for material that will be relevant to your classes."
   },
   {
-    "objectID": "minihack-transport-data.html#prerequisites",
-    "href": "minihack-transport-data.html#prerequisites",
-    "title": "Transport Data Minihack: Data Challenges",
+    "objectID": "module-info.html#module-teaching-staff",
+    "href": "module-info.html#module-teaching-staff",
+    "title": "Module Information and Help",
+    "section": "2 Module Teaching Staff",
+    "text": "2 Module Teaching Staff\n\nModule Leader: Robin Lovelace\n\nEmail: R.Lovelace@leeds.ac.uk\nStaff Website: Professor Robin Lovelace\nOffice Hours: 14:00-16:00, contact via email or Teams."
+  },
+  {
+    "objectID": "module-info.html#module-structure",
+    "href": "module-info.html#module-structure",
+    "title": "Module Information and Help",
+    "section": "3 Module Structure",
+    "text": "3 Module Structure\n\nThe module consists of 6 lectures and 6 practical sessions, delivered in 3-hour blocks each week. There are also two 3-hour seminars.\nSee the Schedule for the module timetable, showing the week, class title, tutor, and content of each session.\nThe assessment structure includes a draft portfolio submission for formative feedback, followed by the final coursework deadline. Key assessments and submission details can be found on the Assessment Overview page."
+  },
+  {
+    "objectID": "module-info.html#student-support-details",
+    "href": "module-info.html#student-support-details",
+    "title": "Module Information and Help",
+    "section": "4 Student Support Details",
+    "text": "4 Student Support Details\n\nPlease refer to the Student Support section on Minerva for full details."
+  },
+  {
+    "objectID": "module-info.html#module-accessibility-statement",
+    "href": "module-info.html#module-accessibility-statement",
+    "title": "Module Information and Help",
+    "section": "5 Module Accessibility Statement",
+    "text": "5 Module Accessibility Statement\n\n\nWe have made the contents of the module as accessible as possible long-term, by creating an open-access website that you can navigate to at itsleeds.github.io/tds. The website contains some of the key materials that can be used with assistive technologies, while Minerva contains additional resources, such as datasets and information in additional formats.\nThe assessment on this module involves computer lab work and coursework. Please contact us regarding reasonable adjustments.\nIf you are unable to access any of the content of this module for disability-related reasons, please contact the module leader. You should also ensure that you have registered for support from Disability Services."
+  },
+  {
+    "objectID": "module-info.html#how-to-give-module-feedback",
+    "href": "module-info.html#how-to-give-module-feedback",
+    "title": "Module Information and Help",
+    "section": "6 How to Give Module Feedback",
+    "text": "6 How to Give Module Feedback\n\nFeedback is important to ensure your module can be improved and developed to provide the best learning experience possible.\n\nYou can give feedback about your module to your course reps to raise at the Student Staff Partnership Forum. If you are unsure who your course rep is, email academicsupport@luu.leeds.ac.uk.\nYou can speak to your module leader, seminar tutors, or personal tutor.\nYour module leader might ask for mid-module feedback, and you’ll be asked to complete a module evaluation survey towards the end of the module.\n\nIf you have any questions or concerns, please contact the Module Leader. We encourage you to raise issues with the module leader as soon as they arise so that they can be dealt with in a timely manner.\nWe also welcome your module evaluation at the end of the module. All students at Leeds have the opportunity to offer feedback on their modules. Feedback is important to us and it helps us to make improvements, to understand the student experience, and to see what is already working well.\nYour feedback will be used by your module leaders, and sometimes also your seminar tutor or programme leader, to reflect on the delivery of the module and to make improvements.\n\n6.1 Explorance Blue\nExplorance Blue is the University of Leeds’ system for processing module evaluations. This section explains how Explorance Blue works in practice.\nWhen your module evaluation goes live, you will receive an email inviting you to log into the system. This link will be unique to you, so please do not share it. \nModule evaluations go live towards the end of a semester. When you have evaluations to complete you will be directed via an individualised link to a page with your open evaluations listed on it. It looks like the image below. The list of modules they have been asked to evaluate will appear under ‘Tasks’. \nFor further information, please refer to Student Education Service’s “HOW TO” guide on Explorance Blue.\nYou can also provide feedback through your student reps who can take this information to the regular Staff Student Partnership Forums."
+  },
+  {
+    "objectID": "ROOM_BOOKING_REQUEST.html",
+    "href": "ROOM_BOOKING_REQUEST.html",
+    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
     "section": "",
-    "text": "None: just an interest in transport data and a willingness to learn\nUseful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the Transport Data Science module for more details",
-    "crumbs": [
-      "Transport Data Minihack 8th May"
-    ]
+    "text": "Module Code: TRAN5340M01\nModule Name: Transport Data Science\nAcademic Year: 2025/26 (Semester 2)\nStaff: Dr Robin Lovelace, Dr Malcolm Morgan, Dr Yuanxuan Yang\n\n\n\n\n\n\nTime: Thursdays, 10:00-13:00\nMichael Sadler SR (LG.15) Multi-mode: 1. Thursday, 29 January 2026 - Week 14 - Session 1: Introduction to transport data science 2. Thursday, 5 February 2026 - Week 15 - Session 2: Getting transport data 3. Thursday, 12 February 2026 - Week 16 - Session 3: AI for transport planning 5. Thursday, 5 March 2026 - Week 19 - Session 5: Routing 6. Thursday, 26 March 2026 - Week 22 - Session 6: Joins, models and publishing your work\nInstitute for Transport Studies Room 1.11a-c: 4. Thursday, 19 February 2026 - Week 17 - Session 4: Origin-destination data\n\n\n\nInstitute for Transport Studies Room 1.11a-c:\n\nThursday, 19 February 2026 - Week 17 - Seminar 1: Juan Fonseca (Traffic estimation and transport data visualisation) - 14:00-17:00\nThursday, 19 March 2026 - Week 21 - Seminar 2: Will Deakin, Network Rail (Network simplification) - 10:00-11:00\n\n\n\n\n\n\nTotal bookings: 8 (6 sessions + 2 seminars)\nLocations:\n\nMichael Sadler SR (LG.15) Multi-mode: Sessions 1, 2, 3, 5, 6\nInstitute for Transport Studies Room 1.11a-c: Session 4, Seminar 1, Seminar 2\n\nDays: All Thursdays\nWeeks: 14, 15, 16, 17, 19, 21, 22\n\n\n\n\n\nSession 4 (Week 17) has both a regular session (10:00-13:00) and Seminar 1 (14:00-17:00)\nAll sessions require computer access for students\nMulti-mode room required to accommodate diverse teaching methods\n\n\nGenerated: 21 October 2025"
   },
   {
-    "objectID": "minihack-transport-data.html#schedule",
-    "href": "minihack-transport-data.html#schedule",
-    "title": "Transport Data Minihack: Data Challenges",
+    "objectID": "ROOM_BOOKING_REQUEST.html#module-details",
+    "href": "ROOM_BOOKING_REQUEST.html#module-details",
+    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
     "section": "",
-    "text": "13:00 - 13:30: Presentation of the challenges\n\nTransmilenio: Victor Cantillo García\nBring your own data (BYD)\n\n5 minute pitches by anyone who wants to work on their own data challenge\n\n\n13:30 - 14:00: Importing the data\n\nInstalling any necessary packages\nRequesting support for any issues\n\n14:00 - 14:05: Break\n14:05 - 15:00: The hackathon\n15:15 - 15:45: Presentation of the results\n15:45 onwards: Networking and lecture (optional, see ticketsource.us for tickets)",
-    "crumbs": [
-      "Transport Data Minihack 8th May"
-    ]
+    "text": "Module Code: TRAN5340M01\nModule Name: Transport Data Science\nAcademic Year: 2025/26 (Semester 2)\nStaff: Dr Robin Lovelace, Dr Malcolm Morgan, Dr Yuanxuan Yang"
   },
   {
-    "objectID": "minihack-transport-data.html#prizes",
-    "href": "minihack-transport-data.html#prizes",
-    "title": "Transport Data Minihack: Data Challenges",
+    "objectID": "ROOM_BOOKING_REQUEST.html#room-bookings-required",
+    "href": "ROOM_BOOKING_REQUEST.html#room-bookings-required",
+    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
     "section": "",
-    "text": "The prize will be Geocomputation with Python or Geocomputation with R (second edition). Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):\n\nBest technical implementation and code\nMost creative or impactful use of data\n\nThe presentations will be assessed by the organisers.",
-    "crumbs": [
-      "Transport Data Minihack 8th May"
-    ]
+    "text": "Time: Thursdays, 10:00-13:00\nMichael Sadler SR (LG.15) Multi-mode: 1. Thursday, 29 January 2026 - Week 14 - Session 1: Introduction to transport data science 2. Thursday, 5 February 2026 - Week 15 - Session 2: Getting transport data 3. Thursday, 12 February 2026 - Week 16 - Session 3: AI for transport planning 5. Thursday, 5 March 2026 - Week 19 - Session 5: Routing 6. Thursday, 26 March 2026 - Week 22 - Session 6: Joins, models and publishing your work\nInstitute for Transport Studies Room 1.11a-c: 4. Thursday, 19 February 2026 - Week 17 - Session 4: Origin-destination data\n\n\n\nInstitute for Transport Studies Room 1.11a-c:\n\nThursday, 19 February 2026 - Week 17 - Seminar 1: Juan Fonseca (Traffic estimation and transport data visualisation) - 14:00-17:00\nThursday, 19 March 2026 - Week 21 - Seminar 2: Will Deakin, Network Rail (Network simplification) - 10:00-11:00"
   },
   {
-    "objectID": "minihack-transport-data.html#transmilenio-data",
-    "href": "minihack-transport-data.html#transmilenio-data",
-    "title": "Transport Data Minihack: Data Challenges",
-    "section": "2.1 Transmilenio data",
-    "text": "2.1 Transmilenio data\n\nTransMilenio (TM) is the organisation in charge of managing all components of Bogotá’s integrated public transport system.\nTM publishes a lot of their data for public use, in line with the open data policy of Bogotá.\nData includes:\n\nSpatial: GTFS, station location and lines of BRT, regular buses, and cable lines.\nCounts: Raw daily tap-in records, and aggregated boarding / alighting and exit counts by station and 15 minutes interval.\n\n\n\n2.1.1 Motivation:\n\nTM published some useful maps but they are not easily reproducible.\nAccessing the data is not straightforward as the count information is saved in individual .csv files by day.\n\n\n\n2.1.2 Goal:\n\nDevelop a set of functions that can be integrated into an R library to access and analyse the open data published by TM.",
-    "crumbs": [
-      "Transport Data Minihack 8th May"
-    ]
+    "objectID": "ROOM_BOOKING_REQUEST.html#summary",
+    "href": "ROOM_BOOKING_REQUEST.html#summary",
+    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
+    "section": "",
+    "text": "Total bookings: 8 (6 sessions + 2 seminars)\nLocations:\n\nMichael Sadler SR (LG.15) Multi-mode: Sessions 1, 2, 3, 5, 6\nInstitute for Transport Studies Room 1.11a-c: Session 4, Seminar 1, Seminar 2\n\nDays: All Thursdays\nWeeks: 14, 15, 16, 17, 19, 21, 22"
   },
   {
-    "objectID": "minihack-transport-data.html#origin-destination-data",
-    "href": "minihack-transport-data.html#origin-destination-data",
-    "title": "Transport Data Minihack: Data Challenges",
-    "section": "2.2 Origin destination data",
-    "text": "2.2 Origin destination data\n\nSee https://github.com/itsleeds/2021-census-od-data for 2021 OD data from the Census",
-    "crumbs": [
-      "Transport Data Minihack 8th May"
-    ]
+    "objectID": "ROOM_BOOKING_REQUEST.html#notes",
+    "href": "ROOM_BOOKING_REQUEST.html#notes",
+    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
+    "section": "",
+    "text": "Session 4 (Week 17) has both a regular session (10:00-13:00) and Seminar 1 (14:00-17:00)\nAll sessions require computer access for students\nMulti-mode room required to accommodate diverse teaching methods\n\n\nGenerated: 21 October 2025"
   },
   {
-    "objectID": "minihack-transport-data.html#bring-your-own-data",
-    "href": "minihack-transport-data.html#bring-your-own-data",
-    "title": "Transport Data Minihack: Data Challenges",
-    "section": "2.3 Bring your own data",
-    "text": "2.3 Bring your own data\nParticipants are welcome to bring their own data to the event. Please mention the dataset in the sign-up form (see link above).",
-    "crumbs": [
-      "Transport Data Minihack 8th May"
-    ]
+    "objectID": "sem2/index.html",
+    "href": "sem2/index.html",
+    "title": "Seminar 2 -",
+    "section": "",
+    "text": "The slides and high-resolution versions of some images from the talk are available here\n\n\n\n\nThe railway is international, noting the location of the United Kingdom\n\n\n\n\nThe operation of railway infrastructure in Britain is organised into thirteen routes and six regions.\n\nThis diagram show four routes that make up the Eastern region."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
+    "objectID": "sem2/index.html#make-things-as-simple-as-possiblebut-no-simpler",
+    "href": "sem2/index.html#make-things-as-simple-as-possiblebut-no-simpler",
+    "title": "Seminar 2 -",
+    "section": "",
+    "text": "The slides and high-resolution versions of some images from the talk are available here"
+  },
+  {
+    "objectID": "sem2/index.html#the-global-railway",
+    "href": "sem2/index.html#the-global-railway",
+    "title": "Seminar 2 -",
+    "section": "",
+    "text": "The railway is international, noting the location of the United Kingdom"
+  },
+  {
+    "objectID": "sem2/index.html#the-british-railway",
+    "href": "sem2/index.html#the-british-railway",
+    "title": "Seminar 2 -",
+    "section": "",
+    "text": "The operation of railway infrastructure in Britain is organised into thirteen routes and six regions.\n\nThis diagram show four routes that make up the Eastern region."
+  },
+  {
+    "objectID": "sem2/index.html#logical-network-model",
+    "href": "sem2/index.html#logical-network-model",
+    "title": "Seminar 2 -",
+    "section": "2.1 Logical Network Model",
+    "text": "2.1 Logical Network Model\nThe timetable production process can be modeled as a series of processes and interactions between railway operators and infrastructure manager."
+  },
+  {
+    "objectID": "sem2/index.html#logical-operations-model",
+    "href": "sem2/index.html#logical-operations-model",
+    "title": "Seminar 2 -",
+    "section": "2.2 Logical Operations Model",
+    "text": "2.2 Logical Operations Model\nThe operation production process can be modeled as series of processes and data exchange."
+  },
+  {
+    "objectID": "sem2/index.html#green-house-gases-co2",
+    "href": "sem2/index.html#green-house-gases-co2",
+    "title": "Seminar 2 -",
+    "section": "3.1 Green House Gases (CO2)",
+    "text": "3.1 Green House Gases (CO2)\nUK produced 455 million tonnes CO2 equivalent (mtCO2e) in 2019\nTransport accounted for 122 mtCO2e (26.8%) of which\n\nHGV 19.5 mtCO2e (16.0%/4.2%)\nAll rail 1.7 mtCO2e (1.4%/0.04%)\nA freight train removes up to 76 HGVs from our roads"
+  },
+  {
+    "objectID": "sem2/index.html#national-greenhouse-emissions-1990-2020",
+    "href": "sem2/index.html#national-greenhouse-emissions-1990-2020",
+    "title": "Seminar 2 -",
+    "section": "3.2 National Greenhouse Emissions 1990-2020",
+    "text": "3.2 National Greenhouse Emissions 1990-2020"
+  },
+  {
+    "objectID": "sem2/index.html#transport-greenhouse-emissions-1990-2020",
+    "href": "sem2/index.html#transport-greenhouse-emissions-1990-2020",
+    "title": "Seminar 2 -",
+    "section": "3.3 Transport Greenhouse Emissions 1990-2020",
+    "text": "3.3 Transport Greenhouse Emissions 1990-2020\n\n(from DfT Transport Statistics (2021))"
+  },
+  {
+    "objectID": "sem2/index.html#system-visualisation",
+    "href": "sem2/index.html#system-visualisation",
+    "title": "Seminar 2 -",
+    "section": "4.1 System Visualisation",
+    "text": "4.1 System Visualisation\nAn Open-TrainTimes (OTT) schematic view of Leeds Stations\n\n\nOpenTrainTimes: here\nNational Rail Enquiries here\nRealtime Trains here"
+  },
+  {
+    "objectID": "sem2/index.html#operation-railway",
+    "href": "sem2/index.html#operation-railway",
+    "title": "Seminar 2 -",
+    "section": "4.2 Operation Railway",
+    "text": "4.2 Operation Railway\nThe view of live operational railway systems."
+  },
+  {
+    "objectID": "sem2/index.html#the-power-of-social-media",
+    "href": "sem2/index.html#the-power-of-social-media",
+    "title": "Seminar 2 -",
+    "section": "6.1 The Power of Social Media",
+    "text": "6.1 The Power of Social Media\nThe benefit of positive social media interaction."
+  },
+  {
+    "objectID": "sem2/index.html#the-power-of-open-data",
+    "href": "sem2/index.html#the-power-of-open-data",
+    "title": "Seminar 2 -",
+    "section": "6.2 The Power of Open Data",
+    "text": "6.2 The Power of Open Data\nAll data used is on the basis that it under open or permissive license.\n\nThe base map of mainland Britain is derived from the WorldPop base maps under CC 4.0 by deed retrieved 2023-09-07.\nThe centre-line track-model is hosted by OpenRailData under the Open Government License(OGL) by Network Rail, retrieved 2023-07-11.\nThe Origin Destination Matrix data, for example ODM 2022-23, were published by the Office of Road and Rail on the Rail Development Group Rail Data Marketplace, under the OGL. Retrieved 2024-02-18.\nThe Station Attributes for All-Mainline Stations published by the Office of Road and Rail under the OGL. Retrieved 2024-02-18.\nThe Network Rail CORPUS dataset is an open data feed which is released under the OGL. Retrieved 2023-11-29 as a local copy.\nThe National Public Transport Access Network (NaPTAN) under the OGL and is updated each time the scripts are run.\nWhile this implementation now uses NaPTAN and CORPUS to validate and identify six closed stations, the Isle of Wight ferry-link continues to use OpenStreetMap data, licensed under CC-BY-SA 2.0 through the OverPassAPI Turbo service, and is updated each time the scripts are run."
+  },
+  {
+    "objectID": "sem2/index.html#seconds-of-fame",
+    "href": "sem2/index.html#seconds-of-fame",
+    "title": "Seminar 2 -",
+    "section": "6.3 15 Seconds of Fame",
+    "text": "6.3 15 Seconds of Fame\nThe original 2018/19 visualisation recieved 500k X/Twitter views within a week, as well as an OpenInnovations blog post and a Bloomberg article Nine Maps Show How Britain Is on the Move.\nAll code and data is published on GitHub under my anisotropi4/kingfisher repository and updated with the ORR publication of the additional 2020-2024 financial year data."
+  },
+  {
+    "objectID": "sem2/index.html#simple-visualisations",
+    "href": "sem2/index.html#simple-visualisations",
+    "title": "Seminar 2 -",
+    "section": "6.4 Simple Visualisations",
+    "text": "6.4 Simple Visualisations\nThe squares and coolest countries in Europe."
+  },
+  {
+    "objectID": "sem2/index.html#shortest-path-census-flow",
+    "href": "sem2/index.html#shortest-path-census-flow",
+    "title": "Seminar 2 -",
+    "section": "7.1 Shortest path census flow",
+    "text": "7.1 Shortest path census flow"
+  },
+  {
+    "objectID": "sem2/index.html#output-area-oa-census-2011-centroid",
+    "href": "sem2/index.html#output-area-oa-census-2011-centroid",
+    "title": "Seminar 2 -",
+    "section": "7.2 Output Area (OA) Census 2011 centroid",
+    "text": "7.2 Output Area (OA) Census 2011 centroid"
+  },
+  {
+    "objectID": "sem2/index.html#full-oa-2011-delaunay-mesh",
+    "href": "sem2/index.html#full-oa-2011-delaunay-mesh",
+    "title": "Seminar 2 -",
+    "section": "7.3 Full OA 2011 Delaunay mesh",
+    "text": "7.3 Full OA 2011 Delaunay mesh"
+  },
+  {
+    "objectID": "sem2/index.html#oa-2011-odm-mesh",
+    "href": "sem2/index.html#oa-2011-odm-mesh",
+    "title": "Seminar 2 -",
+    "section": "7.4 OA 2011 ODM mesh",
+    "text": "7.4 OA 2011 ODM mesh"
+  },
+  {
+    "objectID": "sem2/index.html#network-simplification-and-parenx",
+    "href": "sem2/index.html#network-simplification-and-parenx",
+    "title": "Seminar 2 -",
+    "section": "7.5 Network simplification and parenx",
+    "text": "7.5 Network simplification and parenx\nThe network merge paper is here.\n\nThe parenx PyPi module.\n\n7.5.1 parenx cookbook\nThe parenx cookbook shows examples of how to use the parenx library."
+  },
+  {
+    "objectID": "sem2/index.html#make-it-look-good.",
+    "href": "sem2/index.html#make-it-look-good.",
+    "title": "Seminar 2 -",
+    "section": "8.1 Make it look good.",
+    "text": "8.1 Make it look good.\n\nArt E-coli statue."
+  },
+  {
+    "objectID": "sem2/index.html#the-railway",
+    "href": "sem2/index.html#the-railway",
+    "title": "Seminar 2 -",
+    "section": "8.2 The Railway",
+    "text": "8.2 The Railway\nBeeching 1963 and today."
+  },
+  {
+    "objectID": "s1/index.html",
+    "href": "s1/index.html",
+    "title": "Session 1: Introduction to Transport Data Science",
+    "section": "",
+    "text": "Lecture: an introduction to Transport Data Science (30 min)\n\nSee the slides\n\nQ&A (15 min) \nBreak and networking (15 min) \nData science and a good research question (30 min)\nData science foundations (guided): Project set-up and using RStudio or VS Code as an integrated development environment (30 min)\nFocussed work (1 hr)"
+  },
+  {
+    "objectID": "s1/index.html#agenda",
+    "href": "s1/index.html#agenda",
+    "title": "Session 1: Introduction to Transport Data Science",
+    "section": "",
+    "text": "Lecture: an introduction to Transport Data Science (30 min)\n\nSee the slides\n\nQ&A (15 min) \nBreak and networking (15 min) \nData science and a good research question (30 min)\nData science foundations (guided): Project set-up and using RStudio or VS Code as an integrated development environment (30 min)\nFocussed work (1 hr)"
+  },
+  {
+    "objectID": "s1/index.html#how-to-come-up-with-a-good-research-question",
+    "href": "s1/index.html#how-to-come-up-with-a-good-research-question",
+    "title": "Session 1: Introduction to Transport Data Science",
+    "section": "How to come up with a good research question",
+    "text": "How to come up with a good research question\n\nThink about the data you have access to\nThink about the problems you want to solve\nThink about the methods you want to use and skills you want to learn\nThink about how the final report will look and hold-together\n\n\nHow much potential is there for cycling across the transport network?\n\n\n\nHow can travel to schools be made safer?\n\n\nHow can hospitals encourage visitors to get there safely?\n\n\nWhere’s the best place to build electric car charging points?\nSee openstreetmap.org or search for other open access datasets for more ideas"
+  },
+  {
+    "objectID": "s1/index.html#data-object-manipulation-basics",
+    "href": "s1/index.html#data-object-manipulation-basics",
+    "title": "Session 1: Introduction to Transport Data Science",
+    "section": "1.1 Data object manipulation basics",
+    "text": "1.1 Data object manipulation basics\n\nUse the $ operator to print the vehicle_type column of crashes.\n\n\nIn R the $ symbol is used to refer to elemements of a list. So the answer is simply:\n\ncrashes$vehicle_type\n\n[1] \"car\"  \"bus\"  \"tank\"\n\n\n\n\nSubset the crashes with the [,] syntax\n\n\nTry out different combinations on the dataframe crashes to see what happens. For example, try:\n\ncrashes[1,]\n\n  casualty_type casualty_age vehicle_type\n1    pedestrian           20          car\n\ncrashes[,1]\n\n[1] \"pedestrian\" \"cyclist\"    \"cat\"       \n\ncrashes[1,1]\n\n[1] \"pedestrian\"\n\n\n\nSubset the object with the [[ syntax.\n\n\nThe [[ operator is used to extract elements from a list. Try:\n\ncrashes[[1]]\n\n[1] \"pedestrian\" \"cyclist\"    \"cat\"       \n\ncrashes[[2]]\n\n[1] 20 40 60\n\n\n\n\nBonus: what is the class() of the objects created by each of the previous exercises?\n\n\nExplore how many R classes you can find\n\n\nBonus (advanced): reproduce the above with Python using the pandas or polars package"
+  },
+  {
+    "objectID": "s1/index.html#data-science-on-real-data",
+    "href": "s1/index.html#data-science-on-real-data",
+    "title": "Session 1: Introduction to Transport Data Science",
+    "section": "1.2 Data science on real data",
+    "text": "1.2 Data science on real data\nTo get some larger datasets, try the following (from Chapter 8 of RSRR)\n\nRPython\n\n\n\nremotes::install_cran(\"stats19\")\nlibrary(stats19)\nac = get_stats19(year = 2020, type = \"collision\")\nca = get_stats19(year = 2020, type = \"cas\")\nve = get_stats19(year = 2020, type = \"veh\")\n# population hurt by road traffic collisions in 2020:\n(nrow(ca) / 67e6) * 100\n\n[1] 0.1725134\n\n\n\n\nChallenge: reproduce the above code in Python using the pystats19 package\n# Install the package, e.g. with pip\n!pip install pystats19\nimport pystats19\n# See the documentation at https://github.com/Mayazure/py-stats19\n\n\n\nLet’s go through these exercises together:\n\nSubset the casualty_age object using the inequality (&lt;) so that only elements less than 50 are returned.\nSubset the crashes data frame so that only tanks are returned using the == operator.\nBonus: assign the age of all tanks to 61.\n\n\nTry running the subsetting code on a larger dataset, e.g. the ac object created previously\n\n\nCoerce the vehicle_type column of crashes to the class character.\nCoerce the crashes object into a matrix. What happened to the values?\nBonus: What is the difference between the output of summary() on character and factor variables?\n\n\nWe’ll explore this together"
+  },
+  {
+    "objectID": "s1/index.html#bonus-data-science-and-transport",
+    "href": "s1/index.html#bonus-data-science-and-transport",
+    "title": "Session 1: Introduction to Transport Data Science",
+    "section": "2.1 Bonus: data science and transport",
+    "text": "2.1 Bonus: data science and transport\n\nWork through Chapter 13 of the book Geocomputation with R, taking care to ask questions about any aspects that you don’t understand (your homework will be to complete and make notes on the chapter, including reproducible code)."
+  },
+  {
+    "objectID": "sem1/index.html",
+    "href": "sem1/index.html",
+    "title": "Seminar 1 - Mini-workshop",
+    "section": "",
+    "text": "The best way to learn is by exploring data and answering your own questions. Here are some datasets that can help you investigate questions like:"
+  },
+  {
+    "objectID": "sem1/index.html#motorised-vehicles-counts-leeds",
+    "href": "sem1/index.html#motorised-vehicles-counts-leeds",
+    "title": "Seminar 1 - Mini-workshop",
+    "section": "1.1 Motorised vehicles counts: Leeds",
+    "text": "1.1 Motorised vehicles counts: Leeds\nMany cities/countries publish data from permanent traffic counters e.g. ANPR cameras, induction loops or low-cost sensors. We are going to use data from the sensors in Leeds (available in Data Mill North)\n\nleeds_car_location &lt;- read_csv(\n  \"https://datamillnorth.org/download/e6q0n/9bc51361-d98e-47d3-9963-aeeca3fa0afc/Camera%20Locations.csv\"\n  ) \n\nleeds_car_location_sf &lt;- leeds_car_location |&gt; \n  st_as_sf(coords = c(\"X\",\"Y\"),\n           crs = 27700)\n\n\nleeds_car_2019 &lt;- read_csv(\n  \"https://datamillnorth.org/download/e6q0n/9e62c1e5-8ba5-4369-9d81-a46c4e23b9fb/Data%202019.csv\"\n  )\n\nIf you are interested in open traffic count datasets see this\n\n1.1.0.1 code\n\nleeds_car_2019 |&gt; \n  group_by(Cosit) |&gt; \n  summarise(mean(Volume))\n\n\nmean_daily_volumes &lt;- leeds_car_2019 |&gt;\n  # converting cosit to numeric\n  mutate(Cosit = as.numeric(Cosit)) |&gt; \n  # extracting the date\n  mutate(time_date = dmy_hm(Sdate),\n         # extracts the day\n         date = date(time_date)) |&gt; \n  # calculating the total flows for each day\n  summarise(Volume = sum(Volume,rm.na = T),\n            .by = c(date,Cosit)) |&gt; \n  # Calculating the daily mean \n  summarise(daily_volume = mean(Volume,rm.na = T),\n            .by = Cosit) \n\n\ndaily_volumes &lt;- leeds_car_2019 |&gt; \n    # converting cosit to numeric\n  mutate(Cosit = as.numeric(Cosit)) |&gt;\n  # extracting the date\n  mutate(time_date = dmy_hm(Sdate),\n         # extracts the day\n         date = date(time_date)) |&gt; # calculating the total flows for each day\n  summarise(mean_volume = sum(Volume,rm.na = T),\n          .by = c(date,Cosit))\n\ndaily_volumes |&gt; \n  mutate(Cosit = as.numeric(Cosit)) |&gt; \n  filter(Cosit == 90201)|&gt; \n  ggplot(aes(x = date,y = mean_volume))+\n  geom_line()\n  \n\nmean_daily_volumes |&gt; \n  ggplot(aes(daily_volume))+\n  geom_histogram()\n\nleeds_car_location_sf |&gt;\n  left_join(mean_daily_volumes,by = c(\"Site ID\"=\"Cosit\")) |&gt; \n  tm_shape()+\n  tm_dots(\"daily_volume\",size = \"daily_volume\")"
+  },
+  {
+    "objectID": "sem1/index.html#cycle-counts-for-west-yorkshire",
+    "href": "sem1/index.html#cycle-counts-for-west-yorkshire",
+    "title": "Seminar 1 - Mini-workshop",
+    "section": "1.2 Cycle counts for West Yorkshire",
+    "text": "1.2 Cycle counts for West Yorkshire\nSome cities would have some dedicated infrastructure to count the number of people using bikes at strategic points of the city. We are going to use some cycle counters from West Yorkshire that you can find here:\n\nleeds_bike_location &lt;- read_csv(\n  \"https://datamillnorth.org/download/e1dmk/a8c8a11e-1616-4915-a897-9ca5ab4e03b8/Cycle%20Counter%20Locations.csv\",skip = 1\n  ) \n\nleeds_bike_location_sf &lt;- leeds_bike_location |&gt;\n  drop_na(Latitude,Longitude) |&gt; \n  st_as_sf(coords = c(\"Longitude\",\"Latitude\"),\n           crs = 4326) |&gt; \n  st_transform(27700)\n\nThe data for 2019:\n\nleeds_bike_2019 &lt;- read_csv(\n  \"https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv\"\n  )\n\nOther interesting datasets for you to explore are Paris cycling counters or Scotland."
+  },
+  {
+    "objectID": "sem1/index.html#pedestrian-counts-melbourne",
+    "href": "sem1/index.html#pedestrian-counts-melbourne",
+    "title": "Seminar 1 - Mini-workshop",
+    "section": "1.3 Pedestrian Counts: Melbourne",
+    "text": "1.3 Pedestrian Counts: Melbourne\nCities also monitor the number pedestrians in key locations. We can use data from the sensors in Melbourne accessible here:\n\nmelbourne_locations_sf &lt;- st_read(\"https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-sensor-locations/exports/geojson?lang=en&timezone=Europe%2FLondon\")\n\nWe will extract\n\nmelbourne_dec2024 &lt;- read_csv(\"https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-monthly-counts-per-hour/exports/csv?lang=en&refine=sensing_date%3A%222024%2F12%22&timezone=Australia%2FMelbourne&use_labels=true&delimiter=%2C\")"
+  },
+  {
+    "objectID": "sem1/index.html#public-transport-tap-in-data-bogotá",
+    "href": "sem1/index.html#public-transport-tap-in-data-bogotá",
+    "title": "Seminar 1 - Mini-workshop",
+    "section": "1.4 Public transport tap-in data: Bogotá",
+    "text": "1.4 Public transport tap-in data: Bogotá\nPublic transport ridership data can be difficult to obtain. Fortunately, some cities which have systems managed by a public organisation make this data available for the public. Bogotá’s integrated transport system publishes the tap-in data for the BRT system (see this). We will use one of the daily reports.\n\ntm_stations_sf &lt;- st_read(\"Estaciones_Troncales_de_TRANSMILENIO.geojson\")\n\nMonthly boarding data can be manually obtained in the open data portal of TransMilenio here\n\nurl_tm &lt;- \"https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip\"\nu_bn &lt;- basename(url_tm)\n\n\nif(!file.exists(u_bn)){\n  download.file(url = url_tm,\n                destfile = u_bn,\n                mode = \"wb\")\n}\n\n\n\nurl_tm &lt;- \"https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip\"\n\n\ntm_brt_2024 &lt;- read_csv(unz(u_bn,\"troncal_2024.csv\"))\n\nTfL’s crowding data is also a great source of ridership data. See this.\n\n1.4.1 code\n\ndaily_tapins &lt;- tm_brt_2024 |&gt; \n  summarise(validaciones = sum(validaciones),\n            .by = c(Estacion_Parada,fecha)) |&gt; \n  summarise(validaciones = mean(validaciones),\n            .by = Estacion_Parada) |&gt; \n  mutate(numero_estacion = str_extract(Estacion_Parada,\"\\\\(\\\\d*\\\\)\") |&gt; \n           str_remove_all(\"(\\\\(|\\\\))\")) \n  \ntm_stations_sf |&gt; \n  left_join(daily_tapins,by = \"numero_estacion\") |&gt; \n  tm_shape()+\n  tm_dots(\"validaciones\",size = \"validaciones\")"
+  },
+  {
+    "objectID": "sem1/index.html#network-data-from-osm",
+    "href": "sem1/index.html#network-data-from-osm",
+    "title": "Seminar 1 - Mini-workshop",
+    "section": "1.5 Network data from OSM",
+    "text": "1.5 Network data from OSM\nYou may be already familiar with getting and using OSM data. This an example of how to obtain the network that can be used for pedestrians.\n\nmy_coordinates &lt;- c(-76.78893552474851,18.01206727612776)\nsf_point &lt;- st_point(my_coordinates) |&gt; st_sfc(crs = 4326)\nsf_buffer &lt;- st_buffer(sf_point,dist = 15e3)\n\n\ntm_basemap(\"OpenStreetMap\")+\n  tm_shape(sf_buffer)+\n  tm_borders()\n\n\nmy_network &lt;- oe_get_network(sf_buffer, mode = \"walking\")\n\n\ntm_shape(my_network)+\n  tm_lines(\"highway\")\n\nNote: you can access a simplified network dataset from Ordnance Survey’s OpenRoads dataset."
+  },
+  {
+    "objectID": "examples/test.html",
+    "href": "examples/test.html",
     "title": "Transport Data Science",
     "section": "",
-    "text": "This module focuses on applying data science techniques to solve real-world transport problems. Based at the University of Leeds’ Institute for Transport Studies (module code TRAN5340M), the course is led by Robin Lovelace, Professor of Transport Data Science and developer of several data-driven solutions for effective transport planning.\nThe course has evolved over a decade of teaching and research in the field. It aims to equip you with up-to-date and future-proof skills through practical examples and reproducible workflows using industry-standard data science tools.",
-    "crumbs": [
-      "Home"
-    ]
+    "text": "x = 1\nprint(x)\n\n1"
   },
   {
-    "objectID": "index.html#hardware",
-    "href": "index.html#hardware",
-    "title": "Transport Data Science",
-    "section": "Hardware",
-    "text": "Hardware\nWe highly recommend having access to a computer with at least 8 GB of RAM that you have permission to install software on.\nAlternatively, you could use cloud-based services such as RStudio Cloud, Google Colab, or GitHub Codespaces. However, you would need to be comfortable using these services and may miss out on some benefits of using your own computer.",
-    "crumbs": [
-      "Home"
-    ]
+    "objectID": "s6/slides.html#objectives",
+    "href": "s6/slides.html#objectives",
+    "title": "Joins and Aggregations in Transport Data Science",
+    "section": "Objectives",
+    "text": "Objectives\n\nUnderstand different types of joins (spatial and key-based)\nLearn how to perform spatial joins with sf and dplyr\nApply aggregations to summarize data\nVisualize joined datasets\n\n\nlibrary(sf)\nlibrary(dplyr)\nlibrary(tmap)\nlibrary(stats19)"
   },
   {
-    "objectID": "index.html#computing-experience",
-    "href": "index.html#computing-experience",
-    "title": "Transport Data Science",
-    "section": "Computing experience",
-    "text": "Computing experience\nYou should be comfortable with general computing tasks, such as:\n\nCreating folders and managing files\nInstalling software\nUsing command line interfaces (PowerShell in Windows, Terminal in macOS, or Linux shell)",
-    "crumbs": [
-      "Home"
-    ]
+    "objectID": "s6/slides.html#what-is-a-join",
+    "href": "s6/slides.html#what-is-a-join",
+    "title": "Joins and Aggregations in Transport Data Science",
+    "section": "What is a Join?",
+    "text": "What is a Join?\n\nCombining datasets based on common attributes or spatial relationships\nSpatial joins: Link points (e.g., crashes) to polygons (e.g., LSOAs) using geometry\nKey-based joins: Match IDs across tables (e.g., LSOA codes)"
   },
   {
-    "objectID": "index.html#data-science-experience-prerequisites",
-    "href": "index.html#data-science-experience-prerequisites",
-    "title": "Transport Data Science",
-    "section": "Data science experience prerequisites",
-    "text": "Data science experience prerequisites\nPrior experience using R or Python is essential. This could include:\n\nUsing these languages in professional work\nExperience from previous degrees\nCompletion of relevant online courses\n\nStudents can demonstrate this prerequisite knowledge by showing evidence they have:\n\nWorked with R previously\nCompleted online courses such as the first 4 sessions in the RStudio Primers series\nCompleted DataCamp’s Free Introduction to R course\n\nSubstantial programming and data science experience in previous professional or academic work using languages like R or Python also satisfies the prerequisite requirements.",
-    "crumbs": [
-      "Home"
-    ]
+    "objectID": "s6/slides.html#spatial-join-example",
+    "href": "s6/slides.html#spatial-join-example",
+    "title": "Joins and Aggregations in Transport Data Science",
+    "section": "Spatial Join Example",
+    "text": "Spatial Join Example\n\nLoad spatial datasets:\n\n\npath &lt;- \"https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson\"\nlsoa &lt;- read_sf(path)\ncrashes &lt;- stats19::get_stats19(\"2023\")\n\n\nPerform spatial join:\n\n\njoined &lt;- st_join(lsoa, crashes, join = st_intersects)\n\n\nAggregate results:\n\n\nagg_data &lt;- joined |&gt;\n  group_by(lsoa_id) |&gt;\n  summarize(total_crashes = n())"
   },
   {
-    "objectID": "index.html#quickstart-with-github-codespaces",
-    "href": "index.html#quickstart-with-github-codespaces",
-    "title": "Transport Data Science",
-    "section": "Quickstart with GitHub Codespaces",
-    "text": "Quickstart with GitHub Codespaces\nFor a quick cloud-based setup, you can use GitHub Codespaces to access the course materials:\n\nSign up to GitHub\nFork the repository\nClick the “Open in GitHub Codespaces” button above\n\nAlternatively, use the following link:\n\n\n\nOpen in GitHub Codespaces",
-    "crumbs": [
-      "Home"
-    ]
+    "objectID": "s6/slides.html#key-based-joins",
+    "href": "s6/slides.html#key-based-joins",
+    "title": "Joins and Aggregations in Transport Data Science",
+    "section": "Key-Based Joins",
+    "text": "Key-Based Joins\nUse dplyr functions like left_join to combine data by identifiers:\n\n# Example: Join crash counts with population data\nfinal &lt;- left_join(agg_data, pop_data, by = \"lsoa_id\")"
   },
   {
-    "objectID": "index.html#r",
-    "href": "index.html#r",
-    "title": "Transport Data Science",
-    "section": "R",
-    "text": "R\nInstall a recent version of R (4.3.0 or above) and an IDE:\n\nR from cran.r-project.org\nRStudio from rstudio.com (recommended)\nAlternatively, VS Code with the R extension installed (if you have prior experience with it)\n\nYou’ll also need to install R packages:\n\nIndividual packages can be installed by opening RStudio and typing commands like install.packages(\"stats19\") in the R console\nTo install all dependencies for the module at once, run the following command in the R console:\n\n\nif (!requireNamespace(\"remotes\", quietly = TRUE)) {\n  install.packages(\"remotes\")\n}\nremotes::install_github(\"itsleeds/tds\")\n\nSee Section 1.5 of the online guide Reproducible Road Safety Research with R for instructions on how to install key packages we will use in the module.1",
-    "crumbs": [
-      "Home"
-    ]
+    "objectID": "s6/slides.html#aggregations",
+    "href": "s6/slides.html#aggregations",
+    "title": "Joins and Aggregations in Transport Data Science",
+    "section": "Aggregations",
+    "text": "Aggregations\n\nGroup data by spatial units (e.g., LSOA)\nCalculate metrics like crashes per capita:\n\n\nfinal &lt;- final |&gt;\n  mutate(crashes_per_capita = total_crashes / population)"
   },
   {
-    "objectID": "index.html#python",
-    "href": "index.html#python",
-    "title": "Transport Data Science",
-    "section": "Python",
-    "text": "Python\nIf you choose to use Python, you should be comfortable with:\n\nInstalling Python\nManaging your own Python environment\nInstalling packages and resolving package conflicts\n\nFor Python users, we recommend using an environment manager such as:\n\npixi (which can manage both R and Python environments)\nDocker (best practice for reproducibility and isolation)",
-    "crumbs": [
-      "Home"
-    ]
+    "objectID": "s6/slides.html#visualization",
+    "href": "s6/slides.html#visualization",
+    "title": "Joins and Aggregations in Transport Data Science",
+    "section": "Visualization",
+    "text": "Visualization\nCreate maps to visualize crash patterns using tmap:\n\ntmap_mode(\"plot\")\ntm_shape(final) +\n  tm_polygons(\"crashes_per_capita\")"
   },
   {
-    "objectID": "index.html#docker-advanced",
-    "href": "index.html#docker-advanced",
-    "title": "Transport Data Science",
-    "section": "Docker (advanced)",
-    "text": "Docker (advanced)\nWe maintain a Docker image containing all necessary software to complete the course with VS Code, Quarto, and a Devcontainer setup.\nAdvantages:\n\nEnsures reproducibility\nSaves time installing software\n\nDisadvantages:\n\nDocker can be challenging to install\nDifficult to use if you’re unfamiliar with Docker\n\nWe recommend this approach only for people who are confident with Docker or willing to invest time learning it.\nFor guidance, see:\n\nDocker installation instructions\nDevcontainers documentation on github.com\nThe tds Dockerfile and devcontainer.json",
-    "crumbs": [
-      "Home"
-    ]
+    "objectID": "s6/slides.html#references",
+    "href": "s6/slides.html#references",
+    "title": "Joins and Aggregations in Transport Data Science",
+    "section": "References",
+    "text": "References\n{references}"
   },
   {
-    "objectID": "index.html#footnotes",
-    "href": "index.html#footnotes",
-    "title": "Transport Data Science",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\n For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://r.geocompx.org/spatial-class.html and Chapter 2 of the online book Efficient R Programming, particularly sections 2.3 and 2.5, for details on R installation and set-up and the project management section.↩︎",
-    "crumbs": [
-      "Home"
-    ]
-  },
-  {
-    "objectID": "s1/s1project/foundations.html",
-    "href": "s1/s1project/foundations.html",
-    "title": "1 Python example",
+    "objectID": "datahack.html",
+    "href": "datahack.html",
+    "title": "Transport Data Minihack 2026",
     "section": "",
-    "text": "# load packages\nlibrary(tidyverse)\n\nHello this is some text.\n\ncasualty_type = c(\"cat\", \"dog\", \"person\")\ncasualty_age = seq(from = 20, to = 60, by = 20)\ncrashes = data.frame(casualty_type, casualty_age)\nplot(crashes$casualty_age)\n\nSubsetting.\n\ncrashes$casualty_type\ncrashes[[1]]\ncrashes[2,1]\n\n\ncrashes |&gt;\n  select(casualty_type)\n\ncrashes |&gt; \n  filter(casualty_age &gt; 35)\n\ncrashes |&gt; \n  filter(casualty_age-20 &gt; 35)\n\ncrashes |&gt;\n  ggplot() +\n  geom_bar(aes(x = casualty_age, fill = casualty_type))\n\n\nac = stats19::get_stats19(year = 2020, type = \"collision\")\nclass(ac)\ndim(ac)\nac_2021 = stats19::get_stats19(year = 2021, type = \"collision\")\nnrow(ac)\nnrow(ac_2021)\n# # After googling \"combine 2 data frames\" let's try rbind\n# ??combine\n# ?rbind\nac = rbind(ac, ac_2021)\ndim(ac)\nac_datetime = c(ac$datetime, ac_2021$datetime)\nlength(ac_datetime)\nrange(ac_datetime)\n\nclass(ac)\nstr(ac)\nnames(ac)\n# aggregate this by day to show \n# how crash numbers varied over the year\nac_by_year = ac |&gt;\n  group_by(date) |&gt;\n  summarise(\n    n_crashes = n()\n  )\nac_by_year |&gt;\n  mutate(\n    `N. crashes per year` = n_crashes,\n    `Week average` = zoo::rollmean(n_crashes, 7, na.pad = TRUE),\n    Date = date,\n  ) |&gt; \n  ggplot(aes(x = Date, y = `N. crashes per year`)) +\n  geom_point(alpha = 0.1) +\n  ylim(c(0, NA)) +\n  # geom_smooth() +\n  # weekly rolling average\n  geom_line(aes(Date, `Week average`), colour = \"red\") +\n  theme_minimal()\n\n\n# Updated plot with title and legend...\nac_by_year |&gt;\n  mutate(\n    `N. crashes per year` = n_crashes,\n    `Week average` = zoo::rollmean(n_crashes, 7, na.pad = TRUE),\n    Date = date,\n  ) |&gt; \n  ggplot(aes(x = Date, y = `N. crashes per year`)) +\n  geom_point(alpha = 0.1) +\n  ylim(c(0, NA)) +\n  # geom_smooth() +\n  # weekly rolling average\n  geom_line(aes(Date, `Week average`, colour = \"Week average\")) +\n  theme_minimal() +\n  labs(\n    colour = \"Legend\"\n  ) +\n  scale_colour_manual(values = c(\"Week average\" = \"red\")) +\n  ggtitle(\"Collions/day, 2020 to 2021\") +\n  theme(\n    legend.position = \"bottom\"\n  )\n\n\n1 Python example\n\ncasualty_type_py = [\"a\", \"B\", \"c\"]\ncasualty_type_py"
+    "text": "This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies (ITS) staff and students. It is also specifically designed to support ITS MSc students with their dissertation projects by providing a space to ask questions about importing, processing and visualising data.\nIt will take place on Thursday 7th May 2026. It is open to staff and students at ITS. Contact the organisers (Robin Lovelace) if you are not based at the University of Leeds and would like to join in.\nSee here to sign-up.\n\n\n\nTo create a supportive space for participants to ask questions about working with datasets in general and using data science techniques for working with transport datasets in particular\nGet support importing datasets for MSc dissertations and other projects\nData wrangling with the tidyverse R package and other tools\nLearning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data\nShowcase the potential of open data (transparency, participation, research) and reproducible/open work-flows\n\n\n\n\n\nNone: just an interest in transport data and a willingness to learn\nUseful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the Transport Data Science module for more details\n\n\n\n\n\n13:00 - 13:30: Introduction to importing, processing and visualising data with RStudio\n\nAn indroduction to RStudio\nAn introduction to Quarto for reproducible reports\nAn example with origin-destination data in Leeds\n\n13:30 - 14:00: Importing your datasets\n\nInstalling any necessary packages\nRequesting support for any issues\n\n14:00 - 14:05: Break\n14:05 - 15:00: Solo working on your datasets, asking questions, and getting support\n15:15 - 15:45: Presentation of the results (optional for participants)\n\nAn opportunity for participants to share what they learned\n\n15:45 - 16:00: Networking and sharing ideas\n\n\n\n\nThe prize will be Geocomputation with Python or Geocomputation with R (second edition). Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):\n\nBest technical implementation and code\nMost creative or impactful use of data\n\nThe presentations will be assessed by the organisers."
+  },
+  {
+    "objectID": "datahack.html#objectives",
+    "href": "datahack.html#objectives",
+    "title": "Transport Data Minihack 2026",
+    "section": "",
+    "text": "To create a supportive space for participants to ask questions about working with datasets in general and using data science techniques for working with transport datasets in particular\nGet support importing datasets for MSc dissertations and other projects\nData wrangling with the tidyverse R package and other tools\nLearning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data\nShowcase the potential of open data (transparency, participation, research) and reproducible/open work-flows"
+  },
+  {
+    "objectID": "datahack.html#prerequisites",
+    "href": "datahack.html#prerequisites",
+    "title": "Transport Data Minihack 2026",
+    "section": "",
+    "text": "None: just an interest in transport data and a willingness to learn\nUseful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the Transport Data Science module for more details"
+  },
+  {
+    "objectID": "datahack.html#schedule",
+    "href": "datahack.html#schedule",
+    "title": "Transport Data Minihack 2026",
+    "section": "",
+    "text": "13:00 - 13:30: Introduction to importing, processing and visualising data with RStudio\n\nAn indroduction to RStudio\nAn introduction to Quarto for reproducible reports\nAn example with origin-destination data in Leeds\n\n13:30 - 14:00: Importing your datasets\n\nInstalling any necessary packages\nRequesting support for any issues\n\n14:00 - 14:05: Break\n14:05 - 15:00: Solo working on your datasets, asking questions, and getting support\n15:15 - 15:45: Presentation of the results (optional for participants)\n\nAn opportunity for participants to share what they learned\n\n15:45 - 16:00: Networking and sharing ideas"
+  },
+  {
+    "objectID": "datahack.html#prizes",
+    "href": "datahack.html#prizes",
+    "title": "Transport Data Minihack 2026",
+    "section": "",
+    "text": "The prize will be Geocomputation with Python or Geocomputation with R (second edition). Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):\n\nBest technical implementation and code\nMost creative or impactful use of data\n\nThe presentations will be assessed by the organisers."
+  },
+  {
+    "objectID": "d1/index.html",
+    "href": "d1/index.html",
+    "title": "Welcome and set-up",
+    "section": "",
+    "text": "Dear Transport Data Science students,\nAs per your timetable, the first session is Thursday 30th January, from 10:00 to 13:00.\nLocation: Richard Hughes Cluster, in the “Cloth Workers Link Building”. If you’re wondering where that is, you’re not alone, I’m not 100% sure. So the first challenge of the module is to ensure that you get there on time, by 09:50, so you have time to get a seat in time for the 10:00 start."
+  },
+  {
+    "objectID": "d1/index.html#homework-for-next-week-deadline-friday-31st-january-1400",
+    "href": "d1/index.html#homework-for-next-week-deadline-friday-31st-january-1400",
+    "title": "Welcome and set-up",
+    "section": "1 Homework for next week (deadline: Friday 31st January, 14:00)",
+    "text": "1 Homework for next week (deadline: Friday 31st January, 14:00)\n\nEnsure that you have the timetable stored safely in your calendar, so you do not miss important sessions or seminars.\nEnsure that you have the necessary software installed on your computer and that you have tested that you can use it for the datasets we will be using in the course, see https://itsleeds.github.io/tds/#software-requirements-and-installation for guidance on installing the software you need.\n\nAny issues you have with the software installation, please get in touch with me as soon as possible.\n\n\nTest that you have the necessary software installed by running the following code in R:\n\nif (!requireNamespace(\"remotes\", quietly = TRUE)) {\n  install.packages(\"remotes\")\n}\nremotes::install_cran(\"tidyverse\")\nremotes::install_cran(\"osmextract\")\nlibrary(tidyverse)\nlibrary(osmextract)\nlibrary(sf)\n\n\nits = oe_get(\"ITS Leeds\", download_directory = tempdir())\n\n\nfigure = its |&gt;\n  ggplot() +\n  geom_sf(aes(colour = highway)) +\n  theme_void()\n# Save figure\nggsave(\"its.png\", figure, width = 6, height = 4)\n\n\nbrowseURL(\"its.png\")\n\n\nShow the map by executing the following code, which simply prints the map to the screen:\n\nfigure\n\nIf you see a map of the area around the Institute for Transport Studies, then you are ready for the first session. If you have any issues, please get in touch with me as soon as possible.\n\nTake a look at the reading list at https://itsleeds.github.io/tds/reading.html and have a read of the Transportation chapter of Geocomputation with R book (you will find the link to the book in the reading list).\nSign-up for a GitHub account if you do not already have one, and ensure that you have access to the TDS GitHub repository where you will find the course materials.\n\nPlease send me an email with you GitHub username so I can add you to the private repository that supports the course."
+  },
+  {
+    "objectID": "s6/index.html",
+    "href": "s6/index.html",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "",
+    "text": "By “publishing” in this context, we primarily mean submitting your project for assessment. However, the skills you learn here apply to various forms of publication:\n\nReports (similar to the documents created in this module)\nAcademic papers for journals or conferences\nPresentations (which can be created with Quarto using format: revealjs)\nWeb applications or interactive dashboards\nBlog posts or technical documentation\n\nThe key principle is that good data science work should be reproducible, well-documented, and clearly communicated. This session will help you develop those skills.\nIn this session, we will explore techniques for joining, combining and aggregating datasets in R, particularly for spatial data. We’ll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this session, you’ll learn:\n\nHow to perform spatial joins between point and polygon data\nHow to join tables using common identifiers (key-based joins)\nHow to calculate and visualize derived metrics from joined datasets\nHow to create professional-looking reports with Quarto\n\nThe skills developed in this session are essential for transport data scientists who often need to combine data from various sources to gain comprehensive insights.\n\n\nFirst, let’s load the libraries we’ll need for this session:\n\n# Load required libraries\nlibrary(tidyverse)  # Data manipulation and visualisation\nlibrary(sf)         # Simple features for spatial data\nlibrary(stats19)    # Package for road crash data\nlibrary(tmap)       # Thematic mapping"
+  },
+  {
+    "objectID": "s6/index.html#required-libraries",
+    "href": "s6/index.html#required-libraries",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "",
+    "text": "First, let’s load the libraries we’ll need for this session:\n\n# Load required libraries\nlibrary(tidyverse)  # Data manipulation and visualisation\nlibrary(sf)         # Simple features for spatial data\nlibrary(stats19)    # Package for road crash data\nlibrary(tmap)       # Thematic mapping"
+  },
+  {
+    "objectID": "s6/index.html#downloading-stats19-crash-data",
+    "href": "s6/index.html#downloading-stats19-crash-data",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "2.1 Downloading STATS19 crash data",
+    "text": "2.1 Downloading STATS19 crash data\nWe’ll begin by downloading road crash data for four years (2019-2022) using the stats19 package:\n\n# Download STATS19 crash data for 2019-2023\n# We're downloading data for multiple years to have a robust dataset\ncrashes_2019 = get_stats19(year = 2019, type = \"accidents\", ask = FALSE)\ncrashes_2020 = get_stats19(year = 2020, type = \"accidents\", ask = FALSE)\ncrashes_2021 = get_stats19(year = 2021, type = \"accidents\", ask = FALSE)\ncrashes_2022 = get_stats19(year = 2022, type = \"accidents\", ask = FALSE)\ncrashes_2023 = get_stats19(year = 2023, type = \"accidents\", ask = FALSE)\n\nThe get_stats19() function downloads the crash data. The parameters used are:\n\nyear: Specifies which year’s data to download\ntype: Selects the type of data (accidents, vehicles, or casualties)\nask = FALSE: Automatically downloads without prompting for confirmation"
+  },
+  {
+    "objectID": "s6/index.html#combining-multiple-years-of-data",
+    "href": "s6/index.html#combining-multiple-years-of-data",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "2.2 Combining multiple years of data",
+    "text": "2.2 Combining multiple years of data\nOnce we have the individual year datasets, we can combine them into a single dataframe using bind_rows():\n\n# Combine all years into one dataset\n# This creates a unified dataset for analysis across the full time period\ncrashes = bind_rows(crashes_2019, crashes_2020, crashes_2021, crashes_2022, crashes_2023)\n\n# Let's check the dimensions of our combined dataset\ndim(crashes)\n\nbind_rows() from dplyr appends the rows from each dataset, creating a unified dataset spanning all four years.\n\n\n\n\n\n\nNotebind_rows() vs rbind() in R (click to expand)\n\n\n\n\n\nBoth bind_rows() and rbind() combine data frames row-wise, but they differ in behaviour and flexibility.\n\nrbind() (Base R)\n\nComes from base R\nRequires exactly matching column names and types\nWill throw an error if the data frames don’t align perfectly\n\ndf1 = data.frame(a = 1:2, b = c(\"x\", \"y\"))\ndf2 = data.frame(a = 3:4, b = c(\"z\", \"w\"))\nrbind(df1, df2)  # ✅ Works\ndf3 = data.frame(a = 5:6, c = c(\"a\", \"b\"))\nrbind(df1, df3)  # ❌ Error: column names do not match\n\nbind_rows() (from dplyr)\n\nPart of the tidyverse\nMore flexible than rbind()\nAutomatically fills in missing columns with NAs\n\nlibrary(dplyr)\n\ndf1 = data.frame(a = 1:2, b = c(\"x\", \"y\"))\ndf3 = data.frame(a = 5:6, c = c(\"a\", \"b\"))\n\nbind_rows(df1, df3)  # ✅ Works, fills missing columns with NA\n\nSummary Comparison\n\n\n\nFeature\nrbind()\nbind_rows()\n\n\n\n\nFrom\nBase R\ndplyr (tidyverse)\n\n\nRequires same cols?\n✅ Yes\n❌ No\n\n\nFills missing cols\n❌ Error\n✅ With NA\n\n\nIdeal use case\nControlled data\nFlexible data wrangling\n\n\n\n\nTip\n\nUse rbind() if you’re sure the data frames have identical structure.\nUse bind_rows() for robust and flexible row-binding, especially in pipelines."
+  },
+  {
+    "objectID": "s6/index.html#converting-crash-data-to-sf-object",
+    "href": "s6/index.html#converting-crash-data-to-sf-object",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "2.3 Converting crash data to sf object",
+    "text": "2.3 Converting crash data to sf object\nTo enable spatial operations, we need to convert our crash data into an sf (simple features) object:\n\n# Creating geographic crash data\n# This converts the data frame into a spatial object with point geometries\ncrashes_sf = format_sf(crashes)\n\nhead(crashes_sf)\n\nThe format_sf() function from the stats19 package converts the crash coordinates into a spatial object. The note you see indicates that rows with missing coordinate values are automatically removed, as spatial objects cannot have NA values for coordinates/geometry."
+  },
+  {
+    "objectID": "s6/index.html#filtering-for-west-yorkshire",
+    "href": "s6/index.html#filtering-for-west-yorkshire",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "2.4 Filtering for West Yorkshire",
+    "text": "2.4 Filtering for West Yorkshire\nWe’ll now filter the crash data to include only incidents that occurred within the West Yorkshire police force area:\n\n# Filter crashes to only those that occurred in West Yorkshire\ncrashes_wy = crashes_sf |&gt; filter(police_force == \"West Yorkshire\")\n\n# Compare the number of rows before and after filtering\n# This shows how many crashes occurred in West Yorkshire vs. the whole dataset\nnrow(crashes_sf)\nnrow(crashes_wy)"
+  },
+  {
+    "objectID": "s6/index.html#what-is-a-spatial-join",
+    "href": "s6/index.html#what-is-a-spatial-join",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "3.1 What is a spatial join?",
+    "text": "3.1 What is a spatial join?\nA spatial join combines two spatial datasets based on their geographic relationship — e.g., whether one geometry intersects, contains, or is within another.\nIn R, we use the sf package to handle spatial joins with functions like:\nst_join(x, y, join = st_intersects)\n\nx: the primary spatial object (e.g. point or line data)\ny: the reference spatial object (e.g. polygons)\nst_intersects, st_within, st_contains, etc. define the spatial relationship\n\n\n\n\n\n\n\nNoteSpatial relations (click to expand)\n\n\n\n\n\n\n\n\nTopological relations between vector geometries, inspired by Figures 1 and 2 in Egenhofer and Herring (1990). The relations for which the function(x, y) is true are printed for each geometry pair, with x represented in pink and y represented in blue. The nature of the spatial relationship for each pair is described by the Dimensionally Extended 9-Intersection Model string.\n\n\n\n\n\nWhy is it useful in transport data science?\nSpatial joins are essential tools in transport data science for:\n\nMapping transport observations (e.g. crashes, stops, GPS traces) to zones or regions\nEnriching data with attributes from other layers (e.g. population, accessibility, land use)\nAggregating or summarising transport data by spatial units\n\nThey allow you to combine spatially referenced datasets in meaningful ways to gain insights and build models. We’ll use this technique to identify which LSOA each crash occurred in."
+  },
+  {
+    "objectID": "s6/index.html#loading-lsoa-boundary-data",
+    "href": "s6/index.html#loading-lsoa-boundary-data",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "3.2 Loading LSOA boundary data",
+    "text": "3.2 Loading LSOA boundary data\nFirst, we load the LSOA (Lower Super Output Area) boundaries for West Yorkshire:\n\n# Load the 2021 LSOA boundary data for West Yorkshire\nlsoa_wy = read_sf(\"https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson\")\n\n# Retain only useful variables: LSOA code (lsoa21cd) and LSOA name (lsoa21nm)\nlsoa_wy = lsoa_wy |&gt; select(lsoa21cd, lsoa21nm) \n\n# Check the structure of the data to understand what we're working with\nglimpse(lsoa_wy)\n\n# How many LSOAs are in our dataset?\n# The cat() function in R is short for “concatenate and print”\ncat(\"Number of LSOAs in West Yorkshire:\", nrow(lsoa_wy))\n\nLSOAs are small geographic areas in the UK designed for reporting census and other neighborhood statistics. Each LSOA typically contains 400-1,200 households, and usually have a resident population of 1,000-3,000 people. We’re using the 2021 LSOA boundaries, which align with the most recent UK Census."
+  },
+  {
+    "objectID": "s6/index.html#performing-a-spatial-join",
+    "href": "s6/index.html#performing-a-spatial-join",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "3.3 Performing a Spatial Join",
+    "text": "3.3 Performing a Spatial Join\nNow we’ll perform a spatial join to determine which LSOA each crash occurred in:\n\n# Perform spatial join to determine which LSOA each crash occurred in\n# This adds LSOA information to each crash point\ncrashes_in_lsoa = st_join(lsoa_wy, crashes_wy)\n\n# Check which columns were added from the LSOA dataset\n# setdiff finds column names that are new in crashes_in_lsoa\nadded_columns = setdiff(colnames(crashes_in_lsoa), colnames(crashes_wy))\n\n# The collapse argument is used in the paste() function,\n# and it controls how to combine multiple elements into a single string. \n# Here we add \", \" between elements\ncat(\"Columns added from LSOA data:\", paste(added_columns, collapse=\", \"),\"\\n\")\n\n# Check if any crashes couldn't be assigned to an LSOA\nna_lsoa = sum(is.na(crashes_in_lsoa$lsoa21cd))\ncat(\"Number of crashes not matching any LSOA:\", na_lsoa)\n\nThe st_join() function links each crash point to the LSOA polygon that contains it. By default, it performs a “within” operation, checking if each point in the first dataset falls within any polygon in the second dataset. After this operation, each crash record will have additional columns from the LSOA dataset, including the LSOA code and name.\nWe use the setdiff() function to find column names that are new in crashes_in_lsoa — i.e., the ones that come from lsoa_wy."
+  },
+  {
+    "objectID": "s6/index.html#aggregating-crashes-by-lsoa",
+    "href": "s6/index.html#aggregating-crashes-by-lsoa",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "3.4 Aggregating Crashes by LSOA",
+    "text": "3.4 Aggregating Crashes by LSOA\nNext, we’ll aggregate the crash data to count how many crashes of each severity occurred in each LSOA:\n\n# Aggregate crash data by LSOA, counting crashes of each severity\nlsoa_crashes_count = crashes_in_lsoa |&gt;\n  # Remove geometry column as we only need tabular data for aggregation\n  st_drop_geometry() |&gt;\n  # Group by LSOA identifiers\n  group_by(lsoa21cd) |&gt;\n  # Count crashes by severity level\n  summarise(\n    fatal_crashes_n = sum(accident_severity == \"Fatal\"),      # Number of fatal crashes\n    serious_crashes_n = sum(accident_severity == \"Serious\"),  # Number of serious crashes\n    slight_crashes_n = sum(accident_severity == \"Slight\"),     # Number of slight crashes\n    all_crashes_n = fatal_crashes_n + serious_crashes_n + slight_crashes_n # Total number of crashes\n  )\n\n# Display the first few rows of the aggregated data\nhead(lsoa_crashes_count)"
+  },
+  {
+    "objectID": "s6/index.html#joining-aggregated-crash-count-data-to-lsoa-boundaries",
+    "href": "s6/index.html#joining-aggregated-crash-count-data-to-lsoa-boundaries",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "4.1 Joining aggregated crash count data to LSOA Boundaries",
+    "text": "4.1 Joining aggregated crash count data to LSOA Boundaries\nNow we’ll join the aggregated crash counts back to the LSOA boundary data:\n\n# Join crash count data back to LSOA boundaries\n# This preserves the spatial information while adding the crash statistics\nlsoa_crashes_wy = lsoa_wy |&gt;\n  left_join(lsoa_crashes_count, by = \"lsoa21cd\") \n\n# Check the columns in our joined dataset\ncolnames(lsoa_crashes_wy)\n\n# Replace NA values with 0 for LSOAs that had no crashes\nlsoa_crashes_wy = lsoa_crashes_wy |&gt;\n  mutate(across(c(all_crashes_n, fatal_crashes_n, serious_crashes_n, slight_crashes_n), \n                ~replace_na(., 0)))\n\n# Count how many LSOAs had zero crashes\nzero_crash_lsoas = sum(lsoa_crashes_wy$all_crashes_n == 0)\ncat(\"Number of LSOAs with zero recorded crashes:\", zero_crash_lsoas, \"\\n\")\ncat(\"Percentage of LSOAs with zero crashes:\", round((zero_crash_lsoas/nrow(lsoa_crashes_wy))*100, 2), \"%\\n\")\n\nWe use left_join() to preserve all LSOAs, even those with no crashes. The by parameter specifies the columns to use for matching rows between the datasets. After this join, we have the spatial boundaries with the crash counts attached.\nWe also replace NA values with 0 for LSOAs that had no crashes, and calculate how many LSOAs had zero crashes recorded.\nQuestion: What happens if you use right_join() instead?"
+  },
+  {
+    "objectID": "s6/index.html#loading-census-population-data",
+    "href": "s6/index.html#loading-census-population-data",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "4.2 Loading census population data",
+    "text": "4.2 Loading census population data\nWe’ll now load census population data for the LSOAs, the census data is obtained from nomis, specifically the Number of usual residents in households and communal establishments in each LSOA. The data has been further cleaned for better processing.\n\n# Load 2021 Census population data for LSOAs\npop_lsoa = read_csv(\"https://github.com/itsleeds/tds/releases/download/2025/p6-census2021_lsoa_pop.csv\")\n\n# Display the first few rows\nhead(pop_lsoa)\n\n# Basic summary statistics of the population data\nsummary(pop_lsoa$pop)\n\nThis dataset contains population figures from the 2021 UK Census for each LSOA in England and Wales."
+  },
+  {
+    "objectID": "s6/index.html#joining-population-data",
+    "href": "s6/index.html#joining-population-data",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "4.3 Joining population data",
+    "text": "4.3 Joining population data\nNext, we’ll join the population data to our LSOA crash data using the LSOA codes and names as keys:\n\n# Join population data to our LSOA crash data\nlsoa_crashes_wy = lsoa_crashes_wy |&gt;\n  left_join(pop_lsoa, by = c(\"lsoa21cd\", \"lsoa21nm\"))\n\n# Check the first few rows of our joined dataset\nhead(lsoa_crashes_wy)\n\n# Check if we have any missing population values after the join\nmissing_pop = sum(is.na(lsoa_crashes_wy$pop))\ncat(\"Number of LSOAs with missing population data:\", missing_pop, \"\\n\")\n\nThis operation adds the population data to our existing dataset, allowing us to calculate per-capita crash rates."
+  },
+  {
+    "objectID": "s6/index.html#calculating-crashes-per-person",
+    "href": "s6/index.html#calculating-crashes-per-person",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "5.1 Calculating Crashes Per Person",
+    "text": "5.1 Calculating Crashes Per Person\nWe’ll calculate the number of crashes per person for each LSOA:\n\n# Calculate crashes per person for each LSOA\nlsoa_crashes_wy = lsoa_crashes_wy |&gt;\n  mutate(\n    # Crashes per person (raw rate)\n    crash_pp = all_crashes_n/pop,\n    \n    # Crashes per 1000 people (more intuitive scale)\n    crash_per_1000 = crash_pp * 1000,\n    \n    # Proportion of crashes that were fatal or serious\n    severity_ratio = (fatal_crashes_n + serious_crashes_n) / all_crashes_n\n  )\n\n# Replace NaN values in severity_ratio (from dividing by zero)\nlsoa_crashes_wy$severity_ratio[is.nan(lsoa_crashes_wy$severity_ratio)] = 0\n\n# Summary statistics of our derived metrics\nsummary(lsoa_crashes_wy$crash_pp)\nsummary(lsoa_crashes_wy$crash_per_1000)\nsummary(lsoa_crashes_wy$severity_ratio)\n\nThese derived metrics normalize the crash counts by population, allowing for more meaningful comparisons between areas with different population sizes. Areas with higher values have more crashes relative to their population."
+  },
+  {
+    "objectID": "s6/index.html#citations-and-references",
+    "href": "s6/index.html#citations-and-references",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "7.1 Citations and references",
+    "text": "7.1 Citations and references\nProperly citing sources is crucial for academic work and professional reports. Quarto makes this easy with built-in citation support.\n\n7.1.1 Adding citations\nTo cite a source, use the @ symbol followed by the citation key from your .bib file:\nRecent research shows that cycling infrastructure reduces casualty rates [@lovelace_stats19_2019].\n\nYou can also use multiple citations [@lovelace_stats19_2019; @morgan_2020].\n\nFor in-text citations with the author's name, use: As shown by @lovelace_stats19_2019, ...\n\n\n7.1.2 Managing your bibliography\n\nCreate a .bib file (e.g., references.bib) with your references\nAdd it to your YAML header:\n---\ntitle: \"My Transport Analysis\"\nbibliography: references.bib\n---\nCitations will automatically appear in your document with a References section at the end\n\nYou can find citation keys from Google Scholar, Zotero, or other reference managers."
+  },
+  {
+    "objectID": "s6/index.html#cross-references-for-figures-and-tables",
+    "href": "s6/index.html#cross-references-for-figures-and-tables",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "7.2 Cross-references for figures and tables",
+    "text": "7.2 Cross-references for figures and tables\nCross-references allow you to refer to figures, tables, and sections by number, which automatically updates if you reorganize your document.\n\n7.2.1 Figure cross-references\n```{r}\n#| label: fig-crash-map\n#| fig-cap: \"Distribution of road crashes in West Yorkshire\"\n\n# Your plotting code here\ntm_shape(crashes_sf) + tm_dots()\n```\n\nAs shown in @fig-crash-map, crashes are concentrated in urban areas.\n\n\n7.2.2 Table cross-references\n```{r}\n#| label: tbl-crash-summary\n#| tbl-cap: \"Summary statistics for road crashes\"\n\ncrash_summary |&gt; \n  knitr::kable()\n```\n\n@tbl-crash-summary presents the key statistics.\n\n\n7.2.3 Section cross-references\n# Introduction {#sec-intro}\n\nSee @sec-intro for background information."
+  },
+  {
+    "objectID": "s6/index.html#making-your-reports-look-professional",
+    "href": "s6/index.html#making-your-reports-look-professional",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "7.3 Making your reports look professional",
+    "text": "7.3 Making your reports look professional\n\n7.3.1 Choosing output formats\nQuarto supports multiple output formats. Specify in your YAML header:\n---\ntitle: \"My Report\"\nformat: \n  html:\n    theme: cosmo\n    toc: true\n    number-sections: true\n  pdf:\n    documentclass: article\n  revealjs:  # For presentations\n    theme: dark\n---\n\n\n7.3.2 Formatting tips\nCode chunk options control how code appears:\n```{r}\n#| echo: false      # Hide code, show only output\n#| warning: false   # Suppress warnings\n#| message: false   # Suppress messages\n#| fig-width: 8     # Set figure width\n#| fig-height: 6    # Set figure height\n\n# Your code here\n```\nCallout blocks highlight important information:\n:::{.callout-note}\nThis analysis uses STATS19 data from 2019-2023.\n:::\n\n:::{.callout-warning}\nData completeness varies by year and region.\n:::\n\n:::{.callout-tip}\nConsider using interactive maps for web outputs.\n:::\nTables can be formatted nicely with knitr::kable() or the gt package:\nlibrary(knitr)\ncrash_summary |&gt; \n  knitr::kable(\n    caption = \"Crash statistics by severity\",\n    digits = 2,\n    format.args = list(big.mark = \",\")\n  )\n\n\n7.3.3 Document structure\nA well-organized report should include:\n\nTitle and metadata (author, date, affiliation)\nAbstract or Executive Summary (brief overview)\nIntroduction (context and objectives)\nMethods (data sources, analysis techniques)\nResults (findings with figures and tables)\nDiscussion (interpretation and implications)\nConclusion (summary and recommendations)\nReferences (automatically generated by Quarto)\n\n\n\n7.3.4 Tips for submission\n\nUse version control: Commit your work regularly with Git\nCheck your output: Always render your document before submission to catch errors\nFollow formatting guidelines: Check if there are specific requirements (word count, citation style, etc.)\nInclude reproducible code: Make sure others can run your analysis\nProofread carefully: Check for typos, broken links, and missing figures"
+  },
+  {
+    "objectID": "s6/index.html#additional-resources",
+    "href": "s6/index.html#additional-resources",
+    "title": "Session 6: Joins, models and publishing your work",
+    "section": "7.4 Additional resources",
+    "text": "7.4 Additional resources\n\nQuarto documentation\nQuarto citations guide\nQuarto cross-references\nR Markdown: The Definitive Guide\nBuilding Reproducible Analytical Pipelines with R (Rodrigues, 2023)"
+  },
+  {
+    "objectID": "sem1/vis-practical.html",
+    "href": "sem1/vis-practical.html",
+    "title": "Seminar 1: Traffic estimation and transport data visualisation",
+    "section": "",
+    "text": "1 Introduction\nIn this seminar, we will build on the routing techniques from the previous sessions by exploring data visualization methods for transport analysis. By the end of this session, you should be able to:\n\nLoad and preprocess OD flow data\nVisualize OD lines and proportional symbol maps\nCompare walking, driving, and cycling flows\nAggregate flows along the road network\nIdentify critical road segments via network centrality\n\n\n\n2 Setup\nBelow are the libraries we will use throughout this session:\n\nknitr::opts_chunk$set(\n  message = FALSE,\n  warning = FALSE,\n  fig.width = 7,\n  fig.height = 5,\n  out.width = \"700px\"\n)\n\n# Load necessary libraries\nlibrary(opentripplanner)  # Routing engine (OpenTripPlanner client)\nlibrary(sf)               # Spatial data handling\n\nLinking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE\n\nlibrary(tmap)             # Thematic mapping\nlibrary(stplanr)          # Transport data functions\nlibrary(dplyr)            # Data manipulation\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(osmextract)       # OSM data handling\n\nData (c) OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright.\nCheck the package website, https://docs.ropensci.org/osmextract/, for more details.\n\nlibrary(dodgr)            # Network analysis\n\n\n# Set interactive mapping mode\ntmap_mode(\"view\")\n\n\n\n3 Flow Map Visualization\nFlow maps are useful for understanding the volume of travel between origins and destinations. In this section, we will:\n\nLoad desire lines (flows) data from a GeoJSON file.\nVisualize these lines with widths or colors proportional to demand.\nOptionally aggregate route geometries for more realistic depiction of flows along an actual road network.\n\n\n# Load Demand Data\ndesire_lines = read_sf(\"https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson\") |&gt;\n  select(from, to, all, walk, drive, cycle)\n\ndim(desire_lines)\n\n[1] 502   7\n\n# Let's take the top 50 car trips for demonstration\ndesire_lines_top = desire_lines |&gt;\n  arrange(desc(drive)) |&gt;\n  head(50)\n\n# Quick map to see the distribution of car trips\ntm_shape(desire_lines_top) +\n  tm_lines(\n    lwd = \"drive\",\n    lwd.scale = tm_scale_continuous(values.scale = 9)\n  ) +\n  tm_layout(legend.bg.color = \"white\")\n\n\n\n\n\n\n\n\n4 Proportional Symbol Flow Maps\nNow, let’s illustrate an alternative method: proportional symbols at origin or destination points. This is useful when you want to quickly see where demand is concentrated.\n\n# Summarize total flows by origin\n\norigin_flows = desire_lines |&gt;\n  group_by(from) |&gt;\n  summarise(\n    total_drive = sum(drive, na.rm = TRUE),\n    total_walk  = sum(walk, na.rm = TRUE),\n    total_cycle = sum(cycle, na.rm = TRUE),\n    `% drive` = total_drive / sum(all, na.rm = TRUE),\n    geometry = st_centroid(st_union(geometry))  \n  )\n\n# Simple map with proportional circles for drive volumes\n\ntm_shape(origin_flows) +\n  tm_bubbles(\n    size    = \"total_drive\",       # bubble size ~ drive volume\n    size.scale = tm_scale_intervals(values.scale = 2, values.range = c(0.5, 2)),\n    fill = \"% drive\",\n    fill.scale = tm_scale_continuous(values = \"brewer.reds\")\n  ) +\n  tm_title(\"Proportional Symbol Map of Drive Demand by Origin\")\n\n\n\n\n\n\n\nEach origin is represented by a circle whose radius and color intensity reflect the total number of driving trips. You can modify palettes, breaks, and scaling to highlight variations.\n\n\n5 Mode-Specific Analysis\nWe have have columns walk, drive, cycle in desire_lines. We can map them separately or side-by-side. We can also color lines by the dominant mode.\n\n# Let's create 3 separate maps: drive, walk, cycle\ntmap_mode(\"plot\")\nm_drive = tm_shape(desire_lines_top) +\n  tm_lines(\n    lwd = \"drive\",\n    lwd.scale = tm_scale_continuous(values.scale = 9),\n    col = \"red\"\n  ) +\n  tm_title(\"Driving Flows\")\n\nm_walk = tm_shape(desire_lines_top) +\n  tm_lines(\n    lwd = \"walk\",\n    lwd.scale = tm_scale_continuous(values.scale = 9),\n    col = \"green\"\n  ) +\n  tm_title(\"Walking Flows\")\n\nm_cycle = tm_shape(desire_lines_top) +\n  tm_lines(\n    lwd = \"cycle\",\n    lwd.scale = tm_scale_continuous(values.scale = 9),\n    col = \"blue\"\n  ) +\n  tm_title(\"Cycling Flows\")\n\ntmap_arrange(m_drive, m_walk, m_cycle, ncol=3)\n\n\n\n\n\n\n\n\nThis tmap_arrange() will output a single figure with three columns, each illustrating flows by one mode. Students can visually compare the differences: maybe driving flows are much thicker on longer corridors, while walking flows are concentrated in the city center.\n\n\n6 Aggregating Flows with Actual Routes\nRather than drawing direct origin-destination lines, we can route each flow along the road network and then aggregate them to see which streets carry the most traffic. This uses stplanr::overline() to merge lines that overlap.\n\n# Download pre-routed lines for demonstration\nu = \"https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive_25.geojson\"\nroutes_drive = read_sf(u)\n\n# Inspect the summary of the drive.x variable (car trips)\nsummary(routes_drive$drive.x)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   41.0   171.2   327.0   415.1   546.5  2346.0 \n\ntm_shape(routes_drive) +\n  tm_lines(\n    lwd = \"drive.x\",\n    lwd.scale = tm_scale_continuous(values.scale = 9),\n    col = \"red\"\n  ) +\n  tm_title(\"Road Congestion (drive_total)\")\n\n\n\n\n\n\n\n\n\n\n7 Network Centrality Analysis\nBetweenness centrality indicates how often a road (or node) lies on the shortest path between other points in a network. Roads with high centrality are typically crucial for overall connectivity.\nHere, we demonstrate how to:\n\nDownload roads from OpenStreetMap (OSM) for the Isle of Wight.\nWeight the network for motor vehicle usage.\nCompute betweenness centrality with dodgr.\nConvert the results back to sf for mapping.\n\n\n# Get Isle of Wight road network\n# We choose 'primary', 'secondary', 'tertiary' roads for demonstration\nroads = oe_get(\"Isle of Wight\", \n                extra_tags = c(\"maxspeed\", \"oneway\")) |&gt;\n  filter(highway %in% c(\"primary\", \"secondary\", \"tertiary\"))\n\n# Weight the street network for motorcar usage\ngraph = weight_streetnet(\n  roads,\n  wt_profile = \"motorcar\",\n  type_col = \"highway\",\n  id_col = \"osm_id\",\n  keep_cols = c(\"maxspeed\", \"oneway\")\n)\n\n# Calculate betweenness centrality\ncentrality = dodgr_centrality(graph)\n\n# Convert to sf for visualization\ncentrality_sf = dodgr_to_sf(centrality)\n\n# Visualize critical links\ntm_shape(centrality_sf) +\n  tm_lines(\n    col = \"centrality\",\n    col.scale = tm_scale_intervals(style = \"fisher\", values = \"-viridis\"),\n    col.legend = tm_legend(title = \"Betweenness Centrality\"),\n    lwd = 3\n  ) \n\nThe code above should generate a map that looks something like this:\n\nHigh values in the centrality column indicate roads that act as vital connectors in the regional transport network.\n\n\n8 Extra Exercises: 3D Visualization\nA 3D perspective can often reveal relationships between travel flows and the underlying topography more effectively. Below, we demonstrate how to retrieve elevation data and render a 3D hillshade using the rayshader package. You may also be interested in overlaying flow lines onto a 3D terrain model to enhance visualization.\nNote: the following code requires you to install the rayshader elevatr gifski rgl package. Results not shown in website.\n\nlibrary(rayshader)        # 3D data visualization\nlibrary(elevatr)          # Elevation data\nlibrary(gifski)           # Creating GIF animations\nlibrary(rgl)              # 3D visualization device\n\nassign(\"has_internet_via_proxy\", TRUE, environment(curl::has_internet))\ncurl::has_internet()\n# Example: Elevation data near a location in the UK\ncoords = data.frame(x = -2.087918, y = 53.71534)\ncoords_sf = st_as_sf(coords, coords = c(\"x\", \"y\"), crs = 4326)\n# Get an elevation raster at zoom level 11 (~ 10m resolution, depending on region)\nelevation = elevatr::get_elev_raster(\n  locations = coords_sf,\n  z = 11\n)\n# Convert the raster to a matrix for rayshader\nelev_matrix = rayshader::raster_to_matrix(elevation)\n# Create a hillshade layer\nhillshade_matrix = rayshader::ray_shade(elev_matrix, zscale = 15)\n# Clear existing rgl device\nrgl::rgl.clear()\n# Render a 3D plot of the terrain\nrayshader::plot_3d(\n  heightmap = elev_matrix,\n  hillshade = hillshade_matrix,\n  zscale = 15,\n  windowsize = c(1000, 800)\n)\n# Adjust camera view\nrgl::view3d(theta = 30, phi = 30, zoom = 0.75)\nrgl::rglwidget()\n\n\n\n9 Conclusions\nIn this session, you learned how to:\n\nCreate flow maps to visualize travel demand from an OD dataset.\nCompare flows by mode (driving, walking, cycling) to understand differences in spatial patterns.\nAggregate routes along the road network (using stplanr::overline) to highlight heavily used corridors.\nCompute betweenness centrality (using dodgr) to pinpoint critical road segments crucial for connectivity."
   },
   {
     "objectID": "s1/slides.html#who-transport-data-science-team",
@@ -1003,515 +1386,181 @@
     "text": "Summary\n\nWalk and understand the data before doing complex things\nVisualise the data, ask questions of it, descriptive stats\nOnly then add complexity to your analysis\nStarting point for this: Transport chapter of Geocomputation with R (Lovelace, Nowosad, and Münchow 2025)"
   },
   {
-    "objectID": "sem1/vis-practical.html",
-    "href": "sem1/vis-practical.html",
-    "title": "Seminar 1: Traffic estimation and transport data visualisation",
+    "objectID": "s1/s1project/foundations.html",
+    "href": "s1/s1project/foundations.html",
+    "title": "1 Python example",
     "section": "",
-    "text": "1 Introduction\nIn this seminar, we will build on the routing techniques from the previous sessions by exploring data visualization methods for transport analysis. By the end of this session, you should be able to:\n\nLoad and preprocess OD flow data\nVisualize OD lines and proportional symbol maps\nCompare walking, driving, and cycling flows\nAggregate flows along the road network\nIdentify critical road segments via network centrality\n\n\n\n2 Setup\nBelow are the libraries we will use throughout this session:\n\nknitr::opts_chunk$set(\n  message = FALSE,\n  warning = FALSE,\n  fig.width = 7,\n  fig.height = 5,\n  out.width = \"700px\"\n)\n\n# Load necessary libraries\nlibrary(opentripplanner)  # Routing engine (OpenTripPlanner client)\nlibrary(sf)               # Spatial data handling\n\nLinking to GEOS 3.12.1, GDAL 3.8.4, PROJ 9.4.0; sf_use_s2() is TRUE\n\nlibrary(tmap)             # Thematic mapping\nlibrary(stplanr)          # Transport data functions\nlibrary(dplyr)            # Data manipulation\n\n\nAttaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\nlibrary(osmextract)       # OSM data handling\n\nData (c) OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright.\nCheck the package website, https://docs.ropensci.org/osmextract/, for more details.\n\nlibrary(dodgr)            # Network analysis\n\n\n# Set interactive mapping mode\ntmap_mode(\"view\")\n\n\n\n3 Flow Map Visualization\nFlow maps are useful for understanding the volume of travel between origins and destinations. In this section, we will:\n\nLoad desire lines (flows) data from a GeoJSON file.\nVisualize these lines with widths or colors proportional to demand.\nOptionally aggregate route geometries for more realistic depiction of flows along an actual road network.\n\n\n# Load Demand Data\ndesire_lines = read_sf(\"https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson\") |&gt;\n  select(from, to, all, walk, drive, cycle)\n\ndim(desire_lines)\n\n[1] 502   7\n\n# Let's take the top 50 car trips for demonstration\ndesire_lines_top = desire_lines |&gt;\n  arrange(desc(drive)) |&gt;\n  head(50)\n\n# Quick map to see the distribution of car trips\ntm_shape(desire_lines_top) +\n  tm_lines(\n    lwd = \"drive\",\n    lwd.scale = tm_scale_continuous(values.scale = 9)\n  ) +\n  tm_layout(legend.bg.color = \"white\")\n\n\n\n\n\n\n\n\n4 Proportional Symbol Flow Maps\nNow, let’s illustrate an alternative method: proportional symbols at origin or destination points. This is useful when you want to quickly see where demand is concentrated.\n\n# Summarize total flows by origin\n\norigin_flows = desire_lines |&gt;\n  group_by(from) |&gt;\n  summarise(\n    total_drive = sum(drive, na.rm = TRUE),\n    total_walk  = sum(walk, na.rm = TRUE),\n    total_cycle = sum(cycle, na.rm = TRUE),\n    `% drive` = total_drive / sum(all, na.rm = TRUE),\n    geometry = st_centroid(st_union(geometry))  \n  )\n\n# Simple map with proportional circles for drive volumes\n\ntm_shape(origin_flows) +\n  tm_bubbles(\n    size    = \"total_drive\",       # bubble size ~ drive volume\n    size.scale = tm_scale_intervals(values.scale = 2, values.range = c(0.5, 2)),\n    fill = \"% drive\",\n    fill.scale = tm_scale_continuous(values = \"brewer.reds\")\n  ) +\n  tm_title(\"Proportional Symbol Map of Drive Demand by Origin\")\n\n\n\n\n\n\n\nEach origin is represented by a circle whose radius and color intensity reflect the total number of driving trips. You can modify palettes, breaks, and scaling to highlight variations.\n\n\n5 Mode-Specific Analysis\nWe have have columns walk, drive, cycle in desire_lines. We can map them separately or side-by-side. We can also color lines by the dominant mode.\n\n# Let's create 3 separate maps: drive, walk, cycle\ntmap_mode(\"plot\")\nm_drive = tm_shape(desire_lines_top) +\n  tm_lines(\n    lwd = \"drive\",\n    lwd.scale = tm_scale_continuous(values.scale = 9),\n    col = \"red\"\n  ) +\n  tm_title(\"Driving Flows\")\n\nm_walk = tm_shape(desire_lines_top) +\n  tm_lines(\n    lwd = \"walk\",\n    lwd.scale = tm_scale_continuous(values.scale = 9),\n    col = \"green\"\n  ) +\n  tm_title(\"Walking Flows\")\n\nm_cycle = tm_shape(desire_lines_top) +\n  tm_lines(\n    lwd = \"cycle\",\n    lwd.scale = tm_scale_continuous(values.scale = 9),\n    col = \"blue\"\n  ) +\n  tm_title(\"Cycling Flows\")\n\ntmap_arrange(m_drive, m_walk, m_cycle, ncol=3)\n\n\n\n\n\n\n\n\nThis tmap_arrange() will output a single figure with three columns, each illustrating flows by one mode. Students can visually compare the differences: maybe driving flows are much thicker on longer corridors, while walking flows are concentrated in the city center.\n\n\n6 Aggregating Flows with Actual Routes\nRather than drawing direct origin-destination lines, we can route each flow along the road network and then aggregate them to see which streets carry the most traffic. This uses stplanr::overline() to merge lines that overlap.\n\n# Download pre-routed lines for demonstration\nu = \"https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive_25.geojson\"\nroutes_drive = read_sf(u)\n\n# Inspect the summary of the drive.x variable (car trips)\nsummary(routes_drive$drive.x)\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n   41.0   171.2   327.0   415.1   546.5  2346.0 \n\ntm_shape(routes_drive) +\n  tm_lines(\n    lwd = \"drive.x\",\n    lwd.scale = tm_scale_continuous(values.scale = 9),\n    col = \"red\"\n  ) +\n  tm_title(\"Road Congestion (drive_total)\")\n\n\n\n\n\n\n\n\n\n\n7 Network Centrality Analysis\nBetweenness centrality indicates how often a road (or node) lies on the shortest path between other points in a network. Roads with high centrality are typically crucial for overall connectivity.\nHere, we demonstrate how to:\n\nDownload roads from OpenStreetMap (OSM) for the Isle of Wight.\nWeight the network for motor vehicle usage.\nCompute betweenness centrality with dodgr.\nConvert the results back to sf for mapping.\n\n\n# Get Isle of Wight road network\n# We choose 'primary', 'secondary', 'tertiary' roads for demonstration\nroads = oe_get(\"Isle of Wight\", \n                extra_tags = c(\"maxspeed\", \"oneway\")) |&gt;\n  filter(highway %in% c(\"primary\", \"secondary\", \"tertiary\"))\n\n# Weight the street network for motorcar usage\ngraph = weight_streetnet(\n  roads,\n  wt_profile = \"motorcar\",\n  type_col = \"highway\",\n  id_col = \"osm_id\",\n  keep_cols = c(\"maxspeed\", \"oneway\")\n)\n\n# Calculate betweenness centrality\ncentrality = dodgr_centrality(graph)\n\n# Convert to sf for visualization\ncentrality_sf = dodgr_to_sf(centrality)\n\n# Visualize critical links\ntm_shape(centrality_sf) +\n  tm_lines(\n    col = \"centrality\",\n    col.scale = tm_scale_intervals(style = \"fisher\", values = \"-viridis\"),\n    col.legend = tm_legend(title = \"Betweenness Centrality\"),\n    lwd = 3\n  ) \n\nThe code above should generate a map that looks something like this:\n\nHigh values in the centrality column indicate roads that act as vital connectors in the regional transport network.\n\n\n8 Extra Exercises: 3D Visualization\nA 3D perspective can often reveal relationships between travel flows and the underlying topography more effectively. Below, we demonstrate how to retrieve elevation data and render a 3D hillshade using the rayshader package. You may also be interested in overlaying flow lines onto a 3D terrain model to enhance visualization.\nNote: the following code requires you to install the rayshader elevatr gifski rgl package. Results not shown in website.\n\nlibrary(rayshader)        # 3D data visualization\nlibrary(elevatr)          # Elevation data\nlibrary(gifski)           # Creating GIF animations\nlibrary(rgl)              # 3D visualization device\n\nassign(\"has_internet_via_proxy\", TRUE, environment(curl::has_internet))\ncurl::has_internet()\n# Example: Elevation data near a location in the UK\ncoords = data.frame(x = -2.087918, y = 53.71534)\ncoords_sf = st_as_sf(coords, coords = c(\"x\", \"y\"), crs = 4326)\n# Get an elevation raster at zoom level 11 (~ 10m resolution, depending on region)\nelevation = elevatr::get_elev_raster(\n  locations = coords_sf,\n  z = 11\n)\n# Convert the raster to a matrix for rayshader\nelev_matrix = rayshader::raster_to_matrix(elevation)\n# Create a hillshade layer\nhillshade_matrix = rayshader::ray_shade(elev_matrix, zscale = 15)\n# Clear existing rgl device\nrgl::rgl.clear()\n# Render a 3D plot of the terrain\nrayshader::plot_3d(\n  heightmap = elev_matrix,\n  hillshade = hillshade_matrix,\n  zscale = 15,\n  windowsize = c(1000, 800)\n)\n# Adjust camera view\nrgl::view3d(theta = 30, phi = 30, zoom = 0.75)\nrgl::rglwidget()\n\n\n\n9 Conclusions\nIn this session, you learned how to:\n\nCreate flow maps to visualize travel demand from an OD dataset.\nCompare flows by mode (driving, walking, cycling) to understand differences in spatial patterns.\nAggregate routes along the road network (using stplanr::overline) to highlight heavily used corridors.\nCompute betweenness centrality (using dodgr) to pinpoint critical road segments crucial for connectivity."
+    "text": "# load packages\nlibrary(tidyverse)\n\nHello this is some text.\n\ncasualty_type = c(\"cat\", \"dog\", \"person\")\ncasualty_age = seq(from = 20, to = 60, by = 20)\ncrashes = data.frame(casualty_type, casualty_age)\nplot(crashes$casualty_age)\n\nSubsetting.\n\ncrashes$casualty_type\ncrashes[[1]]\ncrashes[2,1]\n\n\ncrashes |&gt;\n  select(casualty_type)\n\ncrashes |&gt; \n  filter(casualty_age &gt; 35)\n\ncrashes |&gt; \n  filter(casualty_age-20 &gt; 35)\n\ncrashes |&gt;\n  ggplot() +\n  geom_bar(aes(x = casualty_age, fill = casualty_type))\n\n\nac = stats19::get_stats19(year = 2020, type = \"collision\")\nclass(ac)\ndim(ac)\nac_2021 = stats19::get_stats19(year = 2021, type = \"collision\")\nnrow(ac)\nnrow(ac_2021)\n# # After googling \"combine 2 data frames\" let's try rbind\n# ??combine\n# ?rbind\nac = rbind(ac, ac_2021)\ndim(ac)\nac_datetime = c(ac$datetime, ac_2021$datetime)\nlength(ac_datetime)\nrange(ac_datetime)\n\nclass(ac)\nstr(ac)\nnames(ac)\n# aggregate this by day to show \n# how crash numbers varied over the year\nac_by_year = ac |&gt;\n  group_by(date) |&gt;\n  summarise(\n    n_crashes = n()\n  )\nac_by_year |&gt;\n  mutate(\n    `N. crashes per year` = n_crashes,\n    `Week average` = zoo::rollmean(n_crashes, 7, na.pad = TRUE),\n    Date = date,\n  ) |&gt; \n  ggplot(aes(x = Date, y = `N. crashes per year`)) +\n  geom_point(alpha = 0.1) +\n  ylim(c(0, NA)) +\n  # geom_smooth() +\n  # weekly rolling average\n  geom_line(aes(Date, `Week average`), colour = \"red\") +\n  theme_minimal()\n\n\n# Updated plot with title and legend...\nac_by_year |&gt;\n  mutate(\n    `N. crashes per year` = n_crashes,\n    `Week average` = zoo::rollmean(n_crashes, 7, na.pad = TRUE),\n    Date = date,\n  ) |&gt; \n  ggplot(aes(x = Date, y = `N. crashes per year`)) +\n  geom_point(alpha = 0.1) +\n  ylim(c(0, NA)) +\n  # geom_smooth() +\n  # weekly rolling average\n  geom_line(aes(Date, `Week average`, colour = \"Week average\")) +\n  theme_minimal() +\n  labs(\n    colour = \"Legend\"\n  ) +\n  scale_colour_manual(values = c(\"Week average\" = \"red\")) +\n  ggtitle(\"Collions/day, 2020 to 2021\") +\n  theme(\n    legend.position = \"bottom\"\n  )\n\n\n1 Python example\n\ncasualty_type_py = [\"a\", \"B\", \"c\"]\ncasualty_type_py"
   },
   {
-    "objectID": "s6/index.html",
-    "href": "s6/index.html",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "",
-    "text": "By “publishing” in this context, we primarily mean submitting your project for assessment. However, the skills you learn here apply to various forms of publication:\n\nReports (similar to the documents created in this module)\nAcademic papers for journals or conferences\nPresentations (which can be created with Quarto using format: revealjs)\nWeb applications or interactive dashboards\nBlog posts or technical documentation\n\nThe key principle is that good data science work should be reproducible, well-documented, and clearly communicated. This session will help you develop those skills.\nIn this session, we will explore techniques for joining, combining and aggregating datasets in R, particularly for spatial data. We’ll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this session, you’ll learn:\n\nHow to perform spatial joins between point and polygon data\nHow to join tables using common identifiers (key-based joins)\nHow to calculate and visualize derived metrics from joined datasets\nHow to create professional-looking reports with Quarto\n\nThe skills developed in this session are essential for transport data scientists who often need to combine data from various sources to gain comprehensive insights.\n\n\nFirst, let’s load the libraries we’ll need for this session:\n\n# Load required libraries\nlibrary(tidyverse)  # Data manipulation and visualisation\nlibrary(sf)         # Simple features for spatial data\nlibrary(stats19)    # Package for road crash data\nlibrary(tmap)       # Thematic mapping"
-  },
-  {
-    "objectID": "s6/index.html#required-libraries",
-    "href": "s6/index.html#required-libraries",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "",
-    "text": "First, let’s load the libraries we’ll need for this session:\n\n# Load required libraries\nlibrary(tidyverse)  # Data manipulation and visualisation\nlibrary(sf)         # Simple features for spatial data\nlibrary(stats19)    # Package for road crash data\nlibrary(tmap)       # Thematic mapping"
-  },
-  {
-    "objectID": "s6/index.html#downloading-stats19-crash-data",
-    "href": "s6/index.html#downloading-stats19-crash-data",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "2.1 Downloading STATS19 crash data",
-    "text": "2.1 Downloading STATS19 crash data\nWe’ll begin by downloading road crash data for four years (2019-2022) using the stats19 package:\n\n# Download STATS19 crash data for 2019-2023\n# We're downloading data for multiple years to have a robust dataset\ncrashes_2019 = get_stats19(year = 2019, type = \"accidents\", ask = FALSE)\ncrashes_2020 = get_stats19(year = 2020, type = \"accidents\", ask = FALSE)\ncrashes_2021 = get_stats19(year = 2021, type = \"accidents\", ask = FALSE)\ncrashes_2022 = get_stats19(year = 2022, type = \"accidents\", ask = FALSE)\ncrashes_2023 = get_stats19(year = 2023, type = \"accidents\", ask = FALSE)\n\nThe get_stats19() function downloads the crash data. The parameters used are:\n\nyear: Specifies which year’s data to download\ntype: Selects the type of data (accidents, vehicles, or casualties)\nask = FALSE: Automatically downloads without prompting for confirmation"
-  },
-  {
-    "objectID": "s6/index.html#combining-multiple-years-of-data",
-    "href": "s6/index.html#combining-multiple-years-of-data",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "2.2 Combining multiple years of data",
-    "text": "2.2 Combining multiple years of data\nOnce we have the individual year datasets, we can combine them into a single dataframe using bind_rows():\n\n# Combine all years into one dataset\n# This creates a unified dataset for analysis across the full time period\ncrashes = bind_rows(crashes_2019, crashes_2020, crashes_2021, crashes_2022, crashes_2023)\n\n# Let's check the dimensions of our combined dataset\ndim(crashes)\n\nbind_rows() from dplyr appends the rows from each dataset, creating a unified dataset spanning all four years.\n\n\n\n\n\n\nNotebind_rows() vs rbind() in R (click to expand)\n\n\n\n\n\nBoth bind_rows() and rbind() combine data frames row-wise, but they differ in behaviour and flexibility.\n\nrbind() (Base R)\n\nComes from base R\nRequires exactly matching column names and types\nWill throw an error if the data frames don’t align perfectly\n\ndf1 = data.frame(a = 1:2, b = c(\"x\", \"y\"))\ndf2 = data.frame(a = 3:4, b = c(\"z\", \"w\"))\nrbind(df1, df2)  # ✅ Works\ndf3 = data.frame(a = 5:6, c = c(\"a\", \"b\"))\nrbind(df1, df3)  # ❌ Error: column names do not match\n\nbind_rows() (from dplyr)\n\nPart of the tidyverse\nMore flexible than rbind()\nAutomatically fills in missing columns with NAs\n\nlibrary(dplyr)\n\ndf1 = data.frame(a = 1:2, b = c(\"x\", \"y\"))\ndf3 = data.frame(a = 5:6, c = c(\"a\", \"b\"))\n\nbind_rows(df1, df3)  # ✅ Works, fills missing columns with NA\n\nSummary Comparison\n\n\n\nFeature\nrbind()\nbind_rows()\n\n\n\n\nFrom\nBase R\ndplyr (tidyverse)\n\n\nRequires same cols?\n✅ Yes\n❌ No\n\n\nFills missing cols\n❌ Error\n✅ With NA\n\n\nIdeal use case\nControlled data\nFlexible data wrangling\n\n\n\n\nTip\n\nUse rbind() if you’re sure the data frames have identical structure.\nUse bind_rows() for robust and flexible row-binding, especially in pipelines."
-  },
-  {
-    "objectID": "s6/index.html#converting-crash-data-to-sf-object",
-    "href": "s6/index.html#converting-crash-data-to-sf-object",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "2.3 Converting crash data to sf object",
-    "text": "2.3 Converting crash data to sf object\nTo enable spatial operations, we need to convert our crash data into an sf (simple features) object:\n\n# Creating geographic crash data\n# This converts the data frame into a spatial object with point geometries\ncrashes_sf = format_sf(crashes)\n\nhead(crashes_sf)\n\nThe format_sf() function from the stats19 package converts the crash coordinates into a spatial object. The note you see indicates that rows with missing coordinate values are automatically removed, as spatial objects cannot have NA values for coordinates/geometry."
-  },
-  {
-    "objectID": "s6/index.html#filtering-for-west-yorkshire",
-    "href": "s6/index.html#filtering-for-west-yorkshire",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "2.4 Filtering for West Yorkshire",
-    "text": "2.4 Filtering for West Yorkshire\nWe’ll now filter the crash data to include only incidents that occurred within the West Yorkshire police force area:\n\n# Filter crashes to only those that occurred in West Yorkshire\ncrashes_wy = crashes_sf |&gt; filter(police_force == \"West Yorkshire\")\n\n# Compare the number of rows before and after filtering\n# This shows how many crashes occurred in West Yorkshire vs. the whole dataset\nnrow(crashes_sf)\nnrow(crashes_wy)"
-  },
-  {
-    "objectID": "s6/index.html#what-is-a-spatial-join",
-    "href": "s6/index.html#what-is-a-spatial-join",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "3.1 What is a spatial join?",
-    "text": "3.1 What is a spatial join?\nA spatial join combines two spatial datasets based on their geographic relationship — e.g., whether one geometry intersects, contains, or is within another.\nIn R, we use the sf package to handle spatial joins with functions like:\nst_join(x, y, join = st_intersects)\n\nx: the primary spatial object (e.g. point or line data)\ny: the reference spatial object (e.g. polygons)\nst_intersects, st_within, st_contains, etc. define the spatial relationship\n\n\n\n\n\n\n\nNoteSpatial relations (click to expand)\n\n\n\n\n\n\n\n\nTopological relations between vector geometries, inspired by Figures 1 and 2 in Egenhofer and Herring (1990). The relations for which the function(x, y) is true are printed for each geometry pair, with x represented in pink and y represented in blue. The nature of the spatial relationship for each pair is described by the Dimensionally Extended 9-Intersection Model string.\n\n\n\n\n\nWhy is it useful in transport data science?\nSpatial joins are essential tools in transport data science for:\n\nMapping transport observations (e.g. crashes, stops, GPS traces) to zones or regions\nEnriching data with attributes from other layers (e.g. population, accessibility, land use)\nAggregating or summarising transport data by spatial units\n\nThey allow you to combine spatially referenced datasets in meaningful ways to gain insights and build models. We’ll use this technique to identify which LSOA each crash occurred in."
-  },
-  {
-    "objectID": "s6/index.html#loading-lsoa-boundary-data",
-    "href": "s6/index.html#loading-lsoa-boundary-data",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "3.2 Loading LSOA boundary data",
-    "text": "3.2 Loading LSOA boundary data\nFirst, we load the LSOA (Lower Super Output Area) boundaries for West Yorkshire:\n\n# Load the 2021 LSOA boundary data for West Yorkshire\nlsoa_wy = read_sf(\"https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson\")\n\n# Retain only useful variables: LSOA code (lsoa21cd) and LSOA name (lsoa21nm)\nlsoa_wy = lsoa_wy |&gt; select(lsoa21cd, lsoa21nm) \n\n# Check the structure of the data to understand what we're working with\nglimpse(lsoa_wy)\n\n# How many LSOAs are in our dataset?\n# The cat() function in R is short for “concatenate and print”\ncat(\"Number of LSOAs in West Yorkshire:\", nrow(lsoa_wy))\n\nLSOAs are small geographic areas in the UK designed for reporting census and other neighborhood statistics. Each LSOA typically contains 400-1,200 households, and usually have a resident population of 1,000-3,000 people. We’re using the 2021 LSOA boundaries, which align with the most recent UK Census."
-  },
-  {
-    "objectID": "s6/index.html#performing-a-spatial-join",
-    "href": "s6/index.html#performing-a-spatial-join",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "3.3 Performing a Spatial Join",
-    "text": "3.3 Performing a Spatial Join\nNow we’ll perform a spatial join to determine which LSOA each crash occurred in:\n\n# Perform spatial join to determine which LSOA each crash occurred in\n# This adds LSOA information to each crash point\ncrashes_in_lsoa = st_join(lsoa_wy, crashes_wy)\n\n# Check which columns were added from the LSOA dataset\n# setdiff finds column names that are new in crashes_in_lsoa\nadded_columns = setdiff(colnames(crashes_in_lsoa), colnames(crashes_wy))\n\n# The collapse argument is used in the paste() function,\n# and it controls how to combine multiple elements into a single string. \n# Here we add \", \" between elements\ncat(\"Columns added from LSOA data:\", paste(added_columns, collapse=\", \"),\"\\n\")\n\n# Check if any crashes couldn't be assigned to an LSOA\nna_lsoa = sum(is.na(crashes_in_lsoa$lsoa21cd))\ncat(\"Number of crashes not matching any LSOA:\", na_lsoa)\n\nThe st_join() function links each crash point to the LSOA polygon that contains it. By default, it performs a “within” operation, checking if each point in the first dataset falls within any polygon in the second dataset. After this operation, each crash record will have additional columns from the LSOA dataset, including the LSOA code and name.\nWe use the setdiff() function to find column names that are new in crashes_in_lsoa — i.e., the ones that come from lsoa_wy."
-  },
-  {
-    "objectID": "s6/index.html#aggregating-crashes-by-lsoa",
-    "href": "s6/index.html#aggregating-crashes-by-lsoa",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "3.4 Aggregating Crashes by LSOA",
-    "text": "3.4 Aggregating Crashes by LSOA\nNext, we’ll aggregate the crash data to count how many crashes of each severity occurred in each LSOA:\n\n# Aggregate crash data by LSOA, counting crashes of each severity\nlsoa_crashes_count = crashes_in_lsoa |&gt;\n  # Remove geometry column as we only need tabular data for aggregation\n  st_drop_geometry() |&gt;\n  # Group by LSOA identifiers\n  group_by(lsoa21cd) |&gt;\n  # Count crashes by severity level\n  summarise(\n    fatal_crashes_n = sum(accident_severity == \"Fatal\"),      # Number of fatal crashes\n    serious_crashes_n = sum(accident_severity == \"Serious\"),  # Number of serious crashes\n    slight_crashes_n = sum(accident_severity == \"Slight\"),     # Number of slight crashes\n    all_crashes_n = fatal_crashes_n + serious_crashes_n + slight_crashes_n # Total number of crashes\n  )\n\n# Display the first few rows of the aggregated data\nhead(lsoa_crashes_count)"
-  },
-  {
-    "objectID": "s6/index.html#joining-aggregated-crash-count-data-to-lsoa-boundaries",
-    "href": "s6/index.html#joining-aggregated-crash-count-data-to-lsoa-boundaries",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "4.1 Joining aggregated crash count data to LSOA Boundaries",
-    "text": "4.1 Joining aggregated crash count data to LSOA Boundaries\nNow we’ll join the aggregated crash counts back to the LSOA boundary data:\n\n# Join crash count data back to LSOA boundaries\n# This preserves the spatial information while adding the crash statistics\nlsoa_crashes_wy = lsoa_wy |&gt;\n  left_join(lsoa_crashes_count, by = \"lsoa21cd\") \n\n# Check the columns in our joined dataset\ncolnames(lsoa_crashes_wy)\n\n# Replace NA values with 0 for LSOAs that had no crashes\nlsoa_crashes_wy = lsoa_crashes_wy |&gt;\n  mutate(across(c(all_crashes_n, fatal_crashes_n, serious_crashes_n, slight_crashes_n), \n                ~replace_na(., 0)))\n\n# Count how many LSOAs had zero crashes\nzero_crash_lsoas = sum(lsoa_crashes_wy$all_crashes_n == 0)\ncat(\"Number of LSOAs with zero recorded crashes:\", zero_crash_lsoas, \"\\n\")\ncat(\"Percentage of LSOAs with zero crashes:\", round((zero_crash_lsoas/nrow(lsoa_crashes_wy))*100, 2), \"%\\n\")\n\nWe use left_join() to preserve all LSOAs, even those with no crashes. The by parameter specifies the columns to use for matching rows between the datasets. After this join, we have the spatial boundaries with the crash counts attached.\nWe also replace NA values with 0 for LSOAs that had no crashes, and calculate how many LSOAs had zero crashes recorded.\nQuestion: What happens if you use right_join() instead?"
-  },
-  {
-    "objectID": "s6/index.html#loading-census-population-data",
-    "href": "s6/index.html#loading-census-population-data",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "4.2 Loading census population data",
-    "text": "4.2 Loading census population data\nWe’ll now load census population data for the LSOAs, the census data is obtained from nomis, specifically the Number of usual residents in households and communal establishments in each LSOA. The data has been further cleaned for better processing.\n\n# Load 2021 Census population data for LSOAs\npop_lsoa = read_csv(\"https://github.com/itsleeds/tds/releases/download/2025/p6-census2021_lsoa_pop.csv\")\n\n# Display the first few rows\nhead(pop_lsoa)\n\n# Basic summary statistics of the population data\nsummary(pop_lsoa$pop)\n\nThis dataset contains population figures from the 2021 UK Census for each LSOA in England and Wales."
-  },
-  {
-    "objectID": "s6/index.html#joining-population-data",
-    "href": "s6/index.html#joining-population-data",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "4.3 Joining population data",
-    "text": "4.3 Joining population data\nNext, we’ll join the population data to our LSOA crash data using the LSOA codes and names as keys:\n\n# Join population data to our LSOA crash data\nlsoa_crashes_wy = lsoa_crashes_wy |&gt;\n  left_join(pop_lsoa, by = c(\"lsoa21cd\", \"lsoa21nm\"))\n\n# Check the first few rows of our joined dataset\nhead(lsoa_crashes_wy)\n\n# Check if we have any missing population values after the join\nmissing_pop = sum(is.na(lsoa_crashes_wy$pop))\ncat(\"Number of LSOAs with missing population data:\", missing_pop, \"\\n\")\n\nThis operation adds the population data to our existing dataset, allowing us to calculate per-capita crash rates."
-  },
-  {
-    "objectID": "s6/index.html#calculating-crashes-per-person",
-    "href": "s6/index.html#calculating-crashes-per-person",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "5.1 Calculating Crashes Per Person",
-    "text": "5.1 Calculating Crashes Per Person\nWe’ll calculate the number of crashes per person for each LSOA:\n\n# Calculate crashes per person for each LSOA\nlsoa_crashes_wy = lsoa_crashes_wy |&gt;\n  mutate(\n    # Crashes per person (raw rate)\n    crash_pp = all_crashes_n/pop,\n    \n    # Crashes per 1000 people (more intuitive scale)\n    crash_per_1000 = crash_pp * 1000,\n    \n    # Proportion of crashes that were fatal or serious\n    severity_ratio = (fatal_crashes_n + serious_crashes_n) / all_crashes_n\n  )\n\n# Replace NaN values in severity_ratio (from dividing by zero)\nlsoa_crashes_wy$severity_ratio[is.nan(lsoa_crashes_wy$severity_ratio)] = 0\n\n# Summary statistics of our derived metrics\nsummary(lsoa_crashes_wy$crash_pp)\nsummary(lsoa_crashes_wy$crash_per_1000)\nsummary(lsoa_crashes_wy$severity_ratio)\n\nThese derived metrics normalize the crash counts by population, allowing for more meaningful comparisons between areas with different population sizes. Areas with higher values have more crashes relative to their population."
-  },
-  {
-    "objectID": "s6/index.html#citations-and-references",
-    "href": "s6/index.html#citations-and-references",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "7.1 Citations and references",
-    "text": "7.1 Citations and references\nProperly citing sources is crucial for academic work and professional reports. Quarto makes this easy with built-in citation support.\n\n7.1.1 Adding citations\nTo cite a source, use the @ symbol followed by the citation key from your .bib file:\nRecent research shows that cycling infrastructure reduces casualty rates [@lovelace_stats19_2019].\n\nYou can also use multiple citations [@lovelace_stats19_2019; @morgan_2020].\n\nFor in-text citations with the author's name, use: As shown by @lovelace_stats19_2019, ...\n\n\n7.1.2 Managing your bibliography\n\nCreate a .bib file (e.g., references.bib) with your references\nAdd it to your YAML header:\n---\ntitle: \"My Transport Analysis\"\nbibliography: references.bib\n---\nCitations will automatically appear in your document with a References section at the end\n\nYou can find citation keys from Google Scholar, Zotero, or other reference managers."
-  },
-  {
-    "objectID": "s6/index.html#cross-references-for-figures-and-tables",
-    "href": "s6/index.html#cross-references-for-figures-and-tables",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "7.2 Cross-references for figures and tables",
-    "text": "7.2 Cross-references for figures and tables\nCross-references allow you to refer to figures, tables, and sections by number, which automatically updates if you reorganize your document.\n\n7.2.1 Figure cross-references\n```{r}\n#| label: fig-crash-map\n#| fig-cap: \"Distribution of road crashes in West Yorkshire\"\n\n# Your plotting code here\ntm_shape(crashes_sf) + tm_dots()\n```\n\nAs shown in @fig-crash-map, crashes are concentrated in urban areas.\n\n\n7.2.2 Table cross-references\n```{r}\n#| label: tbl-crash-summary\n#| tbl-cap: \"Summary statistics for road crashes\"\n\ncrash_summary |&gt; \n  knitr::kable()\n```\n\n@tbl-crash-summary presents the key statistics.\n\n\n7.2.3 Section cross-references\n# Introduction {#sec-intro}\n\nSee @sec-intro for background information."
-  },
-  {
-    "objectID": "s6/index.html#making-your-reports-look-professional",
-    "href": "s6/index.html#making-your-reports-look-professional",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "7.3 Making your reports look professional",
-    "text": "7.3 Making your reports look professional\n\n7.3.1 Choosing output formats\nQuarto supports multiple output formats. Specify in your YAML header:\n---\ntitle: \"My Report\"\nformat: \n  html:\n    theme: cosmo\n    toc: true\n    number-sections: true\n  pdf:\n    documentclass: article\n  revealjs:  # For presentations\n    theme: dark\n---\n\n\n7.3.2 Formatting tips\nCode chunk options control how code appears:\n```{r}\n#| echo: false      # Hide code, show only output\n#| warning: false   # Suppress warnings\n#| message: false   # Suppress messages\n#| fig-width: 8     # Set figure width\n#| fig-height: 6    # Set figure height\n\n# Your code here\n```\nCallout blocks highlight important information:\n:::{.callout-note}\nThis analysis uses STATS19 data from 2019-2023.\n:::\n\n:::{.callout-warning}\nData completeness varies by year and region.\n:::\n\n:::{.callout-tip}\nConsider using interactive maps for web outputs.\n:::\nTables can be formatted nicely with knitr::kable() or the gt package:\nlibrary(knitr)\ncrash_summary |&gt; \n  knitr::kable(\n    caption = \"Crash statistics by severity\",\n    digits = 2,\n    format.args = list(big.mark = \",\")\n  )\n\n\n7.3.3 Document structure\nA well-organized report should include:\n\nTitle and metadata (author, date, affiliation)\nAbstract or Executive Summary (brief overview)\nIntroduction (context and objectives)\nMethods (data sources, analysis techniques)\nResults (findings with figures and tables)\nDiscussion (interpretation and implications)\nConclusion (summary and recommendations)\nReferences (automatically generated by Quarto)\n\n\n\n7.3.4 Tips for submission\n\nUse version control: Commit your work regularly with Git\nCheck your output: Always render your document before submission to catch errors\nFollow formatting guidelines: Check if there are specific requirements (word count, citation style, etc.)\nInclude reproducible code: Make sure others can run your analysis\nProofread carefully: Check for typos, broken links, and missing figures"
-  },
-  {
-    "objectID": "s6/index.html#additional-resources",
-    "href": "s6/index.html#additional-resources",
-    "title": "Session 6: Joins, models and publishing your work",
-    "section": "7.4 Additional resources",
-    "text": "7.4 Additional resources\n\nQuarto documentation\nQuarto citations guide\nQuarto cross-references\nR Markdown: The Definitive Guide\nBuilding Reproducible Analytical Pipelines with R (Rodrigues, 2023)"
-  },
-  {
-    "objectID": "d1/index.html",
-    "href": "d1/index.html",
-    "title": "Welcome and set-up",
-    "section": "",
-    "text": "Dear Transport Data Science students,\nAs per your timetable, the first session is Thursday 30th January, from 10:00 to 13:00.\nLocation: Richard Hughes Cluster, in the “Cloth Workers Link Building”. If you’re wondering where that is, you’re not alone, I’m not 100% sure. So the first challenge of the module is to ensure that you get there on time, by 09:50, so you have time to get a seat in time for the 10:00 start."
-  },
-  {
-    "objectID": "d1/index.html#homework-for-next-week-deadline-friday-31st-january-1400",
-    "href": "d1/index.html#homework-for-next-week-deadline-friday-31st-january-1400",
-    "title": "Welcome and set-up",
-    "section": "1 Homework for next week (deadline: Friday 31st January, 14:00)",
-    "text": "1 Homework for next week (deadline: Friday 31st January, 14:00)\n\nEnsure that you have the timetable stored safely in your calendar, so you do not miss important sessions or seminars.\nEnsure that you have the necessary software installed on your computer and that you have tested that you can use it for the datasets we will be using in the course, see https://itsleeds.github.io/tds/#software-requirements-and-installation for guidance on installing the software you need.\n\nAny issues you have with the software installation, please get in touch with me as soon as possible.\n\n\nTest that you have the necessary software installed by running the following code in R:\n\nif (!requireNamespace(\"remotes\", quietly = TRUE)) {\n  install.packages(\"remotes\")\n}\nremotes::install_cran(\"tidyverse\")\nremotes::install_cran(\"osmextract\")\nlibrary(tidyverse)\nlibrary(osmextract)\nlibrary(sf)\n\n\nits = oe_get(\"ITS Leeds\", download_directory = tempdir())\n\n\nfigure = its |&gt;\n  ggplot() +\n  geom_sf(aes(colour = highway)) +\n  theme_void()\n# Save figure\nggsave(\"its.png\", figure, width = 6, height = 4)\n\n\nbrowseURL(\"its.png\")\n\n\nShow the map by executing the following code, which simply prints the map to the screen:\n\nfigure\n\nIf you see a map of the area around the Institute for Transport Studies, then you are ready for the first session. If you have any issues, please get in touch with me as soon as possible.\n\nTake a look at the reading list at https://itsleeds.github.io/tds/reading.html and have a read of the Transportation chapter of Geocomputation with R book (you will find the link to the book in the reading list).\nSign-up for a GitHub account if you do not already have one, and ensure that you have access to the TDS GitHub repository where you will find the course materials.\n\nPlease send me an email with you GitHub username so I can add you to the private repository that supports the course."
-  },
-  {
-    "objectID": "datahack.html",
-    "href": "datahack.html",
-    "title": "Transport Data Minihack 2026",
-    "section": "",
-    "text": "This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies (ITS) staff and students. It is also specifically designed to support ITS MSc students with their dissertation projects by providing a space to ask questions about importing, processing and visualising data.\nIt will take place on Thursday 7th May 2026. It is open to staff and students at ITS. Contact the organisers (Robin Lovelace) if you are not based at the University of Leeds and would like to join in.\nSee here to sign-up.\n\n\n\nTo create a supportive space for participants to ask questions about working with datasets in general and using data science techniques for working with transport datasets in particular\nGet support importing datasets for MSc dissertations and other projects\nData wrangling with the tidyverse R package and other tools\nLearning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data\nShowcase the potential of open data (transparency, participation, research) and reproducible/open work-flows\n\n\n\n\n\nNone: just an interest in transport data and a willingness to learn\nUseful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the Transport Data Science module for more details\n\n\n\n\n\n13:00 - 13:30: Introduction to importing, processing and visualising data with RStudio\n\nAn indroduction to RStudio\nAn introduction to Quarto for reproducible reports\nAn example with origin-destination data in Leeds\n\n13:30 - 14:00: Importing your datasets\n\nInstalling any necessary packages\nRequesting support for any issues\n\n14:00 - 14:05: Break\n14:05 - 15:00: Solo working on your datasets, asking questions, and getting support\n15:15 - 15:45: Presentation of the results (optional for participants)\n\nAn opportunity for participants to share what they learned\n\n15:45 - 16:00: Networking and sharing ideas\n\n\n\n\nThe prize will be Geocomputation with Python or Geocomputation with R (second edition). Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):\n\nBest technical implementation and code\nMost creative or impactful use of data\n\nThe presentations will be assessed by the organisers."
-  },
-  {
-    "objectID": "datahack.html#objectives",
-    "href": "datahack.html#objectives",
-    "title": "Transport Data Minihack 2026",
-    "section": "",
-    "text": "To create a supportive space for participants to ask questions about working with datasets in general and using data science techniques for working with transport datasets in particular\nGet support importing datasets for MSc dissertations and other projects\nData wrangling with the tidyverse R package and other tools\nLearning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data\nShowcase the potential of open data (transparency, participation, research) and reproducible/open work-flows"
-  },
-  {
-    "objectID": "datahack.html#prerequisites",
-    "href": "datahack.html#prerequisites",
-    "title": "Transport Data Minihack 2026",
-    "section": "",
-    "text": "None: just an interest in transport data and a willingness to learn\nUseful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the Transport Data Science module for more details"
-  },
-  {
-    "objectID": "datahack.html#schedule",
-    "href": "datahack.html#schedule",
-    "title": "Transport Data Minihack 2026",
-    "section": "",
-    "text": "13:00 - 13:30: Introduction to importing, processing and visualising data with RStudio\n\nAn indroduction to RStudio\nAn introduction to Quarto for reproducible reports\nAn example with origin-destination data in Leeds\n\n13:30 - 14:00: Importing your datasets\n\nInstalling any necessary packages\nRequesting support for any issues\n\n14:00 - 14:05: Break\n14:05 - 15:00: Solo working on your datasets, asking questions, and getting support\n15:15 - 15:45: Presentation of the results (optional for participants)\n\nAn opportunity for participants to share what they learned\n\n15:45 - 16:00: Networking and sharing ideas"
-  },
-  {
-    "objectID": "datahack.html#prizes",
-    "href": "datahack.html#prizes",
-    "title": "Transport Data Minihack 2026",
-    "section": "",
-    "text": "The prize will be Geocomputation with Python or Geocomputation with R (second edition). Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):\n\nBest technical implementation and code\nMost creative or impactful use of data\n\nThe presentations will be assessed by the organisers."
-  },
-  {
-    "objectID": "s6/slides.html#objectives",
-    "href": "s6/slides.html#objectives",
-    "title": "Joins and Aggregations in Transport Data Science",
-    "section": "Objectives",
-    "text": "Objectives\n\nUnderstand different types of joins (spatial and key-based)\nLearn how to perform spatial joins with sf and dplyr\nApply aggregations to summarize data\nVisualize joined datasets\n\n\nlibrary(sf)\nlibrary(dplyr)\nlibrary(tmap)\nlibrary(stats19)"
-  },
-  {
-    "objectID": "s6/slides.html#what-is-a-join",
-    "href": "s6/slides.html#what-is-a-join",
-    "title": "Joins and Aggregations in Transport Data Science",
-    "section": "What is a Join?",
-    "text": "What is a Join?\n\nCombining datasets based on common attributes or spatial relationships\nSpatial joins: Link points (e.g., crashes) to polygons (e.g., LSOAs) using geometry\nKey-based joins: Match IDs across tables (e.g., LSOA codes)"
-  },
-  {
-    "objectID": "s6/slides.html#spatial-join-example",
-    "href": "s6/slides.html#spatial-join-example",
-    "title": "Joins and Aggregations in Transport Data Science",
-    "section": "Spatial Join Example",
-    "text": "Spatial Join Example\n\nLoad spatial datasets:\n\n\npath &lt;- \"https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson\"\nlsoa &lt;- read_sf(path)\ncrashes &lt;- stats19::get_stats19(\"2023\")\n\n\nPerform spatial join:\n\n\njoined &lt;- st_join(lsoa, crashes, join = st_intersects)\n\n\nAggregate results:\n\n\nagg_data &lt;- joined |&gt;\n  group_by(lsoa_id) |&gt;\n  summarize(total_crashes = n())"
-  },
-  {
-    "objectID": "s6/slides.html#key-based-joins",
-    "href": "s6/slides.html#key-based-joins",
-    "title": "Joins and Aggregations in Transport Data Science",
-    "section": "Key-Based Joins",
-    "text": "Key-Based Joins\nUse dplyr functions like left_join to combine data by identifiers:\n\n# Example: Join crash counts with population data\nfinal &lt;- left_join(agg_data, pop_data, by = \"lsoa_id\")"
-  },
-  {
-    "objectID": "s6/slides.html#aggregations",
-    "href": "s6/slides.html#aggregations",
-    "title": "Joins and Aggregations in Transport Data Science",
-    "section": "Aggregations",
-    "text": "Aggregations\n\nGroup data by spatial units (e.g., LSOA)\nCalculate metrics like crashes per capita:\n\n\nfinal &lt;- final |&gt;\n  mutate(crashes_per_capita = total_crashes / population)"
-  },
-  {
-    "objectID": "s6/slides.html#visualization",
-    "href": "s6/slides.html#visualization",
-    "title": "Joins and Aggregations in Transport Data Science",
-    "section": "Visualization",
-    "text": "Visualization\nCreate maps to visualize crash patterns using tmap:\n\ntmap_mode(\"plot\")\ntm_shape(final) +\n  tm_polygons(\"crashes_per_capita\")"
-  },
-  {
-    "objectID": "s6/slides.html#references",
-    "href": "s6/slides.html#references",
-    "title": "Joins and Aggregations in Transport Data Science",
-    "section": "References",
-    "text": "References\n{references}"
-  },
-  {
-    "objectID": "examples/test.html",
-    "href": "examples/test.html",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Transport Data Science",
     "section": "",
-    "text": "x = 1\nprint(x)\n\n1"
+    "text": "This module focuses on applying data science techniques to solve real-world transport problems. Based at the University of Leeds’ Institute for Transport Studies (module code TRAN5340M), the course is led by Robin Lovelace, Professor of Transport Data Science and developer of several data-driven solutions for effective transport planning.\nThe course has evolved over a decade of teaching and research in the field. It aims to equip you with up-to-date and future-proof skills through practical examples and reproducible workflows using industry-standard data science tools.",
+    "crumbs": [
+      "Home"
+    ]
   },
   {
-    "objectID": "sem1/index.html",
-    "href": "sem1/index.html",
-    "title": "Seminar 1 - Mini-workshop",
+    "objectID": "index.html#hardware",
+    "href": "index.html#hardware",
+    "title": "Transport Data Science",
+    "section": "Hardware",
+    "text": "Hardware\nWe highly recommend having access to a computer with at least 8 GB of RAM that you have permission to install software on.\nAlternatively, you could use cloud-based services such as RStudio Cloud, Google Colab, or GitHub Codespaces. However, you would need to be comfortable using these services and may miss out on some benefits of using your own computer.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#computing-experience",
+    "href": "index.html#computing-experience",
+    "title": "Transport Data Science",
+    "section": "Computing experience",
+    "text": "Computing experience\nYou should be comfortable with general computing tasks, such as:\n\nCreating folders and managing files\nInstalling software\nUsing command line interfaces (PowerShell in Windows, Terminal in macOS, or Linux shell)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#data-science-experience-prerequisites",
+    "href": "index.html#data-science-experience-prerequisites",
+    "title": "Transport Data Science",
+    "section": "Data science experience prerequisites",
+    "text": "Data science experience prerequisites\nPrior experience using R or Python is essential. This could include:\n\nUsing these languages in professional work\nExperience from previous degrees\nCompletion of relevant online courses\n\nStudents can demonstrate this prerequisite knowledge by showing evidence they have:\n\nWorked with R previously\nCompleted online courses such as the first 4 sessions in the RStudio Primers series\nCompleted DataCamp’s Free Introduction to R course\n\nSubstantial programming and data science experience in previous professional or academic work using languages like R or Python also satisfies the prerequisite requirements.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#quickstart-with-github-codespaces",
+    "href": "index.html#quickstart-with-github-codespaces",
+    "title": "Transport Data Science",
+    "section": "Quickstart with GitHub Codespaces",
+    "text": "Quickstart with GitHub Codespaces\nFor a quick cloud-based setup, you can use GitHub Codespaces to access the course materials:\n\nSign up to GitHub\nFork the repository\nClick the “Open in GitHub Codespaces” button above\n\nAlternatively, use the following link:\n\n\n\nOpen in GitHub Codespaces",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#r",
+    "href": "index.html#r",
+    "title": "Transport Data Science",
+    "section": "R",
+    "text": "R\nInstall a recent version of R (4.3.0 or above) and an IDE:\n\nR from cran.r-project.org\nRStudio from rstudio.com (recommended)\nAlternatively, VS Code with the R extension installed (if you have prior experience with it)\n\nYou’ll also need to install R packages:\n\nIndividual packages can be installed by opening RStudio and typing commands like install.packages(\"stats19\") in the R console\nTo install all dependencies for the module at once, run the following command in the R console:\n\n\nif (!requireNamespace(\"remotes\", quietly = TRUE)) {\n  install.packages(\"remotes\")\n}\nremotes::install_github(\"itsleeds/tds\")\n\nSee Section 1.5 of the online guide Reproducible Road Safety Research with R for instructions on how to install key packages we will use in the module.1",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#python",
+    "href": "index.html#python",
+    "title": "Transport Data Science",
+    "section": "Python",
+    "text": "Python\nIf you choose to use Python, you should be comfortable with:\n\nInstalling Python\nManaging your own Python environment\nInstalling packages and resolving package conflicts\n\nFor Python users, we recommend using an environment manager such as:\n\npixi (which can manage both R and Python environments)\nDocker (best practice for reproducibility and isolation)",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#docker-advanced",
+    "href": "index.html#docker-advanced",
+    "title": "Transport Data Science",
+    "section": "Docker (advanced)",
+    "text": "Docker (advanced)\nWe maintain a Docker image containing all necessary software to complete the course with VS Code, Quarto, and a Devcontainer setup.\nAdvantages:\n\nEnsures reproducibility\nSaves time installing software\n\nDisadvantages:\n\nDocker can be challenging to install\nDifficult to use if you’re unfamiliar with Docker\n\nWe recommend this approach only for people who are confident with Docker or willing to invest time learning it.\nFor guidance, see:\n\nDocker installation instructions\nDevcontainers documentation on github.com\nThe tds Dockerfile and devcontainer.json",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#footnotes",
+    "href": "index.html#footnotes",
+    "title": "Transport Data Science",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://r.geocompx.org/spatial-class.html and Chapter 2 of the online book Efficient R Programming, particularly sections 2.3 and 2.5, for details on R installation and set-up and the project management section.↩︎",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "minihack-transport-data.html",
+    "href": "minihack-transport-data.html",
+    "title": "Transport Data Minihack: Data Challenges",
     "section": "",
-    "text": "The best way to learn is by exploring data and answering your own questions. Here are some datasets that can help you investigate questions like:"
+    "text": "This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies staff and students. Please contact the organisers (Robin Lovelace) if you are not based at the University of Leeds and would like to join in. It will take place on the 8th May as a pre-event before a lecture on data science and is open to staff and students at the University of Leeds and Transport professions. See here to sign-up.\n\n\n\nReactivate the Transport Data Science Hackathons\nFacilitate learning and collaboration among participants\nOutcomes for participants:\n\nLearning basics of packaging and modular coding\nData wrangling with tidyverse\nLearning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data\nDemonstrate the potential of open data (transparency, participation, research) and reproducible/open work-flows.\n\n\n\n\n\n\nNone: just an interest in transport data and a willingness to learn\nUseful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the Transport Data Science module for more details\n\n\n\n\n\n13:00 - 13:30: Presentation of the challenges\n\nTransmilenio: Victor Cantillo García\nBring your own data (BYD)\n\n5 minute pitches by anyone who wants to work on their own data challenge\n\n\n13:30 - 14:00: Importing the data\n\nInstalling any necessary packages\nRequesting support for any issues\n\n14:00 - 14:05: Break\n14:05 - 15:00: The hackathon\n15:15 - 15:45: Presentation of the results\n15:45 onwards: Networking and lecture (optional, see ticketsource.us for tickets)\n\n\n\n\nThe prize will be Geocomputation with Python or Geocomputation with R (second edition). Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):\n\nBest technical implementation and code\nMost creative or impactful use of data\n\nThe presentations will be assessed by the organisers.",
+    "crumbs": [
+      "Transport Data Minihack 8th May"
+    ]
   },
   {
-    "objectID": "sem1/index.html#motorised-vehicles-counts-leeds",
-    "href": "sem1/index.html#motorised-vehicles-counts-leeds",
-    "title": "Seminar 1 - Mini-workshop",
-    "section": "1.1 Motorised vehicles counts: Leeds",
-    "text": "1.1 Motorised vehicles counts: Leeds\nMany cities/countries publish data from permanent traffic counters e.g. ANPR cameras, induction loops or low-cost sensors. We are going to use data from the sensors in Leeds (available in Data Mill North)\n\nleeds_car_location &lt;- read_csv(\n  \"https://datamillnorth.org/download/e6q0n/9bc51361-d98e-47d3-9963-aeeca3fa0afc/Camera%20Locations.csv\"\n  ) \n\nleeds_car_location_sf &lt;- leeds_car_location |&gt; \n  st_as_sf(coords = c(\"X\",\"Y\"),\n           crs = 27700)\n\n\nleeds_car_2019 &lt;- read_csv(\n  \"https://datamillnorth.org/download/e6q0n/9e62c1e5-8ba5-4369-9d81-a46c4e23b9fb/Data%202019.csv\"\n  )\n\nIf you are interested in open traffic count datasets see this\n\n1.1.0.1 code\n\nleeds_car_2019 |&gt; \n  group_by(Cosit) |&gt; \n  summarise(mean(Volume))\n\n\nmean_daily_volumes &lt;- leeds_car_2019 |&gt;\n  # converting cosit to numeric\n  mutate(Cosit = as.numeric(Cosit)) |&gt; \n  # extracting the date\n  mutate(time_date = dmy_hm(Sdate),\n         # extracts the day\n         date = date(time_date)) |&gt; \n  # calculating the total flows for each day\n  summarise(Volume = sum(Volume,rm.na = T),\n            .by = c(date,Cosit)) |&gt; \n  # Calculating the daily mean \n  summarise(daily_volume = mean(Volume,rm.na = T),\n            .by = Cosit) \n\n\ndaily_volumes &lt;- leeds_car_2019 |&gt; \n    # converting cosit to numeric\n  mutate(Cosit = as.numeric(Cosit)) |&gt;\n  # extracting the date\n  mutate(time_date = dmy_hm(Sdate),\n         # extracts the day\n         date = date(time_date)) |&gt; # calculating the total flows for each day\n  summarise(mean_volume = sum(Volume,rm.na = T),\n          .by = c(date,Cosit))\n\ndaily_volumes |&gt; \n  mutate(Cosit = as.numeric(Cosit)) |&gt; \n  filter(Cosit == 90201)|&gt; \n  ggplot(aes(x = date,y = mean_volume))+\n  geom_line()\n  \n\nmean_daily_volumes |&gt; \n  ggplot(aes(daily_volume))+\n  geom_histogram()\n\nleeds_car_location_sf |&gt;\n  left_join(mean_daily_volumes,by = c(\"Site ID\"=\"Cosit\")) |&gt; \n  tm_shape()+\n  tm_dots(\"daily_volume\",size = \"daily_volume\")"
-  },
-  {
-    "objectID": "sem1/index.html#cycle-counts-for-west-yorkshire",
-    "href": "sem1/index.html#cycle-counts-for-west-yorkshire",
-    "title": "Seminar 1 - Mini-workshop",
-    "section": "1.2 Cycle counts for West Yorkshire",
-    "text": "1.2 Cycle counts for West Yorkshire\nSome cities would have some dedicated infrastructure to count the number of people using bikes at strategic points of the city. We are going to use some cycle counters from West Yorkshire that you can find here:\n\nleeds_bike_location &lt;- read_csv(\n  \"https://datamillnorth.org/download/e1dmk/a8c8a11e-1616-4915-a897-9ca5ab4e03b8/Cycle%20Counter%20Locations.csv\",skip = 1\n  ) \n\nleeds_bike_location_sf &lt;- leeds_bike_location |&gt;\n  drop_na(Latitude,Longitude) |&gt; \n  st_as_sf(coords = c(\"Longitude\",\"Latitude\"),\n           crs = 4326) |&gt; \n  st_transform(27700)\n\nThe data for 2019:\n\nleeds_bike_2019 &lt;- read_csv(\n  \"https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv\"\n  )\n\nOther interesting datasets for you to explore are Paris cycling counters or Scotland."
-  },
-  {
-    "objectID": "sem1/index.html#pedestrian-counts-melbourne",
-    "href": "sem1/index.html#pedestrian-counts-melbourne",
-    "title": "Seminar 1 - Mini-workshop",
-    "section": "1.3 Pedestrian Counts: Melbourne",
-    "text": "1.3 Pedestrian Counts: Melbourne\nCities also monitor the number pedestrians in key locations. We can use data from the sensors in Melbourne accessible here:\n\nmelbourne_locations_sf &lt;- st_read(\"https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-sensor-locations/exports/geojson?lang=en&timezone=Europe%2FLondon\")\n\nWe will extract\n\nmelbourne_dec2024 &lt;- read_csv(\"https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-monthly-counts-per-hour/exports/csv?lang=en&refine=sensing_date%3A%222024%2F12%22&timezone=Australia%2FMelbourne&use_labels=true&delimiter=%2C\")"
-  },
-  {
-    "objectID": "sem1/index.html#public-transport-tap-in-data-bogotá",
-    "href": "sem1/index.html#public-transport-tap-in-data-bogotá",
-    "title": "Seminar 1 - Mini-workshop",
-    "section": "1.4 Public transport tap-in data: Bogotá",
-    "text": "1.4 Public transport tap-in data: Bogotá\nPublic transport ridership data can be difficult to obtain. Fortunately, some cities which have systems managed by a public organisation make this data available for the public. Bogotá’s integrated transport system publishes the tap-in data for the BRT system (see this). We will use one of the daily reports.\n\ntm_stations_sf &lt;- st_read(\"Estaciones_Troncales_de_TRANSMILENIO.geojson\")\n\nMonthly boarding data can be manually obtained in the open data portal of TransMilenio here\n\nurl_tm &lt;- \"https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip\"\nu_bn &lt;- basename(url_tm)\n\n\nif(!file.exists(u_bn)){\n  download.file(url = url_tm,\n                destfile = u_bn,\n                mode = \"wb\")\n}\n\n\n\nurl_tm &lt;- \"https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip\"\n\n\ntm_brt_2024 &lt;- read_csv(unz(u_bn,\"troncal_2024.csv\"))\n\nTfL’s crowding data is also a great source of ridership data. See this.\n\n1.4.1 code\n\ndaily_tapins &lt;- tm_brt_2024 |&gt; \n  summarise(validaciones = sum(validaciones),\n            .by = c(Estacion_Parada,fecha)) |&gt; \n  summarise(validaciones = mean(validaciones),\n            .by = Estacion_Parada) |&gt; \n  mutate(numero_estacion = str_extract(Estacion_Parada,\"\\\\(\\\\d*\\\\)\") |&gt; \n           str_remove_all(\"(\\\\(|\\\\))\")) \n  \ntm_stations_sf |&gt; \n  left_join(daily_tapins,by = \"numero_estacion\") |&gt; \n  tm_shape()+\n  tm_dots(\"validaciones\",size = \"validaciones\")"
-  },
-  {
-    "objectID": "sem1/index.html#network-data-from-osm",
-    "href": "sem1/index.html#network-data-from-osm",
-    "title": "Seminar 1 - Mini-workshop",
-    "section": "1.5 Network data from OSM",
-    "text": "1.5 Network data from OSM\nYou may be already familiar with getting and using OSM data. This an example of how to obtain the network that can be used for pedestrians.\n\nmy_coordinates &lt;- c(-76.78893552474851,18.01206727612776)\nsf_point &lt;- st_point(my_coordinates) |&gt; st_sfc(crs = 4326)\nsf_buffer &lt;- st_buffer(sf_point,dist = 15e3)\n\n\ntm_basemap(\"OpenStreetMap\")+\n  tm_shape(sf_buffer)+\n  tm_borders()\n\n\nmy_network &lt;- oe_get_network(sf_buffer, mode = \"walking\")\n\n\ntm_shape(my_network)+\n  tm_lines(\"highway\")\n\nNote: you can access a simplified network dataset from Ordnance Survey’s OpenRoads dataset."
-  },
-  {
-    "objectID": "s1/index.html",
-    "href": "s1/index.html",
-    "title": "Session 1: Introduction to Transport Data Science",
+    "objectID": "minihack-transport-data.html#objectives",
+    "href": "minihack-transport-data.html#objectives",
+    "title": "Transport Data Minihack: Data Challenges",
     "section": "",
-    "text": "Lecture: an introduction to Transport Data Science (30 min)\n\nSee the slides\n\nQ&A (15 min) \nBreak and networking (15 min) \nData science and a good research question (30 min)\nData science foundations (guided): Project set-up and using RStudio or VS Code as an integrated development environment (30 min)\nFocussed work (1 hr)"
+    "text": "Reactivate the Transport Data Science Hackathons\nFacilitate learning and collaboration among participants\nOutcomes for participants:\n\nLearning basics of packaging and modular coding\nData wrangling with tidyverse\nLearning the general skill of data visualisation and gain specific experience working with tap/on/tap/out data\nDemonstrate the potential of open data (transparency, participation, research) and reproducible/open work-flows.",
+    "crumbs": [
+      "Transport Data Minihack 8th May"
+    ]
   },
   {
-    "objectID": "s1/index.html#agenda",
-    "href": "s1/index.html#agenda",
-    "title": "Session 1: Introduction to Transport Data Science",
+    "objectID": "minihack-transport-data.html#prerequisites",
+    "href": "minihack-transport-data.html#prerequisites",
+    "title": "Transport Data Minihack: Data Challenges",
     "section": "",
-    "text": "Lecture: an introduction to Transport Data Science (30 min)\n\nSee the slides\n\nQ&A (15 min) \nBreak and networking (15 min) \nData science and a good research question (30 min)\nData science foundations (guided): Project set-up and using RStudio or VS Code as an integrated development environment (30 min)\nFocussed work (1 hr)"
+    "text": "None: just an interest in transport data and a willingness to learn\nUseful: if you have experience with GitHub R, Python or other tools for reproducible data analysis you can join in with the coding, see the Transport Data Science module for more details",
+    "crumbs": [
+      "Transport Data Minihack 8th May"
+    ]
   },
   {
-    "objectID": "s1/index.html#how-to-come-up-with-a-good-research-question",
-    "href": "s1/index.html#how-to-come-up-with-a-good-research-question",
-    "title": "Session 1: Introduction to Transport Data Science",
-    "section": "How to come up with a good research question",
-    "text": "How to come up with a good research question\n\nThink about the data you have access to\nThink about the problems you want to solve\nThink about the methods you want to use and skills you want to learn\nThink about how the final report will look and hold-together\n\n\nHow much potential is there for cycling across the transport network?\n\n\n\nHow can travel to schools be made safer?\n\n\nHow can hospitals encourage visitors to get there safely?\n\n\nWhere’s the best place to build electric car charging points?\nSee openstreetmap.org or search for other open access datasets for more ideas"
-  },
-  {
-    "objectID": "s1/index.html#data-object-manipulation-basics",
-    "href": "s1/index.html#data-object-manipulation-basics",
-    "title": "Session 1: Introduction to Transport Data Science",
-    "section": "1.1 Data object manipulation basics",
-    "text": "1.1 Data object manipulation basics\n\nUse the $ operator to print the vehicle_type column of crashes.\n\n\nIn R the $ symbol is used to refer to elemements of a list. So the answer is simply:\n\ncrashes$vehicle_type\n\n[1] \"car\"  \"bus\"  \"tank\"\n\n\n\n\nSubset the crashes with the [,] syntax\n\n\nTry out different combinations on the dataframe crashes to see what happens. For example, try:\n\ncrashes[1,]\n\n  casualty_type casualty_age vehicle_type\n1    pedestrian           20          car\n\ncrashes[,1]\n\n[1] \"pedestrian\" \"cyclist\"    \"cat\"       \n\ncrashes[1,1]\n\n[1] \"pedestrian\"\n\n\n\nSubset the object with the [[ syntax.\n\n\nThe [[ operator is used to extract elements from a list. Try:\n\ncrashes[[1]]\n\n[1] \"pedestrian\" \"cyclist\"    \"cat\"       \n\ncrashes[[2]]\n\n[1] 20 40 60\n\n\n\n\nBonus: what is the class() of the objects created by each of the previous exercises?\n\n\nExplore how many R classes you can find\n\n\nBonus (advanced): reproduce the above with Python using the pandas or polars package"
-  },
-  {
-    "objectID": "s1/index.html#data-science-on-real-data",
-    "href": "s1/index.html#data-science-on-real-data",
-    "title": "Session 1: Introduction to Transport Data Science",
-    "section": "1.2 Data science on real data",
-    "text": "1.2 Data science on real data\nTo get some larger datasets, try the following (from Chapter 8 of RSRR)\n\nRPython\n\n\n\nremotes::install_cran(\"stats19\")\nlibrary(stats19)\nac = get_stats19(year = 2020, type = \"collision\")\nca = get_stats19(year = 2020, type = \"cas\")\nve = get_stats19(year = 2020, type = \"veh\")\n# population hurt by road traffic collisions in 2020:\n(nrow(ca) / 67e6) * 100\n\n[1] 0.1725134\n\n\n\n\nChallenge: reproduce the above code in Python using the pystats19 package\n# Install the package, e.g. with pip\n!pip install pystats19\nimport pystats19\n# See the documentation at https://github.com/Mayazure/py-stats19\n\n\n\nLet’s go through these exercises together:\n\nSubset the casualty_age object using the inequality (&lt;) so that only elements less than 50 are returned.\nSubset the crashes data frame so that only tanks are returned using the == operator.\nBonus: assign the age of all tanks to 61.\n\n\nTry running the subsetting code on a larger dataset, e.g. the ac object created previously\n\n\nCoerce the vehicle_type column of crashes to the class character.\nCoerce the crashes object into a matrix. What happened to the values?\nBonus: What is the difference between the output of summary() on character and factor variables?\n\n\nWe’ll explore this together"
-  },
-  {
-    "objectID": "s1/index.html#bonus-data-science-and-transport",
-    "href": "s1/index.html#bonus-data-science-and-transport",
-    "title": "Session 1: Introduction to Transport Data Science",
-    "section": "2.1 Bonus: data science and transport",
-    "text": "2.1 Bonus: data science and transport\n\nWork through Chapter 13 of the book Geocomputation with R, taking care to ask questions about any aspects that you don’t understand (your homework will be to complete and make notes on the chapter, including reproducible code)."
-  },
-  {
-    "objectID": "sem2/index.html",
-    "href": "sem2/index.html",
-    "title": "Seminar 2 -",
+    "objectID": "minihack-transport-data.html#schedule",
+    "href": "minihack-transport-data.html#schedule",
+    "title": "Transport Data Minihack: Data Challenges",
     "section": "",
-    "text": "The slides and high-resolution versions of some images from the talk are available here\n\n\n\n\nThe railway is international, noting the location of the United Kingdom\n\n\n\n\nThe operation of railway infrastructure in Britain is organised into thirteen routes and six regions.\n\nThis diagram show four routes that make up the Eastern region."
+    "text": "13:00 - 13:30: Presentation of the challenges\n\nTransmilenio: Victor Cantillo García\nBring your own data (BYD)\n\n5 minute pitches by anyone who wants to work on their own data challenge\n\n\n13:30 - 14:00: Importing the data\n\nInstalling any necessary packages\nRequesting support for any issues\n\n14:00 - 14:05: Break\n14:05 - 15:00: The hackathon\n15:15 - 15:45: Presentation of the results\n15:45 onwards: Networking and lecture (optional, see ticketsource.us for tickets)",
+    "crumbs": [
+      "Transport Data Minihack 8th May"
+    ]
   },
   {
-    "objectID": "sem2/index.html#make-things-as-simple-as-possiblebut-no-simpler",
-    "href": "sem2/index.html#make-things-as-simple-as-possiblebut-no-simpler",
-    "title": "Seminar 2 -",
+    "objectID": "minihack-transport-data.html#prizes",
+    "href": "minihack-transport-data.html#prizes",
+    "title": "Transport Data Minihack: Data Challenges",
     "section": "",
-    "text": "The slides and high-resolution versions of some images from the talk are available here"
+    "text": "The prize will be Geocomputation with Python or Geocomputation with R (second edition). Prizes will be awarded based on importing, analysing and helping to document the challenge datasets (see Challenges section below):\n\nBest technical implementation and code\nMost creative or impactful use of data\n\nThe presentations will be assessed by the organisers.",
+    "crumbs": [
+      "Transport Data Minihack 8th May"
+    ]
   },
   {
-    "objectID": "sem2/index.html#the-global-railway",
-    "href": "sem2/index.html#the-global-railway",
-    "title": "Seminar 2 -",
-    "section": "",
-    "text": "The railway is international, noting the location of the United Kingdom"
+    "objectID": "minihack-transport-data.html#transmilenio-data",
+    "href": "minihack-transport-data.html#transmilenio-data",
+    "title": "Transport Data Minihack: Data Challenges",
+    "section": "2.1 Transmilenio data",
+    "text": "2.1 Transmilenio data\n\nTransMilenio (TM) is the organisation in charge of managing all components of Bogotá’s integrated public transport system.\nTM publishes a lot of their data for public use, in line with the open data policy of Bogotá.\nData includes:\n\nSpatial: GTFS, station location and lines of BRT, regular buses, and cable lines.\nCounts: Raw daily tap-in records, and aggregated boarding / alighting and exit counts by station and 15 minutes interval.\n\n\n\n2.1.1 Motivation:\n\nTM published some useful maps but they are not easily reproducible.\nAccessing the data is not straightforward as the count information is saved in individual .csv files by day.\n\n\n\n2.1.2 Goal:\n\nDevelop a set of functions that can be integrated into an R library to access and analyse the open data published by TM.",
+    "crumbs": [
+      "Transport Data Minihack 8th May"
+    ]
   },
   {
-    "objectID": "sem2/index.html#the-british-railway",
-    "href": "sem2/index.html#the-british-railway",
-    "title": "Seminar 2 -",
-    "section": "",
-    "text": "The operation of railway infrastructure in Britain is organised into thirteen routes and six regions.\n\nThis diagram show four routes that make up the Eastern region."
+    "objectID": "minihack-transport-data.html#origin-destination-data",
+    "href": "minihack-transport-data.html#origin-destination-data",
+    "title": "Transport Data Minihack: Data Challenges",
+    "section": "2.2 Origin destination data",
+    "text": "2.2 Origin destination data\n\nSee https://github.com/itsleeds/2021-census-od-data for 2021 OD data from the Census",
+    "crumbs": [
+      "Transport Data Minihack 8th May"
+    ]
   },
   {
-    "objectID": "sem2/index.html#logical-network-model",
-    "href": "sem2/index.html#logical-network-model",
-    "title": "Seminar 2 -",
-    "section": "2.1 Logical Network Model",
-    "text": "2.1 Logical Network Model\nThe timetable production process can be modeled as a series of processes and interactions between railway operators and infrastructure manager."
-  },
-  {
-    "objectID": "sem2/index.html#logical-operations-model",
-    "href": "sem2/index.html#logical-operations-model",
-    "title": "Seminar 2 -",
-    "section": "2.2 Logical Operations Model",
-    "text": "2.2 Logical Operations Model\nThe operation production process can be modeled as series of processes and data exchange."
-  },
-  {
-    "objectID": "sem2/index.html#green-house-gases-co2",
-    "href": "sem2/index.html#green-house-gases-co2",
-    "title": "Seminar 2 -",
-    "section": "3.1 Green House Gases (CO2)",
-    "text": "3.1 Green House Gases (CO2)\nUK produced 455 million tonnes CO2 equivalent (mtCO2e) in 2019\nTransport accounted for 122 mtCO2e (26.8%) of which\n\nHGV 19.5 mtCO2e (16.0%/4.2%)\nAll rail 1.7 mtCO2e (1.4%/0.04%)\nA freight train removes up to 76 HGVs from our roads"
-  },
-  {
-    "objectID": "sem2/index.html#national-greenhouse-emissions-1990-2020",
-    "href": "sem2/index.html#national-greenhouse-emissions-1990-2020",
-    "title": "Seminar 2 -",
-    "section": "3.2 National Greenhouse Emissions 1990-2020",
-    "text": "3.2 National Greenhouse Emissions 1990-2020"
-  },
-  {
-    "objectID": "sem2/index.html#transport-greenhouse-emissions-1990-2020",
-    "href": "sem2/index.html#transport-greenhouse-emissions-1990-2020",
-    "title": "Seminar 2 -",
-    "section": "3.3 Transport Greenhouse Emissions 1990-2020",
-    "text": "3.3 Transport Greenhouse Emissions 1990-2020\n\n(from DfT Transport Statistics (2021))"
-  },
-  {
-    "objectID": "sem2/index.html#system-visualisation",
-    "href": "sem2/index.html#system-visualisation",
-    "title": "Seminar 2 -",
-    "section": "4.1 System Visualisation",
-    "text": "4.1 System Visualisation\nAn Open-TrainTimes (OTT) schematic view of Leeds Stations\n\n\nOpenTrainTimes: here\nNational Rail Enquiries here\nRealtime Trains here"
-  },
-  {
-    "objectID": "sem2/index.html#operation-railway",
-    "href": "sem2/index.html#operation-railway",
-    "title": "Seminar 2 -",
-    "section": "4.2 Operation Railway",
-    "text": "4.2 Operation Railway\nThe view of live operational railway systems."
-  },
-  {
-    "objectID": "sem2/index.html#the-power-of-social-media",
-    "href": "sem2/index.html#the-power-of-social-media",
-    "title": "Seminar 2 -",
-    "section": "6.1 The Power of Social Media",
-    "text": "6.1 The Power of Social Media\nThe benefit of positive social media interaction."
-  },
-  {
-    "objectID": "sem2/index.html#the-power-of-open-data",
-    "href": "sem2/index.html#the-power-of-open-data",
-    "title": "Seminar 2 -",
-    "section": "6.2 The Power of Open Data",
-    "text": "6.2 The Power of Open Data\nAll data used is on the basis that it under open or permissive license.\n\nThe base map of mainland Britain is derived from the WorldPop base maps under CC 4.0 by deed retrieved 2023-09-07.\nThe centre-line track-model is hosted by OpenRailData under the Open Government License(OGL) by Network Rail, retrieved 2023-07-11.\nThe Origin Destination Matrix data, for example ODM 2022-23, were published by the Office of Road and Rail on the Rail Development Group Rail Data Marketplace, under the OGL. Retrieved 2024-02-18.\nThe Station Attributes for All-Mainline Stations published by the Office of Road and Rail under the OGL. Retrieved 2024-02-18.\nThe Network Rail CORPUS dataset is an open data feed which is released under the OGL. Retrieved 2023-11-29 as a local copy.\nThe National Public Transport Access Network (NaPTAN) under the OGL and is updated each time the scripts are run.\nWhile this implementation now uses NaPTAN and CORPUS to validate and identify six closed stations, the Isle of Wight ferry-link continues to use OpenStreetMap data, licensed under CC-BY-SA 2.0 through the OverPassAPI Turbo service, and is updated each time the scripts are run."
-  },
-  {
-    "objectID": "sem2/index.html#seconds-of-fame",
-    "href": "sem2/index.html#seconds-of-fame",
-    "title": "Seminar 2 -",
-    "section": "6.3 15 Seconds of Fame",
-    "text": "6.3 15 Seconds of Fame\nThe original 2018/19 visualisation recieved 500k X/Twitter views within a week, as well as an OpenInnovations blog post and a Bloomberg article Nine Maps Show How Britain Is on the Move.\nAll code and data is published on GitHub under my anisotropi4/kingfisher repository and updated with the ORR publication of the additional 2020-2024 financial year data."
-  },
-  {
-    "objectID": "sem2/index.html#simple-visualisations",
-    "href": "sem2/index.html#simple-visualisations",
-    "title": "Seminar 2 -",
-    "section": "6.4 Simple Visualisations",
-    "text": "6.4 Simple Visualisations\nThe squares and coolest countries in Europe."
-  },
-  {
-    "objectID": "sem2/index.html#shortest-path-census-flow",
-    "href": "sem2/index.html#shortest-path-census-flow",
-    "title": "Seminar 2 -",
-    "section": "7.1 Shortest path census flow",
-    "text": "7.1 Shortest path census flow"
-  },
-  {
-    "objectID": "sem2/index.html#output-area-oa-census-2011-centroid",
-    "href": "sem2/index.html#output-area-oa-census-2011-centroid",
-    "title": "Seminar 2 -",
-    "section": "7.2 Output Area (OA) Census 2011 centroid",
-    "text": "7.2 Output Area (OA) Census 2011 centroid"
-  },
-  {
-    "objectID": "sem2/index.html#full-oa-2011-delaunay-mesh",
-    "href": "sem2/index.html#full-oa-2011-delaunay-mesh",
-    "title": "Seminar 2 -",
-    "section": "7.3 Full OA 2011 Delaunay mesh",
-    "text": "7.3 Full OA 2011 Delaunay mesh"
-  },
-  {
-    "objectID": "sem2/index.html#oa-2011-odm-mesh",
-    "href": "sem2/index.html#oa-2011-odm-mesh",
-    "title": "Seminar 2 -",
-    "section": "7.4 OA 2011 ODM mesh",
-    "text": "7.4 OA 2011 ODM mesh"
-  },
-  {
-    "objectID": "sem2/index.html#network-simplification-and-parenx",
-    "href": "sem2/index.html#network-simplification-and-parenx",
-    "title": "Seminar 2 -",
-    "section": "7.5 Network simplification and parenx",
-    "text": "7.5 Network simplification and parenx\nThe network merge paper is here.\n\nThe parenx PyPi module.\n\n7.5.1 parenx cookbook\nThe parenx cookbook shows examples of how to use the parenx library."
-  },
-  {
-    "objectID": "sem2/index.html#make-it-look-good.",
-    "href": "sem2/index.html#make-it-look-good.",
-    "title": "Seminar 2 -",
-    "section": "8.1 Make it look good.",
-    "text": "8.1 Make it look good.\n\nArt E-coli statue."
-  },
-  {
-    "objectID": "sem2/index.html#the-railway",
-    "href": "sem2/index.html#the-railway",
-    "title": "Seminar 2 -",
-    "section": "8.2 The Railway",
-    "text": "8.2 The Railway\nBeeching 1963 and today."
-  },
-  {
-    "objectID": "ROOM_BOOKING_REQUEST.html",
-    "href": "ROOM_BOOKING_REQUEST.html",
-    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
-    "section": "",
-    "text": "Module Code: TRAN5340M01\nModule Name: Transport Data Science\nAcademic Year: 2025/26 (Semester 2)\nStaff: Dr Robin Lovelace, Dr Malcolm Morgan, Dr Yuanxuan Yang\n\n\n\n\n\n\nTime: Thursdays, 10:00-13:00\nMichael Sadler SR (LG.15) Multi-mode: 1. Thursday, 29 January 2026 - Week 14 - Session 1: Introduction to transport data science 2. Thursday, 5 February 2026 - Week 15 - Session 2: Getting transport data 3. Thursday, 12 February 2026 - Week 16 - Session 3: AI for transport planning 5. Thursday, 5 March 2026 - Week 19 - Session 5: Routing 6. Thursday, 26 March 2026 - Week 22 - Session 6: Joins, models and publishing your work\nInstitute for Transport Studies Room 1.11a-c: 4. Thursday, 19 February 2026 - Week 17 - Session 4: Origin-destination data\n\n\n\nInstitute for Transport Studies Room 1.11a-c:\n\nThursday, 19 February 2026 - Week 17 - Seminar 1: Juan Fonseca (Traffic estimation and transport data visualisation) - 14:00-17:00\nThursday, 19 March 2026 - Week 21 - Seminar 2: Will Deakin, Network Rail (Network simplification) - 10:00-11:00\n\n\n\n\n\n\nTotal bookings: 8 (6 sessions + 2 seminars)\nLocations:\n\nMichael Sadler SR (LG.15) Multi-mode: Sessions 1, 2, 3, 5, 6\nInstitute for Transport Studies Room 1.11a-c: Session 4, Seminar 1, Seminar 2\n\nDays: All Thursdays\nWeeks: 14, 15, 16, 17, 19, 21, 22\n\n\n\n\n\nSession 4 (Week 17) has both a regular session (10:00-13:00) and Seminar 1 (14:00-17:00)\nAll sessions require computer access for students\nMulti-mode room required to accommodate diverse teaching methods\n\n\nGenerated: 21 October 2025"
-  },
-  {
-    "objectID": "ROOM_BOOKING_REQUEST.html#module-details",
-    "href": "ROOM_BOOKING_REQUEST.html#module-details",
-    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
-    "section": "",
-    "text": "Module Code: TRAN5340M01\nModule Name: Transport Data Science\nAcademic Year: 2025/26 (Semester 2)\nStaff: Dr Robin Lovelace, Dr Malcolm Morgan, Dr Yuanxuan Yang"
-  },
-  {
-    "objectID": "ROOM_BOOKING_REQUEST.html#room-bookings-required",
-    "href": "ROOM_BOOKING_REQUEST.html#room-bookings-required",
-    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
-    "section": "",
-    "text": "Time: Thursdays, 10:00-13:00\nMichael Sadler SR (LG.15) Multi-mode: 1. Thursday, 29 January 2026 - Week 14 - Session 1: Introduction to transport data science 2. Thursday, 5 February 2026 - Week 15 - Session 2: Getting transport data 3. Thursday, 12 February 2026 - Week 16 - Session 3: AI for transport planning 5. Thursday, 5 March 2026 - Week 19 - Session 5: Routing 6. Thursday, 26 March 2026 - Week 22 - Session 6: Joins, models and publishing your work\nInstitute for Transport Studies Room 1.11a-c: 4. Thursday, 19 February 2026 - Week 17 - Session 4: Origin-destination data\n\n\n\nInstitute for Transport Studies Room 1.11a-c:\n\nThursday, 19 February 2026 - Week 17 - Seminar 1: Juan Fonseca (Traffic estimation and transport data visualisation) - 14:00-17:00\nThursday, 19 March 2026 - Week 21 - Seminar 2: Will Deakin, Network Rail (Network simplification) - 10:00-11:00"
-  },
-  {
-    "objectID": "ROOM_BOOKING_REQUEST.html#summary",
-    "href": "ROOM_BOOKING_REQUEST.html#summary",
-    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
-    "section": "",
-    "text": "Total bookings: 8 (6 sessions + 2 seminars)\nLocations:\n\nMichael Sadler SR (LG.15) Multi-mode: Sessions 1, 2, 3, 5, 6\nInstitute for Transport Studies Room 1.11a-c: Session 4, Seminar 1, Seminar 2\n\nDays: All Thursdays\nWeeks: 14, 15, 16, 17, 19, 21, 22"
-  },
-  {
-    "objectID": "ROOM_BOOKING_REQUEST.html#notes",
-    "href": "ROOM_BOOKING_REQUEST.html#notes",
-    "title": "1 Room Booking Request for TRAN5340M01 - Transport Data Science",
-    "section": "",
-    "text": "Session 4 (Week 17) has both a regular session (10:00-13:00) and Seminar 1 (14:00-17:00)\nAll sessions require computer access for students\nMulti-mode room required to accommodate diverse teaching methods\n\n\nGenerated: 21 October 2025"
+    "objectID": "minihack-transport-data.html#bring-your-own-data",
+    "href": "minihack-transport-data.html#bring-your-own-data",
+    "title": "Transport Data Minihack: Data Challenges",
+    "section": "2.3 Bring your own data",
+    "text": "2.3 Bring your own data\nParticipants are welcome to bring their own data to the event. Please mention the dataset in the sign-up form (see link above).",
+    "crumbs": [
+      "Transport Data Minihack 8th May"
+    ]
   },
   {
     "objectID": "assessment-overview.html",
