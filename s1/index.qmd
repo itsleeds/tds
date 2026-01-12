@@ -262,9 +262,15 @@ Challenge: reproduce the above code in Python using the `pystats19` package
 
 ``` python
 # Install the package, e.g. with pip
-!pip install pystats19
+# !pip install pystats19
 import pystats19
-# See the documentation at https://github.com/Mayazure/py-stats19
+# Get stats19 data for 2020
+collisions = pystats19.get_stats19(year=2020, type='collision')
+casualties = pystats19.get_stats19(year=2020, type='casualty')
+vehicles = pystats19.get_stats19(year=2020, type='vehicle')
+
+# Calculate percentage of population hurt
+print(f"Percentage of population hurt: {(len(casualties) / 67e6) * 100}%")
 ```
 :::
 
