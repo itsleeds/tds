@@ -28,13 +28,23 @@ jobs:
         with:
           cache-version: 2
       
-      - name: Additional Setup
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install Python Dependencies
         run: |
-          # Install Python:
-          sudo apt-get update
-          sudo apt-get install python3
-          sudo apt-get install python3-pip
           python3 -m pip install jupyter jupyter-cache
+
+      - name: Cache Quarto Freeze
+        uses: actions/cache@v4
+        with:
+          path: _freeze
+          key: ${{ runner.os }}-quarto-freeze-${{ hashFiles('**/*.qmd', '**/*.R', '**/*.py') }}
+          restore-keys: |
+            ${{ runner.os }}-quarto-freeze-
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
