@@ -246,7 +246,7 @@
     "href": "d2/assessment-brief.html",
     "title": "Formative assessment brief: portfolio plan and reproducible data science code",
     "section": "",
-    "text": "TRAN5340M - Transport Data Science\n\n\n\nFormative Coursework: Portfolio Plan and Reproducible Code\n\n\n\nPortfolio Plan and Reproducible Code Submission\n\n\n\nNon-assessed submission deadline: 28th February 2025, 13:59.\n\n\n\nFor guidance on the assessment, please refer to the Summative Assessment Brief.\n\n\n\nYou can submit up to 4 pages of content for this formative assessment."
+    "text": "TRAN5340M - Transport Data Science\n\n\n\nFormative Coursework: Portfolio Plan and Reproducible Code\n\n\n\nPortfolio Plan and Reproducible Code Submission\n\n\n\nNon-assessed submission deadline: 27th February 2026, 13:59.\n\n\n\nFor guidance on the assessment, please refer to the Summative Assessment Brief.\n\n\n\nYou can submit up to 4 pages of content for this formative assessment."
   },
   {
     "objectID": "d2/assessment-brief.html#module-code-and-title",
@@ -274,7 +274,7 @@
     "href": "d2/assessment-brief.html#deadline",
     "title": "Formative assessment brief: portfolio plan and reproducible data science code",
     "section": "",
-    "text": "Non-assessed submission deadline: 28th February 2025, 13:59."
+    "text": "Non-assessed submission deadline: 27th February 2026, 13:59."
   },
   {
     "objectID": "d2/assessment-brief.html#guidance",
@@ -295,14 +295,14 @@
     "href": "d2/index.html",
     "title": "Coursework submission 1: Data science project plan and reproducible code",
     "section": "",
-    "text": "This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is 28th February 2025, 13:59."
+    "text": "This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is 27th February 2026, 13:59."
   },
   {
     "objectID": "d2/index.html#what-to-submit",
     "href": "d2/index.html#what-to-submit",
     "title": "Coursework submission 1: Data science project plan and reproducible code",
     "section": "What to Submit",
-    "text": "What to Submit\nSubmit a .zip file containing two key items:\n\nA concise PDF document (recommended length: 2 pages, absolute maximum: 5 pages) outlining:\n\nYour chosen transport-related topic\nThe main dataset(s) you plan to use\nYour research question\nAt least 2 academic references (see Quarto Citation Guide for details)\nAny initial analysis or questions you have\n\nReproducible code as a .qmd file showing how you accessed and processed your data"
+    "text": "What to Submit\nSubmit a .zip file containing two key items:\n\nA concise PDF document (recommended length: 2 pages, absolute maximum: 4 pages) outlining:\n\nYour chosen transport-related topic\nThe main dataset(s) you plan to use\nYour research question\nAt least 2 academic references (see Quarto Citation Guide for details)\nAny initial analysis or questions you have\n\nReproducible code as a .qmd file showing how you accessed and processed your data"
   },
   {
     "objectID": "d2/index.html#template-and-example-submission",
@@ -1553,7 +1553,7 @@
     "href": "assessment-overview.html#module-assessment-structure",
     "title": "Assessment Overview: Transport Data Science (TRAN5340M)",
     "section": "2 Module Assessment Structure",
-    "text": "2 Module Assessment Structure\nThe module is assessed through two coursework assignments:\n\nFormative Assessment (CW1)\n\nRequired but non-assessed (0% of final mark)\nDue: 28th February 2025, 13:59\nProject plan and reproducible code demonstration\nLength: 2 pages recommended (5 pages maximum)\n\nSummative Assessment (CW2)\n\nWorth 100% of module mark\nDue: 16th May 2025, 14:00\nComplete data science project report\nLength: 10 pages maximum + appendices"
+    "text": "2 Module Assessment Structure\nThe module is assessed through two coursework assignments:\n\nFormative Assessment (CW1)\n\nRequired but non-assessed (0% of final mark)\nDue: 27th February 2026, 13:59\nProject plan and reproducible code demonstration\nLength: Up to 4 pages\n\nSummative Assessment (CW2)\n\nWorth 100% of module mark\nDue: 15th May 2026, 14:00\nComplete data science project report\nLength: 10 pages maximum + appendices"
   },
   {
     "objectID": "assessment-overview.html#file-naming-convention",
@@ -1567,7 +1567,7 @@
     "href": "assessment-overview.html#submission-format-requirements",
     "title": "Assessment Overview: Transport Data Science (TRAN5340M)",
     "section": "4 Submission Format Requirements",
-    "text": "4 Submission Format Requirements\n\n4.1 Document Formatting\n\nInclude student ID in the title page\nDo not include your name (for anonymous marking)\nUse the default Quarto referencing style\n\n\n\n4.2 File Requirements\nFormative Assessment Package: - PDF report (max 5 pages) - Reproducible code (.qmd file) - Maximum .zip file size: 30 MB\nSummative Assessment Package: - PDF report (max 10 pages) - Maximum 3,000 words (excluding tables/code/references/captions) - Reproducible code (.Rmd or .qmd file) - Maximum .zip file size: 40 MB"
+    "text": "4 Submission Format Requirements\n\n4.1 Document Formatting\n\nInclude student ID in the title page\nDo not include your name (for anonymous marking)\nUse the default Quarto referencing style\n\n\n\n4.2 File Requirements\nFormative Assessment Package: - PDF report (max 4 pages) - Reproducible code (.qmd file) - Maximum .zip file size: 30 MB\nSummative Assessment Package: - PDF report (max 10 pages) - Maximum 3,000 words (excluding tables/code/references/captions) - Reproducible code (.Rmd or .qmd file) - Maximum .zip file size: 40 MB"
   },
   {
     "objectID": "assessment-overview.html#submission-process",
@@ -1598,11 +1598,11 @@
     "text": "8 Support Available\n\nAcademic Support\n\nModule team can be contacted via email\nWeekly sessions\n\nTechnical Support\n\nCode templates and examples provided in the course website\nR/RStudio guidance\nData access support\n\nWriting Support\n\nSkills@Library\nAcademic writing guidance\nReferencing support"
   },
   {
-    "objectID": "assessment-overview.html#key-dates-2024-25",
-    "href": "assessment-overview.html#key-dates-2024-25",
+    "objectID": "assessment-overview.html#key-dates-2025-26",
+    "href": "assessment-overview.html#key-dates-2025-26",
     "title": "Assessment Overview: Transport Data Science (TRAN5340M)",
-    "section": "9 Key Dates (2024-25)",
-    "text": "9 Key Dates (2024-25)\n\n28 February 2025, 13:59: Formative assessment (CW1)\n16 May 2025, 14:00: Summative assessment (CW2)\nFeedback provided within 15 working days"
+    "section": "9 Key Dates (2025-26)",
+    "text": "9 Key Dates (2025-26)\n\n27 February 2026, 13:59: Formative assessment (CW1)\n15 May 2026, 14:00: Summative assessment (CW2)\nFeedback provided within 15 working days"
   },
   {
     "objectID": "assessment-overview.html#assessment-checklist",
@@ -1917,14 +1917,14 @@
     "href": "d3/index.html",
     "title": "Coursework submission 2: Data science project report",
     "section": "",
-    "text": "This is the final assessed coursework submission for the Transport Data Science module. The deadline is 16th May 2025, 14:00.\nThe purpose of the coursework is to provide a professional-quality report on the data science project you have worked on. You should include a range of techniques and methods you have learned during the module, and apply them to a real-world transport problem. The project report should be a cohesive whole, however, not a disjointed portfolio of separate tasks.\nA good way to think about the project report is to imagine that you have worked on an important data science project in a large organisation and you are presenting your findings with a view to impressing them with your skills, clearly communicating your results, and providing actionable insights that motivate change."
+    "text": "This is the final assessed coursework submission for the Transport Data Science module. The deadline is 15th May 2026, 14:00.\nThe purpose of the coursework is to provide a professional-quality report on the data science project you have worked on. You should include a range of techniques and methods you have learned during the module, and apply them to a real-world transport problem. The project report should be a cohesive whole, however, not a disjointed portfolio of separate tasks.\nA good way to think about the project report is to imagine that you have worked on an important data science project in a large organisation and you are presenting your findings with a view to impressing them with your skills, clearly communicating your results, and providing actionable insights that motivate change."
   },
   {
     "objectID": "d3/index.html#overview",
     "href": "d3/index.html#overview",
     "title": "Coursework submission 2: Data science project report",
     "section": "",
-    "text": "This is the final assessed coursework submission for the Transport Data Science module. The deadline is 16th May 2025, 14:00.\nThe purpose of the coursework is to provide a professional-quality report on the data science project you have worked on. You should include a range of techniques and methods you have learned during the module, and apply them to a real-world transport problem. The project report should be a cohesive whole, however, not a disjointed portfolio of separate tasks.\nA good way to think about the project report is to imagine that you have worked on an important data science project in a large organisation and you are presenting your findings with a view to impressing them with your skills, clearly communicating your results, and providing actionable insights that motivate change."
+    "text": "This is the final assessed coursework submission for the Transport Data Science module. The deadline is 15th May 2026, 14:00.\nThe purpose of the coursework is to provide a professional-quality report on the data science project you have worked on. You should include a range of techniques and methods you have learned during the module, and apply them to a real-world transport problem. The project report should be a cohesive whole, however, not a disjointed portfolio of separate tasks.\nA good way to think about the project report is to imagine that you have worked on an important data science project in a large organisation and you are presenting your findings with a view to impressing them with your skills, clearly communicating your results, and providing actionable insights that motivate change."
   },
   {
     "objectID": "d3/index.html#key-requirements",
@@ -1952,7 +1952,7 @@
     "href": "d3/index.html#technical-requirements",
     "title": "Coursework submission 2: Data science project report",
     "section": "5 Technical Requirements",
-    "text": "5 Technical Requirements\n\nWrite the report in a Quarto document (.qmd file)\n\nSee the template in the course GitHub repository at github.com/itsleeds/tds in folder/file d2/template.qmd. \nSee the rendered results at itsleeds.github.io/tds/d2/template (html version) and github.com/itsleeds/tds/releases/download/2025/template.pdf (pdf version)\n\nInclude all necessary code for reproducibility\nDocument any external data sources\nFollow R coding style guidelines"
+    "text": "5 Technical Requirements\n\nWrite the report in a Quarto document (.qmd file)\n\nSee the template in the course GitHub repository at github.com/itsleeds/tds in folder/file d2/template.qmd. \nSee the rendered results at itsleeds.github.io/tds/d2/template (html version) and github.com/itsleeds/tds/releases/download/2026/template.pdf (pdf version)\n\nInclude all necessary code for reproducibility\nDocument any external data sources\nFollow R coding style guidelines"
   },
   {
     "objectID": "d3/index.html#academic-integrity",
