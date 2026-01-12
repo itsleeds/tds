@@ -1994,7 +1994,7 @@
     "href": "d3/assessment-brief.html",
     "title": "Summative assessment brief: Data science project report",
     "section": "",
-    "text": "TRAN5340M - Transport Data Science\n\n\n\nSummative Coursework: Data Science Project Report\n\n\n\nProject Report and Reproducible Code\n\n\n\n\nTo demonstrate advanced data science techniques applied to a transport problem\nTo show proficiency in data processing, visualization, and analysis\nTo produce high-quality, reproducible research with clear implications for transport planning/policy\nTo critically evaluate methodological approaches and results\n\n\n\n\n100% of module mark\n\n\n\nSubmission deadline: 16th May 2025, 14:00\n\n\n\n\nA .zip file containing:\n\nA PDF document (max 10 pages)\nReproducible code (.qmd file)\nAny necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead\nMaximum file size: 40 MB\n\nSubmission: Via Minerva (Blackboard Assignment)\n\n\n\n\nFeedback will be provided within 15 working days of submission. Written feedback will be provided alongside guidance on how to proceed with the final coursework.\n\n\n\nProfessor Robin Lovelace\nr dot lovelace [at] leeds.ac.uk\n\n\n\nThis summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions."
+    "text": "TRAN5340M - Transport Data Science\n\n\n\nSummative Coursework: Data Science Project Report\n\n\n\nProject Report and Reproducible Code\n\n\n\n\nTo demonstrate advanced data science techniques applied to a transport problem\nTo show proficiency in data processing, visualization, and analysis\nTo produce high-quality, reproducible research with clear implications for transport planning/policy\nTo critically evaluate methodological approaches and results\n\n\n\n\n100% of module mark\n\n\n\nSubmission deadline: 15th May 2026, 14:00\n\n\n\n\nA .zip file containing:\n\nA PDF document (max 10 pages)\nReproducible code (.qmd file)\nAny necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead\nMaximum file size: 40 MB\n\nSubmission: Via Minerva (Blackboard Assignment)\n\n\n\n\nFeedback will be provided within 15 working days of submission. Written feedback will be provided.\n\n\n\nProfessor Robin Lovelace\nr dot lovelace [at] leeds.ac.uk\n\n\n\nThis summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions."
   },
   {
     "objectID": "d3/assessment-brief.html#module-code-and-title",
@@ -2036,7 +2036,7 @@
     "href": "d3/assessment-brief.html#deadline",
     "title": "Summative assessment brief: Data science project report",
     "section": "",
-    "text": "Submission deadline: 16th May 2025, 14:00"
+    "text": "Submission deadline: 15th May 2026, 14:00"
   },
   {
     "objectID": "d3/assessment-brief.html#submission-method",
@@ -2050,7 +2050,7 @@
     "href": "d3/assessment-brief.html#feedback",
     "title": "Summative assessment brief: Data science project report",
     "section": "",
-    "text": "Feedback will be provided within 15 working days of submission. Written feedback will be provided alongside guidance on how to proceed with the final coursework."
+    "text": "Feedback will be provided within 15 working days of submission. Written feedback will be provided."
   },
   {
     "objectID": "d3/assessment-brief.html#contact",
