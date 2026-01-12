@@ -4,15 +4,6 @@ bibliography: ../tds.bib
 number-sections: true
 ---
 
-```{r}
-#| echo: false
-#| eval: false
-# docx format results in higher accessibility scores on Minerva:
-quarto::quarto_render("d3/assessment-brief.qmd", output_format = "docx")
-# file.rename("docs/d3/index.docx", "~/OneDrive/career/modules/tds/2025-26/TRAN5340M TDS Summative Assessment Brief.docx")
-file.rename("docs/d3/assessment-brief.docx", "C:/Users/georl_admin/OneDrive - University of Leeds/career/modules/tds/2025-26/TRAN5340M TDS Summative Assessment Brief.docx")
-```
-
 # Assessment in brief
 
 ##  Module code and title
@@ -27,7 +18,7 @@ Summative Coursework: Data Science Project Report
 
 Project Report and Reproducible Code
 
-##  Learning outcomes
+##  Learning outcomes assessed
 
 1. To demonstrate advanced data science techniques applied to a transport problem
 2. To show proficiency in data processing, visualization, and analysis
@@ -40,13 +31,13 @@ A PDF document (max 10 pages)
 
 ## Weighting
 
-100% of module mark
+100%
 
-## Deadline
+## Deadline or date of assessment
 
-**Submission deadline**: 15th May 2026, 14:00
+Friday 15th May 2026 at 2pm: 2026-05-15 14:00 BST
 
-## Submission Method
+## Submission method
 
 - A `.zip` file containing:
   - A PDF document (max 10 pages)
@@ -59,17 +50,15 @@ A PDF document (max 10 pages)
 
 When there is more than one assessment on a module, you will usually receive your feedback before your next assessment for the module is due. Where it is appropriate to do so, and feedback can be released without invalidating the integrity of ongoing assessments, this will typically be no later than 15 working days post submission. Please be mindful that some students may have approved extensions for assessments which mean it is not appropriate to release feedback within 15 working days after individual submissions. In these cases, feedback will be released no later than 15 working days following the submission of all outstanding work for the assessment.
 
-## Contact
+Feedback will be provided via Minerva and during practical sessions with dedicated time for coursework.
 
-**Professor Robin Lovelace**\
-r dot lovelace \[at\] leeds.ac.uk
+## Module leader & contact details
+
+Robin Lovelace, r.lovelace [at] leeds.ac.uk
 
 ## Assessment summary guidance
 
 In ITS Assessment Instructions will be made available separately. Your module leader will tell you when to expect the Assessment Instructions to be available. When the Assessment Instructions are made available you will be able to find them in the Assessment and Feedback Folder on the module Minerva Page.
-
-This summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions.
-
 
 # Use of GenAI
 
@@ -97,104 +86,39 @@ The use of Generative AI must be acknowledged in an ‘Acknowledgements’ sect
 
 The minimum requirement to include in acknowledgement:
 
-- Name and version of the generative AI system used e.g. ChatGPT-4.0
-- Publisher (company that made the AI system) e.g. OpenAI
+- Name and version of the generative AI system used e.g. Gemini 3
+- Publisher (company that made the AI system) e.g. Google
 - URL of the AI system
 - Brief description (single sentence) of context in which the tool was used.
 
-For example: “I acknowledge the use of ChatGPT-3.5 (Open AI, <https://chat.openai.com/>) to summarise my initial notes and to proofread my final draft.
-Best practice is to include a link to the exact prompt used to generate the content, e.g. https://g.co/gemini/share/4933efa27596
+For example: “I acknowledge the use of Gemini 3 to prototype the visualisation of my results and test different software packages, including ggplot2, base graphics, and plotly.” Best practice is to include a link to the exact prompt used to generate the content or an appendix of up to 1 page in length with key prompts and session information.
 
 The standard Academic Misconduct procedure applies for students believed to have ignored this categorisation.
 
-For detailed guidance see <https://generative-ai.leeds.ac.uk/> 
+For detailed guidance see <https://generative-ai.leeds.ac.uk/ai-and assessments/categories-of-assessments/> 
 
 **General guidance**
 
-Skills\@library hosts useful guidance on academic skills including specific guidance on academic writing 
-
-# Submission requirements
-
-- A `.zip` file containing:
-  - A PDF document (max 10 pages)
-  - Reproducible code (`.qmd` file)
-  - Any necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead
-  - Maximum file size: 40 MB
-- Submit via Minerva (Turnitin)
-
-See the formative assessment brief and feedback from that submission for guidance on topic selection and data sources.
-
-## Technical Requirements
-
-- Write the report in a Quarto document to share the source code
-- Include all necessary code
-- Document data sources
-- Ensure reproducibility
-- Follow a consistent coding style
-
-## Recommended structure
-
-{{< include report-structure.qmd >}} 
-
-## Presentation/Formatting and referencing
-
-- Use clear headings and structure
-- Include appropriate figures and tables
-- Use consistent citation format
-- Provide complete references
-
-You must appropriately cite all supporting evidence using the Leeds Harvard referencing style - https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction
-
-See [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for reference formatting.
+Skills\@library hosts useful guidance on academic skills including specific guidance on academic /writing and referencing Academic skills | Library | University of Leeds 
 
 # Assessment criteria and process
 
 The detailed marking rubric for this assessment will be included in the Assessment Instructions that will be made available separately.
 
-Moderation process are detailed in the University Assessment Policy & Procedures.
-
-Late penalties are detailed in the University Assessment Policy & Procedures. Any criteria or penalties specific to this assignment (e.g. penalties that for pedagogical reasons differ from what is presented in the Faculty CoPA or School Annex) must be outlined here.
-
 Assessment length penalties are applied during the marking process & will normally be applied before you receive your mark. Late penalties are normally applied after you receive your mark – if you know you submitted late without a permitted extension, please be aware that your mark may change.
 
 In ITS written English is assessed in line with the University’s policies on Assessment of written English (Student Education Service | University of Leeds). You should use spelling, punctuation & grammar to communicate your ideas clearly.
 
-Marks will be awarded based on the information provided in the [marking criteria](https://itsleeds.github.io/tds/marking-criteria.html) document.
+## Presentation/Formatting and referencing
+
+You must appropriately cite all supporting evidence using Quarto’s citation system: <https://quarto.org/docs/authoring/citations.html>
 
 # Academic misconduct and plagiarism
 
-The university expects that all the work you do, which includes all forms of assessments submitted and examinations taken, meet the university’s standard for Academic Integrity.
-All forms of Academic Integrity are investigated through the Academic Misconduct Procedure.
-This applies to all taught elements of your study, including undergraduate programmes, taught postgraduate study, and taught elements of research degrees.
-Breaching academic integrity standards can lead to serious penalties.
+The university expects that all the work you do which includes all forms of assessments submitted and examinations taken, meet the university’s standard for Academic Integrity.  All forms of Academic Integrity are investigated through the Academic Misconduct Procedure.  This applies to all taught elements of your study, including undergraduate programmes, taught postgraduate study and taught elements of research degrees. Breaching academic integrity standards can lead to serious penalties.  
 
-Guidance on Academic Integrity and Academic Misconduct can be found on the [For Students website pages](https://students.leeds.ac.uk/info/10110/academic-integrity).
-Full definitions of offences under the Academic Misconduct Procedure can be found in the [Academic Misconduct Procedure](https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/).
+Guidance on Academic Integrity and Academic Misconduct can be found on the For Students website pages (https://students.leeds.ac.uk/info/10110/academic-integrity) and full definitions of offences under the Academic Misconduct Procedure can be found in the Academic Misconduct Procedure on the Student Cases website page (https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/). 
 
-# Academic integrity
+# Assessment criteria rubric 
 
-All work must meet university standards for Academic Integrity.
-See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance.
-
-# Support resources
-
--   [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations)
--   [The course website](https://itsleeds.github.io/tds/) for additional resources.
--   Module forum for questions.
-
-# Resit information
-
-If you fail the module, you will be given the opportunity to resit the assessment. The resit will be capped at the pass mark (50%).
-
-You will submit as before:
-
-- A `.zip` file containing:
-  - A PDF document (max 10 pages)
-  - Reproducible code (`.qmd` file)
-  - Any necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead
-  - Maximum file size: 40 MB
-- Submission: Via Minerva (Blackboard Assignment)
-
-For the coursework you will submit a PDF document with a maximum of 10 pages that contains code and results demonstrating your transport data science skills.
-
-The topic must be completely different from the topic chosen in your original Summative Assessment submission
+The assessment criteria rubric will be included in the Assessment Instructions that are made available separately.
