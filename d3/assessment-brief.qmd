@@ -4,40 +4,40 @@ bibliography: ../tds.bib
 number-sections: true
 ---
 
-# Assessment in brief
+## Assessment in brief
 
-##  Module code and title
+###  Module code and title
 
 **TRAN5340M** - Transport Data Science
 
-##  Assessment title
+###  Assessment title
 
 Summative Coursework: Data Science Project Report
 
-##  Assessment type
+###  Assessment type
 
 Project Report and Reproducible Code
 
-##  Learning outcomes assessed
+###  Learning outcomes assessed
 
 1. To demonstrate advanced data science techniques applied to a transport problem
 2. To show proficiency in data processing, visualization, and analysis
 3. To produce high-quality, reproducible research with clear implications for transport planning/policy
 4. To critically evaluate methodological approaches and results
 
-## Assessment length/Time limit guidance
+### Assessment length/Time limit guidance
 
 A PDF document (max 10 pages)
 
-## Weighting
+### Weighting
 
 100%
 
-## Deadline or date of assessment
+### Deadline or date of assessment
 
 Friday 15th May 2026 at 2pm: 2026-05-15 14:00 BST
 
-## Submission method
+### Submission method
 
 - A `.zip` file containing:
   - A PDF document (max 10 pages)
@@ -46,21 +46,21 @@ Friday 15th May 2026 at 2pm: 2026-05-15 14:00 BST
   - Maximum file size: 40 MB
 - Submission: Via Minerva (Blackboard Assignment)
 
-## Feedback provision
+### Feedback provision
 
 When there is more than one assessment on a module, you will usually receive your feedback before your next assessment for the module is due. Where it is appropriate to do so, and feedback can be released without invalidating the integrity of ongoing assessments, this will typically be no later than 15 working days post submission. Please be mindful that some students may have approved extensions for assessments which mean it is not appropriate to release feedback within 15 working days after individual submissions. In these cases, feedback will be released no later than 15 working days following the submission of all outstanding work for the assessment.
 
 Feedback will be provided via Minerva and during practical sessions with dedicated time for coursework.
 
-## Module leader & contact details
+### Module leader & contact details
 
 Robin Lovelace, r.lovelace [at] leeds.ac.uk
 
-## Assessment summary guidance
+### Assessment summary guidance
 
 In ITS Assessment Instructions will be made available separately. Your module leader will tell you when to expect the Assessment Instructions to be available. When the Assessment Instructions are made available you will be able to find them in the Assessment and Feedback Folder on the module Minerva Page.
 
-# Use of GenAI
+## Use of GenAI
 
 **Generative AI category: GREEN**
 
@@ -95,30 +95,34 @@ For example: “I acknowledge the use of Gemini 3 to prototype the visualisation
 
 The standard Academic Misconduct procedure applies for students believed to have ignored this categorisation.
 
-For detailed guidance see <https://generative-ai.leeds.ac.uk/ai-and assessments/categories-of-assessments/> 
+For detailed guidance see
+ <!-- <https://generative-ai.leeds.ac.uk/ai-and assessments/categories-of-assessments/>  -->
+[https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/).
 
 **General guidance**
 
-Skills\@library hosts useful guidance on academic skills including specific guidance on academic /writing and referencing Academic skills | Library | University of Leeds 
+Skills@library hosts useful guidance on academic skills including specific guidance on academic writing and referencing Academic skills.
 
-# Assessment criteria and process
+## Assessment criteria and process
 
-The detailed marking rubric for this assessment will be included in the Assessment Instructions that will be made available separately.
+The detailed marking criteria are made available on Minerva and [online for accessibility](https://itsleeds.github.io/tds/marking-criteria.html).
 
 Assessment length penalties are applied during the marking process & will normally be applied before you receive your mark. Late penalties are normally applied after you receive your mark – if you know you submitted late without a permitted extension, please be aware that your mark may change.
 
 In ITS written English is assessed in line with the University’s policies on Assessment of written English (Student Education Service | University of Leeds). You should use spelling, punctuation & grammar to communicate your ideas clearly.
 
-## Presentation/Formatting and referencing
+{{< include ../marking-criteria-portable.qmd >}}
+
+### Presentation/Formatting and referencing
 
 You must appropriately cite all supporting evidence using Quarto’s citation system: <https://quarto.org/docs/authoring/citations.html>
 
-# Academic misconduct and plagiarism
+## Academic misconduct and plagiarism
 
 The university expects that all the work you do which includes all forms of assessments submitted and examinations taken, meet the university’s standard for Academic Integrity.  All forms of Academic Integrity are investigated through the Academic Misconduct Procedure.  This applies to all taught elements of your study, including undergraduate programmes, taught postgraduate study and taught elements of research degrees. Breaching academic integrity standards can lead to serious penalties.  
 
 Guidance on Academic Integrity and Academic Misconduct can be found on the For Students website pages (https://students.leeds.ac.uk/info/10110/academic-integrity) and full definitions of offences under the Academic Misconduct Procedure can be found in the Academic Misconduct Procedure on the Student Cases website page (https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/). 
 
-# Assessment criteria rubric 
+## Assessment criteria rubric 
 
 The assessment criteria rubric will be included in the Assessment Instructions that are made available separately.

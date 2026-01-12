@@ -1,6 +1,6 @@
 Marks for the submitted report, are awarded in 4 categories, accounting for the following criteria:
 
-## Data processing: 20%
+### Data processing: 20%
 
 1. The selection and effective use of input datasets that are large (e.g. covering multiple years), complex (e.g. containing multiple variables) and/or diverse (e.g. input datasets from multiple sources are used and where appropriate combined in the analysis)
 2. Describe how the data was collected and implications for data quality, and outline how the input datasets were downloaded (with a reproducible example if possible), with a description that will allow others to understand the structure of the inputs and how to import them
@@ -15,7 +15,7 @@ Marks for the submitted report, are awarded in 4 categories, accounting for the 
 
 **Fail (0-49%):** The report does not make use of appropriate input datasets and contains very little or now evidence of data cleaning, adding value to the datasets or reshaping the data. While there may be some evidence of data processing, it is of poor quality and/or not appropriate for the research questions.
 
-## Visualization and report: 20%
+### Visualization and report: 20%
 
 1. Creation of figures that are readable and well-described (e.g. with captions and description)
 1. High quality, attractive or advanced techniques (e.g. multi-layered maps or graphs, facets or other advanced techniques)
@@ -30,7 +30,7 @@ Marks for the submitted report, are awarded in 4 categories, accounting for the 
 
 **Fail (0-49%):** The report is of unacceptable quality (would likely be rejected in a professional setting) and/or has poor quality and/or few visualisations, or the visualisations are inappropriate given the data and research questions.
 
-## Code quality, efficiency and reproducibility: 20%
+### Code quality, efficiency and reproducibility: 20%
 
 1. Code quality in the submitted source code, including using consistent style, appropriate packages, and clear comments
 1. Efficiency, including pre-processing to reduce input datasets (avoiding having to share large datasets in the submission for example) and computationally efficient implementations
@@ -44,7 +44,7 @@ Marks for the submitted report, are awarded in 4 categories, accounting for the 
 
 **Fail (0-49%):** The report has little to no reproducible, readable or efficient code. A report that includes limited well-described code in the main text or in associated files would be considered at the borderline between a fail and a pass. A report that includes no code would be considered a low fail under this criterion.
 
-## Understanding the data science process, including choice of topic and impact: 40%
+### Understanding the data science process, including choice of topic and impact: 40%
 
 1. Topic selection, including originality, availability of datasets related to the topic and relevance to solving transport planning problems
 1. Clear research question
