@@ -320,7 +320,23 @@ Use AI to generate code for:
 -   **Demand modeling** - Neural networks for trip generation
 -   **Route optimization** - Reinforcement learning for vehicle routing
 -   **Image analysis** - Computer vision for traffic counting
--   **Natural language processing** - Analyzing transport surveys and reports# Summary
+-   **Natural language processing** - Analyzing transport surveys and reports## Tips for PDF output
+
+If you experience excessive whitespace above and below your `tmap` plots when rendering to PDF, you can try the following adjustments in `tm_layout()`:
+
+- Set `inner.margins = 0` and `outer.margins = 0`.
+- Use the `bbox` argument in `tm_shape()` to crop the map to the area of interest.
+- Save the plot as a PNG using `tmap_save()` and import it into your document if the PDF device continues to struggle with margins.
+
+Example:
+
+```r
+tm_shape(my_data, bbox = st_bbox(my_area)) +
+  tm_polygons() +
+  tm_layout(inner.margins = 0, outer.margins = 0)
+```
+
+# Summary
 
 AI tools like GitHub Copilot are transforming how we work with transport data:
 
