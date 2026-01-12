@@ -115,6 +115,7 @@ Both assessments are categorized as **GREEN** for AI usage:
 - Usage should be documented in reflective sections
 - You must understand and be able to explain all submitted work
 - Critical evaluation of AI outputs is expected
+- AI will not be used to assess the submissions.
 
 ### Academic Integrity
 
