@@ -13,6 +13,8 @@ Authors@R: c(
   )
 Description: 'tds' supports the TRAN5340M Transport Data Science module at the Institute for Transport Studies, University of Leeds. It provides a comprehensive collection of teaching materials, tutorials, and curated resources to facilitate learning. The package also serves as the foundation for a dedicated website that delivers course content and enhances teaching by integrating key dependencies and resources for data processing, visualization, spatial analysis, and transport modelling.
 License: GPL-3
+URL: https://itsleeds.github.io/tds/, https://github.com/itsleeds/tds
+BugReports: https://github.com/itsleeds/tds/issues
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
