@@ -34,6 +34,10 @@ Project Report and Reproducible Code
 3. To produce high-quality, reproducible research with clear implications for transport planning/policy
 4. To critically evaluate methodological approaches and results
 
+## Assessment length/Time limit guidance
+
+A PDF document (max 10 pages)
+
 ## Weighting
 
 100% of module mark
@@ -51,17 +55,18 @@ Project Report and Reproducible Code
   - Maximum file size: 40 MB
 - Submission: Via Minerva (Blackboard Assignment)
 
-##  Feedback
+## Feedback provision
 
-Feedback will be provided within 15 working days of submission.
-Written feedback will be provided.
+When there is more than one assessment on a module, you will usually receive your feedback before your next assessment for the module is due. Where it is appropriate to do so, and feedback can be released without invalidating the integrity of ongoing assessments, this will typically be no later than 15 working days post submission. Please be mindful that some students may have approved extensions for assessments which mean it is not appropriate to release feedback within 15 working days after individual submissions. In these cases, feedback will be released no later than 15 working days following the submission of all outstanding work for the assessment.
 
 ## Contact
 
 **Professor Robin Lovelace**\
 r dot lovelace \[at\] leeds.ac.uk
 
-## Assessment summary
+## Assessment summary guidance
+
+In ITS Assessment Instructions will be made available separately. Your module leader will tell you when to expect the Assessment Instructions to be available. When the Assessment Instructions are made available you will be able to find them in the Assessment and Feedback Folder on the module Minerva Page.
 
 This summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions.
 
@@ -131,16 +136,28 @@ See the formative assessment brief and feedback from that submission for guidanc
 
 {{< include report-structure.qmd >}} 
 
-## Presentation
+## Presentation/Formatting and referencing
 
 - Use clear headings and structure
 - Include appropriate figures and tables
 - Use consistent citation format
 - Provide complete references
 
+You must appropriately cite all supporting evidence using the Leeds Harvard referencing style - https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction
+
 See [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for reference formatting.
 
-# Assessment criteria
+# Assessment criteria and process
+
+The detailed marking rubric for this assessment will be included in the Assessment Instructions that will be made available separately.
+
+Moderation process are detailed in the University Assessment Policy & Procedures.
+
+Late penalties are detailed in the University Assessment Policy & Procedures. Any criteria or penalties specific to this assignment (e.g. penalties that for pedagogical reasons differ from what is presented in the Faculty CoPA or School Annex) must be outlined here.
+
+Assessment length penalties are applied during the marking process & will normally be applied before you receive your mark. Late penalties are normally applied after you receive your mark – if you know you submitted late without a permitted extension, please be aware that your mark may change.
+
+In ITS written English is assessed in line with the University’s policies on Assessment of written English (Student Education Service | University of Leeds). You should use spelling, punctuation & grammar to communicate your ideas clearly.
 
 Marks will be awarded based on the information provided in the [marking criteria](https://itsleeds.github.io/tds/marking-criteria.html) document.
 
