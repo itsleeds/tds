@@ -1,0 +1,64 @@
+Marks for the submitted report, are awarded in 4 categories, accounting for the following criteria:
+
+## Data processing: 20%
+
+1. The selection and effective use of input datasets that are large (e.g. covering multiple years), complex (e.g. containing multiple variables) and/or diverse (e.g. input datasets from multiple sources are used and where appropriate combined in the analysis)
+2. Describe how the data was collected and implications for data quality, and outline how the input datasets were downloaded (with a reproducible example if possible), with a description that will allow others to understand the structure of the inputs and how to import them
+3. Evidence of data cleaning techniques (e.g. by re-categorising variables)
+4. Adding value to datasets with joins (key-based or spatial), creation of new variables (also known as feature engineering) and reshaping data (e.g. from wide to long format)
+
+**Distinction (70%+):** The report makes use of a complex (with many columns and rows) and/or multiple input datasets, efficiently importing them and adding value by creating new variables, recategorising, changing data formats/types, and/or reshaping the data. Selected datasets are very well suited to the research questions, clearly described, with links to the source and understanding of how the datasets were generated.
+
+**Merit (60-69%):** The report makes some use of complex or multiple input datasets. The selection, description of, cleaning or value-added to the input datasets show skill and care applied to the data processing stage but with some weaknesses. Selected datasets are appropriate for the research questions, with some description or links to the data source.
+
+**Pass (50-59%):** There is some evidence of care and attention put into the selection, description of or cleaning of the input datasets but little value has been added. The report makes little use of complex or multiple input datasets. The datasets are not appropriate for the research questions, the datasets are not clearly described, or there are no links to the source or understanding of how the datasets were generated, but the data processing aspect of the work acceptable.
+
+**Fail (0-49%):** The report does not make use of appropriate input datasets and contains very little or now evidence of data cleaning, adding value to the datasets or reshaping the data. While there may be some evidence of data processing, it is of poor quality and/or not appropriate for the research questions.
+
+## Visualization and report: 20%
+
+1. Creation of figures that are readable and well-described (e.g. with captions and description)
+1. High quality, attractive or advanced techniques (e.g. multi-layered maps or graphs, facets or other advanced techniques)
+1. Using visualisation techniques appropriate to the topic and data and interpreting the results correctly (e.g. mentioning potential confounding factors that could account for observed patterns)
+1. The report is well-formatted, accessible (e.g. with legible text size and does not contain excessive code in the submitted report) and clearly communicates the data and analysis visually, with appropriate figure captions, cross-references and a consistent style
+
+**Distinction (70%+):** The report contains high quality, attractive, advanced and meaningful visualisations that are very well-described and interpreted, showing deep understanding of how visualisation can communicate meaning contained within datasets. The report is very well-formatted, accessible and clearly communicates the data and analysis visually.
+
+**Merit (60-69%):** The report contains good visualisations that correctly present the data and highlight key patterns. The report is has appropriate formatting.
+
+**Pass (50-59%):** The report contains basic visualisations or are not well-described or interpreted correctly or the report is poorly formatted, not accessible or does not clearly communicate the data and analysis visually.
+
+**Fail (0-49%):** The report is of unacceptable quality (would likely be rejected in a professional setting) and/or has poor quality and/or few visualisations, or the visualisations are inappropriate given the data and research questions.
+
+## Code quality, efficiency and reproducibility: 20%
+
+1. Code quality in the submitted source code, including using consistent style, appropriate packages, and clear comments
+1. Efficiency, including pre-processing to reduce input datasets (avoiding having to share large datasets in the submission for example) and computationally efficient implementations
+1. The report is fully reproducible, including generation of figures. There are links to online resources for others wanting to reproduce the analysis for another area, and links to the input data
+
+**Distinction (70%+):** The source code underlying the report contains high quality, efficient and reproducible code that is very well-written, using consistent syntax and good style, well-commented and uses appropriate packages. The report is fully reproducible, with links to online resources for others wanting to reproduce the analysis for another area, and links to the input data.
+
+**Merit (60-69%):** The code is readable and describes the outputs in the report but lacks quality, either in terms of comments, efficiency or reproducibility. 
+
+**Pass (50-59%):** The source code underlying the report describes the outputs in the report but is not well-commented, not efficient or has very limited levels of reproduicibility, with few links to online resources for others wanting to reproduce the analysis for another area, and few links to the input data.
+
+**Fail (0-49%):** The report has little to no reproducible, readable or efficient code. A report that includes limited well-described code in the main text or in associated files would be considered at the borderline between a fail and a pass. A report that includes no code would be considered a low fail under this criterion.
+
+## Understanding the data science process, including choice of topic and impact: 40%
+
+1. Topic selection, including originality, availability of datasets related to the topic and relevance to solving transport planning problems
+1. Clear research question
+1. Appropriate reference to the academic, policy and/or technical literature and use of the literature to inform the research question and methods
+1. Use of appropriate data science methods and techniques
+1. Discussion of the strengths and weaknesses of the analysis and input datasets and/or how limitations could be addressed
+1. Discuss further research and/or explain the potential impacts of the work
+1. The conclusions are supported by the analysis and results
+1. The contents of the report fit together logically and support the aims and/or research questions of the report
+
+**Distinction (70%+):** The report contains a clear research question, appropriate reference to the academic, policy and/or technical literature, use of appropriate data science methods and techniques, discussion of the strengths and weaknesses of the analysis and input datasets and/or how limitations could be addressed. The report discusses further research and/or explores of the potential impacts of the work. Conclusions are supported by the analysis and results, and the contents of the report fit together logically as a cohehisive whole that has a clear direction set-out by the aims and/or research questions. To get a Distinction there should also be evidence of considering the generalisability of the methods and reflections on how it could be built on by others in other areas.
+
+**Merit (60-69%):** There is a clear research question. There is some reference to the academic, policy and/or technical literature. The report has a good structure and the results are supported by the analysis. There is some discussion of the strengths and weaknesses of the analysis and input datasets and/or how limitations could be addressed. 
+
+**Pass (50-59%):** The report contains a valid research question but only limited references to appropriate literature or justification. There is evidence of awareness of the limitations of the results and how they inform conclusions, but these are not fully supported by the analysis. The report has a reasonable structure but does not fit together well in a cohesive whole.
+
+**Fail (0-49%):** The report does not contain a valid research question, has no references to appropriate literature or justification, does not discuss the limitations of the results or how they inform conclusions, or the report does not have a reasonable structure.
