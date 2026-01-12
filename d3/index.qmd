@@ -8,7 +8,7 @@ number-sections: true
 
 ## Overview
 
-This is the final assessed coursework submission for the Transport Data Science module. The deadline is **16th May 2025, 14:00**.
+This is the final assessed coursework submission for the Transport Data Science module. The deadline is **15th May 2026, 14:00**.
 
 The purpose of the coursework is to provide a professional-quality report on the data science project you have worked on.
 You should include a range of techniques and methods you have learned during the module, and apply them to a real-world transport problem.
@@ -38,7 +38,7 @@ Marks will be awarded based on the marking criteria outlined in the [marking cri
 - Write the report in a Quarto document (`.qmd` file)
   - See the template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd).
   <!-- https://itsleeds.github.io/tds/d2/template -->
-  - See the rendered results at [itsleeds.github.io/tds/d2/template](https://itsleeds.github.io/tds/d2/template) (html version) and [github.com/itsleeds/tds/releases/download/2025/template.pdf](https://github.com/itsleeds/tds/releases/download/2025/template.pdf) (pdf version)
+  - See the rendered results at [itsleeds.github.io/tds/d2/template](https://itsleeds.github.io/tds/d2/template) (html version) and [github.com/itsleeds/tds/releases/download/2026/template.pdf](https://github.com/itsleeds/tds/releases/download/2026/template.pdf) (pdf version)
 - Include all necessary code for reproducibility
 - Document any external data sources
 - Follow R coding style guidelines

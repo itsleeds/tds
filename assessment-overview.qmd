@@ -17,13 +17,13 @@ The module is assessed through two coursework assignments:
 
 1. **Formative Assessment (CW1)** 
    - Required but non-assessed (0% of final mark)
-   - Due: 28th February 2025, 13:59
+   - Due: 27th February 2026, 13:59
    - Project plan and reproducible code demonstration
-   - Length: 2 pages recommended (5 pages maximum)
+   - Length: Up to 4 pages
 
 2. **Summative Assessment (CW2)**
    - Worth 100% of module mark
-   - Due: 16th May 2025, 14:00
+   - Due: 15th May 2026, 14:00
    - Complete data science project report
    - Length: 10 pages maximum + appendices
 
@@ -48,7 +48,7 @@ For example:
 ### File Requirements
 
 **Formative Assessment Package:**
-- PDF report (max 5 pages)
+- PDF report (max 4 pages)
 - Reproducible code (`.qmd` file)
 - Maximum `.zip` file size: 30 MB
 
@@ -138,10 +138,10 @@ Both assessments are categorized as **GREEN** for AI usage:
    - Academic writing guidance
    - Referencing support
 
-## Key Dates (2024-25)
+## Key Dates (2025-26)
 
-- **28 February 2025, 13:59**: Formative assessment (CW1)
-- **16 May 2025, 14:00**: Summative assessment (CW2)
+- **27 February 2026, 13:59**: Formative assessment (CW1)
+- **15 May 2026, 14:00**: Summative assessment (CW2)
 - Feedback provided within 15 working days
 
 ## Assessment Checklist
