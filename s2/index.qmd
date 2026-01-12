@@ -56,7 +56,26 @@ Work through the reproducible code in the "Introducing osmextract" vignette host
 
 - Reproduce the examples
 - Get all supermarkets in OSM for West Yorkshire
+- Get all bus stops in Leeds from OSM using `osmextract`
+- Get all electric car charging points in West Yorkshire from OSM
 - Identify all cycleways in West Yorkshire and, using the stats19 data you have already downloaded, identify all crashes that happened near them.
+
+Example of getting bus stops:
+
+```r
+q = "select * from points where highway IN ('bus_stop')"
+bus_stop_leeds = osmextract::oe_get("leeds", query = q)
+mapview::mapview(bus_stop_leeds)
+```
+
+Example of getting electric car charging points:
+
+```r
+q = "SELECT * FROM 'points' WHERE amenity IN ('charging_station')"
+extra_tags = "amenity"
+electric_charging_points = osmextract::oe_get(place = "leeds", query = q, extra_tags = extra_tags)
+mapview::mapview(electric_charging_points)
+```
 
 ```{r}
 #| eval: false
