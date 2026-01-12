@@ -9,8 +9,8 @@ number-sections: true
 #| eval: false
 # docx format results in higher accessibility scores on Minerva:
 quarto::quarto_render("d3/assessment-brief.qmd", output_format = "docx")
-# file.rename("docs/d3/index.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Summative Assessment Brief.docx")
-file.rename("docs/d3/assessment-brief.docx", "C:/Users/georl_admin/OneDrive - University of Leeds/career/modules/tds/2024-25/TRAN5340M TDS Summative Assessment Brief.docx")
+# file.rename("docs/d3/index.docx", "~/OneDrive/career/modules/tds/2025-26/TRAN5340M TDS Summative Assessment Brief.docx")
+file.rename("docs/d3/assessment-brief.docx", "C:/Users/georl_admin/OneDrive - University of Leeds/career/modules/tds/2025-26/TRAN5340M TDS Summative Assessment Brief.docx")
 ```
 
 # Assessment in brief
@@ -40,7 +40,7 @@ Project Report and Reproducible Code
 
 ## Deadline
 
-**Submission deadline**: 16th May 2025, 14:00
+**Submission deadline**: 15th May 2026, 14:00
 
 ## Submission Method
 
@@ -54,7 +54,7 @@ Project Report and Reproducible Code
 ##  Feedback
 
 Feedback will be provided within 15 working days of submission.
-Written feedback will be provided alongside guidance on how to proceed with the final coursework.
+Written feedback will be provided.
 
 ## Contact
 
@@ -102,7 +102,7 @@ Best practice is to include a link to the exact prompt used to generate the cont
 
 The standard Academic Misconduct procedure applies for students believed to have ignored this categorisation.
 
-For detailed guidance see <https://generative-ai.leeds.ac.uk/ai-and> 
+For detailed guidance see <https://generative-ai.leeds.ac.uk/> 
 
 **General guidance**
 
@@ -178,6 +178,6 @@ You will submit as before:
   - Maximum file size: 40 MB
 - Submission: Via Minerva (Blackboard Assignment)
 
-For the coursework you will submit a pdf a document with a maximum of 10 pages that contains code and results demonstrating your transport data science skills.
+For the coursework you will submit a PDF document with a maximum of 10 pages that contains code and results demonstrating your transport data science skills.
 
-The topic must be completely different from the topic chosen in your first submission
+The topic must be completely different from the topic chosen in your original Summative Assessment submission
