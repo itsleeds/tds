@@ -40,7 +40,7 @@ Search online for topics you are interested in and see the [Quarto gallery of bo
 
 -   [Introduction to GitHub](https://github.com/skills/introduction-to-github) [@heis_introduction_2025]
 
-    -   A good starting point for learning how to use GitHub for version control and collaboration. <!-- https://docs.github.com/en/codespaces/setting-up-your-project-for-codespaces/adding-a-dev-container-configuration/introduction-to-dev-containers -->
+    -   A good starting point for learning how to use GitHub for version control and collaboration. See also the short [GitHub Skills](https://skills.github.com/) courses for a gentle introduction.
     -   See also their introduction to Devcontainers at [docs.github.com/en/codespaces/](https://docs.github.com/en/codespaces/)
 
 ## Python
