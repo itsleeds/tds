@@ -9,15 +9,18 @@ Welcome to the **Transport Data Science** module.
 **Module Leader:** Robin Lovelace
 
 **Description:**
-This module focuses on applying data science techniques to solve real-world transport problems. It aims to equip you with up-to-date and future-proof skills through practical examples and reproducible workflows using industry-standard data science tools.
+This module focuses on applying data science techniques to solve real-world transport problems. 
+It teaches data science and AI-driven code development techniques to solve applied transport problems using a range of transport datasets. This involves origin-destination modelling, routing, mode choice estimation, and geocomputation using open source software. You'll gain practical skills for sharing code and publishing reproducible results for maximum societal benefit.
+
 
 **Teaching Delivery:**
-Topics will be delivered in a series of weekly sessions, combining lectures and practical seminars where we will apply the knowledge delivered in the lectures.
+Topics will be delivered in a series of weekly sessions in which is a lecture followed by a practical.
+Two seminars throughout the the module provide an opportunity to apply the methods and techniques to real-world problems, with input from external experts working in the field.
 Material for lectures will be posted on Minerva and/or this website, usually 48 hours before the lectures.
 
 In the following sections you will find more information about the module.
 
-Please browse the [Reading List](reading.qmd) for material that will be relevant to your classes.
+Please browse the Reading List for material that will be relevant to your classes.
 
 ## Module Teaching Staff
 
@@ -30,9 +33,9 @@ Please browse the [Reading List](reading.qmd) for material that will be relevant
 
 This module is designed to help you understand what you will learn, when, and from whom.
 
-Please see the [Schedule](schedule.qmd) for the module timetable, showing the week, class title, tutor, and content of the class/lecture.
+Please see the Schedule for the module timetable, showing the week, class title, tutor, and content of the class/lecture.
 
-Key assessments and submission details can be found on the [Assessment Overview](assessment-overview.qmd) page.
+Key assessments and submission details can be found on the Assessment Overview page.
 
 ## Student Support Details
 
