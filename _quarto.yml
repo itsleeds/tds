@@ -19,6 +19,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      # - href: module-info.qmd
+      #   text: Module Information
       - href: https://itsleeds.github.io/tds/#software-requirements-and-installation
         text: Install required software
       - href: schedule.qmd
@@ -83,3 +85,5 @@ format:
 
 execute:
   freeze: auto
+  cache: true
+  daemon: false
