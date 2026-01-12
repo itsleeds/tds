@@ -1994,7 +1994,7 @@
     "href": "d3/assessment-brief.html",
     "title": "Summative assessment brief: Data science project report",
     "section": "",
-    "text": "TRAN5340M - Transport Data Science\n\n\n\nSummative Coursework: Data Science Project Report\n\n\n\nProject Report and Reproducible Code\n\n\n\n\nTo demonstrate advanced data science techniques applied to a transport problem\nTo show proficiency in data processing, visualization, and analysis\nTo produce high-quality, reproducible research with clear implications for transport planning/policy\nTo critically evaluate methodological approaches and results\n\n\n\n\n100% of module mark\n\n\n\nSubmission deadline: 15th May 2026, 14:00\n\n\n\n\nA .zip file containing:\n\nA PDF document (max 10 pages)\nReproducible code (.qmd file)\nAny necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead\nMaximum file size: 40 MB\n\nSubmission: Via Minerva (Blackboard Assignment)\n\n\n\n\nFeedback will be provided within 15 working days of submission. Written feedback will be provided.\n\n\n\nProfessor Robin Lovelace\nr dot lovelace [at] leeds.ac.uk\n\n\n\nThis summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions."
+    "text": "TRAN5340M - Transport Data Science\n\n\n\nSummative Coursework: Data Science Project Report\n\n\n\nProject Report and Reproducible Code\n\n\n\n\nTo demonstrate advanced data science techniques applied to a transport problem\nTo show proficiency in data processing, visualization, and analysis\nTo produce high-quality, reproducible research with clear implications for transport planning/policy\nTo critically evaluate methodological approaches and results\n\n\n\n\nA PDF document (max 10 pages)\n\n\n\n100% of module mark\n\n\n\nSubmission deadline: 15th May 2026, 14:00\n\n\n\n\nA .zip file containing:\n\nA PDF document (max 10 pages)\nReproducible code (.qmd file)\nAny necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead\nMaximum file size: 40 MB\n\nSubmission: Via Minerva (Blackboard Assignment)\n\n\n\n\nWhen there is more than one assessment on a module, you will usually receive your feedback before your next assessment for the module is due. Where it is appropriate to do so, and feedback can be released without invalidating the integrity of ongoing assessments, this will typically be no later than 15 working days post submission. Please be mindful that some students may have approved extensions for assessments which mean it is not appropriate to release feedback within 15 working days after individual submissions. In these cases, feedback will be released no later than 15 working days following the submission of all outstanding work for the assessment.\n\n\n\nProfessor Robin Lovelace\nr dot lovelace [at] leeds.ac.uk\n\n\n\nIn ITS Assessment Instructions will be made available separately. Your module leader will tell you when to expect the Assessment Instructions to be available. When the Assessment Instructions are made available you will be able to find them in the Assessment and Feedback Folder on the module Minerva Page.\nThis summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions."
   },
   {
     "objectID": "d3/assessment-brief.html#module-code-and-title",
@@ -2025,6 +2025,13 @@
     "text": "To demonstrate advanced data science techniques applied to a transport problem\nTo show proficiency in data processing, visualization, and analysis\nTo produce high-quality, reproducible research with clear implications for transport planning/policy\nTo critically evaluate methodological approaches and results"
   },
   {
+    "objectID": "d3/assessment-brief.html#assessment-lengthtime-limit-guidance",
+    "href": "d3/assessment-brief.html#assessment-lengthtime-limit-guidance",
+    "title": "Summative assessment brief: Data science project report",
+    "section": "",
+    "text": "A PDF document (max 10 pages)"
+  },
+  {
     "objectID": "d3/assessment-brief.html#weighting",
     "href": "d3/assessment-brief.html#weighting",
     "title": "Summative assessment brief: Data science project report",
@@ -2046,11 +2053,11 @@
     "text": "A .zip file containing:\n\nA PDF document (max 10 pages)\nReproducible code (.qmd file)\nAny necessary data files, but do not include any large (above around 10 MB) datasets: provide links to these instead\nMaximum file size: 40 MB\n\nSubmission: Via Minerva (Blackboard Assignment)"
   },
   {
-    "objectID": "d3/assessment-brief.html#feedback",
-    "href": "d3/assessment-brief.html#feedback",
+    "objectID": "d3/assessment-brief.html#feedback-provision",
+    "href": "d3/assessment-brief.html#feedback-provision",
     "title": "Summative assessment brief: Data science project report",
     "section": "",
-    "text": "Feedback will be provided within 15 working days of submission. Written feedback will be provided."
+    "text": "When there is more than one assessment on a module, you will usually receive your feedback before your next assessment for the module is due. Where it is appropriate to do so, and feedback can be released without invalidating the integrity of ongoing assessments, this will typically be no later than 15 working days post submission. Please be mindful that some students may have approved extensions for assessments which mean it is not appropriate to release feedback within 15 working days after individual submissions. In these cases, feedback will be released no later than 15 working days following the submission of all outstanding work for the assessment."
   },
   {
     "objectID": "d3/assessment-brief.html#contact",
@@ -2060,11 +2067,11 @@
     "text": "Professor Robin Lovelace\nr dot lovelace [at] leeds.ac.uk"
   },
   {
-    "objectID": "d3/assessment-brief.html#assessment-summary",
-    "href": "d3/assessment-brief.html#assessment-summary",
+    "objectID": "d3/assessment-brief.html#assessment-summary-guidance",
+    "href": "d3/assessment-brief.html#assessment-summary-guidance",
     "title": "Summative assessment brief: Data science project report",
     "section": "",
-    "text": "This summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions."
+    "text": "In ITS Assessment Instructions will be made available separately. Your module leader will tell you when to expect the Assessment Instructions to be available. When the Assessment Instructions are made available you will be able to find them in the Assessment and Feedback Folder on the module Minerva Page.\nThis summative coursework requires you to complete a data science project addressing a transport-related research question. Your topic must be entirely different from the one chosen for coursework 1. The submission should demonstrate your ability to process and analyze transport data, create meaningful visualizations, and draw policy-relevant conclusions."
   },
   {
     "objectID": "d3/assessment-brief.html#technical-requirements",
@@ -2081,11 +2088,11 @@
     "text": "3.2 Recommended structure\nYour report should have a logical structure and clear headings which could include:\n\nIntroduction\n\nClear research question\nContext and motivation\nReference to relevant literature\n\nInput Data and Data Cleaning\n\nDescription of datasets\nData quality considerations\nProcessing steps\n\nExploratory Data Analysis\n\nInitial visualization\nKey patterns\nStatistical summaries\n\nAnalysis and Results\n\nDetailed analysis\nClear presentation\nSupporting visualizations\n\nDiscussion and conclusions\n\nResult, key findings, interpretation\nPolicy implications/recommendations\nStrengths and limitations\nFuture directions\n\nReferences\n\nProperly formatted citations\nMix of academic and technical/policy/other sources\nRecommendation: generate these with Quarto (see Quarto Citation Guide)"
   },
   {
-    "objectID": "d3/assessment-brief.html#presentation",
-    "href": "d3/assessment-brief.html#presentation",
+    "objectID": "d3/assessment-brief.html#presentationformatting-and-referencing",
+    "href": "d3/assessment-brief.html#presentationformatting-and-referencing",
     "title": "Summative assessment brief: Data science project report",
-    "section": "3.3 Presentation",
-    "text": "3.3 Presentation\n\nUse clear headings and structure\nInclude appropriate figures and tables\nUse consistent citation format\nProvide complete references\n\nSee Quarto Citation Guide for reference formatting."
+    "section": "3.3 Presentation/Formatting and referencing",
+    "text": "3.3 Presentation/Formatting and referencing\n\nUse clear headings and structure\nInclude appropriate figures and tables\nUse consistent citation format\nProvide complete references\n\nYou must appropriately cite all supporting evidence using the Leeds Harvard referencing style - https://library.leeds.ac.uk/info/1402/referencing/50/leeds-harvard-introduction\nSee Quarto Citation Guide for reference formatting."
   },
   {
     "objectID": "dstp.html#course-overview",
