@@ -288,6 +288,7 @@ Let's go through these exercises together:
 
 - Step 1
 ```{r whole_week_bar_plot}
+#| eval: false
 # Read CSV file
 NTS_data <- read.csv("NTS2022_modifieddata.csv")
 
