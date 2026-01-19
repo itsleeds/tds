@@ -283,6 +283,34 @@ Let's go through these exercises together:
 
 -   We'll explore this together
 
+## Data interpretation:
+### UK National Travel Survey (NTS) data
+
+- Step 1
+```{r whole_week_bar_plot}
+# Read CSV file
+NTS_data <- read.csv("NTS2022_modifieddata.csv")
+
+# Look at the data
+head(NTS_data)
+```
+
+- Step2
+
+An important component of data science is visualising datasets. This is especially critical when dealing with large volumes of data, as visualisations help convey complex information in an easily interpretable format. Consider the histogram plots of average trip lengths over a week in the UK.
+
+```{r avg-triplength-histogram, message=FALSE, warning=FALSE}
+ggplot(NTS_data, aes(x = avg_trip_length)) +
+  geom_histogram(binwidth = 1, fill = "darkgrey") +
+  labs(
+    title = "Avg. Trip Length in Whole Week",
+    x = "Trip Length (km)",
+    y = "Number of Individuals"
+  ) +
+  theme_minimal()+
+  xlim(0, 50) 
+```
+
 # Self-study practical (1 hr)
 
 **Read and try to complete the exercises in Chapters 1 to 5 of the book [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/).**
