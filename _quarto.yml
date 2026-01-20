@@ -35,6 +35,10 @@ website:
         text: Transport Data Minihack 8th May
       - href: dstp.qmd
         text: Data Science for Transport Planning 2 day course
+      - href: precourse-interactive.qmd
+        text: Pre-Course Self-Assessment (Interactive)
+      - href: precourse.qmd
+        text: Pre-Course Self-Assessment (Printable)
       - href: reproducible-road-safety-workshop.qmd
         text: Reproducible Road Safety Workshop
       - text: Sessions

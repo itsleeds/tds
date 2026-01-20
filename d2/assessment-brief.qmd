@@ -4,28 +4,28 @@ bibliography: ../tds.bib
 number-sections: true
 ---
 
-# Assessment in brief
+## Assessment in brief
 
-##  Module code and title
+###  Module code and title
 
 **TRAN5340M** - Transport Data Science
 
-##  Assessment title
+###  Assessment title
 
 Formative Coursework: Portfolio Plan and Reproducible Code
 
-##  Assessment type
+###  Assessment type
 
 Portfolio Plan and Reproducible Code Submission
 
-##  Deadline
+###  Deadline
 
 **Non-assessed submission deadline**: 27th February 2026, 13:59.
 
-## Guidance
+### Guidance
 
 For guidance on the assessment, please refer to the [Summative Assessment Brief](../d3/assessment-brief.qmd).
 
-## Submission requirements
+### Submission requirements
 
 You can submit up to 4 pages of content for this formative assessment.
