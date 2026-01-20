@@ -287,7 +287,7 @@ Let's go through these exercises together:
 ### UK National Travel Survey (NTS) data
 
 - Step 1
-```{r whole_week_bar_plot}
+```{r import_dataset}
 #| eval: false
 # Read CSV file
 NTS_data <- read.csv("NTS2022_modifieddata.csv")
@@ -296,11 +296,14 @@ NTS_data <- read.csv("NTS2022_modifieddata.csv")
 head(NTS_data)
 ```
 
-- Step2
+- Step 2
 
 An important component of data science is visualising datasets. This is especially critical when dealing with large volumes of data, as visualisations help convey complex information in an easily interpretable format. Consider the histogram plots of average trip lengths over a week in the UK.
 
 ```{r avg-triplength-histogram, message=FALSE, warning=FALSE}
+#| eval: false
+# Note: This requires ggplot2 library to be loaded first
+# library(ggplot2)
 ggplot(NTS_data, aes(x = avg_trip_length)) +
   geom_histogram(binwidth = 1, fill = "darkgrey") +
   labs(
@@ -308,11 +311,11 @@ ggplot(NTS_data, aes(x = avg_trip_length)) +
     x = "Trip Length (km)",
     y = "Number of Individuals"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   xlim(0, 50) 
 ```
 
-- Step3
+- Step 3
 
 As a data scientist, you often need to explore datasets in depth to uncover underlying patterns or differences. The direction of this investigation is largely guided by the research question.
 
@@ -321,57 +324,61 @@ Consider different histogram plots for weekdays and weekends --- Can you identif
 Think: What could be plausible reasons for such difference?
 
 ```{r avg-triplength-weekday-histogram, message=FALSE, warning=FALSE}
+#| eval: false
 ggplot(NTS_data, aes(x = avg_trip_length_weekday)) +
-  geom_histogram(binwidth = 1, fill = "darkblue") + #,colour="white"
+  geom_histogram(binwidth = 1, fill = "darkblue") + 
   labs(
     title = "Avg. Trip Length on Weekdays",
     x = "Trip Length (km)",
     y = "Number of Individuals"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   xlim(0, 50) 
 ```
 ```{r avg-triplength-weekend-histogram, message=FALSE, warning=FALSE}
+#| eval: false
 ggplot(NTS_data, aes(x = avg_trip_length_weekend)) +
-  geom_histogram(binwidth = 1, fill = "darkred") + #,colour="white"
+  geom_histogram(binwidth = 1, fill = "darkred") + 
   labs(
     title = "Avg. Trip Length on Weekends",
     x = "Trip Length (km)",
     y = "Number of Individuals"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   xlim(0, 50) 
 ```
 
-- Step4
+- Step 4
 
-Don't they largely look same? Can you stop here and infer that trip length distribution for weekdays and weekend are largely similar? You might depending on the resources at your disposal but from an academic point of view we need to think what are other potential dimensions where they could be different.
+Don't they largely look the same? Can you stop here and infer that the trip length distributions for weekdays and weekends are largely similar? You might, depending on the resources at your disposal, but from an academic point of view we need to think about other potential dimensions where they could be different.
 
 Consider different histogram plots for 'Standard Deviation' of trip lengths over weekdays and weekends --- Can you identify any differences between them? (Clue: Again, check the number of individuals with SD 0-2 Km)
 
 Think: What could be plausible reasons for such difference?
 
 ```{r SD-triplength-weekday-histogram, message=FALSE, warning=FALSE}
+#| eval: false
 ggplot(NTS_data, aes(x = sd_Total_Distance_wk)) +
-  geom_histogram(binwidth = 0.5, fill = "darkblue") + #,colour="white"
+  geom_histogram(binwidth = 0.5, fill = "darkblue") + 
   labs(
     title = "SD of Trip Length on Weekdays",
     x = "SD of trip length (km)",
     y = "Number of Individuals"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   xlim(0, 25) + ylim(0,1000) 
 ```
 
 ```{r SD-triplength-weekend-histogram, message=FALSE, warning=FALSE}
+#| eval: false
 ggplot(NTS_data, aes(x = sd_Total_Distance_wknd)) +
-  geom_histogram(binwidth = 0.5, fill = "darkred") + #,colour="white"
+  geom_histogram(binwidth = 0.5, fill = "darkred") + 
   labs(
     title = "SD of Trip Length on Weekends",
     x = "SD of trip length (km)",
     y = "Number of Individuals"
   ) +
-  theme_minimal()+
+  theme_minimal() +
   xlim(0, 25) + ylim(0,1000) 
 ```
 
