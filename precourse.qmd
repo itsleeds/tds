@@ -117,9 +117,9 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ Not very comfortable (I need help with most file management tasks)</div>
 
 <div class="question">Q2. Have you used a command line interface (e.g., PowerShell, Terminal, Linux shell) before?</div>
-<div class="option">☐ Yes, regularly (I use it for various tasks)</div>
-<div class="option">☐ Yes, occasionally (I've used it for simple commands)</div>
-<div class="option">☐ No, but I'm willing to learn</div>
+<div class="option">☐ Yes, regularly (I use it for multiple tasks including file management and installing software)</div>
+<div class="option">☐ Yes, occasionally (I've used it for simple commands, such as simple one-off calculations, navigating directories or listing files)</div>
+<div class="option">☐ No, but keen to learn</div>
 <div class="option">☐ No, and I'm not interested</div>
 
 <div class="question">Q3. How confident are you with installing software on your computer?</div>
