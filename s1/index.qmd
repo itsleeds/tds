@@ -45,98 +45,6 @@ execute:
 
 See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637) or search for other open access datasets for more ideas
 
-<!-- 2. Work through the transport chapter of Geocomputation with R: https://r.geocompx.org/transport.html -->
-
-<!-- See https://github.com/ITSLeeds/TDS/blob/master/practicals/2-software.md -->
-
-<!-- - In terms of future work in an evolving job market? -->
-
-<!-- - In terms of the kinds of problems you want to solve? -->
-
-<!-- ## Sketching research methods (in groups of 2-4, 30 minutes) -->
-
-<!-- Starting with the 1000 'desire lines' dataset of Leeds, sketch-out some research ideas that cover -->
-
-<!-- 1) Hypotheses: generate two hypotheses that are falsifiable and 2 hypotheses that are not falsifiable -->
-
-<!-- 2) Input data: draw schematic representations of additional datasets that you could use alongside the desire lines dataset, with at least one at each of these levels: -->
-
-<!-- - Zones -->
-
-<!-- - Points -->
-
-<!-- - Routes -->
-
-<!-- - Route networks -->
-
-<!-- - Individual -->
-
-<!-- What temporal and spatial resolution could each one have? -->
-
-<!-- 3) Methods: using a flow diagram (e.g. as shown below) -->
-
-```{r schematic, echo=FALSE}
-# knitr::include_graphics("https://raw.githubusercontent.com/npct/pct-team/master/flow-model/flow-diag2.png")
-```
-
-<!-- ## Practical, group computer task (30 minutes) -->
-
-<!-- Create a github account (all). See: https://github.com -->
-
-<!-- Building on the follow code chunk (but with no copy-and-pasting), create a data frame that contains the names, coffee habits and like/dislike of bus travel for everyone in your group (just 1 computer per group): -->
-
-<!-- ```{r} -->
-
-<!-- person_name = c( -->
-
-<!--   "robin", -->
-
-<!--   "malcolm", -->
-
-<!--   "richard" -->
-
-<!-- ) -->
-
-<!-- n_coffee = c( -->
-
-<!--   5, -->
-
-<!--   1, -->
-
-<!--   0 -->
-
-<!-- ) -->
-
-<!-- like_bus_travel = c( -->
-
-<!--   TRUE, -->
-
-<!--   FALSE, -->
-
-<!--   TRUE -->
-
-<!-- ) -->
-
-<!-- personal_data = data.frame(person_name, n_coffee, like_bus_travel) -->
-
-<!-- personal_data -->
-
-<!-- ``` -->
-
-<!-- When you are complete, add your code to https://github.com/ITSLeeds/TDS/blob/master/code-r/01-person-data.R -->
-
-<!-- ## Learning outcomes -->
-
-```{r, echo=FALSE}
-# Identify available datasets and access and clean them
-# Combine datasets from multiple sources
-# Understand what machine learning is, which problems it is appropriate for compared with traditional statistical approaches, and how to implement machine learning techniques
-# Visualise and communicate the results of transport data science, and know about setting-up interactive web applications
-# Deciding when to use local computing power vs cloud services
-```
-
-<!-- - Articulate the relevance and limitations of data-centric analysis applied to transport problems, compared with other methods -->
-
 # Data Science foundations
 
 -   Review of [homework](../d1/)
@@ -242,7 +150,12 @@ crashes[[2]]
 
 ## Data science on real data
 
-To get some larger datasets, try the following (from Chapter 8 of RSRR)
+Work through the following example on road traffic data (recommended for most people) or the NTS data (for people more interested in travel survey data).
+You can do both if you have time.
+
+### UK Road Safety Data
+
+To get some larger datasets, try the following (from Chapter 8 of [RSRR](https://itsleeds.github.io/rrsrr/)):
 
 ::: {.panel-tabset group="language"}
 ## R
@@ -283,27 +196,47 @@ Let's go through these exercises together:
 
 -   We'll explore this together
 
-## Data interpretation:
 ### UK National Travel Survey (NTS) data
 
-- Step 1
+<details>
+
+Note: you will need to download the modified NTS 2022 data from your Minerva module page and place it in your working directory for this section to work.
+
 ```{r import_dataset}
 #| eval: false
 # Read CSV file
 NTS_data <- read.csv("NTS2022_modifieddata.csv")
 
+# Look at the column names
+names(NTS_data)
+
 # Look at the data
 head(NTS_data)
 ```
 
-- Step 2
+You should see something like this:
 
-An important component of data science is visualising datasets. This is especially critical when dealing with large volumes of data, as visualisations help convey complex information in an easily interpretable format. Consider the histogram plots of average trip lengths over a week in the UK.
+```
+> names(NTS_data)
+ [1] "IndividualID"            "avg_trip_length"
+ [3] "avg_trip_length_weekday" "avg_trip_length_weekend"
+ [5] "total_distance"          "total_distance_weekday"
+ [7] "total_distance_weekend"  "SD_triplength"
+ [9] "sd_Total_Distance_wknd"  "sd_Total_Distance_wk"
+ 
+ > head(NTS_data)
+  IndividualID avg_trip_length avg_trip_length_weekday avg_trip_length_weekend
+1   2023000001        4.080000                4.631579                2.333333
+2   2023000002        2.538462                2.400000                3.000000
+3   2023000003        5.916667                6.250000                5.250000
+```
+
+Visualising datasets is important when dealing with large volumes of data, as visualisations help convey complex information in an easily interpretable format. Consider the histogram plots of average trip lengths over a week in the UK.
 
 ```{r avg-triplength-histogram, message=FALSE, warning=FALSE}
 #| eval: false
 # Note: This requires ggplot2 library to be loaded first
-# library(ggplot2)
+library(tidyverse) # Tidyverse contains ggplot2 and other useful packages
 ggplot(NTS_data, aes(x = avg_trip_length)) +
   geom_histogram(binwidth = 1, fill = "darkgrey") +
   labs(
@@ -315,11 +248,9 @@ ggplot(NTS_data, aes(x = avg_trip_length)) +
   xlim(0, 50) 
 ```
 
-- Step 3
+Data exploration or "exploratory data analysis" (EDA) involves examining datasets in depth to uncover underlying patterns or differences. The direction of this investigation is largely guided by the research question.
 
-As a data scientist, you often need to explore datasets in depth to uncover underlying patterns or differences. The direction of this investigation is largely guided by the research question.
-
-Consider different histogram plots for weekdays and weekends --- Can you identify any differences between them? (Clue: Check the number of individuals between 0-1 Km)
+Consider different histogram plots for weekdays and weekends. Can you identify any differences between them? (Clue: Check the number of individuals between 0-1 Km)
 
 Think: What could be plausible reasons for such difference?
 
@@ -335,6 +266,7 @@ ggplot(NTS_data, aes(x = avg_trip_length_weekday)) +
   theme_minimal() +
   xlim(0, 50) 
 ```
+
 ```{r avg-triplength-weekend-histogram, message=FALSE, warning=FALSE}
 #| eval: false
 ggplot(NTS_data, aes(x = avg_trip_length_weekend)) +
@@ -348,11 +280,51 @@ ggplot(NTS_data, aes(x = avg_trip_length_weekend)) +
   xlim(0, 50) 
 ```
 
-- Step 4
+You can more easily compare the two histograms when they are placed in the same plot, with transparency added to the bars:
+
+```{r avg-triplength-weekday-weekend-histogram, message=FALSE, warning=FALSE}
+#| eval: false
+g_combined = ggplot() +
+  geom_histogram(data = NTS_data, aes(x = avg_trip_length_weekday), 
+                 binwidth = 1, fill = "darkblue", alpha = 0.5) + 
+  geom_histogram(data = NTS_data, aes(x = avg_trip_length_weekend), 
+                 binwidth = 1, fill = "darkred", alpha = 0.5) + 
+  labs(
+    title = "Avg. Trip Length on Weekdays (blue) and Weekends (red)",
+    x = "Trip Length (km)",
+    y = "Number of Individuals"
+  ) +
+  theme_minimal() +
+  xlim(0, 50)
+# Then 'print' the plot to show it:
+g_combined
+```
+
+You can save the plot with `ggsave()`:
+
+```{r}
+#| eval: false
+ggsave("avg_trip_length_weekday_weekend.png", plot = g_combined, width = 8, height = 6)
+```
+
+And (this is how you can show figures in Quarto), in a quarto document (.qmd file) that you will use to write and submit your coursework, you can include the saved figure like this (we will come onto this later in the module):
+
+```
+![](avg_trip_length_weekday_weekend.png)
+```
+
+![Avg. Trip Length on Weekdays (blue) and Weekends (red)](images/avg_trip_length_weekday_weekend.png)
+
+```{r}
+#| eval: false
+#| echo: false
+# move the file:
+file.rename("avg_trip_length_weekday_weekend.png", "s1/images/avg_trip_length_weekday_weekend.png")
+```
 
 Don't they largely look the same? Can you stop here and infer that the trip length distributions for weekdays and weekends are largely similar? You might, depending on the resources at your disposal, but from an academic point of view we need to think about other potential dimensions where they could be different.
 
-Consider different histogram plots for 'Standard Deviation' of trip lengths over weekdays and weekends --- Can you identify any differences between them? (Clue: Again, check the number of individuals with SD 0-2 Km)
+Consider different histogram plots for 'Standard Deviation' of trip lengths over weekdays and weekends. Can you identify any differences between them? (Clue: Again, check the number of individuals with SD 0-2 Km)
 
 Think: What could be plausible reasons for such difference?
 
@@ -381,6 +353,8 @@ ggplot(NTS_data, aes(x = sd_Total_Distance_wknd)) +
   theme_minimal() +
   xlim(0, 25) + ylim(0,1000) 
 ```
+
+</details>
 
 # Self-study practical (1 hr)
 
