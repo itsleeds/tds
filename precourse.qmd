@@ -28,7 +28,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Not very comfortable (I need help with most file management tasks)
 
 <!-- SCORING: 4, 3, 2, 0 points respectively -->
-#### Have you used a command line interface (e.g., Command Prompt, PowerShell, Terminal, Linux shell) before?
+#### Have you used a command line interface (e.g., PowerShell, Command Prompt in Windows, Mac Terminal, Linux shell) before?
 
 - [ ] Yes, regularly (I use it for multiple tasks including file management and installing software)
 - [ ] Yes, occasionally (I've used it for simple commands, such as simple one-off calculations, navigating directories or listing files)
