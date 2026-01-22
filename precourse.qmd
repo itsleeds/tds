@@ -27,14 +27,6 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Somewhat comfortable (I can do basic tasks but struggle with complex operations)
 - [ ] Not very comfortable (I need help with most file management tasks)
 
-<!-- SCORING: 4, 3, 2, 0 points respectively -->
-#### Have you used a command line interface (e.g., PowerShell, Command Prompt in Windows, Mac Terminal, Linux shell) before?
-
-- [ ] Yes, regularly (I use it for multiple tasks including file management and installing software)
-- [ ] Yes, occasionally (I've used it for simple commands, such as simple one-off calculations, navigating directories or listing files)
-- [ ] No, but keen to learn
-- [ ] No, and I'm not interested
-
 <!-- SCORING: 4, 3, 2, 1 points respectively -->
 #### How confident are you with installing software on your computer?
 
@@ -42,6 +34,14 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Confident (I can install standard software)
 - [ ] Somewhat confident (I can install basic software but need guidance for complex tools)
 - [ ] Not confident (I need help with software installation)
+
+<!-- SCORING: 4, 3, 2, 0 points respectively -->
+#### Have you used a command line interface (e.g., PowerShell, Command Prompt in Windows, Mac Terminal, Linux shell) before?
+
+- [ ] Yes, regularly (I use it for multiple tasks including file management and installing software)
+- [ ] Yes, occasionally (I've used it for simple commands, such as simple one-off calculations, navigating directories or listing files)
+- [ ] No, but keen to learn
+- [ ] No, and I'm not interested
 
 ### Applied Experience
 
