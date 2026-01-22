@@ -6,9 +6,6 @@ format:
   html:
     toc: true
     theme: cosmo
-  pdf:
-    toc: true
-    documentclass: article
 ---
 
 ## Interactive Version
