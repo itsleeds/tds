@@ -210,17 +210,13 @@ For each question, assign points based on your answer:
 ### Score interpretation
 
 
-**0-15 points: Beginner**
-- Limited programming or data science experience.
-- **Note: We recommend you do not take the module unless you are willing to invest substantial extra time learning basic data science skills.**
+If you scored **0-15 points**, you are at the **Beginner** level with limited programming or data science experience; we recommend you do not take the module unless you are willing to invest substantial extra time learning basic data science skills.
 
-**16-39 points: Intermediate**
-- Basic programming and data analysis skills.
-- Familiar with key concepts but will benefit from reviewing prerequisite materials.
 
-**40+ points: Experienced with data science tools**
-- Strong programming and data science skills.
-- Well-prepared to tackle advanced topics and help peers.
+A score of **16-39 points** indicates an **Intermediate** level, meaning you have basic programming and analysis skills but should review prerequisite materials.
+
+
+Those scoring **40+ points** are **Experienced with data science tools**, well-prepared for advanced topics and ready to support their peers.
 
 
 ### Key resources
