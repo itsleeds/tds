@@ -173,7 +173,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ Yes, intermediate (I can write scripts and use common packages)</div>
 <div class="option">☐ Yes, basic (I've completed an introduction to R)</div>
 <div class="option">☐ No, but I'm willing to learn</div>
-<div class="option">☐ No experience</div>
+<div class="option">☐ No, and I'm not interested</div>
 
 <div class="question">Q9. Which of the following R packages have you used?</div>
 <div class="option">☐ tidyverse (dplyr, ggplot2, readr, etc.)</div>
@@ -200,7 +200,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ Yes, intermediate (I can write scripts and use common libraries)</div>
 <div class="option">☐ Yes, basic (I've completed an introduction to Python)</div>
 <div class="option">☐ No, but I'm willing to learn</div>
-<div class="option">☐ No experience</div>
+<div class="option">☐ No, and I'm not interested</div>
 
 <div class="question">Q12. Which of the following Python libraries have you used?</div>
 <div class="option">☐ pandas (data manipulation)</div>
