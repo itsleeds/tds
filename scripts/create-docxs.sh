@@ -5,3 +5,10 @@ quarto render d2/assessment-brief.qmd --to docx --output "TRAN5340M TDS Formativ
 
 # Convert Summative Assessment Brief
 quarto render d3/assessment-brief.qmd --to docx --output "TRAN5340M TDS Summative Assessment Brief.docx"
+
+# Copy to OneDrive if it exists; configure destination via TDS_DEST_DIR environment variable
+DEST_DIR="${TDS_DEST_DIR:-}"
+if [ -n "$DEST_DIR" ] && [ -d "$DEST_DIR" ]; then
+    echo "Copying .docx files to $DEST_DIR"
+    cp docs/*.docx "$DEST_DIR/"
+fi
