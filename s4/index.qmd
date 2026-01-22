@@ -53,7 +53,7 @@ pak::pkg_install(c("sf", "tidyverse", "remotes", "ggspatial"))
 # pak::pkg_install("Nowosad/spDataLarge")
 ```
 
-``` {r}
+```{r}
 library(sf)        # vector data package
 library(tidyverse) # tidyverse packages
 library(ggspatial) # ggspatial package
