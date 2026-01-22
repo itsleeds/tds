@@ -6,13 +6,13 @@ execute:
 number-sections: false
 ---
 
-This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is **28th February 2025, 13:59**.
+This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is **27th February 2026, 13:59**.
 
 ## What to Submit
 
 Submit a `.zip` file containing two key items:
 
-1. A **concise PDF document** (recommended length: 2 pages, absolute maximum: 5 pages) outlining:
+1. A **concise PDF document** (recommended length: 2 pages, absolute maximum: 4 pages) outlining:
     - Your chosen transport-related topic
     - The main dataset(s) you plan to use
     - Your research question
@@ -25,7 +25,7 @@ Submit a `.zip` file containing two key items:
 
 See the [template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd) file (and [rendered result](template)) for guidance on the structure of your submission. An example submission is available [in the d2/example.qmd file](https://github.com/itsleeds/tds/blob/main/d2/example.qmd) (rendered [here](example)).
 
-See an example .zip file with the files needed to reproduce this analysis at [gitub.com/itsleeds/tds/releases/](https://github.com/itsleeds/tds/releases/download/2025/formative-assessment-example.zip).
+See an example .zip file with the files needed to reproduce this analysis at [gitub.com/itsleeds/tds/releases/](https://github.com/itsleeds/tds/releases/download/2026/formative-assessment-example.zip).
 
 See the source code of these files, including the .bib files for creating references, in the course repository: [github.com/itsleeds/tds/tree/main/d2](https://github.com/itsleeds/tds/tree/main/d2).
 

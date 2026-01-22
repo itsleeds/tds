@@ -19,6 +19,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      # - href: module-info.qmd
+      #   text: Module Information
       - href: https://itsleeds.github.io/tds/#software-requirements-and-installation
         text: Install required software
       - href: schedule.qmd
@@ -33,6 +35,10 @@ website:
         text: Transport Data Minihack 8th May
       - href: dstp.qmd
         text: Data Science for Transport Planning 2 day course
+      # - href: precourse-interactive.qmd
+      #   text: Pre-Course Self-Assessment (Interactive)
+      - href: precourse.qmd
+        text: Pre-Course Self-Assessment (Printable)
       - href: reproducible-road-safety-workshop.qmd
         text: Reproducible Road Safety Workshop
       - text: Sessions
@@ -83,3 +89,5 @@ format:
 
 execute:
   freeze: auto
+  cache: true
+  daemon: false

@@ -54,6 +54,7 @@ pak::pkg_install(c("sf", "tidyverse", "remotes", "ggspatial"))
 ```
 
 ``` {r}
+#| eval: false
 library(sf)        # vector data package
 library(tidyverse) # tidyverse packages
 library(ggspatial) # ggspatial package
@@ -99,6 +100,7 @@ We will start with a simple map of the world. Load the `world` object from the `
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 #| echo: true
 #| output: false
 world = spData::world
@@ -120,6 +122,7 @@ Use some basic R functions to explore the `world` object. e.g. `class(world)`, `
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 #| warning: false
 plot(world)
 ```
@@ -143,6 +146,7 @@ Note that this makes a map of each column in the data frame. Try some other plot
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 plot(world[3:6])
 plot(world["pop"])
 ```
@@ -167,6 +171,7 @@ Load the `nz` and `nz_height` datasets from the `spData` package.
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 #| echo: true
 #| output: false
 nz = spData::nz
@@ -185,6 +190,7 @@ We can use `tidyverse` functions like `filter` and `select` on `sf` objects in t
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 #| echo: true
 #| output: false
 canterbury = nz |> filter(Name == "Canterbury")
@@ -241,6 +247,7 @@ In this section we will look at basic transport data in the R package **stplanr*
 Load the  `stplanr` package as follows:
 
 ```{r}
+#| eval: false
 #| echo: true
 #| output: false
 library(stplanr)
@@ -255,6 +262,7 @@ First we will load some sample data:
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 #| echo: true
 od_data = stplanr::od_data_sample
 zone = stplanr::cents_sf
@@ -274,6 +282,7 @@ Now we will rename one of the columns from `foot` to `walk`
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 #| echo: true
 od_data = od_data |>
   rename(walk = foot)
@@ -292,6 +301,7 @@ Next we will made a new dataset `od_data_walk` by taking `od_data` and piping it
 
 ## R
 ```{r}
+#| eval: false
 #| echo: true
 od_data_walk = od_data |>
   filter(walk > 0) |>
@@ -313,6 +323,7 @@ We can use the generic `plot` function to view the relationships between variabl
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 plot(od_data_walk)
 ```
 
@@ -328,6 +339,7 @@ R has built in modelling functions such as `lm` lets make a simple model to pred
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 #| echo: true
 model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
 od_data_walk$proportion_walk_predicted = model1$fitted.values
@@ -349,6 +361,7 @@ We can use the `ggplot2` package to graph our model predictions.
 ::: {.panel-tabset}
 ## R
 ```{r}
+#| eval: false
 ggplot(od_data_walk) +
   geom_point(aes(proportion_drive, proportion_walk)) +
   geom_line(aes(proportion_drive, proportion_walk_predicted))

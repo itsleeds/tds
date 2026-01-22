@@ -4,179 +4,28 @@ bibliography: ../tds.bib
 number-sections: true
 ---
 
-```{r}
-#| echo: false
-#| eval: false
-# docx format results in higher accessibility scores on Minerva:
-quarto::quarto_render("d2/index.qmd", output_format = "docx", output_file = "tds-formative-assessment-brief.docx")
-# file.rename("docs/tds-formative-assessment-brief.docx", "~/OneDrive/career/modules/tds/2024-25/TRAN5340M TDS Formative Assessment Brief.docx")
-# C:\Users\georl_admin\OneDrive - University of Leeds
-file.rename("docs/tds-formative-assessment-brief.docx", "C:/Users/georl_admin/OneDrive - University of Leeds/career/modules/tds/2024-25/TRAN5340M TDS Formative Assessment Brief.docx")
-```
+## Assessment in brief
 
-```{bash}
-#| eval: false
-#| echo: false
-gh release upload 2025 formative-assessment-brief.docx
-gh release upload 2025 formative-assessment-brief.pdf
-```
-
-<!-- Based on https://github.com/itsleeds/tdsarchive/blob/master/coursework-template.md -->
-
-# Assessment in brief
-
-##  Module code and title
+###  Module code and title
 
 **TRAN5340M** - Transport Data Science
 
-##  Assessment title
+###  Assessment title
 
 Formative Coursework: Portfolio Plan and Reproducible Code
 
-##  Assessment type
+###  Assessment type
 
 Portfolio Plan and Reproducible Code Submission
 
-##  Learning outcomes
+###  Deadline
 
-1.  To develop a clear plan for applying data science techniques to a transport problem.
-2.  To demonstrate the ability to work with datasets and produce reproducible code.
-3.  To critically engage with academic literature and formulate research questions.
+**Non-assessed submission deadline**: 27th February 2026, 13:59.
 
-Note: this is formative and not formally assessed, but feedback will be provided.
+### Guidance
 
-##  Deadline
+For guidance on the assessment, please refer to the [Summative Assessment Brief](../d3/assessment-brief.qmd).
 
-**Non-assessed submission deadline**: 28th February 2025, 13:59.
+### Submission requirements
 
-##  Feedback
-
-Feedback will be provided within 15 working days of submission.
-Written feedback will be provided alongside guidance on how to proceed with the final coursework.
-
-## Contact
-
-**Professor Robin Lovelace**\
-r dot lovelace \[at\] leeds.ac.uk
-
-------------------------------------------------------------------------
-
-## Assessment summary
-
-This formative coursework is designed to help you plan and receive feedback on your final coursework.
-You will submit a `.zip` file containing a PDF document and reproducible code.
-The document should outline your topic, datasets, research questions, and analysis plan.
-Feedback will be provided to guide your final submission.
-
-The purpose of this formative assessment is:
-
--   To allow you to ask questions to the course team (e.g., "Does this sound like a reasonable input dataset and topic?").
--   To describe progress on reading input datasets and the analysis plan.
--   To receive feedback on your approach before the final submission.
-
-------------------------------------------------------------------------
-
-# Use of GenAI
-
-**Generative AI category: GREEN**
-
-Under this category, AI tools are actively encouraged and can be used extensively.
-
-In this assessment, AI tools can be utilised to:
-
-- Generate, test, and debug code for your transport data analysis
-- Assist with data visualization and mapping
-- Provide explanations of transport concepts and methods
-- Help with code optimization and best practices
-- Support your research on the topic by suggesting areas to investigate
-- Give feedback on content and provide proofreading
-- Accelerate your learning and productivity
-
-**Important:** You must understand and be able to explain all code and analysis you submit, whether AI-generated or not. Document your AI usage in reflective sections of your portfolio.
-
-In this assessment, AI tools cannot be utilised to:
-
-- produce the entirety of, or sections of, a piece of work that you submit for assessment beyond that which is outlined above.
-
-The use of Generative AI must be acknowledged in an ‘Acknowledgements’ section of any piece of academic work where it has been used as a functional tool to assist in the process of creating academic work.
-
-The minimum requirement to include in acknowledgement:
-
-- Name and version of the generative AI system used e.g. ChatGPT-4.0
-- Publisher (company that made the AI system) e.g. OpenAI
-- URL of the AI system
-- Brief description (single sentence) of context in which the tool was used.
-
-For example: “I acknowledge the use of ChatGPT-3.5 (Open AI, <https://chat.openai.com/>) to summarise my initial notes and to proofread my final draft.
-Best practice is to include a link to the exact prompt used to generate the content, e.g. https://g.co/gemini/share/4933efa27596
-
-The standard Academic Misconduct procedure applies for students believed to have ignored this categorisation.
-
-For detailed guidance see <https://generative-ai.leeds.ac.uk/ai-and> 
-
-**General guidance**
-
-Skills\@library hosts useful guidance on academic skills including specific guidance on academic writing 
-
-# Submission requirements
-
-You will submit a `.zip` file containing:
-
-1.  A **concise PDF document** (recommended length: 2 pages, absolute maximum: 5 pages) outlining:
-    -   A draft title of your topic.
-    -   The main dataset you will use and other potential datasets.
-    -   Ideas on a research question.
-    -   Questions you would like to ask about the topic (e.g., "Is this a suitable dataset?").
-    -   At least **2 references** to academic literature related to the topic.
-    -   Minimal code and/or a description of where you accessed the data and how you imported it.
-    -   Any preliminary analysis you have done.
-    -   A suggested structure for the document:
-        -   Topics considered.
-        -   Input datasets.
-        -   Analysis plan (e.g., a workflow diagram as shown [here](https://user-images.githubusercontent.com/1825120/127524923-7d9f5511-84a6-430b-8de9-a603a5524f39.png)).
-        -   Motivation for choosing this topic.
-        -   Questions and options.
-2.  **Reproducible code** in a `.qmd` file.
-
-## Rendering
-
--   If you cannot render to PDF directly, render to HTML and convert to PDF by printing to PDF from your browser.
-
-## Presentation
-
-You must appropriately cite all supporting evidence using appropriate references and a consistent, professional style.
-
-See [the authoring tutorial with RStudio at quarto.org](https://quarto.org/docs/get-started/authoring/rstudio.html#citations) for guidance on how to add citations to your document in RStudio's Visual Editor mode.
-
-# Assessment criteria
-
-The assessment is formative so is not assessed, but you will be provided with feedback on the following criteria:
-
--   Clarity and feasibility of the proposed topic and research question.
--   Appropriateness of the selected datasets.
--   Engagement with academic literature.
--   Quality of the analysis plan and workflow diagram.
--   Quality of and reproducibility of the code and documentation.
-
-See the [marking criteria](https://itsleeds.github.io/tds/marking-criteria.html) for more details.
-
-# Academic misconduct and plagiarism
-
-The university expects that all the work you do, which includes all forms of assessments submitted and examinations taken, meet the university’s standard for Academic Integrity.
-All forms of Academic Integrity are investigated through the Academic Misconduct Procedure.
-This applies to all taught elements of your study, including undergraduate programmes, taught postgraduate study, and taught elements of research degrees.
-Breaching academic integrity standards can lead to serious penalties.
-
-Guidance on Academic Integrity and Academic Misconduct can be found on the [For Students website pages](https://students.leeds.ac.uk/info/10110/academic-integrity).
-Full definitions of offences under the Academic Misconduct Procedure can be found in the [Academic Misconduct Procedure](https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/).
-
-# Academic integrity
-
-All work must meet university standards for Academic Integrity.
-See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-integrity) for guidance.
-
-# Support resources
-
--   [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations)
--   [The course website](https://itsleeds.github.io/tds/) for additional resources.
--   Module forum for questions.
+You can submit up to 4 pages of content for this formative assessment.

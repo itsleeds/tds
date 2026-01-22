@@ -45,6 +45,8 @@ execute:
 
 See [openstreetmap.org](https://www.openstreetmap.org/#map=19/53.80689/-1.55637) or search for other open access datasets for more ideas
 
+
+
 # Data Science foundations
 
 -   Review of [homework](../d1/)
