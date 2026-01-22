@@ -1,459 +1,255 @@
 ---
-title: "Pre-Course Self-Assessment Questionnaire: Transport Data Science"
+title: "Pre-course self-assessment questionnaire: Transport Data Science"
 subtitle: "TRAN5340M"
 author: "Institute for Transport Studies, University of Leeds"
 format: 
   html:
     toc: true
     theme: cosmo
-  pdf:
-    toc: true
-    documentclass: article
+    number-sections: true
 ---
 
-## Interactive Version
 
-An interactive, client-side version of this questionnaire with automatic scoring will be made available in a future release.
+## Welcome {-}
 
----
-
-```{=html}
-<style>
-.question {
-  font-weight: bold;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  color: #2c3e50;
-}
-
-.option {
-  margin-left: 20px;
-  margin-bottom: 8px;
-}
-
-.section-title {
-  color: #3498db;
-  border-bottom: 2px solid #3498db;
-  padding-bottom: 5px;
-  margin-top: 30px;
-  margin-bottom: 20px;
-}
-
-.assessment-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-  margin-top: 20px;
-}
-
-.assessment-card {
-  background: #f8f9fa;
-  padding: 20px;
-  border-radius: 8px;
-  border-left: 4px solid #3498db;
-}
-
-.result-section {
-  background: #e8f4f8;
-  padding: 20px;
-  border-radius: 8px;
-  margin-top: 30px;
-}
-
-.score-box {
-  background: white;
-  padding: 15px;
-  border-radius: 5px;
-  text-align: center;
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #27ae60;
-}
-
-.recommendation {
-  margin-top: 15px;
-  padding: 15px;
-  border-radius: 5px;
-}
-
-.recommendation.ready {
-  background: #d4edda;
-  border: 1px solid #c3e6cb;
-  color: #155724;
-}
-
-.recommendation.needs-prep {
-  background: #fff3cd;
-  border: 1px solid #ffeaa7;
-  color: #856404;
-}
-
-.recommendation.not-ready {
-  background: #f8d7da;
-  border: 1px solid #f5c6cb;
-  color: #721c24;
-}
-</style>
-```
-
-## Welcome
 
 This self-assessment questionnaire is designed to help you evaluate your readiness for the **Transport Data Science** (TRAN5340M) module at the University of Leeds. The module focuses on applying data science techniques to solve real-world transport problems using open source software, with a strong emphasis on reproducible workflows.
 
-Please answer each question honestly to get an accurate assessment of your prior knowledge and skills.
+**Please check one box for each question unless the question explicitly states to "Tick all that apply".**
 
----
 
-## Section 1: Computing Fundamentals
+## Skills assessment
 
-<div class="section-title">
-### 1.1 General Computing Skills
-</div>
 
-<div class="question">Q1. How comfortable are you with managing files and folders on your computer?</div>
-<div class="option">☐ Very comfortable (I can create, organize, and search for files efficiently)</div>
-<div class="option">☐ Comfortable (I can manage basic file operations)</div>
-<div class="option">☐ Somewhat comfortable (I can do basic tasks but struggle with complex operations)</div>
-<div class="option">☐ Not very comfortable (I need help with most file management tasks)</div>
+<!-- SCORING: 4, 3, 2, 1 points respectively -->
 
-<div class="question">Q2. Have you used a command line interface (e.g., PowerShell, Terminal, Linux shell) before?</div>
-<div class="option">☐ Yes, regularly (I use it for various tasks)</div>
-<div class="option">☐ Yes, occasionally (I've used it for simple commands)</div>
-<div class="option">☐ No, but I'm willing to learn</div>
-<div class="option">☐ No, and I'm not familiar with it</div>
 
-<div class="question">Q3. How confident are you with installing software on your computer?</div>
-<div class="option">☐ Very confident (I can install and configure most software)</div>
-<div class="option">☐ Confident (I can install standard software)</div>
-<div class="option">☐ Somewhat confident (I can install basic software but need guidance for complex tools)</div>
-<div class="option">☐ Not confident (I need help with software installation)</div>
+### How comfortable are you with managing files and folders on your computer?
 
----
 
-<div class="section-title">
-### 1.2 Applied Experience (The "Make or Break" Check)
-</div>
+- [ ] Very comfortable (I can create, organize, and search for files efficiently)
+- [ ] Comfortable (I can manage basic file operations)
+- [ ] Somewhat comfortable (I can do basic tasks but struggle with complex operations)
+- [ ] Not very comfortable (I need help with most file management tasks)
 
-<div class="question">Q4. Have you spent more than 10 hours in total using R or Python to generate "tangible results" (e.g., figures for a thesis, professional reports, or reproducible datasets)?</div>
-<div class="option">☐ Yes, I have used code to deliver professional or academic-grade outputs</div>
-<div class="option">☐ Yes, I have produced basic figures/tables for coursework</div>
-<div class="option">☐ I have spent time in the environment but never produced a "finished" product</div>
-<div class="option">☐ No, I have only followed step-by-step tutorials with provided solutions</div>
 
-<div class="question">Q5. Which of the following have you produced using R, Python or another programming language such as Julia, Rust, or JavaScript/TypeScript? (Tick all that apply)</div>
-<div class="option">☐ A data visualization (e.g., map or chart) for a project</div>
-<div class="option">☐ A clean, processed dataset from raw data</div>
-<div class="option">☐ A statistical analysis or model (e.g., regression)</div>
-<div class="option">☐ An interactive dashboard or web application</div>
-<div class="option">☐ An automated/reproducible report or technical document</div>
-<div class="option">☐ None of the above</div>
+<!-- SCORING: 4, 3, 2, 1 points respectively -->
 
-<div class="question">Q6. Please provide details on the project(s) you have worked on. Explain which IDEs (e.g., RStudio, VS Code) and packages you used, how exactly the data science work contributed to the output, and approximately how much time (in hours) you spent on it:</div>
-<div class="option" style="border: 1px solid #dee2e6; min-height: 100px; padding: 10px; margin-top: 10px; border-radius: 4px;">
-</div>
 
-<div class="question">Q7. Which of the following "Critical Blockers" have you successfully solved independently? (Tick all that apply)</div>
-<div class="option">☐ **Working Directories**: Fixing "File not found" errors by managing relative/absolute paths</div>
-<div class="option">☐ **Data Types**: Troubleshooting why a plot fails because a column is a 'string' vs 'numeric'</div>
-<div class="option">☐ **Package Management**: Resolving failed library installations or version conflicts</div>
-<div class="option">☐ **Vector/List Logic**: Understanding why your code ran but only returned a single value instead of a column</div>
-<div class="option">☐ **Documentation**: Successfully using StackOverflow or documentation to fix a specific error message</div>
-<div class="option">☐ None of the above</div>
+### How confident are you with installing software on your computer?
 
----
 
-## Section 2: Programming Experience
+- [ ] Very confident (I can install and configure most software)
+- [ ] Confident (I can install standard software)
+- [ ] Somewhat confident (I can install basic software but need guidance for complex tools)
+- [ ] Not confident (I need help with software installation)
 
-<div class="section-title">
-### 2.1 R Programming
-</div>
 
-<div class="question">Q8. Do you have experience with R programming?</div>
-<div class="option">☐ Yes, extensive (I use R regularly for data analysis)</div>
-<div class="option">☐ Yes, intermediate (I can write scripts and use common packages)</div>
-<div class="option">☐ Yes, basic (I've completed an introduction to R)</div>
-<div class="option">☐ No, but I'm willing to learn</div>
-<div class="option">☐ No experience</div>
+<!-- SCORING: 4, 3, 2, 0 points respectively -->
 
-<div class="question">Q9. Which of the following R packages have you used?</div>
-<div class="option">☐ tidyverse (dplyr, ggplot2, readr, etc.)</div>
-<div class="option">☐ sf (spatial data handling)</div>
-<div class="option">☐ tmap (mapping/visualization)</div>
-<div class="option">☐ stats19 (road safety data)</div>
-<div class="option">☐ stplanr (transport planning)</div>
-<div class="option">☐ None of the above</div>
 
-<div class="question">Q10. Have you worked with Quarto or R Markdown documents?</div>
-<div class="option">☐ Yes, extensively (I use them for reports and reproducible work)</div>
-<div class="option">☐ Yes, occasionally (I've created simple documents)</div>
-<div class="option">☐ No, but I'm familiar with the concept</div>
-<div class="option">☐ No, never heard of them</div>
+### Have you used a command line interface (e.g., PowerShell, Command Prompt in Windows, Mac Terminal, Linux shell) before?
 
----
 
-<div class="section-title">
-### 2.2 Python Programming
-</div>
+- [ ] Yes, regularly (I use it for multiple tasks including file management and installing software)
+- [ ] Yes, occasionally (I've used it for simple commands, such as simple one-off calculations, navigating directories or listing files)
+- [ ] No, but keen to learn
 
-<div class="question">Q11. Do you have experience with Python programming?</div>
-<div class="option">☐ Yes, extensive (I use Python regularly for data analysis)</div>
-<div class="option">☐ Yes, intermediate (I can write scripts and use common libraries)</div>
-<div class="option">☐ Yes, basic (I've completed an introduction to Python)</div>
-<div class="option">☐ No, but I'm willing to learn</div>
-<div class="option">☐ No experience</div>
 
-<div class="question">Q12. Which of the following Python libraries have you used?</div>
-<div class="option">☐ pandas (data manipulation)</div>
-<div class="option">☐ geopandas (spatial data)</div>
-<div class="option">☐ matplotlib/plotly (visualization)</div>
-<div class="option">☐ numpy (numerical computing)</div>
-<div class="option">☐ None of the above</div>
+## Data science skills
 
----
 
-## Section 3: Data Science Knowledge
+<!-- SCORING: 1 point per item ticked, maximum 5 points -->
 
-<div class="section-title">
-### 3.1 Data Analysis Skills
-</div>
 
-<div class="question">Q13. How would you rate your ability to:
-- Load and clean datasets
-- Perform basic data transformations
-- Calculate summary statistics</div>
-<div class="option">☐ Advanced (I can handle complex datasets and analysis)</div>
-<div class="option">☐ Intermediate (I can perform most common data analysis tasks)</div>
-<div class="option">☐ Basic (I understand the concepts but need practice)</div>
-<div class="option">☐ Beginner (I'm just starting to learn these skills)</div>
+### Data science experience and outputs
 
-<div class="question">Q14. Have you worked with spatial/geographic data before?</div>
-<div class="option">☐ Yes, extensively (I work with spatial data regularly)</div>
-<div class="option">☐ Yes, occasionally (I've used GIS software or spatial packages)</div>
-<div class="option">☐ No, but I'm interested in learning</div>
-<div class="option">☐ No, and I'm not familiar with spatial data concepts</div>
 
-<div class="question">Q15. How comfortable are you with data visualization?</div>
-<div class="option">☐ Very comfortable (I can create a variety of effective visualizations)</div>
-<div class="option">☐ Comfortable (I can create basic charts and maps)</div>
-<div class="option">☐ Somewhat comfortable (I can make simple plots but struggle with complex visuals)</div>
-<div class="option">☐ Not very comfortable (I need help creating visualizations)</div>
+*Tick all that apply*
 
----
 
-## Section 4: Transport Data and Concepts
+*[Skip the next few questions if you have only followed tutorials]*
 
-<div class="section-title">
-### 4.1 Transport Planning Knowledge
-</div>
+- [ ] Professional or academic-grade outputs
+- [ ] Data visualization (e.g., map or chart)
+- [ ] Clean, processed dataset from raw data
+- [ ] Statistical analysis or model (e.g., regression)
+- [ ] Interactive dashboard or web application
+- [ ] Automated/reproducible report or technical document
+- [ ] Only followed step-by-step tutorials so far
 
-<div class="question">Q16. How familiar are you with transport planning concepts?</div>
-<div class="option">☐ Very familiar (I have formal training in transport planning)</div>
-<div class="option">☐ Familiar (I understand basic transport planning principles)</div>
-<div class="option">☐ Somewhat familiar (I know a little about transport planning)</div>
-<div class="option">☐ Not familiar (I have no background in transport planning)</div>
+<!-- SCORING: 1 point per item ticked, maximum 4 points -->
 
-<div class="question">Q17. Have you worked with any transport-related datasets before?</div>
-<div class="option">☐ Yes, extensively (I regularly work with transport data)</div>
-<div class="option">☐ Yes, occasionally (I've used transport datasets in projects)</div>
-<div class="option">☐ No, but I'm interested in learning</div>
-<div class="option">☐ No, and I'm not familiar with transport datasets</div>
 
-<div class="question">Q18. Are you familiar with any of these transport data sources?</div>
-<div class="option">☐ OpenStreetMap (OSM)</div>
-<div class="option">☐ UK road safety data (Stats19)</div>
-<div class="option">☐ Census travel to work data</div>
-<div class="option">☐ Origin-destination (OD) matrices</div>
-<div class="option">☐ None of the above</div>
+### Which of the following problems have you solved on your own?
 
----
 
-## Section 5: Tools and Workflow
+*Tick all that apply*
 
-<div class="section-title">
-### 5.1 Development Tools
-</div>
 
-<div class="question">Q19. Do you have experience with version control (e.g., Git/GitHub)?</div>
-<div class="option">☐ Yes, extensive (I use Git for all my projects)</div>
-<div class="option">☐ Yes, intermediate (I can commit, push, and pull code)</div>
-<div class="option">☐ Yes, basic (I've created a GitHub account and made simple commits)</div>
-<div class="option">☐ No, but I'm willing to learn</div>
-<div class="option">☐ No experience</div>
+- [ ] **Working Directories**: Fixing "File not found" errors by managing relative/absolute paths
+- [ ] **Data Types**: Troubleshooting why a plot fails because a column is a 'string' vs 'numeric'
+- [ ] **Package Management**: Resolving failed library installations or version conflicts
+- [ ] **Vector/List Logic**: Understanding why your code ran but only returned a single value instead of a column
+- [ ] **Documentation**: Successfully using StackOverflow, reading GitHub issues, implementing instructions from AI tools such as ChatGPT or documentation to fix a specific error message
 
-<div class="question">Q20. Which IDE/editor do you primarily use for coding?</div>
-<div class="option">☐ RStudio</div>
-<div class="option">☐ VS Code</div>
-<div class="option">☐ Jupyter Notebooks</div>
-<div class="option">☐ Other (please specify: ____________________)</div>
-<div class="option">☐ I don't have a preferred IDE</div>
+<!-- SCORING: 4, 3, 2, 1, 0 points respectively -->
 
-<div class="question">Q21. Have you used AI coding assistants (e.g., GitHub Copilot, ChatGPT for coding)?</div>
-<div class="option">☐ Yes, regularly (I use AI assistants in my workflow)</div>
-<div class="option">☐ Yes, occasionally (I've tried them a few times)</div>
-<div class="option">☐ No, but I'm interested in trying</div>
-<div class="option">☐ No, and I'm not interested</div>
 
----
+### Do you have experience with R or Python for data science?
 
-## Section 6: Learning Approach
 
-<div class="section-title">
-### 6.1 Motivation and Learning Style
-</div>
+- [ ] Yes, extensive (I use them regularly for data analysis)
+- [ ] Yes, intermediate (I can write scripts and use common packages)
+- [ ] Yes, basic (I've completed an introduction)
+- [ ] No, but I'm keen to learn
 
-<div class="question">Q22. What is your primary motivation for taking this module?</div>
-<div class="option">☐ To advance my career in transport planning</div>
-<div class="option">☐ To improve my data science skills for transport applications</div>
-<div class="option">☐ Curiosity about transport data science</div>
-<div class="option">☐ It's a required module for my program</div>
-<div class="option">☐ Other (please specify: ____________________)</div>
+<!-- SCORING: 1 point per item ticked, maximum 2 points -->
 
-<div class="question">Q23. How do you prefer to learn new technical skills?</div>
-<div class="option">☐ Hands-on coding exercises</div>
-<div class="option">☐ Lectures and theory</div>
-<div class="option">☐ Group projects and discussions</div>
-<div class="option">☐ Self-paced tutorials and reading</div>
-<div class="option">☐ A combination of these</div>
 
-<div class="question">Q24. How much time can you dedicate to this module each week (including classes, homework, and self-study)?</div>
-<div class="option">☐ More than 10 hours</div>
-<div class="option">☐ 6-10 hours</div>
-<div class="option">☐ 3-5 hours</div>
-<div class="option">☐ Less than 3 hours</div>
+### Which of the following packages have you used?
 
----
 
-## Section 7: Technical Setup
+*Tick all that apply*
 
-<div class="section-title">
-### 7.1 Hardware and Software
-</div>
 
-<div class="question">Q25. Do you have access to a computer with:
-- At least 8 GB of RAM
-- Permission to install software</div>
-<div class="option">☐ Yes, I have a suitable computer</div>
-<div class="option">☐ I have a computer but it may not meet the specifications</div>
-<div class="option">☐ I plan to use a university computer lab</div>
-<div class="option">☐ I plan to use cloud-based services (e.g., GitHub Codespaces)</div>
+- [ ] tidyverse or pandas (data manipulation)
+- [ ] sf or geopandas (spatial data handling)
 
-<div class="question">Q26. Have you installed any of the following software?</div>
-<div class="option">☐ R and RStudio</div>
-<div class="option">☐ Python</div>
-<div class="option">☐ Git</div>
-<div class="option">☐ Docker</div>
-<div class="option">☐ None of the above</div>
+<!-- SCORING: 4, 3, 2, 0 points respectively -->
 
----
 
-## Self-Assessment Scoring
+### Have you worked with Quarto, R Markdown or Jupyter notebooks?
 
-After completing the questionnaire, use the following scoring guide to assess your readiness:
 
-### Scoring Instructions
+- [ ] Yes, extensively (I use them for reports and reproducible work)
+- [ ] Yes, occasionally (I've created simple documents)
+- [ ] No, but I'm familiar with the concept
+
+
+## Data science and transport
+
+
+<!-- SCORING: 4, 3, 2, 1 points respectively -->
+
+
+### How would you rate your ability to load and clean datasets, perform basic data transformations, and calculate summary statistics?
+
+
+- [ ] Advanced (I can handle complex datasets and analysis)
+- [ ] Intermediate (I can perform most common data analysis tasks)
+- [ ] Basic (I understand the concepts but need practice)
+- [ ] Beginner (I'm just starting to learn these skills)
+
+<!-- SCORING: 4, 3, 2, 0 points respectively -->
+
+
+### Have you worked with spatial/geographic data before?
+
+
+- [ ] Yes, extensively (I work with spatial data regularly)
+- [ ] Yes, occasionally (I've used GIS software or spatial packages)
+- [ ] No, but I'm interested in learning
+
+<!-- SCORING: 1 point per item ticked, maximum 4 points -->
+
+
+### Are you familiar with any of these transport data sources?
+
+
+*Tick all that apply*
+
+
+- [ ] OpenStreetMap (OSM)
+- [ ] UK road safety data (Stats19)
+- [ ] Census travel to work data
+- [ ] Origin-destination (OD) matrices
+
+
+<!-- SCORING: 4, 3, 2, 1, 0 points respectively -->
+
+
+### Experience with version control and code sharing?
+
+
+- [ ] Yes, I have used Git for version control
+- [ ] Yes, I use cloud storage (e.g. Dropbox/OneDrive) to share code
+- [ ] No, but I'm keen to learn
+
+
+<!-- TODO: Revisit whether this section should be a separate questionnaire for data collection.
+
+## Your background
+
+(Information only)
+
+Please share a bit about your background and the tools you use. Which IDE do you primarily use for coding (e.g., RStudio, VS Code)? Have you used AI assistants like Copilot or ChatGPT? We are also interested in your primary motivation for taking this module, your preferred learning style, how much time you can dedicate each week, and your current computer setup. 
+
+In terms of software, let us know what you already have installed and configured, such as R/RStudio, Python, Git, or Docker.
+-->
+
+
+## Next steps
+
+
+After completing the questionnaire, use the following guide to assess your readiness and prepare for the module.
+
+
+### Scoring instructions
+
+
 For each question, assign points based on your answer:
 
 - **Very comfortable/Extensive/Advanced**: 4 points
 - **Comfortable/Intermediate**: 3 points  
 - **Somewhat comfortable/Basic**: 2 points
 - **Not very comfortable/Beginner**: 1 point
-- **No experience/Not familiar**: 0 points
+- **None of the above/No prior knowledge**: 0 points
 
-### Score Interpretation
 
-<div class="assessment-grid">
-<div class="assessment-card">
-**0-20 points: Beginner Level**
-- Limited programming and data science experience
-- May find the module challenging without significant preparation
-- Should consider completing introductory courses before starting
-</div>
+### Score interpretation
 
-<div class="assessment-card">
-**21-40 points: Intermediate Level**
-- Basic programming and data analysis skills
-- Familiar with some key concepts
-- Will benefit from reviewing prerequisite materials
-- Should be able to follow the module with dedicated effort
-</div>
 
-<div class="assessment-card">
-**41-60 points: Advanced Level**
-- Strong programming and data science skills
-- Familiar with many transport-related concepts
-- Well-prepared for the module
-- May be able to contribute to discussions and help peers
-</div>
+If you scored 0-15 points, you are at the Beginner level with limited data science experience. We recommend you do not take the module. Unless you are willing to invest substantial extra time learning basic data science skills, you are likely to struggle.
 
-<div class="assessment-card">
-**61-80 points: Expert Level**
-- Extensive experience with R/Python and data science
-- Deep knowledge of transport planning concepts
-- Likely to find the module content familiar but challenging
-- Well-prepared to tackle advanced topics
-</div>
-</div>
 
----
+A score of **16-39 points** indicates an **Intermediate** level, meaning you have basic programming and analysis skills but should review prerequisite materials.
 
-## Recommended Preparation
 
-Based on your self-assessment, here are some recommended resources to prepare for the module:
+Those scoring **40+ points** are **Experienced with data science tools**, well-prepared for advanced topics and ready to support their peers.
 
-### For Beginners (0-20 points)
 
-**Warning: you are advised to NOT take this module unless you invest a substantial amount of time (at least 10 hours, e.g. 2 hours per week in the runup to the course) completing preparatory work.**
+### Key resources
 
-1. **R Programming**: Complete the [RStudio Primers](https://rstudio.cloud/learn/primers) (first 4 sessions) or [DataCamp's Free Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r)
-2. **Python**: Complete [Python for Data Science](https://www.datacamp.com/courses/intro-to-python-for-data-science) on DataCamp
-3. **Git/GitHub**: Learn the basics from [GitHub's Git Guide](https://guides.github.com/introduction/git-handbook/)
-4. **Command Line**: Complete [The Linux Command Line](https://ryanstutorials.net/linuxtutorial/) (for Windows users, focus on PowerShell basics)
 
-### For Intermediate Learners (21-40 points)
+| Topic | Resource |
+|-------|----------|
+| **R** | [RStudio Primers](https://rstudio.cloud/learn/primers) / [R for Data Science](https://r4ds.had.co.nz/) |
+| **Python** | [Python for Data Science](https://www.datacamp.com/courses/intro-to-python-for-data-science) / [Pandas Guide](https://pandas.pydata.org/docs/user_guide/index.html) |
+| **Spatial** | [Geocomputation with R](https://r.geocompx.org/) / [Geocomputation with Python](https://py.geocompx.org/) |
+| **Transport**| [Transport chapter (R)](https://r.geocompx.org/transport.html) / [Transport chapter (Py)](https://py.geocompx.org/transport.html) |
+| **Git** | [GitHub's Git Guide](https://guides.github.com/introduction/git-handbook/) |
+| **Terminal** | [The Linux Command Line](https://ryanstutorials.net/linuxtutorial/) |
+| **Advanced** | [Reproducible Road Safety](https://itsleeds.github.io/rrsrr/) / [Advanced R](https://adv-r.hadley.nz/) |
 
-**Note: you are advised to invest additional time (at least 5 hours) completing preparatory work to ensure you can keep up with the module content.**
 
-1. **Data Analysis**: 
-   - **R/Tidyverse**: Work through [R for Data Science](https://r4ds.had.co.nz/) chapters 1-5
-   - **Python**: Work through [Python for Data Analysis](https://wesmckinney.com/book/) chapters 1-5 or [Pandas documentation](https://pandas.pydata.org/docs/user_guide/index.html)
-2. **Spatial Data**: 
-   - **R**: Read [Geocomputation with R](https://r.geocompx.org/) chapters 2-4
-   - **Python**: Read [Geocomputation with Python](https://py.geocompx.org/) chapters 2-4
-3. **Transport Concepts**: 
-   - **R**: Explore the [Transport chapter of Geocomputation with R](https://r.geocompx.org/transport.html)
-   - **Python**: Explore the [Transport chapter of Geocomputation with Python](https://py.geocompx.org/transport.html)
-4. **Version Control**: Complete [GitHub's Learning Lab](https://lab.github.com/)
+### Final preparation
 
-### For Advanced Learners (41-80 points)
 
-**Great! You are well-prepared for the module but may benefit from reviewing some advanced topics.**
+1. **Calculate your score** using the scoring guide.
+2. **Review the recommended resources** based on your level.
+3. **Install required software** (R/RStudio, Python, Git) before the first session.
+4. **Join the GitHub repository** at [https://github.com/itsleeds/tds](https://github.com/itsleeds/tds).
+5. **Prepare any questions** you may have for the first session.
 
-1. **Transport Data Science**: 
-   - **R**: Review [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/)
-   - **Python**: Explore [PySTATS19](https://github.com/Mayazure/py-stats19) and Python-based road safety analysis
-2. **Open Data Sources**: Explore [OpenStreetMap](https://www.openstreetmap.org/) and [Stats19](https://data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data)
-3. **Advanced Topics**: 
-   - **R**: Read [Advanced R](https://adv-r.hadley.nz/) for deeper R knowledge
-   - **Python**: Read [Effective Python](https://effectivepython.com/) or explore advanced Python data science libraries
 
----
+### Contact information
 
-## Next Steps
-
-1. **Calculate your score** using the scoring guide
-2. **Review the recommended resources** based on your level
-3. **Install required software** (R/RStudio, Python, Git) before the first session
-4. **Join the GitHub repository** at [https://github.com/itsleeds/tds](https://github.com/itsleeds/tds)
-5. **Complete the pre-course homework** (see module website for details)
-6. **Prepare any questions** you may have for the first session
-
----
-
-## Contact Information
 
 If you have questions about your readiness or need guidance on preparing for the module, please contact:
 
-- **Module Leader**: Robin Lovelace (R.Lovelace@leeds.ac.uk)
-- **Teaching Team**: See the [module website](https://itsleeds.github.io/tds/) for full details
+- **Module leader**: Robin Lovelace (R.Lovelace@leeds.ac.uk)
+- **Teaching team**: See the [module website](https://itsleeds.github.io/tds/) for full details.
+
 
 Best of luck with your preparation! We look forward to seeing you in the module.
