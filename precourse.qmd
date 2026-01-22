@@ -73,7 +73,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] **Data Types**: Troubleshooting why a plot fails because a column is a 'string' vs 'numeric'
 - [ ] **Package Management**: Resolving failed library installations or version conflicts
 - [ ] **Vector/List Logic**: Understanding why your code ran but only returned a single value instead of a column
-- [ ] **Documentation**: Successfully using StackOverflow or documentation to fix a specific error message
+- [ ] **Documentation**: Successfully using StackOverflow, reading GitHub issues, implementing instructions from AI tools such as ChatGPT or documentation to fix a specific error message
 - [ ] None of the above
 
 ## Programming Experience
