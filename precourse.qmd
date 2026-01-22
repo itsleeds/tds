@@ -230,7 +230,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ Yes, extensively (I work with spatial data regularly)</div>
 <div class="option">☐ Yes, occasionally (I've used GIS software or spatial packages)</div>
 <div class="option">☐ No, but I'm interested in learning</div>
-<div class="option">☐ No, and I'm not familiar with spatial data concepts</div>
+<div class="option">☐ No, and I'm not interested</div>
 
 <div class="question">Q15. How comfortable are you with data visualization?</div>
 <div class="option">☐ Very comfortable (I can create a variety of effective visualizations)</div>
@@ -256,7 +256,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ Yes, extensively (I regularly work with transport data)</div>
 <div class="option">☐ Yes, occasionally (I've used transport datasets in projects)</div>
 <div class="option">☐ No, but I'm interested in learning</div>
-<div class="option">☐ No, and I'm not familiar with transport datasets</div>
+<div class="option">☐ No, and I'm not interested</div>
 
 <div class="question">Q18. Are you familiar with any of these transport data sources?</div>
 <div class="option">☐ OpenStreetMap (OSM)</div>
