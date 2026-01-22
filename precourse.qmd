@@ -170,14 +170,6 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Somewhat familiar (I know a little about transport planning)
 - [ ] Not familiar (I have no background in transport planning)
 
-<!-- SCORING: 4, 3, 2, 0 points respectively -->
-#### Have you worked with any transport-related datasets before?
-
-- [ ] Yes, extensively (I regularly work with transport data)
-- [ ] Yes, occasionally (I've used transport datasets in projects)
-- [ ] No, but I'm interested in learning
-- [ ] No, and I'm not interested
-
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
 #### Are you familiar with any of these transport data sources? (Tick all that apply)
 
@@ -279,24 +271,24 @@ For each question, assign points based on your answer:
 
 ### Score Interpretation
 
-**0-20 points: Beginner Level**
+**0-17 points: Beginner Level**
 - Limited programming and data science experience
 - May find the module challenging without significant preparation
 - Should consider completing introductory courses before starting
 
-**21-40 points: Intermediate Level**
+**18-34 points: Intermediate Level**
 - Basic programming and data analysis skills
 - Familiar with some key concepts
 - Will benefit from reviewing prerequisite materials
 - Should be able to follow the module with dedicated effort
 
-**41-60 points: Advanced Level**
+**35-51 points: Advanced Level**
 - Strong programming and data science skills
 - Familiar with many transport-related concepts
 - Well-prepared for the module
 - May be able to contribute to discussions and help peers
 
-**61-80 points: Expert Level**
+**52-68 points: Expert Level**
 - Extensive experience with R/Python and data science
 - Deep knowledge of transport planning concepts
 - Likely to find the module content familiar but challenging
@@ -306,7 +298,7 @@ For each question, assign points based on your answer:
 
 Based on your self-assessment, here are some recommended resources to prepare for the module:
 
-### For Beginners (0-20 points)
+### For Beginners (0-17 points)
 
 **Warning: you are advised to NOT take this module unless you invest a substantial amount of time (at least 10 hours, e.g. 2 hours per week in the runup to the course) completing preparatory work.**
 
@@ -315,7 +307,7 @@ Based on your self-assessment, here are some recommended resources to prepare fo
 3. **Git/GitHub**: Learn the basics from [GitHub's Git Guide](https://guides.github.com/introduction/git-handbook/)
 4. **Command Line**: Complete [The Linux Command Line](https://ryanstutorials.net/linuxtutorial/) (for Windows users, focus on PowerShell basics)
 
-### For Intermediate Learners (21-40 points)
+### For Intermediate Learners (18-34 points)
 
 **Note: you are advised to invest additional time (at least 5 hours) completing preparatory work to ensure you can keep up with the module content.**
 
@@ -330,7 +322,7 @@ Based on your self-assessment, here are some recommended resources to prepare fo
    - **Python**: Explore the [Transport chapter of Geocomputation with Python](https://py.geocompx.org/transport.html)
 4. **Version Control**: Complete [GitHub's Learning Lab](https://lab.github.com/)
 
-### For Advanced Learners (41-80 points)
+### For Advanced Learners (35-68 points)
 
 **Great! You are well-prepared for the module but may benefit from reviewing some advanced topics.**
 
