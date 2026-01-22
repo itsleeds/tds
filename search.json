@@ -668,7 +668,7 @@
     "section": "",
     "text": "This self-assessment questionnaire is designed to help you evaluate your readiness for the Transport Data Science (TRAN5340M) module at the University of Leeds. The module focuses on applying data science techniques to solve real-world transport problems using open source software, with a strong emphasis on reproducible workflows.\nPlease check one box for each question unless the question explicitly states to “Tick all that apply”.",
     "crumbs": [
-      "Pre-Course Self-Assessment (Printable)"
+      "Pre-Course Self-Assessment"
     ]
   },
   {
@@ -678,7 +678,7 @@
     "section": "",
     "text": "This self-assessment questionnaire is designed to help you evaluate your readiness for the Transport Data Science (TRAN5340M) module at the University of Leeds. The module focuses on applying data science techniques to solve real-world transport problems using open source software, with a strong emphasis on reproducible workflows.\nPlease check one box for each question unless the question explicitly states to “Tick all that apply”.",
     "crumbs": [
-      "Pre-Course Self-Assessment (Printable)"
+      "Pre-Course Self-Assessment"
     ]
   },
   {
@@ -688,7 +688,7 @@
     "section": "1 Skills assessment",
     "text": "1 Skills assessment\n\n\n1.1 How comfortable are you with managing files and folders on your computer?\n\nVery comfortable (I can create, organize, and search for files efficiently)\nComfortable (I can manage basic file operations)\nSomewhat comfortable (I can do basic tasks but struggle with complex operations)\nNot very comfortable (I need help with most file management tasks)\n\n\n\n\n1.2 How confident are you with installing software on your computer?\n\nVery confident (I can install and configure most software)\nConfident (I can install standard software)\nSomewhat confident (I can install basic software but need guidance for complex tools)\nNot confident (I need help with software installation)\n\n\n\n\n1.3 Have you used a command line interface (e.g., PowerShell, Command Prompt in Windows, Mac Terminal, Linux shell) before?\n\nYes, regularly (I use it for multiple tasks including file management and installing software)\nYes, occasionally (I’ve used it for simple commands, such as simple one-off calculations, navigating directories or listing files)\nNo, but keen to learn",
     "crumbs": [
-      "Pre-Course Self-Assessment (Printable)"
+      "Pre-Course Self-Assessment"
     ]
   },
   {
@@ -698,7 +698,7 @@
     "section": "2 Data science skills",
     "text": "2 Data science skills\n\n\n2.1 Data science experience and outputs\nTick all that apply\n[Skip the next few questions if you have only followed tutorials]\n\nProfessional or academic-grade outputs\nData visualization (e.g., map or chart)\nClean, processed dataset from raw data\nStatistical analysis or model (e.g., regression)\nInteractive dashboard or web application\nAutomated/reproducible report or technical document\nOnly followed step-by-step tutorials so far\n\n\n\n\n2.2 Which of the following problems have you solved on your own?\nTick all that apply\n\nWorking Directories: Fixing “File not found” errors by managing relative/absolute paths\nData Types: Troubleshooting why a plot fails because a column is a ‘string’ vs ‘numeric’\nPackage Management: Resolving failed library installations or version conflicts\nVector/List Logic: Understanding why your code ran but only returned a single value instead of a column\nDocumentation: Successfully using StackOverflow, reading GitHub issues, implementing instructions from AI tools such as ChatGPT or documentation to fix a specific error message\n\n\n\n\n2.3 Do you have experience with R or Python for data science?\n\nYes, extensive (I use them regularly for data analysis)\nYes, intermediate (I can write scripts and use common packages)\nYes, basic (I’ve completed an introduction)\nNo, but I’m keen to learn\n\n\n\n\n2.4 Which of the following packages have you used?\nTick all that apply\n\ntidyverse or pandas (data manipulation)\nsf or geopandas (spatial data handling)\n\n\n\n\n2.5 Have you worked with Quarto, R Markdown or Jupyter notebooks?\n\nYes, extensively (I use them for reports and reproducible work)\nYes, occasionally (I’ve created simple documents)\nNo, but I’m familiar with the concept",
     "crumbs": [
-      "Pre-Course Self-Assessment (Printable)"
+      "Pre-Course Self-Assessment"
     ]
   },
   {
@@ -708,7 +708,7 @@
     "section": "3 Data science and transport",
     "text": "3 Data science and transport\n\n\n3.1 How would you rate your ability to load and clean datasets, perform basic data transformations, and calculate summary statistics?\n\nAdvanced (I can handle complex datasets and analysis)\nIntermediate (I can perform most common data analysis tasks)\nBasic (I understand the concepts but need practice)\nBeginner (I’m just starting to learn these skills)\n\n\n\n\n3.2 Have you worked with spatial/geographic data before?\n\nYes, extensively (I work with spatial data regularly)\nYes, occasionally (I’ve used GIS software or spatial packages)\nNo, but I’m interested in learning\n\n\n\n\n3.3 Are you familiar with any of these transport data sources?\nTick all that apply\n\nOpenStreetMap (OSM)\nUK road safety data (Stats19)\nCensus travel to work data\nOrigin-destination (OD) matrices\n\n\n\n\n3.4 Experience with version control and code sharing?\n\nYes, I have used Git for version control\nYes, I use cloud storage (e.g. Dropbox/OneDrive) to share code\nNo, but I’m keen to learn",
     "crumbs": [
-      "Pre-Course Self-Assessment (Printable)"
+      "Pre-Course Self-Assessment"
     ]
   },
   {
@@ -718,7 +718,7 @@
     "section": "4 Next steps",
     "text": "4 Next steps\nAfter completing the questionnaire, use the following guide to assess your readiness and prepare for the module.\n\n4.1 Scoring instructions\nFor each question, assign points based on your answer:\n\nVery comfortable/Extensive/Advanced: 4 points\nComfortable/Intermediate: 3 points\n\nSomewhat comfortable/Basic: 2 points\nNot very comfortable/Beginner: 1 point\nNone of the above/No prior knowledge: 0 points\n\n\n\n4.2 Score interpretation\nIf you scored 0-15 points, you are at the Beginner level with limited data science experience. We recommend you do not take the module. Unless you are willing to invest substantial extra time learning basic data science skills, you are likely to struggle.\nA score of 16-39 points indicates an Intermediate level, meaning you have basic programming and analysis skills but should review prerequisite materials.\nThose scoring 40+ points are Experienced with data science tools, well-prepared for advanced topics and ready to support their peers.\n\n\n4.3 Key resources\n\n\n\nTopic\nResource\n\n\n\n\nR\nRStudio Primers / R for Data Science\n\n\nPython\nPython for Data Science / Pandas Guide\n\n\nSpatial\nGeocomputation with R / Geocomputation with Python\n\n\nTransport\nTransport chapter (R) / Transport chapter (Py)\n\n\nGit\nGitHub’s Git Guide\n\n\nTerminal\nThe Linux Command Line\n\n\nAdvanced\nReproducible Road Safety / Advanced R\n\n\n\n\n\n4.4 Final preparation\n\nCalculate your score using the scoring guide.\nReview the recommended resources based on your level.\nInstall required software (R/RStudio, Python, Git) before the first session.\nJoin the GitHub repository at https://github.com/itsleeds/tds.\nPrepare any questions you may have for the first session.\n\n\n\n4.5 Contact information\nIf you have questions about your readiness or need guidance on preparing for the module, please contact:\n\nModule leader: Robin Lovelace (R.Lovelace@leeds.ac.uk)\nTeaching team: See the module website for full details.\n\nBest of luck with your preparation! We look forward to seeing you in the module.",
     "crumbs": [
-      "Pre-Course Self-Assessment (Printable)"
+      "Pre-Course Self-Assessment"
     ]
   },
   {
@@ -852,7 +852,7 @@
     "href": "sem2/index.html#seconds-of-fame",
     "title": "Seminar 2 -",
     "section": "6.3 15 Seconds of Fame",
-    "text": "6.3 15 Seconds of Fame\nThe original 2018/19 visualisation recieved 500k X/Twitter views within a week, as well as an OpenInnovations blog post and a Bloomberg article Nine Maps Show How Britain Is on the Move.\nAll code and data is published on GitHub under my anisotropi4/kingfisher repository and updated with the ORR publication of the additional 2020-2024 financial year data."
+    "text": "6.3 15 Seconds of Fame\nThe original 2018/19 visualisation received 500k X/Twitter views within a week, as well as an OpenInnovations blog post and a Bloomberg article Nine Maps Show How Britain Is on the Move.\nAll code and data is published on GitHub under my anisotropi4/kingfisher repository and updated with the ORR publication of the additional 2020-2024 financial year data."
   },
   {
     "objectID": "sem2/index.html#simple-visualisations",
