@@ -15,8 +15,6 @@ This self-assessment questionnaire is designed to help you evaluate your readine
 
 Please answer each question honestly to get an accurate assessment of your prior knowledge and skills.
 
----
-
 ## Computing Fundamentals
 
 ### General Computing Skills
@@ -42,8 +40,6 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Somewhat confident (I can install basic software but need guidance for complex tools)
 - [ ] Not confident (I need help with software installation)
 
----
-
 ### Applied Experience (The "Make or Break" Check)
 
 **Q4. Have you spent more than 10 hours in total using R or Python to generate "tangible results" (e.g., figures for a thesis, professional reports, or reproducible datasets)?**
@@ -64,10 +60,6 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 **Q6. Please provide details on the project(s) you have worked on. Explain which IDEs (e.g., RStudio, VS Code) and packages you used, how exactly the data science work contributed to the output, and approximately how much time (in hours) you spent on it:**
 
-__________________________________________________________________
-__________________________________________________________________
-__________________________________________________________________
-
 **Q7. Which of the following "Critical Blockers" have you successfully solved independently? (Tick all that apply)**
 
 - [ ] **Working Directories**: Fixing "File not found" errors by managing relative/absolute paths
@@ -76,8 +68,6 @@ __________________________________________________________________
 - [ ] **Vector/List Logic**: Understanding why your code ran but only returned a single value instead of a column
 - [ ] **Documentation**: Successfully using StackOverflow or documentation to fix a specific error message
 - [ ] None of the above
-
----
 
 ## Programming Experience
 
@@ -107,8 +97,6 @@ __________________________________________________________________
 - [ ] No, but I'm familiar with the concept
 - [ ] No, never heard of them
 
----
-
 ### Python Programming
 
 **Q11. Do you have experience with Python programming?**
@@ -126,8 +114,6 @@ __________________________________________________________________
 - [ ] matplotlib/plotly (visualization)
 - [ ] numpy (numerical computing)
 - [ ] None of the above
-
----
 
 ## Data Science Knowledge
 
@@ -157,8 +143,6 @@ __________________________________________________________________
 - [ ] Somewhat comfortable (I can make simple plots but struggle with complex visuals)
 - [ ] Not very comfortable (I need help creating visualizations)
 
----
-
 ## Transport Data and Concepts
 
 ### Transport Planning Knowledge
@@ -185,8 +169,6 @@ __________________________________________________________________
 - [ ] Origin-destination (OD) matrices
 - [ ] None of the above
 
----
-
 ## Tools and Workflow
 
 ### Development Tools
@@ -204,7 +186,7 @@ __________________________________________________________________
 - [ ] RStudio
 - [ ] VS Code
 - [ ] Jupyter Notebooks
-- [ ] Other (please specify: ____________________)
+- [ ] Other
 - [ ] I don't have a preferred IDE
 
 **Q21. Have you used AI coding assistants (e.g., GitHub Copilot, ChatGPT for coding)?**
@@ -213,8 +195,6 @@ __________________________________________________________________
 - [ ] Yes, occasionally (I've tried them a few times)
 - [ ] No, but I'm interested in trying
 - [ ] No, and I'm not interested
-
----
 
 ## Learning Approach
 
@@ -226,7 +206,7 @@ __________________________________________________________________
 - [ ] To improve my data science skills for transport applications
 - [ ] Curiosity about transport data science
 - [ ] It's a required module for my program
-- [ ] Other (please specify: ____________________)
+- [ ] Other
 
 **Q23. How do you prefer to learn new technical skills?**
 
@@ -242,8 +222,6 @@ __________________________________________________________________
 - [ ] 6-10 hours
 - [ ] 3-5 hours
 - [ ] Less than 3 hours
-
----
 
 ## Technical Setup
 
@@ -265,8 +243,6 @@ __________________________________________________________________
 - [ ] Git
 - [ ] Docker
 - [ ] None of the above
-
----
 
 ## Self-Assessment Scoring
 
@@ -305,8 +281,6 @@ For each question, assign points based on your answer:
 - Deep knowledge of transport planning concepts
 - Likely to find the module content familiar but challenging
 - Well-prepared to tackle advanced topics
-
----
 
 ## Recommended Preparation
 
@@ -348,8 +322,6 @@ Based on your self-assessment, here are some recommended resources to prepare fo
    - **R**: Read [Advanced R](https://adv-r.hadley.nz/) for deeper R knowledge
    - **Python**: Read [Effective Python](https://effectivepython.com/) or explore advanced Python data science libraries
 
----
-
 ## Next Steps
 
 1. **Calculate your score** using the scoring guide
@@ -358,8 +330,6 @@ Based on your self-assessment, here are some recommended resources to prepare fo
 4. **Join the GitHub repository** at [https://github.com/itsleeds/tds](https://github.com/itsleeds/tds)
 5. **Complete the pre-course homework** (see module website for details)
 6. **Prepare any questions** you may have for the first session
-
----
 
 ## Contact Information
 
