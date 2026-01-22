@@ -6,7 +6,7 @@ format:
   html:
     toc: true
     theme: cosmo
-number-sections: false
+number-sections: true
 ---
 
 ## Welcome
@@ -19,37 +19,37 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### General Computing Skills
 
-**Q1. How comfortable are you with managing files and folders on your computer?**
+#### How comfortable are you with managing files and folders on your computer?
 
 - [ ] Very comfortable (I can create, organize, and search for files efficiently)
 - [ ] Comfortable (I can manage basic file operations)
 - [ ] Somewhat comfortable (I can do basic tasks but struggle with complex operations)
 - [ ] Not very comfortable (I need help with most file management tasks)
 
-**Q2. Have you used a command line interface (e.g., PowerShell, Terminal, Linux shell) before?**
+#### Have you used a command line interface (e.g., PowerShell, Terminal, Linux shell) before?
 
 - [ ] Yes, regularly (I use it for multiple tasks including file management and installing software)
 - [ ] Yes, occasionally (I've used it for simple commands, such as simple one-off calculations, navigating directories or listing files)
 - [ ] No, but keen to learn
 - [ ] No, and I'm not interested
 
-**Q3. How confident are you with installing software on your computer?**
+#### How confident are you with installing software on your computer?
 
 - [ ] Very confident (I can install and configure most software)
 - [ ] Confident (I can install standard software)
 - [ ] Somewhat confident (I can install basic software but need guidance for complex tools)
 - [ ] Not confident (I need help with software installation)
 
-### Applied Experience (The "Make or Break" Check)
+### Applied Experience
 
-**Q4. Have you spent more than 10 hours in total using R or Python to generate "tangible results" (e.g., figures for a thesis, professional reports, or reproducible datasets)?**
+#### Have you spent more than 10 hours in total using R or Python to generate "tangible results" (e.g., figures for a thesis, professional reports, or reproducible datasets)?
 
 - [ ] Yes, I have used code to deliver professional or academic-grade outputs
 - [ ] Yes, I have produced basic figures/tables for coursework
 - [ ] I have spent time in the environment but never produced a "finished" product
 - [ ] No, I have only followed step-by-step tutorials with provided solutions
 
-**Q5. Which of the following have you produced using R, Python or another programming language such as Julia, Rust, or JavaScript/TypeScript? (Tick all that apply)**
+#### Which of the following have you produced using R, Python or another programming language such as Julia, Rust, or JavaScript/TypeScript? (Tick all that apply)
 
 - [ ] A data visualization (e.g., map or chart) for a project
 - [ ] A clean, processed dataset from raw data
@@ -58,9 +58,9 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] An automated/reproducible report or technical document
 - [ ] None of the above
 
-**Q6. Please provide details on the project(s) you have worked on. Explain which IDEs (e.g., RStudio, VS Code) and packages you used, how exactly the data science work contributed to the output, and approximately how much time (in hours) you spent on it:**
+#### Please provide details on the project(s) you have worked on. Explain which IDEs (e.g., RStudio, VS Code) and packages you used, how exactly the data science work contributed to the output, and approximately how much time (in hours) you spent on it:
 
-**Q7. Which of the following "Critical Blockers" have you successfully solved independently? (Tick all that apply)**
+#### Which of the following "Critical Blockers" have you successfully solved independently? (Tick all that apply)
 
 - [ ] **Working Directories**: Fixing "File not found" errors by managing relative/absolute paths
 - [ ] **Data Types**: Troubleshooting why a plot fails because a column is a 'string' vs 'numeric'
@@ -73,7 +73,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### R Programming
 
-**Q8. Do you have experience with R programming?**
+#### Do you have experience with R programming?
 
 - [ ] Yes, extensive (I use R regularly for data analysis)
 - [ ] Yes, intermediate (I can write scripts and use common packages)
@@ -81,7 +81,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] No, but I'm willing to learn
 - [ ] No, and I'm not interested
 
-**Q9. Which of the following R packages have you used? (Tick all that apply)**
+#### Which of the following R packages have you used? (Tick all that apply)
 
 - [ ] tidyverse (dplyr, ggplot2, readr, etc.)
 - [ ] sf (spatial data handling)
@@ -90,7 +90,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] stplanr (transport planning)
 - [ ] None of the above
 
-**Q10. Have you worked with Quarto or R Markdown documents?**
+#### Have you worked with Quarto or R Markdown documents?
 
 - [ ] Yes, extensively (I use them for reports and reproducible work)
 - [ ] Yes, occasionally (I've created simple documents)
@@ -99,7 +99,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Python Programming
 
-**Q11. Do you have experience with Python programming?**
+#### Do you have experience with Python programming?
 
 - [ ] Yes, extensive (I use Python regularly for data analysis)
 - [ ] Yes, intermediate (I can write scripts and use common libraries)
@@ -107,7 +107,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] No, but I'm willing to learn
 - [ ] No, and I'm not interested
 
-**Q12. Which of the following Python libraries have you used? (Tick all that apply)**
+#### Which of the following Python libraries have you used? (Tick all that apply)
 
 - [ ] pandas (data manipulation)
 - [ ] geopandas (spatial data)
@@ -119,7 +119,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Data Analysis Skills
 
-**Q13. How would you rate your ability to:**
+#### How would you rate your ability to:
 - Load and clean datasets
 - Perform basic data transformations
 - Calculate summary statistics
@@ -129,14 +129,14 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Basic (I understand the concepts but need practice)
 - [ ] Beginner (I'm just starting to learn these skills)
 
-**Q14. Have you worked with spatial/geographic data before?**
+#### Have you worked with spatial/geographic data before?
 
 - [ ] Yes, extensively (I work with spatial data regularly)
 - [ ] Yes, occasionally (I've used GIS software or spatial packages)
 - [ ] No, but I'm interested in learning
 - [ ] No, and I'm not interested
 
-**Q15. How comfortable are you with data visualization?**
+#### How comfortable are you with data visualization?
 
 - [ ] Very comfortable (I can create a variety of effective visualizations)
 - [ ] Comfortable (I can create basic charts and maps)
@@ -147,21 +147,21 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Transport Planning Knowledge
 
-**Q16. How familiar are you with transport planning concepts?**
+#### How familiar are you with transport planning concepts?
 
 - [ ] Very familiar (I have formal training in transport planning)
 - [ ] Familiar (I understand basic transport planning principles)
 - [ ] Somewhat familiar (I know a little about transport planning)
 - [ ] Not familiar (I have no background in transport planning)
 
-**Q17. Have you worked with any transport-related datasets before?**
+#### Have you worked with any transport-related datasets before?
 
 - [ ] Yes, extensively (I regularly work with transport data)
 - [ ] Yes, occasionally (I've used transport datasets in projects)
 - [ ] No, but I'm interested in learning
 - [ ] No, and I'm not interested
 
-**Q18. Are you familiar with any of these transport data sources? (Tick all that apply)**
+#### Are you familiar with any of these transport data sources? (Tick all that apply)
 
 - [ ] OpenStreetMap (OSM)
 - [ ] UK road safety data (Stats19)
@@ -173,7 +173,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Development Tools
 
-**Q19. Do you have experience with version control (e.g., Git/GitHub)?**
+#### Do you have experience with version control (e.g., Git/GitHub)?
 
 - [ ] Yes, extensive (I use Git for all my projects)
 - [ ] Yes, intermediate (I can commit, push, and pull code)
@@ -181,7 +181,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] No, but I'm willing to learn
 - [ ] No experience
 
-**Q20. Which IDE/editor do you primarily use for coding?**
+#### Which IDE/editor do you primarily use for coding?
 
 - [ ] RStudio
 - [ ] VS Code
@@ -189,7 +189,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Other
 - [ ] I don't have a preferred IDE
 
-**Q21. Have you used AI coding assistants (e.g., GitHub Copilot, ChatGPT for coding)?**
+#### Have you used AI coding assistants (e.g., GitHub Copilot, ChatGPT for coding)?
 
 - [ ] Yes, regularly (I use AI assistants in my workflow)
 - [ ] Yes, occasionally (I've tried them a few times)
@@ -200,7 +200,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Motivation and Learning Style
 
-**Q22. What is your primary motivation for taking this module?**
+#### What is your primary motivation for taking this module?
 
 - [ ] To advance my career in transport planning
 - [ ] To improve my data science skills for transport applications
@@ -208,7 +208,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] It's a required module for my program
 - [ ] Other
 
-**Q23. How do you prefer to learn new technical skills?**
+#### How do you prefer to learn new technical skills?
 
 - [ ] Hands-on coding exercises
 - [ ] Lectures and theory
@@ -216,7 +216,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Self-paced tutorials and reading
 - [ ] A combination of these
 
-**Q24. How much time can you dedicate to this module each week (including classes, homework, and self-study)?**
+#### How much time can you dedicate to this module each week (including classes, homework, and self-study)?
 
 - [ ] More than 10 hours
 - [ ] 6-10 hours
@@ -227,7 +227,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Hardware and Software
 
-**Q25. Do you have access to a computer with:**
+#### Do you have access to a computer with:
 - At least 8 GB of RAM
 - Permission to install software
 
@@ -236,7 +236,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] I plan to use a university computer lab
 - [ ] I plan to use cloud-based services (e.g., GitHub Codespaces)
 
-**Q26. Have you installed any of the following software? (Tick all that apply)**
+#### Have you installed any of the following software? (Tick all that apply)
 
 - [ ] R and RStudio
 - [ ] Python
