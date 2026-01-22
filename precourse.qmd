@@ -120,7 +120,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ Yes, regularly (I use it for various tasks)</div>
 <div class="option">☐ Yes, occasionally (I've used it for simple commands)</div>
 <div class="option">☐ No, but I'm willing to learn</div>
-<div class="option">☐ No, and I'm not familiar with it</div>
+<div class="option">☐ No, and I'm not interested</div>
 
 <div class="question">Q3. How confident are you with installing software on your computer?</div>
 <div class="option">☐ Very confident (I can install and configure most software)</div>
