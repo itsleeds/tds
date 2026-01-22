@@ -38,7 +38,7 @@ website:
       # - href: precourse-interactive.qmd
       #   text: Pre-Course Self-Assessment (Interactive)
       - href: precourse.qmd
-        text: Pre-Course Self-Assessment (Printable)
+        text: Pre-Course Self-Assessment
       - href: reproducible-road-safety-workshop.qmd
         text: Reproducible Road Safety Workshop
       - text: Sessions

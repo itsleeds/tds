@@ -156,7 +156,7 @@ All data used is on the basis that it under open or permissive license.
 
 ## 15 Seconds of Fame
 
-The original 2018/19 visualisation recieved 500k X/Twitter views within a week, as well as an [OpenInnovations blog](https://open-innovations.org/blog/2024-01-08-passenger-journeys-pictures-at-a-rail-transport-exhibition) post and a Bloomberg article [Nine Maps Show How Britain Is on the Move](https://www.bloomberg.com/news/features/2024-02-08/british-rail-train-ticket-data-maps-show-how-a-nation-travels-before-hs2).
+The original 2018/19 visualisation received 500k X/Twitter views within a week, as well as an [OpenInnovations blog](https://open-innovations.org/blog/2024-01-08-passenger-journeys-pictures-at-a-rail-transport-exhibition) post and a Bloomberg article [Nine Maps Show How Britain Is on the Move](https://www.bloomberg.com/news/features/2024-02-08/british-rail-train-ticket-data-maps-show-how-a-nation-travels-before-hs2).
 
 All code and data is published on GitHub under my [anisotropi4/kingfisher](https://github.com/anisotropi4/kingfisher) repository and updated with the ORR publication of the additional 2020-2024 financial year data.
 
