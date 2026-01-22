@@ -19,6 +19,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### General Computing Skills
 
+<!-- SCORING: 4, 3, 2, 1 points respectively -->
 #### How comfortable are you with managing files and folders on your computer?
 
 - [ ] Very comfortable (I can create, organize, and search for files efficiently)
@@ -26,6 +27,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Somewhat comfortable (I can do basic tasks but struggle with complex operations)
 - [ ] Not very comfortable (I need help with most file management tasks)
 
+<!-- SCORING: 4, 3, 2, 0 points respectively -->
 #### Have you used a command line interface (e.g., PowerShell, Terminal, Linux shell) before?
 
 - [ ] Yes, regularly (I use it for multiple tasks including file management and installing software)
@@ -33,6 +35,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] No, but keen to learn
 - [ ] No, and I'm not interested
 
+<!-- SCORING: 4, 3, 2, 1 points respectively -->
 #### How confident are you with installing software on your computer?
 
 - [ ] Very confident (I can install and configure most software)
@@ -42,6 +45,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Applied Experience
 
+<!-- SCORING: 4, 3, 1, 0 points respectively -->
 #### Have you spent more than 10 hours in total using R or Python to generate "tangible results" (e.g., figures for a thesis, professional reports, or reproducible datasets)?
 
 - [ ] Yes, I have used code to deliver professional or academic-grade outputs
@@ -49,8 +53,8 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] I have spent time in the environment but never produced a "finished" product
 - [ ] No, I have only followed step-by-step tutorials with provided solutions
 
-#### Which of the following have you produced using R, Python or another programming language such as Julia, Rust, or JavaScript/TypeScript? (Tick all that apply)
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
+#### Which of the following have you produced using R, Python or another programming language such as Julia, Rust, or JavaScript/TypeScript? (Tick all that apply)
 
 - [ ] A data visualization (e.g., map or chart) for a project
 - [ ] A clean, processed dataset from raw data
@@ -59,10 +63,11 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] An automated/reproducible report or technical document
 - [ ] None of the above
 
+<!-- SCORING: 0 points (Information only) -->
 #### Please provide details on the project(s) you have worked on. Explain which IDEs (e.g., RStudio, VS Code) and packages you used, how exactly the data science work contributed to the output, and approximately how much time (in hours) you spent on it:
 
-#### Which of the following "Critical Blockers" have you successfully solved independently? (Tick all that apply)
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
+#### Which of the following "Critical Blockers" have you successfully solved independently? (Tick all that apply)
 
 - [ ] **Working Directories**: Fixing "File not found" errors by managing relative/absolute paths
 - [ ] **Data Types**: Troubleshooting why a plot fails because a column is a 'string' vs 'numeric'
@@ -75,6 +80,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### R Programming
 
+<!-- SCORING: 4, 3, 2, 1, 0 points respectively -->
 #### Do you have experience with R programming?
 
 - [ ] Yes, extensive (I use R regularly for data analysis)
@@ -83,8 +89,8 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] No, but I'm willing to learn
 - [ ] No, and I'm not interested
 
-#### Which of the following R packages have you used? (Tick all that apply)
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
+#### Which of the following R packages have you used? (Tick all that apply)
 
 - [ ] tidyverse (dplyr, ggplot2, readr, etc.)
 - [ ] sf (spatial data handling)
@@ -93,6 +99,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] stplanr (transport planning)
 - [ ] None of the above
 
+<!-- SCORING: 4, 3, 2, 0 points respectively -->
 #### Have you worked with Quarto or R Markdown documents?
 
 - [ ] Yes, extensively (I use them for reports and reproducible work)
@@ -102,6 +109,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Python Programming
 
+<!-- SCORING: 4, 3, 2, 1, 0 points respectively -->
 #### Do you have experience with Python programming?
 
 - [ ] Yes, extensive (I use Python regularly for data analysis)
@@ -110,8 +118,8 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] No, but I'm willing to learn
 - [ ] No, and I'm not interested
 
-#### Which of the following Python libraries have you used? (Tick all that apply)
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
+#### Which of the following Python libraries have you used? (Tick all that apply)
 
 - [ ] pandas (data manipulation)
 - [ ] geopandas (spatial data)
@@ -123,6 +131,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Data Analysis Skills
 
+<!-- SCORING: 4, 3, 2, 1 points respectively -->
 #### How would you rate your ability to:
 - Load and clean datasets
 - Perform basic data transformations
@@ -133,6 +142,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Basic (I understand the concepts but need practice)
 - [ ] Beginner (I'm just starting to learn these skills)
 
+<!-- SCORING: 4, 3, 2, 0 points respectively -->
 #### Have you worked with spatial/geographic data before?
 
 - [ ] Yes, extensively (I work with spatial data regularly)
@@ -140,6 +150,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] No, but I'm interested in learning
 - [ ] No, and I'm not interested
 
+<!-- SCORING: 4, 3, 2, 1 points respectively -->
 #### How comfortable are you with data visualization?
 
 - [ ] Very comfortable (I can create a variety of effective visualizations)
@@ -151,6 +162,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Transport Planning Knowledge
 
+<!-- SCORING: 4, 3, 2, 1 points respectively -->
 #### How familiar are you with transport planning concepts?
 
 - [ ] Very familiar (I have formal training in transport planning)
@@ -158,6 +170,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Somewhat familiar (I know a little about transport planning)
 - [ ] Not familiar (I have no background in transport planning)
 
+<!-- SCORING: 4, 3, 2, 0 points respectively -->
 #### Have you worked with any transport-related datasets before?
 
 - [ ] Yes, extensively (I regularly work with transport data)
@@ -165,8 +178,8 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] No, but I'm interested in learning
 - [ ] No, and I'm not interested
 
-#### Are you familiar with any of these transport data sources? (Tick all that apply)
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
+#### Are you familiar with any of these transport data sources? (Tick all that apply)
 
 - [ ] OpenStreetMap (OSM)
 - [ ] UK road safety data (Stats19)
@@ -178,6 +191,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Development Tools
 
+<!-- SCORING: 4, 3, 2, 1, 0 points respectively -->
 #### Do you have experience with version control (e.g., Git/GitHub)?
 
 - [ ] Yes, extensive (I use Git for all my projects)
@@ -188,8 +202,8 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ## Preferences and feedback
 
+<!-- SCORING: 0 points (Information only) -->
 #### Which IDE/editor do you primarily use for coding?
-<!-- NON-SCORING -->
 
 - [ ] RStudio
 - [ ] VS Code
@@ -197,16 +211,16 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Other
 - [ ] I don't have a preferred IDE
 
+<!-- SCORING: 0 points (Information only) -->
 #### Have you used AI coding assistants (e.g., GitHub Copilot, ChatGPT for coding)?
-<!-- NON-SCORING -->
 
 - [ ] Yes, regularly (I use AI assistants in my workflow)
 - [ ] Yes, occasionally (I've tried them a few times)
 - [ ] No, but I'm interested in trying
 - [ ] No, and I'm not interested
 
+<!-- SCORING: 0 points (Information only) -->
 #### What is your primary motivation for taking this module?
-<!-- NON-SCORING -->
 
 - [ ] To advance my career in transport planning
 - [ ] To improve my data science skills for transport applications
@@ -214,8 +228,8 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] It's a required module for my program
 - [ ] Other
 
+<!-- SCORING: 0 points (Information only) -->
 #### How do you prefer to learn new technical skills?
-<!-- NON-SCORING -->
 
 - [ ] Hands-on coding exercises
 - [ ] Lectures and theory
@@ -223,6 +237,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] Self-paced tutorials and reading
 - [ ] A combination of these
 
+<!-- SCORING: 0 points (Information only) -->
 #### How much time can you dedicate to this module each week (including classes, homework, and self-study)?
 
 - [ ] More than 10 hours
@@ -230,18 +245,18 @@ Please answer each question honestly to get an accurate assessment of your prior
 - [ ] 3-5 hours
 - [ ] Less than 3 hours
 
+<!-- SCORING: 0 points (Information only) -->
 #### Do you have access to a computer with:
 - At least 8 GB of RAM
 - Permission to install software
-<!-- NON-SCORING -->
 
 - [ ] Yes, I have a suitable computer
 - [ ] I have a computer but it may not meet the specifications
 - [ ] I plan to use a university computer lab
 - [ ] I plan to use cloud-based services (e.g., GitHub Codespaces)
 
+<!-- SCORING: 0 points (Information only) -->
 #### Have you installed any of the following software? (Tick all that apply)
-<!-- NON-SCORING -->
 
 - [ ] R and RStudio
 - [ ] Python
