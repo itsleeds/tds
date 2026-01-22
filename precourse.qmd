@@ -175,7 +175,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ No, but I'm willing to learn</div>
 <div class="option">☐ No, and I'm not interested</div>
 
-<div class="question">Q9. Which of the following R packages have you used?</div>
+<div class="question">Q9. Which of the following R packages have you used? (Tick all that apply)</div>
 <div class="option">☐ tidyverse (dplyr, ggplot2, readr, etc.)</div>
 <div class="option">☐ sf (spatial data handling)</div>
 <div class="option">☐ tmap (mapping/visualization)</div>
@@ -202,7 +202,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ No, but I'm willing to learn</div>
 <div class="option">☐ No, and I'm not interested</div>
 
-<div class="question">Q12. Which of the following Python libraries have you used?</div>
+<div class="question">Q12. Which of the following Python libraries have you used? (Tick all that apply)</div>
 <div class="option">☐ pandas (data manipulation)</div>
 <div class="option">☐ geopandas (spatial data)</div>
 <div class="option">☐ matplotlib/plotly (visualization)</div>
@@ -258,7 +258,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ No, but I'm interested in learning</div>
 <div class="option">☐ No, and I'm not interested</div>
 
-<div class="question">Q18. Are you familiar with any of these transport data sources?</div>
+<div class="question">Q18. Are you familiar with any of these transport data sources? (Tick all that apply)</div>
 <div class="option">☐ OpenStreetMap (OSM)</div>
 <div class="option">☐ UK road safety data (Stats19)</div>
 <div class="option">☐ Census travel to work data</div>
@@ -337,7 +337,7 @@ Please answer each question honestly to get an accurate assessment of your prior
 <div class="option">☐ I plan to use a university computer lab</div>
 <div class="option">☐ I plan to use cloud-based services (e.g., GitHub Codespaces)</div>
 
-<div class="question">Q26. Have you installed any of the following software?</div>
+<div class="question">Q26. Have you installed any of the following software? (Tick all that apply)</div>
 <div class="option">☐ R and RStudio</div>
 <div class="option">☐ Python</div>
 <div class="option">☐ Git</div>
