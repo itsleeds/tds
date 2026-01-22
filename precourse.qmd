@@ -6,6 +6,9 @@ format:
   html:
     toc: true
     theme: cosmo
+  pdf:
+    toc: true
+    documentclass: article
 number-sections: true
 ---
 
@@ -14,6 +17,10 @@ number-sections: true
 This self-assessment questionnaire is designed to help you evaluate your readiness for the **Transport Data Science** (TRAN5340M) module at the University of Leeds. The module focuses on applying data science techniques to solve real-world transport problems using open source software, with a strong emphasis on reproducible workflows.
 
 Please answer each question honestly to get an accurate assessment of your prior knowledge and skills.
+
+### Interactive Version {-}
+
+An interactive, client-side version of this questionnaire with automatic scoring will be made available in a future release.
 
 ## Computing Fundamentals
 
@@ -45,7 +52,6 @@ Please answer each question honestly to get an accurate assessment of your prior
 
 ### Applied Experience
 
-<!-- SCORING: 4, 3, 1, 0 points respectively -->
 #### Have you spent more than 10 hours in total using R or Python to generate "tangible results" (e.g., figures for a thesis, professional reports, or reproducible datasets)?
 
 - [ ] Yes, I have used code to deliver professional or academic-grade outputs
