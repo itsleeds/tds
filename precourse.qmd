@@ -194,9 +194,8 @@ In terms of software, let us know what you already have installed and configured
 
 After completing the questionnaire, use the following guide to assess your readiness and prepare for the module.
 
-
+<!-- 
 ### Scoring instructions
-
 
 For each question, assign points based on your answer:
 
@@ -206,8 +205,7 @@ For each question, assign points based on your answer:
 - **Not very comfortable/Beginner**: 1 point
 - **None of the above/No prior knowledge**: 0 points
 
-
-<!-- ### Score interpretation
+### Score interpretation
 
 
 If you scored 0-15 points, you are at the Beginner level with limited data science experience. We recommend you do not take the module. Unless you are willing to invest substantial extra time learning basic data science skills, you are likely to struggle.
