@@ -227,7 +227,7 @@ Those scoring **40+ points** are **Experienced with data science tools**, well-p
 | **R** | [RStudio Primers](https://rstudio.cloud/learn/primers) / [R for Data Science](https://r4ds.had.co.nz/) |
 | **Python** | [Python for Data Science](https://www.datacamp.com/courses/intro-to-python-for-data-science) / [Pandas Guide](https://pandas.pydata.org/docs/user_guide/index.html) |
 | **Spatial** | [Geocomputation with R](https://r.geocompx.org/) / [Geocomputation with Python](https://py.geocompx.org/) |
-| **Transport**| [Transport chapter (R)](https://r.geocompx.org/transport.html) / [Transport chapter (Py)](https://py.geocompx.org/transport.html) |
+| **Transport**| [Transport chapter (R)](https://r.geocompx.org/transport.html) / [Geocomputation with Python](https://py.geocompx.org) |
 | **Git** | [GitHub's Git Guide](https://guides.github.com/introduction/git-handbook/) |
 | **Terminal** | [The Linux Command Line](https://ryanstutorials.net/linuxtutorial/) |
 | **Advanced** | [Reproducible Road Safety](https://itsleeds.github.io/rrsrr/) / [Advanced R](https://adv-r.hadley.nz/) |
