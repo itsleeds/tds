@@ -27,10 +27,10 @@ This self-assessment questionnaire is designed to help you evaluate your readine
 ### How comfortable are you with managing files and folders on your computer?
 
 
-- [ ] Very comfortable (I can create, organize, and search for files efficiently)
-- [ ] Comfortable (I can manage basic file operations)
-- [ ] Somewhat comfortable (I can do basic tasks but struggle with complex operations)
-- [ ] Not very comfortable (I need help with most file management tasks)
+- [ ] Very comfortable (I use file managers like Explorer or Finder to organize deep folder structures and search for files)
+- [ ] Comfortable (I can perform operations like creating, moving, and renaming folders/files)
+- [ ] Somewhat comfortable (I can do simple tasks but sometimes struggle to find where I saved things)
+- [ ] Not very comfortable (I often need help finding files or organizing folders)
 
 
 <!-- SCORING: 4, 3, 2, 1 points respectively -->
@@ -62,7 +62,7 @@ This self-assessment questionnaire is designed to help you evaluate your readine
 <!-- SCORING: 1 point per item ticked, maximum 5 points -->
 
 
-### Data science experience and outputs
+### What data analysis or data science outputs have you produced?
 
 
 *Tick all that apply*
@@ -81,7 +81,7 @@ This self-assessment questionnaire is designed to help you evaluate your readine
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
 
 
-### Which of the following problems have you solved on your own?
+### Which of the following problems have you solved independently (with or without AI help)?
 
 
 *Tick all that apply*
@@ -107,7 +107,7 @@ This self-assessment questionnaire is designed to help you evaluate your readine
 <!-- SCORING: 1 point per item ticked, maximum 2 points -->
 
 
-### Which of the following packages have you used?
+### Which of the following packages (libraries) have you used?
 
 
 *Tick all that apply*
@@ -115,6 +115,7 @@ This self-assessment questionnaire is designed to help you evaluate your readine
 
 - [ ] tidyverse or pandas (data manipulation)
 - [ ] sf or geopandas (spatial data handling)
+- [ ] Other (please specify): ___________________________
 
 <!-- SCORING: 4, 3, 2, 0 points respectively -->
 
