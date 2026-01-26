@@ -9,67 +9,49 @@ format:
     number-sections: true
 ---
 
-
 ## Welcome {-}
-
 
 This self-assessment questionnaire is designed to help you evaluate your readiness for the **Transport Data Science** (TRAN5340M) module at the University of Leeds. The module focuses on applying data science techniques to solve real-world transport problems using open source software, with a strong emphasis on reproducible workflows.
 
 **Please check one box for each question unless the question explicitly states to "Tick all that apply".**
 
-
 ## Skills assessment
-
 
 <!-- SCORING: 4, 3, 2, 1 points respectively -->
 
-
 ### How comfortable are you with managing files and folders on your computer?
-
 
 - [ ] Very comfortable (I use file managers like Explorer or Finder to organize deep folder structures and search for files)
 - [ ] Comfortable (I can perform operations like creating, moving, and renaming folders/files)
 - [ ] Somewhat comfortable (I can do simple tasks but sometimes struggle to find where I saved things)
 - [ ] Not very comfortable (I often need help finding files or organizing folders)
 
-
 <!-- SCORING: 4, 3, 2, 1 points respectively -->
 
-
 ### How confident are you with installing software on your computer?
-
 
 - [ ] Very confident (I can install and configure most software)
 - [ ] Confident (I can install standard software)
 - [ ] Somewhat confident (I can install basic software but need guidance for complex tools)
 - [ ] Not confident (I need help with software installation)
 
-
 <!-- SCORING: 4, 3, 2, 0 points respectively -->
 
-
 ### Have you used a command line interface (e.g., PowerShell, Command Prompt in Windows, Mac Terminal, Linux shell) before?
-
 
 - [ ] Yes, regularly (I use it for multiple tasks including file management and installing software)
 - [ ] Yes, occasionally (I've used it for simple commands, such as simple one-off calculations, navigating directories or listing files)
 - [ ] No, but keen to learn
 
-
 ## Data science skills
-
 
 <!-- SCORING: 1 point per item ticked, maximum 5 points -->
 
-
 ### What data analysis or data science outputs have you produced?
-
 
 By data science, we mean using command-line programmes and editing code to work with and modify datasets and to generate results.
 
-
 *Tick all that apply*
-
 
 *[Skip the next few questions if you have only followed tutorials]*
 
@@ -83,12 +65,9 @@ By data science, we mean using command-line programmes and editing code to work 
 
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
 
-
 ### Which of the following problems have you solved independently (with or without AI help)?
 
-
 *Tick all that apply*
-
 
 - [ ] **Working Directories**: Fixing "File not found" errors by managing relative/absolute paths
 - [ ] **Data Types**: Troubleshooting why a plot fails because a column is a 'string' vs 'numeric'
@@ -98,9 +77,7 @@ By data science, we mean using command-line programmes and editing code to work 
 
 <!-- SCORING: 4, 3, 2, 1, 0 points respectively -->
 
-
 ### Do you have experience with R or Python for data science?
-
 
 - [ ] Yes, extensive (I use them regularly for data analysis)
 - [ ] Yes, intermediate (I can write scripts and use common packages)
@@ -109,12 +86,9 @@ By data science, we mean using command-line programmes and editing code to work 
 
 <!-- SCORING: 1 point per item ticked, maximum 2 points -->
 
-
 ### Which of the following packages (libraries) have you used?
 
-
 *Tick all that apply*
-
 
 - [ ] tidyverse or pandas (data manipulation)
 - [ ] sf or geopandas (spatial data handling)
@@ -122,23 +96,17 @@ By data science, we mean using command-line programmes and editing code to work 
 
 <!-- SCORING: 4, 3, 2, 0 points respectively -->
 
-
 ### Have you worked with Quarto, R Markdown or Jupyter notebooks?
-
 
 - [ ] Yes, extensively (I use them for reports and reproducible work)
 - [ ] Yes, occasionally (I've created simple documents)
 - [ ] No, but I'm familiar with the concept
 
-
 ## Data science and transport
-
 
 <!-- SCORING: 4, 3, 2, 1 points respectively -->
 
-
 ### How would you rate your ability to load and clean datasets, perform basic data transformations, and calculate summary statistics?
-
 
 - [ ] Advanced (I can handle complex datasets and analysis)
 - [ ] Intermediate (I can perform most common data analysis tasks)
@@ -147,9 +115,7 @@ By data science, we mean using command-line programmes and editing code to work 
 
 <!-- SCORING: 4, 3, 2, 0 points respectively -->
 
-
 ### Have you worked with spatial/geographic data before?
-
 
 - [ ] Yes, extensively (I work with spatial data regularly)
 - [ ] Yes, occasionally (I've used GIS software or spatial packages)
@@ -157,29 +123,22 @@ By data science, we mean using command-line programmes and editing code to work 
 
 <!-- SCORING: 1 point per item ticked, maximum 4 points -->
 
-
 ### Are you familiar with any of these transport data sources?
 
-
 *Tick all that apply*
-
 
 - [ ] OpenStreetMap (OSM)
 - [ ] UK road safety data (Stats19)
 - [ ] Census travel to work data
 - [ ] Origin-destination (OD) matrices
 
-
 <!-- SCORING: 4, 3, 2, 1, 0 points respectively -->
 
-
 ### Experience with version control and code sharing?
-
 
 - [ ] Yes, I have used Git for version control
 - [ ] Yes, I use cloud storage (e.g. Dropbox/OneDrive) to share code
 - [ ] No, but I'm keen to learn
-
 
 <!-- TODO: Revisit whether this section should be a separate questionnaire for data collection.
 
@@ -192,9 +151,7 @@ Please share a bit about your background and the tools you use. Which IDE do you
 In terms of software, let us know what you already have installed and configured, such as R/RStudio, Python, Git, or Docker.
 -->
 
-
 ## Next steps
-
 
 After completing the questionnaire, use the following guide to assess your readiness and prepare for the module.
 
@@ -211,18 +168,13 @@ For each question, assign points based on your answer:
 
 ### Score interpretation
 
-
 If you scored 0-15 points, you are at the Beginner level with limited data science experience. Unless you are willing to invest substantial extra time learning basic data science skills, you are likely to struggle.
-
 
 A score of **16-39 points** indicates an **Intermediate** level, meaning you have basic programming and analysis skills but should review prerequisite materials.
 
-
 Those scoring **40+ points** are **Experienced with data science tools**, well-prepared for advanced topics and ready to support their peers. -->
 
-
 ### Key resources
-
 
 | Topic | Resource |
 |-------|----------|
@@ -234,7 +186,6 @@ Those scoring **40+ points** are **Experienced with data science tools**, well-p
 | **Terminal** | [The Linux Command Line](https://ryanstutorials.net/linuxtutorial/) |
 | **Advanced** | [Reproducible Road Safety](https://itsleeds.github.io/rrsrr/) / [Advanced R](https://adv-r.hadley.nz/) |
 
-
 ### Final preparation
 
 <!-- 1. **Calculate your score** using the scoring guide. -->
@@ -243,14 +194,11 @@ Those scoring **40+ points** are **Experienced with data science tools**, well-p
 4. **Check you have access to the GitHub repository** at [https://github.com/itsleeds/tds](https://github.com/itsleeds/tds) and try downloading materials and/or asking a question in the [discussions section](https://github.com/itsleeds/tds/discussions). 
 5. **Prepare any questions** you may have for the first session.
 
-
 ### Contact information
-
 
 If you have questions about your readiness or need guidance on preparing for the module, please contact:
 
 - **Module leader**: Robin Lovelace (R.Lovelace@leeds.ac.uk)
 - **Teaching team**: See the [module website](https://itsleeds.github.io/tds/) for full details.
-
 
 Best of luck with your preparation! We look forward to seeing you in the module.
