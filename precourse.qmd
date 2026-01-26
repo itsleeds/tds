@@ -65,6 +65,9 @@ This self-assessment questionnaire is designed to help you evaluate your readine
 ### What data analysis or data science outputs have you produced?
 
 
+By data science, we mean using command-line programmes and editing code to work with and modify datasets and to generate results.
+
+
 *Tick all that apply*
 
 
