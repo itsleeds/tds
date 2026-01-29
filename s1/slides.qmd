@@ -23,7 +23,7 @@ library(dplyr)
 
 #### Robin Lovelace
 
--   Associate Professor of Transport Data Science
+-   Professor of Transport Data Science
 -   Researching transport futures and active travel planning
 -   R developer and teacher, author of Geocomputation with R
 
