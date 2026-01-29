@@ -40,10 +40,6 @@ library(dplyr)
 -   Senior researcher at ITS with expertise in routing + web
 -   Developer of the Propensity to Cycle Tool and [PBCC](https://www.carbon.place/#8/51.482/-0.151)
 
-#### Zhao Wang
-
--   Civil Engineer and Data Scientist with expertise in machine learning
-
 #### Demonstrators
 
 
