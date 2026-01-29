@@ -188,6 +188,13 @@ See the [schedule](https://itsleeds.github.io/tds/schedule.html) for details
 
 <iframe src="https://itsleeds.github.io/tds/schedule.html" width="100%" height="400px"></iframe>
 
+## Practical 1: Finding a good research question and project set-up
+
+- Questions about the module?
+- Break and software installation check
+- Thinking of a good research question and discussion
+- Data science foundations (guided)
+- Focussed work on practical 1
 
 ## What is science?
 
