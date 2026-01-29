@@ -16,7 +16,7 @@ library(tidyverse)
 ```
 
 ```{r}
-#| eval: false
+#| include: false
 # Aim: create ical of all lectures and practicals of TDS
 # Start date of week 1 (source: https://www.leeds.ac.uk/term-dates)
 w_start = as.Date("2025-09-29")
@@ -152,12 +152,12 @@ names(tt_csv) = tolower(names(tt_csv))
 calendar::ic_write(ic, "data/timetable.ics")
 readLines("data/timetable.ics")
 readr::write_csv(tt_csv, "data/timetable.csv")
-# Export timetable to Excel:
-writexl::write_xlsx(tt_csv, "~/OneDrive/career/modules/tds/2026/TRAN5340M-timetable-draft-v2.xlsx")
+# # Export timetable to Excel:
+# writexl::write_xlsx(tt_csv, "~/OneDrive/career/modules/tds/2026/TRAN5340M-timetable-draft-v2.xlsx")
 ```
 
 ```{r}
-#| eval: false
+#| include: false
 # system("gh release create 2026")
 system("gh release upload 2026 data/timetable.ics data/timetable.csv --clobber")
 ```
