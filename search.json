@@ -1900,6 +1900,13 @@
     "text": "2.1 Bonus exercises\n\nReproduce the examples\nGet all supermarkets in OSM for West Yorkshire\nIdentify all cycleways in West Yorkshire and, using the stats19 data you have already downloaded, identify all crashes that happened near them.\n\nImport and visualise a dataset with supermarket names and locations with the following code (see the source code of the session to see how the supermarket data was obtained with osmextract):\n\nsupermarkets = sf::read_sf(\"https://github.com/ITSLeeds/tds/releases/download/2025/supermarkets_points_cleaned.geojson\")\nlibrary(tmap)\ntmap_mode(\"view\")\ntm_shape(supermarkets) +\n  tm_dots(\"name_simplified\")"
   },
   {
+    "objectID": "s2/index.html#optional-overture-maps",
+    "href": "s2/index.html#optional-overture-maps",
+    "title": "Session 2: Getting transport datasets with R",
+    "section": "2.2 (Optional) Overture Maps",
+    "text": "2.2 (Optional) Overture Maps\nOverture Maps is a new geospatial dataset designed to complement OpenStreetMap. It is produced by the Overture Maps Foundation, a collaboration between several large mapping and technology organizations (Amazon, Meta, Microsoft and TomTom).\nWhile OSM is community-edited and extremely rich, Overture Maps takes a different approach: it publishes curated, standardised layers designed to be easy to use at scale for data science and analytics. While OSM acts as the foundational data source, its tagging system is very flexible and often inconsistent; Overture cleans the OSM data and converts it to a fixed schema, as well as combining it with additional open and proprietary-contributed datasets from its member organisations.\nRead the docs to explore how to download and use Overture Maps datasets in GeoParquet format. Data in Overture Maps is characterised by theme and type: try exploring these using the layer options in the Explorer as shown in the image below.\n\n\n\nOverture Maps Explorer interface with layer options"
+  },
+  {
     "objectID": "s2/index.html#the-ons-create-a-custom-dataset-tool",
     "href": "s2/index.html#the-ons-create-a-custom-dataset-tool",
     "title": "Session 2: Getting transport datasets with R",
