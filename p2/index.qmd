@@ -52,6 +52,11 @@ Read more about the package in chapters 2 onwards in [Geocomputation with R](htt
 
 Work through the reproducible code in the "Introducing osmextract" vignette hosted at [https://docs.ropensci.org/osmextract/articles/osmextract.html](https://docs.ropensci.org/osmextract/articles/osmextract.html).
 
+Take a read of the documentation of the https://nptscot.github.io/osmactive/ package and try to use it to get some transport-related data from OSM.
+
+Take a read of the documentation of that website, understand how it works, and download a transport-related dataset of your choice.
+Visualise the dataset in different ways using `ggplot2` and `tmap`.
+
 ## Bonus exercises
 
 - Reproduce the examples
