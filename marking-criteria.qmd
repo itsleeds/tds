@@ -4,6 +4,7 @@ title: "Marking Criteria"
 
 <!-- See the source code for this template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd). -->
 
+<<<<<<< HEAD
 The report should be written as a Quarto document (`.qmd` file) and submitted as a .zip file containing the qmd file and rendered PDF file.
 See the template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd) for an example.
 
@@ -72,3 +73,13 @@ Marks for the submitted report, are awarded in 4 categories, accounting for the 
 **Pass (50-59%):** The report contains a valid research question but only limited references to appropriate literature or justification. There is evidence of awareness of the limitations of the results and how they inform conclusions, but these are not fully supported by the analysis. The report has a reasonable structure but does not fit together well in a cohesive whole.
 
 **Fail (0-49%):** The report does not contain a valid research question, has no references to appropriate literature or justification, does not discuss the limitations of the results or how they inform conclusions, or the report does not have a reasonable structure.
+=======
+## Overview
+
+The report should be written as a Quarto document (`.qmd` file) and submitted as a .zip file containing the qmd file and rendered PDF file.
+See the template in the course GitHub repository at github.com/itsleeds/tds in folder/file [d2/template.qmd](https://github.com/itsleeds/tds/blob/main/d2/template.qmd) for an example.
+
+## Marking Criteria
+
+{{< include marking-criteria-portable.qmd >}}
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

@@ -4,6 +4,7 @@ bibliography: ../tds.bib
 number-sections: true
 ---
 
+<<<<<<< HEAD
 ```{r}
 #| echo: false
 #| eval: false
@@ -175,3 +176,30 @@ See the [For Students website](https://students.leeds.ac.uk/info/10110/academic-
 -   [Quarto Citation Guide](https://quarto.org/docs/get-started/authoring/rstudio.html#citations)
 -   [The course website](https://itsleeds.github.io/tds/) for additional resources.
 -   Module forum for questions.
+=======
+## Assessment in brief
+
+###  Module code and title
+
+**TRAN5340M** - Transport Data Science
+
+###  Assessment title
+
+Formative Coursework: Portfolio Plan and Reproducible Code
+
+###  Assessment type
+
+Portfolio Plan and Reproducible Code Submission
+
+###  Deadline
+
+**Non-assessed submission deadline**: 27th February 2026, 13:59.
+
+### Guidance
+
+For guidance on the assessment, please refer to the [Summative Assessment Brief](../d3/assessment-brief.qmd).
+
+### Submission requirements
+
+You can submit up to 4 pages of content for this formative assessment.
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

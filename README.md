@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 
 [![pages-build-deployment](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment)
 [![Open in GitHub
@@ -13,6 +14,26 @@ https://itsleeds.github.io/tds/ and at
 
 ## Quickstart
 
+=======
+[![pages-build-deployment](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment)
+[![Open in GitHub
+Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
+![GitHub Downloads (all assets, all
+releases)](https://img.shields.io/github/downloads/itsleeds/tds/total.png)
+[![Docker
+Pulls](https://img.shields.io/badge/Docker:_ghcr.io-image_ghcr)](https://github.com/itsleeds/tds/pkgs/container/tds)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/itsleeds/tds/HEAD)
+<!-- [![Open in Gitpod](https://img.shields.io/badge/Open%20in-Gitpod-blue?logo=gitpod)](https://gitpod.io/#https://github.com/itsleeds/tds) -->
+
+This repo contains code for the Transport Data Science module at the
+Institute for Transport Studies, University of Leeds. See the website at
+https://itsleeds.github.io/tds/ and a summary of the catelogue entry at
+[leeds.ac.uk](https://catalogue.leeds.ac.uk/Module/TP/TRAN/5340M/202526)
+
+## Quickstart
+
+
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 See the course website at
 [itsleeds.github.io/tds](https://itsleeds.github.io/tds/)
 
@@ -21,6 +42,11 @@ use GitHub Codespaces. Click the [Open in GitHub
 Codespaces](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 button above to get started.
 
+<<<<<<< HEAD
+=======
+Alternatively you can launch this repository on Binder (notebooks).
+
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 If you’re using VS Code and have Docker installed you can open the
 project in a Devcontainer by pressing Ctrl+Shift+P, typing in
 “Devcontainer”, and selecting “Remote-Containers: Reopen in Container”.

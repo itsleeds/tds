@@ -1,0 +1,87 @@
+---
+title: "Joins and Aggregations in Transport Data Science"
+subtitle: '<br/>🗺<br/>Transport Data Science'
+author: "Robin Lovelace"
+date: 'University of Leeds'
+format: revealjs
+bibliography: ../tds.bib
+execute: 
+  eval: false
+  echo: true
+---
+
+## Objectives
+
+- Understand different types of joins (spatial and key-based)
+- Learn how to perform spatial joins with sf and dplyr
+- Apply aggregations to summarize data
+- Visualize joined datasets
+
+```{r}
+#| label: setup
+library(sf)
+library(dplyr)
+library(tmap)
+library(stats19)
+```
+
+## What is a Join?
+
+::: incremental
+- **Combining datasets** based on common attributes or spatial relationships
+- **Spatial joins**: Link points (e.g., crashes) to polygons (e.g., LSOAs) using geometry
+- **Key-based joins**: Match IDs across tables (e.g., LSOA codes)
+:::
+
+## Spatial Join Example
+
+1. **Load spatial datasets**:
+```{r}
+path <- "https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson"
+lsoa <- read_sf(path)
+crashes <- stats19::get_stats19("2023")
+```
+
+2. **Perform spatial join**:
+```{r}
+joined <- st_join(lsoa, crashes, join = st_intersects)
+```
+
+3. **Aggregate results**:
+```{r}
+agg_data <- joined |>
+  group_by(lsoa_id) |>
+  summarize(total_crashes = n())
+```
+
+## Key-Based Joins
+
+Use `dplyr` functions like `left_join` to combine data by identifiers:
+
+```{r}
+# Example: Join crash counts with population data
+final <- left_join(agg_data, pop_data, by = "lsoa_id")
+```
+
+## Aggregations
+
+- Group data by spatial units (e.g., LSOA)
+- Calculate metrics like **crashes per capita**:
+
+```{r}
+final <- final |>
+  mutate(crashes_per_capita = total_crashes / population)
+```
+
+## Visualization
+
+Create maps to visualize crash patterns using `tmap`:
+
+```{r, warning=FALSE}
+tmap_mode("plot")
+tm_shape(final) +
+  tm_polygons("crashes_per_capita")
+```
+
+## References
+{references}

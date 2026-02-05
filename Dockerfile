@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Use the base image
 FROM ghcr.io/geocompx/rocker-rpy
 
@@ -28,3 +29,18 @@ WORKDIR /workspace
 
 # Copy the repository files
 COPY . /workspace
+=======
+FROM ghcr.io/geocompx/pythonr
+
+RUN R -e "remotes::install_github('itsleeds/tds')"
+
+# Copy and install Python requirements first to leverage Docker layer cache
+COPY requirements.txt /tmp/requirements.txt
+RUN python -m pip install --upgrade pip \
+  && pip install -r /tmp/requirements.txt
+
+WORKDIR /workspace
+
+# Copy the repository contents
+COPY . /workspace
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

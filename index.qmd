@@ -50,7 +50,11 @@ To participate in this course, you'll need to install specific software.
 
 The teaching is delivered primarily in R, with some Python code and examples. You should install R (recommended), Python, or both on your computer.
 
+<<<<<<< HEAD
 We recommend using R for practical sessions and coursework unless you have a specific reason to use Python. If you choose Python or another language, please note:
+=======
+We recommend using R for sessions and coursework unless you have a specific reason to use Python. If you choose Python or another language, please note:
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 - You will receive less direct support
 - You'll need skills to set up and manage your own environments
@@ -93,7 +97,11 @@ remotes::install_github("itsleeds/tds")
 
 See [Section 1.5 of the online guide Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio) for instructions on how to install key packages we will use in the module.^[
 For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend 
+<<<<<<< HEAD
 Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://geocompr.robinlovelace.net/spatial-class.html and Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the 
+=======
+Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://r.geocompx.org/spatial-class.html and Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the 
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 [project management section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
 ]
 
@@ -134,7 +142,11 @@ For guidance, see:
 
 # R, Python or other?
 
+<<<<<<< HEAD
 While the module focuses on methods implementable in many languages, we expect most participants will use R for practicals and the final course project.
+=======
+While the module focuses on methods implementable in many languages, we expect most participants will use R for sessions and the final course project.
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 We recommend R because:
 

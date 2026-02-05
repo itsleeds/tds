@@ -1,3 +1,8 @@
 ^README\.Rmd$
 ^.*\.Rproj$
 ^\.Rproj\.user$
+<<<<<<< HEAD
+=======
+.pixi/
+^\.quarto$
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

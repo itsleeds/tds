@@ -2,21 +2,38 @@
 bibliography: tds.bib
 title: Reproducible data science for road safety research
 number-sections: false
+<<<<<<< HEAD
+=======
+execute: 
+  eval: false
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 ---
 
 # Introduction
 
+<<<<<<< HEAD
 This workshop will take place at the University of Leeds' Institute for Transport Studies (ITS) as part of the [RS5C conference](https://www.vti.se/en/rs5c) that runs from 3rd to 5th September 2025. The workshop takes place on the 2nd September 2025, 14:00-16:00, the day before the main conference starts.
+=======
+This workshop will take place at the University of Leeds' Institute for Transport Studies (ITS) as part of the [RS5C conference](https://www.vti.se/en/rs5c) that runs from 3rd to 5th September 2025. The workshop takes place on the 2nd September 2025, 13:00-16:00 (including 1 hour for a networking lunch), the day before the main conference starts.
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 The workshop will cover the fundamentals of reproducible data science for road safety research, building on a decade's worth of experience working with road traffic casualty datasets for policy-relevant road safety research.
 The UK's open access STATS19 database will be the basis of the session but the skills learned will be applicable to any road safety datasets.
 The session will cover:
 
+<<<<<<< HEAD
 -   Importing collision, casualty and vehicle tables
 -   Temporal visualisation and aggregation
 -   Spatial visualisation and aggregation
 -   Joining STATS19 tables
 -   Spatial joins linking infrastructure to collisions
+=======
+*   **Importing collision, casualty and vehicle tables:** See [Chapter 4 on R packages](https://itsleeds.github.io/rrsrr/04-pkgs.html) and [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
+*   **Temporal visualisation and aggregation:** See [Chapter 6 on temporal data](https://itsleeds.github.io/rrsrr/06-time.html).
+*   **Spatial visualisation and aggregation:** See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
+*   **Joining STATS19 tables:** See [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
+*   **Spatial joins linking infrastructure to collisions:** See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 The course will be taught in R, a free and open-source programming language for data analysis and visualisation that excels at the kind of statistical modelling and visualisation workflows required for high-impact, reproducible and correct road safety research.
 The course will be taught by Professor Robin Lovelace, who has over a decade of experience teaching R for data science and is author of the popular book [Geocomputation with R](https://r.geocompx.org/).
@@ -38,14 +55,69 @@ We highly recommend that attendees already use R or dedicate some time to learni
 
 Attendees should have the following before signing-up:
 
+<<<<<<< HEAD
 -   Basic familiarity with R and RStudio or expertise in another programming language for data science
 -   A laptop with R and RStudio [installed](https://posit.co/download/rstudio-desktop/) (or VS Code with the R extension or similar for advanced users)
 -   A willingness to learn (see recommended reading) and share knowledge
+=======
+- A GitHub account, which will enable you to run the course via a web browser by clicking on the link below. 
+
+[![Open in GitHub Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
+
+
+- Basic familiarity with R and RStudio or knowledge of another programming language for data science
+- A laptop with R and RStudio [installed](https://posit.co/download/rstudio-desktop/) (or VS Code with the R extension or similar for advanced users)
+- Docker [installed](https://docs.docker.com/get-docker/) if you plan to use VS Code and devcontainers for full reproducibility
+- A willingness to learn (see recommended reading) and share knowledge
+
+To check you have the necessary software installed, try running the following, which should result in the figure below.
+
+```{r}
+#| eval: false
+pkgs = c("tidyverse", "stats19")
+# Install pak pkg if not already installed
+if (!requireNamespace("pak", quietly = TRUE)) install.packages("pak")
+pak::pkg_install(pkgs)
+
+#| label: setup
+#| message: false
+#| warning: false
+#| output: false
+library(tidyverse)
+library(stats19)
+# Set ggplot2 theme
+theme_set(theme_minimal())
+collisions_2023 = stats19::get_stats19(year = 2023, type = "collision")
+collisions_2023_sf = stats19::format_sf(collisions_2023)
+class(collisions_2023_sf)
+names(collisions_2023_sf)[1:9]
+head(table(collisions_2023_sf$police_force))
+collisions_west_yorkshire_sf = collisions_2023_sf |>
+  filter(police_force == "West Yorkshire") |>
+  # Arrange in descending order of accident severity
+  # so most severe accidents are plotted last:
+  arrange(desc(accident_severity))
+```
+
+
+```{r}
+#| label: plot
+ggplot() +
+  geom_sf(
+    data = collisions_west_yorkshire_sf,
+    aes(colour = accident_severity, alpha = accident_severity)
+  ) +
+  scale_alpha_manual(values = c(0.8, 0.4, 0.2))
+```
+
+If you cannot reproduce the above code or have any issues with setting up your environment, or any questions about the course, feel free to get in touch via the [GitHub Discussions](https://github.com/itsleeds/tds/discussions) (also requires a GitHub account).
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 # Recommended reading
 
 The session will build on the following resources, we recommend taking a read of one or more of these before signing-up:
 
+<<<<<<< HEAD
 -   The first practical session of the Transport Data Science module, freely available at [itsleeds.github.io/tds/p1/](https://itsleeds.github.io/tds/p1/), for an introduction to data science for transport research
 -   [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) [@lovelace_reproducible_2020]
     -   Introductory guide for analyzing road safety data in R
@@ -57,6 +129,109 @@ The session will build on the following resources, we recommend taking a read of
 # Where and when
 
 2nd September 2025, 14:00-16:00, Room 1.11, ITS, University of Leeds
+=======
+- The first practical session of the Transport Data Science module, freely available at [itsleeds.github.io/tds/s1/](https://itsleeds.github.io/tds/s1/), for an introduction to data science for transport research
+- [Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/) [@lovelace_reproducible_2020]
+    - Introductory guide for analyzing road safety data in R
+- Geocomputation with R and [Chapter 13](https://r.geocompx.org/transport.html) in particular [@lovelace_geocomputation_2025]
+- A paper exploring the spatial distribution of cycling casualties in West Yorkshire, using exploratory data analysis (EDA) techniques [@lovelace2016]
+- A paper exploring social inequalities in cycling casualties nationwide [@vidaltortosa2021]
+- Papers investigating the relationships between new contraflow interventions and traffic levels and collision rates in London [@tait2024; @tait2023]
+
+# Where and when
+
+2nd September 2025, 13:00-16:00, Room 1.11, ITS, University of Leeds:
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1617.1334644957128!2d-1.5582207280164118!3d53.808028040466006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48795ea95a87d231%3A0xe52f3e3b80037a86!2sInstitute%20for%20Transport%20Studies%20(ITS)!5e1!3m2!1sen!2suk!4v1756474070392!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+# Agenda
+
+- 13:00-14:00 Networking lunch
+- 14:00-14:15 Introduction to reproducible research for road traffic harm reduction research (Robin Lovelace, University of Leeds)
+- 14:15-14:30 New datasets and tools for understanding and defeating the causes of road danger (Richard Owen, Agilysis)
+- 14:30-16:00 Workshop (Robin Lovelace, Juan Pablo Fonseca Zamora, Caroline Tait, University of Leeds)
+- 16:00-16:15 Post workshop networking and social, downtime
+- 16:15-16:45 Walk to the Cloth Hall Courth for the RS5C drinks reception
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d9425.088274295727!2d-1.5642930689722954!3d53.80244233112874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x48795ea95a87d231%3A0xe52f3e3b80037a86!2sITS%2C%20Institute%20for%20Transport%20StudiesUniversity%20of%20Woodhouse%2C%20Leeds!3m2!1d53.8079508!2d-1.5586552!4m5!1s0x48795c1e7ab6ae41%3A0xa84c0e31cc7a08cb!2sCloth%20Hall%20Court%2C%20Quebec%20St%2C%20Leeds%20LS1%202HA!3m2!1d53.7969691!2d-1.549132!5e0!3m2!1sen!2suk!4v1756725620604!5m2!1sen!2suk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+# Workshop tasks
+
+See workshop slides at [slides/road-safety.html](slides/road-safety.html).
+
+## Importing collision, casualty and vehicle tables (20 min)
+
+- Learn how to load the main STATS19 tables (collision, casualty, vehicle) using the `stats19` R package.
+- Explore the structure and key variables in each table.
+- See [Chapter 4 on R packages](https://itsleeds.github.io/rrsrr/04-pkgs.html) and [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html) for details.
+
+## Temporal visualisation and aggregation (20 min)
+
+- Aggregate collision data by time (e.g., by month or day of week).
+- Create time series plots to identify trends and patterns.
+- See [Chapter 6 on temporal data](https://itsleeds.github.io/rrsrr/06-time.html).
+
+## Spatial visualisation and aggregation (30 min)
+
+- Convert collision data to spatial format and plot on a map.
+- Aggregate collisions by area (e.g., by local authority or police force).
+- Create maps to visualise spatial patterns in road safety data.
+- See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
+
+## Joining STATS19 tables (20 min)
+
+- Join collision, casualty, and vehicle tables to enrich your analysis.
+- Explore relationships between different aspects of road traffic incidents.
+- See [Chapter 8 on joining tables](https://itsleeds.github.io/rrsrr/08-join.html).
+
+## Bonuses
+
+We have developed a series of bonus exercises for fast finishers, for people who already have the skills covered in the main workshop, or for anyone who wants to go the extra mile.
+So feel free to work on these bonus exercises if you:
+
+- Complete the main tasks early, or
+- Think you will learn more by exploring additional resources or tackling more complex problems, and
+- Feel free to continue working on these bonus exercises after the workshop ends, there is plenty of work represented here, especially in Bonus 4, and we're not expecting anyone to develop an entire R/Python package during the 1.5 hour workshop!
+
+These tasks are also designed to support people managing others or developing teaching/research programs to think about tasks and activities to assign to their students or teams.
+
+### Bonus 1 (intermediate): Create a repo and share your work on GitHub
+
+- Create a GitHub repository for your workshop materials.
+- Commit your code and minimal results, e.g. a figure.
+- Share the link to your repository with others, e.g. in the discussion thread at [github.com/itsleeds/tds/discussions](https://github.com/itsleeds/tds/discussions/239) or on social media.
+
+### Bonus 2 (intermediate): reproducing a map used in consultation by Leeds City Council
+
+See https://tdscience.github.io/course/collisions.html and reproduce the following map on your own set-up:
+
+![](https://tdscience.github.io/course/images/paste-2.png)
+
+
+### Bonus 3 (advanced): analysing collision data to answer a research question
+
+- Formulate a research question related to road safety (e.g., "How do cycle lanes impact collision rates?").
+- Decide a spatial and temporal extent for the study (e.g. Birmingham, 2020-2023)
+- Generate as many informative visualisations as possible to explore the data, using any technique you want, e.g.:
+    - Use the [osmactive](https://nptscot.github.io/osmactive/) R package to download cycle lane data from OpenStreetMap.
+    - Perform spatial joins to link collision locations with infrastructure data (e.g., cycle lanes, speed limits).
+    - Analyse how infrastructure relates to collision patterns.
+    - See [Chapter 7 on spatial data](https://itsleeds.github.io/rrsrr/07-space.html).
+
+### Bonus 4 (advanced): contribute upstream
+
+- Contribute to an existing codebase for making road safety data easier to access for reproducible research.
+  - For example, you could open an issue in the [stats19](https://github.com/itsleeds/stats19) repository.
+  - Or find a related project that could benefit from your expertise and contribute to it, by first opening an issue.
+- Propose a new project or feature that could help improve road safety data analysis.
+- Propose a new codebase to enable reproducible access to analysis-ready road traffic casualty data in a part of the world you are interested in outside the UK.
+  - Feel free to open a Discussion thread at [github.com/itsleeds/tds/discussions](https://github.com/itsleeds/tds/discussions)
+
+
+## Prize
+
+For completing bonus activities and sharing them with others, a free copy of Geocomputation with R Second Edition or Geocomputation with Python will be made available.
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 # Sign-up!
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 docs
+=======
+docs/
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 /.quarto/
 _freeze/
@@ -13,9 +17,29 @@ _freeze/
 *.geojson
 *.zip
 
+<<<<<<< HEAD
 
 !s1/Estaciones_Troncales_de_TRANSMILENIO.geojson
 *.docx
 *.pdf
 otp_TDS
 .Rhistory
+=======
+# Large files
+!s1/Estaciones_Troncales_de_TRANSMILENIO.geojson
+*.pdf
+otp_TDS
+.Rhistory
+*.ppt*
+*.doc*
+
+
+# Quarto build artifacts
+*.html
+site_libs/
+*_files/
+*.knit.md
+*.rmarkdown
+
+**/*.quarto_ipynb
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

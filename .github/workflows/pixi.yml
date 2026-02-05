@@ -1,0 +1,23 @@
+name: Pixi CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  pixi:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Pixi
+        uses: prefix-dev/setup-pixi@v0.9.0
+
+      - name: Install project dependencies with pixi
+        run: pixi install
+
+      - name: Run project install tasks (pip + R)
+        run: pixi run install_all
+
+      - name: Build site / render with quarto via pixi
+        run: pixi run quarto render

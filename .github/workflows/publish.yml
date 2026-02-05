@@ -20,7 +20,11 @@ jobs:
       - name: Install R
         uses: r-lib/actions/setup-r@v2
         with:
+<<<<<<< HEAD
           r-version: '4.4.1'
+=======
+          r-version: '4.5.1'
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
           use-public-rspm: true
 
       - name: Install R Dependencies
@@ -41,4 +45,9 @@ jobs:
         with:
           target: gh-pages
         env:
+<<<<<<< HEAD
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+=======
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

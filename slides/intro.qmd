@@ -2,7 +2,11 @@
 title: "Introduction to transport data science"
 subtitle: '<br/>Module: Transport Data Science'
 author: "Robin Lovelace"
+<<<<<<< HEAD
 date: last-modified
+=======
+date: "2025-10-23"
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 format: revealjs
 # bibliography: tds.bib
 title-slide-attributes:
@@ -10,22 +14,45 @@ title-slide-attributes:
     data-background-size: contain
     data-background-opacity: "0.5"
 # <!-- Credit: Mandeep Lota via [flickr](https://www.flickr.com/photos/deepster2k/1096671706) -->
+<<<<<<< HEAD
 ---
 
+=======
+embed-resources: true
+---
+
+```{r}
+#| echo: false
+#| eval: false
+# Copy self-contained version to OneDrive:
+quarto::quarto_render("slides/intro.qmd")
+file.copy("docs/slides/intro.html", "~/OneDrive/career/modules/tds/intro.html", overwrite = TRUE)
+```
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 ## Who: Transport Data Science team
 
 #### Robin Lovelace
 
+<<<<<<< HEAD
 -   Associate Professor of Transport Data Science
 -   Researching transport futures and active travel planning
 -   R developer and teacher, author of Geocomputation with R
+=======
+-   Professor of Transport Data Science
+-   Researching transport futures and active travel planning
+-   Data scientist, web application developer, author of Geocomputation with R
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 #### Yuanxuan Yang
 
 -   Lecturer in Data Science of Transport
 -   New and Emerging Forms of Data: Investigating novel data sources and their applications in urban mobility and transport planning. <!-- - Micromobility: Analyzing the role and impact of micromobility solutions, such as bike-sharing and e-scooters, on urban transport networks.
+<<<<<<< HEAD
     - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. -->
+=======
+            - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. -->
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 ## TDS Team II
 
@@ -46,8 +73,12 @@ title-slide-attributes:
 
 ## What is transport data science?
 
+<<<<<<< HEAD
 ::: {.incremental}
 
+=======
+::: incremental
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 -   The application of data science to transport datasets and problems
 -   Raising the question...
 -   What is data science?
@@ -56,12 +87,18 @@ title-slide-attributes:
 In other words...
 
 -   Statistics that is actually useful!
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 :::
 
 ## Why take Transport Data Science
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 ::::::: columns
 :::: {.column width="40%"}
 ::: incremental
@@ -101,11 +138,32 @@ In other words...
 
 ## History of TDS II
 
+<<<<<<< HEAD
 -   January 2020: Available, Data Science MSc course
 -   March 2020: Switch to online teaching
 -   2021-2023: Updated module, focus on methods
 -   2024: Switch to combined practical sessions and lectures
 -   2025+: Expand, online course? book? stay in touch!
+=======
+::::: columns
+::: {.column width="50%"}
+-   2020: Available to Data Science students
+-   2021-2023: Updated module, focus on methods
+-   2024: Switch to combined lecture and practicals
+-   2025: Addition of Python and Quarto
+-   2026: Addition of AI
+-   2027+: Expansion 🚀
+:::
+
+::: {.column width="50%"}
+![](images/online-teaching-tweet.png)
+:::
+:::::
+
+```{=html}
+<!-- 
+## Online teaching 
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 <blockquote class="twitter-tweet">
 
@@ -117,15 +175,23 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 
 — Robin Lovelace <a href="https://twitter.com/robinlovelace/status/1239930988416897033?ref_src=twsrc%5Etfw">March 17, 2020</a>
 
+<<<<<<< HEAD
 </blockquote>
 
 ```{=html}
 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+=======
+</blockquote> -->
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 ```
 
 ## Essential reading
 
+<<<<<<< HEAD
 -   Chapter 12, [Transportation](http://geocompr.robinlovelace.net/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://geocompr.robinlovelace.net/)) (Lovelace et al. 2019)
+=======
+-   Chapter 13, [Transportation](http://r.geocompx.org/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://r.geocompx.org/)) (Lovelace et al. 2019)
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 -   Reproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/
 
 ## Core reading materials
@@ -170,6 +236,7 @@ For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://g
 
 ## [Schedule](https://itsleeds.github.io/tds/schedule.html)
 
+<<<<<<< HEAD
 ![](images/paste-1.png)
 
 ## Feedback
@@ -178,3 +245,20 @@ For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://g
 unstructured learning was great and well thought out, all came together well
 
 > I wish this module was 60 credits instead of 15 because i just want more of it.
+=======
+![](images/schedule.png)
+
+## Feedback
+
+### 2024
+
+> The module is taught by two really well organised and enthusiastic professors, great module, the seminars, structured and unstructured learning was great and well thought out, all came together well
+
+> I wish this module was 60 credits instead of 15 because i just want more of it.
+
+### 2025
+
+> The leaders were incredibly helpful during
+practical sessions and feedback was constructive. I liked having the opportunity to discuss what I had achieved so far with peers,
+as this led to the sharing of ideas and insight from other degree disciplines also.
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

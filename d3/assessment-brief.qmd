@@ -4,6 +4,7 @@ bibliography: ../tds.bib
 number-sections: true
 ---
 
+<<<<<<< HEAD
 ```{r}
 #| echo: false
 #| eval: false
@@ -28,12 +29,30 @@ Summative Coursework: Data Science Project Report
 Project Report and Reproducible Code
 
 ##  Learning outcomes
+=======
+## Assessment in brief
+
+###  Module code and title
+
+**TRAN5340M** - Transport Data Science
+
+###  Assessment title
+
+Summative Coursework: Data Science Project Report
+
+###  Assessment type
+
+Project Report and Reproducible Code
+
+###  Learning outcomes assessed
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 1. To demonstrate advanced data science techniques applied to a transport problem
 2. To show proficiency in data processing, visualization, and analysis
 3. To produce high-quality, reproducible research with clear implications for transport planning/policy
 4. To critically evaluate methodological approaches and results
 
+<<<<<<< HEAD
 ## Weighting
 
 100% of module mark
@@ -43,6 +62,21 @@ Project Report and Reproducible Code
 **Submission deadline**: 16th May 2025, 14:00
 
 ## Submission Method
+=======
+### Assessment length/Time limit guidance
+
+A PDF document (max 10 pages)
+
+### Weighting
+
+100%
+
+### Deadline or date of assessment
+
+Friday 15th May 2026 at 2pm: 2026-05-15 14:00 BST
+
+### Submission method
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 - A `.zip` file containing:
   - A PDF document (max 10 pages)
@@ -51,6 +85,7 @@ Project Report and Reproducible Code
   - Maximum file size: 40 MB
 - Submission: Via Minerva (Blackboard Assignment)
 
+<<<<<<< HEAD
 ##  Feedback
 
 Feedback will be provided within 15 working days of submission.
@@ -78,6 +113,39 @@ In this assessment, AI tools can be utilised in an assistive role to:
 - testing and debugging of any code you produce yourself as part of the assignment.
 - provide ideas or inspiration to help you overcome a creative block.
 - give feedback on content or provide proof reading of content that you have generated yourself.
+=======
+### Feedback provision
+
+When there is more than one assessment on a module, you will usually receive your feedback before your next assessment for the module is due. Where it is appropriate to do so, and feedback can be released without invalidating the integrity of ongoing assessments, this will typically be no later than 15 working days post submission. Please be mindful that some students may have approved extensions for assessments which mean it is not appropriate to release feedback within 15 working days after individual submissions. In these cases, feedback will be released no later than 15 working days following the submission of all outstanding work for the assessment.
+
+Feedback will be provided via Minerva and during practical sessions with dedicated time for coursework.
+
+### Module leader & contact details
+
+Robin Lovelace, r.lovelace [at] leeds.ac.uk
+
+### Assessment summary guidance
+
+In ITS Assessment Instructions will be made available separately. Your module leader will tell you when to expect the Assessment Instructions to be available. When the Assessment Instructions are made available you will be able to find them in the Assessment and Feedback Folder on the module Minerva Page.
+
+## Use of GenAI
+
+**Generative AI category: GREEN**
+
+Under this category, AI tools are actively encouraged and can be used extensively.
+
+In this assessment, AI tools can be utilised to:
+
+- Generate, test, and debug code for your transport data analysis
+- Assist with data visualization and mapping
+- Provide explanations of transport concepts and methods
+- Help with code optimization and best practices
+- Support your research on the topic by suggesting areas to investigate
+- Give feedback on content and provide proofreading
+- Accelerate your learning and productivity
+
+**Important:** You must understand and be able to explain all code and analysis you submit, whether AI-generated or not. Document your AI usage in reflective sections of your report.
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 In this assessment, AI tools cannot be utilised to:
 
@@ -87,6 +155,7 @@ The use of Generative AI must be acknowledged in an ‘Acknowledgements’ sect
 
 The minimum requirement to include in acknowledgement:
 
+<<<<<<< HEAD
 - Name and version of the generative AI system used e.g. ChatGPT-4.0
 - Publisher (company that made the AI system) e.g. OpenAI
 - URL of the AI system
@@ -176,3 +245,45 @@ You will submit as before:
 For the coursework you will submit a pdf a document with a maximum of 10 pages that contains code and results demonstrating your transport data science skills.
 
 The topic must be completely different from the topic chosen in your first submission
+=======
+- Name and version of the generative AI system used e.g. Gemini 3
+- Publisher (company that made the AI system) e.g. Google
+- URL of the AI system
+- Brief description (single sentence) of context in which the tool was used.
+
+For example: “I acknowledge the use of Gemini 3 to prototype the visualisation of my results and test different software packages, including ggplot2, base graphics, and plotly.” Best practice is to include a link to the exact prompt used to generate the content or an appendix of up to 1 page in length with key prompts and session information.
+
+The standard Academic Misconduct procedure applies for students believed to have ignored this categorisation.
+
+For detailed guidance see
+ <!-- <https://generative-ai.leeds.ac.uk/ai-and assessments/categories-of-assessments/>  -->
+[https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/).
+
+**General guidance**
+
+Skills@library hosts useful guidance on academic skills including specific guidance on academic writing and referencing Academic skills.
+
+## Assessment criteria and process
+
+The detailed marking criteria are made available on Minerva and [online for accessibility](https://itsleeds.github.io/tds/marking-criteria.html).
+
+Assessment length penalties are applied during the marking process & will normally be applied before you receive your mark. Late penalties are normally applied after you receive your mark – if you know you submitted late without a permitted extension, please be aware that your mark may change.
+
+In ITS written English is assessed in line with the University’s policies on Assessment of written English (Student Education Service | University of Leeds). You should use spelling, punctuation & grammar to communicate your ideas clearly.
+
+{{< include ../marking-criteria-portable.qmd >}}
+
+### Presentation/Formatting and referencing
+
+You must appropriately cite all supporting evidence using Quarto’s citation system: <https://quarto.org/docs/authoring/citations.html>
+
+## Academic misconduct and plagiarism
+
+The university expects that all the work you do which includes all forms of assessments submitted and examinations taken, meet the university’s standard for Academic Integrity.  All forms of Academic Integrity are investigated through the Academic Misconduct Procedure.  This applies to all taught elements of your study, including undergraduate programmes, taught postgraduate study and taught elements of research degrees. Breaching academic integrity standards can lead to serious penalties.  
+
+Guidance on Academic Integrity and Academic Misconduct can be found on the For Students website pages (https://students.leeds.ac.uk/info/10110/academic-integrity) and full definitions of offences under the Academic Misconduct Procedure can be found in the Academic Misconduct Procedure on the Student Cases website page (https://secretariat.leeds.ac.uk/student-cases/academic-misconduct/). 
+
+## Assessment criteria rubric 
+
+The assessment criteria rubric will be included in the Assessment Instructions that are made available separately.
+>>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

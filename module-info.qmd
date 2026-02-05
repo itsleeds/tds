@@ -1,0 +1,90 @@
+---
+title: "Module Information and Help"
+---
+
+<!-- Guidance: Every year we provide guidance on filling out Minerva Ultra module pages to have consistent information for students. For 24-25, use the Faculty of Environment template where possible. -->
+
+## Welcome
+
+<!-- Guidance: Deliver this subsection as a video or as text. Include: Welcome to <name> module, Name of Module Leader, Description of topics, Describe teaching (e.g. 2 week blocks), Material posting (usually 48h before), and links to sections/reading list. -->
+
+Welcome to the **Transport Data Science** module.
+
+**Module Leader:** Robin Lovelace
+
+**Description:**
+This module focuses on applying data science techniques to solve real-world transport problems. 
+It teaches data science and AI-driven code development techniques to solve applied transport problems using a range of transport datasets. This involves origin-destination modelling, routing, mode choice estimation, and geocomputation using open source software. You'll gain practical skills for sharing code and publishing reproducible results for maximum societal benefit.
+
+
+**Teaching Delivery:**
+Topics will be delivered in a series of weekly sessions in which is a lecture followed by a practical.
+Two seminars throughout the the module provide an opportunity to apply the methods and techniques to real-world problems, with input from external experts working in the field.
+Material for lectures will be posted on Minerva and/or this website, usually 48 hours before the lectures.
+
+In the following sections you will find more information about the module.
+
+Please browse the Reading List for material that will be relevant to your classes.
+
+## Module Teaching Staff
+
+<!-- Guidance: Enter details of the teaching staff, link to staff website and provide details of how to contact staff (office hours / email). -->
+
+**Module Leader:** Robin Lovelace
+
+*   **Email:** R.Lovelace@leeds.ac.uk
+*   **Staff Website:** [Professor Robin Lovelace](https://environment.leeds.ac.uk/transport/staff/1473/professor-robin-lovelace)
+*   **Office Hours:** 14:00-16:00, contact via email or Teams.
+
+## Module Structure
+
+<!-- Guidance: Include a description of the module that helps students to understand what they will learn, when and from whom. Include the module timetable (week, class title, tutor, content). Provide links to summaries, reading lists, and assessments. -->
+
+The module consists of 6 lectures and 6 practical sessions, delivered in 3-hour blocks each week. There are also two 3-hour seminars.
+
+See the Schedule for the module timetable, showing the week, class title, tutor, and content of each session.
+
+The assessment structure includes a draft portfolio submission for formative feedback, followed by the final coursework deadline. Key assessments and submission details can be found on the Assessment Overview page.
+
+## Student Support Details
+
+<!-- Guidance: Please keep the existing text from the Minerva template. -->
+
+Please refer to the **Student Support** section on Minerva for full details.
+
+## Module Accessibility Statement
+
+<!-- Guidance: Keep existing text and add: [The assessment on this module involves fieldwork/lab work/oral assessment/group work (delete as appropriate), please contact us regarding reasonable adjustments.] Then add specific statements about known issues (PDFs, complex diagrams, old videos, equations, resolution) by copying relevant info from guidance. Run Accessibility Report to identify issues. -->
+
+- We have made the contents of the module as accessible as possible long-term, by creating an open-access website that you can navigate to at [itsleeds.github.io/tds](https://itsleeds.github.io/tds/). The website contains some of the key materials that can be used with assistive technologies, while Minerva contains additional resources, such as datasets and information in additional formats.
+- The assessment on this module involves computer lab work and coursework. Please contact us regarding reasonable adjustments.
+- If you are unable to access any of the content of this module for disability-related reasons, please contact the module leader. You should also ensure that you have registered for support from Disability Services.
+
+## How to Give Module Feedback
+
+<!-- Guidance: Copy and paste standard information: course reps/SSP Forum, speaking to staff, mid-module/end-of-module evaluations (Explorance Blue), and how feedback is used. -->
+
+Feedback is important to ensure your module can be improved and developed to provide the best learning experience possible.
+
+- You can give feedback about your module to your course reps to raise at the Student Staff Partnership Forum. If you are unsure who your course rep is, email academicsupport@luu.leeds.ac.uk.
+- You can speak to your module leader, seminar tutors, or personal tutor.
+- Your module leader might ask for mid-module feedback, and you'll be asked to complete a module evaluation survey towards the end of the module.
+
+If you have any questions or concerns, please contact the Module Leader. We encourage you to raise issues with the module leader as soon as they arise so that they can be dealt with in a timely manner.
+
+We also welcome your module evaluation at the end of the module. All students at Leeds have the opportunity to offer feedback on their modules. Feedback is important to us and it helps us to make improvements, to understand the student experience, and to see what is already working well.
+
+Your feedback will be used by your module leaders, and sometimes also your seminar tutor or programme leader, to reflect on the delivery of the module and to make improvements.
+
+### Explorance Blue 
+
+Explorance Blue is the University of Leeds’ system for processing module evaluations. This section explains how Explorance Blue works in practice. 
+
+When your module evaluation goes live, you will receive an email inviting you to log into the system. This link will be unique to you, so please do not share it.  
+
+Module evaluations go live towards the end of a semester. When you have evaluations to complete you will be directed via an individualised link to a page with your open evaluations listed on it. It looks like the image below. The list of modules they have been asked to evaluate will appear under ‘Tasks’.  
+
+For further information, please refer to Student Education Service's ["HOW TO" guide on Explorance Blue](https://ses.leeds.ac.uk/info/22256/module_evaluations/1278/a_practical_guide_to_explorance_blue).
+
+You can also provide feedback through your student reps who can take this information to the regular Staff Student Partnership Forums.
+
