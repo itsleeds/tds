@@ -172,7 +172,7 @@ Good starting points in your research may be:
 
 ## Practical demo
 
-See practical session at [itsleeds.github.io/tds/p2/](https://itsleeds.github.io/tds/p2/)
+See practical session at [itsleeds.github.io/tds/s2/](https://itsleeds.github.io/tds/s2/)
 
 -   That involves:
 

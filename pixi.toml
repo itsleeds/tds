@@ -1,24 +1,11 @@
 [project]
 channels = ["conda-forge"]
-<<<<<<< HEAD
-description = "Add a short description here"
-=======
 description = "Transport data science stack"
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 name = "tds"
 platforms = ["win-64", "linux-64", "osx-64"]
 version = "0.1.0"
 
 [dependencies]
-<<<<<<< HEAD
-jupyter = "*"
-jupyter-cache = "*"
-geopandas = "*"
-matplotlib = "*"
-shapely = "*"
-seaborn = "*"
-=======
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 quarto = "*"
 r-base = "*"
 r-irkernel = "*"
@@ -31,12 +18,6 @@ r-DT = "*"
 r-reticulate = "*"
 r-spData = "*"
 r-pak = "*"
-<<<<<<< HEAD
-
-[tasks]
-simple = "echo This is a simple task"
-install_r = { cmd="Rscript install.R"}
-=======
 r-geosphere = "*"
 
 [tasks]
@@ -44,4 +25,3 @@ simple = "echo This is a simple task"
 install_r = { cmd="Rscript install.R" }
 install_py = { cmd = "python3 -m pip install --user -r requirements.txt" }
 install_all = { cmd = "python3 -m pip install --user -r requirements.txt && Rscript install.R" }
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

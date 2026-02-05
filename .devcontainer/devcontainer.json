@@ -1,15 +1,11 @@
 {
 	"name": "Transport data science container",
-<<<<<<< HEAD
-	"image": "ghcr.io/itsleeds/tds",
-=======
 	// Use pre-built image by default:
 	"image": "ghcr.io/itsleeds/tds",
 	// Uncomment the build section below and comment out "image" above to rebuild from ../Dockerfile
 	// "build": {
 	// 	"dockerfile": "../Dockerfile"
 	// },
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 	"customizations": {
 		"vscode": {
 			"extensions": [

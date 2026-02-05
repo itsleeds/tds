@@ -23,18 +23,10 @@ Imports:
     stats19,
     nycflights13,
     remotes,
-<<<<<<< HEAD
-    spDataLarge,
-=======
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
     DT,
     calendar,
     reticulate,
     stplanr,
-<<<<<<< HEAD
-    tmap,
-=======
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
     spData,
     zoo,
     pct,
@@ -42,13 +34,5 @@ Imports:
     ggspatial,
     dodgr,
     opentripplanner,
-<<<<<<< HEAD
-    osmextract
-Remotes:
-    nowosad/spDataLarge,
-    itsleeds/pct,
-    zonebuilders/zonebuilder
-=======
     osmextract,
     tmap
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33

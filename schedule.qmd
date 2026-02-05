@@ -4,17 +4,10 @@ execute:
   echo: false
 ---
 
-<<<<<<< HEAD
-<!-- From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
-
-The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2025/timetable.ics) versions).
-See [timetable.leeds.ac.uk](https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21) and [mytimetable.eeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202425!module!5216C608F8794D77F15FA9D195AB3C06) for the official timetable.
-=======
 <!-- From https://timetable.leeds.ac.uk/teaching/202526/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
 
 The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/data/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2026/timetable.ics) versions).
 See [timetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202526!module!5216C608F8794D77F15FA9D195AB3C06) and click on "[2025/26] January to May" in the dropdown menu that says "Month from selected day" for the official timetable.
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 If you spot any discrepancies, please let us know.
 
 ```{r}
@@ -25,13 +18,8 @@ library(tidyverse)
 ```{r}
 #| eval: false
 # Aim: create ical of all lectures and practicals of TDS
-<<<<<<< HEAD
-# Start date of week 1 (source: https://ses.leeds.ac.uk/info/21630/timetabling/1384/teaching-week-patterns-202425)
-w_start = as.Date("2024-09-30")
-=======
 # Start date of week 1 (source: https://www.leeds.ac.uk/term-dates)
 w_start = as.Date("2025-09-29")
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 w_start
 lubridate::wday(w_start, label = TRUE) # start on a Monday
 week_num = c(1:11, paste0("C", 1:4), 12:22, paste0("C", 1:4), 23:30)
@@ -39,28 +27,6 @@ n_weeks = length(week_num)
 week_commencing = seq(from = w_start, by = 7, length.out = n_weeks)
 weeks = tibble::tibble(week_num, week_commencing, day = lubridate::wday(week_commencing, label = TRUE))
 
-<<<<<<< HEAD
-# practical sessions ------------------------------------------------------
-
-practical_ids = c(
-  "intro",
-  "getting",
-  "od",
-  "routing",
-  "visualisation",
-  "modelling",
-  "project"
-)
-
-practical_descriptions = c(
-  "Introduction to transport data science (RL, MM, ZW, YY)",
-  "Getting transport data (RL, YY)",
-  "Origin-destination data (RL, YY)",
-  "Routing (MM, YY)",
-  "Visualising transport data (RL, YY)",
-  "Joining and combining datasets (RL, YY)",
-  "Project work (RL, MM, ZW, YY)"
-=======
 # session timetable ------------------------------------------------------
 
 session_ids = c(
@@ -79,34 +45,10 @@ session_descriptions = c(
   "Origin-destination data (RL, YY)",
   "Routing (MM, RL)",
   "Joins, models and publishing your work (RL, MM, YY)"
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 )
 
 # Source: https://timetable.leeds.ac.uk/teaching/202425/reporting/textspreadsheet;?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
 # They happen on Thursdays, 10:00-13:00
-<<<<<<< HEAD
-practical_day_of_week = 4
-practical_start_time = "10:00"
-practical_end_time = "13:00"
-# From https://timetable.leeds.ac.uk/teaching/202425/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
-# Richard Hughes Cluster (1.40) 		23
-# Richard Hughes Cluster (1.40) 		15-17, 19, 22
-# Richard Hughes Cluster (1.40) 		14	  	 
-week_num = as.character(c(14, 15:17, 19, 22, 23))
-practical = tibble::tibble(week_num = week_num)
-practical = dplyr::inner_join(practical, weeks)
-practical$date = practical$week_commencing + (practical_day_of_week - 1)
-practical$DTSTART = lubridate::ymd_hm(paste(practical$date, practical_start_time)) 
-practical$DTEND = lubridate::ymd_hm(paste(practical$date, practical_end_time))
-practical$duration = (practical$DTEND - practical$DTSTART)
-practical$type = "Computer practical and lecture"
-practical$SUMMARY = paste0("TDS Practical ", 1:nrow(practical), ": ", practical_descriptions)
-practical$LOCATION = "Richard Hughes Cluster (1.40)"
-# 4th practical is in ITS room 1.11
-practical$LOCATION[4] = "Institute for Transport Studies 1.11"
-practical$DESCRIPTION = paste0(practical$SUMMARY, " Located in ", practical$LOCATION)
-nrow(practical) # 7 practicals
-=======
 session_day_of_week = 4
 session_start_time = "10:00"
 session_end_time = "13:00"
@@ -127,7 +69,6 @@ sessions$LOCATION[sessions$week_num == "17"] = "Institute for Transport Studies 
 sessions$LOCATION[sessions$week_num == "23"] = "Mechanical Engineering LT B (2.37)"
 sessions$DESCRIPTION = paste0(sessions$SUMMARY, " Located in ", sessions$LOCATION)
 nrow(sessions) # 6 sessions
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 # seminars ------------------------------------------------------
 
@@ -136,15 +77,6 @@ seminar_ids = c(
   "seminar2"
 )
 seminar_descriptions = c(
-<<<<<<< HEAD
-  "Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation",
-  "Seminar 2 Will Deakin, Network Rail: Network simplication"
-)
-
-seminar_day_of_week = c(4)
-seminar_start_time = c("14:00", "10:00")
-seminar_end_time = c("17:00", "11:00")
-=======
   "Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation and transport data visualisation",
   "Seminar 2: Will Deakin, Network Rail: Network simplification"
 )
@@ -152,7 +84,6 @@ seminar_end_time = c("17:00", "11:00")
 seminar_day_of_week = c(4, 4)
 seminar_start_time = c("14:00", "10:00")
 seminar_end_time = c("17:00", "13:00")
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 seminar = tibble::tibble(week_num = as.character(c(17, 21)))
 seminar = dplyr::inner_join(seminar, weeks)
 seminar$date = seminar$week_commencing + (seminar_day_of_week - 1)
@@ -161,11 +92,7 @@ seminar$DTEND = lubridate::ymd_hm(paste(seminar$date, seminar_end_time))
 seminar$duration = (seminar$DTEND - seminar$DTSTART)
 seminar$type = "Seminar"
 seminar$SUMMARY = paste0("TDS seminar ", 1:nrow(seminar))
-<<<<<<< HEAD
-seminar$LOCATION = "Institute for Transport Studies 1.11"
-=======
 seminar$LOCATION = "Institute for Transport Studies Room 1.11a-c"
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 seminar$DESCRIPTION = paste0(seminar_descriptions, "")
 nrow(seminar) # 2 seminars
 
@@ -198,13 +125,8 @@ deadline$SUMMARY = paste0("TDS deadline ", 1:nrow(deadline))
 deadline$LOCATION = "Online - Teams"
 deadline$DESCRIPTION = deadline_descriptions
 
-<<<<<<< HEAD
-# setdiff(names(seminar), names(practical))
-timetable = rbind(practical, seminar, deadline) 
-=======
 # setdiff(names(seminar), names(sessions))
 timetable = rbind(sessions, seminar, deadline) 
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 timetable$duration
 
 timetable$UID = purrr::map_chr(1:nrow(timetable), ~ calendar::ic_guid())
@@ -213,10 +135,6 @@ timetable = timetable |>
 units(timetable$duration) = "hours"
 
 sum(timetable$duration) # 20 - up to 25.05 hours of contact time
-<<<<<<< HEAD
-# xlsx::write.xlsx(timetable, "tds-timetable-2020.xlsx")
-=======
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 ic = calendar::ical(timetable) 
 tt_min = dplyr::select(timetable, SUMMARY, DESCRIPTION, DTSTART, DTEND, LOCATION, UID)
@@ -231,17 +149,6 @@ tt_csv = tt_min |>
   select(SUMMARY, DESCRIPTION, time, duration, LOCATION)
 tt_csv$time
 names(tt_csv) = tolower(names(tt_csv))
-<<<<<<< HEAD
-calendar::ic_write(ic, "timetable.ics")
-readLines("timetable.ics")
-readr::write_csv(tt_csv, "timetable.csv")
-```
-
-```{r}
-#| eval: false
-# system("gh release create 2025")
-system("gh release upload 2025 timetable.ics timetable.csv --clobber")
-=======
 calendar::ic_write(ic, "data/timetable.ics")
 readLines("data/timetable.ics")
 readr::write_csv(tt_csv, "data/timetable.csv")
@@ -249,35 +156,22 @@ readr::write_csv(tt_csv, "data/timetable.csv")
 # writexl::write_xlsx(tt_csv, "~/OneDrive/career/modules/tds/2026/TRAN5340M-timetable-draft-v2.xlsx")
 # system("gh release create 2026")
 system("gh release upload 2026 data/timetable.ics data/timetable.csv --clobber")
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 ```
 
 ```{r}
 #| include: false
-<<<<<<< HEAD
-tt_csv = readr::read_csv("timetable.csv")
-=======
 tt_csv = readr::read_csv("data/timetable.csv")
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 ```
 
 
 ```{r}
 timetable = tt_csv |> 
   mutate(
-<<<<<<< HEAD
-    session_code = paste0(
-      # Take 5th character from summary:
-      tolower(str_sub(summary, 5, 5)),
-      # Take first number from summary:
-      str_extract(summary, "\\d")
-=======
     session_code = case_when(
       str_detect(summary, "TDS Session") ~ paste0("s", str_extract(summary, "\\d")),
       str_detect(summary, "TDS seminar") ~ paste0("sem", str_extract(summary, "\\d")),
       str_detect(summary, "TDS deadline") ~ paste0("d", str_extract(summary, "\\d")),
       TRUE ~ "unknown"
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
     )
   ) |>
   transmute(

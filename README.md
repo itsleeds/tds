@@ -1,20 +1,4 @@
 
-<<<<<<< HEAD
-
-[![pages-build-deployment](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment)
-[![Open in GitHub
-Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
-[![Docker Image
-Size](https://ghcr-badge.egpl.dev/itsleeds/tds/size?color=%2344cc11&tag=latest&label=image+size&trim=.png)](https://github.com/itsleeds/tds/pkgs/container/tds)
-
-This repo contains code for the Transport Data Science module at the
-Institute for Transport Studies, University of Leeds. See the website at
-https://itsleeds.github.io/tds/ and at
-[leeds.ac.uk](https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202223&M=TRAN-5340M)
-
-## Quickstart
-
-=======
 [![pages-build-deployment](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/itsleeds/tds/actions/workflows/pages/pages-build-deployment)
 [![Open in GitHub
 Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
@@ -33,7 +17,6 @@ https://itsleeds.github.io/tds/ and a summary of the catelogue entry at
 ## Quickstart
 
 
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 See the course website at
 [itsleeds.github.io/tds](https://itsleeds.github.io/tds/)
 
@@ -42,11 +25,8 @@ use GitHub Codespaces. Click the [Open in GitHub
 Codespaces](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 button above to get started.
 
-<<<<<<< HEAD
-=======
 Alternatively you can launch this repository on Binder (notebooks).
 
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 If you’re using VS Code and have Docker installed you can open the
 project in a Devcontainer by pressing Ctrl+Shift+P, typing in
 “Devcontainer”, and selecting “Remote-Containers: Reopen in Container”.

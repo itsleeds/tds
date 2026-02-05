@@ -17,15 +17,6 @@ The module is assessed through two coursework assignments:
 
 1. **Formative Assessment (CW1)** 
    - Required but non-assessed (0% of final mark)
-<<<<<<< HEAD
-   - Due: 28th February 2025, 13:59
-   - Project plan and reproducible code demonstration
-   - Length: 2 pages recommended (5 pages maximum)
-
-2. **Summative Assessment (CW2)**
-   - Worth 100% of module mark
-   - Due: 16th May 2025, 14:00
-=======
    - Due: 27th February 2026, 13:59
    - Project plan and reproducible code demonstration
    - Length: Up to 4 pages
@@ -33,7 +24,6 @@ The module is assessed through two coursework assignments:
 2. **Summative Assessment (CW2)**
    - Worth 100% of module mark
    - Due: 15th May 2026, 14:00
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
    - Complete data science project report
    - Length: 10 pages maximum + appendices
 
@@ -58,11 +48,7 @@ For example:
 ### File Requirements
 
 **Formative Assessment Package:**
-<<<<<<< HEAD
-- PDF report (max 5 pages)
-=======
 - PDF report (max 4 pages)
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 - Reproducible code (`.qmd` file)
 - Maximum `.zip` file size: 30 MB
 
@@ -124,19 +110,12 @@ For example:
 
 ### Use of AI Tools
 
-<<<<<<< HEAD
-Both assessments are categorized as **AMBER** for AI usage:
-- AI tools permitted in assistive role only
-- Usage must be acknowledged
-- Core analysis must be original work
-=======
 Both assessments are categorized as **GREEN** for AI usage:
 - AI tools actively encouraged for coding and problem-solving
 - Usage should be documented in reflective sections
 - You must understand and be able to explain all submitted work
 - Critical evaluation of AI outputs is expected
 - AI will not be used to assess the submissions.
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 ### Academic Integrity
 
@@ -148,11 +127,7 @@ Both assessments are categorized as **GREEN** for AI usage:
 
 1. **Academic Support**
    - Module team can be contacted via email
-<<<<<<< HEAD
-   - Practical sessions
-=======
    - Weekly sessions
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 
 2. **Technical Support**
    - Code templates and examples provided in the course website
@@ -164,17 +139,10 @@ Both assessments are categorized as **GREEN** for AI usage:
    - Academic writing guidance
    - Referencing support
 
-<<<<<<< HEAD
-## Key Dates (2024-25)
-
-- **28 February 2025, 13:59**: Formative assessment (CW1)
-- **16 May 2025, 14:00**: Summative assessment (CW2)
-=======
 ## Key Dates (2025-26)
 
 - **27 February 2026, 13:59**: Formative assessment (CW1)
 - **15 May 2026, 14:00**: Summative assessment (CW2)
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
 - Feedback provided within 15 working days
 
 ## Assessment Checklist
@@ -193,8 +161,4 @@ Both assessments are categorized as **GREEN** for AI usage:
 - [ ] Meets marking criteria
 - [ ] Includes policy implications
 - [ ] Report is cohesive
-<<<<<<< HEAD
 - [ ] Professional presentation
-=======
-- [ ] Professional presentation
->>>>>>> 21c60dadd8afab33df597e739a9edfba5d586d33
