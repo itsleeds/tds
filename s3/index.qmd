@@ -339,10 +339,14 @@ AI tools like GitHub Copilot are transforming how we work with transport data:
 
 # Homework
 
-1.  **Set up GitHub Copilot** on your computer (free for students)
-2.  **Complete one analysis** from a previous session using AI assistance - document what worked well and what didn't
-3.  **Write a reflection** (200-300 words) on how AI tools could benefit your transport planning work
-4.  **Share one insight** you gained from using AI in the course discussion forum
+
+1. In preparation for the next session, take a read of and try to reproduce the code in the [vignette "An introduction to origin-destination data"](https://cran.r-project.org/web/packages/od/vignettes/od.html) for the `od` package.
+    - Import some OD data using the `pct` package, as documented at [itsleeds.github.io/pct](https://itsleeds.github.io/pct/articles/pct.html).
+
+2. Complete one analysis from a previous session using AI assistance - document what worked well and what didn't
+
+3. Reflect on how AI tools could benefit or negatively impact transport planning
+
 
 # References
 

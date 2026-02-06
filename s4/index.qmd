@@ -1,5 +1,5 @@
 ---
-title: "Session 4: Geographic and origin-destination data"
+title: "Session 4: Origin-destination data"
 toc: true
 execute: 
   cache: true
@@ -13,10 +13,10 @@ engine: knitr
 
 # Introduction
 
-In this session, we will learn how to use geographic and origin-destination data. The contents of the session are as follows:
+In this session, we will learn how to use origin-destination data. To do that we need to learn a bit about geographic data first. The contents of the session are as follows:
 
 - We will start with reviewing the homework from the previous session
-- A short lecture on geographic and origin-destination data (see [slides](https://docs.google.com/presentation/d/1fKXK1ocCSkTQkTQn0eoYWURIfQuFgQwICFiDGVetMek/edit?usp=sharing))
+- A short lecture on origin-destination data (see [slides](https://docs.google.com/presentation/d/1fKXK1ocCSkTQkTQn0eoYWURIfQuFgQwICFiDGVetMek/edit?usp=sharing))
 - Practical session working with various data, including analysing origin-destination trip flows in London Cycle Hire System.
 - Bonus: Geometry operations and spatial analysis
 - Homework and next session

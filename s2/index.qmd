@@ -259,25 +259,20 @@ See [r.geocompx.org/spatial-operations](https://r.geocompx.org/spatial-operation
 
 # Homework
 
-1. In preparation for the next session, take a read of and try to reproduce the code in the [vignette "An introduction to origin-destination data"](https://cran.r-project.org/web/packages/od/vignettes/od.html) for the `od` package.
-<!-- https://itsleeds.github.io/pct/articles/pct.html -->
-    - Import some OD data using the `pct` package, as documented at [itsleeds.github.io/pct](https://itsleeds.github.io/pct/articles/pct.html).
+1. Read [Chapter 28: Quarto](https://r4ds.hadley.nz/quarto.html) in R for Data Science and answer at least one of the questions in the Exercises section of that chapter.
 
-2. Download and visualise 3 transport-related datasets of your choice and save the results in a reproducible .qmd file.
-    - Bonus: generate a .pdf document showing the results.
+2. Take a read of the recent Nature article on general intelligence [@chen_ai_2026] and reflect on its implications for data science and transport planning, in preparation for the next session.
 
-3. Take a quick read of, and try to reproduce some of the code in, at least three of the chapters in R4DS:
+## Bonus
+
+The following are optional bonus tasks that are not essential but will help deepen your understanding.
+
+
+- Register for GitHub Copilot or Google Gemini Pro for students and test out at least one tool for agentic coding such as GitHub Copilot in VSCode or Gemini CLI.
+
+- Take a quick read of, and try to reproduce some of the code another chapter of R4DS such as:
     - [Chapter 1: Data visualisation](https://r4ds.hadley.nz/data-visualize)
     - [Chapter 3: Data transformation](https://r4ds.hadley.nz/data-transform.html)
-    - [Chapter 28: Quarto](https://r4ds.hadley.nz/quarto.html)
     - One of you choice, e.g. 
         - [Chapter 5: Data tidying](https://r4ds.hadley.nz/data-tidy.html)
         - [Chapter 19: Joins](https://r4ds.hadley.nz/joins.html)
-
-4. Try to reproduce and modify the code I wrote during the live demo to get OSM data for a city of your choice.
-    - See the [source code here: https://github.com/itsleeds/tds/blob/main/s2/demo.qmd](https://github.com/itsleeds/tds/blob/main/s2/demo.qmd)
-    - See the results here: [https://itsleeds.github.io/tds/s2/demo.html](https://itsleeds.github.io/tds/s2/demo.html)
-
-5. Check-out the code I used to generate the interactive map of source code in this Discussion on GitHub: https://github.com/itsleeds/tds/discussions/166
-    - Bonus: comment on the discussion with your thoughts on the code and how it could be improved.
-    - Bonus 2: try opening a new Discussion comment in the tds repo at [github.com/itsleeds/tds/discussions](https://github.com/itsleeds/tds/discussions) and share your thoughts on the session.
