@@ -241,6 +241,8 @@ canterbury_height = gpd.sjoin(nz_height, canterbury, op='intersects')
 
 # Getting started with OD data
 
+You can find more recent OD data from the 2021 Census in the following repository: [itsleeds/2021-census-od-data](https://github.com/itsleeds/2021-census-od-data).
+
 In this section we will look at basic transport data in the R package **stplanr**.
 
 Load the  `stplanr` package as follows:
