@@ -4,7 +4,6 @@ format: html
 execute:
   message: false
   warning: false
-# note: use ctrl+Shift+k to render
 ---
 
 ## Overview
@@ -12,10 +11,6 @@ execute:
 This document imports STATS19 collision data, filters to collisions involving pedestrians in Herefordshire, and shows an interactive map with `tmap` in view mode.
 
 ## Setup
-
-```{python}
-x = 1
-```
 
 ```{r}
 library(dplyr)
@@ -29,19 +24,17 @@ library(tmap)
 ```{r}
 # Download collision and casualty data (latest available year).
 collisions_2023 = get_stats19(year = 2023, type = "accidents", ask = FALSE)
-casualties_2023 = get_stats19(year = 2023, type = "cas", ask = FALSE)
+casualties_2023 = get_stats19(year = 2023, type = "casualties", ask = FALSE)
 
 # Keep collisions that involve at least one pedestrian casualty.
-# Commented out because next line is failing
-# TODO: fix this issue and re-enable the code.
-# pedestrian_collisions = casualties_2023 |>
-#   filter(casualty_type == "Pedestrian") |>
-#   distinct(accident_index)
+pedestrian_collisions = casualties_2023 |>
+  filter(casualty_type == "Pedestrian") |>
+  distinct(accident_index)
 
-# collisions_2023 = collisions_2023 |>
-#   semi_join(pedestrian_collisions, by = "accident_index")
+collisions_2023 = collisions_2023 |>
+  semi_join(pedestrian_collisions, by = "accident_index")
 
-# # Convert collisions to sf points.
+# Convert collisions to sf points.
 collisions_sf = format_sf(collisions_2023)
 ```
 
@@ -54,7 +47,7 @@ lad_boundaries = read_sf(
 )
 
 herefordshire = lad_boundaries |>
-  filter(grepl("Herefordshire", LAD23NM)) |>
+  filter(grepl("Herefordshire", lad23nm)) |>
   st_union() |>
   st_as_sf()
 
@@ -68,33 +61,15 @@ collisions_herefordshire = st_filter(collisions_sf, herefordshire)
 # Create an interactive map.
 tmap_mode("view")
 
-#   5.     └─tmap:::step4_plot(...)
-#   6.       ├─base::do.call(...)
-#   7.       ├─tmap::tmapLeafletDataPlot(...)
-#   8.       ├─tmap:::tmapLeafletDataPlot.tm_data_borders(...)
-#   9.       ├─base::NextMethod()
-#  10.       └─tmap:::tmapLeafletDataPlot.tm_data_polygons(...)
-
-# Quitting from walking-safety-herefordshire.qmd:67-91 [unnamed-chunk-5]
-# Execution halted
-# tm_shape(herefordshire) +
-#   tm_borders(lwd = 2, col = "#2c3e50") +
+tm_shape(herefordshire) +
+  tm_borders(lwd = 2, col = "#2c3e50") +
   tm_shape(collisions_herefordshire) +
   tm_dots(
-    # Commented out because it was generating this issue:
-#[tm_dots()] Argument `title` unknown.
-# Error in `tm_dots()`:
-# ! Visual values used for the variable "fill"
-#   are incorrect.
-# ℹ Variable should a data variable name or a single
-#   color.
-# Run `rlang::last_trace()` to see where the error occurred.
-    # col = "accident_severity",
-    # palette = "Reds",
-    # size = 0.05,
-    # alpha = 0.7,
-    # title = "Pedestrian collisions (2023)"
-  )
-  #  +
-  # tm_basemap("OpenStreetMap")
+    col = "accident_severity",
+    palette = "Reds",
+    size = 0.05,
+    alpha = 0.7,
+    title = "Pedestrian collisions (2023)"
+  ) +
+  tm_basemap("OpenStreetMap")
 ```
