@@ -56,7 +56,16 @@ Work through the reproducible code in the "Introducing osmextract" vignette host
 
 - Reproduce the examples
 - Get all supermarkets in OSM for West Yorkshire
+- Get all bus stops in Leeds from OSM using `osmextract`
 - Identify all cycleways in West Yorkshire and, using the stats19 data you have already downloaded, identify all crashes that happened near them.
+
+Example of getting bus stops:
+
+```r
+q = "select * from points where highway IN ('bus_stop')"
+bus_stop_leeds = osmextract::oe_get("leeds", query = q)
+mapview::mapview(bus_stop_leeds)
+```
 
 ```{r}
 #| eval: false
