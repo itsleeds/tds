@@ -4,6 +4,7 @@ format: html
 execute:
   message: false
   warning: false
+# note: use ctrl+Shift+k to render
 ---
 
 ## Overview
@@ -31,14 +32,16 @@ collisions_2023 = get_stats19(year = 2023, type = "accidents", ask = FALSE)
 casualties_2023 = get_stats19(year = 2023, type = "cas", ask = FALSE)
 
 # Keep collisions that involve at least one pedestrian casualty.
-pedestrian_collisions = casualties_2023 |>
-  filter(casualty_type == "Pedestrian") |>
-  distinct(accident_index)
+# Commented out because next line is failing
+# TODO: fix this issue and re-enable the code.
+# pedestrian_collisions = casualties_2023 |>
+#   filter(casualty_type == "Pedestrian") |>
+#   distinct(accident_index)
 
-collisions_2023 = collisions_2023 |>
-  semi_join(pedestrian_collisions, by = "accident_index")
+# collisions_2023 = collisions_2023 |>
+#   semi_join(pedestrian_collisions, by = "accident_index")
 
-# Convert collisions to sf points.
+# # Convert collisions to sf points.
 collisions_sf = format_sf(collisions_2023)
 ```
 
@@ -65,8 +68,17 @@ collisions_herefordshire = st_filter(collisions_sf, herefordshire)
 # Create an interactive map.
 tmap_mode("view")
 
-tm_shape(herefordshire) +
-  tm_borders(lwd = 2, col = "#2c3e50") +
+#   5.     └─tmap:::step4_plot(...)
+#   6.       ├─base::do.call(...)
+#   7.       ├─tmap::tmapLeafletDataPlot(...)
+#   8.       ├─tmap:::tmapLeafletDataPlot.tm_data_borders(...)
+#   9.       ├─base::NextMethod()
+#  10.       └─tmap:::tmapLeafletDataPlot.tm_data_polygons(...)
+
+# Quitting from walking-safety-herefordshire.qmd:67-91 [unnamed-chunk-5]
+# Execution halted
+# tm_shape(herefordshire) +
+#   tm_borders(lwd = 2, col = "#2c3e50") +
   tm_shape(collisions_herefordshire) +
   tm_dots(
     # Commented out because it was generating this issue:
