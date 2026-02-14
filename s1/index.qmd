@@ -8,6 +8,7 @@ execute:
   message: false
 ---
 
+
 ## Agenda {.unnumbered}
 
 1.  Lecture: an introduction to Transport Data Science (30 min)
@@ -81,6 +82,7 @@ casualty_type = c("pedestrian", "cyclist", "cat")
 casualty_age = seq(from = 20, to = 60, by = 20)
 crashes = data.frame(casualty_type, casualty_age)
 nrow(crashes)
+
 ```
 
 There are different ways to execute code.
@@ -197,6 +199,7 @@ Let's go through these exercises together:
 3.  **Bonus:** What is the difference between the output of `summary()` on `character` and `factor` variables?
 
 -   We'll explore this together
+## National Travel Survey 
 
 ### UK National Travel Survey (NTS) data
 
