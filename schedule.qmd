@@ -182,6 +182,15 @@ timetable = tt_csv |>
       session_code,
       "</a>"
     ),
+    Slides = case_when(
+      session_code %in% c("s1", "s2", "s3", "s6") ~ paste0("<a href='", session_code, "/slides.html'>Slides</a>"),
+      TRUE ~ ""
+    ),
+    Practical = case_when(
+      session_code %in% c("s1", "s2", "s3", "s4", "s5", "s6", "sem1", "sem2") ~ paste0("<a href='", session_code, "'>Practical</a>"),
+      session_code %in% c("d1", "d2", "d3") ~ paste0("<a href='", session_code, "'>Assessment</a>"),
+      TRUE ~ ""
+    ),
     Description = description,
     Time = format(as.POSIXct(time), "%Y-%m-%d %H:%M"),
     Duration = duration,
