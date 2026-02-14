@@ -15,17 +15,18 @@ This module's assessments are designed to help you:
 
 The module is assessed through two coursework assignments:
 
-1. **Formative Assessment (CW1)** 
-   - Required but non-assessed (0% of final mark)
-   - Due: 27th February 2026, 13:59
-   - Project plan and reproducible code demonstration
-   - Length: Up to 4 pages
+1. **Assessment 1: Code Submission & Presentation (30% of module mark)**
+   - **Format:** Code submission + Oral Presentation
+   - **Deadline:** 27th February 2026, 13:59 (Code), Presentation scheduled separately
+   - **Components:**
+     - Idea and concept
+     - Code implementation and data visualization
+     - Oral communication and answering questions
 
-2. **Summative Assessment (CW2)**
-   - Worth 100% of module mark
-   - Due: 15th May 2026, 14:00
-   - Complete data science project report
-   - Length: 10 pages maximum + appendices
+2. **Assessment 2: Data Science Project Report (70% of module mark)**
+   - **Format:** Complete data science project report
+   - **Deadline:** 15th May 2026, 14:00
+   - **Length:** 10 pages maximum + appendices
 
 ## File Naming Convention
 
@@ -39,41 +40,41 @@ For example:
 
 ## Submission Format Requirements
 
-### Document Formatting
+### Assessment 1 (Presentation & Code)
 
-- Include student ID in the title page
-- Do not include your name (for anonymous marking)
-- Use the default Quarto referencing style
+- **Code Submission:** Reproducible `.qmd` or `.Rmd` file via Minerva.
+- **Presentation:** In-person/online presentation (details to be confirmed by module leader).
 
-### File Requirements
+### Assessment 2 (Project Report)
 
-**Formative Assessment Package:**
-- PDF report (max 4 pages)
-- Reproducible code (`.qmd` file)
-- Maximum `.zip` file size: 30 MB
-
-**Summative Assessment Package:**
-- PDF report (max 10 pages)
-- Maximum 3,000 words (excluding tables/code/references/captions)
-- Reproducible code (`.Rmd` or `.qmd` file)
-- Maximum `.zip` file size: 40 MB
-
-## Submission Process
-
-1. **Prepare Your Submission**
-   - Ensure correct file naming
-   - Check formatting requirements
-   - Test code reproducibility
-   - Verify file sizes
-
-2. **Submission: Via Minerva (Blackboard Assignment)**
-   - Deadline is 14:00 on submission day
-   - Each assignment has its own submission point
-   - Keep submission confirmation
+- **Document:** PDF report (max 10 pages).
+- **Word Count:** Maximum 3,000 words (excluding tables/code/references/captions).
+- **Code:** Reproducible `.Rmd` or `.qmd` file.
+- **Package:** Maximum `.zip` file size: 40 MB.
 
 ## Marking Criteria
 
-### Summative Assessment (100% of module mark)
+### Assessment 1 (30%)
+
+This assessment evaluates your initial project concept, technical prototype, and communication skills.
+
+1. **Idea (10%)**
+   - Novelty and relevance of the transport problem.
+   - Clarity of the proposed data science approach.
+
+2. **Code and Data Visualization (10%)**
+   - Quality of preliminary data analysis.
+   - Effectiveness of visualizations.
+   - Code structure and reproducibility.
+
+3. **Oral Communication and Q&A (10%)**
+   - Clarity of presentation delivery.
+   - Ability to answer technical and conceptual questions.
+   - Time management.
+
+### Assessment 2 (70%)
+
+The final report is evaluated on:
 
 1. **Data Processing (20%)**
    - Dataset selection and usage
@@ -87,18 +88,20 @@ For example:
    - Effective communication
    - Documentation quality
 
-3. **Code Quality and Reproducibility (20%)**
+3. **Code Quality and Reproducibility (10%)**
    - Code efficiency and style
    - Documentation
    - Reproducibility
    - Technical implementation
 
-4. **Understanding and Impact (40%)**
+4. **Understanding and Impact (20%)**
    - Research question clarity
    - Methodological approach
    - Critical analysis
    - Policy implications
    - Literature engagement
+
+*(Note: Percentages for Assessment 2 represent the contribution to the final module mark, totaling 70%)*
 
 ## Important Notes
 
@@ -106,7 +109,7 @@ For example:
 
 - Topics should address real transport planning/policy challenges
 - The module team can provide guidance on topic selection
-- Guidance on topics and datasets is provided in the module documents, including the formative assessment brief
+- Guidance on topics and datasets is provided in the module documents
 
 ### Use of AI Tools
 
@@ -141,8 +144,9 @@ Both assessments are categorized as **GREEN** for AI usage:
 
 ## Key Dates (2025-26)
 
-- **27 February 2026, 13:59**: Formative assessment (CW1)
-- **15 May 2026, 14:00**: Summative assessment (CW2)
+- **27 February 2026**: Assessment 1 Code Submission (13:59)
+- **March 2026 (TBC)**: Assessment 1 Presentations
+- **15 May 2026**: Assessment 2 Project Report (14:00)
 - Feedback provided within 15 working days
 
 ## Assessment Checklist
@@ -152,13 +156,6 @@ Both assessments are categorized as **GREEN** for AI usage:
 - [ ] Correct file naming format used
 - [ ] Work meets length requirements
 - [ ] Code is reproducible
-- [ ] Zipped file size is within limits (you may need to remove large datasets from a copy of the folder to ensure this)
+- [ ] Zipped file size is within limits
 - [ ] AI usage is acknowledged
 - [ ] References section included
-
-### Additional for Summative
-
-- [ ] Meets marking criteria
-- [ ] Includes policy implications
-- [ ] Report is cohesive
-- [ ] Professional presentation
