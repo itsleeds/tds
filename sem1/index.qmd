@@ -1,12 +1,12 @@
 ---
-title: "Seminar 1 - Mini-workshop"
+title: Seminar 1 - Mini-workshop
 bibliography: ../tds.bib
 toc: true
+toc-depth: 2
 execute: 
   cache: true
   message: false
   warning: false
-  eval: false
 editor: 
   markdown: 
     wrap: 72
@@ -25,24 +25,342 @@ questions like:
 
 -   Where are the points with the highest demand/flows?
 
-# Some interesting datasets ...
-
-Let's explore some interesting datasets. First we will install (if
-necessary) and load the packages for this examples
+We will install (if necessary) and load the packages for these examples.
 
 ```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
 options(repos = c(CRAN = "https://cloud.r-project.org"))
-if (!require("remotes")) install.packages("remotes")
 pkgs = c(
     "sf",
     "tidyverse",
     "osmextract",
     "tmap",
-    "maptiles"
+    "maptiles",
+    "arcpullr"
 )
-remotes::install_cran(pkgs)
+if (!require("remotes")) install.packages("remotes")
+remotes::install_cran(setdiff(pkgs, "tmap"))
 sapply(pkgs, require, character.only = TRUE)
 ```
+
+# Some interesting datasets 
+
+Here you can find some datasets that you can explore to investigate the questions above. We will use public transport tap-in data. Code for downloading samples of the other datasets is provided in each section.
+
+## Public transport tap-in data: Bogotá
+
+Open public transport ridership data can be difficult to access. Fortunately,
+some cities which have systems managed by a public organisation make
+this data available for the public. Bogotá's integrated transport system
+publishes the tap-in data for the BRT system (see
+[this](https://datosabiertos-transmilenio.hub.arcgis.com/)). 
+
+We will start by extracting the location of the BRT stations. Many public datasets are published using ArcGIS REST services. We can use the `arcpullr` package to easily obtain the data from the service.
+
+```{r}
+#| code-fold: true
+
+tm_stations_sf <- get_spatial_layer(
+  "https://gis.transmilenio.gov.co/arcgis/rest/services/Tecnica/Consulta_Informacion_Geografica_STS/FeatureServer/2/"
+  )
+```
+
+We can explore the variables in the dataset to understand what information we have about the stations.
+```{r}
+colnames(tm_stations_sf)
+```
+
+The `num_est` variable contains the station code, which we will use to join this data with the tap-in data later on.
+
+Let's quickly visualise the location of the stations. As we imported the data as an sf object, we can easily visualise it using `tmap` or any other visualization package you like e.g.`ggplot2`.
+
+```{r}
+#| code-fold: true
+ 
+tm_basemap("OpenStreetMap")+
+tm_shape(tm_stations_sf)+
+  tm_dots("darkblue")
+```
+
+
+We will use 2024 hourly boarding data for the BRT system. The following code will download the data and load it into R. We will use this data to explore the demand patterns in the BRT system and visualise the demand at the station level. This data can be manually obtained in the open data portal
+of TransMilenio
+[here](https://storage.googleapis.com/validaciones_tmsa/validaciones_mensuales.html?)
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+url_tm <- "https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"
+u_bn <- basename(url_tm)
+
+if(!file.exists(u_bn)){
+  download.file(url = url_tm,
+                destfile = u_bn,
+                mode = "wb")
+}
+
+tm_brt_2024 <- read_csv(unz(u_bn,"troncal_2024.csv"))
+```
+
+Let's explore the variables in the dataset to understand the data we have about the tap-ins.
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+colnames(tm_brt_2024)
+```
+
+The `Estacion_Parada` variable contains the station code and name. We will extract the station code to be able to join this data with the spatial data of the stations. The `validaciones` variable contains the number of tap-ins for each station and hour. 
+
+Let's start by selecting the relevant columns and renaming the selected variables with the translation to make it easier to understand. We will also extract the station code from the `Estacion_Parada` variable.
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+tm_brt_2024_en <- tm_brt_2024 |> 
+  rename(
+    stop_name = Estacion_Parada,
+    date = fecha,
+    hour = hora,
+    tapins = validaciones
+  ) 
+```
+
+The `station_code` variable contains both the station code and name. We will extract the station code to be able to join this data with the spatial data of the stations.
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+tm_brt_2024_en$station_code <- tm_brt_2024_en$stop_name |>
+   str_extract("\\(\\d*\\)") |> # This extracts the number within parentheses
+   str_remove_all("(\\(|\\))") # this removes the parentheses
+```
+
+We can identify the stations with highest demand by calculating the mean number of tap-ins for each station and then visualising the results on a map. We will use the `daily_tapins` variable to store the mean number of tap-ins for each station.
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+daily_tapins <- tm_brt_2024_en |>  
+  summarise(daily_tapins = sum(tapins,na.rm = T),
+            .by = c(station_code,date)) |> 
+  summarise(avg_tapins = mean(daily_tapins,na.rm = T),
+            .by = station_code) 
+
+daily_tapins |> 
+  arrange(desc(avg_tapins)) |> 
+  head(10)
+```
+
+From this summary we can identify the stations with the highest demand. However, if you are not familiar with the codes, these results are not very informative. We can now join this data with the spatial data of the stations to visualise the demand at the station level. We will use a proportional symbol map to visualise the average number of tap-ins for each station.
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+
+tm_stations_sf |> 
+  left_join(daily_tapins,by = c("num_est"="station_code")) |> 
+  arrange(avg_tapins) |>
+  tm_shape(relative = T,xlim = c(-1,1.1),ylim = c(-0.1,1.1))+
+  tm_bubbles(fill = "avg_tapins",
+  fill.scale = tm_scale_intervals(n = 6, style = "fisher",values = "viridis"),
+  size = "avg_tapins",
+  size.scale = tm_scale_intervals(n = 6,
+  value.na = 0.5,
+  style = "fisher",
+  values = tm_seq(0.25, 1, power = "sqrt")),
+  col = NULL,
+  fill.legend = tm_legend_combine("size"),
+  size.legend = tm_legend(position = c("left", "bottom")))
+```
+
+
+::: {.callout-note}
+**Question**: Can we identify where people move from and to with this dataset?
+
+*Hint: We only have tap-in data.*
+:::
+
+We calculated the mean number of people entering the system at each station. We can extract more information if we explore the temporal patterns of the tap-ins. 
+
+Do you think all days have the same demand pattern? Can we identify the days with the highest demand? Can we identify the hours with the highest demand? Let's extract the day of the week from the date variable to explore the demand patterns by day of the week.
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+tm_brt_2024_en$wday <- wday(tm_brt_2024_en$date, label = TRUE, week_start = 1)
+
+```
+
+The following code will calculate the total number of tap-ins for each day across the system.
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+total_daily_tapins <- tm_brt_2024_en |> 
+  summarise(total_tapins = sum(tapins,na.rm = T),
+            .by = c(date,wday))
+```
+
+Let's visualise the total number of tap-ins for each day across the system.
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+
+ggplot(total_daily_tapins,
+  aes(x = date,
+      y = total_tapins))+
+  geom_line(alpha = 0.5)+
+  geom_smooth(method = "loess")+
+  theme_minimal() +
+  labs(title = "Total tap-ins per day",
+       x = "Date",
+       y = "Total tap-ins")
+```
+
+There is an apparent weekly(?) pattern in the demand. We can inspect this pattern by summarising the total number of tap-ins by day of the week.
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+
+total_daily_tapins |> 
+  # summarise(avg_tapins = mean(total_tapins,na.rm = T),
+  #           .by = wday) |>
+  ggplot(aes(x = wday,
+             y = total_tapins))+
+              geom_boxplot()+
+              theme_minimal() +
+              scale_y_continuous(labels = scales::comma) +
+              labs(x = "Day of the week",
+                   y = "Total tap-ins",
+                   title = "Daily tap-ins by day of the week")
+```
+
+The demand seems consistently higher on weekdays than on weekends. We can also explore the demand patterns by hour of the day to identify the peak hours. Let's classify weekdays and weekends to explore the demand patterns by hour of the day.
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+tm_brt_2024_en$dtype <- if_else(!tm_brt_2024_en$wday %in% c("Sat", "Sun"), "Weekday",tm_brt_2024_en$wday)
+```
+
+Now we can calculate the total number of tap-ins for each hour of the day by type of day (weekday vs weekend).
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+total_hourly_tapins <- tm_brt_2024_en |> 
+  summarise(total_tapins = sum(tapins,na.rm = T),
+            .by = c(date, hour, dtype))
+```
+
+Similarly to the previous visualisation, we can visualise the total number of tap-ins for each hour of the day by type of day (weekday vs weekend).
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+
+total_hourly_tapins |> 
+  ggplot(aes(x = hour,
+             y = total_tapins,
+             group = date))+
+  geom_line(alpha = 0.1,col = "steelblue")+
+  stat_summary(aes(group = dtype),fun = "median",geom = "line", col = "goldenrod",linewidth = 1)+
+  facet_wrap(~dtype)+
+  theme_minimal() +
+  labs(x = "Hour of the day", y = "Total tap-ins", title = "Hourly demand profile")
+
+```
+
+**Questions**: Can you recognise the highest demand hours? Do they differ between weekdays and weekends? Why do we see some weekdays with a similar demand pattern to a Sunday?
+
+We have been exploring the demand across the whole system. We can also explore how these daily profiles are consistent across stations. Do all stations have the same demand pattern? Are there some stations with a different demand pattern? Can we identify the stations with the most consistent demand patterns? 
+
+Let's try to answer these questions. First, we will subset data for a typical weekday, let's take Wednesdays. Then, we will calculate the typical (median) hourly demand for each station, and extract the hour with the highest demand.
+
+
+```{r}
+#| code-fold: show
+#| warning: false
+#| message: false
+
+wed_data <- tm_brt_2024_en |> filter(wday == "Wed")
+  
+hours_max_tapins <- wed_data |>
+    summarise(median_tapins = median(tapins,
+    na.rm = T),
+              .by = c(station_code,hour)) |>
+      slice_max(order_by = median_tapins,
+      n = 1,
+      by = c(station_code)) 
+```
+
+Let's check the distribution of the hours with the highest demand across stations.
+```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+
+hours_max_tapins |> 
+  ggplot(aes(x = hour))+
+  geom_histogram(binwidth = 1, fill = "steelblue", color = "white")+
+  theme_minimal() +
+  labs(x = "Hour of the day",
+       y = "Number of stations with peak demand",
+       title = "Distribution of peak hours across stations")
+```
+This evidences that there are two main groups of stations: those with a peak demand in the morning (7-9am) and those with a peak demand in the late afternoon. We can visualise the spatial distribution of these two groups of stations by joining this data with the spatial data of the stations and visualising it on a map.
+
+```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+
+
+tm_stations_sf |>
+  left_join(hours_max_tapins,by = c("num_est"="station_code")) |> 
+  tm_shape(relative = T,xlim = c(-1,1.1),ylim = c(-0.1,1.1))+
+  tm_dots(fill = "hour",size = 0.5,
+    fill.scale = tm_scale_intervals(n = 5, values = "viridis"),
+  fill.legend = tm_legend(position = c("left", "bottom"))) 
+
+```
+
+
+::: {.callout-tip}
+
+TfL's crowding data is also a great source of ridership data. See
+[this](https://tfl.gov.uk/corporate/publications-and-reports/crowding).
+
+:::
+
 
 ## Motorised vehicles counts: Leeds
 
@@ -51,36 +369,38 @@ ANPR cameras, induction loops or low-cost sensors. We are going to use
 data from the sensors in Leeds (available in [Data Mill
 North](https://datamillnorth.org/dataset/e6q0n/leeds-annual-traffic-growth))
 
+::: {.callout-important}
+The following examples utilize external APIs and are set to not evaluate by default. You can run them locally to explore these datasets.
+:::
+
 ```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+#| eval: false
+
+
+# the location of the cameras
 leeds_car_location <- read_csv(
   "https://datamillnorth.org/download/e6q0n/9bc51361-d98e-47d3-9963-aeeca3fa0afc/Camera%20Locations.csv"
   ) 
 
+# Creating an sf object from the location data
 leeds_car_location_sf <- leeds_car_location |> 
   st_as_sf(coords = c("X","Y"),
            crs = 27700)
-```
 
-```{r}
-#| echo: false
 tm_basemap("OpenStreetMap")+
 tm_shape(leeds_car_location_sf)+
   tm_dots("blue")
 
-```
-
-```{r}
+# The count data
 leeds_car_2019 <- read_csv(
   "https://datamillnorth.org/download/e6q0n/9e62c1e5-8ba5-4369-9d81-a46c4e23b9fb/Data%202019.csv"
   )
-```
 
-If you are interested in open traffic count datasets see
-[this](https://juanfonsecals1.github.io/Results_Summary_Maps/)
+# a preliminary exploration of the data
 
-#### code 
-
-```{r}
 leeds_car_2019 |> 
   group_by(Cosit) |> 
   summarise(mean(Volume))
@@ -94,10 +414,10 @@ mean_daily_volumes <- leeds_car_2019 |>
          # extracts the day
          date = date(time_date)) |> 
   # calculating the total flows for each day
-  summarise(Volume = sum(Volume,rm.na = T),
+  summarise(Volume = sum(Volume,na.rm = T),
             .by = c(date,Cosit)) |> 
   # Calculating the daily mean 
-  summarise(daily_volume = mean(Volume,rm.na = T),
+  summarise(daily_volume = mean(Volume,na.rm = T),
             .by = Cosit) 
 
 
@@ -108,7 +428,7 @@ daily_volumes <- leeds_car_2019 |>
   mutate(time_date = dmy_hm(Sdate),
          # extracts the day
          date = date(time_date)) |> # calculating the total flows for each day
-  summarise(mean_volume = sum(Volume,rm.na = T),
+  summarise(mean_volume = sum(Volume,na.rm = T),
           .by = c(date,Cosit))
 
 daily_volumes |> 
@@ -126,7 +446,11 @@ leeds_car_location_sf |>
   left_join(mean_daily_volumes,by = c("Site ID"="Cosit")) |> 
   tm_shape()+
   tm_dots("daily_volume",size = "daily_volume")
+
 ```
+
+If you are interested in open traffic count datasets see
+[this](https://juanfonsecals1.github.io/Results_Summary_Maps/)
 
 ## Cycle counts for West Yorkshire
 
@@ -136,6 +460,11 @@ use some cycle counters from West Yorkshire that you can find
 [here](https://datamillnorth.org/dataset/e1dmk/leeds-annual-cycle-growth):
 
 ```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+#| eval: false
+
 leeds_bike_location <- read_csv(
   "https://datamillnorth.org/download/e1dmk/a8c8a11e-1616-4915-a897-9ca5ab4e03b8/Cycle%20Counter%20Locations.csv",skip = 1
   ) 
@@ -145,18 +474,13 @@ leeds_bike_location_sf <- leeds_bike_location |>
   st_as_sf(coords = c("Longitude","Latitude"),
            crs = 4326) |> 
   st_transform(27700)
-```
 
-```{r}
-#| echo: false
+
 tm_basemap("OpenStreetMap")+
 tm_shape(leeds_bike_location_sf)+
   tm_dots("darkblue")
-```
 
-The data for 2019:
-
-```{r}
+### The data for 2019
 leeds_bike_2019 <- read_csv(
   "https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv"
   )
@@ -168,121 +492,66 @@ or [Scotland](https://usmart.io/org/cyclingscotland/).
 
 ## Pedestrian Counts: Melbourne
 
-Cities also monitor the number pedestrians in key locations. We can use
+Cities also monitor the number of pedestrians in key locations. We can use
 data from the sensors in Melbourne accessible
 [here](https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/export/):
 
 ```{r}
-melbourne_locations_sf <- st_read("https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-sensor-locations/exports/geojson?lang=en&timezone=Europe%2FLondon")
-```
+#| code-fold: true
+#| warning: false
+#| message: false
+#| eval: false
 
-```{r}
-#| echo: false
+
+# locations of the sensors
+melbourne_locations_sf <- st_read("https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-sensor-locations/exports/geojson?lang=en&timezone=Europe%2FLondon")
+
+
+# a quick map to visualise the location of the sensors
 tm_basemap("OpenStreetMap")+
 tm_shape(melbourne_locations_sf)+
   tm_dots("darkblue")
-```
 
-We will extract
 
-```{r}
+# Reading data for december 2024
 melbourne_dec2024 <- read_csv("https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-monthly-counts-per-hour/exports/csv?lang=en&refine=sensing_date%3A%222024%2F12%22&timezone=Australia%2FMelbourne&use_labels=true&delimiter=%2C")
 ```
 
-## Public transport tap-in data: Bogotá
-
-Public transport ridership data can be difficult to obtain. Fortunately,
-some cities which have systems managed by a public organisation make
-this data available for the public. Bogotá's integrated transport system
-publishes the tap-in data for the BRT system (see
-[this](https://datosabiertos-transmilenio.hub.arcgis.com/)). We will use
-one of the daily reports.
-
-```{r}
-tm_stations_sf <- st_read("Estaciones_Troncales_de_TRANSMILENIO.geojson")
-```
-
-```{r}
-#| echo: false
-tm_basemap("OpenStreetMap")+
-tm_shape(tm_stations_sf)+
-  tm_dots("darkblue")
-```
-
-Monthly boarding data can be manually obtained in the open data portal
-of TransMilenio
-[here](https://storage.googleapis.com/validaciones_tmsa/validaciones_mensuales.html?)
-
-```{r}
-url_tm <- "https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"
-u_bn <- basename(url_tm)
-
-
-if(!file.exists(u_bn)){
-  download.file(url = url_tm,
-                destfile = u_bn,
-                mode = "wb")
-}
-
-
-
-url_tm <- "https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"
-
-
-tm_brt_2024 <- read_csv(unz(u_bn,"troncal_2024.csv"))
-```
-
-TfL's crowding data is also a great source of ridership data. See
-[this](https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv).
-
-### code
-
-```{r}
-daily_tapins <- tm_brt_2024 |> 
-  summarise(validaciones = sum(validaciones),
-            .by = c(Estacion_Parada,fecha)) |> 
-  summarise(validaciones = mean(validaciones),
-            .by = Estacion_Parada) |> 
-  mutate(numero_estacion = str_extract(Estacion_Parada,"\\(\\d*\\)") |> 
-           str_remove_all("(\\(|\\))")) 
-  
-tm_stations_sf |> 
-  left_join(daily_tapins,by = "numero_estacion") |> 
-  tm_shape()+
-  tm_dots("validaciones",size = "validaciones")
-```
 
 ## Network data from OSM
 
-You may be already familiar with getting and using OSM data. This an
+You may be already familiar with getting and using OSM data. This is an
 example of how to obtain the network that can be used for pedestrians.
 
 ```{r}
+#| code-fold: true
+#| warning: false
+#| message: false
+#| eval: false
+
+
 my_coordinates <- c(-76.78893552474851,18.01206727612776)
 sf_point <- st_point(my_coordinates) |> st_sfc(crs = 4326)
 sf_buffer <- st_buffer(sf_point,dist = 15e3)
 
-```
-
-```{r}
 tm_basemap("OpenStreetMap")+
   tm_shape(sf_buffer)+
   tm_borders()
-```
 
-```{r}
-#| results='hide'
 my_network <- oe_get_network(sf_buffer, mode = "walking")
-```
 
-```{r}
 tm_shape(my_network)+
   tm_lines("highway")
 ```
 
+::: {.callout-tip}
+
 ***Note:*** you can access a simplified network dataset from Ordnance
 Survey's [OpenRoads
 dataset](https://www.ordnancesurvey.co.uk/products/os-open-roads).
+
+:::
+
 
 # Links to other resources
 
@@ -292,4 +561,4 @@ dataset](https://www.ordnancesurvey.co.uk/products/os-open-roads).
 -   See the [`sfnetworks`
     package](https://luukvdmeer.github.io/sfnetworks/) package for
     information on how to work with spatial networks, including
-    estimating centality measures and shortest paths.
+    estimating centrality measures and shortest paths.
