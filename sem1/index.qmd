@@ -1,5 +1,5 @@
 ---
-title: Seminar 1 - Mini-workshop
+title: "Seminar 1: Processing and visualising traffic count datasets"
 bibliography: ../tds.bib
 toc: true
 toc-depth: 2
