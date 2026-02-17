@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c501884580d7b6bfe00923c90379d736.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-0862a8015126fbe2e9076ef79471f1a5.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -291,21 +291,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">On this page</h2>
    
-  <ul>
-  <li><a href="#some-interesting-datasets" id="toc-some-interesting-datasets" class="nav-link active" data-scroll-target="#some-interesting-datasets"><span class="header-section-number">1</span> Some interesting datasets …</a>
   <ul class="collapse">
-  <li><a href="#motorised-vehicles-counts-leeds" id="toc-motorised-vehicles-counts-leeds" class="nav-link" data-scroll-target="#motorised-vehicles-counts-leeds"><span class="header-section-number">1.1</span> Motorised vehicles counts: Leeds</a></li>
-  <li><a href="#cycle-counts-for-west-yorkshire" id="toc-cycle-counts-for-west-yorkshire" class="nav-link" data-scroll-target="#cycle-counts-for-west-yorkshire"><span class="header-section-number">1.2</span> Cycle counts for West Yorkshire</a></li>
-  <li><a href="#pedestrian-counts-melbourne" id="toc-pedestrian-counts-melbourne" class="nav-link" data-scroll-target="#pedestrian-counts-melbourne"><span class="header-section-number">1.3</span> Pedestrian Counts: Melbourne</a></li>
-  <li><a href="#public-transport-tap-in-data-bogotá" id="toc-public-transport-tap-in-data-bogotá" class="nav-link" data-scroll-target="#public-transport-tap-in-data-bogotá"><span class="header-section-number">1.4</span> Public transport tap-in data: Bogotá</a>
+  <li><a href="#some-interesting-datasets" id="toc-some-interesting-datasets" class="nav-link active" data-scroll-target="#some-interesting-datasets"><span class="header-section-number">1</span> Some interesting datasets</a>
   <ul class="collapse">
-  <li><a href="#code-1" id="toc-code-1" class="nav-link" data-scroll-target="#code-1"><span class="header-section-number">1.4.1</span> code</a></li>
-  </ul></li>
+  <li><a href="#public-transport-tap-in-data-bogotá" id="toc-public-transport-tap-in-data-bogotá" class="nav-link" data-scroll-target="#public-transport-tap-in-data-bogotá"><span class="header-section-number">1.1</span> Public transport tap-in data: Bogotá</a></li>
+  <li><a href="#motorised-vehicles-counts-leeds" id="toc-motorised-vehicles-counts-leeds" class="nav-link" data-scroll-target="#motorised-vehicles-counts-leeds"><span class="header-section-number">1.2</span> Motorised vehicles counts: Leeds</a></li>
+  <li><a href="#cycle-counts-for-west-yorkshire" id="toc-cycle-counts-for-west-yorkshire" class="nav-link" data-scroll-target="#cycle-counts-for-west-yorkshire"><span class="header-section-number">1.3</span> Cycle counts for West Yorkshire</a></li>
+  <li><a href="#pedestrian-counts-melbourne" id="toc-pedestrian-counts-melbourne" class="nav-link" data-scroll-target="#pedestrian-counts-melbourne"><span class="header-section-number">1.4</span> Pedestrian Counts: Melbourne</a></li>
   <li><a href="#network-data-from-osm" id="toc-network-data-from-osm" class="nav-link" data-scroll-target="#network-data-from-osm"><span class="header-section-number">1.5</span> Network data from OSM</a></li>
   </ul></li>
   <li><a href="#links-to-other-resources" id="toc-links-to-other-resources" class="nav-link" data-scroll-target="#links-to-other-resources"><span class="header-section-number">2</span> Links to other resources</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/tds/edit/main/sem1/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
+<div class="toc-actions"><ul class="collapse"><li><a href="https://github.com/itsleeds/tds/edit/main/sem1/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -335,196 +332,542 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><p>What is the typical daily/weekly/monthly demand profile?</p></li>
 <li><p>Where are the points with the highest demand/flows?</p></li>
 </ul>
-<section id="some-interesting-datasets" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Some interesting datasets …</h1>
-<p>Let’s explore some interesting datasets. First we will install (if necessary) and load the packages for this examples</p>
+<p>We will install (if necessary) and load the packages for these examples.</p>
 <div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">repos =</span> <span class="fu">c</span>(<span class="at">CRAN =</span> <span class="st">"https://cloud.r-project.org"</span>))</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"remotes"</span>)) <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">c</span>(</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sf"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tidyverse"</span>,</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"osmextract"</span>,</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tmap"</span>,</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"maptiles"</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>pkgs <span class="ot">=</span> <span class="fu">c</span>(</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">"sf"</span>,</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tidyverse"</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"osmextract"</span>,</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"tmap"</span>,</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"maptiles"</span>,</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"arcpullr"</span></span>
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_cran</span>(pkgs)</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(pkgs, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"remotes"</span>)) <span class="fu">install.packages</span>(<span class="st">"remotes"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>remotes<span class="sc">::</span><span class="fu">install_cran</span>(<span class="fu">setdiff</span>(pkgs, <span class="st">"tmap"</span>))</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">sapply</span>(pkgs, require, <span class="at">character.only =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>        sf  tidyverse osmextract       tmap   maptiles   arcpullr 
+      TRUE       TRUE       TRUE       TRUE       TRUE       TRUE </code></pre>
 </div>
-<section id="motorised-vehicles-counts-leeds" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="motorised-vehicles-counts-leeds"><span class="header-section-number">1.1</span> Motorised vehicles counts: Leeds</h2>
-<p>Many cities/countries publish data from permanent traffic counters e.g. ANPR cameras, induction loops or low-cost sensors. We are going to use data from the sensors in Leeds (available in <a href="https://datamillnorth.org/dataset/e6q0n/leeds-annual-traffic-growth">Data Mill North</a>)</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>leeds_car_location <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://datamillnorth.org/download/e6q0n/9bc51361-d98e-47d3-9963-aeeca3fa0afc/Camera%20Locations.csv"</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>leeds_car_location_sf <span class="ot">&lt;-</span> leeds_car_location <span class="sc">|&gt;</span> </span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"X"</span>,<span class="st">"Y"</span>),</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>           <span class="at">crs =</span> <span class="dv">27700</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<section id="some-interesting-datasets" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Some interesting datasets</h1>
+<p>Here you can find some datasets that you can explore to investigate the questions above. We will use public transport tap-in data. Code for downloading samples of the other datasets is provided in each section.</p>
+<section id="public-transport-tap-in-data-bogotá" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="public-transport-tap-in-data-bogotá"><span class="header-section-number">1.1</span> Public transport tap-in data: Bogotá</h2>
+<p>Open public transport ridership data can be difficult to access. Fortunately, some cities which have systems managed by a public organisation make this data available for the public. Bogotá’s integrated transport system publishes the tap-in data for the BRT system (see <a href="https://datosabiertos-transmilenio.hub.arcgis.com/">this</a>).</p>
+<p>We will start by extracting the location of the BRT stations. Many public datasets are published using ArcGIS REST services. We can use the <code>arcpullr</code> package to easily obtain the data from the service.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>leeds_car_2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://datamillnorth.org/download/e6q0n/9e62c1e5-8ba5-4369-9d81-a46c4e23b9fb/Data%202019.csv"</span></span>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tm_stations_sf <span class="ot">&lt;-</span> <span class="fu">get_spatial_layer</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://gis.transmilenio.gov.co/arcgis/rest/services/Tecnica/Consulta_Informacion_Geografica_STS/FeatureServer/2/"</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>We can explore the variables in the dataset to understand what information we have about the stations.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tm_stations_sf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "objectid"   "num_est"    "cod_nodo"   "nom_est"    "id_trazado"
+ [6] "num_vag"    "long_est"   "ancho_est"  "area_est"   "cap_biart" 
+[11] "cap_art"    "observac"   "esta_oper"  "eta_oper"   "tipo_esta" 
+[16] "ub_est"     "num_acc"    "acc_esp"    "acc_depr"   "acc_puent" 
+[21] "globalid"   "geoms"     </code></pre>
+</div>
+</div>
+<p>The <code>num_est</code> variable contains the station code, which we will use to join this data with the tap-in data later on.</p>
+<p>Let’s quickly visualise the location of the stations. As we imported the data as an sf object, we can easily visualise it using <code>tmap</code> or any other visualization package you like e.g.<code>ggplot2</code>.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">"OpenStreetMap"</span>)<span class="sc">+</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(tm_stations_sf)<span class="sc">+</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="st">"darkblue"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We will use 2024 hourly boarding data for the BRT system. The following code will download the data and load it into R. We will use this data to explore the demand patterns in the BRT system and visualise the demand at the station level. This data can be manually obtained in the open data portal of TransMilenio <a href="https://storage.googleapis.com/validaciones_tmsa/validaciones_mensuales.html?">here</a></p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>url_tm <span class="ot">&lt;-</span> <span class="st">"https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>u_bn <span class="ot">&lt;-</span> <span class="fu">basename</span>(url_tm)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(u_bn)){</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(<span class="at">url =</span> url_tm,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                <span class="at">destfile =</span> u_bn,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">mode =</span> <span class="st">"wb"</span>)</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>tm_brt_2024 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">unz</span>(u_bn,<span class="st">"troncal_2024.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Let’s explore the variables in the dataset to understand the data we have about the tap-ins.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tm_brt_2024)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Estacion_Parada" "latitud"         "longitud"        "fecha"          
+[5] "hora"            "Sistema"         "validaciones"   </code></pre>
+</div>
+</div>
+<p>The <code>Estacion_Parada</code> variable contains the station code and name. We will extract the station code to be able to join this data with the spatial data of the stations. The <code>validaciones</code> variable contains the number of tap-ins for each station and hour.</p>
+<p>Let’s start by selecting the relevant columns and renaming the selected variables with the translation to make it easier to understand. We will also extract the station code from the <code>Estacion_Parada</code> variable.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>tm_brt_2024_en <span class="ot">&lt;-</span> tm_brt_2024 <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">stop_name =</span> Estacion_Parada,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">date =</span> fecha,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">hour =</span> hora,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">tapins =</span> validaciones</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The <code>station_code</code> variable contains both the station code and name. We will extract the station code to be able to join this data with the spatial data of the stations.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>tm_brt_2024_en<span class="sc">$</span>station_code <span class="ot">&lt;-</span> tm_brt_2024_en<span class="sc">$</span>stop_name <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>   <span class="fu">str_extract</span>(<span class="st">"</span><span class="sc">\\</span><span class="st">(</span><span class="sc">\\</span><span class="st">d*</span><span class="sc">\\</span><span class="st">)"</span>) <span class="sc">|&gt;</span> <span class="co"># This extracts the number within parentheses</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>   <span class="fu">str_remove_all</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">))"</span>) <span class="co"># this removes the parentheses</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>We can identify the stations with highest demand by calculating the mean number of tap-ins for each station and then visualising the results on a map. We will use the <code>daily_tapins</code> variable to store the mean number of tap-ins for each station.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>daily_tapins <span class="ot">&lt;-</span> tm_brt_2024_en <span class="sc">|&gt;</span>  </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">daily_tapins =</span> <span class="fu">sum</span>(tapins,<span class="at">na.rm =</span> T),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(station_code,date)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">avg_tapins =</span> <span class="fu">mean</span>(daily_tapins,<span class="at">na.rm =</span> T),</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> station_code) </span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>daily_tapins <span class="sc">|&gt;</span> </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(avg_tapins)) <span class="sc">|&gt;</span> </span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   station_code avg_tapins
+   &lt;chr&gt;             &lt;dbl&gt;
+ 1 05000            65314.
+ 2 02000            62723.
+ 3 03000            49336.
+ 4 04000            48899.
+ 5 07000            44872.
+ 6 06000            40330.
+ 7 08000            36849.
+ 8 07503            35720.
+ 9 10000            31077.
+10 05100            30399.</code></pre>
+</div>
+</div>
+<p>From this summary we can identify the stations with the highest demand. However, if you are not familiar with the codes, these results are not very informative. We can now join this data with the spatial data of the stations to visualise the demand at the station level. We will use a proportional symbol map to visualise the average number of tap-ins for each station.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>tm_stations_sf <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(daily_tapins,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"num_est"</span><span class="ot">=</span><span class="st">"station_code"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(avg_tapins) <span class="sc">|&gt;</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(<span class="at">relative =</span> T,<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="fl">1.1</span>),<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>,<span class="fl">1.1</span>))<span class="sc">+</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_bubbles</span>(<span class="at">fill =</span> <span class="st">"avg_tapins"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill.scale =</span> <span class="fu">tm_scale_intervals</span>(<span class="at">n =</span> <span class="dv">6</span>, <span class="at">style =</span> <span class="st">"fisher"</span>,<span class="at">values =</span> <span class="st">"viridis"</span>),</span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">size =</span> <span class="st">"avg_tapins"</span>,</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">size.scale =</span> <span class="fu">tm_scale_intervals</span>(<span class="at">n =</span> <span class="dv">6</span>,</span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">value.na =</span> <span class="fl">0.5</span>,</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">style =</span> <span class="st">"fisher"</span>,</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">values =</span> <span class="fu">tm_seq</span>(<span class="fl">0.25</span>, <span class="dv">1</span>, <span class="at">power =</span> <span class="st">"sqrt"</span>)),</span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">col =</span> <span class="cn">NULL</span>,</span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill.legend =</span> <span class="fu">tm_legend_combine</span>(<span class="st">"size"</span>),</span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">size.legend =</span> <span class="fu">tm_legend</span>(<span class="at">position =</span> <span class="fu">c</span>(<span class="st">"left"</span>, <span class="st">"bottom"</span>)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Question</strong>: Can we identify where people move from and to with this dataset?</p>
+<p><em>Hint: We only have tap-in data.</em></p>
+</div>
+</div>
+<p>We calculated the mean number of people entering the system at each station. We can extract more information if we explore the temporal patterns of the tap-ins.</p>
+<p>Do you think all days have the same demand pattern? Can we identify the days with the highest demand? Can we identify the hours with the highest demand? Let’s extract the day of the week from the date variable to explore the demand patterns by day of the week.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tm_brt_2024_en<span class="sc">$</span>wday <span class="ot">&lt;-</span> <span class="fu">wday</span>(tm_brt_2024_en<span class="sc">$</span>date, <span class="at">label =</span> <span class="cn">TRUE</span>, <span class="at">week_start =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The following code will calculate the total number of tap-ins for each day across the system.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>total_daily_tapins <span class="ot">&lt;-</span> tm_brt_2024_en <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_tapins =</span> <span class="fu">sum</span>(tapins,<span class="at">na.rm =</span> T),</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(date,wday))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Let’s visualise the total number of tap-ins for each day across the system.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(total_daily_tapins,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">aes</span>(<span class="at">x =</span> date,</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">y =</span> total_tapins))<span class="sc">+</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>)<span class="sc">+</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Total tap-ins per day"</span>,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Date"</span>,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Total tap-ins"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There is an apparent weekly(?) pattern in the demand. We can inspect this pattern by summarising the total number of tap-ins by day of the week.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>total_daily_tapins <span class="sc">|&gt;</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># summarise(avg_tapins = mean(total_tapins,na.rm = T),</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="co">#           .by = wday) |&gt;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> wday,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> total_tapins))<span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>              <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>              <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>comma) <span class="sc">+</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>              <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Day of the week"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="st">"Total tap-ins"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">title =</span> <span class="st">"Daily tap-ins by day of the week"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The demand seems consistently higher on weekdays than on weekends. We can also explore the demand patterns by hour of the day to identify the peak hours. Let’s classify weekdays and weekends to explore the demand patterns by hour of the day.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>tm_brt_2024_en<span class="sc">$</span>dtype <span class="ot">&lt;-</span> <span class="fu">if_else</span>(<span class="sc">!</span>tm_brt_2024_en<span class="sc">$</span>wday <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Sat"</span>, <span class="st">"Sun"</span>), <span class="st">"Weekday"</span>,tm_brt_2024_en<span class="sc">$</span>wday)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Now we can calculate the total number of tap-ins for each hour of the day by type of day (weekday vs weekend).</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>total_hourly_tapins <span class="ot">&lt;-</span> tm_brt_2024_en <span class="sc">|&gt;</span> </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_tapins =</span> <span class="fu">sum</span>(tapins,<span class="at">na.rm =</span> T),</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(date, hour, dtype))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Similarly to the previous visualisation, we can visualise the total number of tap-ins for each hour of the day by type of day (weekday vs weekend).</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>total_hourly_tapins <span class="sc">|&gt;</span> </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour,</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">y =</span> total_tapins,</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">group =</span> date))<span class="sc">+</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">0.1</span>,<span class="at">col =</span> <span class="st">"steelblue"</span>)<span class="sc">+</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_summary</span>(<span class="fu">aes</span>(<span class="at">group =</span> dtype),<span class="at">fun =</span> <span class="st">"median"</span>,<span class="at">geom =</span> <span class="st">"line"</span>, <span class="at">col =</span> <span class="st">"goldenrod"</span>,<span class="at">linewidth =</span> <span class="dv">1</span>)<span class="sc">+</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>dtype)<span class="sc">+</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Hour of the day"</span>, <span class="at">y =</span> <span class="st">"Total tap-ins"</span>, <span class="at">title =</span> <span class="st">"Hourly demand profile"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Questions</strong>: Can you recognise the highest demand hours? Do they differ between weekdays and weekends? Why do we see some weekdays with a similar demand pattern to a Sunday?</p>
+<p>We have been exploring the demand across the whole system. We can also explore how these daily profiles are consistent across stations. Do all stations have the same demand pattern? Are there some stations with a different demand pattern? Can we identify the stations with the most consistent demand patterns?</p>
+<p>Let’s try to answer these questions. First, we will subset data for a typical weekday, let’s take Wednesdays. Then, we will calculate the typical (median) hourly demand for each station, and extract the hour with the highest demand.</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>wed_data <span class="ot">&lt;-</span> tm_brt_2024_en <span class="sc">|&gt;</span> <span class="fu">filter</span>(wday <span class="sc">==</span> <span class="st">"Wed"</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>hours_max_tapins <span class="ot">&lt;-</span> wed_data <span class="sc">|&gt;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">median_tapins =</span> <span class="fu">median</span>(tapins,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">na.rm =</span> T),</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>              <span class="at">.by =</span> <span class="fu">c</span>(station_code,hour)) <span class="sc">|&gt;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">slice_max</span>(<span class="at">order_by =</span> median_tapins,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">n =</span> <span class="dv">1</span>,</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">by =</span> <span class="fu">c</span>(station_code)) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Let’s check the distribution of the hours with the highest demand across stations.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>hours_max_tapins <span class="sc">|&gt;</span> </span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> hour))<span class="sc">+</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">1</span>, <span class="at">fill =</span> <span class="st">"steelblue"</span>, <span class="at">color =</span> <span class="st">"white"</span>)<span class="sc">+</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Hour of the day"</span>,</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Number of stations with peak demand"</span>,</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Distribution of peak hours across stations"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This evidences that there are two main groups of stations: those with a peak demand in the morning (7-9am) and those with a peak demand in the late afternoon. We can visualise the spatial distribution of these two groups of stations by joining this data with the spatial data of the stations and visualising it on a map.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>tm_stations_sf <span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(hours_max_tapins,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"num_est"</span><span class="ot">=</span><span class="st">"station_code"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(<span class="at">relative =</span> T,<span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">1</span>,<span class="fl">1.1</span>),<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">0.1</span>,<span class="fl">1.1</span>))<span class="sc">+</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">"hour"</span>,<span class="at">size =</span> <span class="fl">0.5</span>,</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill.scale =</span> <span class="fu">tm_scale_intervals</span>(<span class="at">n =</span> <span class="dv">5</span>, <span class="at">values =</span> <span class="st">"viridis"</span>),</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">fill.legend =</span> <span class="fu">tm_legend</span>(<span class="at">position =</span> <span class="fu">c</span>(<span class="st">"left"</span>, <span class="st">"bottom"</span>))) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>TfL’s crowding data is also a great source of ridership data. See <a href="https://tfl.gov.uk/corporate/publications-and-reports/crowding">this</a>.</p>
+</div>
+</div>
+</section>
+<section id="motorised-vehicles-counts-leeds" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="motorised-vehicles-counts-leeds"><span class="header-section-number">1.2</span> Motorised vehicles counts: Leeds</h2>
+<p>Many cities/countries publish data from permanent traffic counters e.g. ANPR cameras, induction loops or low-cost sensors. We are going to use data from the sensors in Leeds (available in <a href="https://datamillnorth.org/dataset/e6q0n/leeds-annual-traffic-growth">Data Mill North</a>)</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The following examples utilize external APIs and are set to not evaluate by default. You can run them locally to explore these datasets.</p>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># the location of the cameras</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>leeds_car_location <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://datamillnorth.org/download/e6q0n/9bc51361-d98e-47d3-9963-aeeca3fa0afc/Camera%20Locations.csv"</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Creating an sf object from the location data</span></span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>leeds_car_location_sf <span class="ot">&lt;-</span> leeds_car_location <span class="sc">|&gt;</span> </span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"X"</span>,<span class="st">"Y"</span>),</span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>           <span class="at">crs =</span> <span class="dv">27700</span>)</span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-11"><a href="#cb25-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">"OpenStreetMap"</span>)<span class="sc">+</span></span>
+<span id="cb25-12"><a href="#cb25-12" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(leeds_car_location_sf)<span class="sc">+</span></span>
+<span id="cb25-13"><a href="#cb25-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="st">"blue"</span>)</span>
+<span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a><span class="co"># The count data</span></span>
+<span id="cb25-16"><a href="#cb25-16" aria-hidden="true" tabindex="-1"></a>leeds_car_2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb25-17"><a href="#cb25-17" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://datamillnorth.org/download/e6q0n/9e62c1e5-8ba5-4369-9d81-a46c4e23b9fb/Data%202019.csv"</span></span>
+<span id="cb25-18"><a href="#cb25-18" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a><span class="co"># a preliminary exploration of the data</span></span>
+<span id="cb25-21"><a href="#cb25-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-22"><a href="#cb25-22" aria-hidden="true" tabindex="-1"></a>leeds_car_2019 <span class="sc">|&gt;</span> </span>
+<span id="cb25-23"><a href="#cb25-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Cosit) <span class="sc">|&gt;</span> </span>
+<span id="cb25-24"><a href="#cb25-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(Volume))</span>
+<span id="cb25-25"><a href="#cb25-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-26"><a href="#cb25-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-27"><a href="#cb25-27" aria-hidden="true" tabindex="-1"></a>mean_daily_volumes <span class="ot">&lt;-</span> leeds_car_2019 <span class="sc">|&gt;</span></span>
+<span id="cb25-28"><a href="#cb25-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># converting cosit to numeric</span></span>
+<span id="cb25-29"><a href="#cb25-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cosit =</span> <span class="fu">as.numeric</span>(Cosit)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-30"><a href="#cb25-30" aria-hidden="true" tabindex="-1"></a>  <span class="co"># extracting the date</span></span>
+<span id="cb25-31"><a href="#cb25-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_date =</span> <span class="fu">dmy_hm</span>(Sdate),</span>
+<span id="cb25-32"><a href="#cb25-32" aria-hidden="true" tabindex="-1"></a>         <span class="co"># extracts the day</span></span>
+<span id="cb25-33"><a href="#cb25-33" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">date</span>(time_date)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-34"><a href="#cb25-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculating the total flows for each day</span></span>
+<span id="cb25-35"><a href="#cb25-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Volume =</span> <span class="fu">sum</span>(Volume,<span class="at">na.rm =</span> T),</span>
+<span id="cb25-36"><a href="#cb25-36" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(date,Cosit)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-37"><a href="#cb25-37" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculating the daily mean </span></span>
+<span id="cb25-38"><a href="#cb25-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">daily_volume =</span> <span class="fu">mean</span>(Volume,<span class="at">na.rm =</span> T),</span>
+<span id="cb25-39"><a href="#cb25-39" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> Cosit) </span>
+<span id="cb25-40"><a href="#cb25-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-41"><a href="#cb25-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-42"><a href="#cb25-42" aria-hidden="true" tabindex="-1"></a>daily_volumes <span class="ot">&lt;-</span> leeds_car_2019 <span class="sc">|&gt;</span> </span>
+<span id="cb25-43"><a href="#cb25-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># converting cosit to numeric</span></span>
+<span id="cb25-44"><a href="#cb25-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cosit =</span> <span class="fu">as.numeric</span>(Cosit)) <span class="sc">|&gt;</span></span>
+<span id="cb25-45"><a href="#cb25-45" aria-hidden="true" tabindex="-1"></a>  <span class="co"># extracting the date</span></span>
+<span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_date =</span> <span class="fu">dmy_hm</span>(Sdate),</span>
+<span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>         <span class="co"># extracts the day</span></span>
+<span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">date</span>(time_date)) <span class="sc">|&gt;</span> <span class="co"># calculating the total flows for each day</span></span>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_volume =</span> <span class="fu">sum</span>(Volume,<span class="at">na.rm =</span> T),</span>
+<span id="cb25-50"><a href="#cb25-50" aria-hidden="true" tabindex="-1"></a>          <span class="at">.by =</span> <span class="fu">c</span>(date,Cosit))</span>
+<span id="cb25-51"><a href="#cb25-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-52"><a href="#cb25-52" aria-hidden="true" tabindex="-1"></a>daily_volumes <span class="sc">|&gt;</span> </span>
+<span id="cb25-53"><a href="#cb25-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cosit =</span> <span class="fu">as.numeric</span>(Cosit)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-54"><a href="#cb25-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Cosit <span class="sc">==</span> <span class="dv">90201</span>)<span class="sc">|&gt;</span> </span>
+<span id="cb25-55"><a href="#cb25-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,<span class="at">y =</span> mean_volume))<span class="sc">+</span></span>
+<span id="cb25-56"><a href="#cb25-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span>
+<span id="cb25-57"><a href="#cb25-57" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb25-58"><a href="#cb25-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-59"><a href="#cb25-59" aria-hidden="true" tabindex="-1"></a>mean_daily_volumes <span class="sc">|&gt;</span> </span>
+<span id="cb25-60"><a href="#cb25-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(daily_volume))<span class="sc">+</span></span>
+<span id="cb25-61"><a href="#cb25-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb25-62"><a href="#cb25-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-63"><a href="#cb25-63" aria-hidden="true" tabindex="-1"></a>leeds_car_location_sf <span class="sc">|&gt;</span></span>
+<span id="cb25-64"><a href="#cb25-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(mean_daily_volumes,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Site ID"</span><span class="ot">=</span><span class="st">"Cosit"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb25-65"><a href="#cb25-65" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>()<span class="sc">+</span></span>
+<span id="cb25-66"><a href="#cb25-66" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="st">"daily_volume"</span>,<span class="at">size =</span> <span class="st">"daily_volume"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>If you are interested in open traffic count datasets see <a href="https://juanfonsecals1.github.io/Results_Summary_Maps/">this</a></p>
-<section id="code" class="level4" data-number="1.1.0.1">
-<h4 data-number="1.1.0.1" class="anchored" data-anchor-id="code"><span class="header-section-number">1.1.0.1</span> code</h4>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>leeds_car_2019 <span class="sc">|&gt;</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Cosit) <span class="sc">|&gt;</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">mean</span>(Volume))</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>mean_daily_volumes <span class="ot">&lt;-</span> leeds_car_2019 <span class="sc">|&gt;</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># converting cosit to numeric</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cosit =</span> <span class="fu">as.numeric</span>(Cosit)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="co"># extracting the date</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_date =</span> <span class="fu">dmy_hm</span>(Sdate),</span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>         <span class="co"># extracts the day</span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">date</span>(time_date)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>  <span class="co"># calculating the total flows for each day</span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Volume =</span> <span class="fu">sum</span>(Volume,<span class="at">rm.na =</span> T),</span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(date,Cosit)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Calculating the daily mean </span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">daily_volume =</span> <span class="fu">mean</span>(Volume,<span class="at">rm.na =</span> T),</span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> Cosit) </span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>daily_volumes <span class="ot">&lt;-</span> leeds_car_2019 <span class="sc">|&gt;</span> </span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># converting cosit to numeric</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cosit =</span> <span class="fu">as.numeric</span>(Cosit)) <span class="sc">|&gt;</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># extracting the date</span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">time_date =</span> <span class="fu">dmy_hm</span>(Sdate),</span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>         <span class="co"># extracts the day</span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>         <span class="at">date =</span> <span class="fu">date</span>(time_date)) <span class="sc">|&gt;</span> <span class="co"># calculating the total flows for each day</span></span>
-<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">mean_volume =</span> <span class="fu">sum</span>(Volume,<span class="at">rm.na =</span> T),</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>          <span class="at">.by =</span> <span class="fu">c</span>(date,Cosit))</span>
-<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>daily_volumes <span class="sc">|&gt;</span> </span>
-<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Cosit =</span> <span class="fu">as.numeric</span>(Cosit)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Cosit <span class="sc">==</span> <span class="dv">90201</span>)<span class="sc">|&gt;</span> </span>
-<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> date,<span class="at">y =</span> mean_volume))<span class="sc">+</span></span>
-<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span>
-<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a>mean_daily_volumes <span class="sc">|&gt;</span> </span>
-<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(daily_volume))<span class="sc">+</span></span>
-<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
-<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a>leeds_car_location_sf <span class="sc">|&gt;</span></span>
-<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(mean_daily_volumes,<span class="at">by =</span> <span class="fu">c</span>(<span class="st">"Site ID"</span><span class="ot">=</span><span class="st">"Cosit"</span>)) <span class="sc">|&gt;</span> </span>
-<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>()<span class="sc">+</span></span>
-<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="st">"daily_volume"</span>,<span class="at">size =</span> <span class="st">"daily_volume"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
 </section>
-</section>
-<section id="cycle-counts-for-west-yorkshire" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="cycle-counts-for-west-yorkshire"><span class="header-section-number">1.2</span> Cycle counts for West Yorkshire</h2>
+<section id="cycle-counts-for-west-yorkshire" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="cycle-counts-for-west-yorkshire"><span class="header-section-number">1.3</span> Cycle counts for West Yorkshire</h2>
 <p>Some cities would have some dedicated infrastructure to count the number of people using bikes at strategic points of the city. We are going to use some cycle counters from West Yorkshire that you can find <a href="https://datamillnorth.org/dataset/e1dmk/leeds-annual-cycle-growth">here</a>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>leeds_bike_location <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://datamillnorth.org/download/e1dmk/a8c8a11e-1616-4915-a897-9ca5ab4e03b8/Cycle%20Counter%20Locations.csv"</span>,<span class="at">skip =</span> <span class="dv">1</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  ) </span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>leeds_bike_location_sf <span class="ot">&lt;-</span> leeds_bike_location <span class="sc">|&gt;</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Latitude,Longitude) <span class="sc">|&gt;</span> </span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"Longitude"</span>,<span class="st">"Latitude"</span>),</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">crs =</span> <span class="dv">4326</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="dv">27700</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>The data for 2019:</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>leeds_bike_2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv"</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>leeds_bike_location <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://datamillnorth.org/download/e1dmk/a8c8a11e-1616-4915-a897-9ca5ab4e03b8/Cycle%20Counter%20Locations.csv"</span>,<span class="at">skip =</span> <span class="dv">1</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  ) </span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>leeds_bike_location_sf <span class="ot">&lt;-</span> leeds_bike_location <span class="sc">|&gt;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(Latitude,Longitude) <span class="sc">|&gt;</span> </span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords =</span> <span class="fu">c</span>(<span class="st">"Longitude"</span>,<span class="st">"Latitude"</span>),</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>           <span class="at">crs =</span> <span class="dv">4326</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_transform</span>(<span class="dv">27700</span>)</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">"OpenStreetMap"</span>)<span class="sc">+</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(leeds_bike_location_sf)<span class="sc">+</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="st">"darkblue"</span>)</span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-16"><a href="#cb26-16" aria-hidden="true" tabindex="-1"></a><span class="do">### The data for 2019</span></span>
+<span id="cb26-17"><a href="#cb26-17" aria-hidden="true" tabindex="-1"></a>leeds_bike_2019 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(</span>
+<span id="cb26-18"><a href="#cb26-18" aria-hidden="true" tabindex="-1"></a>  <span class="st">"https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv"</span></span>
+<span id="cb26-19"><a href="#cb26-19" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 <p>Other interesting datasets for you to explore are <a href="https://parisdata.opendatasoft.com/explore/dataset/comptage-velo-donnees-compteurs/dataviz/?disjunctive.id_compteur&amp;disjunctive.nom_compteur&amp;disjunctive.id&amp;disjunctive.name">Paris cycling counters</a> or <a href="https://usmart.io/org/cyclingscotland/">Scotland</a>.</p>
 </section>
-<section id="pedestrian-counts-melbourne" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="pedestrian-counts-melbourne"><span class="header-section-number">1.3</span> Pedestrian Counts: Melbourne</h2>
-<p>Cities also monitor the number pedestrians in key locations. We can use data from the sensors in Melbourne accessible <a href="https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/export/">here</a>:</p>
+<section id="pedestrian-counts-melbourne" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="pedestrian-counts-melbourne"><span class="header-section-number">1.4</span> Pedestrian Counts: Melbourne</h2>
+<p>Cities also monitor the number of pedestrians in key locations. We can use data from the sensors in Melbourne accessible <a href="https://data.melbourne.vic.gov.au/explore/dataset/pedestrian-counting-system-sensor-locations/export/">here</a>:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>melbourne_locations_sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-sensor-locations/exports/geojson?lang=en&amp;timezone=Europe%2FLondon"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># locations of the sensors</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>melbourne_locations_sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-sensor-locations/exports/geojson?lang=en&amp;timezone=Europe%2FLondon"</span>)</span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="co"># a quick map to visualise the location of the sensors</span></span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">"OpenStreetMap"</span>)<span class="sc">+</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(melbourne_locations_sf)<span class="sc">+</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="st">"darkblue"</span>)</span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading data for december 2024</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>melbourne_dec2024 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-monthly-counts-per-hour/exports/csv?lang=en&amp;refine=sensing_date%3A%222024%2F12%22&amp;timezone=Australia%2FMelbourne&amp;use_labels=true&amp;delimiter=%2C"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
-<p>We will extract</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>melbourne_dec2024 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://data.melbourne.vic.gov.au/api/explore/v2.1/catalog/datasets/pedestrian-counting-system-monthly-counts-per-hour/exports/csv?lang=en&amp;refine=sensing_date%3A%222024%2F12%22&amp;timezone=Australia%2FMelbourne&amp;use_labels=true&amp;delimiter=%2C"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
-<section id="public-transport-tap-in-data-bogotá" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="public-transport-tap-in-data-bogotá"><span class="header-section-number">1.4</span> Public transport tap-in data: Bogotá</h2>
-<p>Public transport ridership data can be difficult to obtain. Fortunately, some cities which have systems managed by a public organisation make this data available for the public. Bogotá’s integrated transport system publishes the tap-in data for the BRT system (see <a href="https://datosabiertos-transmilenio.hub.arcgis.com/">this</a>). We will use one of the daily reports.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tm_stations_sf <span class="ot">&lt;-</span> <span class="fu">st_read</span>(<span class="st">"Estaciones_Troncales_de_TRANSMILENIO.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>Monthly boarding data can be manually obtained in the open data portal of TransMilenio <a href="https://storage.googleapis.com/validaciones_tmsa/validaciones_mensuales.html?">here</a></p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>url_tm <span class="ot">&lt;-</span> <span class="st">"https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>u_bn <span class="ot">&lt;-</span> <span class="fu">basename</span>(url_tm)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="sc">!</span><span class="fu">file.exists</span>(u_bn)){</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">download.file</span>(<span class="at">url =</span> url_tm,</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">destfile =</span> u_bn,</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">mode =</span> <span class="st">"wb"</span>)</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>url_tm <span class="ot">&lt;-</span> <span class="st">"https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"</span></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>tm_brt_2024 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="fu">unz</span>(u_bn,<span class="st">"troncal_2024.csv"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-<p>TfL’s crowding data is also a great source of ridership data. See <a href="https://datamillnorth.org/download/e1dmk/f13f5d49-6128-4619-a3ff-e6e12f88a71f/Cycle%20Data%202019.csv">this</a>.</p>
-<section id="code-1" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="code-1"><span class="header-section-number">1.4.1</span> code</h3>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>daily_tapins <span class="ot">&lt;-</span> tm_brt_2024 <span class="sc">|&gt;</span> </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">validaciones =</span> <span class="fu">sum</span>(validaciones),</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> <span class="fu">c</span>(Estacion_Parada,fecha)) <span class="sc">|&gt;</span> </span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">validaciones =</span> <span class="fu">mean</span>(validaciones),</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">.by =</span> Estacion_Parada) <span class="sc">|&gt;</span> </span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">numero_estacion =</span> <span class="fu">str_extract</span>(Estacion_Parada,<span class="st">"</span><span class="sc">\\</span><span class="st">(</span><span class="sc">\\</span><span class="st">d*</span><span class="sc">\\</span><span class="st">)"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>           <span class="fu">str_remove_all</span>(<span class="st">"(</span><span class="sc">\\</span><span class="st">(|</span><span class="sc">\\</span><span class="st">))"</span>)) </span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>tm_stations_sf <span class="sc">|&gt;</span> </span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(daily_tapins,<span class="at">by =</span> <span class="st">"numero_estacion"</span>) <span class="sc">|&gt;</span> </span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>()<span class="sc">+</span></span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="st">"validaciones"</span>,<span class="at">size =</span> <span class="st">"validaciones"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
-</section>
 </section>
 <section id="network-data-from-osm" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="network-data-from-osm"><span class="header-section-number">1.5</span> Network data from OSM</h2>
-<p>You may be already familiar with getting and using OSM data. This an example of how to obtain the network that can be used for pedestrians.</p>
+<p>You may be already familiar with getting and using OSM data. This is an example of how to obtain the network that can be used for pedestrians.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>my_coordinates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">76.78893552474851</span>,<span class="fl">18.01206727612776</span>)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>sf_point <span class="ot">&lt;-</span> <span class="fu">st_point</span>(my_coordinates) <span class="sc">|&gt;</span> <span class="fu">st_sfc</span>(<span class="at">crs =</span> <span class="dv">4326</span>)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>sf_buffer <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(sf_point,<span class="at">dist =</span> <span class="fl">15e3</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>my_coordinates <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">76.78893552474851</span>,<span class="fl">18.01206727612776</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>sf_point <span class="ot">&lt;-</span> <span class="fu">st_point</span>(my_coordinates) <span class="sc">|&gt;</span> <span class="fu">st_sfc</span>(<span class="at">crs =</span> <span class="dv">4326</span>)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>sf_buffer <span class="ot">&lt;-</span> <span class="fu">st_buffer</span>(sf_point,<span class="at">dist =</span> <span class="fl">15e3</span>)</span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">"OpenStreetMap"</span>)<span class="sc">+</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(sf_buffer)<span class="sc">+</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>()</span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>my_network <span class="ot">&lt;-</span> <span class="fu">oe_get_network</span>(sf_buffer, <span class="at">mode =</span> <span class="st">"walking"</span>)</span>
+<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(my_network)<span class="sc">+</span></span>
+<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="st">"highway"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_basemap</span>(<span class="st">"OpenStreetMap"</span>)<span class="sc">+</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(sf_buffer)<span class="sc">+</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_borders</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>my_network <span class="ot">&lt;-</span> <span class="fu">oe_get_network</span>(sf_buffer, <span class="at">mode =</span> <span class="st">"walking"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-title-container flex-fill">
+Tip
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(my_network)<span class="sc">+</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="st">"highway"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+<div class="callout-body-container callout-body">
 <p><strong><em>Note:</em></strong> you can access a simplified network dataset from Ordnance Survey’s <a href="https://www.ordnancesurvey.co.uk/products/os-open-roads">OpenRoads dataset</a>.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="links-to-other-resources" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Links to other resources</h1>
 <ul>
 <li>See here for a detailed reproducible example of how to visualise transport network datasets: <a href="https://github.com/juanfonsecaLS1/netvis-trafficflows" class="uri">https://github.com/juanfonsecaLS1/netvis-trafficflows</a></li>
-<li>See the <a href="https://luukvdmeer.github.io/sfnetworks/"><code>sfnetworks</code> package</a> package for information on how to work with spatial networks, including estimating centality measures and shortest paths.</li>
+<li>See the <a href="https://luukvdmeer.github.io/sfnetworks/"><code>sfnetworks</code> package</a> package for information on how to work with spatial networks, including estimating centrality measures and shortest paths.</li>
 </ul>
 
 
