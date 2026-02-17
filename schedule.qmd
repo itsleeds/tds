@@ -77,7 +77,7 @@ seminar_ids = c(
   "seminar2"
 )
 seminar_descriptions = c(
-  "Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation and transport data visualisation",
+  "Seminar 1: Juan Fonseca, University of Leeds: Processing and visualising traffic datasets",
   "Seminar 2: Will Deakin, Network Rail: Network simplification"
 )
 

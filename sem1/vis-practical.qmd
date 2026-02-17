@@ -1,5 +1,5 @@
 ---
-title: "Seminar 1: Traffic estimation and transport data visualisation"
+title: "Seminar 1: Processing and visualising traffic datasets"
 bibliography: ../tds.bib
 toc: true
 execute: 

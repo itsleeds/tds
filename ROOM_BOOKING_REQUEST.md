@@ -24,7 +24,7 @@
 ### Seminars
 **Institute for Transport Studies Room 1.11a-c:**
 
-7. **Thursday, 19 February 2026** - Week 17 - Seminar 1: Juan Fonseca (Traffic estimation and transport data visualisation) - 14:00-17:00
+7. **Thursday, 19 February 2026** - Week 17 - Seminar 1: Juan Fonseca (Processing and visualising traffic datasets) - 14:00-17:00
 8. **Thursday, 19 March 2026** - Week 21 - Seminar 2: Will Deakin, Network Rail (Network simplification) - 10:00-11:00
 
 ## Summary
