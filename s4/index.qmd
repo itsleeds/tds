@@ -3,7 +3,7 @@ title: "Session 4: Origin-destination data"
 toc: true
 execute: 
   cache: true
-  #eval: true
+  eval: true
   warning: false
   message: false
 bibliography: ../tds.bib
@@ -17,9 +17,9 @@ In this session, we will learn how to use origin-destination data. To do that we
 
 - We will start with reviewing the homework from the previous session
 - A short lecture on origin-destination data (see [slides](https://docs.google.com/presentation/d/1fKXK1ocCSkTQkTQn0eoYWURIfQuFgQwICFiDGVetMek/edit?usp=sharing))
-- Practical session working with various data, including analysing origin-destination trip flows in London Cycle Hire System.
+- Practical session working with various data, including analysing origin-destination in Bristol and origin-destination flows in London Cycle Hire System.
 - Bonus: Geometry operations and spatial analysis
-- Homework and next session
+- Homework
 
 # Review Homework
 
@@ -102,7 +102,6 @@ We will start with a simple map of the world. Load the `world` object from the `
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 #| echo: true
 #| output: false
 world = spData::world
@@ -124,7 +123,6 @@ Use some basic R functions to explore the `world` object. e.g. `class(world)`, `
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 #| warning: false
 plot(world)
 ```
@@ -148,7 +146,7 @@ Note that this makes a map of each column in the data frame. Try some other plot
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
+
 plot(world[3:6])
 plot(world["pop"])
 ```
@@ -173,7 +171,6 @@ Load the `nz` and `nz_height` datasets from the `spData` package.
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 #| echo: true
 #| output: false
 nz = spData::nz
@@ -192,7 +189,6 @@ We can use `tidyverse` functions like `filter` and `select` on `sf` objects in t
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 #| echo: true
 #| output: false
 canterbury = nz |> filter(Name == "Canterbury")
@@ -213,7 +209,7 @@ This syntax is not very clear. But is the equivalent to
 ## R
 ```{r}
 #| echo: true
-#| eval: false
+
 canterbury_height = nz_height[canterbury, , op = st_intersects]
 ```
 
@@ -249,7 +245,6 @@ In this section we will look at basic transport data in the R package **stplanr*
 Load the  `stplanr` package as follows:
 
 ```{r}
-#| eval: false
 #| echo: true
 #| output: false
 library(stplanr)
@@ -264,7 +259,6 @@ First we will load some sample data:
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 #| echo: true
 od_data = stplanr::od_data_sample
 zone = stplanr::cents_sf
@@ -284,7 +278,6 @@ Now we will rename one of the columns from `foot` to `walk`
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 #| echo: true
 od_data = od_data |>
   rename(walk = foot)
@@ -303,7 +296,7 @@ Next we will made a new dataset `od_data_walk` by taking `od_data` and piping it
 
 ## R
 ```{r}
-#| eval: false
+
 #| echo: true
 od_data_walk = od_data |>
   filter(walk > 0) |>
@@ -325,7 +318,6 @@ We can use the generic `plot` function to view the relationships between variabl
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 plot(od_data_walk)
 ```
 
@@ -341,7 +333,6 @@ R has built in modelling functions such as `lm` lets make a simple model to pred
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 #| echo: true
 model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
 od_data_walk$proportion_walk_predicted = model1$fitted.values
@@ -363,7 +354,6 @@ We can use the `ggplot2` package to graph our model predictions.
 ::: {.panel-tabset}
 ## R
 ```{r}
-#| eval: false
 ggplot(od_data_walk) +
   geom_point(aes(proportion_drive, proportion_walk)) +
   geom_line(aes(proportion_drive, proportion_walk_predicted))
@@ -431,7 +421,7 @@ print(f"Percentage of OD pairs where at least one person walks: {percentage_walk
 ### R
 ```{r}
 #| eval: false
-#|
+
 od_data = od_data |>
   filter(bicycle > 0) |>
   mutate(perc_cycle = (bicycle / all) * 100)
@@ -566,7 +556,6 @@ We need the `stplanr` package which provides many useful functions for transport
 ```{r}
 #| echo: true
 #| output: false
-#| eval: true
 library(stplanr)
 library(tmap)
 ```
