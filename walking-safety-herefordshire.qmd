@@ -1,0 +1,75 @@
+---
+title: "Walking safety in Herefordshire"
+format: html
+execute:
+  message: false
+  warning: false
+---
+
+## Overview
+
+This document imports STATS19 collision data, filters to collisions involving pedestrians in Herefordshire, and shows an interactive map with `tmap` in view mode.
+
+## Setup
+
+```{r}
+library(dplyr)
+library(sf)
+library(stats19)
+library(tmap)
+```
+
+## Data import
+
+```{r}
+# Download collision and casualty data (latest available year).
+collisions_2023 = get_stats19(year = 2023, type = "accidents", ask = FALSE)
+casualties_2023 = get_stats19(year = 2023, type = "casualties", ask = FALSE)
+
+# Keep collisions that involve at least one pedestrian casualty.
+pedestrian_collisions = casualties_2023 |>
+  filter(casualty_type == "Pedestrian") |>
+  distinct(accident_index)
+
+collisions_2023 = collisions_2023 |>
+  semi_join(pedestrian_collisions, by = "accident_index")
+
+# Convert collisions to sf points.
+collisions_sf = format_sf(collisions_2023)
+```
+
+## Herefordshire boundary
+
+```{r}
+# Load LAD boundaries and keep Herefordshire.
+lad_boundaries = read_sf(
+  "https://github.com/ITSLeeds/tds/releases/download/2025/lad_boundaries_2023.geojson"
+)
+
+herefordshire = lad_boundaries |>
+  filter(grepl("Herefordshire", lad23nm)) |>
+  st_union() |>
+  st_as_sf()
+
+# Clip collision points to Herefordshire.
+collisions_herefordshire = st_filter(collisions_sf, herefordshire)
+```
+
+## Interactive map
+
+```{r}
+# Create an interactive map.
+tmap_mode("view")
+
+tm_shape(herefordshire) +
+  tm_borders(lwd = 2, col = "#2c3e50") +
+  tm_shape(collisions_herefordshire) +
+  tm_dots(
+    col = "accident_severity",
+    palette = "Reds",
+    size = 0.05,
+    alpha = 0.7,
+    title = "Pedestrian collisions (2023)"
+  ) +
+  tm_basemap("OpenStreetMap")
+```
