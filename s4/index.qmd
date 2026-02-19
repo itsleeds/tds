@@ -296,7 +296,6 @@ Next we will made a new dataset `od_data_walk` by taking `od_data` and piping it
 
 ## R
 ```{r}
-
 #| echo: true
 od_data_walk = od_data |>
   filter(walk > 0) |>
