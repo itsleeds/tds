@@ -53,10 +53,10 @@ website:
             text: "Session 3: AI for Transport Planning"
           - href: s4
             text: Session 4
-          - href: s5
-            text: Session 5
           - href: sem1
             text: Seminar 1
+          - href: s5
+            text: Session 5
           - href: d2
             text: Formative assessment
           - href: sem2
