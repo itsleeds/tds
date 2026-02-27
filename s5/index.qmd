@@ -56,8 +56,8 @@ tmap_mode("plot")
 ## Using OpenTripPlanner to get routes
 
 We have set up the Multi-modal routing service OpenTripPlanner for West
-Yorkshire. Try typing this URL https://otp.robinlovelace.net/ 
-during the session into your browser. You should see something like
+Yorkshire. Try typing this URL during the session into your browser (provided by your instructor). 
+The service was set up using Docker with a reverse proxy for HTTPS, as documented at https://tdscience.github.io/dstp/routing-engine.html. You should see something like
 this:
 
 ![](images/otp_screenshot.png)
