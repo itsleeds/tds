@@ -78,7 +78,7 @@ To allow R to connect to the OpenTripPlanner server, we will use the
 
 ```{r connect, eval=FALSE}
 # ip = "localhost" # to run it on your computer (see final bonus exercise)
-ip = "otp.robinlovelace.net" # an actual server
+ip = "otp.atfutures.org" # an actual server
 otpcon = otp_connect(
   hostname = ip, 
   ssl = TRUE,
@@ -218,7 +218,7 @@ toPlace = sf::st_sf(
 Calculate routes for the first three desire lines with the following command:
 
 ```{r, message=FALSE,  eval=FALSE}
-routes_drive_top = otp_plan(otpcon = otpcon,
+routes_drive_top = otp_plan(
   otpcon = otpcon,
   fromPlace = fromPlace,
   toPlace = toPlace,
@@ -268,7 +268,7 @@ tm_shape(isochrone) +
   tm_fill("time", alpha = 0.6)
 ```
 
-Experiment with some different isochrones by changing the mode, and start location. Ty overlaying the OD data on top of you isochrones. Can you see a relationship between travel time and travel demand?
+Experiment with some different isochrones by changing the mode, and start location. Try overlaying the OD data on top of you isochrones. Can you see a relationship between travel time and travel demand?
 
 ```{r, message=FALSE, eval=FALSE, echo=FALSE}
 # Save the isochrone as RDS
@@ -439,7 +439,7 @@ tm_shape(routes_transit_group) +
 
 **Bonus Exercise**: 
 
-13. Redo exercise 16 but make sure you always select the fastest option. You may need to re-download the `routes_transit` data if you have overwritten the original data.
+* Redo exercise 11 but make sure you always select the fastest option. You may need to re-download the `routes_transit` data if you have overwritten the original data.
 
 ## Network Analysis (dodgr)
 
@@ -487,7 +487,7 @@ centrality_sf = dodgr_to_sf(centrality)
 
 **Exercise**
 
-14. Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?
+13. Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?
 
 ```{r, message=TRUE, echo=FALSE}
 tm_shape(centrality_sf) +
@@ -497,18 +497,14 @@ tm_shape(centrality_sf) +
 ```
 
 
-15. Use `dodgr::dodgr_contract_graph` before calculating centrality, how does this affect the computation time and the results?
+14. Use `dodgr::dodgr_contract_graph` before calculating centrality, how does this affect the computation time and the results?
 
 **Bonus Exercises**
 
-16. Work though the OpenTripPlanner vignettes [Getting Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html) and [Advanced Features](https://docs.ropensci.org/opentripplanner/articles/advanced_features.html) to run your own local trip planner for the Isle of Wight.
+* Work though the OpenTripPlanner vignettes [Getting Started](https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html) and [Advanced Features](https://docs.ropensci.org/opentripplanner/articles/advanced_features.html) to run your own local trip planner for the Isle of Wight.
 
 **Note** To use OpenTripPlanner on your own computer requires Java 8. See the [Prerequisites](https://docs.ropensci.org/opentripplanner/articles/prerequisites.html) for more details. If you can't install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.
 
-17. Read the `dodgr` [vignettes](https://urbananalyst.github.io/dodgr/articles/index.html)
+* Read the `dodgr` [vignettes](https://urbananalyst.github.io/dodgr/articles/index.html)
 
-18. Read the [MinorRoadTraffic](https://github.com/ITSLeeds/MinorRoadTraffic) [vignette](https://github.com/itsleeds/MinorRoadTraffic/blob/main/vignettes/Oxford.md) this is a Masters Dissertation topic where students attempt to predict traffic levels using network analysis. The vignette and the package contain some examples of Transport Data Science in action.
-
-# Homework
-
-Prepare you [draft portfolio](https://itsleeds.github.io/tds/d2/) for submission on the 28th February.
+* Read the [MinorRoadTraffic](https://github.com/ITSLeeds/MinorRoadTraffic) [vignette](https://github.com/itsleeds/MinorRoadTraffic/blob/main/vignettes/Oxford.md) this is a Masters Dissertation topic where students attempt to predict traffic levels using network analysis. The vignette and the package contain some examples of Transport Data Science in action.
