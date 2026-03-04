@@ -378,7 +378,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="using-opentripplanner-to-get-routes" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="using-opentripplanner-to-get-routes"><span class="header-section-number">3.2</span> Using OpenTripPlanner to get routes</h2>
 <p>We have set up the Multi-modal routing service OpenTripPlanner for West Yorkshire. Try typing this URL during the session into your browser (provided by your instructor). The service was set up using Docker with a reverse proxy for HTTPS, as documented at https://tdscience.github.io/dstp/routing-engine.html. You should see something like this:</p>
-<p><img src="images/otp_screenshot.png" class="img-fluid"> Note if you see a grey map use the layers button in the top right to switch to a different basemap.</p>
+<p><img src="https://github-production-user-asset-6210df.s3.amazonaws.com/1825120/558077020-079968ce-797a-4d7e-90e4-b5f836f4f391.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260304%2Fus-east-1%2Fs3%2Faws4_request&amp;X-Amz-Date=20260304T135535Z&amp;X-Amz-Expires=300&amp;X-Amz-Signature=acbc28c8337ea9904f375a19af7837f09e02a5f2792d3e6ea23c6f03a9519db0&amp;X-Amz-SignedHeaders=host" class="img-fluid" alt="OTP screenshot"> Note if you see a grey map use the layers button in the top right to switch to a different basemap.</p>
 <section id="otp-web-gui" class="level3" data-number="3.2.1">
 <h3 data-number="3.2.1" class="anchored" data-anchor-id="otp-web-gui"><span class="header-section-number">3.2.1</span> OTP Web GUI</h3>
 <p><strong>Exercise</strong></p>
@@ -424,30 +424,79 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson"</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>desire_lines <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(desire_lines)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 9 fields
+Geometry type: LINESTRING
+Dimension:     XY
+Bounding box:  xmin: -1.547 ymin: 53.7065 xmax: -1.2403 ymax: 53.7979
+Geodetic CRS:  WGS 84
+# A tibble: 6 × 10
+  from      to          all drive passenger  walk cycle  rail   bus
+  &lt;chr&gt;     &lt;chr&gt;     &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 E02002444 E02002443  1374    55        24  1121     0     0   174
+2 E02002443 E02002445  1189   100        44   868     4     0   173
+3 E02002442 E02002440  1494    83        40  1139    23     0   209
+4 E02002442 E02002441  1747   349       168   906    62     0   262
+5 E02002447 E02002448  4930    70        36  4162    98     0   564
+6 E02006876 E02006875 10314  1854       942  4680   251     0  2587
+# ℹ 1 more variable: geometry &lt;LINESTRING [°]&gt;</code></pre>
+</div>
 </div>
 <p>We will also download the points that represent the possible start and end point of trips in the model</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_cents.geojson"</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(centroids)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_cents.geojson"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>centroids <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(centroids)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Simple feature collection with 6 features and 3 fields
+Geometry type: POINT
+Dimension:     XY
+Bounding box:  xmin: -1.504671 ymin: 53.70647 xmax: -1.240289 ymax: 53.71751
+Geodetic CRS:  WGS 84
+# A tibble: 6 × 4
+  Zone_Code rural_urban region                               geometry
+  &lt;chr&gt;     &lt;chr&gt;       &lt;chr&gt;                             &lt;POINT [°]&gt;
+1 E02002446 Urban       Yorkshire and The Humber (-1.429355 53.70823)
+2 E02002447 Urban       Yorkshire and The Humber (-1.240289 53.70647)
+3 E02002444 Urban       Yorkshire and The Humber (-1.475509 53.71247)
+4 E02002445 Urban       Yorkshire and The Humber (-1.504671 53.71042)
+5 E02002442 Urban       Yorkshire and The Humber (-1.337374 53.71751)
+6 E02002443 Urban       Yorkshire and The Humber (-1.490287 53.71438)</code></pre>
+</div>
 </div>
 <p><strong>Exercise</strong></p>
 <ol start="2" type="1">
 <li>Plot the <code>desire_lines</code> and <code>centroids</code> objects using the <code>tmap</code> package to show the number of travellers on each desire_line and the locations of all centroids.</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>) <span class="co"># Change to view for interactive map</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(desire_lines) <span class="sc">+</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">"all"</span>,</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">lwd =</span> <span class="st">"all"</span>,  </span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">lwd.scale =</span> <span class="fu">tm_scale_continuous</span>(<span class="at">values.scale =</span> <span class="dv">10</span>), </span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">col.scale =</span> <span class="fu">tm_scale_continuous</span>(<span class="at">values  =</span> <span class="st">"-viridis"</span>)) <span class="sc">+</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(centroids) <span class="sc">+</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tmap_mode</span>(<span class="st">"plot"</span>) <span class="co"># Change to view for interactive map</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(desire_lines) <span class="sc">+</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_lines</span>(<span class="at">col =</span> <span class="st">"all"</span>,</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>           <span class="at">lwd =</span> <span class="st">"all"</span>,  </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>           <span class="at">lwd.scale =</span> <span class="fu">tm_scale_continuous</span>(<span class="at">values.scale =</span> <span class="dv">10</span>), </span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>           <span class="at">col.scale =</span> <span class="fu">tm_scale_continuous</span>(<span class="at">values  =</span> <span class="st">"-viridis"</span>)) <span class="sc">+</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_shape</span>(centroids) <span class="sc">+</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_dots</span>(<span class="at">fill =</span> <span class="st">"red"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 <ol start="3" type="1">
 <li>Produce some different maps for each mode of travel in the <code>desire_lines</code> dataset. How do the numbers of travellers change for walking, driving, and train travel? See example plot below.</li>
 </ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the start and endpoints using the package <code>lwgeom</code></p>
 <p><strong>Exercise</strong></p>
 <ol start="4" type="1">
@@ -457,56 +506,72 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>We need to extract start and end point from those desire lines. We would also like to give each place an ID value</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract start and end points</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>fromPlace <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sf</span>(</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> desire_top<span class="sc">$</span>from),</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">geometry =</span> lwgeom<span class="sc">::</span><span class="fu">st_startpoint</span>(desire_top)</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>toPlace <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sf</span>(</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> desire_top<span class="sc">$</span>to),</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">geometry =</span> lwgeom<span class="sc">::</span><span class="fu">st_endpoint</span>(desire_top)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract start and end points</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fromPlace <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sf</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> desire_top<span class="sc">$</span>from),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">geometry =</span> lwgeom<span class="sc">::</span><span class="fu">st_startpoint</span>(desire_top)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>toPlace <span class="ot">=</span> sf<span class="sc">::</span><span class="fu">st_sf</span>(</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(<span class="at">id =</span> desire_top<span class="sc">$</span>to),</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">geometry =</span> lwgeom<span class="sc">::</span><span class="fu">st_endpoint</span>(desire_top)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="6" type="1">
 <li>Create a new object called <code>routes_drive_top</code>, with driving routes between the OD pairs represented in the <code>desire_top</code> object.</li>
 </ol>
 <p>Calculate routes for the first three desire lines with the following command:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>routes_drive_top <span class="ot">=</span> <span class="fu">otp_plan</span>(<span class="at">otpcon =</span> otpcon,</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">otpcon =</span> otpcon,</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fromPlace =</span> fromPlace,</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">toPlace =</span> toPlace,</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fromID =</span> fromPlace<span class="sc">$</span>id,</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">toID =</span> toPlace<span class="sc">$</span>id,</span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">"CAR"</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>routes_drive_top <span class="ot">=</span> <span class="fu">otp_plan</span>(<span class="at">otpcon =</span> otpcon,</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">otpcon =</span> otpcon,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fromPlace =</span> fromPlace,</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">toPlace =</span> toPlace,</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">fromID =</span> fromPlace<span class="sc">$</span>id,</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">toID =</span> toPlace<span class="sc">$</span>id,</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">mode =</span> <span class="st">"CAR"</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <ol start="7" type="1">
 <li>Plot <code>routes_drive_top</code> using the <code>tmap</code> package mode. You should see something like the image below.</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(routes_drive_top) <span class="sc">+</span> <span class="fu">tm_lines</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(routes_drive_top) <span class="sc">+</span> <span class="fu">tm_lines</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
 <section id="isochrones" class="level3" data-number="3.2.3">
 <h3 data-number="3.2.3" class="anchored" data-anchor-id="isochrones"><span class="header-section-number">3.2.3</span> Isochrones</h3>
 <p>We can also get Isochrones from OTP. In this case lets work out how far we can travel in one hour by cycling and public transport.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>isochrone <span class="ot">=</span> <span class="fu">otp_isochrone</span>(otpcon, </span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">fromPlace =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.558655</span>, <span class="fl">53.807870</span>), </span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">mode =</span> <span class="fu">c</span>(<span class="st">"BICYCLE"</span>,<span class="st">"TRANSIT"</span>),</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">maxWalkDistance =</span> <span class="dv">3000</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>isochrone<span class="sc">$</span>time <span class="ot">=</span> isochrone<span class="sc">$</span>time <span class="sc">/</span> <span class="dv">60</span> <span class="co"># Convert from seconds to minutes</span></span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(isochrone) <span class="sc">+</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"time"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>isochrone <span class="ot">=</span> <span class="fu">otp_isochrone</span>(otpcon, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">fromPlace =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">1.558655</span>, <span class="fl">53.807870</span>), </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">mode =</span> <span class="fu">c</span>(<span class="st">"BICYCLE"</span>,<span class="st">"TRANSIT"</span>),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">maxWalkDistance =</span> <span class="dv">3000</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>isochrone<span class="sc">$</span>time <span class="ot">=</span> isochrone<span class="sc">$</span>time <span class="sc">/</span> <span class="dv">60</span> <span class="co"># Convert from seconds to minutes</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(isochrone) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"time"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Experiment with some different isochrones by changing the mode, and start location. Ty overlaying the OD data on top of you isochrones. Can you see a relationship between travel time and travel demand?</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p>To save you time and to prevent overloading the server, we have pre-generated some extra routes. Download these routes and load them into R.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive.geojson"</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>routes_drive <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/routes_transit.geojson"</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>routes_transit <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive.geojson"</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>routes_drive <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>u <span class="ot">=</span> <span class="st">"https://github.com/ITSLeeds/TDS/releases/download/22/routes_transit.geojson"</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>routes_transit <span class="ot">=</span> <span class="fu">read_sf</span>(u)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We will now join the number of drivers onto the driving routes.</p>
 <p><strong>Exercise</strong></p>
@@ -519,6 +584,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol start="10" type="1">
 <li>Plot the routes showing the number of drivers on each route.</li>
 </ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="route-networks-also-called-flow-maps" class="level2" data-number="3.3">
@@ -526,12 +600,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The map above shows some useful information about where people drive. But it has a problem. When many routes overlap it hides some of the drivers. What would be more useful would be to add those drivers together so we can see the total number of drivers on each road. This is what a route network does.</p>
 <p>We can produce a route network map using <code>stplanr::overline</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>rnet_drive <span class="ot">=</span> <span class="fu">overline</span>(routes_drive, <span class="st">"drive"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>rnet_drive <span class="ot">=</span> <span class="fu">overline</span>(routes_drive, <span class="st">"drive"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Exercise</strong></p>
 <ol start="10" type="1">
 <li>Make a route network for driving and plot it using the <code>tmap</code> package. How is is different from just plotting the routes?</li>
 </ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>Bonus Exercise</strong></p>
 <ul>
 <li>Read the <a href="https://journals.sagepub.com/doi/10.1177/2399808320942779">paper</a> about the overline function.</li>
@@ -546,22 +629,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ol>
 <p>Now We will group the separate parts of the routes together.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> routes_transit <span class="sc">|&gt;</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(fromPlace, toPlace) <span class="sc">|&gt;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">distance =</span> <span class="fu">sum</span>(distance))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> routes_transit <span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">group_by</span>(fromPlace, toPlace) <span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">summarise</span>(<span class="at">distance =</span> <span class="fu">sum</span>(distance))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We now have a single row, but instead of a <code>LINESTRING</code>, we now have a mix of <code>MULTILINESTRING</code> and <code>LINESTRING</code>, we can convert to a <code>LINESTRING</code> by using <code>st_line_merge()</code>. Note how the different columns where summarised.</p>
 <p>First, we must separate out the <code>MULTILINESTRING</code> and <code>LINESTRING</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>routes_transit_group_ml <span class="ot">=</span> routes_transit_group[<span class="fu">st_geometry_type</span>(routes_transit_group) <span class="sc">==</span> <span class="st">"MULTILINESTRING"</span>, ]</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> routes_transit_group[<span class="fu">st_geometry_type</span>(routes_transit_group) <span class="sc">!=</span> <span class="st">"MULTILINESTRING"</span>, ]</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>routes_transit_group_ml <span class="ot">=</span> <span class="fu">st_line_merge</span>(routes_transit_group_ml)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> <span class="fu">rbind</span>(routes_transit_group, routes_transit_group_ml)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>routes_transit_group_ml <span class="ot">=</span> routes_transit_group[<span class="fu">st_geometry_type</span>(routes_transit_group) <span class="sc">==</span> <span class="st">"MULTILINESTRING"</span>, ]</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> routes_transit_group[<span class="fu">st_geometry_type</span>(routes_transit_group) <span class="sc">!=</span> <span class="st">"MULTILINESTRING"</span>, ]</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>routes_transit_group_ml <span class="ot">=</span> <span class="fu">st_line_merge</span>(routes_transit_group_ml)</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>routes_transit_group <span class="ot">=</span> <span class="fu">rbind</span>(routes_transit_group, routes_transit_group_ml)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Exercise</strong></p>
 <ol start="12" type="1">
 <li>Plot the transit routes, what do you notice about them?</li>
 </ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <p><strong>Bonus Exercise</strong>:</p>
 <ol start="13" type="1">
 <li>Redo exercise 16 but make sure you always select the fastest option. You may need to re-download the <code>routes_transit</code> data if you have overwritten the original data.</li>
@@ -574,36 +666,48 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>We will now analyse the road network using <code>dodgr</code>. Network analysis can take a very long time on large areas. So we will use the example of the <a href="https://en.wikipedia.org/wiki/Isle_of_Wight">Isle of Wight</a>, which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.</p>
 <p>First we need to download the roads network from the OpenStreetMap using <code>osmextract::oe_get</code>. We will removed most of the paths and other features and just focus on the main roads. Then use <code>dodgr::weight_streetnet</code> to produce a graph of the road network.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data from OpenSteetMap</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> <span class="fu">oe_get</span>(<span class="st">"Isle of Wight"</span>, <span class="at">extra_tags =</span> <span class="fu">c</span>(<span class="st">"maxspeed"</span>,<span class="st">"oneway"</span>))</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove non-road data</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> roads[<span class="sc">!</span><span class="fu">is.na</span>(roads<span class="sc">$</span>highway),]</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Only get some road types see https://wiki.openstreetmap.org/wiki/Key:highway</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>road_types <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"primary"</span>,<span class="st">"primary_link"</span>,</span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"secondary"</span>,<span class="st">"secondary_link"</span>,</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"tertiary"</span>, <span class="st">"tertiary_link"</span>,</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"residential"</span>,<span class="st">"unclassified"</span>)</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> roads[roads<span class="sc">$</span>highway <span class="sc">%in%</span> road_types, ]</span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a graph</span></span>
-<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>graph <span class="ot">=</span> <span class="fu">weight_streetnet</span>(roads)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download data from OpenSteetMap</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> <span class="fu">oe_get</span>(<span class="st">"Isle of Wight"</span>, <span class="at">extra_tags =</span> <span class="fu">c</span>(<span class="st">"maxspeed"</span>,<span class="st">"oneway"</span>))</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove non-road data</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> roads[<span class="sc">!</span><span class="fu">is.na</span>(roads<span class="sc">$</span>highway),]</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Only get some road types see https://wiki.openstreetmap.org/wiki/Key:highway</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>road_types <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"primary"</span>,<span class="st">"primary_link"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>               <span class="st">"secondary"</span>,<span class="st">"secondary_link"</span>,</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"tertiary"</span>, <span class="st">"tertiary_link"</span>,</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"residential"</span>,<span class="st">"unclassified"</span>)</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>roads <span class="ot">=</span> roads[roads<span class="sc">$</span>highway <span class="sc">%in%</span> road_types, ]</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Build a graph</span></span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>graph <span class="ot">=</span> <span class="fu">weight_streetnet</span>(roads)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We will find the <a href="https://en.wikipedia.org/wiki/Betweenness_centrality">betweenness centrality</a> of the Isle of Wight road network. This can take a long time, so first lets check how long it will take.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_centrality_time</span>(graph)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>centrality <span class="ot">=</span> <span class="fu">dodgr_centrality</span>(graph)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">estimate_centrality_time</span>(graph)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Estimated time to calculate centrality for full graph is 00:00:08</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>centrality <span class="ot">=</span> <span class="fu">dodgr_centrality</span>(graph)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We can convert a <code>dodgr</code> graph back into a sf data frame for plotting using <code>dodgr::dodgr_to_sf</code></p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clear_dodgr_cache</span>()</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>centrality_sf <span class="ot">=</span> <span class="fu">dodgr_to_sf</span>(centrality)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">clear_dodgr_cache</span>()</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>centrality_sf <span class="ot">=</span> <span class="fu">dodgr_to_sf</span>(centrality)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Exercise</strong></p>
 <ol start="14" type="1">
 <li>Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?</li>
 </ol>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 <ol start="15" type="1">
 <li>Use <code>dodgr::dodgr_contract_graph</code> before calculating centrality, how does this affect the computation time and the results?</li>
 </ol>
