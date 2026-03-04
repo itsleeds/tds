@@ -60,7 +60,7 @@ Yorkshire. Try typing this URL during the session into your browser (provided by
 The service was set up using Docker with a reverse proxy for HTTPS, as documented at https://tdscience.github.io/dstp/routing-engine.html. You should see something like
 this:
 
-![OTP screenshot](https://github-production-user-asset-6210df.s3.amazonaws.com/1825120/558077020-079968ce-797a-4d7e-90e4-b5f836f4f391.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAVCODYLSA53PQK4ZA%2F20260304%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20260304T135535Z&X-Amz-Expires=300&X-Amz-Signature=acbc28c8337ea9904f375a19af7837f09e02a5f2792d3e6ea23c6f03a9519db0&X-Amz-SignedHeaders=host)
+![OTP screenshot](images/otp_screenshot.png)
 Note if you see a grey map use the layers button in the top right to switch to a different basemap.
 
 
