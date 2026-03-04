@@ -309,7 +309,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#network-analysis-dodgr" id="toc-network-analysis-dodgr" class="nav-link" data-scroll-target="#network-analysis-dodgr"><span class="header-section-number">3.4</span> Network Analysis (dodgr)</a></li>
   </ul></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">4</span> Homework</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/tds/edit/main/s5/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -391,7 +390,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>To allow R to connect to the OpenTripPlanner server, we will use the <code>opentripplanner</code> package and the function <code>otp_connect</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ip = "localhost" # to run it on your computer (see final bonus exercise)</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ip <span class="ot">=</span> <span class="st">"otp.robinlovelace.net"</span> <span class="co"># an actual server</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>ip <span class="ot">=</span> <span class="st">"otp.atfutures.org"</span> <span class="co"># an actual server</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>otpcon <span class="ot">=</span> <span class="fu">otp_connect</span>(</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">hostname =</span> ip, </span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">ssl =</span> <span class="cn">TRUE</span>,</span>
@@ -521,7 +520,7 @@ Geodetic CRS:  WGS 84
 </ol>
 <p>Calculate routes for the first three desire lines with the following command:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>routes_drive_top <span class="ot">=</span> <span class="fu">otp_plan</span>(<span class="at">otpcon =</span> otpcon,</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>routes_drive_top <span class="ot">=</span> <span class="fu">otp_plan</span>(</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">otpcon =</span> otpcon,</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">fromPlace =</span> fromPlace,</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">toPlace =</span> toPlace,</span>
@@ -556,7 +555,7 @@ Geodetic CRS:  WGS 84
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(isochrone) <span class="sc">+</span></span>
 <span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_fill</span>(<span class="st">"time"</span>, <span class="at">alpha =</span> <span class="fl">0.6</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>Experiment with some different isochrones by changing the mode, and start location. Ty overlaying the OD data on top of you isochrones. Can you see a relationship between travel time and travel demand?</p>
+<p>Experiment with some different isochrones by changing the mode, and start location. Try overlaying the OD data on top of you isochrones. Can you see a relationship between travel time and travel demand?</p>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -655,9 +654,9 @@ Geodetic CRS:  WGS 84
 </div>
 </div>
 <p><strong>Bonus Exercise</strong>:</p>
-<ol start="13" type="1">
-<li>Redo exercise 16 but make sure you always select the fastest option. You may need to re-download the <code>routes_transit</code> data if you have overwritten the original data.</li>
-</ol>
+<ul>
+<li>Redo exercise 11 but make sure you always select the fastest option. You may need to re-download the <code>routes_transit</code> data if you have overwritten the original data.</li>
+</ul>
 </section>
 </section>
 <section id="network-analysis-dodgr" class="level2" data-number="3.4">
@@ -696,7 +695,7 @@ Geodetic CRS:  WGS 84
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>centrality_sf <span class="ot">=</span> <span class="fu">dodgr_to_sf</span>(centrality)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p><strong>Exercise</strong></p>
-<ol start="14" type="1">
+<ol start="13" type="1">
 <li>Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?</li>
 </ol>
 <div class="cell">
@@ -708,25 +707,21 @@ Geodetic CRS:  WGS 84
 </div>
 </div>
 </div>
-<ol start="15" type="1">
+<ol start="14" type="1">
 <li>Use <code>dodgr::dodgr_contract_graph</code> before calculating centrality, how does this affect the computation time and the results?</li>
 </ol>
 <p><strong>Bonus Exercises</strong></p>
-<ol start="16" type="1">
+<ul>
 <li>Work though the OpenTripPlanner vignettes <a href="https://docs.ropensci.org/opentripplanner/articles/opentripplanner.html">Getting Started</a> and <a href="https://docs.ropensci.org/opentripplanner/articles/advanced_features.html">Advanced Features</a> to run your own local trip planner for the Isle of Wight.</li>
-</ol>
+</ul>
 <p><strong>Note</strong> To use OpenTripPlanner on your own computer requires Java 8. See the <a href="https://docs.ropensci.org/opentripplanner/articles/prerequisites.html">Prerequisites</a> for more details. If you can’t install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.</p>
-<ol start="17" type="1">
+<ul>
 <li><p>Read the <code>dodgr</code> <a href="https://urbananalyst.github.io/dodgr/articles/index.html">vignettes</a></p></li>
 <li><p>Read the <a href="https://github.com/ITSLeeds/MinorRoadTraffic">MinorRoadTraffic</a> <a href="https://github.com/itsleeds/MinorRoadTraffic/blob/main/vignettes/Oxford.md">vignette</a> this is a Masters Dissertation topic where students attempt to predict traffic levels using network analysis. The vignette and the package contain some examples of Transport Data Science in action.</p></li>
-</ol>
-</section>
-</section>
-<section id="homework" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> Homework</h1>
-<p>Prepare you <a href="https://itsleeds.github.io/tds/d2/">draft portfolio</a> for submission on the 28th February.</p>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
