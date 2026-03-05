@@ -1533,7 +1533,7 @@
     "href": "s5/index.html#network-analysis-dodgr",
     "title": "Session 5: Routing",
     "section": "3.4 Network Analysis (dodgr)",
-    "text": "3.4 Network Analysis (dodgr)\nNote Some people have have problems running dodgr on Windows, if you do follow these instructions.\nWe will now analyse the road network using dodgr. Network analysis can take a very long time on large areas. So we will use the example of the Isle of Wight, which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.\nFirst we need to download the roads network from the OpenStreetMap using osmextract::oe_get. We will removed most of the paths and other features and just focus on the main roads. Then use dodgr::weight_streetnet to produce a graph of the road network.\n\n# Download data from OpenSteetMap\nroads = oe_get(\"Isle of Wight\", extra_tags = c(\"maxspeed\",\"oneway\"))\n\n# Remove non-road data\nroads = roads[!is.na(roads$highway),]\n\n# Only get some road types see https://wiki.openstreetmap.org/wiki/Key:highway\nroad_types = c(\"primary\",\"primary_link\",\n               \"secondary\",\"secondary_link\",\n               \"tertiary\", \"tertiary_link\",\n               \"residential\",\"unclassified\")\nroads = roads[roads$highway %in% road_types, ]\n\n# Build a graph\ngraph = weight_streetnet(roads)\n\nWe will find the betweenness centrality of the Isle of Wight road network. This can take a long time, so first lets check how long it will take.\n\nestimate_centrality_time(graph)\n\nEstimated time to calculate centrality for full graph is 00:00:09\n\ncentrality = dodgr_centrality(graph)\n\nWe can convert a dodgr graph back into a sf data frame for plotting using dodgr::dodgr_to_sf\n\nclear_dodgr_cache()\ncentrality_sf = dodgr_to_sf(centrality)\n\nExercise\n\nPlot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?\n\n\n\n\n\n\n\n\n\n\n\nUse dodgr::dodgr_contract_graph before calculating centrality, how does this affect the computation time and the results?\n\nBonus Exercises\n\nWork though the OpenTripPlanner vignettes Getting Started and Advanced Features to run your own local trip planner for the Isle of Wight.\n\nNote To use OpenTripPlanner on your own computer requires Java 8. See the Prerequisites for more details. If you can’t install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.\n\nRead the dodgr vignettes\nRead the MinorRoadTraffic vignette this is a Masters Dissertation topic where students attempt to predict traffic levels using network analysis. The vignette and the package contain some examples of Transport Data Science in action."
+    "text": "3.4 Network Analysis (dodgr)\nNote Some people have have problems running dodgr on Windows, if you do follow these instructions.\nWe will now analyse the road network using dodgr. Network analysis can take a very long time on large areas. So we will use the example of the Isle of Wight, which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.\nFirst we need to download the roads network from the OpenStreetMap using osmextract::oe_get. We will removed most of the paths and other features and just focus on the main roads. Then use dodgr::weight_streetnet to produce a graph of the road network.\n\n# Download data from OpenSteetMap\nroads = oe_get(\"Isle of Wight\", extra_tags = c(\"maxspeed\",\"oneway\"))\n\n# Remove non-road data\nroads = roads[!is.na(roads$highway),]\n\n# Only get some road types see https://wiki.openstreetmap.org/wiki/Key:highway\nroad_types = c(\"primary\",\"primary_link\",\n               \"secondary\",\"secondary_link\",\n               \"tertiary\", \"tertiary_link\",\n               \"residential\",\"unclassified\")\nroads = roads[roads$highway %in% road_types, ]\n\n# Build a graph\ngraph = weight_streetnet(roads)\n\nWe will find the betweenness centrality of the Isle of Wight road network. This can take a long time, so first lets check how long it will take.\n\nestimate_centrality_time(graph)\n\nEstimated time to calculate centrality for full graph is 00:00:08\n\ncentrality = dodgr_centrality(graph)\n\nWe can convert a dodgr graph back into a sf data frame for plotting using dodgr::dodgr_to_sf\n\nclear_dodgr_cache()\ncentrality_sf = dodgr_to_sf(centrality)\n\nExercise\n\nPlot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?\n\n\n\n\n\n\n\n\n\n\n\nUse dodgr::dodgr_contract_graph before calculating centrality, how does this affect the computation time and the results?\n\nBonus Exercises\n\nWork though the OpenTripPlanner vignettes Getting Started and Advanced Features to run your own local trip planner for the Isle of Wight.\n\nNote To use OpenTripPlanner on your own computer requires Java 8. See the Prerequisites for more details. If you can’t install Java 8 try some of the examples in the vignettes but modify them for West Yorkshire.\n\nRead the dodgr vignettes\nRead the MinorRoadTraffic vignette this is a Masters Dissertation topic where students attempt to predict traffic levels using network analysis. The vignette and the package contain some examples of Transport Data Science in action."
   },
   {
     "objectID": "s5/stats19-2019-2020-gemini.html",
@@ -1926,154 +1926,154 @@
   {
     "objectID": "sem2/index.html",
     "href": "sem2/index.html",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "",
-    "text": "The slides and high-resolution versions of some images from the talk are available here\n\n\n\n\nThe railway is international, noting the location of the United Kingdom\n\n\n\n\nThe operation of railway infrastructure in Britain is organised into thirteen routes and six regions.\n\nThis diagram show four routes that make up the Eastern region."
+    "text": "In this seminar we will hear from Will Deakin about his work on railway data and have a drop-in session to ask questions about the module and the assessment.\n\n\nThe slides and high-resolution versions of some images from the talk are available here\n\n\n\n\nThe railway is international, noting the location of the United Kingdom\n\n\n\n\nThe operation of railway infrastructure in Britain is organised into thirteen routes and six regions.\n\nThis diagram show four routes that make up the Eastern region."
   },
   {
     "objectID": "sem2/index.html#make-things-as-simple-as-possiblebut-no-simpler",
     "href": "sem2/index.html#make-things-as-simple-as-possiblebut-no-simpler",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "",
     "text": "The slides and high-resolution versions of some images from the talk are available here"
   },
   {
     "objectID": "sem2/index.html#the-global-railway",
     "href": "sem2/index.html#the-global-railway",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "",
     "text": "The railway is international, noting the location of the United Kingdom"
   },
   {
     "objectID": "sem2/index.html#the-british-railway",
     "href": "sem2/index.html#the-british-railway",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "",
     "text": "The operation of railway infrastructure in Britain is organised into thirteen routes and six regions.\n\nThis diagram show four routes that make up the Eastern region."
   },
   {
     "objectID": "sem2/index.html#logical-network-model",
     "href": "sem2/index.html#logical-network-model",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "2.1 Logical Network Model",
     "text": "2.1 Logical Network Model\nThe timetable production process can be modeled as a series of processes and interactions between railway operators and infrastructure manager."
   },
   {
     "objectID": "sem2/index.html#logical-operations-model",
     "href": "sem2/index.html#logical-operations-model",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "2.2 Logical Operations Model",
     "text": "2.2 Logical Operations Model\nThe operation production process can be modeled as series of processes and data exchange."
   },
   {
     "objectID": "sem2/index.html#green-house-gases-co2",
     "href": "sem2/index.html#green-house-gases-co2",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "3.1 Green House Gases (CO2)",
     "text": "3.1 Green House Gases (CO2)\nUK produced 455 million tonnes CO2 equivalent (mtCO2e) in 2019\nTransport accounted for 122 mtCO2e (26.8%) of which\n\nHGV 19.5 mtCO2e (16.0%/4.2%)\nAll rail 1.7 mtCO2e (1.4%/0.04%)\nA freight train removes up to 76 HGVs from our roads"
   },
   {
     "objectID": "sem2/index.html#national-greenhouse-emissions-1990-2020",
     "href": "sem2/index.html#national-greenhouse-emissions-1990-2020",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "3.2 National Greenhouse Emissions 1990-2020",
     "text": "3.2 National Greenhouse Emissions 1990-2020"
   },
   {
     "objectID": "sem2/index.html#transport-greenhouse-emissions-1990-2020",
     "href": "sem2/index.html#transport-greenhouse-emissions-1990-2020",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "3.3 Transport Greenhouse Emissions 1990-2020",
     "text": "3.3 Transport Greenhouse Emissions 1990-2020\n\n(from DfT Transport Statistics (2021))"
   },
   {
     "objectID": "sem2/index.html#system-visualisation",
     "href": "sem2/index.html#system-visualisation",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "4.1 System Visualisation",
     "text": "4.1 System Visualisation\nAn Open-TrainTimes (OTT) schematic view of Leeds Stations\n\n\nOpenTrainTimes: here\nNational Rail Enquiries here\nRealtime Trains here"
   },
   {
     "objectID": "sem2/index.html#operation-railway",
     "href": "sem2/index.html#operation-railway",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "4.2 Operation Railway",
     "text": "4.2 Operation Railway\nThe view of live operational railway systems."
   },
   {
     "objectID": "sem2/index.html#the-power-of-social-media",
     "href": "sem2/index.html#the-power-of-social-media",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "6.1 The Power of Social Media",
     "text": "6.1 The Power of Social Media\nThe benefit of positive social media interaction."
   },
   {
     "objectID": "sem2/index.html#the-power-of-open-data",
     "href": "sem2/index.html#the-power-of-open-data",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "6.2 The Power of Open Data",
     "text": "6.2 The Power of Open Data\nAll data used is on the basis that it under open or permissive license.\n\nThe base map of mainland Britain is derived from the WorldPop base maps under CC 4.0 by deed retrieved 2023-09-07.\nThe centre-line track-model is hosted by OpenRailData under the Open Government License(OGL) by Network Rail, retrieved 2023-07-11.\nThe Origin Destination Matrix data, for example ODM 2022-23, were published by the Office of Road and Rail on the Rail Development Group Rail Data Marketplace, under the OGL. Retrieved 2024-02-18.\nThe Station Attributes for All-Mainline Stations published by the Office of Road and Rail under the OGL. Retrieved 2024-02-18.\nThe Network Rail CORPUS dataset is an open data feed which is released under the OGL. Retrieved 2023-11-29 as a local copy.\nThe National Public Transport Access Network (NaPTAN) under the OGL and is updated each time the scripts are run.\nWhile this implementation now uses NaPTAN and CORPUS to validate and identify six closed stations, the Isle of Wight ferry-link continues to use OpenStreetMap data, licensed under CC-BY-SA 2.0 through the OverPassAPI Turbo service, and is updated each time the scripts are run."
   },
   {
     "objectID": "sem2/index.html#seconds-of-fame",
     "href": "sem2/index.html#seconds-of-fame",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "6.3 15 Seconds of Fame",
     "text": "6.3 15 Seconds of Fame\nThe original 2018/19 visualisation received 500k X/Twitter views within a week, as well as an OpenInnovations blog post and a Bloomberg article Nine Maps Show How Britain Is on the Move.\nAll code and data is published on GitHub under my anisotropi4/kingfisher repository and updated with the ORR publication of the additional 2020-2024 financial year data."
   },
   {
     "objectID": "sem2/index.html#simple-visualisations",
     "href": "sem2/index.html#simple-visualisations",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "6.4 Simple Visualisations",
     "text": "6.4 Simple Visualisations\nThe squares and coolest countries in Europe."
   },
   {
     "objectID": "sem2/index.html#shortest-path-census-flow",
     "href": "sem2/index.html#shortest-path-census-flow",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "7.1 Shortest path census flow",
     "text": "7.1 Shortest path census flow"
   },
   {
     "objectID": "sem2/index.html#output-area-oa-census-2011-centroid",
     "href": "sem2/index.html#output-area-oa-census-2011-centroid",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "7.2 Output Area (OA) Census 2011 centroid",
     "text": "7.2 Output Area (OA) Census 2011 centroid"
   },
   {
     "objectID": "sem2/index.html#full-oa-2011-delaunay-mesh",
     "href": "sem2/index.html#full-oa-2011-delaunay-mesh",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "7.3 Full OA 2011 Delaunay mesh",
     "text": "7.3 Full OA 2011 Delaunay mesh"
   },
   {
     "objectID": "sem2/index.html#oa-2011-odm-mesh",
     "href": "sem2/index.html#oa-2011-odm-mesh",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "7.4 OA 2011 ODM mesh",
     "text": "7.4 OA 2011 ODM mesh"
   },
   {
     "objectID": "sem2/index.html#network-simplification-and-parenx",
     "href": "sem2/index.html#network-simplification-and-parenx",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "7.5 Network simplification and parenx",
     "text": "7.5 Network simplification and parenx\nThe network merge paper is here.\n\nThe parenx PyPi module.\n\n7.5.1 parenx cookbook\nThe parenx cookbook shows examples of how to use the parenx library."
   },
   {
     "objectID": "sem2/index.html#make-it-look-good.",
     "href": "sem2/index.html#make-it-look-good.",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "8.1 Make it look good.",
     "text": "8.1 Make it look good.\n\nArt E-coli statue."
   },
   {
     "objectID": "sem2/index.html#the-railway",
     "href": "sem2/index.html#the-railway",
-    "title": "Seminar 2 -",
+    "title": "Seminar 2: Guest talk and drop-in session to ask questions",
     "section": "8.2 The Railway",
     "text": "8.2 The Railway\nBeeching 1963 and today."
   },
