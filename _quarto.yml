@@ -55,10 +55,10 @@ website:
             text: Session 4
           - href: sem1
             text: Seminar 1
-          - href: s5
-            text: Session 5
           - href: d2
             text: Formative assessment
+          - href: s5
+            text: Session 5
           - href: sem2
             text: Seminar 2 and drop-in session
           - href: s6
