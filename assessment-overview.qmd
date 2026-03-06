@@ -17,7 +17,7 @@ The module is assessed through two coursework assignments:
 
 1. **Formative Assessment (CW1)** 
    - Required but non-assessed (0% of final mark)
-   - Due: 27th February 2026, 13:59
+   - Due: 20th March 2026, 13:59
    - Project plan and reproducible code demonstration
    - Length: Up to 4 pages
 
@@ -141,7 +141,7 @@ Both assessments are categorized as **GREEN** for AI usage:
 
 ## Key Dates (2025-26)
 
-- **27 February 2026, 13:59**: Formative assessment (CW1)
+- **20 March 2026, 13:59**: Formative assessment (CW1)
 - **15 May 2026, 14:00**: Summative assessment (CW2)
 - Feedback provided within 15 working days
 

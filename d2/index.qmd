@@ -6,7 +6,7 @@ execute:
 number-sections: false
 ---
 
-This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is **27th February 2026, 13:59**.
+This is a formative (non-assessed but required) submission that will help you develop your final coursework. The deadline is **20th March 2026, 13:59**.
 
 ## What to Submit
 
