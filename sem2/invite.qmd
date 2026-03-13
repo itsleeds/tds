@@ -1,5 +1,7 @@
 ---
 title: "Open Tools and Creative Visualisation for Transport Systems"
+number-sections: false
+bibliography: ../references.bib
 ---
 
 # Open Tools and Creative Visualisation for Transport Systems
@@ -15,9 +17,10 @@ We are pleased to announce a seminar by **Will Deakin** from **Network Rail** on
 
 ## Abstract
 
-How do we make sense of the complex and vast railway network? In this seminar, Will Deakin will discuss his work at Network Rail using new open-source tools and creative methods to better understand transport systems. The talk will cover logical models of the railway, the power of open data, and how innovative data visualization can provide powerful insights into national infrastructure.
+How do we make sense of the complex and vast railway network? Where should new investment in sustainable transport be directed? In this seminar, Will Deakin will discuss his work at Network Rail and beyond, using new open-source tools and creative methods to better understand transport systems. The talk will cover models of the railway, ways to visualise potential demand, the power of open data, and how innovative data visualization can provide powerful insights into national infrastructure.
 
-Drawing on experience with the \"kingfisher\" project and various open data sources, the talk will show how data science can be used to model timetables, analyze emissions, and understand passenger flows through network simplification and visualization. The talk builds on the data acquisition skills covered in **Session 2**, including the use of **OpenStreetMap** and **stats19** data for transport analysis. We will also learn about the \"parenx\" library for network simplification.
+Drawing on experience with the \"parenx\" package, described in a recent paper co-authored with researchers at the University of Leeds and ESRI (Environmental Systems Research Institute) [@deakinRouteNetworkSimplification2025], and various open data sources, the talk will show how data science can be used make datasets come to life and connect with people.
+Will's visualisations have been viewed millions of times on social media and featured in Bloomberg, demonstrating the power of open data and open tools to engage a wide audience with transport data.
 
 ## Agenda
 
