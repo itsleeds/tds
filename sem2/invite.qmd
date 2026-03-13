@@ -4,8 +4,6 @@ number-sections: false
 bibliography: ../tds.bib
 ---
 
-# Open Tools and Creative Visualisation for Transport Systems
-
 We are pleased to announce a seminar by **Will Deakin** from **Network Rail** on the use of **Open Tools and Creative Visualisation** for understanding complex transport systems. 
 
 ## Details
