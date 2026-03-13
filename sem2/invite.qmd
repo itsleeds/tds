@@ -6,6 +6,10 @@ bibliography: ../tds.bib
 
 We are pleased to announce a seminar by **Will Deakin** from **Network Rail** on the use of **Open Tools and Creative Visualisation** for understanding complex transport systems. 
 
+This is part of the Transport Data Science MSc Module at the Institute for Transport Studies, University of Leeds, and will be a hybrid meeting on Teams and in person. In-person attendance is encouraged for debate and refreshments!
+
+Get in touch with Robin online for a link to the Teams invite if you are not in the Institute for Transport Studies but would like to join online.
+
 ## Details
 
 - **Speaker:** Will Deakin, Network Rail
