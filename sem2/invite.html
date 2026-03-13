@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -257,12 +277,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#open-tools-and-creative-visualisation-for-transport-systems" id="toc-open-tools-and-creative-visualisation-for-transport-systems" class="nav-link active" data-scroll-target="#open-tools-and-creative-visualisation-for-transport-systems"><span class="header-section-number">1</span> Open Tools and Creative Visualisation for Transport Systems</a>
+  <li><a href="#open-tools-and-creative-visualisation-for-transport-systems" id="toc-open-tools-and-creative-visualisation-for-transport-systems" class="nav-link active" data-scroll-target="#open-tools-and-creative-visualisation-for-transport-systems">Open Tools and Creative Visualisation for Transport Systems</a>
   <ul class="collapse">
-  <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details"><span class="header-section-number">1.1</span> Details</a></li>
-  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract"><span class="header-section-number">1.2</span> Abstract</a></li>
-  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda"><span class="header-section-number">1.3</span> Agenda</a></li>
-  <li><a href="#about-the-speaker" id="toc-about-the-speaker" class="nav-link" data-scroll-target="#about-the-speaker"><span class="header-section-number">1.4</span> About the Speaker</a></li>
+  <li><a href="#details" id="toc-details" class="nav-link" data-scroll-target="#details">Details</a></li>
+  <li><a href="#abstract" id="toc-abstract" class="nav-link" data-scroll-target="#abstract">Abstract</a></li>
+  <li><a href="#agenda" id="toc-agenda" class="nav-link" data-scroll-target="#agenda">Agenda</a></li>
+  <li><a href="#about-the-speaker" id="toc-about-the-speaker" class="nav-link" data-scroll-target="#about-the-speaker">About the Speaker</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/tds/edit/main/sem2/invite.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
@@ -289,11 +309,11 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="open-tools-and-creative-visualisation-for-transport-systems" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Open Tools and Creative Visualisation for Transport Systems</h1>
+<section id="open-tools-and-creative-visualisation-for-transport-systems" class="level1">
+<h1>Open Tools and Creative Visualisation for Transport Systems</h1>
 <p>We are pleased to announce a seminar by <strong>Will Deakin</strong> from <strong>Network Rail</strong> on the use of <strong>Open Tools and Creative Visualisation</strong> for understanding complex transport systems.</p>
-<section id="details" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="details"><span class="header-section-number">1.1</span> Details</h2>
+<section id="details" class="level2">
+<h2 class="anchored" data-anchor-id="details">Details</h2>
 <ul>
 <li><strong>Speaker:</strong> Will Deakin, Network Rail</li>
 <li><strong>Date:</strong> Thursday, 19th March 2026</li>
@@ -301,13 +321,13 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Location:</strong> Institute for Transport Studies (ITS), University of Leeds, Room 1.11a-c (and online via Teams)</li>
 </ul>
 </section>
-<section id="abstract" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="abstract"><span class="header-section-number">1.2</span> Abstract</h2>
-<p>How do we make sense of the complex and vast railway network? In this seminar, Will Deakin will discuss his work at Network Rail using new open-source tools and creative methods to better understand transport systems. The talk will cover logical models of the railway, the power of open data, and how innovative data visualization can provide powerful insights into national infrastructure.</p>
-<p>Drawing on experience with the "kingfisher" project and various open data sources, the talk will show how data science can be used to model timetables, analyze emissions, and understand passenger flows through network simplification and visualization. The talk builds on the data acquisition skills covered in <strong>Session 2</strong>, including the use of <strong>OpenStreetMap</strong> and <strong>stats19</strong> data for transport analysis. We will also learn about the "parenx" library for network simplification.</p>
+<section id="abstract" class="level2">
+<h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
+<p>How do we make sense of the complex and vast railway network? Where should new investment in sustainable transport be directed? In this seminar, Will Deakin will discuss his work at Network Rail and beyond, using new open-source tools and creative methods to better understand transport systems. The talk will cover models of the railway, ways to visualise potential demand, the power of open data, and how innovative data visualization can provide powerful insights into national infrastructure.</p>
+<p>Drawing on experience with the "parenx" package, described in a recent paper co-authored with researchers at the University of Leeds and ESRI (Environmental Systems Research Institute) <span class="citation" data-cites="deakinRouteNetworkSimplification2025">(<a href="#ref-deakinRouteNetworkSimplification2025" role="doc-biblioref">Deakin et al., 2025</a>)</span>, and various open data sources, the talk will show how data science can be used make datasets come to life and connect with people. Will’s visualisations have been viewed millions of times on social media and featured in Bloomberg, demonstrating the power of open data and open tools to engage a wide audience with transport data.</p>
 </section>
-<section id="agenda" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="agenda"><span class="header-section-number">1.3</span> Agenda</h2>
+<section id="agenda" class="level2">
+<h2 class="anchored" data-anchor-id="agenda">Agenda</h2>
 <ul>
 <li><strong>10:00 - 10:40:</strong> Seminar by Will Deakin</li>
 <li><strong>10:40 - 11:00:</strong> Q&amp;A Session</li>
@@ -316,17 +336,22 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>Following the seminar, there will be an open workshop session. <strong>Transport Data Science</strong> students will work on their projects, and all other attendees are invited to stay and work on a data science project of their choosing—perhaps inspired by the morning’s talk! Demonstrators will be available to support and discuss ideas.</p>
 </section>
-<section id="about-the-speaker" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="about-the-speaker"><span class="header-section-number">1.4</span> About the Speaker</h2>
+<section id="about-the-speaker" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-speaker">About the Speaker</h2>
 <p>Will Deakin is a researcher and data scientist at Network Rail. He is known for his work in making complex railway data accessible and interpretable. His visualizations of passenger journeys have been featured in Bloomberg and have received significant attention on social media. All his work is based on open data and open-source tools.</p>
 <hr>
 <p>For more details on the seminar and to see the slides, visit the <a href="https://itsleeds.github.io/tds/sem2/">Seminar 2 page</a>. For more information about the Transport Data Science module, visit <a href="https://itsleeds.github.io/tds">itsleeds.github.io/tds</a>.</p>
 
 
+
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-deakinRouteNetworkSimplification2025" class="csl-entry" role="listitem">
+Deakin, W., Wang, Z., Parry, J., Lovelace, R., 2025. Route network simplification for transport planning. Environment and Planning B: Urban Analytics and City Science 23998083251387986. <a href="https://doi.org/10.1177/23998083251387986">https://doi.org/10.1177/23998083251387986</a>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
