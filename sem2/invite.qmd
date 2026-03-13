@@ -1,0 +1,38 @@
+---
+title: "Seminar: Network Simplification with Will Deakin from Network Rail"
+---
+
+# Join us for a seminar on Network Simplification
+
+We are pleased to announce a seminar by **Will Deakin** from **Network Rail** on the topic of **Network Simplification**. 
+
+## Details
+
+- **Speaker:** Will Deakin, Network Rail
+- **Date:** Thursday, 19th March 2026
+- **Time:** 10:00 - 11:00 (Seminar and Q&A)
+- **Location:** Institute for Transport Studies (ITS), University of Leeds, Room 1.11a-c (and online via Teams)
+
+## Abstract
+
+How do we make sense of the complex and vast railway network? In this seminar, Will Deakin will discuss his work at Network Rail on network simplification. The talk will cover logical models of the railway, the importance of open data, and how data visualization can provide powerful insights into national infrastructure.
+
+Drawing on experience with the "kingfisher" project and various open data sources, the talk will show how data science can be used to model timetables, analyze emissions, and understand passenger flows. We will also learn about the "parenx" library for network simplification.
+
+## Agenda
+
+- **10:00 - 10:40:** Seminar by Will Deakin
+- **10:40 - 11:00:** Q&A Session
+- **11:00 - 11:15:** Break
+- **11:15 - 13:00:** Open Data Science Workshop
+
+Following the seminar, there will be an open workshop session. **Transport Data Science** students will work on their projects, and all other attendees are invited to stay and work on a data science project of their choosing—perhaps inspired by the morning's talk! Demonstrators will be available to support and discuss ideas.
+
+## About the Speaker
+
+Will Deakin is a researcher and data scientist at Network Rail. He is known for his work in making complex railway data accessible and interpretable. His visualizations of passenger journeys have been featured in Bloomberg and have received significant attention on social media. All his work is based on open data and open-source tools.
+
+---
+
+For more details on the seminar and to see the slides, visit the [Seminar 2 page](https://itsleeds.github.io/tds/sem2/).
+For more information about the Transport Data Science module, visit [itsleeds.github.io/tds](https://itsleeds.github.io/tds).
