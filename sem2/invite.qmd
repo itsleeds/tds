@@ -17,7 +17,7 @@ We are pleased to announce a seminar by **Will Deakin** from **Network Rail** on
 
 How do we make sense of the complex and vast railway network? In this seminar, Will Deakin will discuss his work at Network Rail on network simplification. The talk will cover logical models of the railway, the importance of open data, and how data visualization can provide powerful insights into national infrastructure.
 
-Drawing on experience with the "kingfisher" project and various open data sources, the talk will show how data science can be used to model timetables, analyze emissions, and understand passenger flows. We will also learn about the "parenx" library for network simplification.
+Drawing on experience with the \"kingfisher\" project and various open data sources, the talk will show how data science can be used to model timetables, analyze emissions, and understand passenger flows. The talk builds on the data acquisition skills covered in **Session 2**, including the use of **OpenStreetMap** and **stats19** data for transport analysis. We will also learn about the \"parenx\" library for network simplification.
 
 ## Agenda
 
