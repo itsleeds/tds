@@ -427,7 +427,7 @@ od_data = od_data |>
 ```
 
 ### Python
-```{python, eval=FALSE}
+```{python}
 #| eval: false
 od_data_cycle = od_data[od_data['bicycle'] > 0].copy()
 od_data_cycle['perc_cycle'] = (od_data_cycle['bicycle'] / od_data_cycle['all']) * 100
@@ -670,7 +670,7 @@ tm_shape(desire_lines) + # Define the data frame used to make the map
     lwd = "all"
   ) + # The line width (lwd) is based on the "all" column
   tm_layout(legend.outside = TRUE) + # Move the ledgend outside the map
-  tm_scale_bar() # Add a scale bar to the map
+  tm_scalebar() # Add a scale bar to the map
 ```
 
 ## R: ggplot2
