@@ -45,7 +45,7 @@ library(tmap)       # Thematic mapping
 
 ## Downloading STATS19 crash data
 
-We'll begin by downloading road crash data for four years (2019-2022) using the `stats19` package:
+We'll begin by downloading road crash data for five years (2019-2023) using the `stats19` package:
 
 ```{r}
 #| warning: false
