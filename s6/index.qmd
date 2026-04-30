@@ -28,6 +28,8 @@ In this session, we will explore techniques for joining, combining and aggregati
 
 The skills developed in this session are essential for transport data scientists who often need to combine data from various sources to gain comprehensive insights.
 
+slides for this session: [link](https://docs.google.com/presentation/d/11LmlCF2TRHrAOgLJ8QhXdXnxNBhbUY6K/edit?usp=sharing&ouid=113747908446540977697&rtpof=true&sd=true)
+
 ## Required libraries
 
 First, let's load the libraries we'll need for this session:
@@ -231,7 +233,7 @@ Now we'll perform a spatial join to determine which LSOA each crash occurred in:
 ```{r}
 # Perform spatial join to determine which LSOA each crash occurred in
 # This adds LSOA information to each crash point
-crashes_in_lsoa = st_join(lsoa_wy, crashes_wy)
+crashes_in_lsoa = st_join( crashes_wy, lsoa_wy)
 
 # Check which columns were added from the LSOA dataset
 # setdiff finds column names that are new in crashes_in_lsoa
