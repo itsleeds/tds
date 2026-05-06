@@ -410,6 +410,7 @@ div.csl-indent {
 <li>How to create professional-looking reports with Quarto</li>
 </ol>
 <p>The skills developed in this session are essential for transport data scientists who often need to combine data from various sources to gain comprehensive insights.</p>
+<p>slides for this session: <a href="https://docs.google.com/presentation/d/11LmlCF2TRHrAOgLJ8QhXdXnxNBhbUY6K/edit?usp=sharing&amp;ouid=113747908446540977697&amp;rtpof=true&amp;sd=true">link</a></p>
 <section id="required-libraries" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="required-libraries"><span class="header-section-number">1.1</span> Required libraries</h2>
 <p>First, let’s load the libraries we’ll need for this session:</p>
@@ -673,7 +674,7 @@ $ geometry &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((416422.2 43..., MULTIPOLYGON
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform spatial join to determine which LSOA each crash occurred in</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This adds LSOA information to each crash point</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>crashes_in_lsoa <span class="ot">=</span> <span class="fu">st_join</span>(lsoa_wy, crashes_wy)</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>crashes_in_lsoa <span class="ot">=</span> <span class="fu">st_join</span>(crashes_wy, lsoa_wy)</span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Check which columns were added from the LSOA dataset</span></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co"># setdiff finds column names that are new in crashes_in_lsoa</span></span>
