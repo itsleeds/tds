@@ -63,6 +63,7 @@ We will start by loading the location of the BRT stations from a checked-in GeoJ
 #| code-fold: true
 
 tm_stations_sf <- read_sf("Estaciones_Troncales_de_TRANSMILENIO.geojson")
+tm_stations_sf$num_est <- tm_stations_sf$numero_estacion
 ```
 
 We can explore the variables in the dataset to understand what information we have about the stations.
