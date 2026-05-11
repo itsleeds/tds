@@ -74,10 +74,10 @@ gh pr create # to create a pull request
 To reprooduce the website, you can use the following command in R:
 
 ``` r
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
 }
-remotes::install_github("itsleeds/tds")
+pak::pak("itsleeds/tds")
 ```
 
 ``` r
