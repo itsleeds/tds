@@ -140,13 +140,13 @@ world.plot(figsize=(12, 8))
 plt.title('World Map')
 plt.show()
 ```
+
 :::
 Note that this makes a map of each column in the data frame. Try some other plotting options
 
 ::: {.panel-tabset}
 ## R
 ```{r}
-
 plot(world[3:6])
 plot(world["pop"])
 ```
