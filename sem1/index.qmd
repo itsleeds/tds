@@ -38,8 +38,7 @@ pkgs = c(
     "tidyverse",
     "osmextract",
     "tmap",
-    "maptiles",
-    "arcpullr"
+    "maptiles"
 )
 if (!require("remotes")) install.packages("remotes")
 remotes::install_cran(setdiff(pkgs, "tmap"))
@@ -58,14 +57,12 @@ this data available for the public. Bogotá's integrated transport system
 publishes the tap-in data for the BRT system (see
 [this](https://datosabiertos-transmilenio.hub.arcgis.com/)). 
 
-We will start by extracting the location of the BRT stations. Many public datasets are published using ArcGIS REST services. We can use the `arcpullr` package to easily obtain the data from the service.
+We will start by loading the location of the BRT stations from a checked-in GeoJSON snapshot of the public ArcGIS dataset. Using a local copy keeps the seminar reproducible even when the upstream service is temporarily unavailable.
 
 ```{r}
 #| code-fold: true
 
-tm_stations_sf <- get_spatial_layer(
-  "https://gis.transmilenio.gov.co/arcgis/rest/services/Tecnica/Consulta_Informacion_Geografica_STS/FeatureServer/2/"
-  )
+tm_stations_sf <- read_sf("Estaciones_Troncales_de_TRANSMILENIO.geojson")
 ```
 
 We can explore the variables in the dataset to understand what information we have about the stations.
