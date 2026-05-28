@@ -278,14 +278,18 @@ knitr::kable(tms, booktabs = TRUE, format = "html")
 
 ```{python}
 #| echo: true
-import polars as pl
-# This problem was originally designed to teach Excel from the command line:
-# head -n 6 transport-software.csv | tail -n 5 | sort -t, -k5 -rn
-tms = pl.read_csv("transport-software.csv")[:5]
-# Note: polars has a read_excel function, e.g. pl.read_excel("data.xlsx")
-# but here we use the CSV file for consistency
-tms = tms.sort("Citations", descending=True)
-print(tms)
+try:
+  import polars as pl
+except ModuleNotFoundError:
+  print("Skipping polars example: install polars to run this chunk.")
+else:
+  # This problem was originally designed to teach Excel from the command line:
+  # head -n 6 transport-software.csv | tail -n 5 | sort -t, -k5 -rn
+  tms = pl.read_csv("transport-software.csv")[:5]
+  # Note: polars has a read_excel function, e.g. pl.read_excel("data.xlsx")
+  # but here we use the CSV file for consistency
+  tms = tms.sort("Citations", descending=True)
+  print(tms)
 ```
 
 :::
