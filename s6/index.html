@@ -96,7 +96,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-52f3b33190a148d99fa6384969e9e34c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d78fac1d1af627567d14058feddeaaab.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -428,14 +428,23 @@ div.csl-indent {
 <section id="downloading-stats19-crash-data" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="downloading-stats19-crash-data"><span class="header-section-number">2.1</span> Downloading STATS19 crash data</h2>
 <p>We’ll begin by downloading road crash data for five years (2019-2023) using the <code>stats19</code> package:</p>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Warning</span>Warning: time-consuming
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The full 2019-2023 download is time-consuming and can slow rendering significantly. For routine rendering and preview, this page now downloads one year only (2023).</p>
+<p>If you need the full historical collision dataset, you can retrieve all records from 1979 onward by setting <code>year = 1979</code> in <code>get_stats19()</code>.</p>
+</div>
+</div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download STATS19 crash data for 2019-2023</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># We're downloading data for multiple years to have a robust dataset</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>crashes_2019 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2019</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>crashes_2020 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2020</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>crashes_2021 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2021</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>crashes_2022 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2022</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>crashes_2023 <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2023</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Download STATS19 crash data (fast preview mode: single year)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">=</span> <span class="fu">get_stats19</span>(<span class="at">year =</span> <span class="dv">2023</span>, <span class="at">type =</span> <span class="st">"accidents"</span>, <span class="at">ask =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>The <code>get_stats19()</code> function downloads the crash data. The parameters used are:</p>
 <ul>
@@ -446,21 +455,17 @@ div.csl-indent {
 </section>
 <section id="combining-multiple-years-of-data" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="combining-multiple-years-of-data"><span class="header-section-number">2.2</span> Combining multiple years of data</h2>
-<p>Once we have the individual year datasets, we can combine them into a single dataframe using <code>bind_rows()</code>:</p>
+<p>For fast rendering, we use one year of data by default. If needed, you can switch back to a multi-year download.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all years into one dataset</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This creates a unified dataset for analysis across the full time period</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>crashes <span class="ot">=</span> <span class="fu">bind_rows</span>(crashes_2019, crashes_2020, crashes_2021, crashes_2022, crashes_2023)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Let's check the dimensions of our combined dataset</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(crashes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check the dimensions of the dataset used in this run</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(crashes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 520084     42</code></pre>
+<pre><code>[1] 104258     42</code></pre>
 </div>
 </div>
-<p><code>bind_rows()</code> from dplyr appends the rows from each dataset, creating a unified dataset spanning all four years.</p>
+<p><code>bind_rows()</code> from dplyr appends rows from multiple datasets into one dataset.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -469,7 +474,7 @@ div.csl-indent {
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>Both <code>bind_rows()</code> and <code>rbind()</code> combine data frames <strong>row-wise</strong>, but they differ in behaviour and flexibility.</p>
 <hr>
@@ -548,24 +553,24 @@ div.csl-indent {
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This converts the data frame into a spatial object with point geometries</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>crashes_sf <span class="ot">=</span> <span class="fu">format_sf</span>(crashes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>93 rows removed with no coordinates</code></pre>
+<pre><code>12 rows removed with no coordinates</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(crashes_sf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simple feature collection with 6 features and 40 fields
 Geometry type: POINT
 Dimension:     XY
-Bounding box:  xmin: 245190 ymin: 123039 xmax: 573819 ymax: 200890
+Bounding box:  xmin: 360571 ymin: 389063 xmax: 456584 ymax: 522423
 Projected CRS: OSGB36 / British National Grid
 # A tibble: 6 × 41
   collision_index collision_year collision_reference longitude latitude
   &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt;    &lt;dbl&gt;
-1 2019010177739             2019 010177739             -0.0291     51.5
-2 2019470863182             2019 470863182              0.475      51.0
-3 2019410836238             2019 410836238             -0.386      51.6
-4 201963A011919             2019 63A011919             -4.24       51.7
-5 2019440463790             2019 440463790             -0.768      51.3
-6 2019460815467             2019 460815467              0.0615     51.2
+1 2023170L30453             2023 170L30453               -1.13     54.6
+2 2023111293075             2023 111293075               -1.47     54.5
+3 2023111312748             2023 111312748               -1.53     54.5
+4 2023070702777             2023 070702777               -2.59     53.4
+5 2023070866538             2023 070866538               -2.59     53.4
+6 2023041294154             2023 041294154               -2.47     53.7
 # ℹ 36 more variables: police_force &lt;chr&gt;, collision_severity &lt;chr&gt;,
 #   number_of_vehicles &lt;chr&gt;, number_of_casualties &lt;chr&gt;, date &lt;date&gt;,
 #   day_of_week &lt;chr&gt;, time &lt;chr&gt;, local_authority_district &lt;chr&gt;,
@@ -588,11 +593,11 @@ Projected CRS: OSGB36 / British National Grid
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co"># This shows how many crashes occurred in West Yorkshire vs. the whole dataset</span></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(crashes_sf)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 519991</code></pre>
+<pre><code>[1] 104246</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(crashes_wy)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 18912</code></pre>
+<pre><code>[1] 4247</code></pre>
 </div>
 </div>
 </section>
@@ -610,7 +615,7 @@ Projected CRS: OSGB36 / British National Grid
 <li><code>st_intersects</code>, <code>st_within</code>, <code>st_contains</code>, etc. define the spatial relationship</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -619,7 +624,7 @@ Projected CRS: OSGB36 / British National Grid
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -721,12 +726,12 @@ $ geometry &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((416422.2 43..., MULTIPOLYGON
 <pre><code># A tibble: 6 × 5
   lsoa21cd  fatal_crashes_n serious_crashes_n slight_crashes_n all_crashes_n
   &lt;chr&gt;               &lt;int&gt;             &lt;int&gt;            &lt;int&gt;         &lt;int&gt;
-1 E01010568               0                 0                9             9
-2 E01010569               0                 2                2             4
-3 E01010570               0                 0                2             2
-4 E01010571               0                 7               20            27
-5 E01010572               1                 3                1             5
-6 E01010573               1                 5                9            15</code></pre>
+1 E01010568               0                 0                1             1
+2 E01010569               0                 2                1             3
+3 E01010570               0                 0                1             1
+4 E01010571               0                 2                2             4
+5 E01010572               1                 1                0             2
+6 E01010573               0                 2                3             5</code></pre>
 </div>
 </div>
 </section>
@@ -735,7 +740,7 @@ $ geometry &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((416422.2 43..., MULTIPOLYGON
 <h1 data-number="4"><span class="header-section-number">4</span> Key-Based Joins</h1>
 <p>In addition to spatial joins, we often need to join datasets based on common identifiers or keys. This is particularly useful for combining spatial data with non-spatial attributes.</p>
 <div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
@@ -744,7 +749,7 @@ $ geometry &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((416422.2 43..., MULTIPOLYGON
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>The <strong><code>dplyr</code> package</strong> provides a family of intuitive join functions:</p>
 <table class="caption-top table">
@@ -821,11 +826,11 @@ $ geometry &lt;MULTIPOLYGON [m]&gt; MULTIPOLYGON (((416422.2 43..., MULTIPOLYGON
 <span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a>zero_crash_lsoas <span class="ot">=</span> <span class="fu">sum</span>(lsoa_crashes_wy<span class="sc">$</span>all_crashes_n <span class="sc">==</span> <span class="dv">0</span>)</span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Number of LSOAs with zero recorded crashes:"</span>, zero_crash_lsoas, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Number of LSOAs with zero recorded crashes: 16 </code></pre>
+<pre><code>Number of LSOAs with zero recorded crashes: 229 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Percentage of LSOAs with zero crashes:"</span>, <span class="fu">round</span>((zero_crash_lsoas<span class="sc">/</span><span class="fu">nrow</span>(lsoa_crashes_wy))<span class="sc">*</span><span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Percentage of LSOAs with zero crashes: 1.14 %</code></pre>
+<pre><code>Percentage of LSOAs with zero crashes: 16.31 %</code></pre>
 </div>
 </div>
 <p>We use <code>left_join()</code> to preserve all LSOAs, even those with no crashes. The <code>by</code> parameter specifies the columns to use for matching rows between the datasets. After this join, we have the spatial boundaries with the crash counts attached.</p>
@@ -883,9 +888,9 @@ Projected CRS: OSGB36 / British National Grid
 1 E01010568 Bradfor… (((416422.2 439366.3, 41…               0                 0
 2 E01010569 Bradfor… (((415369 439212.5, 4153…               0                 2
 3 E01010570 Bradfor… (((414005.3 439379, 4141…               0                 0
-4 E01010571 Bradfor… (((415768.6 438654.7, 41…               0                 7
-5 E01010572 Bradfor… (((415616.8 439194.6, 41…               1                 3
-6 E01010573 Bradfor… (((414068.4 441337, 4140…               1                 5
+4 E01010571 Bradfor… (((415768.6 438654.7, 41…               0                 2
+5 E01010572 Bradfor… (((415616.8 439194.6, 41…               1                 1
+6 E01010573 Bradfor… (((414068.4 441337, 4140…               0                 2
 # ℹ 3 more variables: slight_crashes_n &lt;int&gt;, all_crashes_n &lt;int&gt;, pop &lt;dbl&gt;</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if we have any missing population values after the join</span></span>
@@ -924,18 +929,18 @@ Projected CRS: OSGB36 / British National Grid
 <span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Summary statistics of our derived metrics</span></span>
 <span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_crashes_wy<span class="sc">$</span>crash_pp)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    Min.  1st Qu.   Median     Mean  3rd Qu.     Max. 
-0.000000 0.003176 0.005741 0.007946 0.009685 0.070678 </code></pre>
+<pre><code>     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+0.0000000 0.0006172 0.0013008 0.0017760 0.0023032 0.0192308 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_crashes_wy<span class="sc">$</span>crash_per_1000)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-  0.000   3.176   5.741   7.946   9.685  70.678 </code></pre>
+ 0.0000  0.6172  1.3008  1.7760  2.3032 19.2308 </code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lsoa_crashes_wy<span class="sc">$</span>severity_ratio)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
- 0.0000  0.1534  0.2500  0.2696  0.3640  1.0000 </code></pre>
+ 0.0000  0.0000  0.1667  0.2664  0.5000  1.0000 </code></pre>
 </div>
 </div>
 <p>These derived metrics normalize the crash counts by population, allowing for more meaningful comparisons between areas with different population sizes. Areas with higher values have more crashes relative to their population.</p>

@@ -95,7 +95,7 @@ div.csl-indent {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-52f3b33190a148d99fa6384969e9e34c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-d78fac1d1af627567d14058feddeaaab.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -365,8 +365,9 @@ div.csl-indent {
   <li><a href="#learning-more" id="toc-learning-more" class="nav-link" data-scroll-target="#learning-more"><span class="header-section-number">9.1</span> Learning More</a></li>
   <li><a href="#transport-specific-ai-applications" id="toc-transport-specific-ai-applications" class="nav-link" data-scroll-target="#transport-specific-ai-applications"><span class="header-section-number">9.2</span> Transport-Specific AI Applications</a></li>
   </ul></li>
-  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">10</span> Homework</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">11</span> References</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">10</span> Summary</a></li>
+  <li><a href="#homework" id="toc-homework" class="nav-link" data-scroll-target="#homework"><span class="header-section-number">11</span> Homework</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references"><span class="header-section-number">12</span> References</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/itsleeds/tds/edit/main/s3/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li></ul></div></nav>
     </div>
@@ -721,8 +722,22 @@ div.csl-indent {
 <li><strong>Demand modeling</strong> - Neural networks for trip generation</li>
 <li><strong>Route optimization</strong> - Reinforcement learning for vehicle routing</li>
 <li><strong>Image analysis</strong> - Computer vision for traffic counting</li>
-<li><strong>Natural language processing</strong> - Analyzing transport surveys and reports# Summary</li>
+<li><strong>Natural language processing</strong> - Analyzing transport surveys and reports## Tips for PDF output</li>
 </ul>
+<p>If you experience excessive whitespace above and below your <code>tmap</code> plots when rendering to PDF, you can try the following adjustments in <code>tm_layout()</code>:</p>
+<ul>
+<li>Set <code>inner.margins = 0</code> and <code>outer.margins = 0</code>.</li>
+<li>Use the <code>bbox</code> argument in <code>tm_shape()</code> to crop the map to the area of interest.</li>
+<li>Save the plot as a PNG using <code>tmap_save()</code> and import it into your document if the PDF device continues to struggle with margins.</li>
+</ul>
+<p>Example:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tm_shape</span>(my_data, <span class="at">bbox =</span> <span class="fu">st_bbox</span>(my_area)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_polygons</span>() <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tm_layout</span>(<span class="at">inner.margins =</span> <span class="dv">0</span>, <span class="at">outer.margins =</span> <span class="dv">0</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+</section>
+<section id="summary" class="level1" data-number="10">
+<h1 data-number="10"><span class="header-section-number">10</span> Summary</h1>
 <p>AI tools like GitHub Copilot are transforming how we work with transport data:</p>
 <ul>
 <li><strong>Accelerate coding</strong> with intelligent suggestions</li>
@@ -739,9 +754,8 @@ div.csl-indent {
 <li>Embrace AI as part of modern reproducible research workflows</li>
 </ol>
 </section>
-</section>
-<section id="homework" class="level1" data-number="10">
-<h1 data-number="10"><span class="header-section-number">10</span> Homework</h1>
+<section id="homework" class="level1" data-number="11">
+<h1 data-number="11"><span class="header-section-number">11</span> Homework</h1>
 <ol type="1">
 <li><p>In preparation for the next session, take a read of and try to reproduce the code in the <a href="https://cran.r-project.org/web/packages/od/vignettes/od.html">vignette “An introduction to origin-destination data”</a> for the <code>od</code> package.</p>
 <ul>
@@ -751,8 +765,8 @@ div.csl-indent {
 <li><p>Reflect on how AI tools could benefit or negatively impact transport planning</p></li>
 </ol>
 </section>
-<section id="references" class="level1" data-number="11">
-<h1 data-number="11"><span class="header-section-number">11</span> References</h1>
+<section id="references" class="level1" data-number="12">
+<h1 data-number="12"><span class="header-section-number">12</span> References</h1>
 <div id="refs" role="list">
 
 </div>
