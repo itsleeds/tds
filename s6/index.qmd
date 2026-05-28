@@ -49,16 +49,19 @@ library(tmap)       # Thematic mapping
 
 We'll begin by downloading road crash data for five years (2019-2023) using the `stats19` package:
 
+::: {.callout-warning}
+## Warning: time-consuming
+The full 2019-2023 download is time-consuming and can slow rendering significantly.
+For routine rendering and preview, this page now downloads one year only (2023).
+
+If you need the full historical collision dataset, you can retrieve all records from 1979 onward by setting `year = 1979` in `get_stats19()`.
+:::
+
 ```{r}
 #| warning: false
 #| message: false
-# Download STATS19 crash data for 2019-2023
-# We're downloading data for multiple years to have a robust dataset
-crashes_2019 = get_stats19(year = 2019, type = "accidents", ask = FALSE)
-crashes_2020 = get_stats19(year = 2020, type = "accidents", ask = FALSE)
-crashes_2021 = get_stats19(year = 2021, type = "accidents", ask = FALSE)
-crashes_2022 = get_stats19(year = 2022, type = "accidents", ask = FALSE)
-crashes_2023 = get_stats19(year = 2023, type = "accidents", ask = FALSE)
+# Download STATS19 crash data (fast preview mode: single year)
+crashes = get_stats19(year = 2023, type = "accidents", ask = FALSE)
 ```
 
 The `get_stats19()` function downloads the crash data. The parameters used are:
@@ -69,18 +72,14 @@ The `get_stats19()` function downloads the crash data. The parameters used are:
 
 ## Combining multiple years of data
 
-Once we have the individual year datasets, we can combine them into a single dataframe using `bind_rows()`:
+For fast rendering, we use one year of data by default. If needed, you can switch back to a multi-year download.
 
 ```{r}
-# Combine all years into one dataset
-# This creates a unified dataset for analysis across the full time period
-crashes = bind_rows(crashes_2019, crashes_2020, crashes_2021, crashes_2022, crashes_2023)
-
-# Let's check the dimensions of our combined dataset
+# Check the dimensions of the dataset used in this run
 dim(crashes)
 ```
 
-`bind_rows()` from dplyr appends the rows from each dataset, creating a unified dataset spanning all four years. 
+`bind_rows()` from dplyr appends rows from multiple datasets into one dataset.
 
 ::: {.callout-note collapse=true}
 ## `bind_rows()` vs `rbind()` in R (click to expand)
