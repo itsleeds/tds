@@ -199,7 +199,7 @@ Those scoring **40+ points** are **Experienced with data science tools**, well-p
 
 If you have questions about your readiness or need guidance on preparing for the module, please contact:
 
-- **Module leader**: Robin Lovelace (R.Lovelace@leeds.ac.uk)
+- **Module leader**: Professor Robin Lovelace (r.lovelace@leeds.ac.uk)
 - **Teaching team**: See the [module website](https://itsleeds.github.io/tds/) for full details.
 
 Best of luck with your preparation! We look forward to seeing you in the module.

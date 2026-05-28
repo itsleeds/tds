@@ -1,5 +1,5 @@
 ---
-title: "Transport Data Minihack 2026"
+title: "Transport Data Minihack [TBC]"
 ---
 
 
@@ -10,9 +10,9 @@ title: "Transport Data Minihack 2026"
 quarto::quarto_render(
   "datahack.qmd",
   output_format = "docx",
-  output_file = "datahack-2026-for-comment.docx"
+  output_file = "datahack-[TBC]-for-comment.docx"
 )
-file.copy("docs/datahack-2026-for-comment.docx", "~/../OneDrive - University of Leeds/shortcourses", overwrite = TRUE)
+file.copy("docs/datahack-[TBC]-for-comment.docx", "~/../OneDrive - University of Leeds/shortcourses", overwrite = TRUE)
 ```
 
 # Introduction
@@ -20,7 +20,7 @@ file.copy("docs/datahack-2026-for-comment.docx", "~/../OneDrive - University of 
 This event is designed to build data, coding and reproducible research skills for Institute for Transport Studies (ITS) staff and students.
 It is also specifically designed to support ITS MSc students with their dissertation projects by providing a space to ask questions about importing, processing and visualising data.
 
-It will take place on Thursday 7th May 2026.
+It will take place on **[TBC]**.
 It is open to staff and students at ITS.
 Contact the organisers (Robin Lovelace) if you are not based at the University of Leeds and would like to join in.
 
