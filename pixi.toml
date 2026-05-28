@@ -19,9 +19,19 @@ r-reticulate = "*"
 r-spData = "*"
 r-pak = "*"
 r-geosphere = "*"
+python = ">=3.10"
+jupyter = "*"
+jupyter-cache = "*"
+ipykernel = "*"
+geopandas = "*"
+matplotlib = "*"
+shapely = "*"
+seaborn = "*"
+osmnx = "*"
 
 [tasks]
 simple = "echo This is a simple task"
 install_r = { cmd="Rscript install.R" }
-install_py = { cmd = "python3 -m pip install --user -r requirements.txt" }
-install_all = { cmd = "python3 -m pip install --user -r requirements.txt && Rscript install.R" }
+render = { cmd = "quarto render" }
+preview = { cmd = "quarto preview --no-browser" }
+install_all = { cmd = "Rscript install.R" }
