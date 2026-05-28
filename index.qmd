@@ -4,7 +4,7 @@ number-sections: false
 ---
 
 This module focuses on applying data science techniques to solve real-world transport problems.
-Based at the University of Leeds' Institute for Transport Studies (module code [TRAN5340M](https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202425&M=TRAN-5340M)), the course is led by Robin Lovelace, Professor of Transport Data Science and developer of several data-driven solutions for effective transport planning.
+Based at the University of Leeds' Institute for Transport Studies (module code [TRAN5340M](https://webprod3.leeds.ac.uk/catalogue/dynmodules.asp?Y=202728&M=TRAN-5340M)), the course is led by Professor Robin Lovelace and delivered by a wider teaching team.
 
 The course has evolved over a decade of teaching and research in the field. It aims to equip you with up-to-date and future-proof skills through practical examples and reproducible workflows using industry-standard data science tools.
 

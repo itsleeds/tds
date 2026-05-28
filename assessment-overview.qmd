@@ -13,19 +13,19 @@ This module's assessments are designed to help you:
 
 ## Module Assessment Structure
 
-The module is assessed through two coursework assignments:
+The module is assessed through two **summative** coursework assignments:
 
-1. **Formative Assessment (CW1)** 
-   - Required but non-assessed (0% of final mark)
-   - Due: 20th March 2026, 13:59
-   - Project plan and reproducible code demonstration
-   - Length: Up to 4 pages
+1. **Lab Notebook (CW1)**
+   - Worth **30%** of module mark
+   - Description: Data visualisation notebook with a data pipeline diagram showing input data sources and selected methods
+   - Due: **[TBC]**
+   - Length/format: **[TBC]**
 
-2. **Summative Assessment (CW2)**
-   - Worth 100% of module mark
-   - Due: 15th May 2026, 14:00
-   - Complete data science project report
-   - Length: 10 pages maximum + appendices
+2. **Report (CW2)**
+   - Worth **70%** of module mark
+   - Description: Report describing the use of data science to answer a transport planning related research question or applied problem
+   - Due: **[TBC]**
+   - Length/format: **[TBC]**
 
 ## File Naming Convention
 
@@ -47,16 +47,15 @@ For example:
 
 ### File Requirements
 
-**Formative Assessment Package:**
+**Lab Notebook Package:**
 - PDF report (max 4 pages)
 - Reproducible code (`.qmd` file)
-- Maximum `.zip` file size: 30 MB
+- Maximum `.zip` file size: [TBC]
 
-**Summative Assessment Package:**
-- PDF report (max 10 pages)
-- Maximum 3,000 words (excluding tables/code/references/captions)
+**Report Package:**
+- PDF report ([TBC] page/word limits)
 - Reproducible code (`.Rmd` or `.qmd` file)
-- Maximum `.zip` file size: 40 MB
+- Maximum `.zip` file size: [TBC]
 
 ## Submission Process
 
@@ -73,32 +72,12 @@ For example:
 
 ## Marking Criteria
 
-### Summative Assessment (100% of module mark)
+### Assessment Criteria
 
-1. **Data Processing (20%)**
-   - Dataset selection and usage
-   - Data cleaning and preparation
-   - Feature engineering
-   - Data transformation
+Detailed criteria and rubrics are provided in the assessment briefs:
 
-2. **Visualization and Report Quality (20%)**
-   - Figure design and clarity
-   - Professional formatting
-   - Effective communication
-   - Documentation quality
-
-3. **Code Quality and Reproducibility (20%)**
-   - Code efficiency and style
-   - Documentation
-   - Reproducibility
-   - Technical implementation
-
-4. **Understanding and Impact (40%)**
-   - Research question clarity
-   - Methodological approach
-   - Critical analysis
-   - Policy implications
-   - Literature engagement
+- [Lab Notebook brief](d2/assessment-brief)
+- [Report brief](d3/assessment-brief)
 
 ## Important Notes
 
@@ -106,7 +85,7 @@ For example:
 
 - Topics should address real transport planning/policy challenges
 - The module team can provide guidance on topic selection
-- Guidance on topics and datasets is provided in the module documents, including the formative assessment brief
+- Guidance on topics and datasets is provided in module documents and assessment briefs
 
 ### Use of AI Tools
 
@@ -139,10 +118,10 @@ Both assessments are categorized as **GREEN** for AI usage:
    - Academic writing guidance
    - Referencing support
 
-## Key Dates (2025-26)
+## Key Dates (2027-28)
 
-- **20 March 2026, 13:59**: Formative assessment (CW1)
-- **15 May 2026, 14:00**: Summative assessment (CW2)
+- **[TBC]**: Lab Notebook (CW1)
+- **[TBC]**: Report (CW2)
 - Feedback provided within 15 working days
 
 ## Assessment Checklist
@@ -156,7 +135,7 @@ Both assessments are categorized as **GREEN** for AI usage:
 - [ ] AI usage is acknowledged
 - [ ] References section included
 
-### Additional for Summative
+### Additional for Report
 
 - [ ] Meets marking criteria
 - [ ] Includes policy implications
