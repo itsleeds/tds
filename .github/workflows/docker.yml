@@ -1,13 +1,23 @@
 name: Docker
 
 on:
+  schedule:
+    # 1 hour after geocompx/docker Sunday build (geocompx runs at 00:00)
+    - cron: '0 1 * * 0'
   push:
+    branches:
+      - main
     paths:
       - 'Dockerfile'
-      - '.github/workflows/docker-image.yml'
+    # Only build if the triggering commit message contains 'docker'
+  workflow_dispatch:
 
 jobs:
   build:
+    if: |
+      github.event_name == 'schedule' ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && contains(github.event.head_commit.message, 'docker'))
     runs-on: ubuntu-latest
 
     steps:
@@ -31,5 +41,4 @@ jobs:
         push: true
         tags: ghcr.io/${{ github.repository_owner }}/tds:latest
         outputs: type=image,push=true,visibility=public
-
         
