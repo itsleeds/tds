@@ -1,4 +1,5 @@
 FROM ghcr.io/geocompx/pythonr
+# Trigger tds image rebuild
 
 # Copy and install Python requirements first to leverage Docker layer cache
 COPY requirements.txt /tmp/requirements.txt

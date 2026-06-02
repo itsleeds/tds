@@ -9,6 +9,9 @@ on:
       - main
     paths:
       - 'Dockerfile'
+      - 'requirements.txt'
+      - 'scripts/install.R'
+      - 'DESCRIPTION'
     # Only build if the triggering commit message contains 'docker'
   workflow_dispatch:
 
