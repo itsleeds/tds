@@ -170,10 +170,10 @@ See the [reading list](https://itsleeds.github.io/tds/reading.html) for details
 ## Assessment (for those doing this as credit-bearing)
 
 -   You will build-up a portfolio of work
--   100% coursework assessed, you will submit by
+-   Two summative coursework submissions: Lab Notebook (30%) and Report (70%)
 -   Written in code - will be graded for reproducibility
 -   Code chunks and figures are encouraged
--   You will submit a non-assessed 2 page pdf + qmd
+-   Submission dates for the current year are [TBC]
 
 ## Feedback
 
@@ -264,11 +264,35 @@ knitr::include_graphics("https://www.robinlovelace.net/presentations/fourstage.p
 Sample of transport modelling software in use by practitioners.
 <!-- Note: citation counts based on searches for company/developer name, the product name and 'transport'. Data source: Google Scholar searches, October 2018. -->
 
+::: {.panel-tabset}
+
+### R
+
 ```{r, echo=FALSE, message=FALSE, warning=FALSE, eval=TRUE}
 tms = readr::read_csv("transport-software.csv")[1:5]
 tms = dplyr::arrange(tms, dplyr::desc(Citations))
 knitr::kable(tms, booktabs = TRUE, format = "html")
 ```
+
+### Python
+
+```{python}
+#| echo: true
+try:
+  import polars as pl
+except ModuleNotFoundError:
+  print("Skipping polars example: install polars to run this chunk.")
+else:
+  # This problem was originally designed to teach Excel from the command line:
+  # head -n 6 transport-software.csv | tail -n 5 | sort -t, -k5 -rn
+  tms = pl.read_csv("transport-software.csv")[:5]
+  # Note: polars has a read_excel function, e.g. pl.read_excel("data.xlsx")
+  # but here we use the CSV file for consistency
+  tms = tms.sort("Citations", descending=True)
+  print(tms)
+```
+
+:::
 
 ---
 

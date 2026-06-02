@@ -1,4 +1,12 @@
-Marks for the submitted report, are awarded in 4 categories, accounting for the following criteria:
+```{r}
+#| eval: false
+#| echo: false
+# export to docx 
+quarto::quarto_render("marking-criteria-portable.qmd", output_format = "docx")
+file.rename("docs/marking-criteria-portable.docx", "~/../OneDrive - University of Leeds/career/modules/tds/2025-26/marking-rubric.docx")
+```
+
+Marks for the submitted report are awarded in 4 categories, accounting for the following criteria:
 
 ### Data processing: 20%
 

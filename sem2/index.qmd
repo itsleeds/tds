@@ -1,5 +1,5 @@
 ---
-title: "Seminar 2 - "
+title: "Seminar 2: Guest talk and drop-in session to ask questions"
 bibliography: ../tds.bib
 toc: true
 execute:
@@ -18,7 +18,9 @@ format:
     crossrefs-hover: false
 ---
 
-# Seminar 2: Will Deakin
+# Seminar 2: Will Deakin and drop-in session to ask questions
+
+In this seminar we will hear from Will Deakin about his work on railway data and have a drop-in session to ask questions about the module and the assessment.
 
 ## Make Things as Simple as Possible...but no Simpler
 

@@ -1,12 +1,18 @@
 summary,description,time,duration,location
-"TDS Session 1: Introduction to transport data science (RL, MM, YY)","TDS Session 1: Introduction to transport data science (RL, MM, YY) Located in Michael Sadler SR (LG.15)",2026-01-29T10:00:00Z,3,Michael Sadler SR (LG.15)
-TDS deadline 1,Computer set-up,2026-01-30T13:00:00Z,2,Online - Teams
-"TDS Session 2: Getting transport data (RL, YY)","TDS Session 2: Getting transport data (RL, YY) Located in Michael Sadler SR (LG.15)",2026-02-05T10:00:00Z,3,Michael Sadler SR (LG.15)
-"TDS Session 3: AI for transport planning (RL, YY)","TDS Session 3: AI for transport planning (RL, YY) Located in Michael Sadler SR (LG.15)",2026-02-12T10:00:00Z,3,Michael Sadler SR (LG.15)
-"TDS Session 4: Origin-destination data (RL, YY)","TDS Session 4: Origin-destination data (RL, YY) Located in Institute for Transport Studies Room 1.11a-c",2026-02-19T10:00:00Z,3,Institute for Transport Studies Room 1.11a-c
-TDS seminar 1,"Seminar 1: Juan Fonseca, University of Leeds: Traffic estimation and transport data visualisation",2026-02-19T14:00:00Z,3,Institute for Transport Studies Room 1.11a-c
-TDS deadline 2,Draft portfolio,2026-02-27T13:00:00Z,0,Online - Teams
-"TDS Session 5: Routing (MM, RL)","TDS Session 5: Routing (MM, RL) Located in Michael Sadler SR (LG.15)",2026-03-05T10:00:00Z,3,Michael Sadler SR (LG.15)
-TDS seminar 2,"Seminar 2: Will Deakin, Network Rail: Network simplification",2026-03-19T10:00:00Z,3,Institute for Transport Studies Room 1.11a-c
-"TDS Session 6: Joins, models and publishing your work (RL, MM, YY)","TDS Session 6: Joins, models and publishing your work (RL, MM, YY) Located in Mechanical Engineering LT B (2.37)",2026-04-30T10:00:00Z,3,Mechanical Engineering LT B (2.37)
-TDS deadline 3,"Deadline: coursework, 2pm",2026-05-15T13:00:00Z,0,Online - Teams
+"TDS Session 1 Lecture: Introduction to transport data science (RL, MM, YY)","TDS Session 1 Lecture: Introduction to transport data science (RL, MM, YY) Located in Michael Sadler SR (LG.15)",2027-01-28T10:00:00Z,1,Michael Sadler SR (LG.15)
+"TDS Session 1 Practical: Introduction to transport data science (RL, MM, YY)","TDS Session 1 Practical: Introduction to transport data science (RL, MM, YY) Located in Michael Sadler SR (LG.15)",2027-01-28T11:00:00Z,2,Michael Sadler SR (LG.15)
+TDS deadline 1,Computer set-up,2027-01-29T13:00:00Z,2,Online - Teams
+"TDS Session 2 Lecture: Getting transport data (RL, YY)","TDS Session 2 Lecture: Getting transport data (RL, YY) Located in Michael Sadler SR (LG.15)",2027-02-04T10:00:00Z,1,Michael Sadler SR (LG.15)
+"TDS Session 2 Practical: Getting transport data (RL, YY)","TDS Session 2 Practical: Getting transport data (RL, YY) Located in Michael Sadler SR (LG.15)",2027-02-04T11:00:00Z,2,Michael Sadler SR (LG.15)
+"TDS Session 3 Lecture: AI for transport planning (RL, YY)","TDS Session 3 Lecture: AI for transport planning (RL, YY) Located in Michael Sadler SR (LG.15)",2027-02-11T10:00:00Z,1,Michael Sadler SR (LG.15)
+"TDS Session 3 Practical: AI for transport planning (RL, YY)","TDS Session 3 Practical: AI for transport planning (RL, YY) Located in Michael Sadler SR (LG.15)",2027-02-11T11:00:00Z,2,Michael Sadler SR (LG.15)
+"TDS Session 4 Lecture: Origin-destination data (RL, YY)","TDS Session 4 Lecture: Origin-destination data (RL, YY) Located in Institute for Transport Studies Room 1.11a-c",2027-02-18T10:00:00Z,1,Institute for Transport Studies Room 1.11a-c
+"TDS Session 4 Practical: Origin-destination data (RL, YY)","TDS Session 4 Practical: Origin-destination data (RL, YY) Located in Institute for Transport Studies Room 1.11a-c",2027-02-18T11:00:00Z,2,Institute for Transport Studies Room 1.11a-c
+TDS seminar 1,"Seminar 1: Juan Fonseca, University of Leeds: Processing and visualising traffic datasets",2027-02-18T14:00:00Z,3,Institute for Transport Studies Room 1.11a-c
+TDS deadline 2,Draft portfolio,2027-02-26T13:00:00Z,0,Online - Teams
+"TDS Session 5 Lecture: Routing (MM, RL)","TDS Session 5 Lecture: Routing (MM, RL) Located in Michael Sadler SR (LG.15)",2027-03-04T10:00:00Z,1,Michael Sadler SR (LG.15)
+"TDS Session 5 Practical: Routing (MM, RL)","TDS Session 5 Practical: Routing (MM, RL) Located in Michael Sadler SR (LG.15)",2027-03-04T11:00:00Z,2,Michael Sadler SR (LG.15)
+TDS seminar 2,"Seminar 2: Will Deakin, Network Rail: Network simplification",2027-03-18T10:00:00Z,3,Institute for Transport Studies Room 1.11a-c
+"TDS Session 6 Lecture: Joins, models and publishing your work (RL, MM, YY)","TDS Session 6 Lecture: Joins, models and publishing your work (RL, MM, YY) Located in Mechanical Engineering LT B (2.37)",2027-04-29T10:00:00Z,1,Mechanical Engineering LT B (2.37)
+"TDS Session 6 Practical: Joins, models and publishing your work (RL, MM, YY)","TDS Session 6 Practical: Joins, models and publishing your work (RL, MM, YY) Located in Mechanical Engineering LT B (2.37)",2027-04-29T11:00:00Z,2,Mechanical Engineering LT B (2.37)
+TDS deadline 3,"Deadline: coursework, 2pm",2027-05-14T13:00:00Z,0,Online - Teams

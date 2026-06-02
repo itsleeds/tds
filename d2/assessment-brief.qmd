@@ -1,5 +1,5 @@
 ---
-title: "Formative assessment brief: portfolio plan and reproducible data science code"
+title: "Assessment brief: Lab Notebook"
 bibliography: ../tds.bib
 number-sections: true
 ---
@@ -12,20 +12,22 @@ number-sections: true
 
 ###  Assessment title
 
-Formative Coursework: Portfolio Plan and Reproducible Code
+Summative Coursework: Lab Notebook
 
 ###  Assessment type
 
-Portfolio Plan and Reproducible Code Submission
+Lab Notebook (LN)
 
 ###  Deadline
 
-**Non-assessed submission deadline**: 27th February 2026, 13:59.
+**Submission deadline**: [TBC]
 
 ### Guidance
 
-For guidance on the assessment, please refer to the [Summative Assessment Brief](../d3/assessment-brief.qmd).
+For guidance on the full assessment structure, please refer to the [Assessment Overview](../assessment-overview.qmd) and the [Report Assessment Brief](../d3/assessment-brief.qmd).
 
 ### Submission requirements
 
-You can submit up to 4 pages of content for this formative assessment.
+- Weighting: **30%** of module mark
+- Required content: data visualisation notebook with a data pipeline diagram showing input data sources and selected methods
+- Length and formatting details: **[TBC]**

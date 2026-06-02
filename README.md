@@ -71,25 +71,40 @@ gh pr create # to create a pull request
 
 ## Reproducing the website
 
-To reprooduce the website, you can use the following command in R:
+### Using Pixi (Recommended for all platforms)
+
+The most reliable way to reproduce the website locally is using [Pixi](https://pixi.sh/). It handles both R and Python dependencies in a single isolated environment.
+
+1. **Install Pixi**: Follow the instructions at [pixi.sh](https://pixi.sh/).
+2. **Initialize Environment**:
+   ```bash
+   pixi install
+   ```
+3. **Preview the website**:
+   ```bash
+   pixi run preview
+   ```
+
+### Using R (Alternative)
+
+To reproduce the website using R, you can use the following command:
 
 ``` r
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
+if (!requireNamespace("pak", quietly = TRUE)) {
+  install.packages("pak")
 }
-remotes::install_github("itsleeds/tds")
+pak::pak("itsleeds/tds")
 ```
 
-``` r
-quarto::quarto_preview()
-```
+**Note for Python users:** If your local machine lacks Python or the required libraries (like `jupyter` and `geopandas`), Quarto may fail to render documents containing Python code. We recommend the Pixi approach above to ensure all dependencies are met.
 
-This is the same as running the following command in the system
-terminal:
+### Windows Users
 
-``` bash
-quarto preview
-```
+If you are on Windows, we strongly recommend using **Pixi** or **GitHub Codespaces**. If you prefer a manual setup, ensure you have:
+1. [Quarto](https://quarto.org/docs/get-started/) installed.
+2. [R](https://cran.r-project.org/) and [Python](https://www.python.org/) installed and added to your PATH.
+3. Python dependencies installed via: `pip install jupyter jupyter-cache geopandas matplotlib shapely seaborn ipykernel osmnx`.
+
 
 ## Archive
 
