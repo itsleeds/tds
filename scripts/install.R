@@ -16,6 +16,15 @@ if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages("pak", repos = rspm_url)
 }
 
+# Install dodgr from GitHub dev version (0.4.3.018+)
+# CRAN version 0.4.3 fails to compile with R >= 4.6 / Rcpp due to
+# ambiguous operator== on Rcpp::CharacterVector::const_Proxy.
+# See: https://github.com/UrbanAnalyst/dodgr/pull/330
+if (!requireNamespace("dodgr", quietly = TRUE) ||
+    packageVersion("dodgr") < "0.4.3.018") {
+  pak::pak("UrbanAnalyst/dodgr", ask = FALSE)
+}
+
 # Use pak to install the package and dependencies. pak prefers binaries from
 # RSPM on supported platforms and will significantly reduce compile time.
 if (file.exists("DESCRIPTION")) {
