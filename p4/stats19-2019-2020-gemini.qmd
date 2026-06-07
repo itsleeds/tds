@@ -78,15 +78,15 @@ ggplot(change_by_urban_rural, aes(x = urban_or_rural_area, y = change)) +
 
 # Explore change by casualty severity
 change_by_severity <- collisions_combined %>%
-  count(accident_severity, year) %>%
-  group_by(accident_severity) %>%
+  count(collision_severity, year) %>%
+  group_by(collision_severity) %>%
   mutate(change = (n - lag(n)) / lag(n) * 100) %>%
   filter(year == 2020)
 
 print("\nPercentage Change by Casualty Severity:")
 print(change_by_severity)
 
-ggplot(change_by_severity, aes(x = accident_severity, y = change)) +
+ggplot(change_by_severity, aes(x = collision_severity, y = change)) +
   geom_col(fill = "purple", color = "black") +
   labs(title = "Percentage Change in Collisions by Casualty Severity",
        x = "Casualty Severity", y = "Percentage Change")
