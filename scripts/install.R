@@ -16,16 +16,14 @@ if (!requireNamespace("pak", quietly = TRUE)) {
   install.packages("pak", repos = rspm_url)
 }
 
-# Install dodgr from GitHub dev version.
-# CRAN version 0.4.3 fails to compile with R >= 4.6 / Rcpp due to
-# ambiguous operator== on Rcpp::CharacterVector::const_Proxy and
-# Rcpp::Vector '[]' operator returning proxy objects.
-# See: https://github.com/UrbanAnalyst/dodgr/pull/330
-# The dev version's dodgr-to-sf.cpp still has these issues at the
-# HEAD commit, so we patch it inline after checkout.
+# Install dodgr from CRAN source with a patch for R >= 4.6 / Rcpp compatibility.
+# CRAN version 0.4.3 fails to compile with R >= 4.6.0 because Rcpp's
+# const_string_proxy operator== / operator!= become ambiguous between multiple
+# built-in and Rcpp-defined candidates. The dodgr-to-sf.cpp compares Rcpp
+# CharacterVector proxy objects directly (new_edges[i] == new_edges[i-1])
+# which hits this ambiguity.
 if (!requireNamespace("dodgr", quietly = TRUE) ||
-    packageVersion("dodgr") <= "0.4.3.18") {
-  # Download source, patch, install
+    packageVersion("dodgr") <= "0.4.3") {
   tmpdir <- tempfile()
   dir.create(tmpdir)
   on.exit(unlink(tmpdir, recursive = TRUE))
@@ -36,29 +34,31 @@ if (!requireNamespace("dodgr", quietly = TRUE) ||
   )
   utils::untar(file.path(tmpdir, "dodgr.tar.gz"), exdir = tmpdir)
 
-  # Patch dodgr-to-sf.cpp: replace Rcpp CharacterVector operator[] with ()
-  # to avoid ambiguous proxy comparison in Rcpp >= 1.1.x / R >= 4.6
+  # Patch dodgr-to-sf.cpp:
+  # Wrap all Rcpp CharacterVector element comparisons in static_cast<std::string>
+  # to avoid ambiguous proxy operator== / operator!= in Rcpp >= 1.1.x with R >= 4.6.
   src_file <- file.path(tmpdir, "dodgr", "src", "dodgr-to-sf.cpp")
   src <- readLines(src_file)
-  # Fix old_edges[0] -> old_edges(0) (CharacterVector access)
-  src <- gsub("old_edges \\[0\\]", "old_edges (0)", src)
-  # Fix new_edges[0] -> new_edges(0) (CharacterVector access)
-  src <- gsub("new_edges \\[0\\]", "new_edges (0)", src)
-  # Fix proxy-to-proxy == comparison
+
+  # Fix new_edges[i] == new_edges[i-1] (line ~47) — proxy proxy comparison
   src <- gsub(
-    "if \\(new_edges \\(i\\) == new_edges \\(i - 1\\)\\)",
-    "if (std::string(new_edges(i)) == std::string(new_edges(i - 1)))",
+    "if \\(new_edges \\[i\\] == new_edges \\[i - 1\\]\\)",
+    "if (std::string(new_edges[i]) == std::string(new_edges[i - 1]))",
     src
   )
+  # Fix new_edges[i] != new_edges[i-1] (line ~89) — proxy proxy comparison
   src <- gsub(
-    "if \\(new_edges \\(i\\) != new_edges \\(i - 1\\)\\)",
-    "if (std::string(new_edges(i)) != std::string(new_edges(i - 1)))",
+    "if \\(new_edges \\[i\\] != new_edges \\[i - 1\\]\\)",
+    "if (std::string(new_edges[i]) != std::string(new_edges[i - 1]))",
     src
   )
+
   writeLines(src, src_file)
 
-  # Install patched dodgr from source
-  install.packages(file.path(tmpdir, "dodgr"), repos = NULL, type = "source")
+  # Install patched dodgr from source (with dependencies from CRAN)
+  utils::install.packages(file.path(tmpdir, "dodgr"),
+    repos = "https://cloud.r-project.org",
+    type = "source", dependencies = TRUE)
 }
 
 # Use pak to install the package and dependencies. pak prefers binaries from
