@@ -38,7 +38,8 @@ Imports:
     dodgr,
     opentripplanner,
     osmextract,
-    tmap
+    tmap,
+    sfnetworks
 Remotes:
     Nowosad/spDataLarge
 
