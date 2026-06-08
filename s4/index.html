@@ -936,12 +936,16 @@ file.edit("code/learning-OD.R") -->
 <div class="tab-content">
 <div id="tabset-21-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-21-1-tab">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>od <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-od.csv"</span>)</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>zones <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-zones.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>u_od <span class="ot">=</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-od.csv"</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-od.csv"</span>)) <span class="fu">download.file</span>(u_od, <span class="st">"s4-od.csv"</span>)</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>od <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">"s4-od.csv"</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>u_zones <span class="ot">=</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-zones.geojson"</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-zones.geojson"</span>)) <span class="fu">download.file</span>(u_zones, <span class="st">"s4-zones.geojson"</span>)</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>zones <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"s4-zones.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `zones' from data source 
-  `https://github.com/itsleeds/tds/releases/download/2026/s4-zones.geojson' 
-  using driver `GeoJSON'
+  `/home/runner/work/tds/tds/s4/s4-zones.geojson' using driver `GeoJSON'
 Simple feature collection with 102 features and 2 fields
 Geometry type: MULTIPOLYGON
 Dimension:     XY
@@ -1185,9 +1189,14 @@ Geodetic CRS:  WGS 84</code></pre>
 <p>Let’s begin by loading the following two datasets</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the station location dataset</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>bike_docking_stations <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-london-bike_docking_stations.geojson"</span>)</span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="co"># load the bike trip origin and destination dataset</span></span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>bike_trips <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-london-bike_trips.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>u_stations <span class="ot">=</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-london-bike_docking_stations.geojson"</span></span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-london-bike_docking_stations.geojson"</span>)) <span class="fu">download.file</span>(u_stations, <span class="st">"s4-london-bike_docking_stations.geojson"</span>)</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>bike_docking_stations <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"s4-london-bike_docking_stations.geojson"</span>)</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a><span class="co"># load the bike trip origin and destination dataset</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>u_trips <span class="ot">=</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-london-bike_trips.csv"</span></span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-london-bike_trips.csv"</span>)) <span class="fu">download.file</span>(u_trips, <span class="st">"s4-london-bike_trips.csv"</span>)</span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>bike_trips <span class="ot">=</span> <span class="fu">read_csv</span>(<span class="st">"s4-london-bike_trips.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Explore these datasets using the functions you have learnt (e.g.&nbsp;head, nrow)</p>
 <div class="cell">
@@ -1408,22 +1417,24 @@ Geodetic CRS:  WGS 84
 <p>Let’s check how the background looks. You can also customize the colors of the rivers and parks by modifying the values assigned to <code>fill</code> and <code>color</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># load the river and parks</span></span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>rivers <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-london-rivers.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>u_rivers <span class="ot">=</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-london-rivers.geojson"</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-london-rivers.geojson"</span>)) <span class="fu">download.file</span>(u_rivers, <span class="st">"s4-london-rivers.geojson"</span>)</span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>rivers <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"s4-london-rivers.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `rivers' from data source 
-  `https://github.com/itsleeds/tds/releases/download/2026/s4-london-rivers.geojson' 
-  using driver `GeoJSON'
+  `/home/runner/work/tds/tds/s4/s4-london-rivers.geojson' using driver `GeoJSON'
 Simple feature collection with 3 features and 0 fields
 Geometry type: GEOMETRYCOLLECTION
 Dimension:     XY
 Bounding box:  xmin: -0.2391075 ymin: 51.4639 xmax: 0.0002165973 ymax: 51.50991
 Geodetic CRS:  WGS 84</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>parks <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-london-parks.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>u_parks <span class="ot">=</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2026/s4-london-parks.geojson"</span></span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-london-parks.geojson"</span>)) <span class="fu">download.file</span>(u_parks, <span class="st">"s4-london-parks.geojson"</span>)</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>parks <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"s4-london-parks.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Reading layer `parks' from data source 
-  `https://github.com/itsleeds/tds/releases/download/2026/s4-london-parks.geojson' 
-  using driver `GeoJSON'
+  `/home/runner/work/tds/tds/s4/s4-london-parks.geojson' using driver `GeoJSON'
 Simple feature collection with 288 features and 10 fields
 Geometry type: MULTIPOLYGON
 Dimension:     XY
@@ -1487,21 +1498,23 @@ Geodetic CRS:  WGS 84</code></pre>
 <p>First, let create the buffer zones for tube stations in central london</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb81"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="co"># import the tube station data</span></span>
-<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>tube_stations <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson"</span>)</span>
-<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a><span class="co"># use the bounding box of the bike docking stations to crop the tube stations</span></span>
-<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a><span class="co"># this can help us focus on central London - which is covered by the LCHS</span></span>
-<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london <span class="ot">=</span> <span class="fu">st_crop</span>(tube_stations, <span class="fu">st_bbox</span>(bike_docking_stations))</span>
-<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a><span class="co"># create the buffer zones, we set the buffer radius to 250m</span></span>
-<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a><span class="co"># you may adjust the value if you would like to create smaller or larger buffer zones.</span></span>
-<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london_buffer <span class="ot">=</span> <span class="fu">st_buffer</span>(tube_stations_central_london <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="dv">27700</span>), <span class="at">dist =</span> <span class="dv">250</span>)</span>
-<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise the buffers, tube stations and bike docking stations</span></span>
-<span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
-<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london_buffer, <span class="at">fill =</span><span class="st">"#3ba2c7"</span>, <span class="at">color =</span> <span class="cn">NA</span>, <span class="at">alpha =</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
-<span id="cb81-15"><a href="#cb81-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london, <span class="at">color =</span> <span class="st">"#3ba2c7"</span>)<span class="sc">+</span></span>
-<span id="cb81-16"><a href="#cb81-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> bike_docking_stations, <span class="at">color =</span> <span class="st">"#d45b70"</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb81-2"><a href="#cb81-2" aria-hidden="true" tabindex="-1"></a>u_tube <span class="ot">=</span> <span class="st">"https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson"</span></span>
+<span id="cb81-3"><a href="#cb81-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"p3-london-tube_stations.geojson"</span>)) <span class="fu">download.file</span>(u_tube, <span class="st">"p3-london-tube_stations.geojson"</span>)</span>
+<span id="cb81-4"><a href="#cb81-4" aria-hidden="true" tabindex="-1"></a>tube_stations <span class="ot">=</span> <span class="fu">read_sf</span>(<span class="st">"p3-london-tube_stations.geojson"</span>)</span>
+<span id="cb81-5"><a href="#cb81-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-6"><a href="#cb81-6" aria-hidden="true" tabindex="-1"></a><span class="co"># use the bounding box of the bike docking stations to crop the tube stations</span></span>
+<span id="cb81-7"><a href="#cb81-7" aria-hidden="true" tabindex="-1"></a><span class="co"># this can help us focus on central London - which is covered by the LCHS</span></span>
+<span id="cb81-8"><a href="#cb81-8" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london <span class="ot">=</span> <span class="fu">st_crop</span>(tube_stations, <span class="fu">st_bbox</span>(bike_docking_stations))</span>
+<span id="cb81-9"><a href="#cb81-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-10"><a href="#cb81-10" aria-hidden="true" tabindex="-1"></a><span class="co"># create the buffer zones, we set the buffer radius to 250m</span></span>
+<span id="cb81-11"><a href="#cb81-11" aria-hidden="true" tabindex="-1"></a><span class="co"># you may adjust the value if you would like to create smaller or larger buffer zones.</span></span>
+<span id="cb81-12"><a href="#cb81-12" aria-hidden="true" tabindex="-1"></a>tube_stations_central_london_buffer <span class="ot">=</span> <span class="fu">st_buffer</span>(tube_stations_central_london <span class="sc">%&gt;%</span> <span class="fu">st_transform</span>(<span class="dv">27700</span>), <span class="at">dist =</span> <span class="dv">250</span>)</span>
+<span id="cb81-13"><a href="#cb81-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb81-14"><a href="#cb81-14" aria-hidden="true" tabindex="-1"></a><span class="co"># visualise the buffers, tube stations and bike docking stations</span></span>
+<span id="cb81-15"><a href="#cb81-15" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>()<span class="sc">+</span></span>
+<span id="cb81-16"><a href="#cb81-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london_buffer, <span class="at">fill =</span><span class="st">"#3ba2c7"</span>, <span class="at">color =</span> <span class="cn">NA</span>, <span class="at">alpha =</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb81-17"><a href="#cb81-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> tube_stations_central_london, <span class="at">color =</span> <span class="st">"#3ba2c7"</span>)<span class="sc">+</span></span>
+<span id="cb81-18"><a href="#cb81-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> bike_docking_stations, <span class="at">color =</span> <span class="st">"#d45b70"</span>, <span class="at">size =</span> <span class="fl">0.5</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
