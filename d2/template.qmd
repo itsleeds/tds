@@ -138,7 +138,7 @@ The following code was used to aggregate the data by hour:
 ```{r}
 collisions_hourly = collisions_2023 |>
   mutate(time = lubridate::hour(datetime)) |>
-  count(time, accident_severity) 
+  count(time, collision_severity) 
 ```
 
 # Initial data exploration
@@ -150,7 +150,7 @@ A visualisation of the data is shown below:
 #| layout-ncol: 2
 #| echo: false
 collisions_hourly |>
-  ggplot(aes(x = time, y = n, fill = accident_severity)) +
+  ggplot(aes(x = time, y = n, fill = collision_severity)) +
   geom_col(position = "dodge") 
 head(collisions_2023$police_force)
 collisions_2023_sf |>

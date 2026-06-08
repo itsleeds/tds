@@ -131,7 +131,10 @@ system("gh release upload 2025 supermarkets_points_cleaned.geojson --clobber")
 Import and visualise a dataset with supermarket names and locations with the following code (see the [source code of the practical](https://github.com/itsleeds/tds/discussions/166) to see how the supermarket data was obtained with `osmextract`):
 
 ```{r}
-supermarkets = sf::read_sf("https://github.com/ITSLeeds/tds/releases/download/2025/supermarkets_points_cleaned.geojson")
+u = "https://github.com/itsleeds/tds/releases/download/2025/supermarkets_points_cleaned.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+supermarkets = sf::read_sf(f)
 library(tmap)
 tmap_mode("view")
 tm_shape(supermarkets) +

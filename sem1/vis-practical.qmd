@@ -60,7 +60,10 @@ In this section, we will:
 
 ```{r}
 # Load Demand Data
-desire_lines = read_sf("https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson") |>
+u = "https://github.com/itsleeds/tds/releases/download/22/NTEM_flow.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+desire_lines = read_sf(f) |>
   select(from, to, all, walk, drive, cycle)
 
 dim(desire_lines)
@@ -157,8 +160,10 @@ This uses stplanr::overline() to merge lines that overlap.
 
 ```{r}
 # Download pre-routed lines for demonstration
-u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive_25.geojson"
-routes_drive = read_sf(u)
+u = "https://github.com/itsleeds/tds/releases/download/22/routes_drive_25.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+routes_drive = read_sf(f)
 
 # Inspect the summary of the drive.x variable (car trips)
 summary(routes_drive$drive.x)

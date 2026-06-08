@@ -38,7 +38,9 @@ library(stats19)
 1. **Load spatial datasets**:
 ```{r}
 path <- "https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson"
-lsoa <- read_sf(path)
+f <- basename(path)
+if (!file.exists(f)) download.file(path, f, mode = "wb")
+lsoa <- read_sf(f)
 crashes <- stats19::get_stats19("2023")
 ```
 

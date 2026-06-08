@@ -80,7 +80,7 @@ collisions_2023 = stats19::get_stats19(year = 2023, type = "collision")
 collisions_2023_sf = stats19::format_sf(collisions_2023)
 collisions_west_yorkshire_sf = collisions_2023_sf |>
   filter(police_force == "West Yorkshire") |>
-  arrange(desc(accident_severity))
+  arrange(desc(collision_severity))
 ```
 
 ```{r}
@@ -89,7 +89,7 @@ collisions_west_yorkshire_sf = collisions_2023_sf |>
 ggplot() +
   geom_sf(
     data = collisions_west_yorkshire_sf,
-    aes(colour = accident_severity, alpha = accident_severity)
+    aes(colour = collision_severity, alpha = collision_severity)
   ) +
   scale_alpha_manual(values = c(0.8, 0.4, 0.2))
 ```

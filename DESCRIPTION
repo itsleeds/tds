@@ -30,6 +30,7 @@ Imports:
     reticulate,
     stplanr,
     spData,
+    spDataLarge,
     zoo,
     pct,
     zonebuilder,
@@ -37,4 +38,8 @@ Imports:
     dodgr,
     opentripplanner,
     osmextract,
-    tmap
+    tmap,
+    sfnetworks
+Remotes:
+    Nowosad/spDataLarge
+
