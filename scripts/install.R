@@ -40,26 +40,37 @@ if (!requireNamespace("dodgr", quietly = TRUE) ||
   src_file <- file.path(tmpdir, "dodgr", "src", "dodgr-to-sf.cpp")
   src <- readLines(src_file)
 
-  # Fix new_edges[i] == new_edges[i-1] (line ~47) — proxy proxy comparison
+  # Debug: count matches before
+  before_eq <- sum(grepl("new_edges \\[i\\] == new_edges \\[i - 1\\]", src))
+  before_neq <- sum(grepl("new_edges \\[i\\] != new_edges \\[i - 1\\]", src))
+  cat("dodgr patch: found", before_eq, "== and", before_neq, "!= comparisons\n")
+
+  # Fix new_edges[i] == new_edges[i-1]
   src <- gsub(
     "if \\(new_edges \\[i\\] == new_edges \\[i - 1\\]\\)",
     "if (std::string(new_edges[i]) == std::string(new_edges[i - 1]))",
     src
   )
-  # Fix new_edges[i] != new_edges[i-1] (line ~89) — proxy proxy comparison
+  # Fix new_edges[i] != new_edges[i-1]
   src <- gsub(
     "if \\(new_edges \\[i\\] != new_edges \\[i - 1\\]\\)",
     "if (std::string(new_edges[i]) != std::string(new_edges[i - 1]))",
     src
   )
 
+  # Debug: count matches after
+  after_eq <- sum(grepl("new_edges \\[i\\] == new_edges \\[i - 1\\]", src))
+  after_neq <- sum(grepl("new_edges \\[i\\] != new_edges \\[i - 1\\]", src))
+  cat("dodgr patch: remaining", after_eq, "== and", after_neq, "!= comparisons\n")
+  cat("dodgr patch: std::string == count:", sum(grepl("std::string\\(new_edges\\[i\\]\\) == std::string\\(new_edges\\[i - 1\\]\\)", src)), "\n")
+  cat("dodgr patch: std::string != count:", sum(grepl("std::string\\(new_edges\\[i\\]\\) != std::string\\(new_edges\\[i - 1\\]\\)", src)), "\n")
+
   writeLines(src, src_file)
 
-  # Install patched dodgr from source (with dependencies from CRAN)
-  utils::install.packages(file.path(tmpdir, "dodgr"),
-    repos = "https://cloud.r-project.org",
-    type = "source", dependencies = TRUE)
+  # Install patched dodgr from source using pak (which handles dependencies)
+  pak::pkg_install(paste0("local::", file.path(tmpdir, "dodgr")), ask = FALSE)
 }
+
 
 # Use pak to install the package and dependencies. pak prefers binaries from
 # RSPM on supported platforms and will significantly reduce compile time.
