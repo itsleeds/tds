@@ -136,7 +136,10 @@ Import and visualise a dataset with supermarket names and locations with the fol
 
 ```{r}
 #| eval: false
-supermarkets = sf::read_sf("https://github.com/ITSLeeds/tds/releases/download/2025/supermarkets_points_cleaned.geojson")
+u = "https://github.com/itsleeds/tds/releases/download/2025/supermarkets_points_cleaned.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+supermarkets = sf::read_sf(f)
 library(tmap)
 tmap_mode("view")
 tm_shape(supermarkets) +

@@ -342,10 +342,12 @@ piggyback::pb_upload("desire_lines.geojson")
 
 ```{r, message=FALSE, eval=TRUE}
 # Set-up, after installing R and checking out www.pct.bike:
-u = "https://github.com/ITSLeeds/TDS/releases/download/0.1/desire_lines.geojson"
+u = "https://github.com/itsleeds/tds/releases/download/0.1/desire_lines.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
 library(dplyr)
 library(sf)
-desire_lines = read_sf(u)
+desire_lines = read_sf(f)
 ```
 
 ## Visualising data

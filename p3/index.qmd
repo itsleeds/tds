@@ -783,9 +783,14 @@ Let's begin by loading the following two datasets
 #| output: false
 
 # load the station location dataset
-bike_docking_stations = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_docking_stations.geojson")
+u_stations = "https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_docking_stations.geojson"
+if (!file.exists("p3-london-bike_docking_stations.geojson")) download.file(u_stations, "p3-london-bike_docking_stations.geojson")
+bike_docking_stations = read_sf("p3-london-bike_docking_stations.geojson")
+
 # load the bike trip origin and destination dataset
-bike_trips = read_csv("https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_trips.csv")
+u_trips = "https://github.com/itsleeds/tds/releases/download/2025/p3-london-bike_trips.csv"
+if (!file.exists("p3-london-bike_trips.csv")) download.file(u_trips, "p3-london-bike_trips.csv")
+bike_trips = read_csv("p3-london-bike_trips.csv")
 ```
 
 Explore these datasets using the functions you have learnt (e.g. head, nrow)
@@ -926,8 +931,13 @@ To enhance the map, adding some background context could be useful. Let’s try 
 Let’s check how the background looks. You can also customize the colors of the rivers and parks by modifying the values assigned to `fill` and `color`.
 ```{r}
 # load the river and parks
-rivers = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson")
-parks = st_read("https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson")
+u_rivers = "https://github.com/itsleeds/tds/releases/download/2025/p3-london-rivers.geojson"
+if (!file.exists("p3-london-rivers.geojson")) download.file(u_rivers, "p3-london-rivers.geojson")
+rivers = st_read("p3-london-rivers.geojson")
+
+u_parks = "https://github.com/itsleeds/tds/releases/download/2025/p3-london-parks.geojson"
+if (!file.exists("p3-london-parks.geojson")) download.file(u_parks, "p3-london-parks.geojson")
+parks = st_read("p3-london-parks.geojson")
 
 ggplot() +
   geom_sf(data = parks, fill = "#d9f5e0", color = "#d9f5e0") + # add parks in central London to the map
@@ -976,7 +986,9 @@ First, let create the buffer zones for tube stations in central london
 
 ```{r}
 # import the tube station data
-tube_stations = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson")
+u_tube = "https://github.com/itsleeds/tds/releases/download/2025/p3-london-tube_stations.geojson"
+if (!file.exists("p3-london-tube_stations.geojson")) download.file(u_tube, "p3-london-tube_stations.geojson")
+tube_stations = read_sf("p3-london-tube_stations.geojson")
 
 # use the bounding box of the bike docking stations to crop the tube stations
 # this can help us focus on central London - which is covered by the LCHS

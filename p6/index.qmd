@@ -197,7 +197,10 @@ First, we load the LSOA (Lower Super Output Area) boundaries for West Yorkshire:
 
 ```{r}
 # Load the 2021 LSOA boundary data for West Yorkshire
-lsoa_wy = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson")
+u = "https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+lsoa_wy = read_sf(f)
 
 # Retain only useful variables: LSOA code (lsoa21cd) and LSOA name (lsoa21nm)
 lsoa_wy = lsoa_wy |> select(lsoa21cd, lsoa21nm) 
@@ -320,7 +323,10 @@ We'll now load census population data for the LSOAs, the census data is obtained
 #| warning: false
 #| message: false
 # Load 2021 Census population data for LSOAs
-pop_lsoa = read_csv("https://github.com/itsleeds/tds/releases/download/2025/p6-census2021_lsoa_pop.csv")
+u = "https://github.com/itsleeds/tds/releases/download/2025/p6-census2021_lsoa_pop.csv"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+pop_lsoa = read_csv(f)
 
 # Display the first few rows
 head(pop_lsoa)

@@ -141,8 +141,10 @@ To get some more routes, we will start by importing some data. The `NTEM_flow.ge
 
 
 ```{r loaddesirelines, message=FALSE}
-u = "https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_flow.geojson"
-desire_lines = read_sf(u)
+u = "https://github.com/itsleeds/tds/releases/download/22/NTEM_flow.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+desire_lines = read_sf(f)
 head(desire_lines)
 ```
 
@@ -150,8 +152,10 @@ head(desire_lines)
 We will also download the points that represent the possible start and end point of trips in the model
 
 ```{r loadcentroids, message=FALSE}
-u = "https://github.com/ITSLeeds/TDS/releases/download/22/NTEM_cents.geojson"
-centroids = read_sf(u)
+u = "https://github.com/itsleeds/tds/releases/download/22/NTEM_cents.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+centroids = read_sf(f)
 head(centroids)
 ```
 **Exercise** 
@@ -327,10 +331,14 @@ piggyback::pb_upload("routes_transit.geojson")
 ```
 
 ```{r, message=FALSE, echo=TRUE}
-u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_drive.geojson"
-routes_drive = read_sf(u)
-u = "https://github.com/ITSLeeds/TDS/releases/download/22/routes_transit.geojson"
-routes_transit = read_sf(u)
+u = "https://github.com/itsleeds/tds/releases/download/22/routes_drive.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+routes_drive = read_sf(f)
+u = "https://github.com/itsleeds/tds/releases/download/22/routes_transit.geojson"
+f = basename(u)
+if (!file.exists(f)) download.file(u, f, mode = "wb")
+routes_transit = read_sf(f)
 ```
 
 We will now join the number of drivers onto the driving routes.
