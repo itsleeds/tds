@@ -63,7 +63,7 @@ Specific examples could include:
 
 - Infrastructure and travel behaviour
   - What are the relationships between specific types of infrastructure and travel, e.g. between fast roads and walking?
-  - How do official sources of infrastructure data (e.g. the [CID](https://github.com/PublicHealthDataGeek/CycleInfraLnd/)) compare with crowd-sourced datasets such as OpenStreetMap (which can be accessed with the new [`osmextract` R package](https://github.com/ropensci/osmextract))
+  - How do official sources of infrastructure data (e.g. the [CID](https://github.com/PublicHealthDataGeek/CycleInfraLnd/)) compare with crowd-sourced datasets such as OpenStreetMap (which can be accessed using OSMnx in Python or [`osmextract` in R](https://github.com/ropensci/osmextract))
   - Using new data sources to support transport planning, e.g. using data from https://telraam.net/ or https://dataforgood.facebook.com/dfg/tools/high-resolution-population-density-maps 
 
 - Changing transport systems
@@ -71,9 +71,9 @@ Specific examples could include:
   - How have movement patterns changed during the Coronavirus pandemic and what impact is that likely to have long term (see [here](https://saferactive.github.io/trafficalmr/articles/report3.html) for some graphics on this)
   
 - Software / web development
-  - Creating a package to make a particular data source more accessible, see https://github.com/ropensci/stats19 and https://github.com/elipousson/crashapi examples
+  - Creating a package to make a particular data source more accessible, see https://github.com/ropensci/stats19, https://github.com/itsleeds/pystats19, and https://github.com/elipousson/crashapi examples
   - Development of a data dashboard, e.g. using [Quarto Dashboards](https://quarto.org/docs/dashboards/)
-  - Development of a web app, e.g. using the [shiny](https://shiny.rstudio.com/) package
+  - Development of a web app, e.g. using [Shiny (Python or R)](https://shiny.posit.co/) or [Streamlit](https://streamlit.io/)
   
 - Road safety - how can we makes roads and transport systems in general safer?
   - Influence of Road Infrastructure: 

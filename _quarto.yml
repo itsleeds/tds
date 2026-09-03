@@ -1,6 +1,31 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - index.qmd
+    - schedule.qmd
+    - marking-criteria.qmd
+    - reading.qmd
+    - minihack-transport-data.qmd
+    - dstp.qmd
+    - precourse.qmd
+    - reproducible-road-safety-workshop.qmd
+    - d1/index.qmd
+    - s1/index.qmd
+    - s2/index.qmd
+    - s3/index.qmd
+    - s4/index.qmd
+    - sem1/index.qmd
+    - d2/index.qmd
+    - d2/template.qmd
+    - d2/example.qmd
+    - d2/assessment-brief.qmd
+    - s5/index.qmd
+    - sem2/index.qmd
+    - s6/index.qmd
+    - d3/index.qmd
+    - d3/assessment-brief.qmd
+    - slides/*.qmd
 
 website:
   title: "Transport Data Science"

@@ -27,23 +27,33 @@ questions like:
 
 We will install (if necessary) and load the packages for these examples.
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+import geopandas as gpd         # Spatial data operations
+import pandas as pd             # Tabular data manipulation
+import matplotlib.pyplot as plt # Visualisation
+```
+
+### R
+
 ```{r}
 #| code-fold: show
 #| warning: false
 #| message: false
 
-options(repos = c(CRAN = "https://cloud.r-project.org"))
-pkgs = c(
-    "sf",
-    "tidyverse",
-    "osmextract",
-    "tmap",
-    "maptiles"
-)
-if (!require("remotes")) install.packages("remotes")
-remotes::install_cran(setdiff(pkgs, "tmap"))
-sapply(pkgs, require, character.only = TRUE)
+if (!requireNamespace("osmextract", quietly = TRUE)) {
+  install.packages("osmextract", repos = "https://p3m.dev/cran/__linux__/jammy/latest")
+}
+library(sf)
+library(tidyverse)
+library(tmap)
+if (requireNamespace("osmextract", quietly = TRUE)) library(osmextract)
 ```
+
+:::
 
 # Some interesting datasets 
 
@@ -59,6 +69,20 @@ publishes the tap-in data for the BRT system (see
 
 We will start by loading the location of the BRT stations from a checked-in GeoJSON snapshot of the public ArcGIS dataset. Using a local copy keeps the seminar reproducible even when the upstream service is temporarily unavailable.
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+import geopandas as gpd
+
+tm_stations_sf = gpd.read_file("Estaciones_Troncales_de_TRANSMILENIO.geojson")
+tm_stations_sf["num_est"] = tm_stations_sf["numero_estacion"]
+print(tm_stations_sf[["num_est", "nombre_estacion", "geometry"]].head())
+```
+
+### R
+
 ```{r}
 #| code-fold: true
 
@@ -66,22 +90,41 @@ tm_stations_sf <- read_sf("Estaciones_Troncales_de_TRANSMILENIO.geojson")
 tm_stations_sf$num_est <- tm_stations_sf$numero_estacion
 ```
 
+:::
+
 We can explore the variables in the dataset to understand what information we have about the stations.
+
 ```{r}
 colnames(tm_stations_sf)
 ```
 
 The `num_est` variable contains the station code, which we will use to join this data with the tap-in data later on.
 
-Let's quickly visualise the location of the stations. As we imported the data as an sf object, we can easily visualise it using `tmap` or any other visualization package you like e.g.`ggplot2`.
+Let's quickly visualise the location of the stations. As we imported the data as a spatial object, we can easily visualise it using `matplotlib` in Python, or `tmap` / `ggplot2` in R.
+
+::: {.panel-tabset}
+
+### Python
+
+```python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(8, 10))
+tm_stations_sf.plot(ax=ax, color="darkblue", markersize=20)
+ax.set_title("Bogotá BRT Stations (TransMilenio)")
+plt.show()
+```
+
+### R
 
 ```{r}
 #| code-fold: true
  
-tm_basemap("OpenStreetMap")+
 tm_shape(tm_stations_sf)+
-  tm_dots("darkblue")
+  tm_dots(col = "darkblue")
 ```
+
+:::
 
 
 We will use 2024 hourly boarding data for the BRT system. The following code will download the data and load it into R. We will use this data to explore the demand patterns in the BRT system and visualise the demand at the station level. This data can be manually obtained in the open data portal
@@ -169,6 +212,7 @@ From this summary we can identify the stations with the highest demand. However,
 #| code-fold: true
 #| warning: false
 #| message: false
+#| eval: false
 
 tm_stations_sf |> 
   left_join(daily_tapins,by = c("num_est"="station_code")) |> 
@@ -340,6 +384,7 @@ This evidences that there are two main groups of stations: those with a peak dem
 #| code-fold: true
 #| warning: false
 #| message: false
+#| eval: false
 
 
 tm_stations_sf |>

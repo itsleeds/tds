@@ -48,40 +48,44 @@ Substantial programming and data science experience in previous professional or 
 
 To participate in this course, you'll need to install specific software.
 
-The teaching is delivered primarily in R, with some Python code and examples. You should install R (recommended), Python, or both on your computer.
-
-We recommend using R for sessions and coursework unless you have a specific reason to use Python. If you choose Python or another language, please note:
-
-- You will receive less direct support
-- You'll need skills to set up and manage your own environments
-
-We welcome translations of R code examples into other languages. Contributions to course materials via [Pull Requests on GitHub](https://github.com/itsleeds/tds/pulls) are encouraged.
+The course supports both Python and R throughout, with Python examples and code chunks presented first alongside equivalent R workflows. You can choose to complete exercises and coursework in Python, R, or a combination of both.
 
 ## Quickstart with GitHub Codespaces
 
-For a quick cloud-based setup, you can use GitHub Codespaces to access the course materials:
+For a quick cloud-based setup, you can use GitHub Codespaces to access the course materials with both Python and R pre-configured:
 
 1. Sign up to GitHub
 2. Fork the repository
-3. Click the "Open in GitHub Codespaces" button above
-
-Alternatively, use the following link:
+3. Click the "Open in GitHub Codespaces" button below
 
 [![Open in GitHub
 Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
 
+## Python
+
+For Python, install Python 3.10+ (via [python.org](https://www.python.org/) or [miniforge/conda](https://github.com/conda-forge/miniforge)) and VS Code:
+
+- Key packages used in the module include `geopandas`, `pandas`, `matplotlib`, `osmnx`, `networkx`, and `pystats19`.
+- Install dependencies using `pip`:
+
+```bash
+pip install -r requirements.txt
+```
+
+Or using modern environment managers such as:
+
+- `pixi` (which can manage both Python and R environments reproducibly)
+- Docker / Devcontainers (best practice for isolation)
+
 ## R
 
-Install a recent version of R (4.3.0 or above) and an IDE:
+You can also use R (4.3.0 or above) and RStudio or VS Code:
 
 - R from [cran.r-project.org](https://cran.r-project.org/)
-- RStudio from [rstudio.com](https://rstudio.com/products/rstudio/download/#download) (recommended)
-- Alternatively, VS Code with the R extension installed (if you have prior experience with it)
+- RStudio from [posit.co](https://posit.co/download/rstudio-desktop/) (recommended)
+- Alternatively, VS Code with the R extension
 
-You'll also need to install R packages:
-
-- Individual packages can be installed by opening RStudio and typing commands like `install.packages("stats19")` in the R console
-- To install all dependencies for the module at once, run the following command in the R console:
+Install key R packages with:
 
 ```{r}
 #| eval: false
@@ -90,25 +94,6 @@ if (!requireNamespace("remotes", quietly = TRUE)) {
 }
 remotes::install_github("itsleeds/tds")
 ```
-
-See [Section 1.5 of the online guide Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio) for instructions on how to install key packages we will use in the module.^[
-For further guidance on setting-up your computer to run R and RStudio for spatial data, see these links, we recommend 
-Chapter 2 of Geocomputation with R (the Prerequisites section contains links for installing spatial software on Mac, Linux and Windows): https://r.geocompx.org/spatial-class.html and Chapter 2 of the online book *Efficient R Programming*, particularly sections 2.3 and 2.5, for details on R installation and [set-up](https://csgillespie.github.io/efficientR/set-up.html) and the 
-[project management section](https://csgillespie.github.io/efficientR/set-up.html#project-management).
-]
-
-## Python
-
-If you choose to use Python, you should be comfortable with:
-
-- Installing Python
-- Managing your own Python environment
-- Installing packages and resolving package conflicts
-
-For Python users, we recommend using an environment manager such as:
-
-- `pixi` (which can manage both R and Python environments)
-- Docker (best practice for reproducibility and isolation)
 
 ## Docker (advanced)
 

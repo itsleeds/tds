@@ -36,7 +36,10 @@ jobs:
 
       - name: Install Python Dependencies
         run: |
-          python3 -m pip install jupyter jupyter-cache
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -r requirements.txt
+          echo "RETICULATE_PYTHON=$(which python3)" >> $GITHUB_ENV
+          echo "RETICULATE_AUTOCONFIGURE=FALSE" >> $GITHUB_ENV
 
       - name: Cache Quarto Freeze
         uses: actions/cache@v4

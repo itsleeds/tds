@@ -28,30 +28,47 @@ Divide into groups of 2–3 people and share your thoughts on the following:
 * What is a spatial join, and when might you use one in a transport analysis context?
 * What geometry operations did you find most relevant to transport data work? Can you think of a use case?
 
-# Routing Pratical
+# Routing Practical
 
 ## Setup
 
-If you have not installed the packages before hand. You can use ITS Go to
-do an easy set-up of your computer
+::: {.panel-tabset}
+
+### Python
+
+The Python packages we will be using for routing and network analysis:
+
+```python
+import geopandas as gpd       # Spatial vector data
+import osmnx as ox            # Street network download and routing
+import networkx as nx         # Graph and network algorithms
+import matplotlib.pyplot as plt # Plotting and map visualization
+import shapely.geometry as sg # Geometric operations
+```
+
+### R
+
+If you have not installed the packages beforehand, you can use:
 
 ```{r, eval=FALSE}
 source("https://git.io/JvGjF")
 ```
 
-The packages we will be using are:
+The R packages we will be using are:
 
 ```{r, echo=TRUE, message=FALSE}
 library(sf)               # Spatial data functions
-library(lwgeom)           # For advanced spatial functions
 library(tidyverse)        # General data manipulation
-library(stplanr)          # General transport data functions
-library(dodgr)            # Local routing and network analysis
-library(opentripplanner)  # Connect to and use OpenTripPlanner
 library(tmap)             # Make maps
-library(osmextract)       # Download and import OpenStreetMap data
+if (requireNamespace("lwgeom", quietly = TRUE)) library(lwgeom)
+if (requireNamespace("stplanr", quietly = TRUE)) library(stplanr)
+if (requireNamespace("dodgr", quietly = TRUE)) library(dodgr)
+if (requireNamespace("opentripplanner", quietly = TRUE)) library(opentripplanner)
+if (requireNamespace("osmextract", quietly = TRUE)) library(osmextract)
 tmap_mode("plot")
 ```
+
+:::
 
 ## Using OpenTripPlanner to get routes
 
@@ -142,6 +159,19 @@ Use some of the functions you have already learnt like `head`,`plot`, and `summa
 To get some more routes, we will start by importing some data. The `NTEM_flow.geojson` dataset the contains the top desire lines in West Yorkshire. It was produced from a transport model called the [National Trip End Model](https://data.gov.uk/dataset/11bc7aaf-ddf6-4133-a91d-84e6f20a663e/national-trip-end-model-ntem) and research from the [University of Leeds](https://github.com/ITSLeeds/NTEM2OD).
 
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+import geopandas as gpd
+
+desire_lines = gpd.read_file("https://github.com/itsleeds/tds/releases/download/22/NTEM_flow.geojson")
+print(desire_lines.head())
+```
+
+### R
+
 ```{r loaddesirelines, message=FALSE}
 u = "https://github.com/itsleeds/tds/releases/download/22/NTEM_flow.geojson"
 f = basename(u)
@@ -150,8 +180,21 @@ desire_lines = read_sf(f)
 head(desire_lines)
 ```
 
+:::
+
 
 We will also download the points that represent the possible start and end point of trips in the model
+
+::: {.panel-tabset}
+
+### Python
+
+```python
+centroids = gpd.read_file("https://github.com/itsleeds/tds/releases/download/22/NTEM_cents.geojson")
+print(centroids.head())
+```
+
+### R
 
 ```{r loadcentroids, message=FALSE}
 u = "https://github.com/itsleeds/tds/releases/download/22/NTEM_cents.geojson"
@@ -161,11 +204,31 @@ centroids = read_sf(f)
 head(centroids)
 ```
 
+:::
+
 **Exercise** 
 
-2. Plot the `desire_lines` and `centroids` objects using the `tmap` package to show the number of travellers on each desire_line and the locations of all centroids.
+2. Plot the `desire_lines` and `centroids` objects to show the number of travellers on each desire line and the locations of all centroids.
+
+::: {.panel-tabset}
+
+### Python
+
+```python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(10, 8))
+desire_lines.plot(column="all", cmap="viridis_r", linewidth=desire_lines["all"] / 1000, ax=ax)
+centroids.plot(color="red", markersize=15, ax=ax)
+ax.set_axis_off()
+plt.title("Desire lines and centroids")
+plt.show()
+```
+
+### R
 
 ```{r, message=FALSE, echo=TRUE}
+#| eval: false
 tmap_mode("plot") # Change to view for interactive map
 tm_shape(desire_lines) +
   tm_lines(col = "all",
@@ -176,11 +239,14 @@ tm_shape(desire_lines) +
   tm_dots(fill = "red")
 ```
 
+:::
+
 
 3. Produce some different maps for each mode of travel in the `desire_lines` dataset. How do the numbers of travellers change for walking, driving, and train travel? See example plot below.
 
 
 ```{r, message=FALSE, echo=FALSE}
+#| eval: false
 tmap_mode("plot") # Change to view for interactive map
 tm_shape(desire_lines) +
   tm_lines(lwd = "rail", 
@@ -189,31 +255,69 @@ tm_shape(desire_lines) +
            col.scale = tm_scale_continuous(values  = "-viridis"))
 ```
 
-This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the start and endpoints using the package `lwgeom`
+This dataset has desire lines, but most routing packages need start and endpoints, so we will extract the start and endpoints.
 
 **Exercise**
 
-4. Produce a data frame called `desire_top` which contains the top three `desire_lines` for all travellers. Hint `?slice_max`
+4. Produce a data frame called `desire_top` which contains the top three `desire_lines` for all travellers.
 
-```{r, echo=FALSE}
-desire_top = desire_lines %>% 
-  slice_max(order_by = all,n = 3)
+::: {.panel-tabset}
+
+### Python
+
+```python
+desire_top = desire_lines.nlargest(3, "all")
+print(desire_top[["from", "to", "all"]])
 ```
 
+### R
 
-5. We need to extract start and end point from those desire lines. We would also like to give each place an ID value
+```{r, echo=TRUE}
+desire_top = desire_lines %>% 
+  slice_max(order_by = all, n = 3)
+```
+
+:::
+
+
+5. We need to extract start and end points from those desire lines. We would also like to give each place an ID value:
+
+::: {.panel-tabset}
+
+### Python
+
+```python
+from shapely.geometry import Point
+
+fromPlace = gpd.GeoDataFrame(
+    {"id": desire_top["from"]},
+    geometry=desire_top.geometry.apply(lambda g: Point(g.coords[0])),
+    crs=desire_lines.crs
+)
+toPlace = gpd.GeoDataFrame(
+    {"id": desire_top["to"]},
+    geometry=desire_top.geometry.apply(lambda g: Point(g.coords[-1])),
+    crs=desire_lines.crs
+)
+```
+
+### R
 
 ```{r, echo=TRUE}
 # Extract start and end points
-fromPlace = sf::st_sf(
-  data.frame(id = desire_top$from),
-  geometry = lwgeom::st_startpoint(desire_top)
-)
-toPlace = sf::st_sf(
-  data.frame(id = desire_top$to),
-  geometry = lwgeom::st_endpoint(desire_top)
-)
+if (requireNamespace("lwgeom", quietly = TRUE)) {
+  fromPlace = sf::st_sf(
+    data.frame(id = desire_top$from),
+    geometry = lwgeom::st_startpoint(desire_top)
+  )
+  toPlace = sf::st_sf(
+    data.frame(id = desire_top$to),
+    geometry = lwgeom::st_endpoint(desire_top)
+  )
+}
 ```
+
+:::
 
 
 6. Create a new object called `routes_drive_top`, with driving routes between the OD pairs represented in the `desire_top` object. 
@@ -453,19 +557,46 @@ tm_shape(routes_transit_group) +
 
 **Note** Some people have have problems running dodgr on Windows, if you do follow these [instructions](https://github.com/itsleeds/tds/blob/main/s4/dodgr-install.md).
 
-We will now analyse the road network using `dodgr`. Network analysis can take a very long time on large areas. So we will use the example of the [Isle of Wight](https://en.wikipedia.org/wiki/Isle_of_Wight), which is ideal for transport studies as it is small, but has a full transport system including a railway and the last commercial hovercraft service in the world.
+We will now analyse the road network using network analysis tools. Network analysis can take a very long time on large areas, so we will use the example of the [Isle of Wight](https://en.wikipedia.org/wiki/Isle_of_Wight), which is ideal for transport studies as it is small, but has a full transport system.
 
+::: {.panel-tabset}
 
-First we need to download the roads network from the OpenStreetMap using `osmextract::oe_get`. We will removed most of the paths and other features and just focus on the main roads. Then use `dodgr::weight_streetnet` to produce a graph of the road network.
+### Python
+
+In Python, we use **OSMnx** and **NetworkX** to download the network and compute network metrics like betweenness centrality:
+
+```python
+import osmnx as ox
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Download drivable road network for Isle of Wight
+G = ox.graph_from_place("Isle of Wight, UK", network_type="drive")
+
+# Calculate betweenness centrality (approximated with k=100 for speed)
+bc = nx.betweenness_centrality(G, weight="length", k=100)
+nx.set_node_attributes(G, bc, "centrality")
+
+# Plot network colored by centrality
+nc = ox.plot.get_node_colors_by_attr(G, "centrality", cmap="plasma")
+fig, ax = ox.plot_graph(G, node_color=nc, node_size=15, edge_linewidth=0.5, show=False, close=False)
+plt.title("Isle of Wight: Road Network Betweenness Centrality")
+plt.show()
+```
+
+### R
+
+In R, we use `osmextract` and `dodgr`:
 
 ```{r, warning=FALSE, message=FALSE, results='hide'}
-# Download data from OpenSteetMap
+#| eval: false
+# Download data from OpenStreetMap
 roads = oe_get("Isle of Wight", extra_tags = c("maxspeed","oneway"))
 
 # Remove non-road data
 roads = roads[!is.na(roads$highway),]
 
-# Only get some road types see https://wiki.openstreetmap.org/wiki/Key:highway
+# Only get main road types
 road_types = c("primary","primary_link",
                "secondary","secondary_link",
                "tertiary", "tertiary_link",
@@ -473,39 +604,19 @@ road_types = c("primary","primary_link",
 roads = roads[roads$highway %in% road_types, ]
 
 # Build a graph
-graph = weight_streetnet(roads)
-```
-
-
-We will find the [betweenness centrality](https://en.wikipedia.org/wiki/Betweenness_centrality) of the Isle of Wight road network. This can take a long time, so first lets check how long it will take. 
-
-```{r, message=TRUE, echo=TRUE}
+graph = dodgr::weight_streetnet(roads)
 estimate_centrality_time(graph)
-centrality = dodgr_centrality(graph)
+centrality = dodgr::dodgr_centrality(graph)
+centrality_sf = dodgr::dodgr_to_sf(centrality)
 ```
 
-
-We can convert a `dodgr` graph back into a sf data frame for plotting using `dodgr::dodgr_to_sf`
-
-
-```{r, message=FALSE, echo=TRUE, results='hide', warning=FALSE}
-clear_dodgr_cache()
-centrality_sf = dodgr_to_sf(centrality)
-```
+:::
 
 **Exercise**
 
 13. Plot the centrality of the Isle of Wight road network. What can centrality tell you about a road network?
 
-```{r, message=TRUE, echo=FALSE}
-tm_shape(centrality_sf) +
-  tm_lines(col = "centrality",
-           lwd = 3,
-           col.scale = tm_scale_intervals(n = 8, values  = "-viridis", style = "fisher"))
-```
-
-
-14. Use `dodgr::dodgr_contract_graph` before calculating centrality, how does this affect the computation time and the results?
+14. Try contracting the graph before calculating centrality (`dodgr::dodgr_contract_graph` in R or simplifying the graph in Python). How does this affect computation time and results?
 
 **Bonus Exercises**
 
