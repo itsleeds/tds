@@ -33,7 +33,7 @@ In the previous session and for your homework, you used AI to assist with loadin
 
 * **Refinement**: Share how you modified your prompts or the code itself to achieve a better, more accurate result.
 
-# Getting started with GIS in R
+# Getting started with GIS in Python and R
 
 Note that this practical takes sections from Chapters 2 - 8 of [Geocomputation with R](https://r.geocompx.org). You should expand your knowledge by reading these chapters in full.
 
@@ -46,22 +46,6 @@ If you need to install any of these packages use:
 
 ::: {.panel-tabset}
 
-## R
-
-```{r} 
-#| eval: false
-if (!require("pak")) install.packages("pak")
-pak::pkg_install(c("sf", "tidyverse", "remotes", "ggspatial"))
-# GitHub pkgs
-# pak::pkg_install("Nowosad/spDataLarge")
-```
-
-```{r}
-library(sf)        # vector data package
-library(tidyverse) # tidyverse packages
-library(ggspatial) # ggspatial package
-library(spData)    # spatial data package
-```
 
 ## Python
 
@@ -77,6 +61,27 @@ import seaborn as sns            # advanced plotting
 # For spatial data, geopandas comes with sample datasets
 # Alternatively, we can use the naturalearth datasets
 import geopandas.datasets
+```
+
+## R
+
+```{r} 
+#| eval: false
+if (!require("pak")) install.packages("pak")
+pak::pkg_install(c("sf", "tidyverse", "remotes", "ggspatial"))
+# GitHub pkgs
+# pak::pkg_install("Nowosad/spDataLarge")
+```
+
+```{r}
+#| message: false
+if (!requireNamespace("ggspatial", quietly = TRUE)) {
+  install.packages("ggspatial", repos = "https://p3m.dev/cran/__linux__/jammy/latest")
+}
+library(sf)        # vector data package
+library(tidyverse) # tidyverse packages
+library(spData)    # spatial data package
+library(ggspatial) # ggspatial package
 ```
 
 :::
@@ -100,12 +105,6 @@ file.edit("code/learning-OD.R") -->
 We will start with a simple map of the world. Load the `world` object from the `spData` package.  Notice the use of `::` to say that you want the `world` object from the `spData` package.
 
 ::: {.panel-tabset}
-## R
-```{r}
-#| echo: true
-#| output: false
-world = spData::world
-```
 
 ## Python
 ```{python}
@@ -114,6 +113,14 @@ world = gpd.read_file(
     'https://naturalearth.s3.amazonaws.com/110m_cultural/ne_110m_admin_0_countries.zip'
 )
 ```
+
+## R
+```{r}
+#| echo: true
+#| output: false
+world = spData::world
+```
+
 :::
 
 Use some basic R functions to explore the `world` object. e.g. `class(world)`, `dim(world)`, `head(world)`, `summary(world)`. Also view the `world` object by clicking on it in the Environment panel.
@@ -121,11 +128,6 @@ Use some basic R functions to explore the `world` object. e.g. `class(world)`, `
 `sf` objects can be plotted with `plot()`.
 
 ::: {.panel-tabset}
-## R
-```{r}
-#| warning: false
-plot(world)
-```
 
 ## Python
 ```{python}
@@ -141,15 +143,16 @@ plt.title('World Map')
 plt.show()
 ```
 
+## R
+```{r}
+#| warning: false
+plot(world)
+```
+
 :::
 Note that this makes a map of each column in the data frame. Try some other plotting options
 
 ::: {.panel-tabset}
-## R
-```{r}
-plot(world[3:6])
-plot(world["pop"])
-```
 
 ## Python
 ```{python}
@@ -162,6 +165,13 @@ world.plot(column='GDP_YEAR', ax=axes[1])
 world.plot(column='CONTINENT', ax=axes[2])
 plt.show()
 ```
+
+## R
+```{r}
+plot(world[3:6])
+plot(world["pop"])
+```
+
 :::
 
 ## Basic spatial operations
@@ -169,6 +179,14 @@ plt.show()
 Load the `nz` and `nz_height` datasets from the `spData` package.
 
 ::: {.panel-tabset}
+
+## Python
+```{python}
+#| eval: false
+nz = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/heads/main/data/nz.gpkg")
+nz_height = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/heads/main/data/nz_height.gpkg")
+```
+
 ## R
 ```{r}
 #| echo: true
@@ -176,17 +194,19 @@ Load the `nz` and `nz_height` datasets from the `spData` package.
 nz = spData::nz
 nz_height = spData::nz_height
 ```
-## Python
-```{python}
-#| eval: false
-nz = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/heads/main/data/nz.gpkg")
-nz_height = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/heads/main/data/nz_height.gpkg")
-```
+
 :::
 
 We can use `tidyverse` functions like `filter` and `select` on `sf` objects in the same way you did in Practical 1.
 
 ::: {.panel-tabset}
+
+## Python
+```{python}
+#| eval: false
+canterbury = nz[nz['Name'] == 'Canterbury']
+```
+
 ## R
 ```{r}
 #| echo: true
@@ -195,17 +215,19 @@ canterbury = nz |> filter(Name == "Canterbury")
 canterbury_height = nz_height[canterbury, ]
 ```
 
-## Python
-```{python}
-#| eval: false
-canterbury = nz[nz['Name'] == 'Canterbury']
-```
 :::
 In this case we filtered the `nz` object to only include places called `Canterbury` and then did and intersection to find objects in the `nz_height` object that are in Canterbury.
 
 This syntax is not very clear. But is the equivalent to
 
 ::: {.panel-tabset}
+
+## Python
+```{python}
+#| eval: false
+canterbury_height = gpd.overlay(nz_height, canterbury, how='intersection')
+```
+
 ## R
 ```{r}
 #| echo: true
@@ -213,27 +235,24 @@ This syntax is not very clear. But is the equivalent to
 canterbury_height = nz_height[canterbury, , op = st_intersects]
 ```
 
-## Python
-```{python}
-#| eval: false
-canterbury_height = gpd.overlay(nz_height, canterbury, how='intersection')
-```
 :::
 
 There are many different types of relationships you can use with `op`. Try `?st_intersects()` to see more. For example this would give all the places not in Canterbury
 
 ::: {.panel-tabset}
-## R
-```{r}
-#| eval: false
-nz_height[canterbury, , op = st_disjoint]
-```
 
 ## Python
 ```{python}
 #| eval: false
 canterbury_height = gpd.sjoin(nz_height, canterbury, op='intersects')
 ```
+
+## R
+```{r}
+#| eval: false
+nz_height[canterbury, , op = st_disjoint]
+```
+
 :::
 
 ![Topological relations between vector geometries, inspired by Figures 1 and 2 in Egenhofer and Herring (1990). The relations for which the function(x, y) is true are printed for each geometry pair, with x represented in pink and y represented in blue. The nature of the spatial relationship for each pair is described by the Dimensionally Extended 9-Intersection Model string. ](https://r.geocompx.org/figures/relations-1.png)
@@ -259,12 +278,6 @@ The `stplanr` package contains some data that we can use to demonstrate principl
 First we will load some sample data:
 
 ::: {.panel-tabset}
-## R
-```{r}
-#| echo: true
-od_data = stplanr::od_data_sample
-zone = stplanr::cents_sf
-```
 
 ## Python
 ```{python}
@@ -272,12 +285,27 @@ zone = stplanr::cents_sf
 import pandas as pd
 od_data = pd.read_csv('https://github.com/ropensci/stplanr/releases/download/v1.2.2/od_data_sample.csv')
 ```
+
+## R
+```{r}
+#| echo: true
+od_data = stplanr::od_data_sample
+zone = stplanr::cents_sf
+```
+
 :::
 
 You can click on the data in the environment panel to view it or use `head(od_data)`
 Now we will rename one of the columns from `foot` to `walk`
 
 ::: {.panel-tabset}
+
+## Python
+```{python}
+#| eval: false
+od_data.rename(columns={'foot': 'walk'}, inplace=True)
+```
+
 ## R
 ```{r}
 #| echo: true
@@ -285,16 +313,21 @@ od_data = od_data |>
   rename(walk = foot)
 ```
 
-## Python
-```{python}
-#| eval: false
-od_data.rename(columns={'foot': 'walk'}, inplace=True)
-```
 :::
 
 Next we will made a new dataset `od_data_walk` by taking `od_data` and piping it (`|>`) to `filter` the data frame to only include rows where `walk > 0`. Then `select` a few of the columns and calculate two new columns `proportion_walk` and `proportion_drive`.
 
 ::: {.panel-tabset}
+
+
+## Python
+```{python}
+#| eval: false
+od_data_walk = od_data[od_data['walk'] > 0].copy()
+od_data_walk = od_data_walk[['geo_code1', 'geo_code2', 'all', 'car_driver', 'walk']]
+od_data_walk['proportion_walk'] = od_data_walk['walk'] / od_data_walk['all']
+od_data_walk['proportion_drive'] = od_data_walk['car_driver'] / od_data_walk['all']
+```
 
 ## R
 ```{r}
@@ -305,22 +338,10 @@ od_data_walk = od_data |>
   mutate(proportion_walk = walk / all, proportion_drive = car_driver / all)
 ```
 
-## Python
-```{python}
-#| eval: false
-od_data_walk = od_data[od_data['walk'] > 0].copy()
-od_data_walk = od_data_walk[['geo_code1', 'geo_code2', 'all', 'car_driver', 'walk']]
-od_data_walk['proportion_walk'] = od_data_walk['walk'] / od_data_walk['all']
-od_data_walk['proportion_drive'] = od_data_walk['car_driver'] / od_data_walk['all']
-```
 :::
 We can use the generic `plot` function to view the relationships between variables
 
 ::: {.panel-tabset}
-## R
-```{r}
-plot(od_data_walk)
-```
 
 ## Python
 ```{python}
@@ -328,16 +349,16 @@ plot(od_data_walk)
 sns.pairplot(od_data_walk)
 plt.show()
 ```
+
+## R
+```{r}
+plot(od_data_walk)
+```
+
 :::
 R has built in modelling functions such as `lm` lets make a simple model to predict the proportion of people who walk based on the proportion of people who drive.
 
 ::: {.panel-tabset}
-## R
-```{r}
-#| echo: true
-model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
-od_data_walk$proportion_walk_predicted = model1$fitted.values
-```
 
 ## Python
 ```{python}
@@ -348,17 +369,19 @@ import statsmodels.formula.api as smf
 model1 = smf.ols('proportion_walk ~ proportion_drive', data=od_data_walk).fit()
 od_data_walk['proportion_walk_predicted'] = model1.fittedvalues
 ```
+
+## R
+```{r}
+#| echo: true
+model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
+od_data_walk$proportion_walk_predicted = model1$fitted.values
+```
+
 :::
 
 We can use the `ggplot2` package to graph our model predictions.
 
 ::: {.panel-tabset}
-## R
-```{r}
-ggplot(od_data_walk) +
-  geom_point(aes(proportion_drive, proportion_walk)) +
-  geom_line(aes(proportion_drive, proportion_walk_predicted))
-```
 
 ## Python
 ```{python}
@@ -371,6 +394,14 @@ plt.ylabel('Proportion Walk')
 plt.legend()
 plt.show()
 ```
+
+## R
+```{r}
+ggplot(od_data_walk) +
+  geom_point(aes(proportion_drive, proportion_walk)) +
+  geom_line(aes(proportion_drive, proportion_walk_predicted))
+```
+
 :::
 
 Exercises
@@ -401,6 +432,15 @@ print("Class of od_data:", type(od_data))
 :::
 ## Exercise 2
 ::: {.panel-tabset}
+
+### Python
+```{python}
+#| eval: false
+od_data_walk = od_data[od_data['walk'] > 0].copy()
+percentage_walk = (len(od_data_walk) / len(od_data)) * 100
+print(f"Percentage of OD pairs where at least one person walks: {percentage_walk}%")
+```
+
 ### R
 ```{r}
 #| eval: false
@@ -409,16 +449,18 @@ od_data_walk = od_data |>
   filter(walk > 0)
 nrow(od_data_walk) / nrow(od_data) * 100
 ```
-### Python
-```{python}
-#| eval: false
-od_data_walk = od_data[od_data['walk'] > 0].copy()
-percentage_walk = (len(od_data_walk) / len(od_data)) * 100
-print(f"Percentage of OD pairs where at least one person walks: {percentage_walk}%")
-```
+
 :::
 ## Exercise 3
 ::: {.panel-tabset}
+
+### Python
+```{python}
+#| eval: false
+od_data_cycle = od_data[od_data['bicycle'] > 0].copy()
+od_data_cycle['perc_cycle'] = (od_data_cycle['bicycle'] / od_data_cycle['all']) * 100
+```
+
 ### R
 ```{r}
 #| eval: false
@@ -428,31 +470,10 @@ od_data = od_data |>
   mutate(perc_cycle = (bicycle / all) * 100)
 ```
 
-### Python
-```{python}
-#| eval: false
-od_data_cycle = od_data[od_data['bicycle'] > 0].copy()
-od_data_cycle['perc_cycle'] = (od_data_cycle['bicycle'] / od_data_cycle['all']) * 100
-```
 :::
 
 ## Exercise 4
 ::: {.panel-tabset}
-### R
-```{r}
-#| eval: false
-
-od_data_new = od_data |>
-  filter(walk > 0, bicycle > 0) |>
-  select(bicycle, walk, all)
-
-model = lm(walk ~ bicycle, weights = all, data = od_data_new)
-od_data_new$walk_predicted = model$fitted.values
-
-ggplot(od_data_new) +
-  geom_point(aes(bicycle, walk, size = all)) +
-  geom_line(aes(bicycle, walk_predicted))
-```
 
 ### Python
 ```{python}
@@ -478,20 +499,28 @@ plt.ylabel('Walk')
 plt.legend()
 plt.show()
 ```
+
+### R
+```{r}
+#| eval: false
+
+od_data_new = od_data |>
+  filter(walk > 0, bicycle > 0) |>
+  select(bicycle, walk, all)
+
+model = lm(walk ~ bicycle, weights = all, data = od_data_new)
+od_data_new$walk_predicted = model$fitted.values
+
+ggplot(od_data_new) +
+  geom_point(aes(bicycle, walk, size = all)) +
+  geom_line(aes(bicycle, walk_predicted))
+```
+
 :::
 
 ## Exercise 5
 
 ::: {.panel-tabset}
-### R
-```{r}
-#| eval: false
-
-desire_lines = stplanr::od2line(flow = od_data, zones = zone)
-plot(desire_lines)
-# save zone as gpkg
-sf::st_write(zone, "zone.geojson")
-```
 
 ### Python
 ```{python}
@@ -543,6 +572,17 @@ desire_lines = gpd.GeoDataFrame(od_data, geometry='geometry', crs=zones.crs)
 # Plot the desire lines
 desire_lines.plot()
 ```
+
+### R
+```{r}
+#| eval: false
+
+desire_lines = stplanr::od2line(flow = od_data, zones = zone)
+plot(desire_lines)
+# save zone as gpkg
+sf::st_write(zone, "zone.geojson")
+```
+
 :::
 ::::
 
@@ -564,16 +604,6 @@ library(tmap)
 We will start by loading two datasets:
 
 ::: {.panel-tabset}
-## R
-```{r}
-u_od = "https://github.com/itsleeds/tds/releases/download/2026/s4-od.csv"
-if (!file.exists("s4-od.csv")) download.file(u_od, "s4-od.csv")
-od = read.csv("s4-od.csv")
-
-u_zones = "https://github.com/itsleeds/tds/releases/download/2026/s4-zones.geojson"
-if (!file.exists("s4-zones.geojson")) download.file(u_zones, "s4-zones.geojson")
-zones = st_read("s4-zones.geojson")
-```
 
 ## Python
 ```{python}
@@ -620,17 +650,25 @@ desire_lines = gpd.GeoDataFrame(od_data, geometry='geometry', crs=zones.crs)
 # Plot the desire lines
 desire_lines.plot()
 ```
+
+## R
+```{r}
+u_od = "https://github.com/itsleeds/tds/releases/download/2026/s4-od.csv"
+if (!file.exists("s4-od.csv")) download.file(u_od, "s4-od.csv")
+od = read.csv("s4-od.csv")
+
+u_zones = "https://github.com/itsleeds/tds/releases/download/2026/s4-zones.geojson"
+if (!file.exists("s4-zones.geojson")) download.file(u_zones, "s4-zones.geojson")
+zones = st_read("s4-zones.geojson")
+```
+
 :::
 Explore these datasets using the functions you have already learnt (e.g. `head`,`nrow`).
 
 You will notice that the `od` datasets has shared id values with the `zones` dataset. We can use these to make desire lines between each zone. But first we must filter out trips that start and end in the same zone.
 
 ::: {.panel-tabset}
-## R
-```{r}
-od_inter = filter(od, o != d)
-desire_lines = od2line(od_inter, zones)
-```
+
 ## Python
 ```{python}
 #| eval: false
@@ -643,24 +681,62 @@ od_inter = od_inter.merge(zones[['geo_code', 'geometry']], left_on='d', right_on
 od_inter.rename(columns={'geometry': 'destination_geometry'}, inplace=True)
 
 ```
+
+## R
+```{r}
+od_inter = filter(od, o != d)
+desire_lines = od2line(od_inter, zones)
+```
+
 :::
 Let's calculate the percentage of trips that are made by active travel
 
 ::: {.panel-tabset}
-## R
-```{r}
-desire_lines$Active = (desire_lines$bicycle + desire_lines$foot) /
-  desire_lines$all * 100
-```
+
 ## Python
 ```{python}
 #| eval: false
 desire_lines['Active'] = (desire_lines['bicycle'] + desire_lines['foot']) / desire_lines['all'] * 100
 ```
+
+## R
+```{r}
+desire_lines$Active = (desire_lines$bicycle + desire_lines$foot) /
+  desire_lines$all * 100
+```
+
 :::
 Now use `tmap` to make a plot showing the number of trips and the percentage of people using active travel. Alternatively, you may use the `ggplot2` for visualisation. 
 
 ::: {.panel-tabset}
+
+
+## Python
+```{python}
+#| eval: false
+desire_lines = desire_lines.sort_values('Active')
+
+# Normalize line widths for plotting
+max_trips = desire_lines['all'].max()
+desire_lines['linewidth'] = (desire_lines['all'] / max_trips) * 5
+
+# Plotting desire lines with active travel percentage
+fig, ax = plt.subplots(figsize=(12, 10))
+desire_lines.plot(
+    ax=ax, 
+    column='Active', 
+    cmap='plasma', 
+    linewidth=desire_lines['linewidth'], 
+    alpha=0.7, 
+    legend=True
+)
+plt.title('Desire Lines with Active Travel Percentage')
+
+# Add basemap (optional)
+# ctx.add_basemap(ax, crs=desire_lines.crs.to_string())
+
+plt.show()
+```
 
 ## R: tmap
 ```{r}
@@ -677,7 +753,7 @@ tm_shape(desire_lines) + # Define the data frame used to make the map
     lwd = "all"
   ) + # The line width (lwd) is based on the "all" column
   tm_layout(legend.outside = TRUE) + # Move the ledgend outside the map
-  tm_scalebar() # Add a scale bar to the map
+  (if (exists("tm_scalebar")) tm_scalebar() else tm_scale_bar()) # Add a scale bar to the map
 ```
 
 ## R: ggplot2
@@ -707,55 +783,27 @@ ggplot() +
   theme_void()
 ```
 
-## Python
-```{python}
-#| eval: false
-desire_lines = desire_lines.sort_values('Active')
-
-# Normalize line widths for plotting
-max_trips = desire_lines['all'].max()
-desire_lines['linewidth'] = (desire_lines['all'] / max_trips) * 5
-
-# Plotting desire lines with active travel percentage
-fig, ax = plt.subplots(figsize=(12, 10))
-desire_lines.plot(
-    ax=ax, 
-    column='Active', 
-    cmap='plasma', 
-    linewidth=desire_lines['linewidth'], 
-    alpha=0.7, 
-    legend=True
-)
-plt.title('Desire Lines with Active Travel Percentage')
-
-# Add basemap (optional)
-# ctx.add_basemap(ax, crs=desire_lines.crs.to_string())
-
-plt.show()
-```
 :::
 Now that we have geometry attached to our data we can calculate other variables of interest. For example let's calculate the distacne travelled and see if it relates to the percentage of people who use active travel.
 
 ::: {.panel-tabset}
-## R
-```{r}
-desire_lines$distance_direct_m = as.numeric(st_length(desire_lines))
-```
+
 ## Python
 ```{python}
 #| eval: false
 desire_lines['distance_direct_m'] = desire_lines.geometry.length
 ```
+
+## R
+```{r}
+desire_lines$distance_direct_m = as.numeric(st_length(desire_lines))
+```
+
 :::
 Note the use of `as.numeric` by default `st_length` and many other functions return a special type of result with `unit`. Here we force the results back into the basic R numerical value. But be careful! The units you get back depend on the coordinate reference system, so check your data before you assume what values mean.
 
 ::: {.panel-tabset}
-## R
-```{r}
-ggplot(desire_lines) +
-  geom_point(aes(x = distance_direct_m, y = Active, size = all)) +
-  geom_smooth(aes(x = distance_direct_m, y = Active))
-```
+
 ## Python
 ```{python}
 #| eval: false
@@ -767,6 +815,14 @@ plt.ylabel('Active Travel Percentage')
 plt.title('Active Travel vs Distance')
 plt.show()
 ```
+
+## R
+```{r}
+ggplot(desire_lines) +
+  geom_point(aes(x = distance_direct_m, y = Active, size = all)) +
+  geom_smooth(aes(x = distance_direct_m, y = Active))
+```
+
 ::: 
 
 The blue line is a smoothed average of the data. It shows a common concept in transport research, the distance decay curve. In this case it shows that the longer the journey the less likely people are to use active travel. But this concept applies to all kinds of travel decisions. For example you are more likely to travel to a nearby coffee shop than a far away coffee shop. Different types of trip have different curves, but most people always have a bias for shorter trips.
