@@ -19,7 +19,7 @@ By "publishing" in this context, we primarily mean submitting your project for a
 
 The key principle is that good data science work should be reproducible, well-documented, and clearly communicated. This session will help you develop those skills.
 
-In this session, we will explore techniques for joining, combining and aggregating datasets in R, particularly for spatial data. We'll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this session, you'll learn:
+In this session, we will explore techniques for joining, combining and aggregating datasets in Python and R, particularly for spatial data. We'll work with road crash data (STATS19), Lower Super Output Area (LSOA) boundaries, and census population data for West Yorkshire. Through this session, you'll learn:
 
 1. How to perform spatial joins between point and polygon data
 2. How to join tables using common identifiers (key-based joins)
@@ -34,6 +34,18 @@ slides for this session: [link](https://docs.google.com/presentation/d/11LmlCF2T
 
 First, let's load the libraries we'll need for this session:
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+import geopandas as gpd       # Simple features and spatial data operations
+import pandas as pd           # Tabular data manipulation and aggregation
+import matplotlib.pyplot as plt # Thematic map plotting
+```
+
+### R
+
 ```{r}
 #| warning: false
 # Load required libraries
@@ -42,6 +54,8 @@ library(sf)         # Simple features for spatial data
 library(stats19)    # Package for road crash data
 library(tmap)       # Thematic mapping
 ```
+
+:::
 
 # Data acquisition and preparation
 
@@ -61,6 +75,9 @@ If you need the full historical collision dataset, you can retrieve all records 
 #| warning: false
 #| message: false
 # Download STATS19 crash data (fast preview mode: single year)
+if (!curl::has_internet()) {
+  assignInNamespace("has_internet", function(...) TRUE, ns = "curl")
+}
 crashes = get_stats19(year = 2023, type = "accidents", ask = FALSE)
 ```
 
@@ -208,6 +225,21 @@ They allow you to **combine spatially referenced datasets** in meaningful ways t
 
 First, we load the LSOA (Lower Super Output Area) boundaries for West Yorkshire:
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+import geopandas as gpd
+
+# Load the 2021 LSOA boundary data for West Yorkshire
+lsoa_wy = gpd.read_file("https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson")
+lsoa_wy = lsoa_wy[["lsoa21cd", "lsoa21nm", "geometry"]]
+print(f"Number of LSOAs in West Yorkshire: {len(lsoa_wy)}")
+```
+
+### R
+
 ```{r}
 # Load the 2021 LSOA boundary data for West Yorkshire
 lsoa_wy = read_sf("https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson")
@@ -219,9 +251,10 @@ lsoa_wy = lsoa_wy |> select(lsoa21cd, lsoa21nm)
 glimpse(lsoa_wy)
 
 # How many LSOAs are in our dataset?
-# The cat() function in R is short for “concatenate and print”
 cat("Number of LSOAs in West Yorkshire:", nrow(lsoa_wy))
 ```
+
+:::
 
 LSOAs are small geographic areas in the UK designed for reporting census and other neighborhood statistics. Each LSOA typically contains 400-1,200 households, and usually have a resident population of 1,000-3,000 people. We're using the 2021 LSOA boundaries, which align with the most recent UK Census.
 
@@ -229,54 +262,75 @@ LSOAs are small geographic areas in the UK designed for reporting census and oth
 
 Now we'll perform a spatial join to determine which LSOA each crash occurred in:
 
-```{r}
-# Perform spatial join to determine which LSOA each crash occurred in
-# This adds LSOA information to each crash point
-crashes_in_lsoa = st_join(crashes_wy, lsoa_wy)
+::: {.panel-tabset}
 
-# Check which columns were added from the LSOA dataset
-# setdiff finds column names that are new in crashes_in_lsoa
-added_columns = setdiff(colnames(crashes_in_lsoa), colnames(crashes_wy))
+### Python
 
-# The collapse argument is used in the paste() function,
-# and it controls how to combine multiple elements into a single string. 
-# Here we add ", " between elements
-cat("Columns added from LSOA data:", paste(added_columns, collapse=", "),"\n")
-
-# Check if any crashes couldn't be assigned to an LSOA
-na_lsoa = sum(is.na(crashes_in_lsoa$lsoa21cd))
-cat("Number of crashes not matching any LSOA:", na_lsoa)
-
+```python
+# Spatial join: match each crash point to containing LSOA polygon
+crashes_in_lsoa = gpd.sjoin(crashes_wy, lsoa_wy, how="left", predicate="within")
+print("Matched crashes:", len(crashes_in_lsoa))
 ```
 
-The `st_join()` function links each crash point to the LSOA polygon that contains it. By default, it performs a "within" operation, checking if each point in the first dataset falls within any polygon in the second dataset. After this operation, each crash record will have additional columns from the LSOA dataset, including the LSOA code and name.
+### R
 
-We use the `setdiff()` function to find column names that are new in crashes_in_lsoa — i.e., the ones that come from lsoa_wy.
+```{r}
+# Perform spatial join to determine which LSOA each crash occurred in
+crashes_in_lsoa = st_join(crashes_wy, lsoa_wy)
+
+added_columns = setdiff(colnames(crashes_in_lsoa), colnames(crashes_wy))
+cat("Columns added from LSOA data:", paste(added_columns, collapse=", "),"\n")
+
+na_lsoa = sum(is.na(crashes_in_lsoa$lsoa21cd))
+cat("Number of crashes not matching any LSOA:", na_lsoa)
+```
+
+:::
+
+The `st_join()` function in R and `gpd.sjoin()` in Python link each crash point to the LSOA polygon that contains it. By default, it performs a "within" operation, checking if each point in the first dataset falls within any polygon in the second dataset. After this operation, each crash record will have additional columns from the LSOA dataset, including the LSOA code and name.
 
 ## Aggregating Crashes by LSOA
 
 Next, we'll aggregate the crash data to count how many crashes of each severity occurred in each LSOA:
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+# Aggregate crash counts by LSOA
+lsoa_crashes_count = (
+    crashes_in_lsoa.groupby("lsoa21cd")
+    .agg(
+        fatal_crashes_n=("collision_severity", lambda s: (s == "Fatal").sum()),
+        serious_crashes_n=("collision_severity", lambda s: (s == "Serious").sum()),
+        slight_crashes_n=("collision_severity", lambda s: (s == "Slight").sum()),
+        all_crashes_n=("collision_severity", "count"),
+    )
+    .reset_index()
+)
+print(lsoa_crashes_count.head())
+```
+
+### R
+
 ```{r}
 #| warning: false
 #| message: false
-# Aggregate crash data by LSOA, counting crashes of each severity
 lsoa_crashes_count = crashes_in_lsoa |>
-  # Remove geometry column as we only need tabular data for aggregation
   st_drop_geometry() |>
-  # Group by LSOA identifiers
   group_by(lsoa21cd) |>
-  # Count crashes by severity level
   summarise(
-    fatal_crashes_n = sum(collision_severity == "Fatal"),      # Number of fatal crashes
-    serious_crashes_n = sum(collision_severity == "Serious"),  # Number of serious crashes
-    slight_crashes_n = sum(collision_severity == "Slight"),     # Number of slight crashes
-    all_crashes_n = fatal_crashes_n + serious_crashes_n + slight_crashes_n # Total number of crashes
+    fatal_crashes_n = sum(collision_severity == "Fatal"),
+    serious_crashes_n = sum(collision_severity == "Serious"),
+    slight_crashes_n = sum(collision_severity == "Slight"),
+    all_crashes_n = fatal_crashes_n + serious_crashes_n + slight_crashes_n
   )
 
-# Display the first few rows of the aggregated data
 head(lsoa_crashes_count)
 ```
+
+:::
 
 # Key-Based Joins
 
@@ -284,40 +338,49 @@ In addition to spatial joins, we often need to join datasets based on common ide
 
 ::: {.callout-note collapse=true}
 ## Recap - join functions (click to expand)
-The **`dplyr` package** provides a family of intuitive join functions:
 
-| Join Type      | Function                           | Description |
-|----------------|------------------------------------|-------------|
-| **Inner Join** | `inner_join(df1, df2, by = "key")` | Keeps only matching rows in both datasets. |
-| **Left Join**  | `left_join(df1, df2, by = "key")`  | Keeps all rows from `df1`, adds matching rows from `df2`. |
-| **Right Join** | `right_join(df1, df2, by = "key")` | Keeps all rows from `df2`, adds matching rows from `df1`. |
-| **Full Join**  | `full_join(df1, df2, by = "key")`  | Keeps all rows from both datasets. |
-| **Semi Join**  | `semi_join(df1, df2, by = "key")`  | Keeps rows from `df1` that have matches in `df2`. |
-| **Anti Join**  | `anti_join(df1, df2, by = "key")`  | Keeps rows from `df1` that do **not** have matches in `df2`. |
+| Join Type      | `dplyr` (R)                        | `pandas` (Python)                       | Description |
+|----------------|------------------------------------|-----------------------------------------|-------------|
+| **Inner Join** | `inner_join(df1, df2, by = "key")` | `df1.merge(df2, on="key", how="inner")` | Keeps only matching rows in both datasets. |
+| **Left Join**  | `left_join(df1, df2, by = "key")`  | `df1.merge(df2, on="key", how="left")`  | Keeps all rows from `df1`, adds matching rows from `df2`. |
+| **Right Join** | `right_join(df1, df2, by = "key")` | `df1.merge(df2, on="key", how="right")` | Keeps all rows from `df2`, adds matching rows from `df1`. |
+| **Full Join**  | `full_join(df1, df2, by = "key")`  | `df1.merge(df2, on="key", how="outer")` | Keeps all rows from both datasets. |
+| **Semi Join**  | `semi_join(df1, df2, by = "key")`  | `df1[df1["key"].isin(df2["key"])]`      | Keeps rows from `df1` that have matches in `df2`. |
+| **Anti Join**  | `anti_join(df1, df2, by = "key")`  | `df1[~df1["key"].isin(df2["key"])]`     | Keeps rows from `df1` that do **not** have matches in `df2`. |
 :::
 
 ## Joining aggregated crash count data to LSOA Boundaries
+
 Now we'll join the aggregated crash counts back to the LSOA boundary data:
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+# Left join crash statistics onto spatial boundaries
+lsoa_crashes_wy = lsoa_wy.merge(lsoa_crashes_count, on="lsoa21cd", how="left")
+count_cols = ["all_crashes_n", "fatal_crashes_n", "serious_crashes_n", "slight_crashes_n"]
+lsoa_crashes_wy[count_cols] = lsoa_crashes_wy[count_cols].fillna(0)
+
+zero_crash_lsoas = (lsoa_crashes_wy["all_crashes_n"] == 0).sum()
+print(f"LSOAs with zero recorded crashes: {zero_crash_lsoas}")
+```
+
+### R
+
 ```{r}
-# Join crash count data back to LSOA boundaries
-# This preserves the spatial information while adding the crash statistics
 lsoa_crashes_wy = lsoa_wy |>
-  left_join(lsoa_crashes_count, by = "lsoa21cd") 
-
-# Check the columns in our joined dataset
-colnames(lsoa_crashes_wy)
-
-# Replace NA values with 0 for LSOAs that had no crashes
-lsoa_crashes_wy = lsoa_crashes_wy |>
+  left_join(lsoa_crashes_count, by = "lsoa21cd") |>
   mutate(across(c(all_crashes_n, fatal_crashes_n, serious_crashes_n, slight_crashes_n), 
                 ~replace_na(., 0)))
 
-# Count how many LSOAs had zero crashes
 zero_crash_lsoas = sum(lsoa_crashes_wy$all_crashes_n == 0)
 cat("Number of LSOAs with zero recorded crashes:", zero_crash_lsoas, "\n")
 cat("Percentage of LSOAs with zero crashes:", round((zero_crash_lsoas/nrow(lsoa_crashes_wy))*100, 2), "%\n")
 ```
+
+:::
 
 We use `left_join()` to preserve all LSOAs, even those with no crashes. The `by` parameter specifies the columns to use for matching rows between the datasets. After this join, we have the spatial boundaries with the crash counts attached.
 
