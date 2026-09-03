@@ -19,9 +19,31 @@ As per your [timetable](https://itsleeds.github.io/tds/schedule.html), the first
 2. Ensure that you have the necessary software installed on your computer and that you have tested that you can use it for the datasets we will be using in the course, see https://itsleeds.github.io/tds/#software-requirements-and-installation for guidance on installing the software you need.
     - Any issues you have with the software installation, please get in touch with me as soon as possible.
 
-Test that you have the necessary software installed by running the following code in R:
+Test that you have the necessary software installed by running the code below. We recommend using Python as the primary language, with R also supported:
 
-```{r}
+::: {.panel-tabset}
+
+### Python
+
+```python
+import osmnx as ox
+import matplotlib.pyplot as plt
+
+# Download street network features around the University of Leeds
+its = ox.features_from_address("University of Leeds, UK", tags={"highway": True}, dist=500)
+
+# Create and save map
+fig, ax = plt.subplots(figsize=(6, 4))
+its.plot(column="highway", ax=ax, legend=False)
+ax.set_axis_off()
+plt.tight_layout()
+plt.savefig("its.png", dpi=300)
+plt.show()
+```
+
+### R
+
+```r
 if (!requireNamespace("remotes", quietly = TRUE)) {
   install.packages("remotes")
 }
@@ -30,37 +52,17 @@ remotes::install_cran("osmextract")
 library(tidyverse)
 library(osmextract)
 library(sf)
-```
 
-```{r}
 its = oe_get("ITS Leeds", download_directory = tempdir())
-```
-
-```{r}
-#| label: its
 figure = its |>
   ggplot() +
   geom_sf(aes(colour = highway)) +
   theme_void()
-# Save figure
 ggsave("its.png", figure, width = 6, height = 4)
-```
-
-```{r}
-#| label: browse
-#| eval: false
-browseURL("its.png")
-```
-
-<!-- ![ITS](its.png) -->
-
-Show the map by executing the following code, which simply prints the map to the screen:
-
-```{r}
-#| label: its-map
-#| output: true
 figure
 ```
+
+:::
 
 If you see a map of the area around the Institute for Transport Studies, then you are ready for the first session. If you have any issues, please get in touch with me as soon as possible.
 
