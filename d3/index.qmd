@@ -44,7 +44,7 @@ Marks will be awarded based on the marking criteria outlined in the [marking cri
   - PDF template release link for the current cohort: **[TBC]**
 - Include all necessary code for reproducibility
 - Document any external data sources
-- Follow R coding style guidelines
+- Follow coding style guidelines (e.g., PEP 8 for Python, Tidyverse style for R)
 
 ## Academic Integrity
 
