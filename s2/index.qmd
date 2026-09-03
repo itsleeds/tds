@@ -1,5 +1,5 @@
 ---
-title: "Session 2: Getting transport datasets with R"
+title: "Session 2: Getting transport datasets"
 toc: true
 execute: 
   cache: true
@@ -13,7 +13,7 @@ engine: knitr
 
 # Introduction
 
-In this session, we will learn how to get transport datasets using R.
+In this session, we will learn how to get transport datasets using Python and R.
 The contents of the session are as follows:
 
 - We'll start with a short lecture on data sources and ways of classifying transport datasets (see the [slides](https://itsleeds.github.io/tds/s2/slides.html))
@@ -24,19 +24,28 @@ The contents of the session are as follows:
 
 ## Review Homework
 
-You should now be familiar with the basics of R, Quarto and the structure of transport datasets, having completed the [homework](https://itsleeds.github.io/tds/s1/#homework) from the previous session.
+You should now be familiar with the basics of Python, R, Quarto and the structure of transport datasets, having completed the [homework](https://itsleeds.github.io/tds/s1/#homework) from the previous session.
 
-We will do a demo of trying to reproduce the demo from last week and discuss any issues you had running the code in Chapter 13 of [Geocomputation with R](https://r.geocompx.org).
+We will do a demo of trying to reproduce the demo from last week and discuss any issues you had running the code in Chapter 13 of [Geocomputation with R](https://r.geocompx.org) and [Geocomputation with Python](https://py.geocompx.org).
 
 ## Prerequisites
 
-Note: you may need to install the `pct` package as follows:
+For Python users, we will use `geopandas`, `osmnx`, `pandas`, and `matplotlib`:
+
+```python
+import geopandas as gpd
+import osmnx as ox
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+For R users, you may need to install the `pct` package:
 
 ```
 remotes::install_github("ITSLeeds/pct")
 ```
 
-We will also load the following packages:
+We will also load the following R packages:
 
 ```{r}
 #| results: hide
@@ -45,8 +54,7 @@ library(sf)
 library(tmap)
 ```
 
-Note that this session uses imports and uses geographic data with the `sf` package.
-Read more about the package in chapters 2 onwards in [Geocomputation with R](https://r.geocompx.org) and in the [sf package documentation](https://r-spatial.github.io/sf/).
+Note that this session imports and uses geographic data. Read more about spatial data handling in [Geocomputation with Python](https://py.geocompx.org) and [Geocomputation with R](https://r.geocompx.org).
 
 # Getting OpenStreetMap data
 
@@ -61,11 +69,28 @@ Work through the reproducible code in the "Introducing osmextract" vignette host
 
 Example of getting bus stops:
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+import osmnx as ox
+
+# Get bus stops in Leeds
+bus_stops_leeds = ox.features_from_place("Leeds, UK", tags={"highway": "bus_stop"})
+print(f"Downloaded {len(bus_stops_leeds)} bus stops")
+bus_stops_leeds.plot()
+```
+
+### R
+
 ```r
 q = "select * from points where highway IN ('bus_stop')"
 bus_stop_leeds = osmextract::oe_get("leeds", query = q)
 mapview::mapview(bus_stop_leeds)
 ```
+
+:::
 
 ```{r}
 #| eval: false
@@ -158,7 +183,8 @@ Read the [docs](https://docs.overturemaps.org/getting-data/) to explore how to d
 
 # Getting road traffic casualty data
 
-Work through the reproducible code in the ["Getting started with stats19" vignette hosted at docs.ropensci.org/stats19](https://docs.ropensci.org/stats19/articles/stats19.html).
+- **Python**: Use the [pystats19 package](https://github.com/itsleeds/pystats19) to download and clean UK road traffic collision data.
+- **R**: Work through the reproducible code in the ["Getting started with stats19" vignette hosted at docs.ropensci.org/stats19](https://docs.ropensci.org/stats19/articles/stats19.html).
 
 # Boundary datasets
 
@@ -217,17 +243,48 @@ if (!file.exists("lad_boundaries_2023.geojson")) {
 }
 ```
 
+::: {.panel-tabset}
+
+### Python
+
+```python
+import geopandas as gpd
+import pandas as pd
+
+# Read boundaries and census data
+res_gdf = gpd.read_file("lad_boundaries_2023.geojson")
+travel_to_work_lad = pd.read_csv("custom-filtered-2025-02-04T00_06_30Z.csv")
+
+# Select and rename columns
+travel_to_work_updated = travel_to_work_lad[[
+    "2023 Lower tier local authorities Code",
+    "Method used to travel to workplace (12 categories)",
+    "Distance travelled to work (8 categories)",
+    "Observation"
+]].rename(columns={
+    "2023 Lower tier local authorities Code": "LAD23CD",
+    "Method used to travel to workplace (12 categories)": "Mode",
+    "Distance travelled to work (8 categories)": "Distance"
+})
+
+# Pivot wider
+ttw_wide = travel_to_work_updated.pivot(
+    index="LAD23CD",
+    columns=["Distance", "Mode"],
+    values="Observation"
+)
+
+# Check matches between boundaries and census data
+matches = res_gdf["LAD23CD"].isin(travel_to_work_lad["2023 Lower tier local authorities Code"]).sum()
+print(f"Matched {matches} of {len(res_gdf)} local authorities")
+```
+
+### R
+
 ```{r}
 res_sf = sf::st_read("lad_boundaries_2023.geojson")
 travel_to_work_lad = readr::read_csv("custom-filtered-2025-02-04T00_06_30Z.csv")
-# names(travel_to_work_lad)
-# [1] "Lower tier local authorities Code"                      
-# [2] "Lower tier local authorities"                           
-# [3] "Distance travelled to work (8 categories) Code"         
-# [4] "Distance travelled to work (8 categories)"              
-# [5] "Method used to travel to workplace (12 categories) Code"
-# [6] "Method used to travel to workplace (12 categories)"     
-# [7] "Observation" 
+
 travel_to_work_updated = travel_to_work_lad |>
   select(
     LAD23CD = `2023 Lower tier local authorities Code`,
@@ -241,8 +298,9 @@ ttw_wide = travel_to_work_updated |>
 summary(res_sf[["LAD23CD"]] %in% travel_to_work_lad[[1]]) 
 # Other way around:
 summary(travel_to_work_lad[[1]] %in% res_sf[["LAD23CD"]])
-# names(ttw_wide)
 ```
+
+:::
 
 # The cadence platform
 
@@ -250,25 +308,46 @@ Sign up to Cadence website at [cadence360.cityscience.com/](https://cadence360.c
 
 # Joining datasets
 
-Two key ways to join datasets are by spatial location and by a common key. We will demonstrate the latter using the `dplyr` package.
+Two key ways to join datasets are by spatial location and by a common key. We will demonstrate how to join boundary geometries with tabular census summaries and plot the result.
+
+::: {.panel-tabset}
+
+### Python
+
+```python
+# Flatten multi-level columns from pivot
+ttw_wide.columns = ["_".join(col) for col in ttw_wide.columns]
+
+# Left join tabular attributes onto spatial geometries
+lad_joined = res_gdf.merge(ttw_wide, on="LAD23CD", how="left")
+
+# Plot choropleth map
+fig, ax = plt.subplots(figsize=(8, 8))
+col_to_plot = "Less than 5km_Driving a car or van"
+lad_joined.plot(column=col_to_plot, ax=ax, cmap="viridis", legend=True)
+ax.set_axis_off()
+plt.title("Travel to work: Driving <5km")
+plt.tight_layout()
+plt.show()
+```
+
+### R
 
 ```{r}
 lad_joined = left_join(
   res_sf,
   ttw_wide
 )
-```
 
-Let's visualise the results with a choropleth map made using `ggplot2`.
-
-```{r}
 ggplot(lad_joined) +
   geom_sf(aes(fill = `Less than 5km_Driving a car or van`), colour = NA) +
   scale_fill_viridis_c() +
   theme_minimal()
 ```
 
-See [r.geocompx.org/spatial-operations](https://r.geocompx.org/spatial-operations#spatial-joining) for spatial joins.
+:::
+
+See [py.geocompx.org](https://py.geocompx.org) and [r.geocompx.org/spatial-operations](https://r.geocompx.org/spatial-operations#spatial-joining) for spatial joins.
 
 # Homework
 
