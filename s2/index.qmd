@@ -13,7 +13,7 @@ engine: knitr
 
 # Introduction
 
-In this session, we will learn how to get transport datasets using Python and R.
+In this session, we will learn how to get transport datasets using R and Python.
 The contents of the session are as follows:
 
 - We'll start with a short lecture on data sources and ways of classifying transport datasets (see the [slides](https://itsleeds.github.io/tds/s2/slides.html))
@@ -24,20 +24,11 @@ The contents of the session are as follows:
 
 ## Review Homework
 
-You should now be familiar with the basics of Python, R, Quarto and the structure of transport datasets, having completed the [homework](https://itsleeds.github.io/tds/s1/#homework) from the previous session.
+You should now be familiar with the basics of R, Python, Quarto and the structure of transport datasets, having completed the [homework](https://itsleeds.github.io/tds/s1/#homework) from the previous session.
 
 We will do a demo of trying to reproduce the demo from last week and discuss any issues you had running the code in Chapter 13 of [Geocomputation with R](https://r.geocompx.org) and [Geocomputation with Python](https://py.geocompx.org).
 
 ## Prerequisites
-
-For Python users, we will use `geopandas`, `osmnx`, `pandas`, and `matplotlib`:
-
-```python
-import geopandas as gpd
-import osmnx as ox
-import pandas as pd
-import matplotlib.pyplot as plt
-```
 
 For R users, you may need to install the `pct` package:
 
@@ -54,7 +45,16 @@ library(sf)
 library(tmap)
 ```
 
-Note that this session imports and uses geographic data. Read more about spatial data handling in [Geocomputation with Python](https://py.geocompx.org) and [Geocomputation with R](https://r.geocompx.org).
+For Python users, we will use `geopandas`, `osmnx`, `pandas`, and `matplotlib`:
+
+```python
+import geopandas as gpd
+import osmnx as ox
+import pandas as pd
+import matplotlib.pyplot as plt
+```
+
+Note that this session imports and uses geographic data. Read more about spatial data handling in [Geocomputation with R](https://r.geocompx.org) and [Geocomputation with Python](https://py.geocompx.org).
 
 # Getting OpenStreetMap data
 
@@ -71,6 +71,14 @@ Example of getting bus stops:
 
 ::: {.panel-tabset}
 
+### R
+
+```r
+q = "select * from points where highway IN ('bus_stop')"
+bus_stop_leeds = osmextract::oe_get("leeds", query = q)
+mapview::mapview(bus_stop_leeds)
+```
+
 ### Python
 
 ```python
@@ -82,13 +90,10 @@ print(f"Downloaded {len(bus_stops_leeds)} bus stops")
 bus_stops_leeds.plot()
 ```
 
-### R
+Further reading for Python:
 
-```r
-q = "select * from points where highway IN ('bus_stop')"
-bus_stop_leeds = osmextract::oe_get("leeds", query = q)
-mapview::mapview(bus_stop_leeds)
-```
+- [OSMnx features module](https://osmnx.readthedocs.io/en/stable/user-reference.html#features-module)
+- [GeoPandas mapping guide](https://geopandas.org/en/stable/docs/user_guide/mapping.html)
 
 :::
 
@@ -245,6 +250,27 @@ if (!file.exists("lad_boundaries_2023.geojson")) {
 
 ::: {.panel-tabset}
 
+### R
+
+```{r}
+res_sf = sf::st_read("lad_boundaries_2023.geojson")
+travel_to_work_lad = readr::read_csv("custom-filtered-2025-02-04T00_06_30Z.csv")
+
+travel_to_work_updated = travel_to_work_lad |>
+  select(
+    LAD23CD = `2023 Lower tier local authorities Code`,
+    Mode = `Method used to travel to workplace (12 categories)`,
+    Distance = `Distance travelled to work (8 categories)`,
+    Observation = Observation
+  )
+# Pivot wider:
+ttw_wide = travel_to_work_updated |>
+  pivot_wider(names_from = c(Distance, Mode), values_from = Observation)
+summary(res_sf[["LAD23CD"]] %in% travel_to_work_lad[[1]]) 
+# Other way around:
+summary(travel_to_work_lad[[1]] %in% res_sf[["LAD23CD"]])
+```
+
 ### Python
 
 ```python
@@ -279,26 +305,10 @@ matches = res_gdf["LAD23CD"].isin(travel_to_work_lad["2023 Lower tier local auth
 print(f"Matched {matches} of {len(res_gdf)} local authorities")
 ```
 
-### R
+Further reading for Python:
 
-```{r}
-res_sf = sf::st_read("lad_boundaries_2023.geojson")
-travel_to_work_lad = readr::read_csv("custom-filtered-2025-02-04T00_06_30Z.csv")
-
-travel_to_work_updated = travel_to_work_lad |>
-  select(
-    LAD23CD = `2023 Lower tier local authorities Code`,
-    Mode = `Method used to travel to workplace (12 categories)`,
-    Distance = `Distance travelled to work (8 categories)`,
-    Observation = Observation
-  )
-# Pivot wider:
-ttw_wide = travel_to_work_updated |>
-  pivot_wider(names_from = c(Distance, Mode), values_from = Observation)
-summary(res_sf[["LAD23CD"]] %in% travel_to_work_lad[[1]]) 
-# Other way around:
-summary(travel_to_work_lad[[1]] %in% res_sf[["LAD23CD"]])
-```
+- [pandas reshaping and pivot tables](https://pandas.pydata.org/docs/user_guide/reshaping.html)
+- [GeoPandas reading vector data](https://geopandas.org/en/stable/docs/user_guide/io.html)
 
 :::
 
@@ -311,6 +321,20 @@ Sign up to Cadence website at [cadence360.cityscience.com/](https://cadence360.c
 Two key ways to join datasets are by spatial location and by a common key. We will demonstrate how to join boundary geometries with tabular census summaries and plot the result.
 
 ::: {.panel-tabset}
+
+### R
+
+```{r}
+lad_joined = left_join(
+  res_sf,
+  ttw_wide
+)
+
+ggplot(lad_joined) +
+  geom_sf(aes(fill = `Less than 5km_Driving a car or van`), colour = NA) +
+  scale_fill_viridis_c() +
+  theme_minimal()
+```
 
 ### Python
 
@@ -331,19 +355,10 @@ plt.tight_layout()
 plt.show()
 ```
 
-### R
+Further reading for Python:
 
-```{r}
-lad_joined = left_join(
-  res_sf,
-  ttw_wide
-)
-
-ggplot(lad_joined) +
-  geom_sf(aes(fill = `Less than 5km_Driving a car or van`), colour = NA) +
-  scale_fill_viridis_c() +
-  theme_minimal()
-```
+- [GeoPandas / Pandas merging](https://geopandas.org/en/stable/docs/user_guide/mergingdata.html)
+- [Matplotlib colormaps guide](https://matplotlib.org/stable/users/explain/colors/colormaps.html)
 
 :::
 

@@ -34,18 +34,6 @@ Divide into groups of 2–3 people and share your thoughts on the following:
 
 ::: {.panel-tabset}
 
-### Python
-
-The Python packages we will be using for routing and network analysis:
-
-```python
-import geopandas as gpd       # Spatial vector data
-import osmnx as ox            # Street network download and routing
-import networkx as nx         # Graph and network algorithms
-import matplotlib.pyplot as plt # Plotting and map visualization
-import shapely.geometry as sg # Geometric operations
-```
-
 ### R
 
 If you have not installed the packages beforehand, you can use:
@@ -67,6 +55,24 @@ if (requireNamespace("opentripplanner", quietly = TRUE)) library(opentripplanner
 if (requireNamespace("osmextract", quietly = TRUE)) library(osmextract)
 tmap_mode("plot")
 ```
+
+### Python
+
+The Python packages we will be using for routing and network analysis:
+
+```python
+import geopandas as gpd       # Spatial vector data
+import osmnx as ox            # Street network download and routing
+import networkx as nx         # Graph and network algorithms
+import matplotlib.pyplot as plt # Plotting and map visualization
+import shapely.geometry as sg # Geometric operations
+```
+
+Further reading for Python:
+
+- [OSMnx documentation](https://osmnx.readthedocs.io/)
+- [NetworkX documentation](https://networkx.org/documentation/stable/)
+- [Geocomputation with Python - Routing and Networks](https://py.geocompx.org/)
 
 :::
 
@@ -161,15 +167,6 @@ To get some more routes, we will start by importing some data. The `NTEM_flow.ge
 
 ::: {.panel-tabset}
 
-### Python
-
-```python
-import geopandas as gpd
-
-desire_lines = gpd.read_file("https://github.com/itsleeds/tds/releases/download/22/NTEM_flow.geojson")
-print(desire_lines.head())
-```
-
 ### R
 
 ```{r loaddesirelines, message=FALSE}
@@ -180,19 +177,25 @@ desire_lines = read_sf(f)
 head(desire_lines)
 ```
 
+### Python
+
+```python
+import geopandas as gpd
+
+desire_lines = gpd.read_file("https://github.com/itsleeds/tds/releases/download/22/NTEM_flow.geojson")
+print(desire_lines.head())
+```
+
+Further reading for Python:
+
+- [GeoPandas reading vector data](https://geopandas.org/en/stable/docs/user_guide/io.html)
+
 :::
 
 
 We will also download the points that represent the possible start and end point of trips in the model
 
 ::: {.panel-tabset}
-
-### Python
-
-```python
-centroids = gpd.read_file("https://github.com/itsleeds/tds/releases/download/22/NTEM_cents.geojson")
-print(centroids.head())
-```
 
 ### R
 
@@ -204,6 +207,17 @@ centroids = read_sf(f)
 head(centroids)
 ```
 
+### Python
+
+```python
+centroids = gpd.read_file("https://github.com/itsleeds/tds/releases/download/22/NTEM_cents.geojson")
+print(centroids.head())
+```
+
+Further reading for Python:
+
+- [GeoPandas GeoDataFrame](https://geopandas.org/en/stable/docs/reference/geodataframe.html)
+
 :::
 
 **Exercise** 
@@ -211,19 +225,6 @@ head(centroids)
 2. Plot the `desire_lines` and `centroids` objects to show the number of travellers on each desire line and the locations of all centroids.
 
 ::: {.panel-tabset}
-
-### Python
-
-```python
-import matplotlib.pyplot as plt
-
-fig, ax = plt.subplots(figsize=(10, 8))
-desire_lines.plot(column="all", cmap="viridis_r", linewidth=desire_lines["all"] / 1000, ax=ax)
-centroids.plot(color="red", markersize=15, ax=ax)
-ax.set_axis_off()
-plt.title("Desire lines and centroids")
-plt.show()
-```
 
 ### R
 
@@ -238,6 +239,23 @@ tm_shape(desire_lines) +
   tm_shape(centroids) +
   tm_dots(fill = "red")
 ```
+
+### Python
+
+```python
+import matplotlib.pyplot as plt
+
+fig, ax = plt.subplots(figsize=(10, 8))
+desire_lines.plot(column="all", cmap="viridis_r", linewidth=desire_lines["all"] / 1000, ax=ax)
+centroids.plot(color="red", markersize=15, ax=ax)
+ax.set_axis_off()
+plt.title("Desire lines and centroids")
+plt.show()
+```
+
+Further reading for Python:
+
+- [GeoPandas mapping documentation](https://geopandas.org/en/stable/docs/user_guide/mapping.html)
 
 :::
 
@@ -263,13 +281,6 @@ This dataset has desire lines, but most routing packages need start and endpoint
 
 ::: {.panel-tabset}
 
-### Python
-
-```python
-desire_top = desire_lines.nlargest(3, "all")
-print(desire_top[["from", "to", "all"]])
-```
-
 ### R
 
 ```{r, echo=TRUE}
@@ -277,12 +288,39 @@ desire_top = desire_lines %>%
   slice_max(order_by = all, n = 3)
 ```
 
+### Python
+
+```python
+desire_top = desire_lines.nlargest(3, "all")
+print(desire_top[["from", "to", "all"]])
+```
+
+Further reading for Python:
+
+- [pandas `nlargest` documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.nlargest.html)
+
 :::
 
 
 5. We need to extract start and end points from those desire lines. We would also like to give each place an ID value:
 
 ::: {.panel-tabset}
+
+### R
+
+```{r, echo=TRUE}
+# Extract start and end points
+if (requireNamespace("lwgeom", quietly = TRUE)) {
+  fromPlace = sf::st_sf(
+    data.frame(id = desire_top$from),
+    geometry = lwgeom::st_startpoint(desire_top)
+  )
+  toPlace = sf::st_sf(
+    data.frame(id = desire_top$to),
+    geometry = lwgeom::st_endpoint(desire_top)
+  )
+}
+```
 
 ### Python
 
@@ -301,21 +339,9 @@ toPlace = gpd.GeoDataFrame(
 )
 ```
 
-### R
+Further reading for Python:
 
-```{r, echo=TRUE}
-# Extract start and end points
-if (requireNamespace("lwgeom", quietly = TRUE)) {
-  fromPlace = sf::st_sf(
-    data.frame(id = desire_top$from),
-    geometry = lwgeom::st_startpoint(desire_top)
-  )
-  toPlace = sf::st_sf(
-    data.frame(id = desire_top$to),
-    geometry = lwgeom::st_endpoint(desire_top)
-  )
-}
-```
+- [Shapely geometry coordinates](https://shapely.readthedocs.io/en/stable/manual.html)
 
 :::
 
@@ -561,29 +587,6 @@ We will now analyse the road network using network analysis tools. Network analy
 
 ::: {.panel-tabset}
 
-### Python
-
-In Python, we use **OSMnx** and **NetworkX** to download the network and compute network metrics like betweenness centrality:
-
-```python
-import osmnx as ox
-import networkx as nx
-import matplotlib.pyplot as plt
-
-# Download drivable road network for Isle of Wight
-G = ox.graph_from_place("Isle of Wight, UK", network_type="drive")
-
-# Calculate betweenness centrality (approximated with k=100 for speed)
-bc = nx.betweenness_centrality(G, weight="length", k=100)
-nx.set_node_attributes(G, bc, "centrality")
-
-# Plot network colored by centrality
-nc = ox.plot.get_node_colors_by_attr(G, "centrality", cmap="plasma")
-fig, ax = ox.plot_graph(G, node_color=nc, node_size=15, edge_linewidth=0.5, show=False, close=False)
-plt.title("Isle of Wight: Road Network Betweenness Centrality")
-plt.show()
-```
-
 ### R
 
 In R, we use `osmextract` and `dodgr`:
@@ -609,6 +612,34 @@ estimate_centrality_time(graph)
 centrality = dodgr::dodgr_centrality(graph)
 centrality_sf = dodgr::dodgr_to_sf(centrality)
 ```
+
+### Python
+
+In Python, we use **OSMnx** and **NetworkX** to download the network and compute network metrics like betweenness centrality:
+
+```python
+import osmnx as ox
+import networkx as nx
+import matplotlib.pyplot as plt
+
+# Download drivable road network for Isle of Wight
+G = ox.graph_from_place("Isle of Wight, UK", network_type="drive")
+
+# Calculate betweenness centrality (approximated with k=100 for speed)
+bc = nx.betweenness_centrality(G, weight="length", k=100)
+nx.set_node_attributes(G, bc, "centrality")
+
+# Plot network colored by centrality
+nc = ox.plot.get_node_colors_by_attr(G, "centrality", cmap="plasma")
+fig, ax = ox.plot_graph(G, node_color=nc, node_size=15, edge_linewidth=0.5, show=False, close=False)
+plt.title("Isle of Wight: Road Network Betweenness Centrality")
+plt.show()
+```
+
+Further reading for Python:
+
+- [NetworkX Centrality Measures](https://networkx.org/documentation/stable/reference/algorithms/centrality.html)
+- [OSMnx Plotting Module](https://osmnx.readthedocs.io/en/stable/user-reference.html#module-osmnx.plot)
 
 :::
 

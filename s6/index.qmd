@@ -36,14 +36,6 @@ First, let's load the libraries we'll need for this session:
 
 ::: {.panel-tabset}
 
-### Python
-
-```python
-import geopandas as gpd       # Simple features and spatial data operations
-import pandas as pd           # Tabular data manipulation and aggregation
-import matplotlib.pyplot as plt # Thematic map plotting
-```
-
 ### R
 
 ```{r}
@@ -55,6 +47,20 @@ library(stats19)    # Package for road crash data
 library(tmap)       # Thematic mapping
 ```
 
+### Python
+
+```python
+import geopandas as gpd       # Simple features and spatial data operations
+import pandas as pd           # Tabular data manipulation and aggregation
+import matplotlib.pyplot as plt # Thematic map plotting
+```
+
+Further reading for Python:
+
+- [GeoPandas Documentation](https://geopandas.org/)
+- [pandas Documentation](https://pandas.pydata.org/)
+- [Geocomputation with Python - Spatial Data](https://py.geocompx.org/)
+
 :::
 
 # Data acquisition and preparation
@@ -65,6 +71,7 @@ We'll begin by downloading road crash data for five years (2019-2023) using the 
 
 ::: {.callout-warning}
 ## Warning: time-consuming
+
 The full 2019-2023 download is time-consuming and can slow rendering significantly.
 For routine rendering and preview, this page now downloads one year only (2023).
 
@@ -206,6 +213,7 @@ st_join(x, y, join = st_intersects)
 
 ::: {.callout-note collapse=true}
 ## Spatial relations (click to expand)
+
 ![Topological relations between vector geometries, inspired by Figures 1 and 2 in Egenhofer and Herring (1990). The relations for which the function(x, y) is true are printed for each geometry pair, with x represented in pink and y represented in blue. The nature of the spatial relationship for each pair is described by the Dimensionally Extended 9-Intersection Model string. ](https://r.geocompx.org/figures/relations-1.png)
 :::
 
@@ -227,17 +235,6 @@ First, we load the LSOA (Lower Super Output Area) boundaries for West Yorkshire:
 
 ::: {.panel-tabset}
 
-### Python
-
-```python
-import geopandas as gpd
-
-# Load the 2021 LSOA boundary data for West Yorkshire
-lsoa_wy = gpd.read_file("https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson")
-lsoa_wy = lsoa_wy[["lsoa21cd", "lsoa21nm", "geometry"]]
-print(f"Number of LSOAs in West Yorkshire: {len(lsoa_wy)}")
-```
-
 ### R
 
 ```{r}
@@ -254,6 +251,21 @@ glimpse(lsoa_wy)
 cat("Number of LSOAs in West Yorkshire:", nrow(lsoa_wy))
 ```
 
+### Python
+
+```python
+import geopandas as gpd
+
+# Load the 2021 LSOA boundary data for West Yorkshire
+lsoa_wy = gpd.read_file("https://github.com/itsleeds/tds/releases/download/2025/p6-lsoa_boundary_wy.geojson")
+lsoa_wy = lsoa_wy[["lsoa21cd", "lsoa21nm", "geometry"]]
+print(f"Number of LSOAs in West Yorkshire: {len(lsoa_wy)}")
+```
+
+Further reading for Python:
+
+- [GeoPandas reading files](https://geopandas.org/en/stable/docs/user_guide/io.html)
+
 :::
 
 LSOAs are small geographic areas in the UK designed for reporting census and other neighborhood statistics. Each LSOA typically contains 400-1,200 households, and usually have a resident population of 1,000-3,000 people. We're using the 2021 LSOA boundaries, which align with the most recent UK Census.
@@ -263,14 +275,6 @@ LSOAs are small geographic areas in the UK designed for reporting census and oth
 Now we'll perform a spatial join to determine which LSOA each crash occurred in:
 
 ::: {.panel-tabset}
-
-### Python
-
-```python
-# Spatial join: match each crash point to containing LSOA polygon
-crashes_in_lsoa = gpd.sjoin(crashes_wy, lsoa_wy, how="left", predicate="within")
-print("Matched crashes:", len(crashes_in_lsoa))
-```
 
 ### R
 
@@ -285,6 +289,18 @@ na_lsoa = sum(is.na(crashes_in_lsoa$lsoa21cd))
 cat("Number of crashes not matching any LSOA:", na_lsoa)
 ```
 
+### Python
+
+```python
+# Spatial join: match each crash point to containing LSOA polygon
+crashes_in_lsoa = gpd.sjoin(crashes_wy, lsoa_wy, how="left", predicate="within")
+print("Matched crashes:", len(crashes_in_lsoa))
+```
+
+Further reading for Python:
+
+- [GeoPandas `sjoin` spatial joins](https://geopandas.org/en/stable/docs/user_guide/mergingdata.html#spatial-joins)
+
 :::
 
 The `st_join()` function in R and `gpd.sjoin()` in Python link each crash point to the LSOA polygon that contains it. By default, it performs a "within" operation, checking if each point in the first dataset falls within any polygon in the second dataset. After this operation, each crash record will have additional columns from the LSOA dataset, including the LSOA code and name.
@@ -294,23 +310,6 @@ The `st_join()` function in R and `gpd.sjoin()` in Python link each crash point 
 Next, we'll aggregate the crash data to count how many crashes of each severity occurred in each LSOA:
 
 ::: {.panel-tabset}
-
-### Python
-
-```python
-# Aggregate crash counts by LSOA
-lsoa_crashes_count = (
-    crashes_in_lsoa.groupby("lsoa21cd")
-    .agg(
-        fatal_crashes_n=("collision_severity", lambda s: (s == "Fatal").sum()),
-        serious_crashes_n=("collision_severity", lambda s: (s == "Serious").sum()),
-        slight_crashes_n=("collision_severity", lambda s: (s == "Slight").sum()),
-        all_crashes_n=("collision_severity", "count"),
-    )
-    .reset_index()
-)
-print(lsoa_crashes_count.head())
-```
 
 ### R
 
@@ -329,6 +328,27 @@ lsoa_crashes_count = crashes_in_lsoa |>
 
 head(lsoa_crashes_count)
 ```
+
+### Python
+
+```python
+# Aggregate crash counts by LSOA
+lsoa_crashes_count = (
+    crashes_in_lsoa.groupby("lsoa21cd")
+    .agg(
+        fatal_crashes_n=("collision_severity", lambda s: (s == "Fatal").sum()),
+        serious_crashes_n=("collision_severity", lambda s: (s == "Serious").sum()),
+        slight_crashes_n=("collision_severity", lambda s: (s == "Slight").sum()),
+        all_crashes_n=("collision_severity", "count"),
+    )
+    .reset_index()
+)
+print(lsoa_crashes_count.head())
+```
+
+Further reading for Python:
+
+- [pandas GroupBy and aggregation](https://pandas.pydata.org/docs/user_guide/groupby.html)
 
 :::
 
@@ -355,18 +375,6 @@ Now we'll join the aggregated crash counts back to the LSOA boundary data:
 
 ::: {.panel-tabset}
 
-### Python
-
-```python
-# Left join crash statistics onto spatial boundaries
-lsoa_crashes_wy = lsoa_wy.merge(lsoa_crashes_count, on="lsoa21cd", how="left")
-count_cols = ["all_crashes_n", "fatal_crashes_n", "serious_crashes_n", "slight_crashes_n"]
-lsoa_crashes_wy[count_cols] = lsoa_crashes_wy[count_cols].fillna(0)
-
-zero_crash_lsoas = (lsoa_crashes_wy["all_crashes_n"] == 0).sum()
-print(f"LSOAs with zero recorded crashes: {zero_crash_lsoas}")
-```
-
 ### R
 
 ```{r}
@@ -379,6 +387,22 @@ zero_crash_lsoas = sum(lsoa_crashes_wy$all_crashes_n == 0)
 cat("Number of LSOAs with zero recorded crashes:", zero_crash_lsoas, "\n")
 cat("Percentage of LSOAs with zero crashes:", round((zero_crash_lsoas/nrow(lsoa_crashes_wy))*100, 2), "%\n")
 ```
+
+### Python
+
+```python
+# Left join crash statistics onto spatial boundaries
+lsoa_crashes_wy = lsoa_wy.merge(lsoa_crashes_count, on="lsoa21cd", how="left")
+count_cols = ["all_crashes_n", "fatal_crashes_n", "serious_crashes_n", "slight_crashes_n"]
+lsoa_crashes_wy[count_cols] = lsoa_crashes_wy[count_cols].fillna(0)
+
+zero_crash_lsoas = (lsoa_crashes_wy["all_crashes_n"] == 0).sum()
+print(f"LSOAs with zero recorded crashes: {zero_crash_lsoas}")
+```
+
+Further reading for Python:
+
+- [pandas DataFrame merge](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.merge.html)
 
 :::
 
@@ -511,6 +535,7 @@ map_severity
 ```
 
 These maps create choropleth visualizations where:
+
 - Each LSOA is colored according to its crash rate or severity ratio
 - The color palettes use darker colors to indicate higher values
 

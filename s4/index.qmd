@@ -33,35 +33,18 @@ In the previous session and for your homework, you used AI to assist with loadin
 
 * **Refinement**: Share how you modified your prompts or the code itself to achieve a better, more accurate result.
 
-# Getting started with GIS in Python and R
+# Getting started with GIS in R and Python
 
-Note that this practical takes sections from Chapters 2 - 8 of [Geocomputation with R](https://r.geocompx.org). You should expand your knowledge by reading these chapters in full.
+Note that this practical takes sections from Chapters 2 - 8 of [Geocomputation with R](https://r.geocompx.org) and [Geocomputation with Python](https://py.geocompx.org). You should expand your knowledge by reading these chapters in full.
 
 ## Pre-requisites {-}
 
 You need to have a number of packages installed and loaded.
-Install the packages by typing in the following commands into RStudio (you do not need to add the comments after the `#` symbol)
+Install the packages by typing in the following commands into RStudio or your Python terminal:
 
 If you need to install any of these packages use:
 
 ::: {.panel-tabset}
-
-
-## Python
-
-``` {python}
-#| eval: false
-# Install necessary packages (uncomment if not already installed)
-# !pip install geopandas pandas matplotlib seaborn
-
-import geopandas as gpd       # vector data package
-import pandas as pd           # data manipulation
-import matplotlib.pyplot as plt  # plotting
-import seaborn as sns            # advanced plotting
-# For spatial data, geopandas comes with sample datasets
-# Alternatively, we can use the naturalearth datasets
-import geopandas.datasets
-```
 
 ## R
 
@@ -83,6 +66,24 @@ library(tidyverse) # tidyverse packages
 library(spData)    # spatial data package
 library(ggspatial) # ggspatial package
 ```
+
+## Python
+
+```{python}
+#| eval: false
+# Install necessary packages (uncomment if not already installed)
+# !pip install geopandas pandas matplotlib seaborn
+
+import geopandas as gpd          # vector data package
+import pandas as pd              # data manipulation
+import matplotlib.pyplot as plt    # plotting
+import seaborn as sns            # advanced plotting
+```
+
+Further reading for Python:
+
+- [GeoPandas Getting Started](https://geopandas.org/en/stable/getting_started/introduction.html)
+- [Geocomputation with Python - Chapter 2: Geographic data](https://py.geocompx.org/02-spatial-data.html)
 
 :::
 
@@ -106,7 +107,16 @@ We will start with a simple map of the world. Load the `world` object from the `
 
 ::: {.panel-tabset}
 
+## R
+
+```{r}
+#| echo: true
+#| output: false
+world = spData::world
+```
+
 ## Python
+
 ```{python}
 #| eval: false
 world = gpd.read_file(
@@ -114,12 +124,10 @@ world = gpd.read_file(
 )
 ```
 
-## R
-```{r}
-#| echo: true
-#| output: false
-world = spData::world
-```
+Further reading for Python:
+
+- [Natural Earth Vector Data](https://www.naturalearthdata.com/)
+- [GeoPandas `read_file` documentation](https://geopandas.org/en/stable/docs/reference/api/geopandas.read_file.html)
 
 :::
 
@@ -129,7 +137,15 @@ Use some basic R functions to explore the `world` object. e.g. `class(world)`, `
 
 ::: {.panel-tabset}
 
+## R
+
+```{r}
+#| warning: false
+plot(world)
+```
+
 ## Python
+
 ```{python}
 #| eval: false
 print(type(world))       # Equivalent to class(world)
@@ -143,18 +159,25 @@ plt.title('World Map')
 plt.show()
 ```
 
-## R
-```{r}
-#| warning: false
-plot(world)
-```
+Further reading for Python:
+
+- [GeoPandas mapping guide](https://geopandas.org/en/stable/docs/user_guide/mapping.html)
 
 :::
+
 Note that this makes a map of each column in the data frame. Try some other plotting options
 
 ::: {.panel-tabset}
 
+## R
+
+```{r}
+plot(world[3:6])
+plot(world["pop"])
+```
+
 ## Python
+
 ```{python}
 #| eval: false
 # Since world is a GeoDataFrame, we can select columns by position
@@ -166,11 +189,9 @@ world.plot(column='CONTINENT', ax=axes[2])
 plt.show()
 ```
 
-## R
-```{r}
-plot(world[3:6])
-plot(world["pop"])
-```
+Further reading for Python:
+
+- [Matplotlib subplots documentation](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.subplots.html)
 
 :::
 
@@ -180,14 +201,8 @@ Load the `nz` and `nz_height` datasets from the `spData` package.
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-nz = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/heads/main/data/nz.gpkg")
-nz_height = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/heads/main/data/nz_height.gpkg")
-```
-
 ## R
+
 ```{r}
 #| echo: true
 #| output: false
@@ -195,19 +210,27 @@ nz = spData::nz
 nz_height = spData::nz_height
 ```
 
+## Python
+
+```{python}
+#| eval: false
+nz = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/heads/main/data/nz.gpkg")
+nz_height = gpd.read_file("https://github.com/Nowosad/spData_files/raw/refs/heads/main/data/nz_height.gpkg")
+```
+
+Further reading for Python:
+
+- [spData datasets repository](https://github.com/Nowosad/spData_files)
+- [GeoPandas `read_file` documentation](https://geopandas.org/en/stable/docs/reference/api/geopandas.read_file.html)
+
 :::
 
 We can use `tidyverse` functions like `filter` and `select` on `sf` objects in the same way you did in Practical 1.
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-canterbury = nz[nz['Name'] == 'Canterbury']
-```
-
 ## R
+
 ```{r}
 #| echo: true
 #| output: false
@@ -215,43 +238,68 @@ canterbury = nz |> filter(Name == "Canterbury")
 canterbury_height = nz_height[canterbury, ]
 ```
 
-:::
-In this case we filtered the `nz` object to only include places called `Canterbury` and then did and intersection to find objects in the `nz_height` object that are in Canterbury.
+## Python
 
-This syntax is not very clear. But is the equivalent to
+```{python}
+#| eval: false
+canterbury = nz[nz['Name'] == 'Canterbury']
+```
+
+:::
+
+In this case we filtered the `nz` object to only include places called `Canterbury` and then did an intersection to find objects in the `nz_height` object that are in Canterbury.
+
+This syntax is not very clear. But is the equivalent to:
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-canterbury_height = gpd.overlay(nz_height, canterbury, how='intersection')
-```
-
 ## R
+
 ```{r}
 #| echo: true
 
 canterbury_height = nz_height[canterbury, , op = st_intersects]
 ```
 
+## Python
+
+```{python}
+#| eval: false
+canterbury_height = gpd.overlay(nz_height, canterbury, how='intersection')
+```
+
+Further reading for Python:
+
+- [GeoPandas Overlay operations](https://geopandas.org/en/stable/docs/user_guide/set_operations.html)
+
 :::
 
-There are many different types of relationships you can use with `op`. Try `?st_intersects()` to see more. For example this would give all the places not in Canterbury
+There are many different types of relationships you can use with `op`. Try `?st_intersects()` to see more. For example this would give all the places not in Canterbury:
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-canterbury_height = gpd.sjoin(nz_height, canterbury, op='intersects')
-```
-
 ## R
+
 ```{r}
 #| eval: false
 nz_height[canterbury, , op = st_disjoint]
 ```
+
+## Python
+
+```{python}
+#| eval: false
+# In GeoPandas, use predicate='intersects' for spatial joins
+canterbury_height = gpd.sjoin(nz_height, canterbury, predicate='intersects')
+
+# To find features outside Canterbury (disjoint)
+canterbury_height_disjoint = nz_height[nz_height.disjoint(canterbury.unary_union)]
+```
+
+Further reading for Python:
+
+- [GeoPandas Spatial Joins](https://geopandas.org/en/stable/docs/user_guide/mergingdata.html#spatial-joins)
+- [Shapely Set-theoretic Operations](https://shapely.readthedocs.io/en/stable/manual.html)
 
 :::
 
@@ -279,19 +327,26 @@ First we will load some sample data:
 
 ::: {.panel-tabset}
 
+## R
+
+```{r}
+#| echo: true
+od_data = stplanr::od_data_sample
+zone = stplanr::cents_sf
+```
+
 ## Python
+
 ```{python}
 #| eval: false
 import pandas as pd
 od_data = pd.read_csv('https://github.com/ropensci/stplanr/releases/download/v1.2.2/od_data_sample.csv')
 ```
 
-## R
-```{r}
-#| echo: true
-od_data = stplanr::od_data_sample
-zone = stplanr::cents_sf
-```
+Further reading for Python:
+
+- [pandas `read_csv` documentation](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
+- [stplanr package documentation](https://docs.ropensci.org/stplanr/)
 
 :::
 
@@ -300,18 +355,24 @@ Now we will rename one of the columns from `foot` to `walk`
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-od_data.rename(columns={'foot': 'walk'}, inplace=True)
-```
-
 ## R
+
 ```{r}
 #| echo: true
 od_data = od_data |>
   rename(walk = foot)
 ```
+
+## Python
+
+```{python}
+#| eval: false
+od_data.rename(columns={'foot': 'walk'}, inplace=True)
+```
+
+Further reading for Python:
+
+- [pandas `rename` documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.rename.html)
 
 :::
 
@@ -319,17 +380,8 @@ Next we will made a new dataset `od_data_walk` by taking `od_data` and piping it
 
 ::: {.panel-tabset}
 
-
-## Python
-```{python}
-#| eval: false
-od_data_walk = od_data[od_data['walk'] > 0].copy()
-od_data_walk = od_data_walk[['geo_code1', 'geo_code2', 'all', 'car_driver', 'walk']]
-od_data_walk['proportion_walk'] = od_data_walk['walk'] / od_data_walk['all']
-od_data_walk['proportion_drive'] = od_data_walk['car_driver'] / od_data_walk['all']
-```
-
 ## R
+
 ```{r}
 #| echo: true
 od_data_walk = od_data |>
@@ -338,44 +390,71 @@ od_data_walk = od_data |>
   mutate(proportion_walk = walk / all, proportion_drive = car_driver / all)
 ```
 
+## Python
+
+```{python}
+#| eval: false
+od_data_walk = od_data[od_data['walk'] > 0].copy()
+od_data_walk = od_data_walk[['geo_code1', 'geo_code2', 'all', 'car_driver', 'walk']]
+od_data_walk['proportion_walk'] = od_data_walk['walk'] / od_data_walk['all']
+od_data_walk['proportion_drive'] = od_data_walk['car_driver'] / od_data_walk['all']
+```
+
+Further reading for Python:
+
+- [pandas indexing and subsetting](https://pandas.pydata.org/docs/user_guide/indexing.html)
+
 :::
+
 We can use the generic `plot` function to view the relationships between variables
 
 ::: {.panel-tabset}
 
+## R
+
+```{r}
+plot(od_data_walk)
+```
+
 ## Python
+
 ```{python}
 #| eval: false
 sns.pairplot(od_data_walk)
 plt.show()
 ```
 
-## R
-```{r}
-plot(od_data_walk)
-```
+Further reading for Python:
+
+- [Seaborn `pairplot` documentation](https://seaborn.pydata.org/generated/seaborn.pairplot.html)
 
 :::
+
 R has built in modelling functions such as `lm` lets make a simple model to predict the proportion of people who walk based on the proportion of people who drive.
 
 ::: {.panel-tabset}
 
+## R
+
+```{r}
+#| echo: true
+model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
+od_data_walk$proportion_walk_predicted = model1$fitted.values
+```
+
 ## Python
+
 ```{python}
 #| eval: false
-# pip install statsmodels
 import statsmodels.formula.api as smf
 
 model1 = smf.ols('proportion_walk ~ proportion_drive', data=od_data_walk).fit()
 od_data_walk['proportion_walk_predicted'] = model1.fittedvalues
 ```
 
-## R
-```{r}
-#| echo: true
-model1 = lm(proportion_walk ~ proportion_drive, data = od_data_walk)
-od_data_walk$proportion_walk_predicted = model1$fitted.values
-```
+Further reading for Python:
+
+- [statsmodels OLS documentation](https://www.statsmodels.org/stable/generated/statsmodels.formula.api.ols.html)
 
 :::
 
@@ -383,7 +462,16 @@ We can use the `ggplot2` package to graph our model predictions.
 
 ::: {.panel-tabset}
 
+## R
+
+```{r}
+ggplot(od_data_walk) +
+  geom_point(aes(proportion_drive, proportion_walk)) +
+  geom_line(aes(proportion_drive, proportion_walk_predicted))
+```
+
 ## Python
+
 ```{python}
 #| eval: false
 plt.figure(figsize=(8, 6))
@@ -395,12 +483,9 @@ plt.legend()
 plt.show()
 ```
 
-## R
-```{r}
-ggplot(od_data_walk) +
-  geom_point(aes(proportion_drive, proportion_walk)) +
-  geom_line(aes(proportion_drive, proportion_walk_predicted))
-```
+Further reading for Python:
+
+- [Matplotlib scatter and plot](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.scatter.html)
 
 :::
 
@@ -417,31 +502,33 @@ Code for Exercises (click to reveal, but try to do them yourself first)
 <details>
 
 :::: {.panel-tabset}
+
 ## Exercise 1
+
 ::: {.panel-tabset}
+
 ### R
+
 ```{r}
 #| eval: false
 class(od_data)
 ```
+
 ### Python
+
 ```{python}
 #| eval: false
 print("Class of od_data:", type(od_data))
 ```
+
 :::
+
 ## Exercise 2
+
 ::: {.panel-tabset}
 
-### Python
-```{python}
-#| eval: false
-od_data_walk = od_data[od_data['walk'] > 0].copy()
-percentage_walk = (len(od_data_walk) / len(od_data)) * 100
-print(f"Percentage of OD pairs where at least one person walks: {percentage_walk}%")
-```
-
 ### R
+
 ```{r}
 #| eval: false
 
@@ -450,18 +537,27 @@ od_data_walk = od_data |>
 nrow(od_data_walk) / nrow(od_data) * 100
 ```
 
-:::
-## Exercise 3
-::: {.panel-tabset}
-
 ### Python
+
 ```{python}
 #| eval: false
-od_data_cycle = od_data[od_data['bicycle'] > 0].copy()
-od_data_cycle['perc_cycle'] = (od_data_cycle['bicycle'] / od_data_cycle['all']) * 100
+od_data_walk = od_data[od_data['walk'] > 0].copy()
+percentage_walk = (len(od_data_walk) / len(od_data)) * 100
+print(f"Percentage of OD pairs where at least one person walks: {percentage_walk}%")
 ```
 
+Further reading for Python:
+
+- [pandas Boolean Indexing](https://pandas.pydata.org/docs/user_guide/indexing.html#boolean-indexing)
+
+:::
+
+## Exercise 3
+
+::: {.panel-tabset}
+
 ### R
+
 ```{r}
 #| eval: false
 
@@ -470,12 +566,43 @@ od_data = od_data |>
   mutate(perc_cycle = (bicycle / all) * 100)
 ```
 
+### Python
+
+```{python}
+#| eval: false
+od_data_cycle = od_data[od_data['bicycle'] > 0].copy()
+od_data_cycle['perc_cycle'] = (od_data_cycle['bicycle'] / od_data_cycle['all']) * 100
+```
+
+Further reading for Python:
+
+- [pandas column assignment](https://pandas.pydata.org/docs/user_guide/basics.html)
+
 :::
 
 ## Exercise 4
+
 ::: {.panel-tabset}
 
+### R
+
+```{r}
+#| eval: false
+
+od_data_new = od_data |>
+  filter(walk > 0, bicycle > 0) |>
+  select(bicycle, walk, all)
+
+model = lm(walk ~ bicycle, weights = all, data = od_data_new)
+od_data_new$walk_predicted = model$fitted.values
+
+ggplot(od_data_new) +
+  geom_point(aes(bicycle, walk, size = all)) +
+  geom_line(aes(bicycle, walk_predicted))
+```
+
 ### Python
+
 ```{python}
 #| eval: false
 od_data_new = od_data[(od_data['walk'] > 0) & (od_data['bicycle'] > 0)].copy()
@@ -500,21 +627,9 @@ plt.legend()
 plt.show()
 ```
 
-### R
-```{r}
-#| eval: false
+Further reading for Python:
 
-od_data_new = od_data |>
-  filter(walk > 0, bicycle > 0) |>
-  select(bicycle, walk, all)
-
-model = lm(walk ~ bicycle, weights = all, data = od_data_new)
-od_data_new$walk_predicted = model$fitted.values
-
-ggplot(od_data_new) +
-  geom_point(aes(bicycle, walk, size = all)) +
-  geom_line(aes(bicycle, walk_predicted))
-```
+- [statsmodels WLS documentation](https://www.statsmodels.org/stable/generated/statsmodels.regression.linear_model.WLS.html)
 
 :::
 
@@ -522,7 +637,19 @@ ggplot(od_data_new) +
 
 ::: {.panel-tabset}
 
+### R
+
+```{r}
+#| eval: false
+
+desire_lines = stplanr::od2line(flow = od_data, zones = zone)
+plot(desire_lines)
+# save zone as gpkg
+sf::st_write(zone, "zone.geojson")
+```
+
 ### Python
+
 ```{python}
 #| eval: false
 import pandas as pd
@@ -573,15 +700,10 @@ desire_lines = gpd.GeoDataFrame(od_data, geometry='geometry', crs=zones.crs)
 desire_lines.plot()
 ```
 
-### R
-```{r}
-#| eval: false
+Further reading for Python:
 
-desire_lines = stplanr::od2line(flow = od_data, zones = zone)
-plot(desire_lines)
-# save zone as gpkg
-sf::st_write(zone, "zone.geojson")
-```
+- [Shapely LineString documentation](https://shapely.readthedocs.io/en/stable/manual.html#LineString)
+- [GeoPandas geometry construction](https://geopandas.org/en/stable/docs/user_guide/data_structures.html)
 
 :::
 ::::
@@ -605,53 +727,8 @@ We will start by loading two datasets:
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-od_data = gpd.read_file('https://github.com/ropensci/stplanr/releases/download/v1.2.2/bristol_od.geojson')
-
-zones = gpd.read_file('https://github.com/ropensci/stplanr/releases/download/v1.2.2/bristol_zones.geojson')
-
-if zones.crs is None:
-    zones.set_crs(epsg=4326, inplace=True)
-
-# If zones are polygons, compute centroids
-if zones.geom_type.isin(['Polygon', 'MultiPolygon']).any():
-    print("Creating centroids representing desire line start and end points.")
-    zones['geometry'] = zones.centroid
-
-# Create a mapping from 'geo_cod' to 'geometry'
-geo_cod_to_geometry = dict(zip(zones['geo_code'], zones['geometry']))
-
-# Map origin and destination geometries
-od_data['geometry_o'] = od_data['geo_code1'].map(geo_cod_to_geometry)
-od_data['geometry_d'] = od_data['geo_code2'].map(geo_cod_to_geometry)
-
-# Check for any missing matches
-missing_origins = od_data[od_data['geometry_o'].isnull()]
-missing_destinations = od_data[od_data['geometry_d'].isnull()]
-
-if not missing_origins.empty:
-    print(f"Missing origin geometries for {len(missing_origins)} records")
-if not missing_destinations.empty:
-    print(f"Missing destination geometries for {len(missing_destinations)} records")
-
-# Remove rows with missing geometries
-od_data.dropna(subset=['geometry_o', 'geometry_d'], inplace=True)
-
-# Create LineString geometries for desire lines
-od_data['geometry'] = od_data.apply(
-    lambda row: LineString([row['geometry_o'], row['geometry_d']]), axis=1
-)
-
-# Create a GeoDataFrame for the desire lines
-desire_lines = gpd.GeoDataFrame(od_data, geometry='geometry', crs=zones.crs)
-
-# Plot the desire lines
-desire_lines.plot()
-```
-
 ## R
+
 ```{r}
 u_od = "https://github.com/itsleeds/tds/releases/download/2026/s4-od.csv"
 if (!file.exists("s4-od.csv")) download.file(u_od, "s4-od.csv")
@@ -662,83 +739,99 @@ if (!file.exists("s4-zones.geojson")) download.file(u_zones, "s4-zones.geojson")
 zones = st_read("s4-zones.geojson")
 ```
 
+## Python
+
+```{python}
+#| eval: false
+import pandas as pd
+import geopandas as gpd
+
+od = pd.read_csv("https://github.com/itsleeds/tds/releases/download/2026/s4-od.csv")
+zones = gpd.read_file("https://github.com/itsleeds/tds/releases/download/2026/s4-zones.geojson")
+
+# Compute zone centroids for desire line endpoints
+if zones.geom_type.isin(['Polygon', 'MultiPolygon']).any():
+    zones['geometry'] = zones.centroid
+```
+
+Further reading for Python:
+
+- [GeoPandas reading files](https://geopandas.org/en/stable/docs/user_guide/io.html)
+- [pandas `read_csv` documentation](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
+
 :::
+
 Explore these datasets using the functions you have already learnt (e.g. `head`,`nrow`).
 
 You will notice that the `od` datasets has shared id values with the `zones` dataset. We can use these to make desire lines between each zone. But first we must filter out trips that start and end in the same zone.
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-# Filter OD data where origin and destination are different
-od_inter = od[od['o'] != od['d']].copy()
-
-od_inter = od_inter.merge(zones[['geo_code', 'geometry']], left_on='o', right_on='geo_code', how='left')
-od_inter.rename(columns={'geometry': 'origin_geometry'}, inplace=True)
-od_inter = od_inter.merge(zones[['geo_code', 'geometry']], left_on='d', right_on='geo_code', how='left')
-od_inter.rename(columns={'geometry': 'destination_geometry'}, inplace=True)
-
-```
-
 ## R
+
 ```{r}
 od_inter = filter(od, o != d)
 desire_lines = od2line(od_inter, zones)
 ```
 
+## Python
+
+```{python}
+#| eval: false
+from shapely.geometry import LineString
+
+# Filter OD data where origin and destination are different
+od_inter = od[od['o'] != od['d']].copy()
+
+# Map origin and destination zone centroids
+geo_map = dict(zip(zones['geo_code'], zones['geometry']))
+od_inter['origin_geom'] = od_inter['o'].map(geo_map)
+od_inter['dest_geom'] = od_inter['d'].map(geo_map)
+od_inter = od_inter.dropna(subset=['origin_geom', 'dest_geom'])
+
+# Create LineString geometries for desire lines
+od_inter['geometry'] = [
+    LineString([o, d]) for o, d in zip(od_inter['origin_geom'], od_inter['dest_geom'])
+]
+desire_lines = gpd.GeoDataFrame(od_inter, geometry='geometry', crs=zones.crs)
+```
+
+Further reading for Python:
+
+- [Shapely LineString documentation](https://shapely.readthedocs.io/en/stable/manual.html#LineString)
+
 :::
-Let's calculate the percentage of trips that are made by active travel
+
+Let's calculate the percentage of trips that are made by active travel:
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-desire_lines['Active'] = (desire_lines['bicycle'] + desire_lines['foot']) / desire_lines['all'] * 100
-```
-
 ## R
+
 ```{r}
 desire_lines$Active = (desire_lines$bicycle + desire_lines$foot) /
   desire_lines$all * 100
 ```
 
+## Python
+
+```{python}
+#| eval: false
+desire_lines['Active'] = (desire_lines['bicycle'] + desire_lines['foot']) / desire_lines['all'] * 100
+```
+
+Further reading for Python:
+
+- [pandas series arithmetic](https://pandas.pydata.org/docs/user_guide/basics.html#basic-operations-with-series)
+
 :::
-Now use `tmap` to make a plot showing the number of trips and the percentage of people using active travel. Alternatively, you may use the `ggplot2` for visualisation. 
+
+Now use `tmap` to make a plot showing the number of trips and the percentage of people using active travel. Alternatively, you may use `ggplot2` or `matplotlib` for visualisation. 
 
 ::: {.panel-tabset}
 
-
-## Python
-```{python}
-#| eval: false
-desire_lines = desire_lines.sort_values('Active')
-
-# Normalize line widths for plotting
-max_trips = desire_lines['all'].max()
-desire_lines['linewidth'] = (desire_lines['all'] / max_trips) * 5
-
-# Plotting desire lines with active travel percentage
-fig, ax = plt.subplots(figsize=(12, 10))
-desire_lines.plot(
-    ax=ax, 
-    column='Active', 
-    cmap='plasma', 
-    linewidth=desire_lines['linewidth'], 
-    alpha=0.7, 
-    legend=True
-)
-plt.title('Desire Lines with Active Travel Percentage')
-
-# Add basemap (optional)
-# ctx.add_basemap(ax, crs=desire_lines.crs.to_string())
-
-plt.show()
-```
-
 ## R: tmap
+
 ```{r}
 #| echo: true
 #| output: true
@@ -757,6 +850,7 @@ tm_shape(desire_lines) + # Define the data frame used to make the map
 ```
 
 ## R: ggplot2
+
 ```{r}
 #| echo: true
 #| output: true
@@ -783,45 +877,88 @@ ggplot() +
   theme_void()
 ```
 
+## Python
+
+```{python}
+#| eval: false
+desire_lines = desire_lines.sort_values('Active')
+
+# Normalize line widths for plotting
+max_trips = desire_lines['all'].max()
+desire_lines['linewidth'] = (desire_lines['all'] / max_trips) * 5
+
+# Plotting desire lines with active travel percentage
+fig, ax = plt.subplots(figsize=(12, 10))
+desire_lines.plot(
+    ax=ax, 
+    column='Active', 
+    cmap='plasma', 
+    linewidth=desire_lines['linewidth'], 
+    alpha=0.7, 
+    legend=True
+)
+plt.title('Desire Lines with Active Travel Percentage')
+plt.show()
+```
+
+Further reading for Python:
+
+- [GeoPandas mapping guide](https://geopandas.org/en/stable/docs/user_guide/mapping.html)
+
 :::
-Now that we have geometry attached to our data we can calculate other variables of interest. For example let's calculate the distacne travelled and see if it relates to the percentage of people who use active travel.
+
+Now that we have geometry attached to our data we can calculate other variables of interest. For example let's calculate the distance travelled and see if it relates to the percentage of people who use active travel.
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-desire_lines['distance_direct_m'] = desire_lines.geometry.length
-```
-
 ## R
+
 ```{r}
 desire_lines$distance_direct_m = as.numeric(st_length(desire_lines))
 ```
 
+## Python
+
+```{python}
+#| eval: false
+# Project to British National Grid (EPSG:27700) for accurate metric lengths:
+desire_lines['distance_direct_m'] = desire_lines.to_crs(epsg=27700).geometry.length
+```
+
+Further reading for Python:
+
+- [GeoPandas CRS management](https://geopandas.org/en/stable/docs/user_guide/projections.html)
+
 :::
+
 Note the use of `as.numeric` by default `st_length` and many other functions return a special type of result with `unit`. Here we force the results back into the basic R numerical value. But be careful! The units you get back depend on the coordinate reference system, so check your data before you assume what values mean.
 
 ::: {.panel-tabset}
 
-## Python
-```{python}
-#| eval: false
-plt.figure(figsize=(8, 6))
-sns.scatterplot(data=desire_lines, x='distance_direct_m', y='Active', size='all', legend=False)
-sns.regplot(data=desire_lines, x='distance_direct_m', y='Active', scatter=False, color='red')
-plt.xlabel('Distance (meters)')
-plt.ylabel('Active Travel Percentage')
-plt.title('Active Travel vs Distance')
-plt.show()
-```
-
 ## R
+
 ```{r}
 ggplot(desire_lines) +
   geom_point(aes(x = distance_direct_m, y = Active, size = all)) +
   geom_smooth(aes(x = distance_direct_m, y = Active))
 ```
+
+## Python
+
+```{python}
+#| eval: false
+plt.figure(figsize=(8, 6))
+sns.scatterplot(data=desire_lines, x='distance_direct_m', y='Active', size='all', legend=False)
+sns.regplot(data=desire_lines, x='distance_direct_m', y='Active', scatter=False, color='red')
+plt.xlabel('Distance (metres)')
+plt.ylabel('Active Travel Percentage')
+plt.title('Active Travel vs Distance')
+plt.show()
+```
+
+Further reading for Python:
+
+- [Seaborn regression plotting](https://seaborn.pydata.org/generated/seaborn.regplot.html)
 
 ::: 
 

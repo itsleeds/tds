@@ -29,14 +29,6 @@ We will install (if necessary) and load the packages for these examples.
 
 ::: {.panel-tabset}
 
-### Python
-
-```python
-import geopandas as gpd         # Spatial data operations
-import pandas as pd             # Tabular data manipulation
-import matplotlib.pyplot as plt # Visualisation
-```
-
 ### R
 
 ```{r}
@@ -52,6 +44,19 @@ library(tidyverse)
 library(tmap)
 if (requireNamespace("osmextract", quietly = TRUE)) library(osmextract)
 ```
+
+### Python
+
+```python
+import geopandas as gpd         # Spatial data operations
+import pandas as pd             # Tabular data manipulation
+import matplotlib.pyplot as plt # Visualisation
+```
+
+Further reading for Python:
+
+- [GeoPandas Getting Started](https://geopandas.org/en/stable/getting_started/introduction.html)
+- [Matplotlib Pyplot Guide](https://matplotlib.org/stable/tutorials/pyplot.html)
 
 :::
 
@@ -71,6 +76,15 @@ We will start by loading the location of the BRT stations from a checked-in GeoJ
 
 ::: {.panel-tabset}
 
+### R
+
+```{r}
+#| code-fold: true
+
+tm_stations_sf <- read_sf("Estaciones_Troncales_de_TRANSMILENIO.geojson")
+tm_stations_sf$num_est <- tm_stations_sf$numero_estacion
+```
+
 ### Python
 
 ```python
@@ -81,14 +95,9 @@ tm_stations_sf["num_est"] = tm_stations_sf["numero_estacion"]
 print(tm_stations_sf[["num_est", "nombre_estacion", "geometry"]].head())
 ```
 
-### R
+Further reading for Python:
 
-```{r}
-#| code-fold: true
-
-tm_stations_sf <- read_sf("Estaciones_Troncales_de_TRANSMILENIO.geojson")
-tm_stations_sf$num_est <- tm_stations_sf$numero_estacion
-```
+- [GeoPandas reading files](https://geopandas.org/en/stable/docs/user_guide/io.html)
 
 :::
 
@@ -100,9 +109,18 @@ colnames(tm_stations_sf)
 
 The `num_est` variable contains the station code, which we will use to join this data with the tap-in data later on.
 
-Let's quickly visualise the location of the stations. As we imported the data as a spatial object, we can easily visualise it using `matplotlib` in Python, or `tmap` / `ggplot2` in R.
+Let's quickly visualise the location of the stations. As we imported the data as a spatial object, we can easily visualise it using `tmap` / `ggplot2` in R, or `matplotlib` in Python.
 
 ::: {.panel-tabset}
+
+### R
+
+```{r}
+#| code-fold: true
+ 
+tm_shape(tm_stations_sf)+
+  tm_dots(col = "darkblue")
+```
 
 ### Python
 
@@ -115,14 +133,9 @@ ax.set_title("Bogotá BRT Stations (TransMilenio)")
 plt.show()
 ```
 
-### R
+Further reading for Python:
 
-```{r}
-#| code-fold: true
- 
-tm_shape(tm_stations_sf)+
-  tm_dots(col = "darkblue")
-```
+- [GeoPandas Mapping](https://geopandas.org/en/stable/docs/user_guide/mapping.html)
 
 :::
 

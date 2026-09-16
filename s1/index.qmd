@@ -107,13 +107,7 @@ We will explore this together, and then you can try the following data manipulat
 1.  Print the `vehicle_type` column of `crashes`.
 
 <details>
-<summary>Solution (Python & R)</summary>
-
-**Python:**
-
-```python
-crashes["vehicle_type"]
-```
+<summary>Solution (R & Python)</summary>
 
 **R:**
 
@@ -123,20 +117,19 @@ In R the `$` symbol is used to refer to elements of a list/dataframe:
 crashes$vehicle_type
 ```
 
+**Python:**
+
+```python
+# Assuming crashes dataframe in pandas:
+crashes["vehicle_type"]
+```
+
 </details>
 
 2.  Subset the crashes with index slicing syntax.
 
 <details>
-<summary>Solution (Python & R)</summary>
-
-**Python:**
-
-```python
-crashes.iloc[0, :]  # first row
-crashes.iloc[:, 0]  # first column
-crashes.iloc[0, 0]  # first row, first column
-```
+<summary>Solution (R & Python)</summary>
 
 **R:**
 
@@ -148,19 +141,20 @@ crashes[,1]
 crashes[1,1]
 ```
 
+**Python:**
+
+```python
+crashes.iloc[0, :]  # first row
+crashes.iloc[:, 0]  # first column
+crashes.iloc[0, 0]  # first row, first column
+```
+
 </details>
 
 3.  Subset a specific column or element.
 
 <details>
-<summary>Solution (Python & R)</summary>
-
-**Python:**
-
-```python
-crashes.iloc[:, 0]
-crashes["casualty_type"]
-```
+<summary>Solution (R & Python)</summary>
 
 **R:**
 
@@ -171,19 +165,19 @@ crashes[[1]]
 crashes[[2]]
 ```
 
+**Python:**
+
+```python
+crashes.iloc[:, 0]
+crashes["casualty_type"]
+```
+
 </details>
 
 4.  What is the data type/class of the objects created by each of the previous exercises?
 
 <details>
-<summary>Solution (Python & R)</summary>
-
-**Python:**
-
-```python
-type(crashes)
-crashes.dtypes
-```
+<summary>Solution (R & Python)</summary>
 
 **R:**
 
@@ -192,14 +186,29 @@ class(crashes)
 sapply(crashes, class)
 ```
 
+**Python:**
+
+```python
+type(crashes)
+crashes.dtypes
+```
+
 </details>
 
 ## Practical example: Excel from the command line
 
-This example shows how to solve a problem originally designed to teach Excel from the command line, in Python and R.
+This example shows how to solve a problem originally designed to teach Excel from the command line, in R and Python.
 The task is to load a dataset of transport modelling software, take the top 5 rows, and sort them by Citations in descending order.
 
 ::: {.panel-tabset}
+
+### R
+
+```{r}
+tms = readr::read_csv("transport-software.csv")[1:5]
+tms = dplyr::arrange(tms, dplyr::desc(Citations))
+knitr::kable(tms)
+```
 
 ### Python
 
@@ -211,13 +220,10 @@ tms = tms.sort_values("Citations", ascending=False)
 print(tms)
 ```
 
-### R
+Further reading for Python:
 
-```{r}
-tms = readr::read_csv("transport-software.csv")[1:5]
-tms = dplyr::arrange(tms, dplyr::desc(Citations))
-knitr::kable(tms)
-```
+- [pandas `read_csv` documentation](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)
+- [pandas `sort_values` documentation](https://pandas.pydata.org/docs/reference/api/pandas.DataFrame.sort_values.html)
 
 :::
 
@@ -232,23 +238,6 @@ To get some larger datasets, try the following (from Chapter 8 of [RSRR](https:/
 
 ::: {.panel-tabset group="language"}
 
-## Python
-
-Challenge: reproduce the code in Python using the `pystats19` package:
-
-```python
-# Install the package, e.g. with pip
-# !pip install pystats19
-import pystats19
-# Get stats19 data for 2020
-collisions = pystats19.get_stats19(year=2020, type='collision')
-casualties = pystats19.get_stats19(year=2020, type='casualty')
-vehicles = pystats19.get_stats19(year=2020, type='vehicle')
-
-# Calculate percentage of population hurt
-print(f"Percentage of population hurt: {(len(casualties) / 67e6) * 100}%")
-```
-
 ## R
 
 ```{r}
@@ -261,6 +250,30 @@ ve = get_stats19(year = 2020, type = "veh")
 # population hurt by road traffic collisions in 2020:
 (nrow(ca) / 67e6) * 100
 ```
+
+## Python
+
+Challenge: reproduce the code in Python using the `pystats19` package:
+
+```python
+# Install the package, e.g. with pip
+# !pip install pystats19
+from pystats19.read import list_files, load
+
+# List available files for 2020
+casualty_files = list_files(year=2020, table="casualty")
+# Load the casualty data (auto_download=True fetches from DfT if not cached)
+casualties = load(casualty_files[0], auto_download=True)
+
+# Calculate percentage of population hurt in 2020
+pop_uk = 67e6
+print(f"Percentage of population hurt: {(len(casualties) / pop_uk) * 100:.3f}%")
+```
+
+Further reading for Python:
+
+- [pystats19 on PyPI](https://pypi.org/project/pystats19/)
+- [DfT Road Safety Data on data.gov.uk](https://www.data.gov.uk/dataset/cb7ae6f0-4be6-4935-9277-47e5ce24a11f/road-safety-data)
 
 :::
 

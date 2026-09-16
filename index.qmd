@@ -48,11 +48,11 @@ Substantial programming and data science experience in previous professional or 
 
 To participate in this course, you'll need to install specific software.
 
-The course supports both Python and R throughout, with Python examples and code chunks presented first alongside equivalent R workflows. You can choose to complete exercises and coursework in Python, R, or a combination of both.
+The course supports both R and Python throughout, with R examples and code chunks presented first alongside equivalent, testable Python workflows. You can choose to complete exercises and coursework in R, Python, or a combination of both.
 
 ## Quickstart with GitHub Codespaces
 
-For a quick cloud-based setup, you can use GitHub Codespaces to access the course materials with both Python and R pre-configured:
+For a quick cloud-based setup, you can use GitHub Codespaces to access the course materials with both R and Python pre-configured:
 
 1. Sign up to GitHub
 2. Fork the repository
@@ -60,6 +60,26 @@ For a quick cloud-based setup, you can use GitHub Codespaces to access the cours
 
 [![Open in GitHub
 Codespaces](https://img.shields.io/badge/Open%20in-GitHub%20Codespaces-blue?logo=github.png)](https://github.com/codespaces/new/itsleeds/tds?quickstart=1)
+
+## R
+
+Install a recent version of R (4.3.0 or above) and an IDE:
+
+- R from [cran.r-project.org](https://cran.r-project.org/)
+- RStudio from [posit.co](https://posit.co/download/rstudio-desktop/) (recommended)
+- Alternatively, VS Code with the R extension
+
+Install key R packages with:
+
+```{r}
+#| eval: false
+if (!requireNamespace("remotes", quietly = TRUE)) {
+  install.packages("remotes")
+}
+remotes::install_github("itsleeds/tds")
+```
+
+See [Section 1.5 of the online guide Reproducible Road Safety Research with R](https://itsleeds.github.io/rrsrr/introduction.html#installing-r-and-rstudio) and [Geocomputation with R](https://r.geocompx.org) for further guidance.
 
 ## Python
 
@@ -77,23 +97,13 @@ Or using modern environment managers such as:
 - `pixi` (which can manage both Python and R environments reproducibly)
 - Docker / Devcontainers (best practice for isolation)
 
-## R
+For further reading on Python for spatial and transport data science, see:
 
-You can also use R (4.3.0 or above) and RStudio or VS Code:
+- [Geocomputation with Python](https://py.geocompx.org/)
+- [Geographic Data Science with Python](https://geographicdata.science/book/)
+- [GeoPandas Documentation](https://geopandas.org/)
+- [OSMnx Documentation](https://osmnx.readthedocs.io/)
 
-- R from [cran.r-project.org](https://cran.r-project.org/)
-- RStudio from [posit.co](https://posit.co/download/rstudio-desktop/) (recommended)
-- Alternatively, VS Code with the R extension
-
-Install key R packages with:
-
-```{r}
-#| eval: false
-if (!requireNamespace("remotes", quietly = TRUE)) {
-  install.packages("remotes")
-}
-remotes::install_github("itsleeds/tds")
-```
 
 ## Docker (advanced)
 
