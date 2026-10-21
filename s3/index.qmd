@@ -60,17 +60,19 @@ Students can access GitHub Copilot for free through the [GitHub Student Develope
 
 ### Example 1: Loading and Filtering Transport Data
 
+::: {.panel-tabset}
+
+### R
+
 **Prompt (as a comment in R):**
 
-```{r}
-#| eval: false
+```r
 # Load cycle hire data from London and filter trips longer than 30 minutes
 ```
 
 **Copilot might suggest:**
 
-```{r}
-#| eval: false
+```r
 library(dplyr)
 library(readr)
 
@@ -82,19 +84,47 @@ long_trips = cycle_data |>
   filter(duration_minutes > 30)
 ```
 
+### Python
+
+**Prompt (as a comment in Python):**
+
+```python
+# Load cycle hire data from London and filter trips longer than 30 minutes
+```
+
+**Copilot might suggest:**
+
+```python
+import pandas as pd
+
+# Load cycle hire data
+cycle_data = pd.read_csv("cycle_hire.csv")
+
+# Filter trips longer than 30 minutes
+long_trips = cycle_data[cycle_data["duration_minutes"] > 30]
+```
+
+Further reading for Python:
+
+- [pandas indexing and filtering documentation](https://pandas.pydata.org/docs/user_guide/indexing.html)
+
+:::
+
 ### Example 2: Creating an Interactive Map
+
+::: {.panel-tabset}
+
+### R
 
 **Prompt:**
 
-```{r}
-#| eval: false
+```r
 # Create an interactive map showing bike share stations in Leeds using tmap
 ```
 
 **Copilot might suggest:**
 
-```{r}
-#| eval: false
+```r
 library(sf)
 library(tmap)
 
@@ -108,19 +138,49 @@ tm_shape(stations) +
   tm_basemap("OpenStreetMap")
 ```
 
-### Example 3: Routing Analysis
+### Python
 
 **Prompt:**
 
-```{r}
-#| eval: false
+```python
+# Create an interactive map showing bike share stations in Leeds using geopandas
+```
+
+**Copilot might suggest:**
+
+```python
+import geopandas as gpd
+
+# Load bike share stations
+stations = gpd.read_file("bike_stations.geojson")
+
+# Create interactive map
+m = stations.explore(color="blue", tiles="OpenStreetMap")
+m.save("map.html")
+```
+
+Further reading for Python:
+
+- [GeoPandas interactive mapping (`explore`)](https://geopandas.org/en/stable/docs/user_guide/interactive_mapping.html)
+- [Folium documentation](https://python-visualization.github.io/folium/latest/)
+
+:::
+
+### Example 3: Routing Analysis
+
+::: {.panel-tabset}
+
+### R
+
+**Prompt:**
+
+```r
 # Calculate cycling routes between origin-destination pairs using stplanr
 ```
 
 **Copilot might suggest:**
 
-```{r}
-#| eval: false
+```r
 library(stplanr)
 library(sf)
 
@@ -138,6 +198,35 @@ od_sf = od_to_sf(od, crs = 4326)
 # Route using CycleStreets API
 routes = route_cyclestreets(od_sf, plan = "fastest")
 ```
+
+### Python
+
+**Prompt:**
+
+```python
+# Calculate cycling routes between origin-destination pairs using OSMnx
+```
+
+**Copilot might suggest:**
+
+```python
+import osmnx as ox
+
+# Create network and find shortest path
+orig = (53.80, -1.55)
+dest = (53.79, -1.54)
+G = ox.graph_from_point(orig, dist=2000, network_type="bike")
+orig_node = ox.distance.nearest_nodes(G, orig[1], orig[0])
+dest_node = ox.distance.nearest_nodes(G, dest[1], dest[0])
+route = ox.shortest_path(G, orig_node, dest_node, weight="length")
+```
+
+Further reading for Python:
+
+- [OSMnx routing documentation](https://osmnx.readthedocs.io/en/stable/user-reference.html#module-osmnx.routing)
+- [NetworkX shortest paths algorithms](https://networkx.org/documentation/stable/reference/algorithms/shortest_paths.html)
+
+:::
 
 ## Best Practices for Using Copilot
 

@@ -8,3 +8,9 @@ shapely
 seaborn
 ipykernel
 osmnx
+pandas
+pystats19
+statsmodels
+scipy
+folium
+mapclassify
