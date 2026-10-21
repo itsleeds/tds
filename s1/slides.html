@@ -6,11 +6,11 @@
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="../site_libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.38">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Robin Lovelace">
-  <meta name="dcterms.date" content="2026-06-08">
+  <meta name="dcterms.date" content="2026-10-21">
   <title>Transport Data Science – Introduction to transport data science</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -21,10 +21,13 @@
     /* Default styles provided by pandoc.
     ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
     */
-    code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
+    div.columns{display: flex; gap: 1.5em;}
+    div.column{flex: auto;}
+    @media screen {
+    div.columns{gap: min(4vw, 1.5em);}
+    div.column{overflow-x: auto;}
+    }
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
     ul.task-list{list-style: none;}
     ul.task-list li input[type="checkbox"] {
@@ -222,12 +225,12 @@
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
-Robin Lovelace 
+Robin Lovelace
 </div>
 </div>
 </div>
 
-  <p class="date">2026-06-08</p>
+  <p class="date">2026-10-21</p>
 </section>
 <section id="who-transport-data-science-team" class="slide level2">
 <h2>Who: Transport Data Science team</h2>
@@ -525,18 +528,18 @@ wget https://images.squarespace-cdn.com/content/v1/5b67b79831d4dfab6ca1b892/a351
 </div>
 <div id="tabset-1-2">
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a></a><span class="cf">try</span>:</span>
-<span id="cb1-2"><a></a>  <span class="im">import</span> polars <span class="im">as</span> pl</span>
-<span id="cb1-3"><a></a><span class="cf">except</span> <span class="pp">ModuleNotFoundError</span>:</span>
-<span id="cb1-4"><a></a>  <span class="bu">print</span>(<span class="st">"Skipping polars example: install polars to run this chunk."</span>)</span>
-<span id="cb1-5"><a></a><span class="cf">else</span>:</span>
-<span id="cb1-6"><a></a>  <span class="co"># This problem was originally designed to teach Excel from the command line:</span></span>
-<span id="cb1-7"><a></a>  <span class="co"># head -n 6 transport-software.csv | tail -n 5 | sort -t, -k5 -rn</span></span>
-<span id="cb1-8"><a></a>  tms <span class="op">=</span> pl.read_csv(<span class="st">"transport-software.csv"</span>)[:<span class="dv">5</span>]</span>
-<span id="cb1-9"><a></a>  <span class="co"># Note: polars has a read_excel function, e.g. pl.read_excel("data.xlsx")</span></span>
-<span id="cb1-10"><a></a>  <span class="co"># but here we use the CSV file for consistency</span></span>
-<span id="cb1-11"><a></a>  tms <span class="op">=</span> tms.sort(<span class="st">"Citations"</span>, descending<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb1-12"><a></a>  <span class="bu">print</span>(tms)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a aria-label="1"></a><span class="cf">try</span>:</span>
+<span id="cb1-2"><a aria-label="2"></a>  <span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb1-3"><a aria-label="3"></a><span class="cf">except</span> <span class="pp">ModuleNotFoundError</span>:</span>
+<span id="cb1-4"><a aria-label="4"></a>  <span class="bu">print</span>(<span class="st">"Skipping polars example: install polars to run this chunk."</span>)</span>
+<span id="cb1-5"><a aria-label="5"></a><span class="cf">else</span>:</span>
+<span id="cb1-6"><a aria-label="6"></a>  <span class="co"># This problem was originally designed to teach Excel from the command line:</span></span>
+<span id="cb1-7"><a aria-label="7"></a>  <span class="co"># head -n 6 transport-software.csv | tail -n 5 | sort -t, -k5 -rn</span></span>
+<span id="cb1-8"><a aria-label="8"></a>  tms <span class="op">=</span> pl.read_csv(<span class="st">"transport-software.csv"</span>)[:<span class="dv">5</span>]</span>
+<span id="cb1-9"><a aria-label="9"></a>  <span class="co"># Note: polars has a read_excel function, e.g. pl.read_excel("data.xlsx")</span></span>
+<span id="cb1-10"><a aria-label="10"></a>  <span class="co"># but here we use the CSV file for consistency</span></span>
+<span id="cb1-11"><a aria-label="11"></a>  tms <span class="op">=</span> tms.sort(<span class="st">"Citations"</span>, descending<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-12"><a aria-label="12"></a>  <span class="bu">print</span>(tms)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Skipping polars example: install polars to run this chunk.</code></pre>
 </div>

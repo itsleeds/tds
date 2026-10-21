@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.19">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -93,10 +96,10 @@ div.csl-indent {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-bf27225e3a48a9273f3daa8f8e829971.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-d78fac1d1af627567d14058feddeaaab.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-2ce1cf57378e5325b934fbc3b2c52103.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -560,17 +563,17 @@ div.csl-indent {
 <pre><code>Simple feature collection with 6 features and 40 fields
 Geometry type: POINT
 Dimension:     XY
-Bounding box:  xmin: 360571 ymin: 389063 xmax: 456584 ymax: 522423
+Bounding box:  xmin: 356240 ymin: 392774 xmax: 451177 ymax: 519211
 Projected CRS: OSGB36 / British National Grid
 # A tibble: 6 × 41
   collision_index collision_year collision_reference longitude latitude
   &lt;chr&gt;                    &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt;    &lt;dbl&gt;
-1 2023170L30453             2023 170L30453               -1.13     54.6
-2 2023111293075             2023 111293075               -1.47     54.5
-3 2023111312748             2023 111312748               -1.53     54.5
-4 2023070702777             2023 070702777               -2.59     53.4
-5 2023070866538             2023 070866538               -2.59     53.4
-6 2023041294154             2023 041294154               -2.47     53.7
+1 2023170M20483             2023 170M20483               -1.21     54.6
+2 2023170M10633             2023 170M10633               -1.22     54.6
+3 2023170S11103             2023 170S11103               -1.33     54.6
+4 2023111343936             2023 111343936               -1.59     54.5
+5 2023070054936             2023 070054936               -2.58     53.4
+6 2023070341690             2023 070341690               -2.66     53.4
 # ℹ 36 more variables: police_force &lt;chr&gt;, collision_severity &lt;chr&gt;,
 #   number_of_vehicles &lt;chr&gt;, number_of_casualties &lt;chr&gt;, date &lt;date&gt;,
 #   day_of_week &lt;chr&gt;, time &lt;chr&gt;, local_authority_district &lt;chr&gt;,
