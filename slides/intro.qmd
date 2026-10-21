@@ -42,10 +42,6 @@ file.copy("docs/slides/intro.html", "~/OneDrive/career/modules/tds/intro.html", 
 -   Senior researcher at ITS with expertise in routing + web
 -   Developer of the Propensity to Cycle Tool and [PBCC](https://www.carbon.place/#8/51.482/-0.151)
 
-#### Zhao Wang
-
--   Civil Engineer and Data Scientist with expertise in machine learning
-
 #### Demonstrators
 
 -   Juan Pablo Fonseca Zamora
@@ -70,7 +66,7 @@ In other words...
 ::::::: columns
 :::: {.column width="40%"}
 ::: incremental
--   New skills (cutting edge R and/or Python packages)
+-   New skills (cutting edge software)
 -   Potential for impacts
 -   Allows you to do new things with data
 -   It might get you a job!
@@ -92,7 +88,7 @@ In other words...
 
 ![](https://nptscot.github.io/images/rnet_filters.png)
 
-## The history of TDS
+<!-- ## The history of TDS
 
 -   2017: Transport Data Science created, led by Dr Charles Fox, Computer Scientist, author of Transport Data Science book (Fox, 2018)
 
@@ -102,9 +98,9 @@ In other words...
 
 -   Summer 2019: Python code published in the module 'repo':
 
-    -   [github.com/ITSLeeds](https://github.com/ITSLeeds/TDS/tree/master/code-python)
+    -   [github.com/ITSLeeds](https://github.com/ITSLeeds/TDS/tree/master/code-python) -->
 
-## History of TDS II
+## Module development
 
 ::::: columns
 ::: {.column width="50%"}
