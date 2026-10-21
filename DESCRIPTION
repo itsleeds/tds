@@ -39,7 +39,9 @@ Imports:
     opentripplanner,
     osmextract,
     tmap,
-    sfnetworks
+    sfnetworks,
+    lwgeom,
+    maptiles
 Remotes:
     Nowosad/spDataLarge
 

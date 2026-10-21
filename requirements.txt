@@ -8,3 +8,5 @@ shapely
 seaborn
 ipykernel
 osmnx
+pandas
+pystats19

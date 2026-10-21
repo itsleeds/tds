@@ -40,8 +40,12 @@ pkgs = c(
     "tmap",
     "maptiles"
 )
-if (!require("remotes")) install.packages("remotes")
-remotes::install_cran(setdiff(pkgs, "tmap"))
+missing_pkgs = setdiff(pkgs, "tmap")
+missing_pkgs = missing_pkgs[!vapply(missing_pkgs, requireNamespace, logical(1), quietly = TRUE)]
+if (length(missing_pkgs) > 0) {
+  if (!requireNamespace("remotes", quietly = TRUE)) install.packages("remotes")
+  remotes::install_cran(missing_pkgs)
+}
 sapply(pkgs, require, character.only = TRUE)
 ```
 
@@ -93,7 +97,7 @@ of TransMilenio
 #| warning: false
 #| message: false
 
-url_tm <- "https://storage.googleapis.com/validaciones_tmsa/ValidacionTroncal/2024/consolidado_2024.zip"
+url_tm <- "https://github.com/itsleeds/tds/releases/download/2025/consolidado_2024.zip"
 u_bn <- basename(url_tm)
 
 if(!file.exists(u_bn)){

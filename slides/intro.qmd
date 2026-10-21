@@ -25,40 +25,40 @@ file.copy("docs/slides/intro.html", "~/OneDrive/career/modules/tds/intro.html", 
 
 #### Robin Lovelace
 
--   Professor of Transport Data Science
--   Researching transport futures and active travel planning
--   Data scientist, web application developer, author of Geocomputation with R
+- Professor of Transport Data Science
+- Researching transport futures and active travel planning
+- Data scientist, web application developer, author of Geocomputation with R
 
 #### Yuanxuan Yang
 
--   Lecturer in Data Science of Transport
--   New and Emerging Forms of Data: Investigating novel data sources and their applications in urban mobility and transport planning. <!-- - Micromobility: Analyzing the role and impact of micromobility solutions, such as bike-sharing and e-scooters, on urban transport networks.
-            - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. -->
+- Lecturer in Data Science of Transport
+- New and Emerging Forms of Data: Investigating novel data sources and their applications in urban mobility and transport planning. <!-- - Micromobility: Analyzing the role and impact of micromobility solutions, such as bike-sharing and e-scooters, on urban transport networks.
+          - Geodemographics and GeoComputation: Applying computational techniques to analyze spatial data and demographic patterns, enhancing the understanding of urban environments. -->
 
 ## TDS Team II
 
 #### Malcolm Morgan
 
--   Senior researcher at ITS with expertise in routing + web
--   Developer of the Propensity to Cycle Tool and [PBCC](https://www.carbon.place/#8/51.482/-0.151)
+- Senior researcher at ITS with expertise in routing + web
+- Developer of the Propensity to Cycle Tool and [PBCC](https://www.carbon.place/#8/51.482/-0.151)
 
 #### Demonstrators
 
--   Juan Pablo Fonseca Zamora
+- Juan Pablo Fonseca Zamora
 
 #### You!
 
 ## What is transport data science?
 
 ::: incremental
--   The application of data science to transport datasets and problems
--   Raising the question...
--   What is data science?
--   A discipline "that allows you to turn raw data into understanding, insight, and knowledge" (Grolemund, 2016)
+- The application of data science to transport datasets and problems
+- Raising the question...
+- What is data science?
+- A discipline "that allows you to turn raw data into understanding, insight, and knowledge" (Grolemund, 2016)
 
 In other words...
 
--   Statistics that is actually useful!
+- Statistics that is actually useful!
 :::
 
 ## Why take Transport Data Science
@@ -66,10 +66,10 @@ In other words...
 ::::::: columns
 :::: {.column width="40%"}
 ::: incremental
--   New skills (cutting edge software)
--   Potential for impacts
--   Allows you to do new things with data
--   It might get you a job!
+- New skills using emerging technologies including AI
+- Potential for impacts
+- Allows you to do new things with data
+- It might get you a job!
 :::
 ::::
 
@@ -79,7 +79,9 @@ In other words...
 
 ![](https://github.com/npct/pct-team/blob/master/figures/front-page-leeds-pct-demo.png?raw=true)
 
-![](images/paste-17.png)
+![](images/clipboard-3344405714.png)
+
+<!-- ![](images/paste-17.png) -->
 :::
 ::::
 :::::::
@@ -88,6 +90,7 @@ In other words...
 
 ![](https://nptscot.github.io/images/rnet_filters.png)
 
+```{=html}
 <!-- ## The history of TDS
 
 -   2017: Transport Data Science created, led by Dr Charles Fox, Computer Scientist, author of Transport Data Science book (Fox, 2018)
@@ -99,17 +102,18 @@ In other words...
 -   Summer 2019: Python code published in the module 'repo':
 
     -   [github.com/ITSLeeds](https://github.com/ITSLeeds/TDS/tree/master/code-python) -->
+```
 
 ## Module development
 
 ::::: columns
 ::: {.column width="50%"}
--   2020: Available to Data Science students
--   2021-2023: Updated module, focus on methods
--   2024: Switch to combined lecture and practicals
--   2025: Addition of Python and Quarto
--   2026: Addition of AI
--   2027+: Expansion 🚀
+- 2020: Available to Data Science students
+- 2021-2023: Updated module, focus on methods
+- 2024: Switch to combined lecture and practicals
+- 2025: Adding Python + Quarto
+- 2026: AI-powered coding
+- 2027+: Available to all MSc students in ITS 🚀
 :::
 
 ::: {.column width="50%"}
@@ -136,48 +140,40 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 
 ## Essential reading
 
--   Chapter 13, [Transportation](http://r.geocompx.org/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://r.geocompx.org/)) (Lovelace et al. 2019)
--   Reproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/
+- Chapter 13, [Transportation](http://r.geocompx.org/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://r.geocompx.org/)) (Lovelace et al. 2019)
 
 ## Core reading materials
 
--   R for Data Science, an introduction to data science with R (available free [online](http://r4ds.had.co.nz/))
--   Python equivalent
+- R for Data Science, an introduction to data science with R (available free [online](http://r4ds.had.co.nz/))
+- Python for Data Analysis (available [online](https://wesmckinney.com/book/) for free)
 
-## Optional
+<!-- ## Optional -->
 
-There are many good resources on data science for transport applications.
-Do your own research and reading!
-The following are good:
+<!-- There are many good resources on data science for transport applications. Do your own research and reading! The following are good: -->
 
--   If you're interested in network analysis/Python, see this paper on analysing OSM data in Python (Boeing and Waddell, 2017) (available [online](https://arxiv.org/pdf/1611.01890))
+<!-- - Analyis of OSM data in Python (Boeing and Waddell, 2017) (available [online](https://arxiv.org/pdf/1611.01890)) -->
+<!-- - If you're interested in the range of transport modelling tools, see Lovelace (2021). <!-- [@lovelace_open_2021] --> -->
 
--   If you're interested in the range of transport modelling tools, see Lovelace (2021).
-    <!-- [@lovelace_open_2021] -->
-
-For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#bibliography)
+<!-- For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#bibliography) -->
 
 ## Objectives
 
 <!-- From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md): -->
 
--   Understand the structure of transport datasets
+1.	Understand the structure of transport datasets, from origin-destination to street segment levels.
+2.	Understand how to obtain, clean, and store transport-related datasets.
+3.	Proficiency in command-line tools for handling large transport datasets.
+4.	Produce data visualizations, both static and interactive via web maps.
+5.	Learn where to find large transport datasets and assess data quality.
+6.	Learn how to join together the components of transport data science into a cohesive project portfolio.
 
--   Understand how to obtain, clean and store transport related data
+## Assessment
 
--   Gain proficiency in command-line tools for handling large transport datasets
-
--   Produce data visualizations, static and interactive
-
--   <font color="red"> Learn how to join together the components of transport data science into a cohesive project portfolio </font>
-
-## Assessment (for those doing this as credit-bearing)
-
--   You will build-up a portfolio of work
--   Two summative coursework submissions: Lab Notebook (30%) and Report (70%)
--   Written in code - will be graded for reproducibility
--   Code chunks and figures are encouraged
--   Submission dates for the current year are [TBC]
+- You will build-up a portfolio of work
+- Two summative coursework submissions: Lab Notebook (30%) and Report (70%)
+- Written in code: graded for reproducibility
+- Code chunks and figures are encouraged
+- Submission dates for the current year are \[TBC\]
 
 ## [Schedule](https://itsleeds.github.io/tds/schedule.html)
 
@@ -193,6 +189,4 @@ For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://g
 
 ### 2025
 
-> The leaders were incredibly helpful during
-practical sessions and feedback was constructive. I liked having the opportunity to discuss what I had achieved so far with peers,
-as this led to the sharing of ideas and insight from other degree disciplines also.
+> The leaders were incredibly helpful during practical sessions and feedback was constructive. I liked having the opportunity to discuss what I had achieved so far with peers, as this led to the sharing of ideas and insight from other degree disciplines also.
