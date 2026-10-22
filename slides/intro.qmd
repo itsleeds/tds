@@ -51,6 +51,7 @@ file.copy("docs/slides/intro.html", "~/OneDrive/career/modules/tds/intro.html", 
 ## What is transport data science?
 
 ::: incremental
+
 - The application of data science to transport datasets and problems
 - Raising the question...
 - What is data science?
@@ -66,6 +67,7 @@ In other words...
 ::::::: columns
 :::: {.column width="40%"}
 ::: incremental
+
 - New skills using emerging technologies including AI
 - Potential for impacts
 - Allows you to do new things with data
@@ -79,9 +81,7 @@ In other words...
 
 ![](https://github.com/npct/pct-team/blob/master/figures/front-page-leeds-pct-demo.png?raw=true)
 
-![](images/clipboard-3344405714.png)
-
-<!-- ![](images/paste-17.png) -->
+![](images/paste-17.png)
 :::
 ::::
 :::::::
@@ -108,6 +108,7 @@ In other words...
 
 ::::: columns
 ::: {.column width="50%"}
+
 - 2020: Available to Data Science students
 - 2021-2023: Updated module, focus on methods
 - 2024: Switch to combined lecture and practicals
@@ -141,6 +142,7 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 ## Essential reading
 
 - Chapter 13, [Transportation](http://r.geocompx.org/transport.html) of Geocomputation with R, a open book on geographic data in R (available free [online](http://r.geocompx.org/)) (Lovelace et al. 2019)
+- Reproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/
 
 ## Core reading materials
 
@@ -152,7 +154,7 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 <!-- There are many good resources on data science for transport applications. Do your own research and reading! The following are good: -->
 
 <!-- - Analyis of OSM data in Python (Boeing and Waddell, 2017) (available [online](https://arxiv.org/pdf/1611.01890)) -->
-<!-- - If you're interested in the range of transport modelling tools, see Lovelace (2021). <!-- [@lovelace_open_2021] --> -->
+<!-- - If you're interested in the range of transport modelling tools, see Lovelace (2021). -->
 
 <!-- For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#bibliography) -->
 
