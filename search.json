@@ -193,7 +193,7 @@
     "href": "slides/intro.html#module-development",
     "title": "Introduction to transport data science",
     "section": "Module development",
-    "text": "Module development\n\n\n\n2020: Available to Data Science students\n2021-2023: Updated module, focus on methods\n2024: Switch to combined lecture and practicals\n2025: Adding Python + Quarto\n2026: AI-powered coding\n2027+: Available to all MSc students in ITS 🚀"
+    "text": "Module development\n\n\n\n2020: Available to Data Science students\n2021-2024: Updated module, focus on methods\n2025: Python + Quarto support\n2026: AI-powered coding\n2027+: Available to all MSc students in ITS 🚀"
   },
   {
     "objectID": "slides/intro.html#essential-reading",
@@ -208,13 +208,6 @@
     "title": "Introduction to transport data science",
     "section": "Core reading materials",
     "text": "Core reading materials\n\nR for Data Science, an introduction to data science with R (available free online)\nPython for Data Analysis (available online for free)"
-  },
-  {
-    "objectID": "slides/intro.html#objectives",
-    "href": "slides/intro.html#objectives",
-    "title": "Introduction to transport data science",
-    "section": "Objectives",
-    "text": "Objectives\n\n\nUnderstand the structure of transport datasets, from origin-destination to street segment levels.\nUnderstand how to obtain, clean, and store transport-related datasets.\nProficiency in command-line tools for handling large transport datasets.\nProduce data visualizations, both static and interactive via web maps.\nLearn where to find large transport datasets and assess data quality.\nLearn how to join together the components of transport data science into a cohesive project portfolio."
   },
   {
     "objectID": "slides/intro.html#assessment",
