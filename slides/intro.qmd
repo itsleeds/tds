@@ -110,9 +110,8 @@ In other words...
 ::: {.column width="50%"}
 
 - 2020: Available to Data Science students
-- 2021-2023: Updated module, focus on methods
-- 2024: Switch to combined lecture and practicals
-- 2025: Adding Python + Quarto
+- 2021-2024: Updated module, focus on methods
+- 2025: Python + Quarto support
 - 2026: AI-powered coding
 - 2027+: Available to all MSc students in ITS 🚀
 :::
