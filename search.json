@@ -200,14 +200,14 @@
     "href": "slides/intro.html#essential-reading",
     "title": "Introduction to transport data science",
     "section": "Essential reading",
-    "text": "Essential reading\n\nChapter 13, Transportation of Geocomputation with R, a open book on geographic data in R (available free online) (Lovelace et al. 2019)"
+    "text": "Essential reading\n\nChapter 13, Transportation of Geocomputation with R, a open book on geographic data in R (available free online) (Lovelace et al. 2019)\nReproducible Road Safety Research with R (RRSRR): https://itsleeds.github.io/rrsrr/"
   },
   {
     "objectID": "slides/intro.html#core-reading-materials",
     "href": "slides/intro.html#core-reading-materials",
     "title": "Introduction to transport data science",
     "section": "Core reading materials",
-    "text": "Core reading materials\n\nR for Data Science, an introduction to data science with R (available free online)\nPython for Data Analysis (available online for free)\n\n\n\n\n\n–&gt;"
+    "text": "Core reading materials\n\nR for Data Science, an introduction to data science with R (available free online)\nPython for Data Analysis (available online for free)"
   },
   {
     "objectID": "slides/intro.html#objectives",
