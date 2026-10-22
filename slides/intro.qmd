@@ -179,7 +179,49 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 
 ## [Schedule](https://itsleeds.github.io/tds/schedule.html)
 
-![](images/schedule.png)
+::: {style="font-size: 0.45em;"}
+
+```{r}
+#| label: schedule-table
+#| echo: false
+#| message: false
+#| warning: false
+tt_csv = readr::read_csv("../data/timetable.csv", show_col_types = FALSE)
+timetable = tt_csv |>
+  dplyr::mutate(
+    session_code = dplyr::case_when(
+      stringr::str_detect(summary, "TDS Session") ~ paste0("s", stringr::str_extract(summary, "\\d")),
+      stringr::str_detect(summary, "TDS seminar") ~ paste0("sem", stringr::str_extract(summary, "\\d")),
+      stringr::str_detect(summary, "TDS deadline") ~ paste0("d", stringr::str_extract(summary, "\\d")),
+      TRUE ~ "unknown"
+    )
+  ) |>
+  dplyr::transmute(
+    `Session ID` = paste0(
+      "<a href='https://itsleeds.github.io/tds/",
+      session_code,
+      "'>",
+      session_code,
+      "</a>"
+    ),
+    Slides = dplyr::case_when(
+      session_code %in% c("s1", "s2", "s3", "s6") ~ paste0("<a href='https://itsleeds.github.io/tds/", session_code, "/slides.html'>Slides</a>"),
+      TRUE ~ ""
+    ),
+    Practical = dplyr::case_when(
+      session_code %in% c("s1", "s2", "s3", "s4", "s5", "s6", "sem1", "sem2") ~ paste0("<a href='https://itsleeds.github.io/tds/", session_code, "'>Practical</a>"),
+      session_code %in% c("d1", "d2", "d3") ~ paste0("<a href='https://itsleeds.github.io/tds/", session_code, "'>Assessment</a>"),
+      TRUE ~ ""
+    ),
+    Description = description,
+    Time = format(as.POSIXct(time), "%Y-%m-%d %H:%M"),
+    Duration = duration,
+    Location = location
+  )
+DT::datatable(timetable, rownames = FALSE, escape = FALSE, options = list(pageLength = 10))
+```
+
+:::
 
 ## Feedback
 
