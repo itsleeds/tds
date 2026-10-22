@@ -2,7 +2,7 @@
 title: "Introduction to transport data science"
 subtitle: '<br/>Module: Transport Data Science'
 author: "Robin Lovelace"
-date: "2025-10-23"
+date: "2026-10-22"
 format: revealjs
 # bibliography: tds.bib
 title-slide-attributes:
@@ -157,7 +157,9 @@ Milestone passed in my academic career, first online-only delivery of lecture <a
 
 <!-- For more references, see the bibliography at [github.com/ITSLeeds/TDS](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md#bibliography) -->
 
-## Objectives
+---
+
+#### Objectives
 
 <!-- From the course [catalogue](https://github.com/ITSLeeds/TDS/blob/master/catalogue.md): -->
 
