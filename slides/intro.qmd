@@ -206,11 +206,11 @@ timetable = tt_csv |>
       "</a>"
     ),
     Slides = dplyr::case_when(
-      session_code %in% c("s1", "s2", "s3", "s6") ~ paste0("<a href='https://itsleeds.github.io/tds/", session_code, "/slides.html'>Slides</a>"),
+      stringr::str_detect(summary, "Lecture") & session_code %in% c("s1", "s2", "s3", "s6") ~ paste0("<a href='https://itsleeds.github.io/tds/", session_code, "/slides.html'>Slides</a>"),
       TRUE ~ ""
     ),
     Practical = dplyr::case_when(
-      session_code %in% c("s1", "s2", "s3", "s4", "s5", "s6", "sem1", "sem2") ~ paste0("<a href='https://itsleeds.github.io/tds/", session_code, "'>Practical</a>"),
+      (stringr::str_detect(summary, "Practical") & session_code %in% c("s1", "s2", "s3", "s4", "s5", "s6")) | session_code %in% c("sem1", "sem2") ~ paste0("<a href='https://itsleeds.github.io/tds/", session_code, "'>Practical</a>"),
       session_code %in% c("d1", "d2", "d3") ~ paste0("<a href='https://itsleeds.github.io/tds/", session_code, "'>Assessment</a>"),
       TRUE ~ ""
     ),
