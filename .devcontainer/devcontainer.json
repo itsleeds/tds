@@ -6,11 +6,17 @@
 	// "build": {
 	// 	"dockerfile": "../Dockerfile"
 	// },
-	
 	"customizations": {
 		"vscode": {
+			"settings": {
+				"r.sessionWatcher": true,
+				"r.plot.backend": "auto",
+				"r.bracketedPaste": true,
+				"r.interactive.executionTarget": "terminal"
+			},
 			"extensions": [
-				"reditorsupport.r",
+				"REditorSupport.r",
+				"Posit.air-vscode",
 				"GitHub.copilot-chat",
 				"quarto.quarto",
 				"ms-python.python",

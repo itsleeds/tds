@@ -1,10 +1,13 @@
 FROM ghcr.io/geocompx/pythonr
-# Trigger tds image rebuild
+# Trigger tds image rebuild (R 4.6.2 + Debian 13 trixie + vscode-R v3+ support)
 
 # Copy and install Python requirements first to leverage Docker layer cache
 COPY requirements.txt /tmp/requirements.txt
-RUN python -m pip install --upgrade pip \
-  && pip install -r /tmp/requirements.txt
+RUN if command -v uv >/dev/null 2>&1; then \
+      uv pip install --system --no-cache -r /tmp/requirements.txt; \
+    else \
+      python -m pip install --upgrade pip && pip install --no-cache-dir -r /tmp/requirements.txt; \
+    fi
 
 WORKDIR /workspace
 
