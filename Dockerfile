@@ -1,5 +1,7 @@
 FROM ghcr.io/geocompx/pythonr
-# Trigger tds image rebuild (R 4.6.2 + Debian 13 trixie + vscode-R v3+ support)
+# Trigger tds image rebuild on ultra-slim geocompx/pythonr (Python 3.14 + R 4.6.2 + Debian 13 trixie)
+
+ENV PKG_SYSREQS=false
 
 # Copy and install Python requirements first to leverage Docker layer cache.
 # Install pystats19 with --no-deps so its legacy numpy<2.0 constraint does not
@@ -23,4 +25,6 @@ COPY . /workspace
 
 # Install the checked-out package with the repo's pak-based installer so image
 # builds stay aligned with the source being built and the upstream base image.
-RUN Rscript scripts/install.R
+RUN Rscript scripts/install.R && \
+    (strip --strip-unneeded /opt/R/current/lib/R/library/*/libs/*.so 2>/dev/null || true) && \
+    rm -rf /opt/R/current/lib/R/library/*/doc /tmp/* /root/.cache/R/pkgcache /var/lib/apt/lists/*
