@@ -39,3 +39,18 @@ if (file.exists("DESCRIPTION")) {
 } else {
   pak::pak("itsleeds/tds", ask = FALSE, upgrade = FALSE)
 }
+
+# Ensure vscode-R bundled 'sess' package is pre-installed so VS Code sessionWatcher attaches without prompting
+if (!requireNamespace("sess", quietly = TRUE) && requireNamespace("jsonlite", quietly = TRUE)) {
+  try({
+    js <- jsonlite::fromJSON("https://api.github.com/repos/REditorSupport/vscode-R/releases/latest")
+    u <- js[["assets"]][["browser_download_url"]][grepl("\\.vsix$", js[["assets"]][["browser_download_url"]])][1]
+    tf <- tempfile(fileext = ".vsix")
+    td <- tempfile()
+    download.file(u, tf, mode = "wb", quiet = TRUE)
+    f <- unzip(tf, list = TRUE)[["Name"]]
+    unzip(tf, files = f[startsWith(f, "extension/dist/resources/sess/")], exdir = td)
+    install.packages(file.path(td, "extension/dist/resources/sess"), repos = NULL, type = "source", quiet = TRUE)
+    unlink(c(tf, td), recursive = TRUE)
+  }, silent = TRUE)
+}
