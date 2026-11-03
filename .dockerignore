@@ -1,0 +1,14 @@
+.git
+.github
+.quarto
+.Rproj.user
+.Rhistory
+.RData
+.Ruserdata
+_freeze
+_targets
+docs
+countswyca
+*.gpkg
+*.rds
+*.parquet

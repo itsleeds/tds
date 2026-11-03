@@ -42,6 +42,6 @@ Imports:
     sfnetworks,
     lwgeom,
     maptiles
-Remotes:
-    Nowosad/spDataLarge
+
+
 

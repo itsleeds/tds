@@ -1,5 +1,6 @@
 ## Use Posit Public Package Manager (P3M) to prefer prebuilt binary CRAN packages
 ## This speeds up installs (no source compilation) in CI, Binder, Codespaces, Docker, etc.
+options(pkg.sysreqs = FALSE, repos = c(geocompx = "https://geocompx.r-universe.dev", getOption("repos")))
 current_cran <- getOption("repos")["CRAN"]
 if (is.na(current_cran) || current_cran == "@CRAN@" || !grepl("p3m\\.dev|packagemanager", current_cran)) {
   if (tolower(Sys.info()[["sysname"]]) == "linux" && file.exists("/etc/os-release")) {
@@ -12,7 +13,8 @@ if (is.na(current_cran) || current_cran == "@CRAN@" || !grepl("p3m\\.dev|package
       rspm_url <- "https://p3m.dev/cran/latest"
     }
     options(
-      repos = c(CRAN = rspm_url),
+      repos = c(geocompx = "https://geocompx.r-universe.dev", CRAN = rspm_url),
+      pkg.sysreqs = FALSE,
       HTTPUserAgent = sprintf(
         "R/%s R (%s)",
         getRversion(),
