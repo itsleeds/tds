@@ -62,42 +62,16 @@ In ITS Assessment Instructions will be made available separately. Your module le
 
 ## Use of GenAI
 
-**Generative AI category: GREEN**
-
-Under this category, AI tools are actively encouraged and can be used extensively.
-
-In this assessment, AI tools can be utilised to:
+Under the University's [Academic Integrity and Assistance Policy](https://secretariat.leeds.ac.uk/home/academic-regulations-and-taught-student-policies-and-procedures/academic-integrity-and-assistance-policy/), supportive use of generative AI is permitted and encouraged in this assessment to:
 
 - Generate, test, and debug code for your transport data analysis
-- Assist with data visualization and mapping
-- Provide explanations of transport concepts and methods
-- Help with code optimization and best practices
-- Support your research on the topic by suggesting areas to investigate
-- Give feedback on content and provide proofreading
-- Accelerate your learning and productivity
+- Assist with data visualization, mapping, and code optimization
+- Explain transport concepts and methods
+- Give feedback on content and proofreading
 
-**Important:** You must understand and be able to explain all code and analysis you submit, whether AI-generated or not. Document your AI usage in reflective sections of your report.
+**Important:** You must understand, verify, and be able to explain all submitted code and analysis. Do not use AI to generate entire sections of your report without your own critical analysis, and never share sensitive or personal data with external AI tools.
 
-In this assessment, AI tools cannot be utilised to:
-
-- produce the entirety of, or sections of, a piece of work that you submit for assessment beyond that which is outlined above.
-
-The use of Generative AI must be acknowledged in an ‘Acknowledgements’ section of any piece of academic work where it has been used as a functional tool to assist in the process of creating academic work.
-
-The minimum requirement to include in acknowledgement:
-
-- Name and version of the generative AI system used e.g. Gemini 3
-- Publisher (company that made the AI system) e.g. Google
-- URL of the AI system
-- Brief description (single sentence) of context in which the tool was used.
-
-For example: “I acknowledge the use of Gemini 3 to prototype the visualisation of my results and test different software packages, including ggplot2, base graphics, and plotly.” Best practice is to include a link to the exact prompt used to generate the content or an appendix of up to 1 page in length with key prompts and session information.
-
-The standard Academic Misconduct procedure applies for students believed to have ignored this categorisation.
-
-For detailed guidance see
- <!-- <https://generative-ai.leeds.ac.uk/ai-and assessments/categories-of-assessments/>  -->
-[https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/](https://generative-ai.leeds.ac.uk/ai-and-assessments/categories-of-assessments/).
+You must acknowledge any generative AI use in an **Acknowledgements** section, stating the tool(s) used and how they assisted your workflow (e.g., *"I used GitHub Copilot and Gemini to prototype ggplot2 visualisations and debug data cleaning scripts"*). For iterative or agentic coding, keep brief notes or example prompts to illustrate your approach.
 
 **General guidance**
 

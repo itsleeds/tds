@@ -248,26 +248,18 @@ routes = route_cyclestreets(od_sf, plan = "fastest")
 -   AI cannot **validate results** - you must check outputs
 -   AI may suggest **outdated approaches** or deprecated functions
 
-# AI Rating for This Module
+# AI Policy for This Module
 
 ::: {.callout-tip}
-## AI Usage: Green (Encouraged)
+## Supportive AI Use is Permitted and Encouraged
 
-This module **actively encourages** the use of AI tools including GitHub Copilot, ChatGPT, and similar assistants.
+In line with the University's [Academic Integrity and Assistance Policy](https://secretariat.leeds.ac.uk/home/academic-regulations-and-taught-student-policies-and-procedures/academic-integrity-and-assistance-policy/), this module encourages supportive use of AI tools (such as Microsoft 365 Copilot, GitHub Copilot, and agentic coding assistants) to accelerate coding and problem-solving.
 
-**You should:**
+**Requirements:**
 
-- Use AI to accelerate coding and problem-solving
-- Learn from AI suggestions and explanations
-- Document your AI usage in reflective sections
-- Develop critical evaluation skills for AI outputs
-
-**We expect:**
-
-- You understand the code you submit (whether AI-generated or not)
-- You can explain your methods and results
-- You test and validate all code before submission
-- You acknowledge significant AI contributions in your work
+- Understand, test, and validate all code and analysis you submit
+- Never share sensitive or personal data with external AI tools
+- Acknowledge AI tools and briefly describe how they were used in your report
 :::
 
 # Practical Exercise: AI-Assisted Analysis
@@ -320,7 +312,9 @@ Use AI to generate code for:
 -   **Demand modeling** - Neural networks for trip generation
 -   **Route optimization** - Reinforcement learning for vehicle routing
 -   **Image analysis** - Computer vision for traffic counting
--   **Natural language processing** - Analyzing transport surveys and reports## Tips for PDF output
+-   **Natural language processing** - Analyzing transport surveys and reports
+
+## Tips for PDF output
 
 If you experience excessive whitespace above and below your `tmap` plots when rendering to PDF, you can try the following adjustments in `tm_layout()`:
 
