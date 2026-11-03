@@ -945,8 +945,7 @@ file.edit("code/learning-OD.R") -->
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-zones.geojson"</span>)) <span class="fu">download.file</span>(u_zones, <span class="st">"s4-zones.geojson"</span>)</span>
 <span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>zones <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"s4-zones.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Reading layer `zones' from data source 
-  `/home/runner/work/tds/tds/s4/s4-zones.geojson' using driver `GeoJSON'
+<pre><code>Reading layer `zones' from data source `/__w/tds/tds/s4/s4-zones.geojson' using driver `GeoJSON'
 Simple feature collection with 102 features and 2 fields
 Geometry type: MULTIPOLYGON
 Dimension:     XY
@@ -1422,8 +1421,7 @@ Geodetic CRS:  WGS 84
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-london-rivers.geojson"</span>)) <span class="fu">download.file</span>(u_rivers, <span class="st">"s4-london-rivers.geojson"</span>)</span>
 <span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>rivers <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"s4-london-rivers.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Reading layer `rivers' from data source 
-  `/home/runner/work/tds/tds/s4/s4-london-rivers.geojson' using driver `GeoJSON'
+<pre><code>Reading layer `rivers' from data source `/__w/tds/tds/s4/s4-london-rivers.geojson' using driver `GeoJSON'
 Simple feature collection with 3 features and 0 fields
 Geometry type: GEOMETRYCOLLECTION
 Dimension:     XY
@@ -1434,8 +1432,7 @@ Geodetic CRS:  WGS 84</code></pre>
 <span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="st">"s4-london-parks.geojson"</span>)) <span class="fu">download.file</span>(u_parks, <span class="st">"s4-london-parks.geojson"</span>)</span>
 <span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>parks <span class="ot">=</span> <span class="fu">st_read</span>(<span class="st">"s4-london-parks.geojson"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Reading layer `parks' from data source 
-  `/home/runner/work/tds/tds/s4/s4-london-parks.geojson' using driver `GeoJSON'
+<pre><code>Reading layer `parks' from data source `/__w/tds/tds/s4/s4-london-parks.geojson' using driver `GeoJSON'
 Simple feature collection with 288 features and 10 fields
 Geometry type: MULTIPOLYGON
 Dimension:     XY
