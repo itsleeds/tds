@@ -4,10 +4,8 @@ execute:
   echo: false
 ---
 
-<!-- From https://timetable.leeds.ac.uk/teaching/202627/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21 -->
-
-The timetable below is a user-friently representation of the timetable for the module (see github for [.csv](https://github.com/itsleeds/tds/blob/main/data/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2027/timetable.ics) versions).
-See [timetable.leeds.ac.uk](https://mytimetable.leeds.ac.uk/link?timetable.id=202627!module!5216C608F8794D77F15FA9D195AB3C06) and click on "[2026/27] January to May" in the dropdown menu that says "Month from selected day" for the official timetable.
+The table below shows the schedule for the module (also available in [.csv](https://github.com/itsleeds/tds/blob/main/data/timetable.csv) and [.ics](https://github.com/itsleeds/tds/releases/download/2027/timetable.ics) formats).
+For the official live timetable and room locations, check [MyTimetable](https://mytimetable.leeds.ac.uk/link?timetable.id=202627!module!AECF29AAE3D6233AD5D55B21751D65B1) (requires a University of Leeds login; select "[2026/27] January to May" in the month dropdown).
 If you spot any discrepancies, please let us know.
 
 ```{r}
@@ -47,12 +45,11 @@ session_descriptions = c(
   "Joins, models and publishing your work (RL, MM, YY)"
 )
 
-# Source: https://timetable.leeds.ac.uk/teaching/202627/reporting/textspreadsheet;?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
+# Source: https://mytimetable.leeds.ac.uk/link?timetable.id=202627!module!AECF29AAE3D6233AD5D55B21751D65B1
 # They happen on Thursdays, 10:00-13:00
 session_day_of_week = 4
 session_start_time = "10:00"  # block start
 session_end_time = "13:00"    # block end
-# From https://timetable.leeds.ac.uk/teaching/202627/reporting/Individual?objectclass=module&idtype=name&identifier=TRAN5340M01&&template=SWSCUST+module+Individual&days=1-7&weeks=1-52&periods=1-21
 # Michael Sadler SR (LG.15) Multi-mode - weeks 14-17, 19, 22
 week_num = as.character(c(14, 15:17, 19, 23))
 sessions = tibble::tibble(week_num = week_num)
